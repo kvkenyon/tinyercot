@@ -11,7 +11,11 @@ dependencies = [
     "tqdm>=4.67.1",
 ]
 
+[project.optional-dependencies]
+pandas = ["pandas>=2.0"]
+
 [dependency-groups]
 dev = [
     "ipython>=9.8.0",
+    "tqdm>=4.67.1",
 ]

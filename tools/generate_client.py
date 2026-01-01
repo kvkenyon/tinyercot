@@ -1,9 +1,15 @@
+import argparse
+import json
 import re
+import time
 from pathlib import Path
 
 import httpx
 
 OPENAPI_SPEC_URL = "https://raw.githubusercontent.com/ercot/api-specs/main/pubapi/pubapi-apim-api.json"
+CACHE_FILE = Path(__file__).parent.parent / "api_response_fields.json"
+
+# OpenAPI schema types -> Python types (for query params)
 TYPE_MAP = {
     "string": "str",
     "integer": "int",
@@ -14,6 +20,59 @@ FORMAT_MAP = {
     "yyyy-MM-dd": "datetime.date",
     "yyyy-MM-ddTH24:mm:ss": "datetime.datetime",
 }
+
+# ERCOT dataType -> Python types (for response fields)
+RESPONSE_TYPE_MAP = {
+    "BOOLEAN": "bool",
+    "DATE": "datetime.date",
+    "DATETIME": "datetime.datetime",
+    "DOUBLE": "Decimal",
+    "INTEGER": "int",
+    "TIME": "datetime.time",
+    "VARCHAR": "str",
+}
+
+
+def fetch_response_fields(debug: bool = False) -> dict:
+    """Fetch all endpoint response field definitions from ERCOT products API."""
+    from tqdm import tqdm
+
+    from tinyercot._client import _get
+
+    products = _get("/")["_embedded"]["products"]
+    endpoints = [
+        (p["emilId"].lower(), a["_links"]["endpoint"]["href"].split("/")[-1])
+        for p in products
+        for a in p.get("artifacts", [])
+    ]
+    response_fields = {}
+    for emil_id, suffix in tqdm(endpoints, desc="Fetching fields"):
+        ep = f"{emil_id}/{suffix}"
+        try:
+            ep_data = _get(ep)
+            response_fields[ep] = {
+                f["name"]: f["dataType"] for f in ep_data.get("fields", [])
+            }
+        except Exception as e:
+            if debug:
+                print(f"ERROR {ep}: {e}")
+            response_fields[ep] = {}
+        time.sleep(1)  # Rate limiting
+    return response_fields
+
+
+def load_response_fields(refresh: bool = False, debug: bool = False) -> dict:
+    """Load response fields from cache, or fetch if refresh=True."""
+    if CACHE_FILE.exists() and not refresh:
+        return json.loads(CACHE_FILE.read_text())
+    if refresh:
+        fields = fetch_response_fields(debug=debug)
+        CACHE_FILE.write_text(json.dumps(fields, indent=2))
+        print(f"Saved response fields to {CACHE_FILE}")
+        return fields
+    raise FileNotFoundError(
+        f"Cache file {CACHE_FILE} not found. Run with --refresh."
+    )
 
 
 def strip_html(s: str) -> str:
@@ -56,52 +115,134 @@ def pascal(s: str) -> str:
     return f"_{result}" if result[0].isdigit() else result
 
 
-def generate(endpoints: dict, tags: dict):
+def compact_fields(fields: dict[str, str], per_line: int = 4) -> list[str]:
+    """Format TypedDict fields compactly with semicolons."""
+    items = list(fields.items())
+    lines = []
+    for i in range(0, len(items), per_line):
+        group = items[i:i+per_line]
+        lines.append("; ".join(f"{fn}: {ft}" for fn, ft in group))
+    return lines
+
+
+def generate(
+    endpoints: dict, tags: dict, response_fields: dict, pandas: bool = False
+):
     by_emil: dict[str, list] = {}
-    for ep, (fields, summary) in endpoints.items():
+    for ep, (params, summary) in endpoints.items():
         emil, suffix = ep.split("/", 1)
-        by_emil.setdefault(emil, []).append((suffix, fields, summary))
+        resp_fields = response_fields.get(ep, {})
+        by_emil.setdefault(emil, []).append(
+            (suffix, params, summary, resp_fields)
+        )
 
     class_names = [safe_name(e) for e in sorted(by_emil)]
-    lines = [
-        "# AUTO-GENERATED — do not edit",
-        "from __future__ import annotations",
-        "import datetime",
-        "from decimal import Decimal",
-        "from typing import TypedDict",
-        "from tinyercot._client import _get",
-        "",
-        f"__all__ = {class_names!r}",
-        "",
-    ]
+    if pandas:
+        lines = [
+            "# AUTO-GENERATED — do not edit",
+            "from __future__ import annotations",
+            "import datetime",
+            "from decimal import Decimal",
+            "import pandas as pd",
+            "from tinyercot._client import _get, _to_df",
+            "",
+            f"__all__ = {class_names!r}",
+            "",
+        ]
+    else:
+        lines = [
+            "# AUTO-GENERATED — do not edit",
+            "from __future__ import annotations",
+            "import datetime",
+            "from decimal import Decimal",
+            "from typing import TypedDict",
+            "from tinyercot._client import _get",
+            "",
+            "class _Params(TypedDict, total=False):",
+            "    page: int; size: int; sort: str; dir: str",
+            "",
+            f"__all__ = {class_names!r}",
+            "",
+        ]
+    COMMON_PARAMS = {'page', 'size', 'sort', 'dir'}
     for emil, eps in sorted(by_emil.items()):
         lines.append(f"class {safe_name(emil)}:")
         if doc := tags.get(emil):
             lines.append(f'    """{doc}"""')
-            lines.append("")
-        for suffix, fields, summary in eps:
-            lines.append(
-                f"    class {pascal(suffix)}Params(TypedDict, total=False):"
-            )
-            for fn, ft in fields.items():
-                lines.append(f"        {fn}: {ft}")
-            lines.append("")
+        for suffix, params, summary, resp_fields in eps:
+            pc = pascal(suffix)
+            if not pandas:
+                # Params TypedDict - compact with inheritance
+                endpoint_params = {k: v for k, v in params.items() if k not in COMMON_PARAMS}
+                if endpoint_params:
+                    lines.append(f"    class {pc}Params(_Params, total=False):")
+                    for line in compact_fields(endpoint_params, per_line=4):
+                        lines.append(f"        {line}")
+                # Row TypedDict - compact
+                lines.append(f"    class {pc}Row(TypedDict):")
+                if resp_fields:
+                    typed_fields = {
+                        fn: RESPONSE_TYPE_MAP.get(ft, "str")
+                        for fn, ft in resp_fields.items()
+                    }
+                    for line in compact_fields(typed_fields, per_line=4):
+                        lines.append(f"        {line}")
+                else:
+                    lines.append("        pass")
+                # Response TypedDict - ultra-compact (one line)
+                lines.append(f"    class {pc}Response(TypedDict):")
+                lines.append(f"        _meta: dict; _links: dict; data: list[{safe_name(emil)}.{pc}Row]")
+            # Method
             lines.append("    @staticmethod")
             sig = ", ".join(
-                f"{fn}: {ft} | None = None" for fn, ft in fields.items()
+                f"{fn}: {ft} | None = None" for fn, ft in params.items()
             )
-            lines.append(f"    def {safe_name(suffix)}(*, {sig}) -> dict:")
-            if summary:
-                lines.append(f'        """{summary}"""')
-            lines.append(
-                f'        return _get("{emil}/{suffix}", '
-                + ", ".join(f"{fn}={fn}" for fn in fields)
-                + ")"
-            )
-            lines.append("")
+            if pandas:
+                lines.append(
+                    f"    def {safe_name(suffix)}(*, {sig}) -> pd.DataFrame:"
+                )
+                if summary:
+                    lines.append(f'        """{summary}"""')
+                lines.append(
+                    f'        return _to_df(_get("{emil}/{suffix}", '
+                    + ", ".join(f"{fn}={fn}" for fn in params)
+                    + f"), {resp_fields!r})"
+                )
+            else:
+                lines.append(
+                    f"    def {safe_name(suffix)}(*, {sig}) -> {pc}Response:"
+                )
+                if summary:
+                    lines.append(f'        """{summary}"""')
+                call_args = ", ".join(f"{fn}={fn}" for fn in params)
+                lines.append(
+                    f'        return _get("{emil}/{suffix}", schema={resp_fields!r}, {call_args})  # type: ignore'
+                )
     Path("tinyercot/_generated.py").write_text("\n".join(lines))
     print(f"Generated {len(by_emil)} classes in tinyercot/_generated.py")
 
 
 if __name__ == "__main__":
-    generate(*parse_openapi())
+    parser = argparse.ArgumentParser(description="Generate tinyercot client")
+    parser.add_argument(
+        "--refresh",
+        action="store_true",
+        help="Re-fetch response fields from ERCOT API (requires credentials)",
+    )
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help="Print exceptions when fetching fields",
+    )
+    parser.add_argument(
+        "--pandas",
+        action="store_true",
+        help="Generate methods returning pd.DataFrame instead of TypedDict",
+    )
+    args = parser.parse_args()
+
+    endpoints, tags = parse_openapi()
+    response_fields = load_response_fields(
+        refresh=args.refresh, debug=args.debug
+    )
+    generate(endpoints, tags, response_fields, pandas=args.pandas)

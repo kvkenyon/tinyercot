@@ -20,3 +20,10 @@ venv/
 
 # uv
 .python-version
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+tests/cassettes/*.yaml
+!tests/cassettes/.gitkeep
