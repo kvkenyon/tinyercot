@@ -139,10 +139,12 @@ def generate(endpoints: dict, tags: dict, response_fields: dict):
         "# AUTO-GENERATED — do not edit",
         "from __future__ import annotations",
         "import datetime",
+        "from collections.abc import AsyncIterator, Iterator",
         "from decimal import Decimal",
         "from typing import ClassVar",
+        "import pandas as pd",
         "from pydantic import BaseModel",
-        "from tinyercot._client import _get, ErcotResponse",
+        "from tinyercot._client import _get, _aget, ErcotResponse",
         "",
         f"__all__ = {class_names!r}",
         "",
@@ -167,7 +169,7 @@ def generate(endpoints: dict, tags: dict, response_fields: dict):
             # Response model - ErcotResponse with schema
             lines.append(f"    class {pc}Response(ErcotResponse[{pc}Row]):")
             lines.append(f"        _schema: ClassVar[dict] = {resp_fields!r}")
-            # Method
+            # Method - single page
             lines.append("    @staticmethod")
             sig = ", ".join(
                 f"{fn}: {ft} | None = None" for fn, ft in params.items()
@@ -182,6 +184,77 @@ def generate(endpoints: dict, tags: dict, response_fields: dict):
                 f"        return {safe_name(emil)}.{pc}Response.model_validate("
                 f'_get("{emil}/{suffix}", schema={resp_fields!r}, {call_args}))'
             )
+            # For pagination methods, exclude page param since we control it
+            call_args_no_page = ", ".join(
+                f"{fn}={fn}" for fn in params if fn != "page"
+            )
+            # Method - iterator for all pages
+            lines.append("    @staticmethod")
+            sig_no_page = ", ".join(
+                f"{fn}: {ft} | None = None"
+                for fn, ft in params.items()
+                if fn != "page"
+            )
+            lines.append(
+                f"    def {safe_name(suffix)}_iter(*, {sig_no_page}) -> Iterator[{pc}Row]:"
+            )
+            lines.append('        """Yield all rows from all pages."""')
+            lines.append("        page = 1")
+            lines.append("        while True:")
+            lines.append(
+                f"            resp = {safe_name(emil)}.{safe_name(suffix)}({call_args_no_page}, page=page)"
+            )
+            lines.append("            yield from resp.data")
+            lines.append('            if page >= resp.meta.get("totalPages", 1): break')
+            lines.append("            page += 1")
+            # Method - DataFrame for all pages
+            lines.append("    @staticmethod")
+            lines.append(
+                f"    def {safe_name(suffix)}_df(*, {sig_no_page}) -> pd.DataFrame:"
+            )
+            lines.append('        """Fetch all pages and return as DataFrame."""')
+            lines.append(
+                f"        resp = {safe_name(emil)}.{safe_name(suffix)}({call_args_no_page}, page=1)"
+            )
+            lines.append("        frames = [resp.to_df()]")
+            lines.append('        for p in range(2, resp.meta.get("totalPages", 1) + 1):')
+            lines.append(
+                f"            frames.append({safe_name(emil)}.{safe_name(suffix)}({call_args_no_page}, page=p).to_df())"
+            )
+            lines.append("        return pd.concat(frames, ignore_index=True)")
+            # Method - async iterator for all pages (rate-limited)
+            lines.append("    @staticmethod")
+            lines.append(
+                f"    async def {safe_name(suffix)}_iter_async(*, {sig_no_page}) -> AsyncIterator[{pc}Row]:"
+            )
+            lines.append('        """Async yield all rows from all pages (rate-limited)."""')
+            lines.append("        page = 1")
+            lines.append("        while True:")
+            lines.append(
+                f"            resp = {safe_name(emil)}.{pc}Response.model_validate("
+                f'await _aget("{emil}/{suffix}", schema={resp_fields!r}, {call_args_no_page}, page=page))'
+            )
+            lines.append("            for row in resp.data: yield row")
+            lines.append('            if page >= resp.meta.get("totalPages", 1): break')
+            lines.append("            page += 1")
+            # Method - async DataFrame for all pages (rate-limited)
+            lines.append("    @staticmethod")
+            lines.append(
+                f"    async def {safe_name(suffix)}_df_async(*, {sig_no_page}) -> pd.DataFrame:"
+            )
+            lines.append('        """Async fetch all pages and return as DataFrame (rate-limited)."""')
+            lines.append(
+                f"        resp = {safe_name(emil)}.{pc}Response.model_validate("
+                f'await _aget("{emil}/{suffix}", schema={resp_fields!r}, {call_args_no_page}, page=1))'
+            )
+            lines.append("        frames = [resp.to_df()]")
+            lines.append('        for p in range(2, resp.meta.get("totalPages", 1) + 1):')
+            lines.append(
+                f"            resp = {safe_name(emil)}.{pc}Response.model_validate("
+                f'await _aget("{emil}/{suffix}", schema={resp_fields!r}, {call_args_no_page}, page=p))'
+            )
+            lines.append("            frames.append(resp.to_df())")
+            lines.append("        return pd.concat(frames, ignore_index=True)")
     Path("tinyercot/_generated.py").write_text("\n".join(lines))
     print(f"Generated {len(by_emil)} classes in tinyercot/_generated.py")
 

@@ -1,7 +1,9 @@
+import asyncio
 import os
 from typing import ClassVar, Generic, TypeVar
 
 import httpx
+from aiolimiter import AsyncLimiter
 from cachetools import TTLCache, cached
 from httpx_retries import Retry, RetryTransport
 from pydantic import BaseModel, ConfigDict, Field
@@ -23,6 +25,21 @@ _client = httpx.Client(
     transport=RetryTransport(retry=Retry(total=3, backoff_factor=2))
 )
 
+# Async client with rate limiting (conservative: 20 requests per 60 seconds)
+_rate_limiter = AsyncLimiter(20, 60)
+_async_client: httpx.AsyncClient | None = None
+
+# Retry settings for 429 errors
+_MAX_RETRIES = 5
+_BASE_DELAY = 2.0  # seconds
+
+
+def _get_async_client() -> httpx.AsyncClient:
+    global _async_client
+    if _async_client is None:
+        _async_client = httpx.AsyncClient(timeout=30.0)
+    return _async_client
+
 
 @cached(_tok_cache)
 def _token() -> str:
@@ -39,6 +56,46 @@ def _get(path: str, schema: dict | None = None, **params) -> dict:  # pyright: i
         },
         params={k: v for k, v in params.items() if v is not None},
     ).json()
+
+    # Convert list-of-lists to list-of-dicts if schema provided
+    if schema and "data" in response and response["data"]:
+        keys = list(schema.keys())
+        response["data"] = [dict(zip(keys, row)) for row in response["data"]]
+
+    return response
+
+
+async def _aget(path: str, schema: dict | None = None, **params) -> dict:  # pyright: ignore
+    """Async fetch with rate limiting and retry on 429."""
+    client = _get_async_client()
+    url = f"{BASE_URL}/{path.lstrip('/')}"
+    headers = {
+        "Ocp-Apim-Subscription-Key": os.environ["ERCOT_SUBSCRIPTION_KEY"],
+        "Authorization": f"Bearer {_token()}",
+    }
+    filtered_params = {k: v for k, v in params.items() if v is not None}
+
+    for attempt in range(_MAX_RETRIES):
+        async with _rate_limiter:
+            resp = await client.get(
+                url, headers=headers, params=filtered_params
+            )
+
+            if resp.status_code == 429:
+                # Exponential backoff: 2s, 4s, 8s, 16s, 32s
+                delay = _BASE_DELAY * (2**attempt)
+                await asyncio.sleep(delay)
+                continue
+
+            response = resp.json()
+            break
+    else:
+        # All retries exhausted
+        raise httpx.HTTPStatusError(
+            f"Rate limited after {_MAX_RETRIES} retries",
+            request=resp.request,
+            response=resp,
+        )
 
     # Convert list-of-lists to list-of-dicts if schema provided
     if schema and "data" in response and response["data"]:

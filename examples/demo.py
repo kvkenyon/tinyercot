@@ -27,3 +27,19 @@ results = tinyercot.np3_566_cd.lf_by_model_study_area(
     deliveryDateFrom=date(2025, 12, 22), deliveryDateTo=date(2025, 12, 23)
 )
 pprint(results.meta)
+
+# Iterate all rows (memory-efficient, fully typed)
+for i, row in enumerate(
+    tinyercot.np3_566_cd.lf_by_model_study_area_iter(
+        deliveryDateFrom=date(2025, 12, 22), deliveryDateTo=date(2025, 12, 23)
+    )
+):
+    print(row.deliveryDate, row.valley)  # IDE shows types!
+    if i > 10:
+        break
+
+
+# Get all as DataFrame
+df = tinyercot.np3_566_cd.lf_by_model_study_area_df(
+    deliveryDateFrom=date(2025, 12, 22), deliveryDateTo=date(2025, 12, 23)
+)
