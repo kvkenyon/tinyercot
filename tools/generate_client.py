@@ -116,18 +116,16 @@ def pascal(s: str) -> str:
 
 
 def compact_fields(fields: dict[str, str], per_line: int = 4) -> list[str]:
-    """Format TypedDict fields compactly with semicolons."""
+    """Format model fields compactly with semicolons."""
     items = list(fields.items())
     lines = []
     for i in range(0, len(items), per_line):
-        group = items[i:i+per_line]
+        group = items[i : i + per_line]
         lines.append("; ".join(f"{fn}: {ft}" for fn, ft in group))
     return lines
 
 
-def generate(
-    endpoints: dict, tags: dict, response_fields: dict, pandas: bool = False
-):
+def generate(endpoints: dict, tags: dict, response_fields: dict):
     by_emil: dict[str, list] = {}
     for ep, (params, summary) in endpoints.items():
         emil, suffix = ep.split("/", 1)
@@ -137,87 +135,53 @@ def generate(
         )
 
     class_names = [safe_name(e) for e in sorted(by_emil)]
-    if pandas:
-        lines = [
-            "# AUTO-GENERATED — do not edit",
-            "from __future__ import annotations",
-            "import datetime",
-            "from decimal import Decimal",
-            "import pandas as pd",
-            "from tinyercot._client import _get, _to_df",
-            "",
-            f"__all__ = {class_names!r}",
-            "",
-        ]
-    else:
-        lines = [
-            "# AUTO-GENERATED — do not edit",
-            "from __future__ import annotations",
-            "import datetime",
-            "from decimal import Decimal",
-            "from typing import TypedDict",
-            "from tinyercot._client import _get",
-            "",
-            "class _Params(TypedDict, total=False):",
-            "    page: int; size: int; sort: str; dir: str",
-            "",
-            f"__all__ = {class_names!r}",
-            "",
-        ]
-    COMMON_PARAMS = {'page', 'size', 'sort', 'dir'}
+    lines = [
+        "# AUTO-GENERATED — do not edit",
+        "from __future__ import annotations",
+        "import datetime",
+        "from decimal import Decimal",
+        "from typing import ClassVar",
+        "from pydantic import BaseModel",
+        "from tinyercot._client import _get, ErcotResponse",
+        "",
+        f"__all__ = {class_names!r}",
+        "",
+    ]
     for emil, eps in sorted(by_emil.items()):
         lines.append(f"class {safe_name(emil)}:")
         if doc := tags.get(emil):
             lines.append(f'    """{doc}"""')
         for suffix, params, summary, resp_fields in eps:
             pc = pascal(suffix)
-            if not pandas:
-                # Params TypedDict - compact with inheritance
-                endpoint_params = {k: v for k, v in params.items() if k not in COMMON_PARAMS}
-                if endpoint_params:
-                    lines.append(f"    class {pc}Params(_Params, total=False):")
-                    for line in compact_fields(endpoint_params, per_line=4):
-                        lines.append(f"        {line}")
-                # Row TypedDict - compact
-                lines.append(f"    class {pc}Row(TypedDict):")
-                if resp_fields:
-                    typed_fields = {
-                        fn: RESPONSE_TYPE_MAP.get(ft, "str")
-                        for fn, ft in resp_fields.items()
-                    }
-                    for line in compact_fields(typed_fields, per_line=4):
-                        lines.append(f"        {line}")
-                else:
-                    lines.append("        pass")
-                # Response TypedDict - ultra-compact (one line)
-                lines.append(f"    class {pc}Response(TypedDict):")
-                lines.append(f"        _meta: dict; _links: dict; data: list[{safe_name(emil)}.{pc}Row]")
+            # Row model - Pydantic BaseModel
+            lines.append(f"    class {pc}Row(BaseModel):")
+            if resp_fields:
+                typed_fields = {
+                    fn: RESPONSE_TYPE_MAP.get(ft, "str")
+                    for fn, ft in resp_fields.items()
+                }
+                for line in compact_fields(typed_fields, per_line=4):
+                    lines.append(f"        {line}")
+            else:
+                lines.append("        pass")
+            # Response model - ErcotResponse with schema
+            lines.append(f"    class {pc}Response(ErcotResponse[{pc}Row]):")
+            lines.append(f"        _schema: ClassVar[dict] = {resp_fields!r}")
             # Method
             lines.append("    @staticmethod")
             sig = ", ".join(
                 f"{fn}: {ft} | None = None" for fn, ft in params.items()
             )
-            if pandas:
-                lines.append(
-                    f"    def {safe_name(suffix)}(*, {sig}) -> pd.DataFrame:"
-                )
-                if summary:
-                    lines.append(f'        """{summary}"""')
-                lines.append(
-                    f'        return _to_df(_get("{emil}/{suffix}", '
-                    + ", ".join(f"{fn}={fn}" for fn in params)
-                    + f"), {resp_fields!r})"
-                )
-            else:
-                lines.append(
-                    f"    def {safe_name(suffix)}(*, {sig}) -> {pc}Response:"
-                )
-                if summary:
-                    lines.append(f'        """{summary}"""')
-                call_args = ", ".join(f"{fn}={fn}" for fn in params)
-                lines.append(
-                    f'        return _get("{emil}/{suffix}", schema={resp_fields!r}, {call_args})  # type: ignore'
-                )
+            lines.append(
+                f"    def {safe_name(suffix)}(*, {sig}) -> {pc}Response:"
+            )
+            if summary:
+                lines.append(f'        """{summary}"""')
+            call_args = ", ".join(f"{fn}={fn}" for fn in params)
+            lines.append(
+                f"        return {safe_name(emil)}.{pc}Response.model_validate("
+                f'_get("{emil}/{suffix}", schema={resp_fields!r}, {call_args}))'
+            )
     Path("tinyercot/_generated.py").write_text("\n".join(lines))
     print(f"Generated {len(by_emil)} classes in tinyercot/_generated.py")
 
@@ -234,15 +198,11 @@ if __name__ == "__main__":
         action="store_true",
         help="Print exceptions when fetching fields",
     )
-    parser.add_argument(
-        "--pandas",
-        action="store_true",
-        help="Generate methods returning pd.DataFrame instead of TypedDict",
-    )
+
     args = parser.parse_args()
 
     endpoints, tags = parse_openapi()
     response_fields = load_response_fields(
         refresh=args.refresh, debug=args.debug
     )
-    generate(endpoints, tags, response_fields, pandas=args.pandas)
+    generate(endpoints, tags, response_fields)

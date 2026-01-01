@@ -1,8 +1,12 @@
 import os
+from typing import ClassVar, Generic, TypeVar
 
 import httpx
 from cachetools import TTLCache, cached
 from httpx_retries import Retry, RetryTransport
+from pydantic import BaseModel, ConfigDict, Field
+
+T = TypeVar("T", bound=BaseModel)
 
 BASE_URL = "https://api.ercot.com/api/public-reports"
 CLIENT_ID = "fec253ea-0d06-4272-a5e6-b478baeecd70"
@@ -44,22 +48,33 @@ def _get(path: str, schema: dict | None = None, **params) -> dict:  # pyright: i
     return response
 
 
-def _to_df(response: dict, schema: dict):  # pyright: ignore[reportUnusedFunction]
-    """Convert API response to DataFrame with proper types."""
-    import pandas as pd
+class ErcotResponse(BaseModel, Generic[T]):
+    """Base response model with to_df() support."""
 
-    df = pd.DataFrame(response["data"], columns=list(schema.keys()))
-    for col, dtype in schema.items():
-        if col not in df.columns:
-            continue
-        if dtype == "DATE":
-            df[col] = pd.to_datetime(df[col]).dt.date
-        elif dtype == "DATETIME":
-            df[col] = pd.to_datetime(df[col])
-        elif dtype == "DOUBLE":
-            df[col] = pd.to_numeric(df[col], errors="coerce")
-        elif dtype == "INTEGER":
-            df[col] = pd.to_numeric(df[col], errors="coerce").astype("Int64")
-        elif dtype == "BOOLEAN":
-            df[col] = df[col].astype(bool)
-    return df
+    model_config = ConfigDict(populate_by_name=True)
+    meta: dict = Field(alias="_meta")
+    links: dict = Field(alias="_links")
+    data: list[T]
+    _schema: ClassVar[dict] = {}
+
+    def to_df(self):
+        import pandas as pd
+
+        df = pd.DataFrame([r.model_dump() for r in self.data])
+        for col, dtype in self._schema.items():
+            if col not in df.columns:
+                continue
+            match dtype:
+                case "DATE":
+                    df[col] = pd.to_datetime(df[col]).dt.date
+                case "DATETIME":
+                    df[col] = pd.to_datetime(df[col])
+                case "DOUBLE":
+                    df[col] = pd.to_numeric(df[col], errors="coerce")
+                case "INTEGER":
+                    df[col] = pd.to_numeric(df[col], errors="coerce").astype(
+                        "Int64"
+                    )
+                case "BOOLEAN":
+                    df[col] = df[col].astype(bool)
+        return df
