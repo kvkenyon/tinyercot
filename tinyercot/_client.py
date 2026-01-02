@@ -25,11 +25,9 @@ _client = httpx.Client(
     transport=RetryTransport(retry=Retry(total=3, backoff_factor=2))
 )
 
-# Async client with rate limiting (conservative: 20 requests per 60 seconds)
 _rate_limiter = AsyncLimiter(20, 60)
 _async_client: httpx.AsyncClient | None = None
 
-# Retry settings for 429 errors
 _MAX_RETRIES = 5
 _BASE_DELAY = 2.0  # seconds
 
@@ -57,7 +55,6 @@ def _get(path: str, schema: dict | None = None, **params) -> dict:  # pyright: i
         params={k: v for k, v in params.items() if v is not None},
     ).json()
 
-    # Convert list-of-lists to list-of-dicts if schema provided
     if schema and "data" in response and response["data"]:
         keys = list(schema.keys())
         response["data"] = [dict(zip(keys, row)) for row in response["data"]]
@@ -106,12 +103,12 @@ async def _aget(path: str, schema: dict | None = None, **params) -> dict:  # pyr
 
 
 class ErcotResponse(BaseModel, Generic[T]):
-    """Base response model with to_df() support."""
-
-    model_config = ConfigDict(populate_by_name=True)
-    meta: dict = Field(alias="_meta")
-    links: dict = Field(alias="_links")
-    data: list[T]
+    model_config = ConfigDict(populate_by_name=True, extra="allow")
+    meta: dict = Field(default_factory=dict, alias="_meta")
+    report: dict = Field(default_factory=dict)
+    fields: list[dict] = Field(default_factory=list)
+    data: list[T] = Field(default_factory=list)
+    links: list[dict] | dict = Field(default_factory=dict, alias="_links")
     _schema: ClassVar[dict] = {}
 
     def to_df(self):
