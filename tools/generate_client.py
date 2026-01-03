@@ -33,6 +33,16 @@ RESPONSE_TYPE_MAP = {
 }
 
 
+def cache_products():
+    from tinyercot._client import _get
+
+    products = _get("/")
+
+    with open("products.json", "w") as f:
+        json.dump(products, f, indent=2)
+    print(f"Cached {len(products)} products to products.json")
+
+
 def fetch_response_fields(debug: bool = False) -> dict:
     """Fetch all endpoint response field definitions from ERCOT products API."""
     from tqdm import tqdm
@@ -205,19 +215,25 @@ def generate(endpoints: dict, tags: dict, response_fields: dict):
                 f"            resp = {safe_name(emil)}.{safe_name(suffix)}({call_args_no_page}, page=page)"
             )
             lines.append("            yield from resp.data")
-            lines.append('            if page >= resp.meta.get("totalPages", 1): break')
+            lines.append(
+                '            if page >= resp.meta.get("totalPages", 1): break'
+            )
             lines.append("            page += 1")
             # Method - DataFrame for all pages
             lines.append("    @staticmethod")
             lines.append(
                 f"    def {safe_name(suffix)}_df(*, {sig_no_page}) -> pd.DataFrame:"
             )
-            lines.append('        """Fetch all pages and return as DataFrame."""')
+            lines.append(
+                '        """Fetch all pages and return as DataFrame."""'
+            )
             lines.append(
                 f"        resp = {safe_name(emil)}.{safe_name(suffix)}({call_args_no_page}, page=1)"
             )
             lines.append("        frames = [resp.to_df()]")
-            lines.append('        for p in range(2, resp.meta.get("totalPages", 1) + 1):')
+            lines.append(
+                '        for p in range(2, resp.meta.get("totalPages", 1) + 1):'
+            )
             lines.append(
                 f"            frames.append({safe_name(emil)}.{safe_name(suffix)}({call_args_no_page}, page=p).to_df())"
             )
@@ -227,7 +243,9 @@ def generate(endpoints: dict, tags: dict, response_fields: dict):
             lines.append(
                 f"    async def {safe_name(suffix)}_iter_async(*, {sig_no_page}) -> AsyncIterator[{pc}Row]:"
             )
-            lines.append('        """Async yield all rows from all pages (rate-limited)."""')
+            lines.append(
+                '        """Async yield all rows from all pages (rate-limited)."""'
+            )
             lines.append("        page = 1")
             lines.append("        while True:")
             lines.append(
@@ -235,20 +253,26 @@ def generate(endpoints: dict, tags: dict, response_fields: dict):
                 f'await _aget("{emil}/{suffix}", schema={resp_fields!r}, {call_args_no_page}, page=page))'
             )
             lines.append("            for row in resp.data: yield row")
-            lines.append('            if page >= resp.meta.get("totalPages", 1): break')
+            lines.append(
+                '            if page >= resp.meta.get("totalPages", 1): break'
+            )
             lines.append("            page += 1")
             # Method - async DataFrame for all pages (rate-limited)
             lines.append("    @staticmethod")
             lines.append(
                 f"    async def {safe_name(suffix)}_df_async(*, {sig_no_page}) -> pd.DataFrame:"
             )
-            lines.append('        """Async fetch all pages and return as DataFrame (rate-limited)."""')
+            lines.append(
+                '        """Async fetch all pages and return as DataFrame (rate-limited)."""'
+            )
             lines.append(
                 f"        resp = {safe_name(emil)}.{pc}Response.model_validate("
                 f'await _aget("{emil}/{suffix}", schema={resp_fields!r}, {call_args_no_page}, page=1))'
             )
             lines.append("        frames = [resp.to_df()]")
-            lines.append('        for p in range(2, resp.meta.get("totalPages", 1) + 1):')
+            lines.append(
+                '        for p in range(2, resp.meta.get("totalPages", 1) + 1):'
+            )
             lines.append(
                 f"            resp = {safe_name(emil)}.{pc}Response.model_validate("
                 f'await _aget("{emil}/{suffix}", schema={resp_fields!r}, {call_args_no_page}, page=p))'
@@ -271,8 +295,17 @@ if __name__ == "__main__":
         action="store_true",
         help="Print exceptions when fetching fields",
     )
+    parser.add_argument(
+        "--cache-products",
+        action="store_true",
+        help="Cache products from ERCOT API",
+    )
 
     args = parser.parse_args()
+
+    if args.cache_products:
+        cache_products()
+        exit()
 
     endpoints, tags = parse_openapi()
     response_fields = load_response_fields(
