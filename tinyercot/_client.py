@@ -20,7 +20,8 @@ _subscription_key: str | None = None
 
 _tok_cache: TTLCache = TTLCache(maxsize=1, ttl=3600)
 _client = httpx.Client(
-    transport=RetryTransport(retry=Retry(total=3, backoff_factor=2))
+    transport=RetryTransport(retry=Retry(total=3, backoff_factor=2)),
+    timeout=30.0,
 )
 
 
