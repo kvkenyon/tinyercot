@@ -13,17 +13,52 @@ T = TypeVar("T", bound=BaseModel)
 BASE_URL = "https://api.ercot.com/api/public-reports"
 CLIENT_ID = "fec253ea-0d06-4272-a5e6-b478baeecd70"
 SCOPE = f"openid+{CLIENT_ID}+offline_access"
-AUTH_URL = (
-    f"https://ercotb2c.b2clogin.com/ercotb2c.onmicrosoft.com/"
-    f"B2C_1_PUBAPI-ROPC-FLOW/oauth2/v2.0/token"
-    f"?username={os.getenv('ERCOT_USERNAME')}&password={os.getenv('ERCOT_PASSWORD')}"
-    f"&grant_type=password&scope={SCOPE}&client_id={CLIENT_ID}&response_type=id_token"
-)
+
+_username: str | None = None
+_password: str | None = None
+_subscription_key: str | None = None
 
 _tok_cache: TTLCache = TTLCache(maxsize=1, ttl=3600)
 _client = httpx.Client(
     transport=RetryTransport(retry=Retry(total=3, backoff_factor=2))
 )
+
+
+def configure(
+    *,
+    username: str | None = None,
+    password: str | None = None,
+    subscription_key: str | None = None,
+) -> None:
+    """Set ERCOT API credentials directly, instead of using environment variables.
+
+    Any value left as None will fall back to the corresponding environment variable
+    (ERCOT_USERNAME, ERCOT_PASSWORD, ERCOT_SUBSCRIPTION_KEY).
+
+    Calling this clears any cached auth token so new credentials take effect immediately.
+    """
+    global _username, _password, _subscription_key
+    _username = username
+    _password = password
+    _subscription_key = subscription_key
+    _tok_cache.clear()
+
+
+def _resolve_creds() -> tuple[str, str, str]:
+    username = _username or os.environ["ERCOT_USERNAME"]
+    password = _password or os.environ["ERCOT_PASSWORD"]
+    sub_key = _subscription_key or os.environ["ERCOT_SUBSCRIPTION_KEY"]
+    return username, password, sub_key
+
+
+def _auth_url() -> str:
+    username, password, _ = _resolve_creds()
+    return (
+        f"https://ercotb2c.b2clogin.com/ercotb2c.onmicrosoft.com/"
+        f"B2C_1_PUBAPI-ROPC-FLOW/oauth2/v2.0/token"
+        f"?username={username}&password={password}"
+        f"&grant_type=password&scope={SCOPE}&client_id={CLIENT_ID}&response_type=id_token"
+    )
 
 _rate_limiter = AsyncLimiter(20, 60)
 _async_client: httpx.AsyncClient | None = None
@@ -41,15 +76,16 @@ def _get_async_client() -> httpx.AsyncClient:
 
 @cached(_tok_cache)
 def _token() -> str:
-    return _client.post(AUTH_URL).json().get("id_token")
+    return _client.post(_auth_url()).json().get("id_token")
 
 
 def _get(path: str, schema: dict | None = None, **params) -> dict:  # pyright: ignore
     """Fetch data from API, optionally converting list-of-lists to list-of-dicts."""
+    _, _, sub_key = _resolve_creds()
     response = _client.get(
         f"{BASE_URL}/{path.lstrip('/')}",
         headers={
-            "Ocp-Apim-Subscription-Key": os.environ["ERCOT_SUBSCRIPTION_KEY"],
+            "Ocp-Apim-Subscription-Key": sub_key,
             "Authorization": f"Bearer {_token()}",
         },
         params={k: v for k, v in params.items() if v is not None},
@@ -64,10 +100,11 @@ def _get(path: str, schema: dict | None = None, **params) -> dict:  # pyright: i
 
 async def _aget(path: str, schema: dict | None = None, **params) -> dict:  # pyright: ignore
     """Async fetch with rate limiting and retry on 429."""
+    _, _, sub_key = _resolve_creds()
     client = _get_async_client()
     url = f"{BASE_URL}/{path.lstrip('/')}"
     headers = {
-        "Ocp-Apim-Subscription-Key": os.environ["ERCOT_SUBSCRIPTION_KEY"],
+        "Ocp-Apim-Subscription-Key": sub_key,
         "Authorization": f"Bearer {_token()}",
     }
     filtered_params = {k: v for k, v in params.items() if v is not None}

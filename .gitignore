@@ -28,3 +28,7 @@ venv/
 htmlcov/
 tests/cassettes/*.yaml
 !tests/cassettes/.gitkeep
+.DS_Store
+
+# claude
+.remember/
