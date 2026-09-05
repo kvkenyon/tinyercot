@@ -1,112 +1,36 @@
-# CLAUDE.md
+# Repository guidance
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+TinyERCOT preserves its legacy public Python API. The opt-in `tinyercot.catalog`
+module supplies offline metadata only. Read `docs/public-foundation.md` before
+adding current data capabilities.
 
-## Project Overview
+## Local checks
 
-**tinyercot** is a fully-typed Python client for the ERCOT Public API. The entire hand-written codebase is ~230 lines—everything else is auto-generated from ERCOT's OpenAPI spec and response field definitions.
-
-## Commands
-
-### Development Environment
-
-Start an IPython session with dev dependencies and environment variables:
 ```bash
-uv run --env-file .env --group dev -- ipython
+uv sync --frozen --group dev
+uv run python tools/generate_client.py --check
+uv run pytest -q
+uv run ruff check tools/generate_client.py tinyercot/catalog.py tests
+uv run ruff format --check tools/generate_client.py tinyercot/catalog.py tests
+uv build
 ```
 
-### Code Generation
+Tests use synthetic credentials and mocked transport. Do not load `.env` for
+these checks. The generator uses pinned local inputs and needs no credentials.
+It has no `--refresh`, `--cache-products`, or `--pandas` option.
 
-Regenerate the client from the ERCOT OpenAPI spec:
-```bash
-uv run python tools/generate_client.py
-```
+## Architecture and compatibility
 
-Regenerate with fresh response field data (requires ERCOT credentials):
-```bash
-uv run --env-file .env python tools/generate_client.py --refresh
-```
+- `tinyercot/_client.py` contains the legacy auth, transport, and `ErcotResponse`.
+- `tinyercot/_generated.py` contains 35 product classes and 102 endpoint families.
+  Each family has Pydantic Row and Response models plus five static methods.
+- `tools/generate_client.py` reproduces the generated file from pinned inputs.
+  Use `--check` for a comparison or `--output /tmp/legacy.py` for a review copy.
+- `api_response_fields.json` is the frozen legacy field cache. It does not verify
+  current schemas. `products.json` is historical evidence, not a generation input.
+- `tinyercot/catalog.py` reads bundled public metadata without data requests.
 
-Generate a pandas-based client (returns DataFrames instead of TypedDicts):
-```bash
-uv run python tools/generate_client.py --pandas
-```
-
-## Architecture
-
-### Core Components
-
-1. **`tinyercot/_client.py`** (~58 lines)
-   - OAuth 2.0 authentication with ERCOT's B2C endpoint
-   - Token caching (1-hour TTL) via `cachetools`
-   - HTTP client with automatic retries via `httpx-retries`
-   - `_get()` function for authenticated API calls
-   - `_to_df()` function for pandas DataFrame conversion with proper type coercion
-
-2. **`tools/generate_client.py`** (~238 lines)
-   - Fetches ERCOT's OpenAPI spec to extract all endpoints and parameters
-   - Fetches response field schemas from ERCOT's products API (cached in `api_response_fields.json`)
-   - Generates `tinyercot/_generated.py` with fully-typed classes and methods
-   - Maps OpenAPI types → Python types for query parameters
-   - Maps ERCOT dataTypes → Python types for response fields
-
-3. **`tinyercot/_generated.py`** (AUTO-GENERATED)
-   - One class per EMIL ID (e.g., `np4_190_cd`)
-   - Each class contains methods for endpoint suffixes
-   - Each method has:
-     - `TypedDict` for params (query parameters)
-     - `TypedDict` for response rows (individual data records)
-     - `TypedDict` for full response (meta, links, data)
-   - **Never edit this file manually**—always regenerate via `generate_client.py`
-
-4. **`api_response_fields.json`**
-   - Cache of response field schemas for all ERCOT endpoints
-   - Maps `{emil_id}/{suffix}` → `{field_name: dataType}`
-   - Regenerate with `--refresh` flag (rate-limited to 1 req/sec)
-
-### Code Generation Flow
-
-```
-ERCOT OpenAPI Spec → parse_openapi() → endpoints + tags
-                                            ↓
-ERCOT Products API → fetch_response_fields() → api_response_fields.json
-                                            ↓
-                            generate() → tinyercot/_generated.py
-```
-
-### Type Mapping
-
-**Query Parameters** (from OpenAPI schema):
-- `string` → `str`
-- `integer` → `int`
-- `number` → `Decimal`
-- `boolean` → `bool`
-- `format: "yyyy-MM-dd"` → `datetime.date`
-- `format: "yyyy-MM-ddTH24:mm:ss"` → `datetime.datetime`
-
-**Response Fields** (from ERCOT dataType):
-- `VARCHAR` → `str`
-- `INTEGER` → `int`
-- `DOUBLE` → `Decimal`
-- `BOOLEAN` → `bool`
-- `DATE` → `datetime.date`
-- `DATETIME` → `datetime.datetime`
-- `TIME` → `datetime.time`
-
-## Environment Variables
-
-Required in `.env`:
-```
-ERCOT_USERNAME=your-username
-ERCOT_PASSWORD=your-password
-ERCOT_SUBSCRIPTION_KEY=your-subscription-key
-```
-
-Pass to commands via `uv run --env-file .env`.
-
-## Key Design Principles
-
-1. **Minimize hand-written code**: Use code generation to reduce maintenance burden
-2. **Full typing**: All responses and parameters are fully typed via `TypedDict`
-3. **Smart caching**: Response fields are cached to avoid slow API calls during generation
-4. **Flexible output**: Support both raw JSON (`TypedDict`) and pandas `DataFrame` outputs
+Do not edit the generated file manually. Keep the three legacy runtime files
+unchanged for this milestone. New clients, errors, schema policies, file
+adapters, and temporal behavior must use a separate opt-in surface.
+Secure, Certified, EWS, and private participant/customer records are excluded.

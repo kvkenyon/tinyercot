@@ -1,0 +1,93 @@
+{
+  "format_version": 1,
+  "audit_base": "d1daad25df42d3fff41f88b907d99ef325b970e0",
+  "catalog_sha256": "bcdcb26bafe928a0c4f958c3c9fa4fd73089dd7534ff1fb94e8a1188d26df03f",
+  "sources": {
+    "public-reports": {
+      "url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+      "captured_at_utc": "2026-09-05T17:29:44.017935+00:00",
+      "sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+      "openapi_version": "1.0",
+      "upstream_revision": null
+    },
+    "public-data": {
+      "url": "https://apiexplorer.ercot.com/developer/apis/esrapi-apim-api?export=true&api-version=2022-04-01-preview",
+      "captured_at_utc": "2026-09-05T17:42:29.642728+00:00",
+      "sha256": "75f45d1adaddef9896fa71f634487dedd8da4cc9490570b0fb9f0dfabf7aed49",
+      "openapi_version": "1.0",
+      "upstream_revision": null
+    }
+  },
+  "secondary_inputs": {
+    "api-endpoint-coverage.json": "2337c63c2278d413ed45e17813422d3c4fc88cb98de63deede92e14edaff96ff",
+    "esr-api-endpoint-coverage.json": "dcc1ac25c747b8d9158a383d04f049dbe38f72655182c6fdfe909942784015c2",
+    "query-contract-drift.json": "528a137a2eb652e9de72482726db8602090c37af855ca13ef57a4117677026e1"
+  },
+  "projection": "Sort services in public-reports, public-data order, then paths and verbs. Keep HTTP method and 200/request media types. Data paths exclude root, version and templated paths. Join legacy paths and unversioned cache membership by exact path. query_drift comes from the audited comparison and includes one order-only change. All current rows remain unverified; presence is not availability.",
+  "boundaries": [
+    {
+      "file": "sources/emil-export.raw",
+      "url": "https://www.ercot.com/mp/export",
+      "saved_at_utc": "2026-09-05T17:22:56.618362+00:00",
+      "bytes": 633674,
+      "sha256": "849ba226028dec0d004ffc949e0ceec4c5d83eaf50879384a11b82b7797a9d90",
+      "scope": "metadata/document/feed observation; no historical data-file download"
+    },
+    {
+      "file": "sources/ews-security.html",
+      "url": "https://developer.ercot.com/applications/ews/Services%20Organization/",
+      "saved_at_utc": "2026-09-05T17:29:17.217683+00:00",
+      "bytes": 162102,
+      "sha256": "ace0b632706417e59837d46196ff4c1b981709fb7d02980b252f5a693db36e83",
+      "scope": "metadata/document/feed observation; no historical data-file download"
+    },
+    {
+      "file": "sources/load-history.html",
+      "url": "https://www.ercot.com/gridinfo/load/load_hist",
+      "saved_at_utc": "2026-09-05T17:24:36.791807+00:00",
+      "bytes": 74663,
+      "sha256": "2c33788967ed97def5ff70bcb06906f0bd5a81411182fb4fe1fc40dff9c522b3",
+      "scope": "metadata/document/feed observation; no historical data-file download"
+    },
+    {
+      "file": "sources/dashboards.html",
+      "url": "https://www.ercot.com/gridmktinfo/dashboards",
+      "saved_at_utc": "2026-09-05T17:24:36.721406+00:00",
+      "bytes": 271113,
+      "sha256": "8d5460dd98e7f0f27b139ea826773390c6bbc56240b9621b6ea59a4f287e9232",
+      "scope": "metadata/document/feed observation; no historical data-file download"
+    },
+    {
+      "file": "sources/np9-170-sg.raw",
+      "url": "https://www.ercot.com/mp/data-products/data-product-details?id=np9-170-sg",
+      "saved_at_utc": "2026-09-05T17:27:30.202127+00:00",
+      "bytes": 64192,
+      "sha256": "e62207b6bdab7129a46bf954064455477c532bfe86863651c12f55c55a5a8d9c",
+      "scope": "metadata/document/feed observation; no historical data-file download"
+    },
+    {
+      "file": "sources/np4-500-sg.raw",
+      "url": "https://www.ercot.com/mp/data-products/data-product-details?id=np4-500-sg",
+      "saved_at_utc": "2026-09-05T17:27:30.237717+00:00",
+      "bytes": 65275,
+      "sha256": "984ebb6925fd36ff40b4f560f8d8af8849e32b1c7f62da07340904be4918f16e",
+      "scope": "metadata/document/feed observation; no historical data-file download"
+    },
+    {
+      "file": "sources/13060.raw",
+      "url": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=13060",
+      "saved_at_utc": "2026-09-05T17:28:23.726421+00:00",
+      "bytes": 7797,
+      "sha256": "43495cb7a429a314c43a97121aae818c30d688651a19af6f077e0a6ad47d7091",
+      "scope": "metadata/document/feed observation; no historical data-file download"
+    },
+    {
+      "file": "sources/feed-fuel.raw",
+      "url": "https://www.ercot.com/api/1/services/read/dashboards/fuel-mix.json",
+      "saved_at_utc": "2026-09-05T17:27:30.301554+00:00",
+      "bytes": 136332,
+      "sha256": "36efdf070369f00c8a3eb4fb074bb2efd876192fa1071efd9a887098fa6843de",
+      "scope": "metadata/document/feed observation; no historical data-file download"
+    }
+  ]
+}

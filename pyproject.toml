@@ -27,9 +27,18 @@ Issues = "https://github.com/kvkenyon/tinyercot/issues"
 [dependency-groups]
 dev = [
     "ipython>=9.8.0",
+    "pytest>=9.1.1",
+    "ruff>=0.16.6",
     "tqdm>=4.67.1",
 ]
 
 
 [tool.ruff]
 extend-exclude = ["tinyercot/_generated.py"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "tests"]
+
+[tool.setuptools.package-data]
+tinyercot = ["_catalog.json"]

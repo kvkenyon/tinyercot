@@ -1,15 +1,23 @@
+"""Reproduce the legacy client from hash-pinned local metadata.
+
+This tool cannot refresh metadata or generate current API models. Use --check
+to compare the frozen output without writing it. No network access is needed.
+"""
+
 import argparse
+import hashlib
 import json
+import keyword
 import re
-import time
 from pathlib import Path
 
-import httpx
+ROOT = Path(__file__).resolve().parent.parent
+CACHE_FILE = ROOT / "api_response_fields.json"
+SPEC_FILE = ROOT / "tools/inputs/legacy-openapi.json"
+PROVENANCE_FILE = ROOT / "tools/inputs/legacy-provenance.json"
+OUTPUT_FILE = ROOT / "tinyercot/_generated.py"
 
-OPENAPI_SPEC_URL = "https://raw.githubusercontent.com/ercot/api-specs/main/pubapi/pubapi-apim-api.json"
-CACHE_FILE = Path(__file__).parent.parent / "api_response_fields.json"
-
-# OpenAPI schema types -> Python types (for query params)
+# Preserve the legacy query type policy.
 TYPE_MAP = {
     "string": "str",
     "integer": "int",
@@ -21,7 +29,7 @@ FORMAT_MAP = {
     "yyyy-MM-ddTH24:mm:ss": "datetime.datetime",
 }
 
-# ERCOT dataType -> Python types (for response fields)
+# Preserve the legacy response type policy.
 RESPONSE_TYPE_MAP = {
     "BOOLEAN": "bool",
     "DATE": "datetime.date",
@@ -33,70 +41,96 @@ RESPONSE_TYPE_MAP = {
 }
 
 
-def cache_products():
-    from tinyercot._client import _get
-
-    products = _get("/")
-
-    with open("products.json", "w") as f:
-        json.dump(products, f, indent=2)
-    print(f"Cached {len(products)} products to products.json")
+class GenerationError(ValueError):
+    """Pinned metadata cannot safely reproduce the legacy client."""
 
 
-def fetch_response_fields(debug: bool = False) -> dict:
-    """Fetch all endpoint response field definitions from ERCOT products API."""
-    from tqdm import tqdm
+def read_pinned(path: Path) -> dict:
+    """Read a local input after checking its recorded content hash.
 
-    from tinyercot._client import _get
+    Args:
+        path: Input inside the repository with a recorded SHA-256.
 
-    products = _get("/")["_embedded"]["products"]
-    endpoints = [
-        (p["emilId"].lower(), a["_links"]["endpoint"]["href"].split("/")[-1])
-        for p in products
-        for a in p.get("artifacts", [])
-    ]
-    response_fields = {}
-    for emil_id, suffix in tqdm(endpoints, desc="Fetching fields"):
-        ep = f"{emil_id}/{suffix}"
-        try:
-            ep_data = _get(ep)
-            response_fields[ep] = {
-                f["name"]: f["dataType"] for f in ep_data.get("fields", [])
-            }
-        except Exception as e:
-            if debug:
-                print(f"ERROR {ep}: {e}")
-            response_fields[ep] = {}
-        time.sleep(1)  # Rate limiting
-    return response_fields
+    Returns:
+        The decoded input, with JSON object order preserved.
+
+    Raises:
+        GenerationError: The input is missing, changed, or invalid JSON.
+    """
+    try:
+        manifest = json.loads(PROVENANCE_FILE.read_text())
+        data = path.read_bytes()
+        expected = manifest["files"][path.relative_to(ROOT).as_posix()]
+        if hashlib.sha256(data).hexdigest() != expected:
+            raise GenerationError(f"Unverified input: {path}")
+        return json.loads(data)
+    except (OSError, KeyError, json.JSONDecodeError) as exc:
+        raise GenerationError(f"Cannot read pinned input: {path}") from exc
 
 
-def load_response_fields(refresh: bool = False, debug: bool = False) -> dict:
-    """Load response fields from cache, or fetch if refresh=True."""
-    if CACHE_FILE.exists() and not refresh:
-        return json.loads(CACHE_FILE.read_text())
-    if refresh:
-        fields = fetch_response_fields(debug=debug)
-        CACHE_FILE.write_text(json.dumps(fields, indent=2))
-        print(f"Saved response fields to {CACHE_FILE}")
-        return fields
-    raise FileNotFoundError(
-        f"Cache file {CACHE_FILE} not found. Run with --refresh."
-    )
+def load_response_fields() -> dict:
+    """Load the frozen row cache without authentication or network access.
+
+    Returns:
+        Ordered legacy field definitions, not current schema evidence.
+
+    Raises:
+        GenerationError: The pinned cache is missing or changed.
+    """
+    return read_pinned(CACHE_FILE)
 
 
 def strip_html(s: str) -> str:
+    """Remove markup with the frozen legacy whitespace policy.
+
+    Args:
+        s: Source description.
+
+    Returns:
+        Text used in the legacy class documentation.
+    """
     return re.sub(r"<[^>]+>", " ", s).replace("  ", " ").strip()
 
 
 def get_type(param: dict) -> str:
+    """Map a query parameter under the explicit legacy format policy.
+
+    Args:
+        param: Inline OpenAPI query parameter metadata.
+
+    Returns:
+        The original Python annotation text.
+
+    Raises:
+        GenerationError: The type, format, or reference has no legacy policy.
+    """
     schema = param.get("schema", {})
     fmt = schema.get("format", "")
-    return FORMAT_MAP.get(fmt) or TYPE_MAP.get(schema.get("type"), "str")
+    allowed = {
+        "string": {"", "abc123", "mm:ss", *FORMAT_MAP},
+        "integer": {"", "###"},
+        "number": {"", "####.###"},
+        "boolean": {"", "true | false"},
+    }
+    if (
+        "$ref" in param
+        or "$ref" in schema
+        or fmt not in allowed.get(schema.get("type"), set())
+    ):
+        raise GenerationError(f"Unsupported query schema: {param}")
+    return FORMAT_MAP.get(fmt) or TYPE_MAP[schema["type"]]
 
 
 def parse_openapi() -> tuple[dict, dict]:
-    spec = httpx.get(OPENAPI_SPEC_URL).json()
+    """Parse the pinned projection of the legacy ERCOT OpenAPI export.
+
+    Returns:
+        Endpoint query definitions and product descriptions in source order.
+
+    Raises:
+        GenerationError: Inputs drift or a query schema is unsupported.
+    """
+    spec = read_pinned(SPEC_FILE)
     tags = {
         t["name"].lower(): strip_html(t.get("description", ""))
         for t in spec.get("tags", [])
@@ -116,17 +150,41 @@ def parse_openapi() -> tuple[dict, dict]:
 
 
 def safe_name(s: str) -> str:
+    """Convert a legacy path segment into a Python identifier.
+
+    Args:
+        s: Nonempty endpoint or product path segment.
+
+    Returns:
+        The legacy name, including the prefix for numeric suffixes.
+    """
     n = s.replace("-", "_")
     return f"_{n}" if n[0].isdigit() else n
 
 
 def pascal(s: str) -> str:
+    """Convert a path suffix into the legacy nested model name.
+
+    Args:
+        s: Nonempty endpoint suffix.
+
+    Returns:
+        The model name prefix, including any leading underscore.
+    """
     result = "".join(w.capitalize() for w in s.replace("-", "_").split("_"))
     return f"_{result}" if result[0].isdigit() else result
 
 
 def compact_fields(fields: dict[str, str], per_line: int = 4) -> list[str]:
-    """Format model fields compactly with semicolons."""
+    """Format ordered model fields with the legacy grouping policy.
+
+    Args:
+        fields: Field names and Python annotation text in source order.
+        per_line: Maximum number of fields per output line.
+
+    Returns:
+        Source lines without leading indentation.
+    """
     items = list(fields.items())
     lines = []
     for i in range(0, len(items), per_line):
@@ -135,14 +193,82 @@ def compact_fields(fields: dict[str, str], per_line: int = 4) -> list[str]:
     return lines
 
 
-def generate(endpoints: dict, tags: dict, response_fields: dict):
+def validate_inputs(endpoints: dict, tags: dict, response_fields: dict) -> None:
+    """Reject unsafe names, missing row schemas, and unverified metadata.
+
+    Args:
+        endpoints: Ordered query contracts keyed by endpoint path.
+        tags: Product documentation keyed by product identifier.
+        response_fields: Ordered field definitions keyed by endpoint path.
+
+    Raises:
+        GenerationError: Input cannot reproduce the verified legacy baseline.
+    """
+    namespaces: dict[str, set[str]] = {}
+    product_names: set[str] = set()
+    products: set[str] = set()
+    for ep, (params, summary) in endpoints.items():
+        parts = ep.split("/")
+        if len(parts) != 2 or not all(parts):
+            raise GenerationError(f"Invalid endpoint path: {ep}")
+        emil, suffix = parts
+        product = safe_name(emil)
+        if emil not in products:
+            if product in product_names:
+                raise GenerationError(f"Product collision: {ep}")
+            products.add(emil)
+            product_names.add(product)
+        names = [
+            safe_name(suffix) + tail
+            for tail in ("", "_iter", "_df", "_iter_async", "_df_async")
+        ] + [pascal(suffix) + tail for tail in ("Row", "Response")]
+        seen = namespaces.setdefault(product, set())
+        if len(set(names)) != len(names) or seen.intersection(names):
+            raise GenerationError(f"Member collision: {ep}")
+        seen.update(names)
+        fields = response_fields.get(ep)
+        if not fields:
+            raise GenerationError(f"Missing or empty row schema: {ep}")
+        for name in [product, *names, *params, *fields]:
+            if not name.isidentifier() or keyword.iskeyword(name):
+                raise GenerationError(f"Invalid Python identifier: {name}")
+        if any(kind not in RESPONSE_TYPE_MAP for kind in fields.values()):
+            raise GenerationError(f"Unsupported row type: {ep}")
+        if any(name.startswith("_") for name in fields):
+            raise GenerationError(f"Private row field: {ep}")
+        for doc in (summary, tags.get(emil, "")):
+            if '"""' in doc:
+                raise GenerationError(f"Unsafe documentation: {ep}")
+    expected_endpoints, expected_tags = parse_openapi()
+    # Equality alone ignores field and parameter order, which is contractual.
+    actual = json.dumps([endpoints, tags, response_fields])
+    expected = json.dumps([expected_endpoints, expected_tags, load_response_fields()])
+    if actual != expected:
+        raise GenerationError(
+            "Unverified metadata; legacy generation requires pinned inputs"
+        )
+
+
+def generate(endpoints: dict, tags: dict, response_fields: dict) -> str:
+    """Render the exact legacy source without writing files.
+
+    Args:
+        endpoints: Frozen query contracts from parse_openapi().
+        tags: Frozen product descriptions from parse_openapi().
+        response_fields: Frozen row definitions from load_response_fields().
+
+    Returns:
+        Python source with the recorded legacy output hash.
+
+    Raises:
+        GenerationError: Inputs are unsafe, unverified, or change the output.
+    """
+    validate_inputs(endpoints, tags, response_fields)
     by_emil: dict[str, list] = {}
     for ep, (params, summary) in endpoints.items():
         emil, suffix = ep.split("/", 1)
         resp_fields = response_fields.get(ep, {})
-        by_emil.setdefault(emil, []).append(
-            (suffix, params, summary, resp_fields)
-        )
+        by_emil.setdefault(emil, []).append((suffix, params, summary, resp_fields))
 
     class_names = [safe_name(e) for e in sorted(by_emil)]
     lines = [
@@ -165,28 +291,15 @@ def generate(endpoints: dict, tags: dict, response_fields: dict):
             lines.append(f'    """{doc}"""')
         for suffix, params, summary, resp_fields in eps:
             pc = pascal(suffix)
-            # Row model - Pydantic BaseModel
             lines.append(f"    class {pc}Row(BaseModel):")
-            if resp_fields:
-                typed_fields = {
-                    fn: RESPONSE_TYPE_MAP.get(ft, "str")
-                    for fn, ft in resp_fields.items()
-                }
-                for line in compact_fields(typed_fields, per_line=4):
-                    lines.append(f"        {line}")
-            else:
-                lines.append("        pass")
-            # Response model - ErcotResponse with schema
+            typed_fields = {fn: RESPONSE_TYPE_MAP[ft] for fn, ft in resp_fields.items()}
+            for line in compact_fields(typed_fields, per_line=4):
+                lines.append(f"        {line}")
             lines.append(f"    class {pc}Response(ErcotResponse[{pc}Row]):")
             lines.append(f"        _schema: ClassVar[dict] = {resp_fields!r}")
-            # Method - single page
             lines.append("    @staticmethod")
-            sig = ", ".join(
-                f"{fn}: {ft} | None = None" for fn, ft in params.items()
-            )
-            lines.append(
-                f"    def {safe_name(suffix)}(*, {sig}) -> {pc}Response:"
-            )
+            sig = ", ".join(f"{fn}: {ft} | None = None" for fn, ft in params.items())
+            lines.append(f"    def {safe_name(suffix)}(*, {sig}) -> {pc}Response:")
             if summary:
                 lines.append(f'        """{summary}"""')
             call_args = ", ".join(f"{fn}={fn}" for fn in params)
@@ -194,16 +307,11 @@ def generate(endpoints: dict, tags: dict, response_fields: dict):
                 f"        return {safe_name(emil)}.{pc}Response.model_validate("
                 f'_get("{emil}/{suffix}", schema={resp_fields!r}, {call_args}))'
             )
-            # For pagination methods, exclude page param since we control it
-            call_args_no_page = ", ".join(
-                f"{fn}={fn}" for fn in params if fn != "page"
-            )
-            # Method - iterator for all pages
+            # Iterators own the page parameter. Preserve their signatures.
+            call_args_no_page = ", ".join(f"{fn}={fn}" for fn in params if fn != "page")
             lines.append("    @staticmethod")
             sig_no_page = ", ".join(
-                f"{fn}: {ft} | None = None"
-                for fn, ft in params.items()
-                if fn != "page"
+                f"{fn}: {ft} | None = None" for fn, ft in params.items() if fn != "page"
             )
             lines.append(
                 f"    def {safe_name(suffix)}_iter(*, {sig_no_page}) -> Iterator[{pc}Row]:"
@@ -215,18 +323,13 @@ def generate(endpoints: dict, tags: dict, response_fields: dict):
                 f"            resp = {safe_name(emil)}.{safe_name(suffix)}({call_args_no_page}, page=page)"
             )
             lines.append("            yield from resp.data")
-            lines.append(
-                '            if page >= resp.meta.get("totalPages", 1): break'
-            )
+            lines.append('            if page >= resp.meta.get("totalPages", 1): break')
             lines.append("            page += 1")
-            # Method - DataFrame for all pages
             lines.append("    @staticmethod")
             lines.append(
                 f"    def {safe_name(suffix)}_df(*, {sig_no_page}) -> pd.DataFrame:"
             )
-            lines.append(
-                '        """Fetch all pages and return as DataFrame."""'
-            )
+            lines.append('        """Fetch all pages and return as DataFrame."""')
             lines.append(
                 f"        resp = {safe_name(emil)}.{safe_name(suffix)}({call_args_no_page}, page=1)"
             )
@@ -238,7 +341,6 @@ def generate(endpoints: dict, tags: dict, response_fields: dict):
                 f"            frames.append({safe_name(emil)}.{safe_name(suffix)}({call_args_no_page}, page=p).to_df())"
             )
             lines.append("        return pd.concat(frames, ignore_index=True)")
-            # Method - async iterator for all pages (rate-limited)
             lines.append("    @staticmethod")
             lines.append(
                 f"    async def {safe_name(suffix)}_iter_async(*, {sig_no_page}) -> AsyncIterator[{pc}Row]:"
@@ -253,11 +355,8 @@ def generate(endpoints: dict, tags: dict, response_fields: dict):
                 f'await _aget("{emil}/{suffix}", schema={resp_fields!r}, {call_args_no_page}, page=page))'
             )
             lines.append("            for row in resp.data: yield row")
-            lines.append(
-                '            if page >= resp.meta.get("totalPages", 1): break'
-            )
+            lines.append('            if page >= resp.meta.get("totalPages", 1): break')
             lines.append("            page += 1")
-            # Method - async DataFrame for all pages (rate-limited)
             lines.append("    @staticmethod")
             lines.append(
                 f"    async def {safe_name(suffix)}_df_async(*, {sig_no_page}) -> pd.DataFrame:"
@@ -279,36 +378,34 @@ def generate(endpoints: dict, tags: dict, response_fields: dict):
             )
             lines.append("            frames.append(resp.to_df())")
             lines.append("        return pd.concat(frames, ignore_index=True)")
-    Path("tinyercot/_generated.py").write_text("\n".join(lines))
-    print(f"Generated {len(by_emil)} classes in tinyercot/_generated.py")
+    source = "\n".join(lines)
+    expected = json.loads(PROVENANCE_FILE.read_text())["files"][
+        "tinyercot/_generated.py"
+    ]
+    if hashlib.sha256(source.encode()).hexdigest() != expected:
+        raise GenerationError("Generated output differs from the legacy baseline")
+    return source
+
+
+def main() -> None:
+    """Check or write the frozen legacy source using local inputs only."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true", help="Compare without writing")
+    parser.add_argument("--output", type=Path, default=OUTPUT_FILE)
+    args = parser.parse_args()
+    try:
+        endpoints, tags = parse_openapi()
+        source = generate(endpoints, tags, load_response_fields())
+        if args.check:
+            if args.output.read_bytes() != source.encode():
+                raise GenerationError(f"Output differs: {args.output}")
+            print("Legacy generation matches the pinned baseline")
+        else:
+            args.output.write_bytes(source.encode())
+            print(f"Wrote the verified legacy client to {args.output}")
+    except (GenerationError, OSError) as exc:
+        parser.exit(1, f"Generation failed: {exc}\n")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate tinyercot client")
-    parser.add_argument(
-        "--refresh",
-        action="store_true",
-        help="Re-fetch response fields from ERCOT API (requires credentials)",
-    )
-    parser.add_argument(
-        "--debug",
-        action="store_true",
-        help="Print exceptions when fetching fields",
-    )
-    parser.add_argument(
-        "--cache-products",
-        action="store_true",
-        help="Cache products from ERCOT API",
-    )
-
-    args = parser.parse_args()
-
-    if args.cache_products:
-        cache_products()
-        exit()
-
-    endpoints, tags = parse_openapi()
-    response_fields = load_response_fields(
-        refresh=args.refresh, debug=args.debug
-    )
-    generate(endpoints, tags, response_fields)
+    main()

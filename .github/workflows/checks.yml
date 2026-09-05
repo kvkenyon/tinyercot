@@ -1,0 +1,33 @@
+name: Offline compatibility checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: uv sync --frozen --group dev
+      - run: uv run python tools/generate_client.py --check
+      - run: uv run pytest -q
+      # Keep the byte-frozen runtime and unrelated examples out of formatting.
+      - run: uv run ruff check tools/generate_client.py tinyercot/catalog.py tests
+      - run: uv run ruff format --check tools/generate_client.py tinyercot/catalog.py tests
+      - run: uv build
+      - run: uv export --frozen --no-dev --no-emit-project --output-file /tmp/tinyercot-requirements.txt
+      - run: uv venv /tmp/tinyercot-wheel
+      - run: uv pip sync --python /tmp/tinyercot-wheel/bin/python /tmp/tinyercot-requirements.txt
+      - run: uv pip install --python /tmp/tinyercot-wheel/bin/python --no-deps dist/*.whl
+      - run: /tmp/tinyercot-wheel/bin/python -I tests/wheel_smoke.py

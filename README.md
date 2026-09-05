@@ -1,8 +1,10 @@
 # tinyercot
 
-Fully-typed Python client for the ERCOT Public API.
+Python client with 102 legacy typed ERCOT Public API endpoint families.
 
-**Why tiny?** The entire hand-written codebase is ~420 lines. Everything else is auto-generated from ERCOT's OpenAPI spec.
+Legacy imports, signatures, and behavior stay fixed. Current server compatibility
+is not verified. The opt-in offline catalog describes observed public sources
+and access boundaries; it adds no data retrieval.
 
 ## Install
 
@@ -59,6 +61,7 @@ Async methods automatically rate-limit to 20 req/min with retry on 429:
 import asyncio
 import tinyercot
 
+
 async def main():
     # Async iterator - rate-limited, non-blocking
     async for row in tinyercot.np4_190_cd.dam_stlmnt_pnt_prices_iter_async(
@@ -70,6 +73,7 @@ async def main():
     df = await tinyercot.np4_190_cd.dam_stlmnt_pnt_prices_df_async(
         deliveryDateFrom=date(2025, 12, 29),
     )
+
 
 asyncio.run(main())
 ```
@@ -86,22 +90,42 @@ Every endpoint generates 5 methods:
 | `endpoint_iter_async()` | `AsyncIterator[Row]` | Stream all pages (async, rate-limited) |
 | `endpoint_df_async()` | `DataFrame` | All pages as DataFrame (async, rate-limited) |
 
-## Development
+## Offline public catalog
 
-Create a `.env` file with your credentials, then run IPython with dev deps:
+```python
+from tinyercot.catalog import Access, classify_access, operations, sources
 
-```bash
-uv run --env-file .env --group dev -- ipython
+# No credentials or network requests are needed for this metadata.
+observed = operations(service="public-reports")
+assert len(observed) == 249  # 242 data paths and 7 service operations.
+assert all(op.support == "metadata_only" for op in observed)
+assert classify_access("Certified") is Access.RESTRICTED
+boundaries = sources()
 ```
 
-## Regenerate
+The 2026-09-05 snapshot records 243 public data paths across two APIs.
+It does not claim typed current coverage. Forty paths lack cached row fields;
+all other cached rows remain unverified against current responses.
+Secure, Certified, EWS, private participant records, and customer data are
+restricted and excluded. Public API data requests still need an ERCOT account.
+See [scope, provenance, and adapter boundaries](docs/public-foundation.md).
+
+## Development and legacy generation
+
+Generation uses hash-pinned local inputs. It never fetches an upstream URL.
 
 ```bash
-uv run python tools/generate_client.py
+uv sync --frozen --group dev
+uv run python tools/generate_client.py --check
+uv run pytest -q
+uv run ruff check tools/generate_client.py tinyercot/catalog.py tests
+uv run ruff format --check tools/generate_client.py tinyercot/catalog.py tests
+uv build
 ```
 
-With fresh response field data (requires credentials):
-
-```bash
-uv run --env-file .env python tools/generate_client.py --refresh
-```
+To reproduce the legacy file, run `uv run python tools/generate_client.py`.
+Use `--output /tmp/legacy.py` to write a review copy. Paths do not depend on the
+working directory. `--check` never writes. Missing inputs or changed hashes fail
+before output is written. The former authenticated `--refresh` and
+`--cache-products` developer commands are removed. Metadata refresh and current
+API generation need a separate reviewed tool; neither is part of this milestone.
