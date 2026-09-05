@@ -34,4 +34,9 @@ assert len(catalog.operations()) == 257 and len(catalog.sources()) == 8
 assert len(tinyercot._generated.__all__) == 35
 assert tinyercot.np3_910_er._2d_agg_dsr_loads
 assert tinyercot.np4_190_cd.DamStlmntPntPricesResponse().to_df().columns.empty
-print("Installed-wheel legacy imports and offline catalog passed")
+public = importlib.import_module("tinyercot.public")
+assert len(public.coverage()) == 298
+assert public.Credentials("test", "test", "test")
+with public.WebClient():
+    pass
+print("Installed-wheel legacy imports and opt-in public metadata passed")

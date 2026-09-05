@@ -1,0 +1,82 @@
+{
+  "2010": {
+    "sheet": "Dec_1",
+    "rows": [
+      [
+        "Delivery Date",
+        "Hour Ending",
+        "Repeated Hour Flag",
+        "Settlement Point",
+        "Settlement Point Price"
+      ],
+      [
+        "12/01/2010",
+        "01:00",
+        "N",
+        "HB_BUSAVG",
+        34.7
+      ],
+      [
+        "12/01/2010",
+        "01:00",
+        "N",
+        "HB_HOUSTON",
+        35.33
+      ],
+      [
+        "12/01/2010",
+        "01:00",
+        "N",
+        "HB_HUBAVG",
+        34.64
+      ],
+      [
+        "12/01/2010",
+        "01:00",
+        "N",
+        "HB_NORTH",
+        34.41
+      ]
+    ]
+  },
+  "2026": {
+    "sheet": "Aug",
+    "rows": [
+      [
+        "Delivery Date",
+        "Hour Ending",
+        "Repeated Hour Flag",
+        "Settlement Point",
+        "Settlement Point Price"
+      ],
+      [
+        "08/01/2026",
+        "01:00",
+        "N",
+        "HB_BUSAVG",
+        35.15
+      ],
+      [
+        "08/01/2026",
+        "01:00",
+        "N",
+        "HB_HOUSTON",
+        35.14
+      ],
+      [
+        "08/01/2026",
+        "01:00",
+        "N",
+        "HB_HUBAVG",
+        35.25
+      ],
+      [
+        "08/01/2026",
+        "01:00",
+        "N",
+        "HB_NORTH",
+        35.14
+      ]
+    ]
+  }
+}

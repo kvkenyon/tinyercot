@@ -1,0 +1,778 @@
+{
+  "observed_at": "2026-09-05",
+  "audit_family_sha256": "9e227a6c87560d89975e417d542dd8f974dd179f8dd4490356c5b8e261318bef",
+  "families": [
+    {
+      "key": "family:DAM prices, lambda, constraints",
+      "title": "DAM prices, lambda, constraints",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-183-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-188-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-190-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-191-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-523-cd"
+      ],
+      "product_ids": [
+        "NP4-183-CD",
+        "NP4-188-CD",
+        "NP4-190-CD",
+        "NP4-191-CD",
+        "NP4-523-CD"
+      ]
+    },
+    {
+      "key": "family:RT SCED prices and constraints",
+      "title": "RT SCED prices and constraints",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-787-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-788-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-322-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-86-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-905-cd"
+      ],
+      "product_ids": [
+        "NP6-787-CD",
+        "NP6-788-CD",
+        "NP6-322-CD",
+        "NP6-86-CD",
+        "NP6-905-CD"
+      ]
+    },
+    {
+      "key": "family:Price corrections and investigations",
+      "title": "Price corrections and investigations",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-196-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-197-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-46-an",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-47-an",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-48-an",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-49-an"
+      ],
+      "product_ids": [
+        "NP4-196-M",
+        "NP4-197-M",
+        "NP4-46-AN",
+        "NP4-47-AN",
+        "NP4-48-AN",
+        "NP4-49-AN"
+      ]
+    },
+    {
+      "key": "family:Historical hub/zone and AS price files",
+      "title": "Historical hub/zone and AS price files",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-180-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-785-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-181-er"
+      ],
+      "product_ids": [
+        "NP4-180-ER",
+        "NP6-785-ER",
+        "NP4-181-ER"
+      ]
+    },
+    {
+      "key": "family:RTD indicative prices and capacity prices",
+      "title": "RTD indicative prices and capacity prices",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-970-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-325-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-329-cd"
+      ],
+      "product_ids": [
+        "NP6-970-CD",
+        "NP6-325-CD",
+        "NP6-329-CD"
+      ]
+    },
+    {
+      "key": "family:RTC+B ancillary prices, capability, and SOG",
+      "title": "RTC+B ancillary prices, capability, and SOG",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-323-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-324-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-326-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-327-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-328-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-331-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-332-cd"
+      ],
+      "product_ids": [
+        "NP6-323-CD",
+        "NP6-324-CD",
+        "NP6-326-CD",
+        "NP6-327-CD",
+        "NP6-328-CD",
+        "NP6-331-CD",
+        "NP6-332-CD"
+      ]
+    },
+    {
+      "key": "family:Historical RT adders and RTC+B archives",
+      "title": "Historical RT adders and RTC+B archives",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-792-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-793-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-794-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-795-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-796-er"
+      ],
+      "product_ids": [
+        "NP6-792-ER",
+        "NP6-793-ER",
+        "NP6-794-ER",
+        "NP6-795-ER",
+        "NP6-796-ER"
+      ]
+    },
+    {
+      "key": "family:DAM plans, energy totals, AS offers/demand curves",
+      "title": "DAM plans, energy totals, AS offers/demand curves",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-33-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-19-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-192-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-193-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-212-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-532-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np1-302"
+      ],
+      "product_ids": [
+        "NP4-33-CD",
+        "NP4-19-CD",
+        "NP4-192-CD",
+        "NP4-193-CD",
+        "NP4-212-CD",
+        "NP4-532-CD",
+        "NP1-302"
+      ]
+    },
+    {
+      "key": "family:Legacy total AS offers",
+      "title": "Legacy total AS offers",
+      "status": "unavailable",
+      "scope": "Retired for new publication per ERCOT notice. Last data 2025-12-05 posted 2025-12-04. Current OpenAPI retains path; current EMIL omits product. Preserve import for history.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-179-cd"
+      ],
+      "product_ids": [
+        "NP4-179-CD"
+      ]
+    },
+    {
+      "key": "family:RUC demand curves, deployment factors, constraints",
+      "title": "RUC demand curves, deployment factors, constraints",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-213-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-214-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-215-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np5-525-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np5-526-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np5-527-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np5-528-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np5-520-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np5-753-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np5-754-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np5-755-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np5-108-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-764-cd"
+      ],
+      "product_ids": [
+        "NP4-213-CD",
+        "NP4-214-CD",
+        "NP4-215-CD",
+        "NP5-525-CD",
+        "NP5-526-CD",
+        "NP5-527-CD",
+        "NP5-528-CD",
+        "NP5-520-ER",
+        "NP5-753-CD",
+        "NP5-754-CD",
+        "NP5-755-CD",
+        "NP5-108-CD",
+        "NP3-764-CD"
+      ]
+    },
+    {
+      "key": "family:System and zonal actual load",
+      "title": "System and zonal actual load",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-345-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-346-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-344-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-235-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-55-cd"
+      ],
+      "product_ids": [
+        "NP6-345-CD",
+        "NP6-346-CD",
+        "NP6-344-CD",
+        "NP6-235-CD",
+        "GEN-55-CD"
+      ]
+    },
+    {
+      "key": "family:Load forecasts",
+      "title": "Load forecasts",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-565-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-566-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-560-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-561-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-562-cd"
+      ],
+      "product_ids": [
+        "NP3-565-CD",
+        "NP3-566-CD",
+        "NP3-560-CD",
+        "NP3-561-CD",
+        "NP3-562-CD"
+      ]
+    },
+    {
+      "key": "family:Long hourly-load archive",
+      "title": "Long hourly-load archive",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/gridinfo/load/load_hist"
+      ],
+      "product_ids": [
+        "WEBSITE-LOAD-HISTORY"
+      ]
+    },
+    {
+      "key": "family:Wind and solar actual/forecast series",
+      "title": "Wind and solar actual/forecast series",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-732-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-733-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-737-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-738-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-742-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-743-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-745-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-746-cd"
+      ],
+      "product_ids": [
+        "NP4-732-CD",
+        "NP4-733-CD",
+        "NP4-737-CD",
+        "NP4-738-CD",
+        "NP4-742-CD",
+        "NP4-743-CD",
+        "NP4-745-CD",
+        "NP4-746-CD"
+      ]
+    },
+    {
+      "key": "family:Renewable forecast models and intra-hour forecasts",
+      "title": "Renewable forecast models and intra-hour forecasts",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-442-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-443-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-751-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-752-cd"
+      ],
+      "product_ids": [
+        "NP4-442-CD",
+        "NP4-443-CD",
+        "NP4-751-CD",
+        "NP4-752-CD"
+      ]
+    },
+    {
+      "key": "family:Storage four-second Public Data API",
+      "title": "Storage four-second Public Data API",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://apiexplorer.ercot.com/api-details#api=esrapi-apim-api"
+      ],
+      "product_ids": [
+        "RPTESR-M"
+      ]
+    },
+    {
+      "key": "family:Live storage, fuel mix, and generation outages",
+      "title": "Live storage, fuel mix, and generation outages",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-545-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-544-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-546-ui"
+      ],
+      "product_ids": [
+        "GEN-545-UI",
+        "GEN-544-UI",
+        "GEN-546-UI"
+      ]
+    },
+    {
+      "key": "family:Live grid conditions, reserves, supply and demand",
+      "title": "Live grid conditions, reserves, supply and demand",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-530-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-518-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-506-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-536-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-904-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-906-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-547-ui"
+      ],
+      "product_ids": [
+        "GEN-530-UI",
+        "GEN-518-UI",
+        "GEN-506-UI",
+        "GEN-536-UI",
+        "NP6-904-CD",
+        "NP6-906-UI",
+        "GEN-547-UI"
+      ]
+    },
+    {
+      "key": "family:Live price, weather, combined renewable displays",
+      "title": "Live price, weather, combined renewable displays",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-502-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-523-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-522-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-526-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-540-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-542-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-539-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-537-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-507-ui"
+      ],
+      "product_ids": [
+        "GEN-502-UI",
+        "GEN-523-UI",
+        "GEN-522-UI",
+        "GEN-526-UI",
+        "GEN-540-UI",
+        "GEN-542-UI",
+        "GEN-539-UI",
+        "GEN-537-UI",
+        "GEN-507-UI"
+      ]
+    },
+    {
+      "key": "family:Outage capacity, unplanned outages, adequacy",
+      "title": "Outage capacity, unplanned outages, adequacy",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-233-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np1-346-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-763-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-161-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-162-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=opg-103-er"
+      ],
+      "product_ids": [
+        "NP3-233-CD",
+        "NP1-346-ER",
+        "NP3-763-CD",
+        "NP3-161-CD",
+        "NP3-162-CD",
+        "OPG-103-ER"
+      ]
+    },
+    {
+      "key": "family:DC tie schedules, flows, and state-estimator aggregates",
+      "title": "DC tie schedules, flows, and state-estimator aggregates",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-765-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-626-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-625-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=gen-538-ui"
+      ],
+      "product_ids": [
+        "NP3-765-CD",
+        "NP6-626-CD",
+        "NP6-625-CD",
+        "GEN-538-UI"
+      ]
+    },
+    {
+      "key": "family:2-day dispatch, energy curves, bids and offers",
+      "title": "2-day dispatch, energy curves, bids and offers",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-906-ex",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-907-ex",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-908-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-909-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-910-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-911-er"
+      ],
+      "product_ids": [
+        "NP3-906-EX",
+        "NP3-907-EX",
+        "NP3-908-ER",
+        "NP3-909-ER",
+        "NP3-910-ER",
+        "NP3-911-ER"
+      ]
+    },
+    {
+      "key": "family:3-day and event disclosures",
+      "title": "3-day and event disclosures",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-257-ex",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-914-ex",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-915-ex",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-916-ex",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-987-ex"
+      ],
+      "product_ids": [
+        "NP3-257-EX",
+        "NP3-914-EX",
+        "NP3-915-EX",
+        "NP3-916-EX",
+        "NP3-987-EX"
+      ]
+    },
+    {
+      "key": "family:60-day SCED and DAM disclosures, including ESR",
+      "title": "60-day SCED and DAM disclosures, including ESR",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-965-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-966-er"
+      ],
+      "product_ids": [
+        "NP3-965-ER",
+        "NP3-966-ER"
+      ]
+    },
+    {
+      "key": "family:COP snapshot and all updates",
+      "title": "COP snapshot and all updates",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np1-301",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-991-ex"
+      ],
+      "product_ids": [
+        "NP1-301",
+        "NP3-991-EX"
+      ]
+    },
+    {
+      "key": "family:Legacy SASM disclosures",
+      "title": "Legacy SASM disclosures",
+      "status": "unavailable",
+      "scope": "Four generated endpoints persist in current OpenAPI. New publication ended: final 2025-12-04 operating data posted 2026-02-03. EMIL still Active. Preserve history and imports.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-990-ex"
+      ],
+      "product_ids": [
+        "NP3-990-EX"
+      ]
+    },
+    {
+      "key": "family:Settlement-point and electrical-bus mapping",
+      "title": "Settlement-point and electrical-bus mapping",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-160-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-158-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-200-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-231-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-159-cd"
+      ],
+      "product_ids": [
+        "NP4-160-SG",
+        "NP4-158-SG",
+        "NP4-200-CD",
+        "NP4-231-CD",
+        "NP4-159-CD"
+      ]
+    },
+    {
+      "key": "family:Public CRR auctions, ownership, and PTP results",
+      "title": "Public CRR auctions, ownership, and PTP results",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np7-802-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np7-803-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np7-535-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np7-536-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np7-157-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np7-464-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-194-cd"
+      ],
+      "product_ids": [
+        "NP7-802-M",
+        "NP7-803-M",
+        "NP7-535-SG",
+        "NP7-536-SG",
+        "NP7-157-SG",
+        "NP7-464-CD",
+        "NP4-194-CD"
+      ]
+    },
+    {
+      "key": "family:Scarcity, fuel cost, demand response, and integration reports",
+      "title": "Scarcity, fuel cost, demand response, and integration reports",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-790-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-791-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-412-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-494-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-107",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-108",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-109",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-110",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-760-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-765-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=eia-930-er"
+      ],
+      "product_ids": [
+        "NP4-790-CD",
+        "NP4-791-CD",
+        "NP4-412-CD",
+        "NP4-494-ER",
+        "NP3-107",
+        "NP3-108",
+        "NP3-109",
+        "NP3-110",
+        "NP4-760-ER",
+        "NP4-765-ER",
+        "EIA-930-ER"
+      ]
+    },
+    {
+      "key": "family:Load profiles, loss factors, and settlement aggregates",
+      "title": "Load profiles, loss factors, and settlement aggregates",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=zp18-68-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=zp18-67-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=zp18-265-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np13-9-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np13-14-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np13-262-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np13-268-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np9-598",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np1-300",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=coms-770-sg"
+      ],
+      "product_ids": [
+        "ZP18-68-M",
+        "ZP18-67-M",
+        "ZP18-265-SG",
+        "NP13-9-SG",
+        "NP13-14-SG",
+        "NP13-262-SG",
+        "NP13-268-SG",
+        "NP9-598",
+        "NP1-300",
+        "COMS-770-SG"
+      ]
+    },
+    {
+      "key": "family:Adequacy, planning, CDR, MORA and SARA history",
+      "title": "Adequacy, planning, CDR, MORA and SARA history",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-774-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-784-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-773-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-240-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=pg7-048-m",
+        "https://www.ercot.com/gridinfo/resource"
+      ],
+      "product_ids": [
+        "NP3-774-M",
+        "NP3-784-M",
+        "NP3-773-M",
+        "NP3-240-M",
+        "PG7-048-M"
+      ]
+    },
+    {
+      "key": "family:Interconnection, resource lists and DG reports",
+      "title": "Interconnection, resource lists and DG reports",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=pg7-201-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-988-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np16-533-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-823-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np12-215-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np16-474-m",
+        "https://www.ercot.com/gridinfo/resource"
+      ],
+      "product_ids": [
+        "PG7-201-ER",
+        "NP3-988-ER",
+        "NP16-533-M",
+        "NP3-823-M",
+        "NP12-215-ER",
+        "NP16-474-M"
+      ]
+    },
+    {
+      "key": "family:Frequency events and public notices",
+      "title": "Frequency events and public notices",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np12-261-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np12-265-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-87-an",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=opg-453-an",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=opg-158",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=zp4-405-m",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-50-an",
+        "https://www.ercot.com/services/comm/mkt_notices"
+      ],
+      "product_ids": [
+        "NP12-261-M",
+        "NP12-265-M",
+        "NP6-87-AN",
+        "OPG-453-AN",
+        "OPG-158",
+        "ZP4-405-M",
+        "NP4-50-AN"
+      ]
+    },
+    {
+      "key": "family:Weather archive contractual boundary",
+      "title": "Weather archive contractual boundary",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-722-cd",
+        "https://www.ercot.com/mktinfo/loadprofile"
+      ],
+      "product_ids": [
+        "WEBSITE-WEATHER-1996-2000",
+        "NP4-722-CD"
+      ]
+    },
+    {
+      "key": "family:Unavailable hourly-load year",
+      "title": "Unavailable hourly-load year",
+      "status": "unavailable",
+      "scope": "ERCOT explicitly states no 2001 hourly load data available. Do not interpolate and label it authoritative recovered history.",
+      "source_urls": [
+        "https://www.ercot.com/gridinfo/load/load_hist"
+      ],
+      "product_ids": [
+        "WEBSITE-LOAD-2001"
+      ]
+    },
+    {
+      "key": "family:Certified participant settlements and retail usage",
+      "title": "Certified participant settlements and retail usage",
+      "status": "restricted",
+      "scope": "Excluded from public retrieval.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np9-170-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np9-566-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=zp12-245",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=coms-448"
+      ],
+      "product_ids": [
+        "NP9-170-SG",
+        "NP9-566-SG",
+        "ZP12-245",
+        "COMS-448"
+      ]
+    },
+    {
+      "key": "family:Secure models, network ratings and ECEII",
+      "title": "Secure models, network ratings and ECEII",
+      "status": "restricted",
+      "scope": "Excluded from public retrieval.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-500-sg",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np6-216-er",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-217-cd",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np3-459-sg"
+      ],
+      "product_ids": [
+        "NP4-500-SG",
+        "NP6-216-ER",
+        "NP3-217-CD",
+        "NP3-459-SG"
+      ]
+    },
+    {
+      "key": "family:Participant EWS, telemetry, private bids/COP/awards",
+      "title": "Participant EWS, telemetry, private bids/COP/awards",
+      "status": "restricted",
+      "scope": "Excluded from public retrieval.",
+      "source_urls": [
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-302-ui",
+        "https://www.ercot.com/mp/data-products/data-product-details?id=np4-303-ui",
+        "https://developer.ercot.com/applications/ews/ews/"
+      ],
+      "product_ids": [
+        "NP4-302-UI",
+        "NP4-303-UI"
+      ]
+    },
+    {
+      "key": "family:Zonal-era and other old public collections",
+      "title": "Zonal-era and other old public collections",
+      "status": "deferred",
+      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "source_urls": [
+        "https://www.ercot.com/mktrules"
+      ],
+      "product_ids": [
+        "WEBSITE-ZONAL-ARCHIVES"
+      ]
+    }
+  ]
+}

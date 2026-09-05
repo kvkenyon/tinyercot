@@ -50,7 +50,7 @@ def classify_access(security_classification: str | None) -> Access:
 
 @dataclass(frozen=True)
 class Operation:
-    """An observed API operation with no current retrieval implementation.
+    """An observed API operation in the immutable Stage-0 metadata snapshot.
 
     Attributes:
         service: ERCOT route namespace: public-reports or public-data (ESR).
@@ -66,7 +66,8 @@ class Operation:
         source_url: Public OpenAPI export used for this observation.
         observed_at: Audit date; not a data publication or availability date.
         access: Public source classification; API authentication is still needed.
-        support: Metadata only. Typed and raw current retrieval are unsupported.
+        support: Metadata only. See tinyercot.public.coverage for opt-in
+            retrieval support.
     """
 
     service: str
@@ -92,8 +93,8 @@ def operations(*, service: str | None = None) -> tuple[Operation, ...]:
             An unknown namespace returns an empty tuple.
 
     Returns:
-        Immutable observations from 2026-09-05. All current retrieval remains
-        unsupported, including paths that have a legacy method or cached fields.
+        Immutable Stage-0 observations from 2026-09-05. These records do not
+        establish retrieval support. See tinyercot.public.coverage for that.
     """
     snapshot = json.loads(files("tinyercot").joinpath("_catalog.json").read_text())
     return tuple(

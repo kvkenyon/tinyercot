@@ -24,6 +24,11 @@ Homepage = "https://github.com/kvkenyon/tinyercot"
 Repository = "https://github.com/kvkenyon/tinyercot"
 Issues = "https://github.com/kvkenyon/tinyercot/issues"
 
+[project.optional-dependencies]
+files = [
+    "openpyxl>=3.1.5",
+]
+
 [dependency-groups]
 dev = [
     "ipython>=9.8.0",
@@ -42,3 +47,4 @@ pythonpath = [".", "tests"]
 
 [tool.setuptools.package-data]
 tinyercot = ["_catalog.json"]
+"tinyercot.public" = ["_coverage.json"]

@@ -1,0 +1,7 @@
+{
+  "format_version": 1,
+  "inputs": {
+    "dam-prices.json": "7b0a79a756ecfafb3f1d72d5c244b9ce06fdcba40d99f10ab05cd08a341e6bc4",
+    "dam-capacity.json": "46b3352eb03262a48d47ca499b5a2a7a96bdbb9ba1c769108428b0018f884969"
+  }
+}

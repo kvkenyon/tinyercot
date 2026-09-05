@@ -32,3 +32,6 @@ tests/cassettes/*.yaml
 
 # claude
 .remember/
+
+# Local bounded retrieval evidence
+.local-evidence/

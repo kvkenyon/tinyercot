@@ -19,12 +19,13 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with:
           python-version: ${{ matrix.python }}
-      - run: uv sync --frozen --group dev
+      - run: uv sync --frozen --group dev --extra files
       - run: uv run python tools/generate_client.py --check
-      - run: uv run pytest -q
+      - run: uv run python tools/generate_public.py --check
+      - run: uv run --extra files pytest -q
       # Keep the byte-frozen runtime and unrelated examples out of formatting.
-      - run: uv run ruff check tools/generate_client.py tinyercot/catalog.py tests
-      - run: uv run ruff format --check tools/generate_client.py tinyercot/catalog.py tests
+      - run: uv run ruff check tools/generate_client.py tools/generate_public.py tools/probe_public.py tinyercot/catalog.py tinyercot/public tests
+      - run: uv run ruff format --check tools/generate_client.py tools/generate_public.py tools/probe_public.py tinyercot/catalog.py tinyercot/public tests
       - run: uv build
       - run: uv export --frozen --no-dev --no-emit-project --output-file /tmp/tinyercot-requirements.txt
       - run: uv venv /tmp/tinyercot-wheel

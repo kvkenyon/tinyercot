@@ -1,0 +1,85 @@
+{
+  "lastUpdated": "2026-09-05 15:26:01-0500",
+  "previousDay": {
+    "dayDate": "2026-09-04 03:00:00-0500",
+    "data": [
+      {
+        "tagCLastTime": "2026-09-04 00:00:00",
+        "dstFlag": "N",
+        "totalCharging": -1258.227,
+        "totalDischarging": 32.117,
+        "netOutput": -1226.11,
+        "timestamp": "2026-09-04 00:00:00-0500",
+        "epoch": 1788498000000
+      },
+      {
+        "tagCLastTime": "2026-09-04 00:05:00",
+        "dstFlag": "N",
+        "totalCharging": -1304.835,
+        "totalDischarging": 35.149,
+        "netOutput": -1269.687,
+        "timestamp": "2026-09-04 00:05:00-0500",
+        "epoch": 1788498300000
+      },
+      {
+        "tagCLastTime": "2026-09-04 23:50:00",
+        "dstFlag": "N",
+        "totalCharging": -342.519,
+        "totalDischarging": 1066.38,
+        "netOutput": 723.901,
+        "timestamp": "2026-09-04 23:50:00-0500",
+        "epoch": 1788583800000
+      },
+      {
+        "tagCLastTime": "2026-09-04 23:55:00",
+        "dstFlag": "N",
+        "totalCharging": -322.159,
+        "totalDischarging": 902.39,
+        "netOutput": 580.231,
+        "timestamp": "2026-09-04 23:55:00-0500",
+        "epoch": 1788584100000
+      }
+    ]
+  },
+  "currentDay": {
+    "dayDate": "2026-09-05 03:00:00-0500",
+    "data": [
+      {
+        "tagCLastTime": "2026-09-05 00:00:00",
+        "dstFlag": "N",
+        "totalCharging": -354.183,
+        "totalDischarging": 813.958,
+        "netOutput": 459.775,
+        "timestamp": "2026-09-05 00:00:00-0500",
+        "epoch": 1788584400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 00:05:00",
+        "dstFlag": "N",
+        "totalCharging": -276.922,
+        "totalDischarging": 721.049,
+        "netOutput": 444.127,
+        "timestamp": "2026-09-05 00:05:00-0500",
+        "epoch": 1788584700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:20:00",
+        "dstFlag": "N",
+        "totalCharging": -405.779,
+        "totalDischarging": 143.732,
+        "netOutput": -262.047,
+        "timestamp": "2026-09-05 15:20:00-0500",
+        "epoch": 1788639600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:25:00",
+        "dstFlag": "N",
+        "totalCharging": -388.095,
+        "totalDischarging": 132.303,
+        "netOutput": -255.791,
+        "timestamp": "2026-09-05 15:25:00-0500",
+        "epoch": 1788639900000
+      }
+    ]
+  }
+}

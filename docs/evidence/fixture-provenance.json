@@ -1,0 +1,171 @@
+{
+  "fixtures": [
+    {
+      "fixture": "capacity-current.json",
+      "sha256": "3fa8d075dadb0baf6cb0b4656ec87e887a7c85c6d96ab2923dc3e42bd8373251",
+      "transformation": "Exact public response bytes.",
+      "source": {
+        "source_url": "https://api.ercot.com/api/public-reports/np4-188-cd/dam_clear_price_for_cap?deliveryDateFrom=2026-09-04&deliveryDateTo=2026-09-04&ancillaryType=REGUP&size=2&page=1&sort=deliveryDate&dir=desc",
+        "retrieved_at": "2026-09-05 20:54:00.360875+00:00",
+        "sha256": "3fa8d075dadb0baf6cb0b4656ec87e887a7c85c6d96ab2923dc3e42bd8373251",
+        "byte_count": 1336,
+        "status": 200
+      }
+    },
+    {
+      "fixture": "capacity-oldest.json",
+      "sha256": "ed8731e3b8bb8e9c682403f11b0722f6c61f935d5a1ce23dac219b164623f855",
+      "transformation": "Exact public response bytes.",
+      "source": {
+        "source_url": "https://api.ercot.com/api/public-reports/np4-188-cd/dam_clear_price_for_cap?ancillaryType=REGUP&size=1&page=1&sort=deliveryDate&dir=asc",
+        "retrieved_at": "2026-09-05 20:54:03.804946+00:00",
+        "sha256": "ed8731e3b8bb8e9c682403f11b0722f6c61f935d5a1ce23dac219b164623f855",
+        "byte_count": 1237,
+        "status": 200
+      }
+    },
+    {
+      "fixture": "annual-cells.json",
+      "sha256": "3be74d1ea482d14e14318431a68e9a52433296be07ecc79fe5171732156bee70",
+      "transformation": "Header and first four rows from 2010 Dec_1 and 2026 Aug; tests construct small XLSX archives from these observed cells.",
+      "sources": [
+        {
+          "source_url": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=283205860&reportTypeId=13060",
+          "retrieved_at": "2026-09-05T20:29:36.736580+00:00",
+          "bytes": 241081,
+          "sha256": "aca9db5d9dbb124ec7a5afcf13d245b7f984c93958d7e81a9b86a9008f695312",
+          "status": 200,
+          "document_id": "283205860",
+          "report_type_id": "13060",
+          "source_published_at": "2013-03-01T13:17:18-05:00",
+          "friendly_name": "DAMLZHBSPP_2010",
+          "members": [
+            {
+              "name": "rpt.00013060.0000000000000000.DAMLZHBSPP_2010.xlsx",
+              "bytes": 291305
+            }
+          ]
+        },
+        {
+          "source_url": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=1268441709&reportTypeId=13060",
+          "retrieved_at": "2026-09-05T20:29:39.667899+00:00",
+          "bytes": 1356199,
+          "sha256": "6ca3b9751f3868b00bc8b48e9fef66350cf090170b23fff9a747a26923486a34",
+          "status": 200,
+          "document_id": "1268441709",
+          "report_type_id": "13060",
+          "source_published_at": "2026-08-30T08:02:17-05:00",
+          "friendly_name": "DAMLZHBSPP_2026",
+          "members": [
+            {
+              "name": "rpt.00013060.0000000000000000.DAMLZHBSPP_2026.xlsx",
+              "bytes": 1950568
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixture": "dam-annual-list.json",
+      "sha256": "43495cb7a429a314c43a97121aae818c30d688651a19af6f077e0a6ad47d7091",
+      "source": {
+        "source_url": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=13060",
+        "retrieved_at": "2026-09-05T20:27:20.742164+00:00",
+        "status": 200,
+        "bytes": 7797,
+        "sha256": "43495cb7a429a314c43a97121aae818c30d688651a19af6f077e0a6ad47d7091",
+        "content_type": null,
+        "http_last_modified": null
+      },
+      "transformation": "Exact public response bytes."
+    },
+    {
+      "fixture": "dam-current-page1.json",
+      "sha256": "dc70cef89b0d7ce0fb53a6441f8d5bdd0f79b5d60fff6125253046017cf37d18",
+      "source": {
+        "source_url": "https://api.ercot.com/api/public-reports/np4-190-cd/dam_stlmnt_pnt_prices",
+        "query": {
+          "deliveryDateFrom": "2026-09-04",
+          "deliveryDateTo": "2026-09-04",
+          "settlementPoint": "HB_HOUSTON",
+          "size": 2,
+          "page": 1,
+          "sort": "deliveryDate",
+          "dir": "desc"
+        },
+        "retrieved_at": "2026-09-05T20:28:34.745619+00:00",
+        "bytes": 1384,
+        "sha256": "dc70cef89b0d7ce0fb53a6441f8d5bdd0f79b5d60fff6125253046017cf37d18",
+        "status": 200
+      },
+      "transformation": "Exact public response bytes."
+    },
+    {
+      "fixture": "dam-current-page2.json",
+      "sha256": "62e38531d8bf6a2e8ab858f0dd005982c4a145e229a6197188386731f905efa9",
+      "source": {
+        "source_url": "https://api.ercot.com/api/public-reports/np4-190-cd/dam_stlmnt_pnt_prices",
+        "query": {
+          "deliveryDateFrom": "2026-09-04",
+          "deliveryDateTo": "2026-09-04",
+          "settlementPoint": "HB_HOUSTON",
+          "size": 2,
+          "page": 2,
+          "sort": "deliveryDate",
+          "dir": "desc"
+        },
+        "retrieved_at": "2026-09-05T20:28:36.897114+00:00",
+        "bytes": 1384,
+        "sha256": "62e38531d8bf6a2e8ab858f0dd005982c4a145e229a6197188386731f905efa9",
+        "status": 200
+      },
+      "transformation": "Exact public response bytes."
+    },
+    {
+      "fixture": "dam-oldest.json",
+      "sha256": "c887c6583e05dede55a538e49f1d19136d6b733df1542eaf87f7b24672357ef6",
+      "source": {
+        "source_url": "https://api.ercot.com/api/public-reports/np4-190-cd/dam_stlmnt_pnt_prices",
+        "query": {
+          "settlementPoint": "HB_HOUSTON",
+          "size": 1,
+          "page": 1,
+          "sort": "deliveryDate",
+          "dir": "asc"
+        },
+        "retrieved_at": "2026-09-05T20:28:42.357641+00:00",
+        "bytes": 1279,
+        "sha256": "c887c6583e05dede55a538e49f1d19136d6b733df1542eaf87f7b24672357ef6",
+        "status": 200
+      },
+      "transformation": "Exact public response bytes."
+    },
+    {
+      "fixture": "dam-product.json",
+      "sha256": "39af5e785f5d8da682d2552a1c5aab34b6d8a129f0396536d2257be9527eef74",
+      "source": {
+        "source_url": "https://api.ercot.com/api/public-reports/np4-190-cd",
+        "query": {},
+        "retrieved_at": "2026-09-05T20:28:32.451913+00:00",
+        "bytes": 1372,
+        "sha256": "39af5e785f5d8da682d2552a1c5aab34b6d8a129f0396536d2257be9527eef74",
+        "status": 200
+      },
+      "transformation": "Exact public response bytes."
+    },
+    {
+      "fixture": "esr-live.json",
+      "sha256": "04d60f3488471982e2190123f0be5998c6bd0acbb00e74a5304d7b28a577c007",
+      "source": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/energy-storage-resources.json",
+        "retrieved_at": "2026-09-05T20:27:20.661195+00:00",
+        "status": 200,
+        "bytes": 88668,
+        "sha256": "51095e4a3a63915ea4d73ee77831461d8e5da20f866fadece1f5c23a80b23633",
+        "content_type": "application/json",
+        "http_last_modified": null
+      },
+      "transformation": "First two and last two rows from each source day; source timestamps preserved."
+    }
+  ]
+}
