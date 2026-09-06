@@ -1,0 +1,226 @@
+{
+  "operation": {
+    "id": "getData",
+    "method": "GET",
+    "urlTemplate": "/rptesr-m/4_sec_esr_charging_mw",
+    "description": "Energy Storage Resource Four Second Data",
+    "query": [
+      {
+        "name": "AGCExecTimeFrom",
+        "type": "string",
+        "description": "Format - yyyy-MM-ddTH24:mm:ss."
+      },
+      {
+        "name": "AGCExecTimeTo",
+        "type": "string",
+        "description": "Format - yyyy-MM-ddTH24:mm:ss."
+      },
+      {
+        "name": "DSTFlag",
+        "type": "boolean",
+        "description": "Format - true | false."
+      },
+      {
+        "name": "AGCExecTimeUTCFrom",
+        "type": "string",
+        "description": "Format - yyyy-MM-ddTH24:mm:ss."
+      },
+      {
+        "name": "AGCExecTimeUTCTo",
+        "type": "string",
+        "description": "Format - yyyy-MM-ddTH24:mm:ss."
+      },
+      {
+        "name": "systemDemandFrom",
+        "type": "number",
+        "description": "Format - ####.###."
+      },
+      {
+        "name": "systemDemandTo",
+        "type": "number",
+        "description": "Format - ####.###."
+      },
+      {
+        "name": "ESRChargingMWFrom",
+        "type": "number",
+        "description": "Format - ####.###."
+      },
+      {
+        "name": "ESRChargingMWTo",
+        "type": "number",
+        "description": "Format - ####.###."
+      },
+      {
+        "name": "page",
+        "type": "integer",
+        "description": "Format - ###. Page number of returned values in the collection."
+      },
+      {
+        "name": "size",
+        "type": "integer",
+        "description": "Format - ###. Number of returned items per page."
+      },
+      {
+        "name": "sort",
+        "type": "string",
+        "description": "Format - abc123. Single or comma separated list of fields by which to sort the returned resource values. The default sort order for each field is ascending, but can be changed to descending by adding a '-' (minus) suffix to the field name."
+      },
+      {
+        "name": "dir",
+        "type": "string",
+        "description": "Format - abc123. Defines sort order of returned values based on a single field specified by the 'sort' parameter, or the primary business key of the resource if no sort field is specified. Valid values are 'asc' and 'desc'"
+      }
+    ],
+    "request_media": [],
+    "responses": [
+      {
+        "status": 200,
+        "media": [
+          "application/json"
+        ]
+      },
+      {
+        "status": 400,
+        "media": [
+          "application/json"
+        ]
+      },
+      {
+        "status": 403,
+        "media": [
+          "application/json"
+        ]
+      },
+      {
+        "status": 404,
+        "media": [
+          "application/json"
+        ]
+      }
+    ],
+    "receipt": {
+      "source_url": "https://apiexplorer.ercot.com/developer/apis/esrapi-apim-api/operations/getData?api-version=2022-04-01-preview",
+      "retrieved_at": "2026-09-06T01:24:20.079818+00:00",
+      "status": 200,
+      "byte_count": 5463,
+      "sha256": "94bd075d4914a8329d6c0ffb6dc03605ffa4f5c55b30c5ca52d8b3eb30569de1"
+    }
+  },
+  "schemas": {
+    "Report": {
+      "properties": {
+        "_meta": {
+          "$ref": "#/components/schemas/ResultMetadata"
+        },
+        "report": {
+          "$ref": "#/components/schemas/ReportMetadata"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Field"
+          }
+        },
+        "data": {
+          "type": "object"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Link"
+          }
+        }
+      },
+      "description": "Represents report data search results from any artifact report query."
+    },
+    "Field": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "cardinality": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dataType": {
+          "enum": [
+            "BOOLEAN",
+            "VARCHAR",
+            "INTEGER",
+            "LONG",
+            "DOUBLE",
+            "DATE",
+            "DATETIME",
+            "TIME"
+          ],
+          "type": "string"
+        },
+        "searchable": {
+          "type": "boolean"
+        },
+        "sortable": {
+          "type": "boolean"
+        },
+        "hasRange": {
+          "type": "boolean"
+        }
+      },
+      "description": "Represents report data field."
+    },
+    "ReportMetadata": {
+      "properties": {
+        "reportProductId": {
+          "type": "string"
+        },
+        "reportName": {
+          "type": "string"
+        },
+        "reportDisplayName": {
+          "type": "string"
+        },
+        "reportId": {
+          "type": "string"
+        },
+        "downloadLimit": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "description": "Represents general metadata for the specified report artifact, including the parent Data Product identifier."
+    },
+    "ResultMetadata": {
+      "properties": {
+        "totalRecords": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "currentPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "query": {
+          "$ref": "#/components/schemas/QueryMetadata"
+        }
+      },
+      "description": "Represents record and paging summary for the specified query results."
+    }
+  },
+  "schema_receipt": {
+    "source_url": "https://apiexplorer.ercot.com/developer/apis/esrapi-apim-api/schemas/6838a2f0ea971914cc572cd3?api-version=2022-04-01-preview",
+    "retrieved_at": "2026-09-06T01:28:51.075469+00:00",
+    "status": 200,
+    "byte_count": 8403,
+    "sha256": "80a535738b9e8ece59c36027cdb51251b20a3034a1195af0bc1dbca6182633c8"
+  }
+}

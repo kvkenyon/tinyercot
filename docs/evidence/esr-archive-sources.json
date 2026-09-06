@@ -1,0 +1,161 @@
+{
+  "source_scope": "Primary ERCOT public documentation only",
+  "retrieval_policy": "One GET per listed source URL; no restricted URLs or subscription-key query parameters",
+  "receipts": [
+    {
+      "local_source_identity": "archive-guide",
+      "receipt": {
+        "source_url": "https://developer.ercot.com/applications/pubapi/user-guide/using-api/",
+        "retrieved_at": "2026-09-06T01:23:55.467268+00:00",
+        "status": 200,
+        "byte_count": 129217,
+        "sha256": "9e412546019e580c8517845c894de0bab4ee86b23bd2023a1ce8239ddd72dcb5"
+      }
+    },
+    {
+      "local_source_identity": "archive-schema",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api/schemas/6a90e81cb9a2561f7875661e?api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:35:07.009742+00:00",
+        "status": 200,
+        "byte_count": 709341,
+        "sha256": "e4fef3f8022efc391e3d3a51fcafff41e74cc68f8a569f4d779f954c8352cb94"
+      }
+    },
+    {
+      "local_source_identity": "esr-operations",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/esrapi-apim-api/operations?api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:23:55.335639+00:00",
+        "status": 200,
+        "byte_count": 2055,
+        "sha256": "14e7ef9e13ea47f420bac8919273e59578ad4c02147dda69d2b1a27e6b31430a"
+      }
+    },
+    {
+      "local_source_identity": "esr-schema",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/esrapi-apim-api/schemas/6838a2f0ea971914cc572cd3?api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:28:51.075469+00:00",
+        "status": 200,
+        "byte_count": 8403,
+        "sha256": "80a535738b9e8ece59c36027cdb51251b20a3034a1195af0bc1dbca6182633c8"
+      }
+    },
+    {
+      "local_source_identity": "esrapi-export",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/esrapi-apim-api?export=true&format=openapi&api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:23:16.035225+00:00",
+        "status": 200,
+        "byte_count": 522,
+        "sha256": "2b3f0f2f5461f4614f402eb25f6e00617020fc4fa8221baf8940b8f4801dbb0c"
+      }
+    },
+    {
+      "local_source_identity": "esrapi-full",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/esrapi-apim-api?export=true&format=openapi+json&api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:23:35.808536+00:00",
+        "status": 200,
+        "byte_count": 983,
+        "sha256": "ae77fa88c9bf8bc997186c2f384f60d845f8c722ff9e4cb6fd465aff7a3aee68"
+      }
+    },
+    {
+      "local_source_identity": "esrapi-getData",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/esrapi-apim-api/operations/getData?api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:24:20.079818+00:00",
+        "status": 200,
+        "byte_count": 5463,
+        "sha256": "94bd075d4914a8329d6c0ffb6dc03605ffa4f5c55b30c5ca52d8b3eb30569de1"
+      }
+    },
+    {
+      "local_source_identity": "esrapi",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/esrapi-apim-api?export=true&api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:22:46.199197+00:00",
+        "status": 200,
+        "byte_count": 983,
+        "sha256": "ae77fa88c9bf8bc997186c2f384f60d845f8c722ff9e4cb6fd465aff7a3aee68"
+      }
+    },
+    {
+      "local_source_identity": "pubapi-export",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&format=openapi&api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:23:16.209077+00:00",
+        "status": 200,
+        "byte_count": 547,
+        "sha256": "8e36db5d54e42555349121bbb3e42db54339300e562442fae05bbbbe7a9b6de4"
+      }
+    },
+    {
+      "local_source_identity": "pubapi-full",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&format=openapi+json&api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:23:36.003359+00:00",
+        "status": 200,
+        "byte_count": 1028,
+        "sha256": "4f47536b67ffe5f45e807480a8b10077fcaa7651a7ec974c3345297cdfe80f50"
+      }
+    },
+    {
+      "local_source_identity": "pubapi-getProductArchives",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api/operations/getProductArchives?api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:24:20.434362+00:00",
+        "status": 200,
+        "byte_count": 2505,
+        "sha256": "a4d39f2fbd8708decc47c6bba1e87e0f6ac16ba4e62902cd317a57b40fd3f000"
+      }
+    },
+    {
+      "local_source_identity": "pubapi-getProductBundle",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api/operations/getProductBundle?api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:24:20.540151+00:00",
+        "status": 200,
+        "byte_count": 2487,
+        "sha256": "842d46909c9a2a326c1177b0b4c0752d3068b1477d01e3fef9d5e19f4d4cd4be"
+      }
+    },
+    {
+      "local_source_identity": "pubapi-getProductHistory",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api/operations/getProductHistory?api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:24:20.199177+00:00",
+        "status": 200,
+        "byte_count": 3106,
+        "sha256": "8a50c478aae63a61070350417b9605d0c662ea8e211f2c02e1ee053b4e87969e"
+      }
+    },
+    {
+      "local_source_identity": "pubapi-getProductHistoryBundles",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api/operations/getProductHistoryBundles?api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:24:20.297200+00:00",
+        "status": 200,
+        "byte_count": 3132,
+        "sha256": "a515bdb92a45889782f1d415d0b030322d105d5d4cce871059dd6e95e976485d"
+      }
+    },
+    {
+      "local_source_identity": "pubapi",
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:22:46.363046+00:00",
+        "status": 200,
+        "byte_count": 1028,
+        "sha256": "4f47536b67ffe5f45e807480a8b10077fcaa7651a7ec974c3345297cdfe80f50"
+      }
+    }
+  ],
+  "schema_findings": {
+    "esr": "getData documents GET /rptesr-m/4_sec_esr_charging_mw. Report.data is generic object. Field has no concrete names. Row schema remains unknown.",
+    "archive": "Four operation documents specify GET listings with no query parameters and POST application/json docIds arrays returning application/zip. ArchiveRequest.docIds is an array of int64; no positive minimum is declared.",
+    "export": "The export=true URL returned API configuration, not OpenAPI paths. format=openapi returned paths: {}. Direct public operation and schema documents provided the retained contracts."
+  }
+}

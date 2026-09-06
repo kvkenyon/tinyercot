@@ -1,0 +1,1761 @@
+{
+  "primary_run": {
+    "installed_module": "/private/tmp/tinyercot-esr-archive-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+    "checks": [
+      {
+        "operation": "GET ESR current size=1",
+        "outcome": "AuthenticationError",
+        "reason": "Public API authentication failed",
+        "exchanges": [
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-data/rptesr-m/4_sec_esr_charging_mw?page=1&size=1&sort=AGCExecTime&dir=desc",
+              "retrieved_at": "2026-09-06 01:35:56.178050+00:00",
+              "sha256": "f5ca18fbac30a6080c8d590062d1e5b3d0c7f507df2b141503e896b02949f920",
+              "byte_count": 143,
+              "status": 401
+            },
+            "method": "GET",
+            "content_type": "application/json",
+            "complete": true,
+            "document_ids": []
+          }
+        ]
+      },
+      {
+        "operation": "GET public product root",
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/",
+          "retrieved_at": "2026-09-06 01:35:58.389946+00:00",
+          "sha256": "1f67b1c4c7e6d51d1814c6ce15112756f9a3320b85d46bcd0d5867e9d4f255ec",
+          "byte_count": 204591,
+          "status": 200
+        },
+        "products": [
+          {
+            "id": "COPG-316",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "EIA-930-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "EIA-930-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "GEN-55-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP1-300",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP1-301",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP1-302",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP1-346-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-108",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-161-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-162-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-233-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-257-EX",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-560-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-561-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-562-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-565-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-566-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-763-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-764-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-765-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-906-EX",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-907-EX",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-908-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-909-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-910-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-911-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-914-EX",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-915-EX",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-916-EX",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-965-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-966-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-987-EX",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-988-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-990-EX",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP3-991-EX",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-158-SG",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-159-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-179-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-183-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-188-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-190-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-191-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-192-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-193-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-194-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-196-M",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-197-M",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-19-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-200-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-212-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-213-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-214-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-215-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-231-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-33-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-412-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-442-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-443-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-494-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-523-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-532-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-722-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-732-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-733-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-737-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-738-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-742-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-743-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-745-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-746-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-751-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-752-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-765-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-790-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP4-791-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP5-108-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP5-520-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP5-525-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP5-526-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP5-527-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP5-528-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP5-754-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP5-755-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-235-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-322-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-323-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-324-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-325-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-326-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-327-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-328-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-329-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-331-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-332-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-344-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-345-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-346-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-569-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-625-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-626-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-655-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-787-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-788-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-792-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-793-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-794-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-795-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-796-ER",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-86-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-905-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-913-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-915-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP6-970-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP7-464-CD",
+            "access": "public",
+            "status": "Active",
+            "content_type": "DATA",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          },
+          {
+            "id": "NP7-535-SG",
+            "access": "public",
+            "status": "Active",
+            "content_type": "BINARY",
+            "row_schema": "not_assessed",
+            "file_access": "outstanding"
+          }
+        ],
+        "outcome": "supported",
+        "exchanges": [
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/",
+              "retrieved_at": "2026-09-06 01:35:58.389946+00:00",
+              "sha256": "1f67b1c4c7e6d51d1814c6ce15112756f9a3320b85d46bcd0d5867e9d4f255ec",
+              "byte_count": 204591,
+              "status": 200
+            },
+            "method": "GET",
+            "content_type": "application/json",
+            "complete": true,
+            "document_ids": []
+          }
+        ]
+      },
+      {
+        "operation": "GET archive/NP3-988-ER",
+        "product_id": "NP3-988-ER",
+        "lifecycle": "active",
+        "documents": 278,
+        "total_records": 278,
+        "page_size": 1000,
+        "total_pages": 1,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er",
+          "retrieved_at": "2026-09-06 01:36:01.906957+00:00",
+          "sha256": "fb7e721472adabcd6850e71c096f29eff591f97811425835879fc84f3de39cf7",
+          "byte_count": 59354,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_listing",
+        "first_document": {
+          "emil_id": "np3-988-er",
+          "document_id": 1270779234,
+          "friendly_name": "ResDMEList_05092026",
+          "post_datetime": "2026-09-05T05:02:43.000"
+        },
+        "last_document": {
+          "emil_id": "np3-988-er",
+          "document_id": 1166614741,
+          "friendly_name": "ResDMEList_01122025",
+          "post_datetime": "2025-12-01T05:13:53.000"
+        }
+      },
+      {
+        "operation": "selected_document",
+        "emil_id": "np3-988-er",
+        "document_id": 1270779234,
+        "friendly_name": "ResDMEList_05092026",
+        "post_datetime": "2026-09-05T05:02:43.000"
+      },
+      {
+        "operation": "public archive representative transfer",
+        "product_id": "NP3-988-ER",
+        "lifecycle": "active",
+        "documents": 278,
+        "total_records": 278,
+        "page_size": 1000,
+        "total_pages": 1,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er",
+          "retrieved_at": "2026-09-06 01:36:01.906957+00:00",
+          "sha256": "fb7e721472adabcd6850e71c096f29eff591f97811425835879fc84f3de39cf7",
+          "byte_count": 59354,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_zip",
+        "first_document": {
+          "emil_id": "np3-988-er",
+          "document_id": 1270779234,
+          "friendly_name": "ResDMEList_05092026",
+          "post_datetime": "2026-09-05T05:02:43.000"
+        },
+        "last_document": {
+          "emil_id": "np3-988-er",
+          "document_id": 1166614741,
+          "friendly_name": "ResDMEList_01122025",
+          "post_datetime": "2025-12-01T05:13:53.000"
+        },
+        "document": {
+          "emil_id": "np3-988-er",
+          "document_id": 1270779234,
+          "friendly_name": "ResDMEList_05092026",
+          "post_datetime": "2026-09-05T05:02:43.000"
+        },
+        "members": [
+          "1270779234.rpt.00010036.0000000000000000.20260905.050243.ResDMEList_05092026.csv"
+        ],
+        "download_receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er/download",
+          "retrieved_at": "2026-09-06 01:36:02.961263+00:00",
+          "sha256": "f9fc2fd3eca0aaf528a78403ec3c3f8926390ee15c8a07880965d5350ff608a5",
+          "byte_count": 22983,
+          "status": 200
+        },
+        "outcome": "supported",
+        "exchanges": [
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er",
+              "retrieved_at": "2026-09-06 01:36:01.906957+00:00",
+              "sha256": "fb7e721472adabcd6850e71c096f29eff591f97811425835879fc84f3de39cf7",
+              "byte_count": 59354,
+              "status": 200
+            },
+            "method": "GET",
+            "content_type": "application/json",
+            "complete": true,
+            "document_ids": []
+          },
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er/download",
+              "retrieved_at": "2026-09-06 01:36:02.961263+00:00",
+              "sha256": "f9fc2fd3eca0aaf528a78403ec3c3f8926390ee15c8a07880965d5350ff608a5",
+              "byte_count": 22983,
+              "status": 200
+            },
+            "method": "POST",
+            "content_type": "application/zip",
+            "complete": true,
+            "document_ids": [
+              1270779234
+            ]
+          }
+        ]
+      },
+      {
+        "operation": "GET bundle/NP4-190-CD",
+        "product_id": "NP4-190-CD",
+        "lifecycle": "active",
+        "documents": 103,
+        "total_records": 103,
+        "page_size": 1000,
+        "total_pages": 1,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd",
+          "retrieved_at": "2026-09-06 01:36:05.232334+00:00",
+          "sha256": "c8f081661149de29141e7d4cf1431d11d0e6739951f4452f0536b3261c3aef47",
+          "byte_count": 22196,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_listing",
+        "first_document": {
+          "emil_id": "np4-190-cd",
+          "document_id": -1257192853,
+          "friendly_name": "DAMSPNP4190_2026-08",
+          "post_datetime": "2026-08-31T23:59:59.000"
+        },
+        "last_document": {
+          "emil_id": "np4-190-cd",
+          "document_id": -593019152,
+          "friendly_name": "DAMSPNP4190_2018-01",
+          "post_datetime": "2018-01-31T23:59:59.000"
+        }
+      },
+      {
+        "operation": "selected_document",
+        "emil_id": "np4-190-cd",
+        "document_id": -593019152,
+        "friendly_name": "DAMSPNP4190_2018-01",
+        "post_datetime": "2018-01-31T23:59:59.000"
+      },
+      {
+        "operation": "public bundle boundary",
+        "outcome": "SourceUnavailableError",
+        "reason": "Public transfer failed (HTTP 400)",
+        "exchanges": [
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd",
+              "retrieved_at": "2026-09-06 01:36:05.232334+00:00",
+              "sha256": "c8f081661149de29141e7d4cf1431d11d0e6739951f4452f0536b3261c3aef47",
+              "byte_count": 22196,
+              "status": 200
+            },
+            "method": "GET",
+            "content_type": "application/json",
+            "complete": true,
+            "document_ids": []
+          },
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd/download",
+              "retrieved_at": "2026-09-06 01:36:07.239179+00:00",
+              "sha256": "4401a903c9191b747ee7f607835f136c74ff0bd52bc4b4b9a1e3a3bb61f9458f",
+              "byte_count": 174,
+              "status": 400
+            },
+            "method": "POST",
+            "content_type": "application/json",
+            "complete": true,
+            "document_ids": [
+              -593019152
+            ]
+          }
+        ]
+      },
+      {
+        "operation": "GET archive/NP4-179-CD",
+        "product_id": "NP4-179-CD",
+        "lifecycle": "retired-or-inactive",
+        "documents": 1000,
+        "total_records": 4236,
+        "page_size": 1000,
+        "total_pages": 5,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np4-179-cd",
+          "retrieved_at": "2026-09-06 01:36:14.997568+00:00",
+          "sha256": "ee4d528a7e9f30d96dfa4ca24b628a44e92d5cf084fd21fc0a5446c60b21f47a",
+          "byte_count": 206581,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_listing",
+        "first_document": {
+          "emil_id": "np4-179-cd",
+          "document_id": 1167729099,
+          "friendly_name": "TASONP4179_csv",
+          "post_datetime": "2025-12-04T12:34:57.000"
+        },
+        "last_document": {
+          "emil_id": "np4-179-cd",
+          "document_id": 901405767,
+          "friendly_name": "TASONP4179_csv",
+          "post_datetime": "2023-03-11T12:38:21.189"
+        }
+      },
+      {
+        "operation": "public file metadata NP4-179-CD",
+        "product_id": "NP4-179-CD",
+        "lifecycle": "retired-or-inactive",
+        "documents": 1000,
+        "total_records": 4236,
+        "page_size": 1000,
+        "total_pages": 5,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np4-179-cd",
+          "retrieved_at": "2026-09-06 01:36:14.997568+00:00",
+          "sha256": "ee4d528a7e9f30d96dfa4ca24b628a44e92d5cf084fd21fc0a5446c60b21f47a",
+          "byte_count": 206581,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_listing",
+        "first_document": {
+          "emil_id": "np4-179-cd",
+          "document_id": 1167729099,
+          "friendly_name": "TASONP4179_csv",
+          "post_datetime": "2025-12-04T12:34:57.000"
+        },
+        "last_document": {
+          "emil_id": "np4-179-cd",
+          "document_id": 901405767,
+          "friendly_name": "TASONP4179_csv",
+          "post_datetime": "2023-03-11T12:38:21.189"
+        },
+        "outcome": "supported",
+        "exchanges": [
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/archive/np4-179-cd",
+              "retrieved_at": "2026-09-06 01:36:14.997568+00:00",
+              "sha256": "ee4d528a7e9f30d96dfa4ca24b628a44e92d5cf084fd21fc0a5446c60b21f47a",
+              "byte_count": 206581,
+              "status": 200
+            },
+            "method": "GET",
+            "content_type": "application/json",
+            "complete": true,
+            "document_ids": []
+          }
+        ]
+      },
+      {
+        "operation": "GET archive/NP3-990-EX",
+        "product_id": "NP3-990-EX",
+        "lifecycle": "retired-or-inactive",
+        "documents": 1000,
+        "total_records": 2602,
+        "page_size": 1000,
+        "total_pages": 3,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np3-990-ex",
+          "retrieved_at": "2026-09-06 01:36:16.909420+00:00",
+          "sha256": "da1fffd15e5c0d1219981205a27b43c82b2668eaec99d3e62f09d1def4428b80",
+          "byte_count": 214693,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_listing",
+        "first_document": {
+          "emil_id": "np3-990-ex",
+          "document_id": 1189109876,
+          "friendly_name": "60_Day_SASM_Disclosure",
+          "post_datetime": "2026-02-02T05:17:13.000"
+        },
+        "last_document": {
+          "emil_id": "np3-990-ex",
+          "document_id": 912669633,
+          "friendly_name": "60_Day_SASM_Disclosure",
+          "post_datetime": "2023-05-02T05:08:51.542"
+        }
+      },
+      {
+        "operation": "public file metadata NP3-990-EX",
+        "product_id": "NP3-990-EX",
+        "lifecycle": "retired-or-inactive",
+        "documents": 1000,
+        "total_records": 2602,
+        "page_size": 1000,
+        "total_pages": 3,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np3-990-ex",
+          "retrieved_at": "2026-09-06 01:36:16.909420+00:00",
+          "sha256": "da1fffd15e5c0d1219981205a27b43c82b2668eaec99d3e62f09d1def4428b80",
+          "byte_count": 214693,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_listing",
+        "first_document": {
+          "emil_id": "np3-990-ex",
+          "document_id": 1189109876,
+          "friendly_name": "60_Day_SASM_Disclosure",
+          "post_datetime": "2026-02-02T05:17:13.000"
+        },
+        "last_document": {
+          "emil_id": "np3-990-ex",
+          "document_id": 912669633,
+          "friendly_name": "60_Day_SASM_Disclosure",
+          "post_datetime": "2023-05-02T05:08:51.542"
+        },
+        "outcome": "supported",
+        "exchanges": [
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/archive/np3-990-ex",
+              "retrieved_at": "2026-09-06 01:36:16.909420+00:00",
+              "sha256": "da1fffd15e5c0d1219981205a27b43c82b2668eaec99d3e62f09d1def4428b80",
+              "byte_count": 214693,
+              "status": 200
+            },
+            "method": "GET",
+            "content_type": "application/json",
+            "complete": true,
+            "document_ids": []
+          }
+        ]
+      },
+      {
+        "operation": "GET archive/NP4-765-ER",
+        "product_id": "NP4-765-ER",
+        "lifecycle": "active",
+        "documents": 1000,
+        "total_records": 1004,
+        "page_size": 1000,
+        "total_pages": 2,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np4-765-er",
+          "retrieved_at": "2026-09-06 01:36:17.326106+00:00",
+          "sha256": "4af0bca3c9e7e120cac4e03c65f932f9215eed81004d2351db43baf33a492666",
+          "byte_count": 222121,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_listing",
+        "first_document": {
+          "emil_id": "np4-765-er",
+          "document_id": 1270852173,
+          "friendly_name": "ESRIntegrationReport 09-04-26",
+          "post_datetime": "2026-09-05T09:02:42.000"
+        },
+        "last_document": {
+          "emil_id": "np4-765-er",
+          "document_id": 964407639,
+          "friendly_name": "ESRIntegrationReport 12-09-23",
+          "post_datetime": "2023-12-10T08:04:51.000"
+        }
+      },
+      {
+        "operation": "public file metadata NP4-765-ER",
+        "product_id": "NP4-765-ER",
+        "lifecycle": "active",
+        "documents": 1000,
+        "total_records": 1004,
+        "page_size": 1000,
+        "total_pages": 2,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np4-765-er",
+          "retrieved_at": "2026-09-06 01:36:17.326106+00:00",
+          "sha256": "4af0bca3c9e7e120cac4e03c65f932f9215eed81004d2351db43baf33a492666",
+          "byte_count": 222121,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_listing",
+        "first_document": {
+          "emil_id": "np4-765-er",
+          "document_id": 1270852173,
+          "friendly_name": "ESRIntegrationReport 09-04-26",
+          "post_datetime": "2026-09-05T09:02:42.000"
+        },
+        "last_document": {
+          "emil_id": "np4-765-er",
+          "document_id": 964407639,
+          "friendly_name": "ESRIntegrationReport 12-09-23",
+          "post_datetime": "2023-12-10T08:04:51.000"
+        },
+        "outcome": "supported",
+        "exchanges": [
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/archive/np4-765-er",
+              "retrieved_at": "2026-09-06 01:36:17.326106+00:00",
+              "sha256": "4af0bca3c9e7e120cac4e03c65f932f9215eed81004d2351db43baf33a492666",
+              "byte_count": 222121,
+              "status": 200
+            },
+            "method": "GET",
+            "content_type": "application/json",
+            "complete": true,
+            "document_ids": []
+          }
+        ]
+      }
+    ],
+    "bulk_history": false,
+    "runtime_sha256": {
+      "esr_api.py": "7ac7687985dc91652104812c5c187d1c1ef845cecb3e50828823a620e2a17e2a",
+      "archive_api.py": "653130ee8c1cedc0725fabc665a79e1d836a4b611ae359f6c83d4af864a03bba",
+      "archive_http.py": "42a920907c353a193891b5bb558488283322ca482d0324b7e3588d7a36250e81"
+    }
+  },
+  "followup_run": {
+    "installed_module": "/private/tmp/tinyercot-esr-archive-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+    "checks": [
+      {
+        "operation": "GET public product root",
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/",
+          "retrieved_at": "2026-09-06 01:37:27.577333+00:00",
+          "sha256": "1f67b1c4c7e6d51d1814c6ce15112756f9a3320b85d46bcd0d5867e9d4f255ec",
+          "byte_count": 204591,
+          "status": 200
+        },
+        "outcome": "supported",
+        "exchanges": [
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/",
+              "retrieved_at": "2026-09-06 01:37:27.577333+00:00",
+              "sha256": "1f67b1c4c7e6d51d1814c6ce15112756f9a3320b85d46bcd0d5867e9d4f255ec",
+              "byte_count": 204591,
+              "status": 200
+            },
+            "method": "GET",
+            "content_type": "application/json",
+            "complete": true,
+            "document_ids": []
+          }
+        ],
+        "product_count": 116,
+        "projection": "Product entries omitted; full earlier root projection is in primary run."
+      },
+      {
+        "operation": "GET bundle/NP4-188-CD",
+        "product_id": "NP4-188-CD",
+        "lifecycle": "active",
+        "documents": 103,
+        "total_records": 103,
+        "page_size": 1000,
+        "total_pages": 1,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/bundle/np4-188-cd",
+          "retrieved_at": "2026-09-06 01:37:30.193506+00:00",
+          "sha256": "b9d97a5a37c96c36be05a1357777091340655212a9a449668ef6112d7ae7614d",
+          "byte_count": 22304,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_listing",
+        "first_document": {
+          "emil_id": "np4-188-cd",
+          "document_id": -1257192846,
+          "friendly_name": "DAMCPCNP4188_2026-08",
+          "post_datetime": "2026-08-31T23:59:59.000"
+        },
+        "last_document": {
+          "emil_id": "np4-188-cd",
+          "document_id": -593019147,
+          "friendly_name": "DAMCPCNP4188_2018-01",
+          "post_datetime": "2018-01-31T23:59:59.000"
+        }
+      },
+      {
+        "operation": "selected_document",
+        "emil_id": "np4-188-cd",
+        "document_id": -1257192846,
+        "friendly_name": "DAMCPCNP4188_2026-08",
+        "post_datetime": "2026-08-31T23:59:59.000"
+      },
+      {
+        "operation": "public capacity bundle transfer",
+        "product_id": "NP4-188-CD",
+        "lifecycle": "active",
+        "documents": 103,
+        "total_records": 103,
+        "page_size": 1000,
+        "total_pages": 1,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/bundle/np4-188-cd",
+          "retrieved_at": "2026-09-06 01:37:30.193506+00:00",
+          "sha256": "b9d97a5a37c96c36be05a1357777091340655212a9a449668ef6112d7ae7614d",
+          "byte_count": 22304,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_zip",
+        "first_document": {
+          "emil_id": "np4-188-cd",
+          "document_id": -1257192846,
+          "friendly_name": "DAMCPCNP4188_2026-08",
+          "post_datetime": "2026-08-31T23:59:59.000"
+        },
+        "last_document": {
+          "emil_id": "np4-188-cd",
+          "document_id": -593019147,
+          "friendly_name": "DAMCPCNP4188_2018-01",
+          "post_datetime": "2018-01-31T23:59:59.000"
+        },
+        "document": {
+          "emil_id": "np4-188-cd",
+          "document_id": -1257192846,
+          "friendly_name": "DAMCPCNP4188_2026-08",
+          "post_datetime": "2026-08-31T23:59:59.000"
+        },
+        "members": [
+          "1261505456.cdr.00012329.0000000000000000.20260812.132338.DAMCPCNP4188_csv.zip",
+          "1265005095.cdr.00012329.0000000000000000.20260821.124910.DAMCPCNP4188_csv.zip",
+          "1265774856.cdr.00012329.0000000000000000.20260823.132102.DAMCPCNP4188_csv.zip",
+          "1260311788.cdr.00012329.0000000000000000.20260809.125216.DAMCPCNP4188_csv.zip",
+          "1261105814.cdr.00012329.0000000000000000.20260811.125501.DAMCPCNP4188_csv.zip",
+          "1267361142.cdr.00012329.0000000000000000.20260827.132013.DAMCPCNP4188_csv.zip",
+          "1257975678.cdr.00012329.0000000000000000.20260803.130438.DAMCPCNP4188_csv.zip",
+          "1259538996.cdr.00012329.0000000000000000.20260807.123249.DAMCPCNP4188_csv.zip",
+          "1266957708.cdr.00012329.0000000000000000.20260826.124145.DAMCPCNP4188_csv.zip",
+          "1268915186.cdr.00012329.0000000000000000.20260831.123351.DAMCPCNP4188_csv.zip",
+          "1260704536.cdr.00012329.0000000000000000.20260810.124629.DAMCPCNP4188_csv.zip",
+          "1258377831.cdr.00012329.0000000000000000.20260804.130624.DAMCPCNP4188_csv.zip",
+          "1259156998.cdr.00012329.0000000000000000.20260806.124123.DAMCPCNP4188_csv.zip",
+          "1262648386.cdr.00012329.0000000000000000.20260815.123251.DAMCPCNP4188_csv.zip",
+          "1268138590.cdr.00012329.0000000000000000.20260829.125211.DAMCPCNP4188_csv.zip",
+          "1266152543.cdr.00012329.0000000000000000.20260824.131126.DAMCPCNP4188_csv.zip",
+          "1258768357.cdr.00012329.0000000000000000.20260805.125622.DAMCPCNP4188_csv.zip",
+          "1264621740.cdr.00012329.0000000000000000.20260820.131954.DAMCPCNP4188_csv.zip",
+          "1262280176.cdr.00012329.0000000000000000.20260814.132336.DAMCPCNP4188_csv.zip",
+          "1266561943.cdr.00012329.0000000000000000.20260825.124239.DAMCPCNP4188_csv.zip",
+          "1263834167.cdr.00012329.0000000000000000.20260818.130255.DAMCPCNP4188_csv.zip",
+          "1267748273.cdr.00012329.0000000000000000.20260828.123357.DAMCPCNP4188_csv.zip",
+          "1265396711.cdr.00012329.0000000000000000.20260822.132322.DAMCPCNP4188_csv.zip",
+          "1264223179.cdr.00012329.0000000000000000.20260819.125133.DAMCPCNP4188_csv.zip",
+          "1263414914.cdr.00012329.0000000000000000.20260817.123916.DAMCPCNP4188_csv.zip",
+          "1257575263.cdr.00012329.0000000000000000.20260802.123243.DAMCPCNP4188_csv.zip",
+          "1268525445.cdr.00012329.0000000000000000.20260830.130059.DAMCPCNP4188_csv.zip",
+          "1257192846.cdr.00012329.0000000000000000.20260801.123249.DAMCPCNP4188_csv.zip",
+          "1259929151.cdr.00012329.0000000000000000.20260808.123706.DAMCPCNP4188_csv.zip",
+          "1261881464.cdr.00012329.0000000000000000.20260813.130154.DAMCPCNP4188_csv.zip",
+          "1263033921.cdr.00012329.0000000000000000.20260816.125151.DAMCPCNP4188_csv.zip"
+        ],
+        "download_receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/bundle/np4-188-cd/download",
+          "retrieved_at": "2026-09-06 01:37:31.990062+00:00",
+          "sha256": "78467014a630a0b2f41729a1971067593d8a67116e0541f688a3b03cb46b9f3b",
+          "byte_count": 34664,
+          "status": 200
+        },
+        "outcome": "supported",
+        "exchanges": [
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/bundle/np4-188-cd",
+              "retrieved_at": "2026-09-06 01:37:30.193506+00:00",
+              "sha256": "b9d97a5a37c96c36be05a1357777091340655212a9a449668ef6112d7ae7614d",
+              "byte_count": 22304,
+              "status": 200
+            },
+            "method": "GET",
+            "content_type": "application/json",
+            "complete": true,
+            "document_ids": []
+          },
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/bundle/np4-188-cd/download",
+              "retrieved_at": "2026-09-06 01:37:31.990062+00:00",
+              "sha256": "78467014a630a0b2f41729a1971067593d8a67116e0541f688a3b03cb46b9f3b",
+              "byte_count": 34664,
+              "status": 200
+            },
+            "method": "POST",
+            "content_type": "application/zip",
+            "complete": true,
+            "document_ids": [
+              -1257192846
+            ]
+          }
+        ]
+      },
+      {
+        "operation": "GET archive/NP4-179-CD",
+        "product_id": "NP4-179-CD",
+        "lifecycle": "retired-or-inactive",
+        "documents": 1000,
+        "total_records": 4236,
+        "page_size": 1000,
+        "total_pages": 5,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np4-179-cd",
+          "retrieved_at": "2026-09-06 01:37:35.226805+00:00",
+          "sha256": "ee4d528a7e9f30d96dfa4ca24b628a44e92d5cf084fd21fc0a5446c60b21f47a",
+          "byte_count": 206581,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_listing",
+        "first_document": {
+          "emil_id": "np4-179-cd",
+          "document_id": 1167729099,
+          "friendly_name": "TASONP4179_csv",
+          "post_datetime": "2025-12-04T12:34:57.000"
+        },
+        "last_document": {
+          "emil_id": "np4-179-cd",
+          "document_id": 901405767,
+          "friendly_name": "TASONP4179_csv",
+          "post_datetime": "2023-03-11T12:38:21.189"
+        }
+      },
+      {
+        "operation": "selected_document",
+        "emil_id": "np4-179-cd",
+        "document_id": 1167729099,
+        "friendly_name": "TASONP4179_csv",
+        "post_datetime": "2025-12-04T12:34:57.000"
+      },
+      {
+        "operation": "retired public file transfer",
+        "product_id": "NP4-179-CD",
+        "lifecycle": "retired-or-inactive",
+        "documents": 1000,
+        "total_records": 4236,
+        "page_size": 1000,
+        "total_pages": 5,
+        "current_page": 1,
+        "receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np4-179-cd",
+          "retrieved_at": "2026-09-06 01:37:35.226805+00:00",
+          "sha256": "ee4d528a7e9f30d96dfa4ca24b628a44e92d5cf084fd21fc0a5446c60b21f47a",
+          "byte_count": 206581,
+          "status": 200
+        },
+        "row_schema": "unknown",
+        "file_access": "supported_zip",
+        "first_document": {
+          "emil_id": "np4-179-cd",
+          "document_id": 1167729099,
+          "friendly_name": "TASONP4179_csv",
+          "post_datetime": "2025-12-04T12:34:57.000"
+        },
+        "last_document": {
+          "emil_id": "np4-179-cd",
+          "document_id": 901405767,
+          "friendly_name": "TASONP4179_csv",
+          "post_datetime": "2023-03-11T12:38:21.189"
+        },
+        "document": {
+          "emil_id": "np4-179-cd",
+          "document_id": 1167729099,
+          "friendly_name": "TASONP4179_csv",
+          "post_datetime": "2025-12-04T12:34:57.000"
+        },
+        "members": [
+          "1167729099.cdr.00012327.0000000000000000.20251204.123457.TASONP4179_csv.zip"
+        ],
+        "download_receipt": {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np4-179-cd/download",
+          "retrieved_at": "2026-09-06 01:37:35.912158+00:00",
+          "sha256": "1ef611d15c003a49d5e17448ae64d826eef6fa7e0972e9678c1a95c08ddfdcc6",
+          "byte_count": 1148,
+          "status": 200
+        },
+        "outcome": "supported",
+        "exchanges": [
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/archive/np4-179-cd",
+              "retrieved_at": "2026-09-06 01:37:35.226805+00:00",
+              "sha256": "ee4d528a7e9f30d96dfa4ca24b628a44e92d5cf084fd21fc0a5446c60b21f47a",
+              "byte_count": 206581,
+              "status": 200
+            },
+            "method": "GET",
+            "content_type": "application/json",
+            "complete": true,
+            "document_ids": []
+          },
+          {
+            "receipt": {
+              "source_url": "https://api.ercot.com/api/public-reports/archive/np4-179-cd/download",
+              "retrieved_at": "2026-09-06 01:37:35.912158+00:00",
+              "sha256": "1ef611d15c003a49d5e17448ae64d826eef6fa7e0972e9678c1a95c08ddfdcc6",
+              "byte_count": 1148,
+              "status": 200
+            },
+            "method": "POST",
+            "content_type": "application/zip",
+            "complete": true,
+            "document_ids": [
+              1167729099
+            ]
+          }
+        ]
+      }
+    ],
+    "bulk_history": false,
+    "runtime_sha256": {
+      "esr_api.py": "7ac7687985dc91652104812c5c187d1c1ef845cecb3e50828823a620e2a17e2a",
+      "archive_api.py": "653130ee8c1cedc0725fabc665a79e1d836a4b611ae359f6c83d4af864a03bba",
+      "archive_http.py": "42a920907c353a193891b5bb558488283322ca482d0324b7e3588d7a36250e81"
+    }
+  },
+  "diagnostic": [
+    {
+      "method": "GET",
+      "source_url": "https://api.ercot.com/api/public-data/rptesr-m/4_sec_esr_charging_mw?page=1&size=1&sort=AGCExecTime&dir=desc",
+      "request_json": null,
+      "request_content_type": null,
+      "status": 401,
+      "content_type": "application/json",
+      "byte_count": 143,
+      "sha256": "f5ca18fbac30a6080c8d590062d1e5b3d0c7f507df2b141503e896b02949f920",
+      "retrieved_at": "2026-09-06T01:38:40.202000+00:00",
+      "complete": true,
+      "same_token_as_successful_public_root": true,
+      "public_error": {
+        "statusCode": 401,
+        "message": "Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription."
+      }
+    },
+    {
+      "method": "POST",
+      "source_url": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd/download",
+      "request_json": {
+        "docIds": [
+          -593019152
+        ]
+      },
+      "request_content_type": "application/json",
+      "status": 400,
+      "content_type": "application/json",
+      "byte_count": 174,
+      "sha256": "890aac529cb45456caab355a1683e65b717bb3081b240a57b33539701f7350ff",
+      "retrieved_at": "2026-09-06T01:38:40.245964+00:00",
+      "complete": true,
+      "same_token_as_successful_public_root": true,
+      "public_error": {
+        "code": 400,
+        "status": "BAD_REQUEST",
+        "message": "Your request could not be processed. The request may be malformed or the URL does not exist."
+      }
+    }
+  ],
+  "authentication_document_receipt": {
+    "source_url": "https://developer.ercot.com/applications/pubapi/user-guide/registration-and-authentication/",
+    "retrieved_at": "2026-09-06T01:48:07.516642+00:00",
+    "status": 200,
+    "byte_count": 127337,
+    "sha256": "23bf92c67e619662d62153a6274268664a29705f345a2760d92783f80e0194f0"
+  }
+}

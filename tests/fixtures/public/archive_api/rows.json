@@ -1,0 +1,109 @@
+{
+  "origin": "Installed-wheel public file retrieval, selected source CSV excerpts; tests rebuild synthetic ZIP containers.",
+  "samples": [
+    {
+      "document": {
+        "emil_id": "np4-188-cd",
+        "document_id": -1257192846,
+        "friendly_name": "DAMCPCNP4188_2026-08",
+        "post_datetime": "2026-08-31T23:59:59.000"
+      },
+      "receipt": {
+        "source_url": "https://api.ercot.com/api/public-reports/bundle/np4-188-cd/download",
+        "retrieved_at": "2026-09-06 01:37:31.990062+00:00",
+        "sha256": "78467014a630a0b2f41729a1971067593d8a67116e0541f688a3b03cb46b9f3b",
+        "byte_count": 34664,
+        "status": 200
+      },
+      "outer_member": "1261505456.cdr.00012329.0000000000000000.20260812.132338.DAMCPCNP4188_csv.zip",
+      "inner_member": "cdr.00012329.0000000000000000.20260812.132338.DAMCPCNP4188.csv",
+      "inner_sha256": "f44d111e75e3ced3b145497ade9b087b55e7044ba43afd8e9aa5f5e22f02848b",
+      "inner_byte_count": 3527,
+      "header": [
+        "DeliveryDate",
+        "HourEnding",
+        "AncillaryType",
+        "MCPC",
+        "DSTFlag"
+      ],
+      "rows_excerpt": [
+        [
+          "08/13/2026",
+          "01:00",
+          "NSPIN",
+          "1.64",
+          "N"
+        ],
+        [
+          "08/13/2026",
+          "01:00",
+          "RRS",
+          "0.19",
+          "N"
+        ]
+      ],
+      "total_csv_rows": 120
+    },
+    {
+      "document": {
+        "emil_id": "np4-179-cd",
+        "document_id": 1167729099,
+        "friendly_name": "TASONP4179_csv",
+        "post_datetime": "2025-12-04T12:34:57.000"
+      },
+      "receipt": {
+        "source_url": "https://api.ercot.com/api/public-reports/archive/np4-179-cd/download",
+        "retrieved_at": "2026-09-06 01:37:35.912158+00:00",
+        "sha256": "1ef611d15c003a49d5e17448ae64d826eef6fa7e0972e9678c1a95c08ddfdcc6",
+        "byte_count": 1148,
+        "status": 200
+      },
+      "outer_member": "1167729099.cdr.00012327.0000000000000000.20251204.123457.TASONP4179_csv.zip",
+      "inner_member": "cdr.00012327.0000000000000000.20251204.123457.TASONP4179.csv",
+      "inner_sha256": "53b1989fb94b9bf0257d49153355428e294c8046e863cf3498042a4357cf893b",
+      "inner_byte_count": 1758,
+      "header": [
+        "DeliveryDate",
+        "HourEnding",
+        "REGDN",
+        "REGUP",
+        "RRSPFR",
+        "RRSFFR",
+        "RRSUFR",
+        "ECRSSD",
+        "ECRSMD",
+        "NSPIN",
+        "DSTFlag"
+      ],
+      "rows_excerpt": [
+        [
+          "12/05/2025",
+          "01:00",
+          "5677.8",
+          "6695.8",
+          "8676.7",
+          "150.4",
+          "892.2",
+          "8449.1",
+          "268.5",
+          "8259",
+          "N"
+        ],
+        [
+          "12/05/2025",
+          "02:00",
+          "4762.3",
+          "6725.8",
+          "8736.9",
+          "100",
+          "888.9",
+          "8567.5",
+          "272.3",
+          "8275",
+          "N"
+        ]
+      ],
+      "total_csv_rows": 24
+    }
+  ]
+}

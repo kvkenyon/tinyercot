@@ -1,0 +1,195 @@
+{
+  "operations": [
+    {
+      "id": "getProductHistory",
+      "method": "GET",
+      "urlTemplate": "/archive/{emilId}",
+      "description": "Available report archives for a specified EMIL product.",
+      "query": [],
+      "request_media": [],
+      "responses": [
+        {
+          "status": 200,
+          "media": [
+            "application/json"
+          ]
+        },
+        {
+          "status": 400,
+          "media": [
+            "application/json"
+          ]
+        },
+        {
+          "status": 403,
+          "media": [
+            "application/json"
+          ]
+        },
+        {
+          "status": 404,
+          "media": [
+            "application/json"
+          ]
+        }
+      ],
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api/operations/getProductHistory?api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:24:20.199177+00:00",
+        "status": 200,
+        "byte_count": 3106,
+        "sha256": "8a50c478aae63a61070350417b9605d0c662ea8e211f2c02e1ee053b4e87969e"
+      }
+    },
+    {
+      "id": "getProductHistoryBundles",
+      "method": "GET",
+      "urlTemplate": "/bundle/{emilId}",
+      "description": "Available historical report archives for a specified EMIL product.",
+      "query": [],
+      "request_media": [],
+      "responses": [
+        {
+          "status": 200,
+          "media": [
+            "application/json"
+          ]
+        },
+        {
+          "status": 400,
+          "media": [
+            "application/json"
+          ]
+        },
+        {
+          "status": 403,
+          "media": [
+            "application/json"
+          ]
+        },
+        {
+          "status": 404,
+          "media": [
+            "application/json"
+          ]
+        }
+      ],
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api/operations/getProductHistoryBundles?api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:24:20.297200+00:00",
+        "status": 200,
+        "byte_count": 3132,
+        "sha256": "a515bdb92a45889782f1d415d0b030322d105d5d4cce871059dd6e95e976485d"
+      }
+    },
+    {
+      "id": "getProductArchives",
+      "method": "POST",
+      "urlTemplate": "/archive/{emilId}/download",
+      "description": "Download a collection of EMIL Product archives by generating a JSON request with a single 'docIds' element containing the document identifiers you wish to download.",
+      "query": [],
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "status": 200,
+          "media": [
+            "application/zip"
+          ]
+        },
+        {
+          "status": 400,
+          "media": [
+            "application/json"
+          ]
+        },
+        {
+          "status": 403,
+          "media": [
+            "application/json"
+          ]
+        },
+        {
+          "status": 404,
+          "media": [
+            "application/json"
+          ]
+        }
+      ],
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api/operations/getProductArchives?api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:24:20.434362+00:00",
+        "status": 200,
+        "byte_count": 2505,
+        "sha256": "a4d39f2fbd8708decc47c6bba1e87e0f6ac16ba4e62902cd317a57b40fd3f000"
+      }
+    },
+    {
+      "id": "getProductBundle",
+      "method": "POST",
+      "urlTemplate": "/bundle/{emilId}/download",
+      "description": "Download an EMIL Product bundle archive by generating a JSON request with a single 'docIds' element containing the document identifier you wish to download.",
+      "query": [],
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "status": 200,
+          "media": [
+            "application/zip"
+          ]
+        },
+        {
+          "status": 400,
+          "media": [
+            "application/json"
+          ]
+        },
+        {
+          "status": 403,
+          "media": [
+            "application/json"
+          ]
+        },
+        {
+          "status": 404,
+          "media": [
+            "application/json"
+          ]
+        }
+      ],
+      "receipt": {
+        "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api/operations/getProductBundle?api-version=2022-04-01-preview",
+        "retrieved_at": "2026-09-06T01:24:20.540151+00:00",
+        "status": 200,
+        "byte_count": 2487,
+        "sha256": "842d46909c9a2a326c1177b0b4c0752d3068b1477d01e3fef9d5e19f4d4cd4be"
+      }
+    }
+  ],
+  "selection_schema": {
+    "required": [
+      "docIds"
+    ],
+    "type": "object",
+    "properties": {
+      "docIds": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "description": "Represents a multi-document download request in JSON format."
+  },
+  "selection_schema_receipt": {
+    "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api/schemas/6a90e81cb9a2561f7875661e?api-version=2022-04-01-preview",
+    "retrieved_at": "2026-09-06T01:35:07.009742+00:00",
+    "status": 200,
+    "byte_count": 709341,
+    "sha256": "e4fef3f8022efc391e3d3a51fcafff41e74cc68f8a569f4d779f954c8352cb94"
+  }
+}
