@@ -6,10 +6,11 @@ Use `coverage()` for retrieval scope states.
 
 ## Coverage and evidence
 
-On 2026-09-05 the isolated installed wheel retrieved and decoded public data.
-Generated typed API coverage is **2 operations in 2 products**: NP4-190-CD and
-NP4-188-CD. The first installed-client checkpoint covered NP4-190-CD alone;
-NP4-188-CD was added from two later source-backed field observations.
+On 2026-09-05/06 UTC isolated installed wheels retrieved and decoded public data.
+Generated typed API coverage is **4 operations in 4 products**: NP4-190-CD,
+NP4-188-CD, NP6-905-CD, and NP6-345-CD. PR #2 established the first two DAM
+contracts; this iteration adds RT settlement prices and weather-zone actual load
+through a shared registry and retrieval client.
 The denominator is **243 observed public data paths in 98 product namespaces**
 (242 public-reports paths and one public-data ESR path). This is a bounded
 vertical slice, not broad typed coverage. The legacy 102 endpoints do not add
@@ -21,9 +22,12 @@ Public Data API. A namespace count does not establish an EMIL product census.
 | Typed installed-client current fetch | NP4-190-CD DAM settlement prices: two pages of two HB_HOUSTON rows for 2026-09-04; another row after explicit ID-token reacquisition. NP4-188-CD: two REGUP capacity-price rows for 2026-09-04. |
 | Typed installed-client historical fetch | NP4-190-CD HB_HOUSTON and NP4-188-CD REGUP: one oldest-first row each returned 2023-12-13. NP4-180-ER report 13060: four rows each from 2010/Dec_1 and 2026/Aug workbooks, with truncation and cache reuse verified. |
 | Typed installed-client live fetch | Website ESR: 482 rolling rows in the final installed probe; source offset/epoch and freshness checks passed. Not four-second API coverage. |
+| New typed installed-client current fetch | NP6-905-CD HB_HOUSTON RT prices and NP6-345-CD weather-zone load: two rows each for 2026-09-04. |
+| New typed installed-client historical fetch | One oldest-first row per new endpoint, both dated 2023-12-11. These dates establish observations, not complete retention. |
+| Complete bounded installed-client query | Two RT rows for HB_HOUSTON, 2026-09-04, hour 1, intervals 1–2, retrieved across two one-row pages with matching totals. |
 | Real source retrieval only | NP4-190-CD product metadata, retained as a fixture. This is not an implemented product-metadata method. |
 | Fixture-only behavior | Rate limits, transport retries, expired tokens, 401/403, malformed JSON/ZIP/XLSX, cache mutation, repeated pages, DST transitions. These faults were simulated, not induced on ERCOT. |
-| Deferred schema | The other 241 observed data paths. Stage 0 recorded 40 missing and 203 unverified cached schemas. Current field evidence verifies two endpoints. No guessed raw or typed models. |
+| Deferred schema | The other 239 observed data paths. Stage 0 recorded 40 missing and 203 unverified cached schemas. Current field evidence verifies four endpoints. No guessed raw or typed models. |
 | Restricted | Secure, Certified, EWS, private telemetry, bids/COP/awards, participant settlements and customer data. No requests. |
 | Unavailable | Retired total-AS-offer and SASM sources and the unavailable hourly-load 2001 year, as recorded in the audit. |
 
@@ -37,8 +41,11 @@ The oldest row is the earliest returned observation for the selected point at
 the retrieval time. It is not proof of complete history or stable retention.
 Archive publication time, data date, and retrieval time remain separate.
 No adapter provides an as-of vintage, revision merge, or complete-year claim.
-Typed installed-client evidence means generated or explicit Pydantic row
-decoding. This milestone does not add a package-wide PEP 561 typing claim.
+Typed installed-client retrieval means generated or explicit Pydantic row decoding.
+The wheel now separately includes PEP 561 metadata. An isolated mypy proof checks
+all 510 legacy method return contracts, all 1,334 legacy row fields, new public
+row/filter/iterator contracts, and rejection of four invalid uses. Legacy
+runtime files remain byte-identical; companion stubs expose their existing types.
 
 ## Use annual files
 
@@ -65,12 +72,62 @@ partial or changed cache entries. The caller must inspect and repair them
 explicitly. It does not overwrite a prior document when publication changes.
 Cache writes use POSIX exclusive-file and hard-link operations.
 
-Each call selects one listed public file. Each decode selects one named sheet
-and at most 1,000 rows, with a bounded scan and archive expansion limits.
+Each download selects one listed public file. `sample_dam_archive` preserves
+its one-sheet/1,000-row contract. The new `iter_dam_archive` can visit every
+worksheet and row, with configurable scan, row, member, and expansion safeguards.
 The cache preserves document ID, publication time, original retrieval time,
 and hash. Workbook prices use Decimal conversion of numeric source cells.
 Date, hour-ending, and repeated-hour fields stay separate. No guessed UTC
 mapping joins the source's ambiguous local market intervals.
+
+## Complete query and annual-file iteration
+
+```python
+from datetime import date
+from tinyercot.public import Credentials, ReportsClient, RT_PRICES, StreamingLimits
+
+with ReportsClient(
+    Credentials.from_env(), limits=StreamingLimits(max_requests=None)
+) as client:
+    for row in RT_PRICES.iter_rows(
+        client,
+        filters={
+            "deliveryDateFrom": date(2026, 9, 4),
+            "deliveryDateTo": date(2026, 9, 4),
+            "settlementPoint": "HB_HOUSTON",
+        },
+        sort="deliveryInterval", size=1000, max_pages=None, max_rows=None,
+    ):
+        process(row)  # Caller-defined consumer; no accumulation is required.
+```
+
+`DAM_PRICES`, `DAM_CAPACITY_PRICES`, `RT_PRICES`, and `SYSTEM_LOAD` each bind a
+generated row and TypedDict filter contract. Number filters accept float,
+Decimal, or int; date filters require Python dates. Unknown fields and invalid
+ranges fail before authentication. The 1,000-row page cap and default 100-page,
+100,000-row, and 100-request budgets are local safeguards, not asserted ERCOT
+service limits. Set the three total budgets to None only for an intentional
+complete query. Per-response bytes, retry attempts, and pacing stay bounded.
+Iteration rejects changing totals, a repeated preceding page, or final counts
+that disagree with `totalRecords`. Source order and duplicates are preserved;
+unchanged totals cannot prove a stable as-of snapshot.
+
+```python
+from contextlib import closing
+from tinyercot.public import iter_dam_archive
+
+# download is one previously selected, receipt-verified public annual ZIP.
+with closing(iter_dam_archive(download, max_rows=None, max_scan_rows=None)) as rows:
+    for record in rows:
+        process(record.row, record.sheet, record.row_number)
+```
+
+Omit `sheets` to visit every worksheet in source order, or select exact names.
+Rows stream through openpyxl's read-only mode; the bounded compressed ZIP and
+XLSX member remain in memory. Closing early releases the workbook. Complete
+iteration is tested with a synthetic two-sheet, 2,010-row file; real validation
+only sampled the two already cached annual files. It does not establish that
+ERCOT's requested file contains a complete year or every historical revision.
 
 ## HTTP, token, and time contracts
 
@@ -96,14 +153,26 @@ Mocked DST fixtures cover the repeated fall hour and the missing spring hour.
 
 The generators read only hash-pinned local inputs. Current row pins include
 actual response field descriptors and query provenance. Nullability is unknown;
-the two models reject nulls and cover observed non-null rows only. Field order
+the four models reject nulls and cover observed non-null rows only. Field order
 comes from each response, while unknown/missing names or source types fail.
-The generated models do not establish coverage of every filter or schema epoch.
+The registry generates every pinned query filter. This does not establish every
+filter's server-side range semantics or coverage of every schema epoch.
+
+`tools/discover_public.py --spec saved-openapi.json --response small-response.json
+--receipt public-receipt.json --path /np6-905-cd/spp_node_zone_hub --output
+candidate.json` projects evidence offline. The exact OpenAPI hash must match
+the primary catalog pin; the receipt must match the response URL, bytes and hash.
+Review the candidate and register its hash/names in `tools/inputs/current/provenance.json`,
+then run `tools/generate_public.py`. Generation never refreshes upstream data.
+Missing fields, empty/null samples, or unsupported types remain missing/unknown;
+they do not create a raw or typed adapter. The catalog retains every unsupported
+operation independently of this four-endpoint registry.
 
 `docs/evidence/fixture-provenance.json` records public source hashes, retrieval
 times, fixture hashes, and excerpt transformations. `installed-receipts.json`
 records installed-client fetches without headers, credential values, or row
 values. API fixtures are small public responses. ESR is an explicit excerpt.
+`installed-reports-receipts.json` records the six new installed-client requests.
 Workbook tests build tiny XLSX files from recorded source cells. Full annual
 archives and raw live snapshots are not checked in.
 
@@ -116,6 +185,8 @@ and JSON-quoted values, as produced by the authorized local vault export.
 Do not commit that file. `tools/probe_public.py --live` performs a fixed small
 2026-09-04/oldest-price check, one rolling ESR request, one public listing, and
 the two selected annual samples. Reuse its output cache to avoid redownloads.
+`--reports-only` instead makes six bounded RT/load data requests: current,
+oldest-first, and the complete two-row selection. Neither probe runs in CI.
 
 Primary sources: ERCOT's [current Public Reports specification](https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview),
 [authentication guide](https://developer.ercot.com/applications/pubapi/user-guide/registration-and-authentication/),

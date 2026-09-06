@@ -20,6 +20,7 @@ from ._http import (
     Payload,
     Receipt,
     SchemaMismatchError,
+    StreamingLimits,
 )
 
 BASE = "https://api.ercot.com/api/public-reports"
@@ -192,7 +193,7 @@ class PublicClient:
         self,
         credentials: Credentials,
         *,
-        limits: Limits | None = None,
+        limits: Limits | StreamingLimits | None = None,
         transport: httpx.BaseTransport | None = None,
     ) -> None:
         """Create a client without making an HTTP request.
@@ -390,6 +391,21 @@ class PublicClient:
         """
         if path not in (PRICE_PATH, CAPACITY_PATH):
             raise ValueError("Unsupported price path")
+        return self._authenticated_payload(path, params)
+
+    def _authenticated_payload(self, path: str, params: dict) -> Payload:
+        """Fetch a route already checked by an opt-in public adapter.
+
+        Args:
+            path: Adapter-verified relative public report path.
+            params: Validated public query parameters.
+
+        Returns:
+            Public bytes after bounded token acquisition and transport retries.
+
+        Raises:
+            PublicDataError: Authentication, transport, or budgets fail.
+        """
         with self._http.lock:
             for reacquisition in range(2):
                 if self._token is None or self._http.clock() >= self._expires_at:

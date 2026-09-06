@@ -2,3 +2,4 @@ include api_response_fields.json uv.lock
 recursive-include tools *.py *.json
 recursive-include tests *.py *.json
 recursive-include docs *.md *.json
+recursive-include tinyercot *.pyi py.typed

@@ -13,7 +13,15 @@ from dataclasses import asdict
 from pathlib import Path
 
 import tinyercot
-from tinyercot.public import Credentials, PublicClient, WebClient, sample_dam_archive
+from tinyercot.public import (
+    RT_PRICES,
+    SYSTEM_LOAD,
+    Credentials,
+    PublicClient,
+    ReportsClient,
+    WebClient,
+    sample_dam_archive,
+)
 
 
 def main() -> None:
@@ -24,6 +32,11 @@ def main() -> None:
     """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--live", action="store_true")
+    parser.add_argument(
+        "--reports-only",
+        action="store_true",
+        help="Check new RT/load contracts with six bounded data requests",
+    )
     parser.add_argument("--credentials-file", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
@@ -76,6 +89,68 @@ def main() -> None:
         )
         del values
         day = datetime.date(2026, 9, 4)
+        if args.reports_only:
+            with ReportsClient(credentials) as client:
+                for endpoint, date_field, selection in (
+                    (RT_PRICES, "deliveryDate", {"settlementPoint": "HB_HOUSTON"}),
+                    (SYSTEM_LOAD, "operatingDay", {}),
+                ):
+                    for period in ("current", "historical"):
+                        filters = dict(selection)
+                        if period == "current":
+                            filters.update(
+                                {date_field + "From": day, date_field + "To": day}
+                            )
+                        page = client.page(
+                            endpoint,
+                            filters=filters,
+                            size=2 if period == "current" else 1,
+                            sort=date_field,
+                            direction="desc" if period == "current" else "asc",
+                        )
+                        assert len(page.rows) == (2 if period == "current" else 1)
+                        if period == "current":
+                            assert all(
+                                getattr(row, date_field) == day for row in page.rows
+                            )
+                        record(
+                            "typed-reports-" + period,
+                            page.receipt,
+                            endpoint=endpoint.path,
+                            rows=len(page.rows),
+                            first_observed_date=str(getattr(page.rows[0], date_field)),
+                        )
+                pages = list(
+                    client.pages(
+                        RT_PRICES,
+                        filters={
+                            "settlementPoint": "HB_HOUSTON",
+                            "deliveryDateFrom": day,
+                            "deliveryDateTo": day,
+                            "deliveryHourFrom": 1,
+                            "deliveryHourTo": 1,
+                            "deliveryIntervalFrom": 1,
+                            "deliveryIntervalTo": 2,
+                        },
+                        size=1,
+                        sort="deliveryInterval",
+                        max_pages=2,
+                    )
+                )
+                assert len(pages) == 2 and sum(len(page.rows) for page in pages) == 2
+                for page in pages:
+                    record(
+                        "typed-reports-complete-selection",
+                        page.receipt,
+                        endpoint=RT_PRICES.path,
+                        rows=len(page.rows),
+                        page=page.meta["currentPage"],
+                        total_records=page.meta["totalRecords"],
+                    )
+            print(
+                "Installed RT/load current, historical, and complete two-page selection passed"
+            )
+            return
         with PublicClient(credentials) as client:
             for page in client.price_pages(
                 start=day, end=day, settlement_point="HB_HOUSTON", size=2, max_pages=2

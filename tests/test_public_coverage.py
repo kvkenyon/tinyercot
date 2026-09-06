@@ -8,7 +8,7 @@ def test_every_audited_family_and_operation_has_an_explicit_scope():
     entries = coverage()
     assert len(entries) == 39 + 257 + 2
     assert len({entry.key for entry in entries}) == len(entries)
-    assert Counter(entry.status for entry in entries)["covered"] == 4
+    assert Counter(entry.status for entry in entries)["covered"] == 6
     assert {entry.status for entry in entries} == {
         "covered",
         "deferred",
@@ -36,8 +36,10 @@ def test_typed_counts_do_not_claim_broad_api_coverage():
     ]
     assert len(observed) == 243
     assert len({(op.service, op.path.split("/")[1]) for op in observed}) == 98
-    assert len(typed) == 2
+    assert len(typed) == 4
     assert {entry.title.split("/")[1] for entry in typed} == {
         "np4-190-cd",
         "np4-188-cd",
+        "np6-905-cd",
+        "np6-345-cd",
     }

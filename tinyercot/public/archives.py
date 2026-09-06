@@ -1,4 +1,4 @@
-"""Bounded sampling of the observed public DAM annual ZIP/XLSX format."""
+"""Sampling and opt-in complete iteration of public DAM annual ZIP/XLSX files."""
 
 import datetime
 import hashlib
@@ -6,6 +6,7 @@ import io
 import re
 import stat
 import zipfile
+from collections.abc import Generator, Sequence
 from dataclasses import dataclass
 from decimal import Decimal
 from pathlib import Path, PurePosixPath
@@ -96,6 +97,25 @@ class ArchiveSample:
     member: str
     sheet: str
     truncated: bool
+    source_sha256: str
+
+
+@dataclass(frozen=True)
+class ArchiveRecord:
+    """A streamed annual row with its worksheet and file identity.
+
+    Attributes:
+        row: Typed source price fields, without inferred UTC market intervals.
+        sheet: Source worksheet name.
+        row_number: One-based source worksheet row number, including the header.
+        member: XLSX member name within the source ZIP.
+        source_sha256: Exact downloaded archive hash.
+    """
+
+    row: ArchivePrice
+    sheet: str
+    row_number: int
+    member: str
     source_sha256: str
 
 
@@ -241,4 +261,132 @@ def sample_dam_archive(
             workbook.close()
     except (zipfile.BadZipFile, KeyError, TypeError, ValueError, StopIteration):
         pass
+    raise SchemaMismatchError("Annual workbook differs from the observed XLSX contract")
+
+
+def iter_dam_archive(
+    download: Download,
+    *,
+    sheets: Sequence[str] | None = None,
+    max_rows: int | None = 1000,
+    max_scan_rows: int | None = 100_000,
+    max_expanded_bytes: int = 64_000_000,
+    max_members: int = 512,
+) -> Generator[ArchiveRecord, None, None]:
+    """Stream selected worksheets or a complete public annual workbook.
+
+    Use max_rows=None and max_scan_rows=None for complete row iteration. These
+    are caller choices, not a permanent sampling ceiling. The generator closes
+    the workbook on exhaustion or close(); close it when stopping early.
+
+    Args:
+        download: Public report-13060 ZIP with a matching receipt hash.
+        sheets: Exact worksheet names, or None for all worksheets in source order.
+        max_rows: Total yielded-row budget, or None for all selected data rows.
+        max_scan_rows: Data/blank row scan budget, or None to scan complete sheets.
+        max_expanded_bytes: Caller-selected bound on each ZIP layer's expansion.
+        max_members: Caller-selected bound on each ZIP layer's member count.
+
+    Yields:
+        Typed prices with physical row and worksheet identities. Budget exhaustion
+        raises explicitly; it does not silently claim a complete annual result.
+
+    Raises:
+        ValueError: A caller-selected bound or sheet selection is invalid.
+        ImportError: The optional files extra is not installed.
+        PublicDataError: Source access, hash, ZIP, cell, or budget checks fail.
+        OSError: The local archive cannot be read.
+    """
+    for value in (max_rows, max_scan_rows):
+        if value is not None and (type(value) is not int or value < 1):
+            raise ValueError("Row and scan budgets must be positive or None")
+    if any(
+        type(value) is not int or value < 1
+        for value in (max_expanded_bytes, max_members)
+    ):
+        raise ValueError("Archive structure budgets must be positive")
+    if isinstance(sheets, str) or (
+        sheets is not None and (not sheets or len(set(sheets)) != len(sheets))
+    ):
+        raise ValueError("sheets must contain distinct worksheet names")
+    if download.document.security != "P" or download.document.report_type_id != 13060:
+        raise AccessDeniedError("Only public DAM annual files are supported")
+    if (
+        download.path.is_symlink()
+        or download.path.stat().st_size != download.receipt.byte_count
+    ):
+        raise SchemaMismatchError("Archive path or size differs from its receipt")
+    raw = download.path.read_bytes()
+    digest = hashlib.sha256(raw).hexdigest()
+    if digest != download.receipt.sha256:
+        raise SchemaMismatchError("Archive differs from its receipt hash")
+    from openpyxl import load_workbook
+
+    try:
+        with checked_zip(
+            raw, max_members=max_members, max_expanded_bytes=max_expanded_bytes
+        ) as outer:
+            members = [member for member in outer.infolist() if not member.is_dir()]
+            if len(members) != 1 or not members[0].filename.lower().endswith(".xlsx"):
+                raise SchemaMismatchError("Unsupported annual archive container")
+            member = members[0].filename
+            inner = outer.read(members[0])
+        with checked_zip(
+            inner, max_members=max_members, max_expanded_bytes=max_expanded_bytes
+        ):
+            pass
+        workbook = load_workbook(
+            io.BytesIO(inner), read_only=True, data_only=True, keep_links=False
+        )
+        try:
+            selected = list(workbook.sheetnames if sheets is None else sheets)
+            if any(name not in workbook.sheetnames for name in selected):
+                raise SchemaMismatchError("Requested source worksheet is absent")
+            count = scanned = 0
+            for name in selected:
+                iterator = workbook[name].iter_rows(values_only=True)
+                header = next(iterator, None)
+                if header is None:
+                    continue
+                if tuple(header) != HEADER:
+                    raise SchemaMismatchError("Annual workbook headers changed")
+                for row_number, cells in enumerate(iterator, start=2):
+                    scanned += 1
+                    if max_scan_rows is not None and scanned > max_scan_rows:
+                        raise LimitError(
+                            "Worksheet scan budget reached before completion"
+                        )
+                    if all(value is None for value in cells):
+                        continue
+                    if max_rows is not None and count >= max_rows:
+                        raise LimitError("Annual row budget reached before completion")
+                    if len(cells) != 5:
+                        raise SchemaMismatchError("Annual workbook has extra columns")
+                    day, hour, repeated, point, price = cells
+                    if (
+                        not isinstance(day, str)
+                        or not re.fullmatch(r"\d{2}/\d{2}/\d{4}", day)
+                        or type(price) not in (int, float)
+                    ):
+                        raise SchemaMismatchError("Annual workbook cell types changed")
+                    amount = Decimal(str(price))
+                    if not amount.is_finite():
+                        raise SchemaMismatchError("Annual workbook price is nonfinite")
+                    row = ArchivePrice(
+                        delivery_date=datetime.date(
+                            int(day[6:10]), int(day[:2]), int(day[3:5])
+                        ),
+                        hour_ending=hour,
+                        repeated_hour_flag=repeated,
+                        settlement_point=point,
+                        settlement_point_price=amount,
+                    )
+                    count += 1
+                    yield ArchiveRecord(row, name, row_number, member, digest)
+        finally:
+            workbook.close()
+    except (zipfile.BadZipFile, KeyError, TypeError, ValueError):
+        pass
+    else:
+        return
     raise SchemaMismatchError("Annual workbook differs from the observed XLSX contract")

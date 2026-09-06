@@ -3,7 +3,7 @@
 TinyERCOT preserves its legacy public Python API. The opt-in `tinyercot.catalog`
 module supplies offline metadata only. Read `docs/public-foundation.md` before
 adding current data capabilities. Read `docs/public-retrieval.md` for the opt-in
-two-endpoint API client, annual file adapter, and ESR website feed.
+four-endpoint registry client, annual file adapter, and ESR website feed.
 
 ## Local checks
 
@@ -12,8 +12,8 @@ uv sync --frozen --group dev --extra files
 uv run python tools/generate_client.py --check
 uv run python tools/generate_public.py --check
 uv run --extra files pytest -q
-uv run ruff check tools/generate_client.py tools/generate_public.py tools/probe_public.py tinyercot/catalog.py tinyercot/public tests
-uv run ruff format --check tools/generate_client.py tools/generate_public.py tools/probe_public.py tinyercot/catalog.py tinyercot/public tests
+uv run ruff check tools tinyercot/catalog.py tinyercot/public tests
+uv run ruff format --check tools tinyercot/catalog.py tinyercot/public tests
 uv build
 ```
 
@@ -36,6 +36,9 @@ It has no `--refresh`, `--cache-products`, or `--pandas` option.
   New endpoints need actual field evidence. Cached legacy rows do not qualify.
 
 Real integration tests require explicit opt-in paths and an installed wheel.
+After installing the wheel outside the source tree, run
+`uv run python tools/check_typing.py --python /absolute/venv/bin/python`.
+CI checks PEP 561 contracts against that installed distribution.
 The normal suite blocks sockets and skips them. Do not print credential files,
 auth responses, tokens, or HTTPX request objects from real requests.
 

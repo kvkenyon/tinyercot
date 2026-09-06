@@ -158,5 +158,6 @@
     "bytes": 1384,
     "sha256": "dc70cef89b0d7ce0fb53a6441f8d5bdd0f79b5d60fff6125253046017cf37d18",
     "status": 200
-  }
+  },
+  "row_schema": "verified_observed"
 }

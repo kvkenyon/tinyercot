@@ -3,8 +3,8 @@
 Python client with 102 legacy typed ERCOT Public API endpoint families.
 
 Legacy imports, signatures, and behavior stay fixed. Legacy server compatibility
-is not verified. The opt-in `tinyercot.public` surface supports two current DAM
-price endpoints, bounded annual DAM file samples, and the rolling website ESR
+is not verified. The opt-in `tinyercot.public` surface supports four current DAM,
+RT-price and load endpoints, annual DAM file iteration, and the rolling website ESR
 feed. The separate offline catalog records observed sources and access boundaries.
 
 ## Install
@@ -113,7 +113,7 @@ See [scope, provenance, and adapter boundaries](docs/public-foundation.md).
 
 ## Opt-in public retrieval
 
-The new client has **2 generated typed operations in 2 products out of 243
+The new client has **4 generated typed operations in 4 products out of 243
 observed public data paths across 98 product namespaces**. This is partial
 coverage. Unknown row schemas fail closed. Restricted services remain excluded.
 
@@ -144,6 +144,15 @@ request and byte limits. Its errors, row models, and pagination are separate
 from the legacy DataFrame and exception contracts.
 See [exact coverage, annual files, evidence, and limits](docs/public-retrieval.md).
 
+`ReportsClient` adds generated filters and streaming iteration for all four
+verified endpoints. Its page, row, and request budgets can be removed explicitly
+for a complete caller-selected query. Budget exhaustion raises an error.
+`iter_dam_archive` similarly supports every worksheet and row in one selected
+annual file. See the [complete iteration examples](docs/public-retrieval.md#complete-query-and-annual-file-iteration).
+
+The wheel includes PEP 561 metadata and legacy transport stubs. Installed-wheel
+checks verify 510 legacy methods, 1,334 row fields, and new public contracts.
+
 ## Development and legacy generation
 
 Generation uses hash-pinned local inputs. It never fetches an upstream URL.
@@ -153,8 +162,8 @@ uv sync --frozen --group dev --extra files
 uv run python tools/generate_client.py --check
 uv run python tools/generate_public.py --check
 uv run --extra files pytest -q
-uv run ruff check tools/generate_client.py tools/generate_public.py tools/probe_public.py tinyercot/catalog.py tinyercot/public tests
-uv run ruff format --check tools/generate_client.py tools/generate_public.py tools/probe_public.py tinyercot/catalog.py tinyercot/public tests
+uv run ruff check tools tinyercot/catalog.py tinyercot/public tests
+uv run ruff format --check tools tinyercot/catalog.py tinyercot/public tests
 uv build
 ```
 
@@ -164,5 +173,9 @@ working directory. `--check` never writes. Missing inputs or changed hashes fail
 before output is written. The former authenticated `--refresh` and
 `--cache-products` developer commands are removed. Metadata refresh and current
 API generation use separate inputs. `tools/generate_public.py` generates only
-the two source-backed current models from `tools/inputs/current/`. It never
+the registered source-backed current models from `tools/inputs/current/`. It never
 downloads upstream specifications or overwrites the legacy generated file.
+`tools/discover_public.py` projects additional contracts offline from saved primary
+OpenAPI bytes, a bounded public response, and its matching receipt. Missing or
+unknown schemas cannot be generated. CI installs the wheel outside the checkout
+and runs `tools/check_typing.py --python /tmp/tinyercot-wheel/bin/python`.

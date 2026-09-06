@@ -1,7 +1,35 @@
 {
   "format_version": 1,
   "inputs": {
-    "dam-prices.json": "7b0a79a756ecfafb3f1d72d5c244b9ce06fdcba40d99f10ab05cd08a341e6bc4",
-    "dam-capacity.json": "46b3352eb03262a48d47ca499b5a2a7a96bdbb9ba1c769108428b0018f884969"
-  }
+    "dam-prices.json": "ba4ecaa6b1721e233b310e3c76fa5f3cd5ab1aed0057b8a2480f36b2f08df4e8",
+    "dam-capacity.json": "73a04f0a1fd40e2edaaa47d048fd97de999dbbf9a6fedffcf9a49422eddfb1f8",
+    "rt-prices.json": "d4335f720e452150429066e1d3308b2e2ff2762a0fed73580130ea7b07c11de4",
+    "system-load.json": "11249700b9bbcd6a2741cb657b99b1d5afc147476b86466459fc3b72aed4f020"
+  },
+  "contracts": [
+    {
+      "input": "dam-prices.json",
+      "model": "DamPrice",
+      "constant": "DAM_PRICES",
+      "fields_constant": "DAM_FIELDS"
+    },
+    {
+      "input": "dam-capacity.json",
+      "model": "DamCapacityPrice",
+      "constant": "DAM_CAPACITY_PRICES",
+      "fields_constant": "CAPACITY_FIELDS"
+    },
+    {
+      "input": "rt-prices.json",
+      "model": "RealTimePrice",
+      "constant": "RT_PRICES",
+      "fields_constant": "RT_FIELDS"
+    },
+    {
+      "input": "system-load.json",
+      "model": "SystemLoad",
+      "constant": "SYSTEM_LOAD",
+      "fields_constant": "LOAD_FIELDS"
+    }
+  ]
 }

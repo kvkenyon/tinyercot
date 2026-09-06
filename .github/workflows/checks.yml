@@ -24,11 +24,13 @@ jobs:
       - run: uv run python tools/generate_public.py --check
       - run: uv run --extra files pytest -q
       # Keep the byte-frozen runtime and unrelated examples out of formatting.
-      - run: uv run ruff check tools/generate_client.py tools/generate_public.py tools/probe_public.py tinyercot/catalog.py tinyercot/public tests
-      - run: uv run ruff format --check tools/generate_client.py tools/generate_public.py tools/probe_public.py tinyercot/catalog.py tinyercot/public tests
+      - run: uv run ruff check tools tinyercot/catalog.py tinyercot/public tests
+      - run: uv run ruff format --check tools tinyercot/catalog.py tinyercot/public tests
       - run: uv build
-      - run: uv export --frozen --no-dev --no-emit-project --output-file /tmp/tinyercot-requirements.txt
+      # Include locked typing dependencies for the separate PEP 561 consumer.
+      - run: uv export --frozen --no-emit-project --output-file /tmp/tinyercot-requirements.txt
       - run: uv venv /tmp/tinyercot-wheel
       - run: uv pip sync --python /tmp/tinyercot-wheel/bin/python /tmp/tinyercot-requirements.txt
       - run: uv pip install --python /tmp/tinyercot-wheel/bin/python --no-deps dist/*.whl
       - run: /tmp/tinyercot-wheel/bin/python -I tests/wheel_smoke.py
+      - run: uv run python tools/check_typing.py --python /tmp/tinyercot-wheel/bin/python

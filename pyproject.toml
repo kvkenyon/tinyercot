@@ -32,6 +32,8 @@ files = [
 [dependency-groups]
 dev = [
     "ipython>=9.8.0",
+    "mypy>=2.3.1",
+    "pandas-stubs>=2.3.3",
     "pytest>=9.1.1",
     "ruff>=0.16.6",
     "tqdm>=4.67.1",
@@ -46,5 +48,5 @@ testpaths = ["tests"]
 pythonpath = [".", "tests"]
 
 [tool.setuptools.package-data]
-tinyercot = ["_catalog.json"]
-"tinyercot.public" = ["_coverage.json"]
+tinyercot = ["_catalog.json", "py.typed", "*.pyi"]
+"tinyercot.public" = ["_coverage.json", "_contracts.json"]

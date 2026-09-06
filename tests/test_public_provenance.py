@@ -25,6 +25,8 @@ def test_current_model_fields_come_from_retained_response_bytes():
     for contract_name, fixture_name in (
         ("dam-prices", "dam-current-page1"),
         ("dam-capacity", "capacity-current"),
+        ("rt-prices", "rt-prices-current"),
+        ("system-load", "system-load-current"),
     ):
         contract = json.loads(
             (ROOT / f"tools/inputs/current/{contract_name}.json").read_text()

@@ -1,0 +1,864 @@
+{
+  "dam-prices.json": {
+    "format_version": 1,
+    "service": "public-reports",
+    "path": "/np4-190-cd/dam_stlmnt_pnt_prices",
+    "observed_at": "2026-09-05",
+    "query_parameters": [
+      {
+        "name": "deliveryDateFrom",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "yyyy-MM-dd"
+        }
+      },
+      {
+        "name": "deliveryDateTo",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "yyyy-MM-dd"
+        }
+      },
+      {
+        "name": "hourEnding",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      },
+      {
+        "name": "settlementPoint",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      },
+      {
+        "name": "settlementPointPriceFrom",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "settlementPointPriceTo",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "DSTFlag",
+        "in": "query",
+        "schema": {
+          "type": "boolean",
+          "format": "true | false"
+        }
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "format": "###"
+        }
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "format": "###"
+        }
+      },
+      {
+        "name": "sort",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      },
+      {
+        "name": "dir",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      }
+    ],
+    "fields": [
+      {
+        "name": "deliveryDate",
+        "label": "Delivery Date",
+        "cardinality": 1,
+        "dataType": "DATE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "hourEnding",
+        "label": "Hour Ending",
+        "cardinality": 2,
+        "dataType": "VARCHAR",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": false
+      },
+      {
+        "name": "settlementPoint",
+        "label": "Settlement Point",
+        "cardinality": 3,
+        "dataType": "VARCHAR",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": false
+      },
+      {
+        "name": "settlementPointPrice",
+        "label": "Settlement Point Price",
+        "cardinality": 4,
+        "dataType": "DOUBLE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "DSTFlag",
+        "label": "DST Flag",
+        "cardinality": 5,
+        "dataType": "BOOLEAN",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": false
+      }
+    ],
+    "nullability_policy": "Reject nulls; source field metadata does not establish nullability. This model supports the observed non-null price rows only.",
+    "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+    "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+    "response_source": {
+      "source_url": "https://api.ercot.com/api/public-reports/np4-190-cd/dam_stlmnt_pnt_prices",
+      "query": {
+        "deliveryDateFrom": "2026-09-04",
+        "deliveryDateTo": "2026-09-04",
+        "settlementPoint": "HB_HOUSTON",
+        "size": 2,
+        "page": 1,
+        "sort": "deliveryDate",
+        "dir": "desc"
+      },
+      "retrieved_at": "2026-09-05T20:28:34.745619+00:00",
+      "bytes": 1384,
+      "sha256": "dc70cef89b0d7ce0fb53a6441f8d5bdd0f79b5d60fff6125253046017cf37d18",
+      "status": 200
+    },
+    "row_schema": "verified_observed"
+  },
+  "dam-capacity.json": {
+    "format_version": 1,
+    "service": "public-reports",
+    "path": "/np4-188-cd/dam_clear_price_for_cap",
+    "observed_at": "2026-09-05",
+    "query_parameters": [
+      {
+        "name": "deliveryDateFrom",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "yyyy-MM-dd"
+        }
+      },
+      {
+        "name": "deliveryDateTo",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "yyyy-MM-dd"
+        }
+      },
+      {
+        "name": "hourEnding",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      },
+      {
+        "name": "ancillaryType",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      },
+      {
+        "name": "MCPCFrom",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "MCPCTo",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "DSTFlag",
+        "in": "query",
+        "schema": {
+          "type": "boolean",
+          "format": "true | false"
+        }
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "description": "Page number of returned values in the collection.",
+        "schema": {
+          "type": "integer",
+          "format": "###"
+        }
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "description": "Number of returned items per page.",
+        "schema": {
+          "type": "integer",
+          "format": "###"
+        }
+      },
+      {
+        "name": "sort",
+        "in": "query",
+        "description": "Defines field by which to sort the returned resource values.",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      },
+      {
+        "name": "dir",
+        "in": "query",
+        "description": "Defines sort order of returned values based on the primary business key of the resource.",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      }
+    ],
+    "fields": [
+      {
+        "name": "deliveryDate",
+        "label": "Delivery Date",
+        "cardinality": 1,
+        "dataType": "DATE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "hourEnding",
+        "label": "Hour Ending",
+        "cardinality": 2,
+        "dataType": "VARCHAR",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": false
+      },
+      {
+        "name": "ancillaryType",
+        "label": "Ancillary Type",
+        "cardinality": 3,
+        "dataType": "VARCHAR",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": false
+      },
+      {
+        "name": "MCPC",
+        "label": "MCPC",
+        "cardinality": 4,
+        "dataType": "DOUBLE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "DSTFlag",
+        "label": "DST Flag",
+        "cardinality": 5,
+        "dataType": "BOOLEAN",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": false
+      }
+    ],
+    "nullability_policy": "Reject nulls; source field metadata does not establish nullability. This model supports the observed non-null price rows only.",
+    "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+    "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+    "response_source": {
+      "source_url": "https://api.ercot.com/api/public-reports/np4-188-cd/dam_clear_price_for_cap?deliveryDateFrom=2026-09-04&deliveryDateTo=2026-09-04&ancillaryType=REGUP&size=2&page=1&sort=deliveryDate&dir=desc",
+      "retrieved_at": "2026-09-05 20:54:00.360875+00:00",
+      "sha256": "3fa8d075dadb0baf6cb0b4656ec87e887a7c85c6d96ab2923dc3e42bd8373251",
+      "byte_count": 1336,
+      "status": 200
+    },
+    "row_schema": "verified_observed"
+  },
+  "rt-prices.json": {
+    "format_version": 1,
+    "service": "public-reports",
+    "path": "/np6-905-cd/spp_node_zone_hub",
+    "observed_at": "2026-09-05 21:14:32.319440+00:00",
+    "row_schema": "verified_observed",
+    "query_parameters": [
+      {
+        "name": "deliveryDateFrom",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "yyyy-MM-dd"
+        }
+      },
+      {
+        "name": "deliveryDateTo",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "yyyy-MM-dd"
+        }
+      },
+      {
+        "name": "deliveryHourFrom",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "format": "###"
+        }
+      },
+      {
+        "name": "deliveryHourTo",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "format": "###"
+        }
+      },
+      {
+        "name": "deliveryIntervalFrom",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "format": "###"
+        }
+      },
+      {
+        "name": "deliveryIntervalTo",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "format": "###"
+        }
+      },
+      {
+        "name": "settlementPoint",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      },
+      {
+        "name": "settlementPointType",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      },
+      {
+        "name": "settlementPointPriceFrom",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "settlementPointPriceTo",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "DSTFlag",
+        "in": "query",
+        "schema": {
+          "type": "boolean",
+          "format": "true | false"
+        }
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "format": "###"
+        }
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "format": "###"
+        }
+      },
+      {
+        "name": "sort",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      },
+      {
+        "name": "dir",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      }
+    ],
+    "fields": [
+      {
+        "name": "deliveryDate",
+        "label": "Delivery Date",
+        "cardinality": 1,
+        "dataType": "DATE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "deliveryHour",
+        "label": "Delivery Hour",
+        "cardinality": 2,
+        "dataType": "INTEGER",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "deliveryInterval",
+        "label": "Delivery Interval",
+        "cardinality": 3,
+        "dataType": "INTEGER",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "settlementPoint",
+        "label": "Settlement Point",
+        "cardinality": 4,
+        "dataType": "VARCHAR",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": false
+      },
+      {
+        "name": "settlementPointType",
+        "label": "Settlement Point Type",
+        "cardinality": 5,
+        "dataType": "VARCHAR",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": false
+      },
+      {
+        "name": "settlementPointPrice",
+        "label": "Settlement Point Price",
+        "cardinality": 6,
+        "dataType": "DOUBLE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "DSTFlag",
+        "label": "DST Flag",
+        "cardinality": 7,
+        "dataType": "BOOLEAN",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": false
+      }
+    ],
+    "nullability_policy": "Reject nulls; observed fields do not establish nullability.",
+    "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+    "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+    "response_source": {
+      "source_url": "https://api.ercot.com/api/public-reports/np6-905-cd/spp_node_zone_hub?settlementPoint=HB_HOUSTON&size=2&page=1&sort=deliveryDate&dir=desc&deliveryDateFrom=2026-09-04&deliveryDateTo=2026-09-04",
+      "retrieved_at": "2026-09-05 21:14:32.319440+00:00",
+      "sha256": "211a6808039b86dfefbdfcab99e8859cf83de61ab67d2da87bd4b4bc13545c6a",
+      "byte_count": 1711,
+      "status": 200
+    }
+  },
+  "system-load.json": {
+    "format_version": 1,
+    "service": "public-reports",
+    "path": "/np6-345-cd/act_sys_load_by_wzn",
+    "observed_at": "2026-09-05 21:14:36.433487+00:00",
+    "row_schema": "verified_observed",
+    "query_parameters": [
+      {
+        "name": "operatingDayFrom",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "yyyy-MM-dd"
+        }
+      },
+      {
+        "name": "operatingDayTo",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "yyyy-MM-dd"
+        }
+      },
+      {
+        "name": "hourEnding",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      },
+      {
+        "name": "coastFrom",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "coastTo",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "eastFrom",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "eastTo",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "farWestFrom",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "farWestTo",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "northFrom",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "northTo",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "northCFrom",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "northCTo",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "southernFrom",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "southernTo",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "southCFrom",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "southCTo",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "westFrom",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "westTo",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "totalFrom",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "totalTo",
+        "in": "query",
+        "schema": {
+          "type": "number",
+          "format": "####.###"
+        }
+      },
+      {
+        "name": "DSTFlag",
+        "in": "query",
+        "schema": {
+          "type": "boolean",
+          "format": "true | false"
+        }
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "format": "###"
+        }
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "format": "###"
+        }
+      },
+      {
+        "name": "sort",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      },
+      {
+        "name": "dir",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "format": "abc123"
+        }
+      }
+    ],
+    "fields": [
+      {
+        "name": "operatingDay",
+        "label": "Operating Day",
+        "cardinality": 1,
+        "dataType": "DATE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "hourEnding",
+        "label": "Hour Ending",
+        "cardinality": 2,
+        "dataType": "VARCHAR",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": false
+      },
+      {
+        "name": "coast",
+        "label": "Coast",
+        "cardinality": 3,
+        "dataType": "DOUBLE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "east",
+        "label": "East",
+        "cardinality": 4,
+        "dataType": "DOUBLE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "farWest",
+        "label": "Far West",
+        "cardinality": 5,
+        "dataType": "DOUBLE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "north",
+        "label": "North",
+        "cardinality": 6,
+        "dataType": "DOUBLE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "northC",
+        "label": "NorthC",
+        "cardinality": 7,
+        "dataType": "DOUBLE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "southern",
+        "label": "Southern",
+        "cardinality": 8,
+        "dataType": "DOUBLE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "southC",
+        "label": "SouthC",
+        "cardinality": 9,
+        "dataType": "DOUBLE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "west",
+        "label": "West",
+        "cardinality": 10,
+        "dataType": "DOUBLE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "total",
+        "label": "Total",
+        "cardinality": 11,
+        "dataType": "DOUBLE",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": true
+      },
+      {
+        "name": "DSTFlag",
+        "label": "DST Flag",
+        "cardinality": 12,
+        "dataType": "BOOLEAN",
+        "searchable": true,
+        "sortable": true,
+        "hasRange": false
+      }
+    ],
+    "nullability_policy": "Reject nulls; observed fields do not establish nullability.",
+    "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+    "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+    "response_source": {
+      "source_url": "https://api.ercot.com/api/public-reports/np6-345-cd/act_sys_load_by_wzn?size=2&page=1&sort=operatingDay&dir=desc&operatingDayFrom=2026-09-04&operatingDayTo=2026-09-04",
+      "retrieved_at": "2026-09-05 21:14:36.433487+00:00",
+      "sha256": "e9b68e868a08ba0e04becd610fbbd781421f87545864d26b05f1ac234403cf13",
+      "byte_count": 2262,
+      "status": 200
+    }
+  }
+}

@@ -77,6 +77,32 @@ class Limits:
 
 
 @dataclass(frozen=True)
+class StreamingLimits:
+    """Opt-in transport limits without a permanent total-request ceiling.
+
+    Attributes:
+        max_requests: Attempt budget, or None to permit complete caller queries.
+        max_bytes: Per-response decoded byte ceiling.
+        attempts: Attempts per request, including retries.
+        min_interval: Seconds between request starts.
+        max_retry_wait: Maximum server-directed wait in seconds.
+    """
+
+    max_requests: int | None = 100
+    max_bytes: int = 4_000_000
+    attempts: int = 3
+    min_interval: float = 2.1
+    max_retry_wait: float = 60.0
+
+    def __post_init__(self) -> None:
+        if self.max_requests is not None and (
+            type(self.max_requests) is not int or self.max_requests < 1
+        ):
+            raise ValueError("max_requests must be positive or None")
+        Limits(1, self.max_bytes, self.attempts, self.min_interval, self.max_retry_wait)
+
+
+@dataclass(frozen=True)
 class Receipt:
     """Public payload identity without credentials or response headers.
 
@@ -130,7 +156,7 @@ class _HTTP:
 
     def __init__(
         self,
-        limits: Limits,
+        limits: Limits | StreamingLimits,
         transport: httpx.BaseTransport | None = None,
         *,
         sleep: Callable[[float], None] = time.sleep,
@@ -166,7 +192,10 @@ class _HTTP:
         """
         if self.closed:
             raise PublicDataError("Adapter is closed")
-        if self.requests >= self.limits.max_requests:
+        if (
+            self.limits.max_requests is not None
+            and self.requests >= self.limits.max_requests
+        ):
             raise LimitError("HTTP request budget exhausted")
         if self.last_start is not None:
             delay = self.last_start + self.limits.min_interval - self.clock()

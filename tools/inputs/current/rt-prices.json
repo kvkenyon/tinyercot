@@ -1,8 +1,9 @@
 {
   "format_version": 1,
   "service": "public-reports",
-  "path": "/np4-188-cd/dam_clear_price_for_cap",
-  "observed_at": "2026-09-05",
+  "path": "/np6-905-cd/spp_node_zone_hub",
+  "observed_at": "2026-09-05 21:14:32.319440+00:00",
+  "row_schema": "verified_observed",
   "query_parameters": [
     {
       "name": "deliveryDateFrom",
@@ -21,7 +22,39 @@
       }
     },
     {
-      "name": "hourEnding",
+      "name": "deliveryHourFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "deliveryHourTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "deliveryIntervalFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "deliveryIntervalTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "settlementPoint",
       "in": "query",
       "schema": {
         "type": "string",
@@ -29,7 +62,7 @@
       }
     },
     {
-      "name": "ancillaryType",
+      "name": "settlementPointType",
       "in": "query",
       "schema": {
         "type": "string",
@@ -37,7 +70,7 @@
       }
     },
     {
-      "name": "MCPCFrom",
+      "name": "settlementPointPriceFrom",
       "in": "query",
       "schema": {
         "type": "number",
@@ -45,7 +78,7 @@
       }
     },
     {
-      "name": "MCPCTo",
+      "name": "settlementPointPriceTo",
       "in": "query",
       "schema": {
         "type": "number",
@@ -63,7 +96,6 @@
     {
       "name": "page",
       "in": "query",
-      "description": "Page number of returned values in the collection.",
       "schema": {
         "type": "integer",
         "format": "###"
@@ -72,7 +104,6 @@
     {
       "name": "size",
       "in": "query",
-      "description": "Number of returned items per page.",
       "schema": {
         "type": "integer",
         "format": "###"
@@ -81,7 +112,6 @@
     {
       "name": "sort",
       "in": "query",
-      "description": "Defines field by which to sort the returned resource values.",
       "schema": {
         "type": "string",
         "format": "abc123"
@@ -90,7 +120,6 @@
     {
       "name": "dir",
       "in": "query",
-      "description": "Defines sort order of returned values based on the primary business key of the resource.",
       "schema": {
         "type": "string",
         "format": "abc123"
@@ -108,27 +137,45 @@
       "hasRange": true
     },
     {
-      "name": "hourEnding",
-      "label": "Hour Ending",
+      "name": "deliveryHour",
+      "label": "Delivery Hour",
       "cardinality": 2,
-      "dataType": "VARCHAR",
+      "dataType": "INTEGER",
       "searchable": true,
       "sortable": true,
-      "hasRange": false
+      "hasRange": true
     },
     {
-      "name": "ancillaryType",
-      "label": "Ancillary Type",
+      "name": "deliveryInterval",
+      "label": "Delivery Interval",
       "cardinality": 3,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "settlementPoint",
+      "label": "Settlement Point",
+      "cardinality": 4,
       "dataType": "VARCHAR",
       "searchable": true,
       "sortable": true,
       "hasRange": false
     },
     {
-      "name": "MCPC",
-      "label": "MCPC",
-      "cardinality": 4,
+      "name": "settlementPointType",
+      "label": "Settlement Point Type",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "settlementPointPrice",
+      "label": "Settlement Point Price",
+      "cardinality": 6,
       "dataType": "DOUBLE",
       "searchable": true,
       "sortable": true,
@@ -137,22 +184,21 @@
     {
       "name": "DSTFlag",
       "label": "DST Flag",
-      "cardinality": 5,
+      "cardinality": 7,
       "dataType": "BOOLEAN",
       "searchable": true,
       "sortable": true,
       "hasRange": false
     }
   ],
-  "nullability_policy": "Reject nulls; source field metadata does not establish nullability. This model supports the observed non-null price rows only.",
+  "nullability_policy": "Reject nulls; observed fields do not establish nullability.",
   "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
   "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
   "response_source": {
-    "source_url": "https://api.ercot.com/api/public-reports/np4-188-cd/dam_clear_price_for_cap?deliveryDateFrom=2026-09-04&deliveryDateTo=2026-09-04&ancillaryType=REGUP&size=2&page=1&sort=deliveryDate&dir=desc",
-    "retrieved_at": "2026-09-05 20:54:00.360875+00:00",
-    "sha256": "3fa8d075dadb0baf6cb0b4656ec87e887a7c85c6d96ab2923dc3e42bd8373251",
-    "byte_count": 1336,
+    "source_url": "https://api.ercot.com/api/public-reports/np6-905-cd/spp_node_zone_hub?settlementPoint=HB_HOUSTON&size=2&page=1&sort=deliveryDate&dir=desc&deliveryDateFrom=2026-09-04&deliveryDateTo=2026-09-04",
+    "retrieved_at": "2026-09-05 21:14:32.319440+00:00",
+    "sha256": "211a6808039b86dfefbdfcab99e8859cf83de61ab67d2da87bd4b4bc13545c6a",
+    "byte_count": 1711,
     "status": 200
-  },
-  "row_schema": "verified_observed"
+  }
 }

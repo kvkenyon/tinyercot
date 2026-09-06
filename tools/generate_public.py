@@ -3,6 +3,9 @@
 import argparse
 import hashlib
 import json
+import keyword
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -10,12 +13,114 @@ INPUT = ROOT / "tools/inputs/current/dam-prices.json"
 CAPACITY_INPUT = ROOT / "tools/inputs/current/dam-capacity.json"
 MANIFEST = ROOT / "tools/inputs/current/provenance.json"
 OUTPUT = ROOT / "tinyercot/public/_generated.py"
+REGISTRY_OUTPUT = ROOT / "tinyercot/public/_schemas.py"
+BUNDLE_OUTPUT = ROOT / "tinyercot/public/_contracts.json"
 TYPES = {
     "DATE": "date",
     "VARCHAR": "StrictStr",
     "DOUBLE": "Decimal",
     "BOOLEAN": "StrictBool",
+    "INTEGER": "StrictInt",
+    "LONG": "StrictInt",
+    "DATETIME": "datetime",
+    "FLOAT": "Decimal",
 }
+
+
+def contracts() -> list[tuple[dict, dict]]:
+    """Load configured public contracts only when pins and schemas verify.
+
+    Returns:
+        Ordered generator names and their verified source projections.
+
+    Raises:
+        ValueError: A hash, public path, name, or row schema is not supported.
+    """
+    manifest = json.loads(MANIFEST.read_text())
+    catalog = json.loads((ROOT / "tinyercot/_catalog.json").read_text())
+    public_paths = {
+        op["path"]
+        for op in catalog["operations"]
+        if op["service"] == "public-reports" and op["kind"] == "data"
+    }
+    result = []
+    identities = set()
+    symbols = {
+        "Endpoint",
+        "ENDPOINTS",
+        "TypedDict",
+        "BaseModel",
+        "ConfigDict",
+        "date",
+        "datetime",
+        "Decimal",
+        "StrictBool",
+        "StrictInt",
+        "StrictStr",
+    }
+    for entry in manifest["contracts"]:
+        path = (
+            INPUT
+            if entry["input"] == "dam-prices.json"
+            else CAPACITY_INPUT
+            if entry["input"] == "dam-capacity.json"
+            else MANIFEST.parent / entry["input"]
+        )
+        if Path(entry["input"]).name != entry["input"]:
+            raise ValueError("Generator input must be a local basename")
+        raw = path.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != manifest["inputs"][entry["input"]]:
+            raise ValueError("Unverified current response metadata")
+        contract = json.loads(raw)
+        if (
+            contract["service"] != "public-reports"
+            or contract["path"] not in public_paths
+        ):
+            raise ValueError("No verified public operation for this contract")
+        if contract.get("row_schema") != "verified_observed":
+            raise ValueError("Missing or unknown row schemas cannot be generated")
+        if (
+            contract["query_source_sha256"]
+            != catalog["sources"]["public-reports"]["sha256"]
+        ):
+            raise ValueError("Query evidence differs from the primary catalog pin")
+        fields = contract["fields"]
+        names = [f["name"] for f in fields]
+        if not fields or len(set(names)) != len(names):
+            raise ValueError("Missing or duplicate response fields")
+        for name in [
+            *names,
+            entry["model"],
+            entry["constant"],
+            entry["fields_constant"],
+        ]:
+            if (
+                not name.isidentifier()
+                or keyword.iskeyword(name)
+                or name.startswith(("_", "model_"))
+            ):
+                raise ValueError("Unsupported Python field or model name")
+        if any(f["dataType"] not in TYPES for f in fields):
+            raise ValueError("Unsupported response field type")
+        declared = [
+            entry["model"],
+            entry["constant"],
+            entry["fields_constant"],
+            entry["model"] + "Filters",
+        ]
+        if len(set(declared)) != len(declared) or symbols.intersection(declared):
+            raise ValueError("Colliding generated symbol")
+        symbols.update(declared)
+        query_names = [p["name"] for p in contract["query_parameters"]]
+        if len(query_names) != len(set(query_names)):
+            raise ValueError("Duplicate query fields")
+        if contract["path"] in identities:
+            raise ValueError("Duplicate public operation")
+        identities.add(contract["path"])
+        result.append((entry, contract))
+    return result
+
+
 DESCRIPTIONS = {
     "deliveryDate": "Source operating date, without an inferred timezone.",
     "hourEnding": "Source hour-ending label, including 24:00.",
@@ -28,57 +133,50 @@ DESCRIPTIONS = {
 
 
 def render() -> str:
-    """Render the two observed non-null DAM row contracts.
+    """Render all configured, verified non-null public row contracts.
 
     Returns:
-        Model source for two verified endpoints and their ordered fields.
+        Model source for verified endpoints and their ordered fields.
 
     Raises:
         ValueError: A pin, field type, or supported endpoint differs.
     """
     lines = [
         "# Generated by tools/generate_public.py from pinned public field metadata.",
-        '"""Observed non-null DAM rows; unknown schemas fail decoding."""',
+        '"""Observed non-null public rows; unknown schemas fail decoding."""',
         "",
-        "from datetime import date",
+        "from datetime import "
+        + ", ".join(
+            sorted(
+                {
+                    TYPES[f["dataType"]]
+                    for _, contract in contracts()
+                    for f in contract["fields"]
+                    if f["dataType"] in {"DATE", "DATETIME"}
+                }
+            )
+        ),
         "from decimal import Decimal",
         "",
-        "from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr",
+        "from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr",
         "",
     ]
-    for path, expected_path, model, constant in (
-        (INPUT, "/np4-190-cd/dam_stlmnt_pnt_prices", "DamPrice", "DAM_FIELDS"),
-        (
-            CAPACITY_INPUT,
-            "/np4-188-cd/dam_clear_price_for_cap",
-            "DamCapacityPrice",
-            "CAPACITY_FIELDS",
-        ),
-    ):
-        raw = path.read_bytes()
-        expected = json.loads(MANIFEST.read_text())["inputs"][path.name]
-        if hashlib.sha256(raw).hexdigest() != expected:
-            raise ValueError("Unverified current response metadata")
-        contract = json.loads(raw)
-        if contract["path"] != expected_path:
-            raise ValueError("No row generator policy for this endpoint")
+    for entry, contract in contracts():
+        model, constant = entry["model"], entry["fields_constant"]
         fields = contract["fields"]
-        if not fields or len({f["name"] for f in fields}) != len(fields):
-            raise ValueError("Missing or duplicate response fields")
-        if any(
-            f["name"] not in DESCRIPTIONS or f["dataType"] not in TYPES for f in fields
-        ):
-            raise ValueError("Unsupported response field")
         lines.extend(
             [
                 "",
                 f"class {model}(BaseModel):",
-                '    """A non-null row from the observed public DAM field contract.',
+                '    """A non-null row from the observed public field contract.',
                 "",
                 "    Attributes:",
             ]
         )
-        lines.extend(f"        {f['name']}: {DESCRIPTIONS[f['name']]}" for f in fields)
+        lines.extend(
+            f"        {f['name']}: {DESCRIPTIONS.get(f['name'], 'Source ' + f['name'] + ' value.')}"
+            for f in fields
+        )
         lines.extend(
             [
                 '    """',
@@ -96,18 +194,118 @@ def render() -> str:
     return "\n".join(lines)
 
 
+def render_registry() -> str:
+    """Render typed filter dictionaries and operation identities.
+
+    Returns:
+        Registry source for the same verified row contracts.
+
+    Raises:
+        ValueError: A query field type or name is unsupported.
+    """
+    entries = contracts()
+    lines = [
+        "# Generated by tools/generate_public.py; do not edit.",
+        '"""Verified public operation identities and complete query filter types."""',
+        "",
+        "from datetime import date",
+        "from decimal import Decimal",
+        "from typing import TypedDict",
+        "",
+        "from ._generated import (",
+        *[f"    {name}," for name in sorted(e["model"] for e, _ in entries)],
+        ")",
+        "from .schema import Endpoint",
+        "",
+    ]
+    for entry, contract in entries:
+        model = entry["model"]
+        lines.extend(
+            [
+                "",
+                f"class {model}Filters(TypedDict, total=False):",
+                '    """Optional filters from the pinned current query specification."""',
+                "",
+            ]
+        )
+        for parameter in contract["query_parameters"]:
+            name = parameter["name"]
+            if name in {"page", "size", "sort", "dir"}:
+                continue
+            if not name.isidentifier() or keyword.iskeyword(name):
+                raise ValueError("Unsupported query field name")
+            schema = parameter["schema"]
+            kind = schema["type"]
+            formats = {
+                "string": {None, "abc123", "yyyy-MM-dd"},
+                "integer": {None, "###"},
+                "number": {None, "####.###"},
+                "boolean": {None, "true | false"},
+            }
+            if schema.get("format") not in formats.get(kind, set()):
+                raise ValueError("Unsupported current query format")
+            query_type = {
+                "integer": "int",
+                "number": "float | Decimal",
+                "boolean": "bool",
+                "string": "str",
+            }.get(kind)
+            if kind == "string" and schema.get("format") == "yyyy-MM-dd":
+                query_type = "date"
+            if query_type is None:
+                raise ValueError("Unsupported current query type")
+            lines.append(f"    {name}: {query_type}")
+        lines.extend(
+            [
+                "",
+                "",
+                f"{entry['constant']}: Endpoint[{model}, {model}Filters] = Endpoint(",
+                f"    {json.dumps(contract['path'])}, {model}, {json.dumps(entry['input'])}",
+                ")",
+                "",
+            ]
+        )
+    lines.extend(
+        ["", "ENDPOINTS = (", *[f"    {e['constant']}," for e, _ in entries], ")", ""]
+    )
+    return subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "ruff",
+            "format",
+            "--config",
+            str(ROOT / "pyproject.toml"),
+            "--stdin-filename",
+            str(REGISTRY_OUTPUT),
+        ],
+        input="\n".join(lines),
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout
+
+
 def main() -> None:
     """Write or check additive models without changing legacy generation."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
-    output = render()
+    outputs = {
+        OUTPUT: render(),
+        REGISTRY_OUTPUT: render_registry(),
+        BUNDLE_OUTPUT: json.dumps(
+            {entry["input"]: contract for entry, contract in contracts()}, indent=2
+        )
+        + "\n",
+    }
     if args.check:
-        if OUTPUT.read_text() != output:
+        if any(path.read_text() != output for path, output in outputs.items()):
             raise SystemExit("Current generated models differ from the pinned inputs")
         print("Current models match pinned response metadata")
     else:
-        OUTPUT.write_text(output)
+        for path, output in outputs.items():
+            path.write_text(output)
 
 
 if __name__ == "__main__":

@@ -7,6 +7,8 @@ from typing import Literal
 
 from tinyercot.catalog import operations
 
+from ._schemas import ENDPOINTS
+
 
 @dataclass(frozen=True)
 class Coverage:
@@ -50,15 +52,14 @@ def coverage() -> tuple[Coverage, ...]:
     ]
     for operation in operations():
         supported = (operation.service, operation.method, operation.path) in {
-            ("public-reports", "GET", "/np4-190-cd/dam_stlmnt_pnt_prices"),
-            ("public-reports", "GET", "/np4-188-cd/dam_clear_price_for_cap"),
+            ("public-reports", "GET", endpoint.path) for endpoint in ENDPOINTS
         }
         entries.append(
             Coverage(
                 f"api:{operation.service}:{operation.method}:{operation.path}",
                 operation.path,
                 "covered" if supported else "deferred",
-                "Bounded non-null DAM price pages; observed field schema only. No full history, all-filter, or schema-epoch claim."
+                "Observed non-null row schema and generated query filters; opt-in complete page/row iteration with explicit budgets. Current and oldest-first samples verified; no full-history, as-of, or schema-epoch guarantee."
                 if supported
                 else "No opt-in retrieval implementation or verified current row contract.",
                 (operation.source_url,),
@@ -68,9 +69,9 @@ def coverage() -> tuple[Coverage, ...]:
         (
             Coverage(
                 "web:dam-annual",
-                "Public DAM annual ZIP/XLSX samples",
+                "Public DAM annual ZIP/XLSX retrieval and iteration",
                 "covered",
-                "Report 13060 public listing, one selected file per call, receipt cache, and <=1000 rows from one named worksheet. Verified 2010 and 2026 samples, not complete years.",
+                "Report 13060 public listing, one selected file per call, receipt cache, worksheet sampling, and opt-in all-worksheet row iteration. Real 2010 and 2026 samples; complete multi-worksheet iteration verified with synthetic files only. No complete-year data guarantee.",
                 (
                     "https://www.ercot.com/mp/data-products/data-product-details?id=np4-180-er",
                 ),
