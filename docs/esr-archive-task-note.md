@@ -2,7 +2,10 @@
 
 This independent contribution starts at PR #4 commit
 `11e20c84b11a38186ef1fe3e05a615de2cb8571d`. Its branch is
-`feat/esr-archive-contracts`. The PR base is `feat/public-coverage-batches`.
+`feat/esr-archive-contracts`. The PR base is `feat/public-metadata-expansion`.
+Firstmate authorized this review-base substitution because the requested
+`feat/public-coverage-batches` was unpublished and resolved locally to the
+same PR #4 head, `dea83409ad8666545f518154e90722f1b42ff69c`.
 Only new assigned paths change. No shared registry, generator, package import,
 dependency file, or owner branch changes.
 
