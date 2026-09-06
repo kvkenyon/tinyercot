@@ -1,0 +1,602 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np4-732-cd/wpp_hrly_avrg_actl_fcast",
+  "observed_at": "2026-09-06 00:39:52.604925+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "WGRPPLoadZoneNorthFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "WGRPPLoadZoneNorthTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "DSTFlag",
+      "in": "query",
+      "schema": {
+        "type": "boolean",
+        "format": "true | false"
+      }
+    },
+    {
+      "name": "postedDatetimeFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "postedDatetimeTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "HSLSystemWideFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "HSLSystemWideTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "deliveryDateFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "deliveryDateTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "hourEndingFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "hourEndingTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "genSystemWideFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genSystemWideTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "COPHSLSystemWideFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "COPHSLSystemWideTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "STWPFSystemWideFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "STWPFSystemWideTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "WGRPPSystemWideFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "WGRPPSystemWideTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genLoadZoneSouthHoustonFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genLoadZoneSouthHoustonTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "COPHSLLoadZoneSouthHoustonFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "COPHSLLoadZoneSouthHoustonTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "STWPFLoadZoneSouthHoustonFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "STWPFLoadZoneSouthHoustonTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "WGRPPLoadZoneSouthHoustonFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "WGRPPLoadZoneSouthHoustonTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genLoadZoneWestFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genLoadZoneWestTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "COPHSLLoadZoneWestFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "COPHSLLoadZoneWestTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "STWPFLoadZoneWestFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "STWPFLoadZoneWestTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "WGRPPLoadZoneWestFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "WGRPPLoadZoneWestTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genLoadZoneNorthFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genLoadZoneNorthTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "COPHSLLoadZoneNorthFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "COPHSLLoadZoneNorthTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "STWPFLoadZoneNorthFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "STWPFLoadZoneNorthTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 2,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 3,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genSystemWide",
+      "label": "Generation System Wide",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "COPHSLSystemWide",
+      "label": "COP HSL System Wide",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "STWPFSystemWide",
+      "label": "STWPF System Wide",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "WGRPPSystemWide",
+      "label": "WGRPP System Wide",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genLoadZoneSouthHouston",
+      "label": "Generation Load Zone South Houston",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "COPHSLLoadZoneSouthHouston",
+      "label": "COP HSL Load Zone South Houston",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "STWPFLoadZoneSouthHouston",
+      "label": "STWPF Load Zone South Houston",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "WGRPPLoadZoneSouthHouston",
+      "label": "WGRPP Load Zone South Houston",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genLoadZoneWest",
+      "label": "Generation Load Zone West",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "COPHSLLoadZoneWest",
+      "label": "COP HSL Load Zone West",
+      "cardinality": 13,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "STWPFLoadZoneWest",
+      "label": "STWPF Load Zone West",
+      "cardinality": 14,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "WGRPPLoadZoneWest",
+      "label": "WGRPP Load Zone West",
+      "cardinality": 15,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genLoadZoneNorth",
+      "label": "Generation Load Zone North",
+      "cardinality": 16,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "COPHSLLoadZoneNorth",
+      "label": "COP HSL Load Zone North",
+      "cardinality": 17,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "STWPFLoadZoneNorth",
+      "label": "STWPF Load Zone North",
+      "cardinality": 18,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "WGRPPLoadZoneNorth",
+      "label": "WGRPP Load Zone North",
+      "cardinality": 19,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "HSLSystemWide",
+      "label": "HSL System Wide",
+      "cardinality": 20,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 21,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np4-732-cd/wpp_hrly_avrg_actl_fcast?size=1&page=1&sort=postedDatetime&dir=desc",
+    "retrieved_at": "2026-09-06 00:39:52.604925+00:00",
+    "sha256": "94fd4f6c2188bc7943257aa2d9328ed6404091dfe373170357ad86ad4f9f52d7",
+    "byte_count": 3815,
+    "status": 200
+  },
+  "observed_nullable_fields": [
+    "HSLSystemWide",
+    "genLoadZoneNorth",
+    "genLoadZoneSouthHouston",
+    "genLoadZoneWest",
+    "genSystemWide"
+  ],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np4-732-cd/wpp_hrly_avrg_actl_fcast?size=1&page=1&sort=postedDatetime&dir=desc",
+      "retrieved_at": "2026-09-06 00:39:52.604925+00:00",
+      "sha256": "94fd4f6c2188bc7943257aa2d9328ed6404091dfe373170357ad86ad4f9f52d7",
+      "byte_count": 3815,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np4-732-cd/wpp_hrly_avrg_actl_fcast?size=1&page=1&sort=postedDatetime&dir=asc",
+      "retrieved_at": "2026-09-06 00:39:54.758258+00:00",
+      "sha256": "c8b38d4ff823849a26e3e83789f66b0ea751adfb682e74123b21c7edcd807b23",
+      "byte_count": 3815,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP4-732-CD",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 13028,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}

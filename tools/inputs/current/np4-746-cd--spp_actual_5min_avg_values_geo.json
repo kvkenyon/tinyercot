@@ -1,0 +1,348 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np4-746-cd/spp_actual_5min_avg_values_geo",
+  "observed_at": "2026-09-06 01:00:14.786642+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "intervalEndingFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "intervalEndingTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "postedDatetimeFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "postedDatetimeTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "genSystemWideFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genSystemWideTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genCenterWestFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genCenterWestTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genNorthWestFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genNorthWestTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genFarWestFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genFarWestTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genFarEastFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genFarEastTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genSouthEastFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genSouthEastTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genCenterEastFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genCenterEastTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "DSTFlag",
+      "in": "query",
+      "schema": {
+        "type": "boolean",
+        "format": "true | false"
+      }
+    },
+    {
+      "name": "HSLSystemWideFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "HSLSystemWideTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "intervalEnding",
+      "label": "Interval Ending",
+      "cardinality": 2,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genSystemWide",
+      "label": "Generation System Wide",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genCenterWest",
+      "label": "Generation Center West",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genNorthWest",
+      "label": "Generation North West",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genFarWest",
+      "label": "Generation Far West",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genFarEast",
+      "label": "Generation Far East",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genSouthEast",
+      "label": "Generation South East",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genCenterEast",
+      "label": "Generation Center East",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "HSLSystemWide",
+      "label": "HSL System Wide",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 11,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np4-746-cd/spp_actual_5min_avg_values_geo?size=1&page=1&sort=intervalEnding&dir=desc",
+    "retrieved_at": "2026-09-06 01:00:14.786642+00:00",
+    "sha256": "6ca9db234badbcf213995d146b6994ef2013821b0620d5845719adf175b6d677",
+    "byte_count": 2225,
+    "status": 200
+  },
+  "observed_nullable_fields": [
+    "HSLSystemWide"
+  ],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np4-746-cd/spp_actual_5min_avg_values_geo?size=1&page=1&sort=intervalEnding&dir=desc",
+      "retrieved_at": "2026-09-06 01:00:14.786642+00:00",
+      "sha256": "6ca9db234badbcf213995d146b6994ef2013821b0620d5845719adf175b6d677",
+      "byte_count": 2225,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np4-746-cd/spp_actual_5min_avg_values_geo?size=1&page=1&sort=intervalEnding&dir=asc",
+      "retrieved_at": "2026-09-06 01:00:17.017113+00:00",
+      "sha256": "9f95434a531b1664e5aedb9ee0a30e4efe32b1bf5bff349bf4cef5a8edff387d",
+      "byte_count": 2235,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP4-746-CD",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 21810,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}

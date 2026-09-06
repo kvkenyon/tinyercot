@@ -1,0 +1,381 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np5-754-cd/daily_ruc_act_and_bind_tran_const",
+  "observed_at": "2026-09-06 01:00:56.834263+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "deliveryDateFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "deliveryDateTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "hourEnding",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "RUCTimestampFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "RUCTimestampTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "constraintIDFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "constraintIDTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "constraintName",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "contingencyName",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "limitFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "limitTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "valueFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "valueTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "violationAmountFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "violationAmountTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "fromStation",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "toStation",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "fromStationkVFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "fromStationkVTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "toStationkVFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "toStationkVTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "repeatedHourFlag",
+      "in": "query",
+      "schema": {
+        "type": "boolean",
+        "format": "true | false"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "RUCTimestamp",
+      "label": "RUC Timestamp",
+      "cardinality": 3,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "constraintID",
+      "label": "Constraint Id",
+      "cardinality": 4,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "constraintName",
+      "label": "Constraint Name",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "contingencyName",
+      "label": "Contingency Name",
+      "cardinality": 6,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "limit",
+      "label": "Limit",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "value",
+      "label": "Value",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "violationAmount",
+      "label": "Violation Amount",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "fromStation",
+      "label": "From Station",
+      "cardinality": 10,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "toStation",
+      "label": "To Station",
+      "cardinality": 11,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "fromStationkV",
+      "label": "From Station kV",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "toStationkV",
+      "label": "To Station kV",
+      "cardinality": 13,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatedHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 14,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np5-754-cd/daily_ruc_act_and_bind_tran_const?size=1&page=1&sort=deliveryDate&dir=desc",
+    "retrieved_at": "2026-09-06 01:00:56.834263+00:00",
+    "sha256": "1248281677b0133d645d31c5fcc371abca38cc7c0acd896533d5974a2a4dc938",
+    "byte_count": 2579,
+    "status": 200
+  },
+  "observed_nullable_fields": [],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np5-754-cd/daily_ruc_act_and_bind_tran_const?size=1&page=1&sort=deliveryDate&dir=desc",
+      "retrieved_at": "2026-09-06 01:00:56.834263+00:00",
+      "sha256": "1248281677b0133d645d31c5fcc371abca38cc7c0acd896533d5974a2a4dc938",
+      "byte_count": 2579,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np5-754-cd/daily_ruc_act_and_bind_tran_const?size=1&page=1&sort=deliveryDate&dir=asc",
+      "retrieved_at": "2026-09-06 01:00:59.090947+00:00",
+      "sha256": "b53340b5837809ea01dfd2e78168a241411e2c75dd849759614a0b2de180d9eb",
+      "byte_count": 2567,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP5-754-CD",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 12338,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}

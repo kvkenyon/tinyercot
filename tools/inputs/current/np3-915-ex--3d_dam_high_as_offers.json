@@ -1,0 +1,224 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np3-915-ex/3d_dam_high_as_offers",
+  "observed_at": "2026-09-06 01:07:45.740794+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "deliveryDateFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "deliveryDateTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "hourEndingFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "hourEndingTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "qseName",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dmeName",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "resourceName",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "ASType",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "qseName",
+      "label": "QSE",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "dmeName",
+      "label": "DME",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceName",
+      "label": "Resource Name with Highest-Priced AS Offer Selected in DAM",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "ASType",
+      "label": "AS Type",
+      "cardinality": 6,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "blockIndicator",
+      "label": "Block Indicator",
+      "cardinality": 7,
+      "dataType": "VARCHAR",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": false
+    },
+    {
+      "name": "quantity",
+      "label": "Offered Quantity",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "price",
+      "label": "Offered Price",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np3-915-ex/3d_dam_high_as_offers?size=1&page=1&sort=deliveryDate&dir=desc",
+    "retrieved_at": "2026-09-06 01:07:45.740794+00:00",
+    "sha256": "3448d85d363a90a73fceb0f0a1345809ab3a7a06a570132f700a05f151e1b552",
+    "byte_count": 1821,
+    "status": 200
+  },
+  "observed_nullable_fields": [],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np3-915-ex/3d_dam_high_as_offers?size=1&page=1&sort=deliveryDate&dir=desc",
+      "retrieved_at": "2026-09-06 01:07:45.740794+00:00",
+      "sha256": "3448d85d363a90a73fceb0f0a1345809ab3a7a06a570132f700a05f151e1b552",
+      "byte_count": 1821,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np3-915-ex/3d_dam_high_as_offers?size=1&page=1&sort=deliveryDate&dir=asc",
+      "retrieved_at": "2026-09-06 01:07:47.688492+00:00",
+      "sha256": "b73530292745fe1cbe830fa1ee1b9ababfd89344d5c6c290a110afb1e3025a19",
+      "byte_count": 1821,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP3-915-EX",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 13018,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}

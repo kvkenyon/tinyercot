@@ -20,6 +20,7 @@ TYPES = {
     "DATE": "date",
     "VARCHAR": "StrictStr",
     "DOUBLE": "Decimal",
+    "DECIMAL": "Decimal",
     "BOOLEAN": "StrictBool",
     "INTEGER": "StrictInt",
     "LONG": "StrictInt",
@@ -374,7 +375,22 @@ def render_products() -> str:
                     method = "_" + method
                 lines.append(f"    {method} = _schemas.{entry['constant']}")
         lines.append("")
-    return "\n".join(lines)
+    return subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "ruff",
+            "format",
+            "--config",
+            str(ROOT / "pyproject.toml"),
+            "--stdin-filename",
+            str(PRODUCTS_OUTPUT),
+        ],
+        input="\n".join(lines),
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout
 
 
 def main() -> None:

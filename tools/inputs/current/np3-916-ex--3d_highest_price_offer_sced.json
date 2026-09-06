@@ -1,0 +1,231 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np3-916-ex/3d_highest_price_offer_sced",
+  "observed_at": "2026-09-06 01:07:51.841576+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "qseName",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dmeName",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "resourceName",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "proxyExtension",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "penaltyFlag",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "SCEDTimestampFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "SCEDTimestampTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "repeatedHourFlag",
+      "in": "query",
+      "schema": {
+        "type": "boolean",
+        "format": "true | false"
+      }
+    },
+    {
+      "name": "LMPFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "LMPTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatedHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "LMP",
+      "label": "LMP",
+      "cardinality": 3,
+      "dataType": "DECIMAL",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "qseName",
+      "label": "QSE",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "dmeName",
+      "label": "DME",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceName",
+      "label": "Generation Resource",
+      "cardinality": 6,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "proxyExtension",
+      "label": "Proxy Extension",
+      "cardinality": 7,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "penaltyFlag",
+      "label": "Power Balance Penalty Flag",
+      "cardinality": 8,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np3-916-ex/3d_highest_price_offer_sced?size=1&page=1&sort=SCEDTimestamp&dir=desc",
+    "retrieved_at": "2026-09-06 01:07:51.841576+00:00",
+    "sha256": "ffc5f67d7f60a89de886fd781953a69a38b61551f7dea4cb8b2208efd93b6ce2",
+    "byte_count": 1711,
+    "status": 200
+  },
+  "observed_nullable_fields": [],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np3-916-ex/3d_highest_price_offer_sced?size=1&page=1&sort=SCEDTimestamp&dir=desc",
+      "retrieved_at": "2026-09-06 01:07:51.841576+00:00",
+      "sha256": "ffc5f67d7f60a89de886fd781953a69a38b61551f7dea4cb8b2208efd93b6ce2",
+      "byte_count": 1711,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np3-916-ex/3d_highest_price_offer_sced?size=1&page=1&sort=SCEDTimestamp&dir=asc",
+      "retrieved_at": "2026-09-06 01:07:52.235981+00:00",
+      "sha256": "11b481bee5960ff432ab3792b0a7137bf3c1df96313dcbc826439c49e7ac1aa6",
+      "byte_count": 1709,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP3-916-EX",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 13029,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}

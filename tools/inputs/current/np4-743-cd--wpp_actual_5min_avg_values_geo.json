@@ -1,0 +1,323 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np4-743-cd/wpp_actual_5min_avg_values_geo",
+  "observed_at": "2026-09-06 00:59:56.393968+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "intervalEndingFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "intervalEndingTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "genSystemWideFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "genSystemWideTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "panhandleFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "panhandleTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "coastalFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "coastalTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "southFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "southTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "westFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "westTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "northFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "northTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "DSTFlag",
+      "in": "query",
+      "schema": {
+        "type": "boolean",
+        "format": "true | false"
+      }
+    },
+    {
+      "name": "postedDatetimeFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "postedDatetimeTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "HSLSystemWideFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "HSLSystemWideTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "intervalEnding",
+      "label": "Interval Ending",
+      "cardinality": 2,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genSystemWide",
+      "label": "Generation System Wide",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "panhandle",
+      "label": "Panhandle",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "coastal",
+      "label": "Coastal",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "south",
+      "label": "South",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "west",
+      "label": "West",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "north",
+      "label": "North",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "HSLSystemWide",
+      "label": "HSL System Wide",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 10,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np4-743-cd/wpp_actual_5min_avg_values_geo?size=1&page=1&sort=intervalEnding&dir=desc",
+    "retrieved_at": "2026-09-06 00:59:56.393968+00:00",
+    "sha256": "30e9575e613d782ab4d859cc86601b68c51cac6e9a123f6bab99480798a6adb7",
+    "byte_count": 1987,
+    "status": 200
+  },
+  "observed_nullable_fields": [
+    "HSLSystemWide"
+  ],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np4-743-cd/wpp_actual_5min_avg_values_geo?size=1&page=1&sort=intervalEnding&dir=desc",
+      "retrieved_at": "2026-09-06 00:59:56.393968+00:00",
+      "sha256": "30e9575e613d782ab4d859cc86601b68c51cac6e9a123f6bab99480798a6adb7",
+      "byte_count": 1987,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np4-743-cd/wpp_actual_5min_avg_values_geo?size=1&page=1&sort=intervalEnding&dir=asc",
+      "retrieved_at": "2026-09-06 00:59:57.892244+00:00",
+      "sha256": "4863513e097ec894a6f51824c917c366f4eae6b01e7ccedf5c42801347ba05f1",
+      "byte_count": 1977,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP4-743-CD",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 14788,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}

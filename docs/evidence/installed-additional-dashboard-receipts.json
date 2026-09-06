@@ -1,0 +1,43 @@
+{
+  "distribution_version": "0.2.2",
+  "installed_module": "/private/tmp/tinyercot-additional-proof.NHjBTC/venv/lib/python3.14/site-packages/tinyercot/public/additional_dashboards.py",
+  "verified_at": "2026-09-06T01:12:09.588504+00:00",
+  "authentication": "none",
+  "scope": "Two rolling snapshots; no polling or historical extraction.",
+  "captures": [
+    {
+      "adapter": "system_prices",
+      "receipt": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/system-wide-prices.json",
+        "retrieved_at": "2026-09-06T01:12:07.538235+00:00",
+        "sha256": "8e38ba06d829fcee282409af8db0ac41648a4d1b5e5fdd2d8f0acbf44ead239c",
+        "byte_count": 35242,
+        "status": 200
+      },
+      "source_last_updated": "2026-09-05 20:02:00-0500",
+      "typed_rows": {
+        "real_time": 80,
+        "day_ahead": 24
+      },
+      "stale_at_ten_minutes": true
+    },
+    {
+      "adapter": "supply_demand",
+      "receipt": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/supply-demand.json",
+        "retrieved_at": "2026-09-06T01:12:09.582151+00:00",
+        "sha256": "6ad8925b0a0d4b0face9059fb671733efaa314fb5604fd08af12a0abc9bd46cb",
+        "byte_count": 80505,
+        "status": 200
+      },
+      "source_last_updated": "2026-09-05 20:10:00-0500",
+      "typed_rows": {
+        "data": 289,
+        "published_outlook": 144
+      },
+      "stale_at_ten_minutes": false
+    }
+  ],
+  "wheel_sha256": "35a50b4a21e1d86af3b4344054b90ee0ade773710e59aaa0ba61017f005f5f02",
+  "command": "/tmp/tinyercot-additional-proof.NHjBTC/venv/bin/python -I tools/probe_additional_dashboards.py --live --output /tmp/tinyercot-additional-proof.NHjBTC/receipts.json"
+}

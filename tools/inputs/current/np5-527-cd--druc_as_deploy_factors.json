@@ -1,0 +1,205 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np5-527-cd/druc_as_deploy_factors",
+  "observed_at": "2026-09-06 01:00:48.607382+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "ASType",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "ASDeploymentFactorsFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "ASDeploymentFactorsTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "repeatHourFlag",
+      "in": "query",
+      "schema": {
+        "type": "boolean",
+        "format": "true | false"
+      }
+    },
+    {
+      "name": "RUCTimestampFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "RUCTimestampTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "deliveryDateFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "deliveryDateTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "deliveryHour",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "RUCTimestamp",
+      "label": "RUC Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 2,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryHour",
+      "label": "Delivery Hour",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "ASType",
+      "label": "AS Type",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "ASDeploymentFactors",
+      "label": "AS Deployment Factors",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 6,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np5-527-cd/druc_as_deploy_factors?size=1&page=1&sort=RUCTimestamp&dir=desc",
+    "retrieved_at": "2026-09-06 01:00:48.607382+00:00",
+    "sha256": "9e11564b420d156058fcee164b7dcb22d248f8991bfc24c26475a1bda2fad2d4",
+    "byte_count": 1418,
+    "status": 200
+  },
+  "observed_nullable_fields": [],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np5-527-cd/druc_as_deploy_factors?size=1&page=1&sort=RUCTimestamp&dir=desc",
+      "retrieved_at": "2026-09-06 01:00:48.607382+00:00",
+      "sha256": "9e11564b420d156058fcee164b7dcb22d248f8991bfc24c26475a1bda2fad2d4",
+      "byte_count": 1418,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np5-527-cd/druc_as_deploy_factors?size=1&page=1&sort=RUCTimestamp&dir=asc",
+      "retrieved_at": "2026-09-06 01:00:50.437172+00:00",
+      "sha256": "008545811fc47b731fc1c9159df2c907b9a1de8f241a59e0186241ac4e8301e9",
+      "byte_count": 1417,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP5-527-CD",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 24895,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}

@@ -56,7 +56,71 @@
     "np6-788-cd--lmp_node_zone_hub.json": "a4a2120d5e120699748a1495e5317bc6526984bf3a54e85278c7fa08e22eb721",
     "np6-86-cd--shdw_prices_bnd_trns_const.json": "430c50cbfd1118dbe14f6bc0e866e8c3df76a6f2d18d3364d261046fba66ec7a",
     "np6-915-cd--sum_hdl_ldl.json": "3ed5834e4726fbe632ae40415064ad6b58258081ce534a02618c8e25fd916a95",
-    "np6-970-cd--rtd_lmp_node_zone_hub.json": "6da39cca8da19f66c95e716708b191d595cbd2449d38d09866113fa0b365f365"
+    "np6-970-cd--rtd_lmp_node_zone_hub.json": "6da39cca8da19f66c95e716708b191d595cbd2449d38d09866113fa0b365f365",
+    "np1-301--60_cop_adj_period_snapshot.json": "d39c8165ede09582b64e2b02d2d8b10b344a51f9e8ee448b34738172d4cad398",
+    "np3-257-ex--3d_high_price_bids_sel_disp_sced.json": "0550740e1d2a442b0526dc2621eac5f2bd818c662e19aa6991fdd83f47e4760d",
+    "np3-566-cd--lf_by_model_study_area.json": "c235b2a7fa011b405fec7f72462fd97b0aefb184e389a77139a909835cf51dfa",
+    "np3-764-cd--hrly_ruc_online_sced_offline_cop.json": "550d73613f9a47f24c7fd62d4f854a5f984ab87d265dd63bafc67bdface3e0e6",
+    "np3-765-cd--approved_dctie_schedules.json": "d0c3e168239b4a5e6e79e10ba21ae08197c0c5d116d58c375f9bb758d37b2840",
+    "np3-906-ex--2day_agg_sced_as_offers_ecrsm.json": "0e58c40008eaf7f32dca6405e5cb98060e52a7a81850b505fad565c6b1d6a51a",
+    "np3-906-ex--2day_agg_sced_as_offers_ecrss.json": "0961e73ce4fd1109c5fc61adcee4e337fdaedbbe000c7ca24dccba942e4ace63",
+    "np3-906-ex--2day_agg_sced_as_offers_nspin.json": "534f11bef2dcc0dbcc0550ceaf32d61a23a53a1401c4dd70366243f9f3c2c454",
+    "np3-906-ex--2day_agg_sced_as_offers_nspnm.json": "21567795121f70e883a8c4f81b255605e24bae86d269bb57d636a8f601a84a14",
+    "np3-906-ex--2day_agg_sced_as_offers_regdn.json": "bece125f7171767d203cc89059efe69ef25bfc616e8fdab38cf96a9f3ad870f7",
+    "np3-906-ex--2day_agg_sced_as_offers_regup.json": "7fe377e0a6697cfeda80cf2387742db81c8f3ed9e4af20201ab4211c460826a5",
+    "np3-906-ex--2day_agg_sced_as_offers_rrsffr.json": "11f47fd4078ba16845284ee1891ba19d29085d971279aa5866d0884e4cb42145",
+    "np3-906-ex--2day_agg_sced_as_offers_rrspfr.json": "7d7023c1a8904a9206ee9a6e3fac6f14e24e504f3c8603b93fcacaadde8eca3d",
+    "np3-906-ex--2day_agg_sced_as_offers_rrsufr.json": "25cf05b056e5ba364d06c8ea0b9879408f1e7e143dbfb551b0e644b5c7965851",
+    "np3-907-ex--2d_agg_edc.json": "fbc83c5dcf7572131a92389831c65747a778880cb615445b8b22ecb915fb4b5f",
+    "np3-907-ex--2d_agg_edc_houston.json": "6e55d3317439326e11c06c4580f67e6569f5880443c0505b23e952fc4521a2ba",
+    "np3-907-ex--2d_agg_edc_north.json": "d24509cac9e3fde1a0b4e29b8de7a8b9ed467c8bfee89d2fd8c3d301a5df49e9",
+    "np3-907-ex--2d_agg_edc_south.json": "f66782398ec77a37c408abdea7643491d7c474672ea6aa7117b78e548c4deb3a",
+    "np3-907-ex--2d_agg_edc_west.json": "b53da4ae3f9f2a62e70388f3ed16937b5bb63ccd4be945aceb599daf0b2adbe6",
+    "np3-907-ex--2d_agg_esc.json": "c59daefc368eee0157faa4059a7e4d193e3b0c56206b98f9a5b6a639cb638ed7",
+    "np3-907-ex--2d_agg_esc_houston.json": "4ded1a1f71bfc143caee4e5e3e70e7db7761598ed123a9ae3e87607f2260cefd",
+    "np3-907-ex--2d_agg_esc_north.json": "775d741856a0d349b9ff10e884a0b507b94b3062979c587e3f121a12455a5fcc",
+    "np3-907-ex--2d_agg_esc_south.json": "44b27fb97a779a43ba30074ee663b52c43e277bcf8bb13d0bd07adfd833a02cd",
+    "np3-907-ex--2d_agg_esc_west.json": "aef7bd8b62cb6ea8c3934990e90b7f67bc7f8e7a0ea557a8109a2ba3fe8ffcff",
+    "np3-907-ex--2d_agg_min_esc.json": "75c41d3961fd508f73f2502601b0ca194880da1d2f007a8130f2d5a7a3037284",
+    "np3-907-ex--2d_agg_min_esc_houston.json": "6eed03937d41db1d820a7655194129fb3b0460286ad6feac0afd453e40199013",
+    "np3-907-ex--2d_agg_min_esc_north.json": "208790d771ed496bb7e3211cb1941fb7f27ad45d67b5054a001f404dd95ed5f6",
+    "np3-907-ex--2d_agg_min_esc_south.json": "7f5d5fe587843fc60b92d99b3c1d58feb87d0d36265aa849e09f1b47f396f002",
+    "np3-907-ex--2d_agg_min_esc_west.json": "3c688ba237abedf205d55934a2367606bdedb95fae86b14ae5ddb6b0d8cec20a",
+    "np3-914-ex--3d_sced_high_as_offers.json": "0a4e295f3824c2a8c020104796ceb625224809ca93d64b7877c87f3884df119a",
+    "np3-915-ex--3d_dam_high_as_offers.json": "74a9ee6978d9e6e0580d8884fae2098628c2ad3348908d57ed27d16ebe3c2e18",
+    "np3-916-ex--3d_highest_price_offer_sced.json": "a8bbaa77f21b7111a48c3145c76d88f984534801cbd4a8e9e0259c5670a98019",
+    "np3-987-ex--7d_trig_lmp_50xfip.json": "1e295234f9ae37198cfc73dbdaf497d3a97403730faa68d38af65c5183a406b6",
+    "np3-987-ex--7d_trig_mcpc_50xfip.json": "5133830ed831dee2163cb0ead52fa0aa96980c5b22d22b1419fbf4c105b0144e",
+    "np3-987-ex--7d_trig_rtm_mcpc_50xfip.json": "ddf3d0e833a0fbcc781623a2fc867feb9d3eef7f8e20a52f925ebb3cb2270957",
+    "np4-412-cd--epp_cumulative_hours.json": "ed8154ccc4cebff420b5a87f31030edaf389fbe7a101a3cb4c69a6542ab56a97",
+    "np4-442-cd--hrly_sys_reg_wind_fcast_model.json": "c0f8881410da3978e1ebb1f5a1693668c50d2f8720ceaf62942ad118c85dd3ed",
+    "np4-443-cd--hrly_sys_reg_solar_fcast_model.json": "1a580fd81dae60bf83a884e1ca08b28fe10ebcc9f1fec4c46905a979aa71ace6",
+    "np4-532-cd--dam_as_sold.json": "13b6148b91dfda03eea96f6a36172f71c76767b56629d384a0e245182726f39f",
+    "np4-722-cd--weather_assumptions.json": "d20422eb3fd0e018e1c4e813b001e4b9719d49b9853700389d36ccea018961bd",
+    "np4-732-cd--wpp_hrly_avrg_actl_fcast.json": "9c00ce09f049ca10927d1b42a37c762465c8ac2e6b6ec0f9c0ac0069bcbaf9d8",
+    "np4-733-cd--wpp_actual_5min_avg_values.json": "5d89ed06816bec65baa63d916ffabe151445c3a32910c14089fdb0b13bf031ef",
+    "np4-737-cd--spp_hrly_avrg_actl_fcast.json": "4ae6c5a34a309fc0ae838f1c5ad33e3351a10b8b4928cedcfc3ff53099ebe9b3",
+    "np4-738-cd--spp_actual_5min_avg_values.json": "7ac0b7fa0a781c429451be46d1ea8ff45b0ed3199f582830894df64721515744",
+    "np4-742-cd--wpp_hrly_actual_fcast_geo.json": "d72a8d50e6d4ef569a8b9cc2d28d846f423c0019cdb7d473508c016ad6c8bae6",
+    "np4-743-cd--wpp_actual_5min_avg_values_geo.json": "ec5e73f00da3ff4251a92531515458a2b9bf2f6e097e9550f785ecae3c618d12",
+    "np4-745-cd--spp_hrly_actual_fcast_geo.json": "05eef2e4ac9c1da3b237d880415a651965ebc3f3099448cef1367882908ef50e",
+    "np4-746-cd--spp_actual_5min_avg_values_geo.json": "020168bbdec322ae0999ba175edf583d49aa9b9fed378e23650666635465656b",
+    "np4-751-cd--ih_wind_fcast_geo.json": "c868b899687a93e5253e4ab38c806d1a806681e84e2688bead9ac1269789224b",
+    "np4-752-cd--ih_solar_fcast_geo.json": "9c0eb268a3ac7efe17bf7b4831382889c3a342b2e1a3048cc433514b5887dcb9",
+    "np4-790-cd--peaker_net_margin.json": "6e2565cc29ae132a8e6a5d7023cad78edf2937410824ce3686d72add5bfd72a3",
+    "np4-791-cd--da_sw_offer_caps.json": "cbab91986c398acbacc4ddc6b928a2bf6d2c2c76ff81adb84ce26dc696a26195",
+    "np5-108-cd--hrly_rmr_services_deployed.json": "b7b63ba2ed8d09e76604adc401fa199c6cad8ec35130a3db91548ac78c35f880",
+    "np5-525-cd--wruc_as_deploy_factors.json": "4b1a8bfb19632b7087cd2825db52cc8361bdd24f80016f97a66c0f9eb0d29c52",
+    "np5-526-cd--proj_as_deploy_factor.json": "739173549a2ac0a40a327abd6c0d73579fbfeb018a046d173f103455841657cb",
+    "np5-527-cd--druc_as_deploy_factors.json": "daafa407046d5223cc2b7bd29f4839dc2508299de24dc17175c95a70472a56ff",
+    "np5-528-cd--hruc_as_deploy_factors.json": "7a6efd027c19c916815ca89787c5a3693dbc701b9a1838f7cb1e85a4c7303cf9",
+    "np5-754-cd--daily_ruc_act_and_bind_tran_const.json": "a4a13483a393f3093ce887a6a8dcd60749149321088a46eaee6f106822f7962f",
+    "np5-755-cd--hrly_ruc_act_and_bind_tran_const.json": "5544425272dd19e46acf5dd5018fafbcd6182fd688108d911fac2ac238a66925",
+    "np6-235-cd--system_wide_demand.json": "4bacac2352465456565e1828a181e458b5af1d772caae2bfb38f55aa64d34a48",
+    "np6-344-cd--act_sys_load_by_study_area.json": "d0cc8e8ecd4fd1619e84b3eef129f94e7bed28e771d7664e27353b3e3f568d46",
+    "np6-625-cd--se_ld_rpt_ercot_gen.json": "761ed7b228fb157607284d671820daa5a19dd8878f3dc1a2fff85e85772b53f0",
+    "np6-626-cd--se_load_dcties_flows.json": "748930400756981814183582f2261284d0185a54eb0c141c372c50fc3ca671e2",
+    "np7-464-cd--dam_ptp_option_price_report.json": "5bb07dede5c7fb0af1822ce03953a9e4fdf05bcf718e71688774f8a4dc3c2fe9"
   },
   "contracts": [
     {
@@ -394,6 +458,390 @@
       "model": "Np6970CdRtdLmpNodeZoneHub",
       "constant": "NP6_970_CD_RTD_LMP_NODE_ZONE_HUB",
       "fields_constant": "NP6_970_CD_RTD_LMP_NODE_ZONE_HUB_FIELDS"
+    },
+    {
+      "input": "np1-301--60_cop_adj_period_snapshot.json",
+      "model": "Np130160CopAdjPeriodSnapshot",
+      "constant": "NP1_301_60_COP_ADJ_PERIOD_SNAPSHOT",
+      "fields_constant": "NP1_301_60_COP_ADJ_PERIOD_SNAPSHOT_FIELDS"
+    },
+    {
+      "input": "np3-257-ex--3d_high_price_bids_sel_disp_sced.json",
+      "model": "Np3257Ex3dHighPriceBidsSelDispSced",
+      "constant": "NP3_257_EX_3D_HIGH_PRICE_BIDS_SEL_DISP_SCED",
+      "fields_constant": "NP3_257_EX_3D_HIGH_PRICE_BIDS_SEL_DISP_SCED_FIELDS"
+    },
+    {
+      "input": "np3-566-cd--lf_by_model_study_area.json",
+      "model": "Np3566CdLfByModelStudyArea",
+      "constant": "NP3_566_CD_LF_BY_MODEL_STUDY_AREA",
+      "fields_constant": "NP3_566_CD_LF_BY_MODEL_STUDY_AREA_FIELDS"
+    },
+    {
+      "input": "np3-764-cd--hrly_ruc_online_sced_offline_cop.json",
+      "model": "Np3764CdHrlyRucOnlineScedOfflineCop",
+      "constant": "NP3_764_CD_HRLY_RUC_ONLINE_SCED_OFFLINE_COP",
+      "fields_constant": "NP3_764_CD_HRLY_RUC_ONLINE_SCED_OFFLINE_COP_FIELDS"
+    },
+    {
+      "input": "np3-765-cd--approved_dctie_schedules.json",
+      "model": "Np3765CdApprovedDctieSchedules",
+      "constant": "NP3_765_CD_APPROVED_DCTIE_SCHEDULES",
+      "fields_constant": "NP3_765_CD_APPROVED_DCTIE_SCHEDULES_FIELDS"
+    },
+    {
+      "input": "np3-906-ex--2day_agg_sced_as_offers_ecrsm.json",
+      "model": "Np3906Ex2dayAggScedAsOffersEcrsm",
+      "constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_ECRSM",
+      "fields_constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_ECRSM_FIELDS"
+    },
+    {
+      "input": "np3-906-ex--2day_agg_sced_as_offers_ecrss.json",
+      "model": "Np3906Ex2dayAggScedAsOffersEcrss",
+      "constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_ECRSS",
+      "fields_constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_ECRSS_FIELDS"
+    },
+    {
+      "input": "np3-906-ex--2day_agg_sced_as_offers_nspin.json",
+      "model": "Np3906Ex2dayAggScedAsOffersNspin",
+      "constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_NSPIN",
+      "fields_constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_NSPIN_FIELDS"
+    },
+    {
+      "input": "np3-906-ex--2day_agg_sced_as_offers_nspnm.json",
+      "model": "Np3906Ex2dayAggScedAsOffersNspnm",
+      "constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_NSPNM",
+      "fields_constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_NSPNM_FIELDS"
+    },
+    {
+      "input": "np3-906-ex--2day_agg_sced_as_offers_regdn.json",
+      "model": "Np3906Ex2dayAggScedAsOffersRegdn",
+      "constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_REGDN",
+      "fields_constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_REGDN_FIELDS"
+    },
+    {
+      "input": "np3-906-ex--2day_agg_sced_as_offers_regup.json",
+      "model": "Np3906Ex2dayAggScedAsOffersRegup",
+      "constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_REGUP",
+      "fields_constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_REGUP_FIELDS"
+    },
+    {
+      "input": "np3-906-ex--2day_agg_sced_as_offers_rrsffr.json",
+      "model": "Np3906Ex2dayAggScedAsOffersRrsffr",
+      "constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSFFR",
+      "fields_constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSFFR_FIELDS"
+    },
+    {
+      "input": "np3-906-ex--2day_agg_sced_as_offers_rrspfr.json",
+      "model": "Np3906Ex2dayAggScedAsOffersRrspfr",
+      "constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSPFR",
+      "fields_constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSPFR_FIELDS"
+    },
+    {
+      "input": "np3-906-ex--2day_agg_sced_as_offers_rrsufr.json",
+      "model": "Np3906Ex2dayAggScedAsOffersRrsufr",
+      "constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSUFR",
+      "fields_constant": "NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSUFR_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_edc.json",
+      "model": "Np3907Ex2dAggEdc",
+      "constant": "NP3_907_EX_2D_AGG_EDC",
+      "fields_constant": "NP3_907_EX_2D_AGG_EDC_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_edc_houston.json",
+      "model": "Np3907Ex2dAggEdcHouston",
+      "constant": "NP3_907_EX_2D_AGG_EDC_HOUSTON",
+      "fields_constant": "NP3_907_EX_2D_AGG_EDC_HOUSTON_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_edc_north.json",
+      "model": "Np3907Ex2dAggEdcNorth",
+      "constant": "NP3_907_EX_2D_AGG_EDC_NORTH",
+      "fields_constant": "NP3_907_EX_2D_AGG_EDC_NORTH_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_edc_south.json",
+      "model": "Np3907Ex2dAggEdcSouth",
+      "constant": "NP3_907_EX_2D_AGG_EDC_SOUTH",
+      "fields_constant": "NP3_907_EX_2D_AGG_EDC_SOUTH_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_edc_west.json",
+      "model": "Np3907Ex2dAggEdcWest",
+      "constant": "NP3_907_EX_2D_AGG_EDC_WEST",
+      "fields_constant": "NP3_907_EX_2D_AGG_EDC_WEST_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_esc.json",
+      "model": "Np3907Ex2dAggEsc",
+      "constant": "NP3_907_EX_2D_AGG_ESC",
+      "fields_constant": "NP3_907_EX_2D_AGG_ESC_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_esc_houston.json",
+      "model": "Np3907Ex2dAggEscHouston",
+      "constant": "NP3_907_EX_2D_AGG_ESC_HOUSTON",
+      "fields_constant": "NP3_907_EX_2D_AGG_ESC_HOUSTON_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_esc_north.json",
+      "model": "Np3907Ex2dAggEscNorth",
+      "constant": "NP3_907_EX_2D_AGG_ESC_NORTH",
+      "fields_constant": "NP3_907_EX_2D_AGG_ESC_NORTH_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_esc_south.json",
+      "model": "Np3907Ex2dAggEscSouth",
+      "constant": "NP3_907_EX_2D_AGG_ESC_SOUTH",
+      "fields_constant": "NP3_907_EX_2D_AGG_ESC_SOUTH_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_esc_west.json",
+      "model": "Np3907Ex2dAggEscWest",
+      "constant": "NP3_907_EX_2D_AGG_ESC_WEST",
+      "fields_constant": "NP3_907_EX_2D_AGG_ESC_WEST_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_min_esc.json",
+      "model": "Np3907Ex2dAggMinEsc",
+      "constant": "NP3_907_EX_2D_AGG_MIN_ESC",
+      "fields_constant": "NP3_907_EX_2D_AGG_MIN_ESC_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_min_esc_houston.json",
+      "model": "Np3907Ex2dAggMinEscHouston",
+      "constant": "NP3_907_EX_2D_AGG_MIN_ESC_HOUSTON",
+      "fields_constant": "NP3_907_EX_2D_AGG_MIN_ESC_HOUSTON_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_min_esc_north.json",
+      "model": "Np3907Ex2dAggMinEscNorth",
+      "constant": "NP3_907_EX_2D_AGG_MIN_ESC_NORTH",
+      "fields_constant": "NP3_907_EX_2D_AGG_MIN_ESC_NORTH_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_min_esc_south.json",
+      "model": "Np3907Ex2dAggMinEscSouth",
+      "constant": "NP3_907_EX_2D_AGG_MIN_ESC_SOUTH",
+      "fields_constant": "NP3_907_EX_2D_AGG_MIN_ESC_SOUTH_FIELDS"
+    },
+    {
+      "input": "np3-907-ex--2d_agg_min_esc_west.json",
+      "model": "Np3907Ex2dAggMinEscWest",
+      "constant": "NP3_907_EX_2D_AGG_MIN_ESC_WEST",
+      "fields_constant": "NP3_907_EX_2D_AGG_MIN_ESC_WEST_FIELDS"
+    },
+    {
+      "input": "np3-914-ex--3d_sced_high_as_offers.json",
+      "model": "Np3914Ex3dScedHighAsOffers",
+      "constant": "NP3_914_EX_3D_SCED_HIGH_AS_OFFERS",
+      "fields_constant": "NP3_914_EX_3D_SCED_HIGH_AS_OFFERS_FIELDS"
+    },
+    {
+      "input": "np3-915-ex--3d_dam_high_as_offers.json",
+      "model": "Np3915Ex3dDamHighAsOffers",
+      "constant": "NP3_915_EX_3D_DAM_HIGH_AS_OFFERS",
+      "fields_constant": "NP3_915_EX_3D_DAM_HIGH_AS_OFFERS_FIELDS"
+    },
+    {
+      "input": "np3-916-ex--3d_highest_price_offer_sced.json",
+      "model": "Np3916Ex3dHighestPriceOfferSced",
+      "constant": "NP3_916_EX_3D_HIGHEST_PRICE_OFFER_SCED",
+      "fields_constant": "NP3_916_EX_3D_HIGHEST_PRICE_OFFER_SCED_FIELDS"
+    },
+    {
+      "input": "np3-987-ex--7d_trig_lmp_50xfip.json",
+      "model": "Np3987Ex7dTrigLmp50xfip",
+      "constant": "NP3_987_EX_7D_TRIG_LMP_50XFIP",
+      "fields_constant": "NP3_987_EX_7D_TRIG_LMP_50XFIP_FIELDS"
+    },
+    {
+      "input": "np3-987-ex--7d_trig_mcpc_50xfip.json",
+      "model": "Np3987Ex7dTrigMcpc50xfip",
+      "constant": "NP3_987_EX_7D_TRIG_MCPC_50XFIP",
+      "fields_constant": "NP3_987_EX_7D_TRIG_MCPC_50XFIP_FIELDS"
+    },
+    {
+      "input": "np3-987-ex--7d_trig_rtm_mcpc_50xfip.json",
+      "model": "Np3987Ex7dTrigRtmMcpc50xfip",
+      "constant": "NP3_987_EX_7D_TRIG_RTM_MCPC_50XFIP",
+      "fields_constant": "NP3_987_EX_7D_TRIG_RTM_MCPC_50XFIP_FIELDS"
+    },
+    {
+      "input": "np4-412-cd--epp_cumulative_hours.json",
+      "model": "Np4412CdEppCumulativeHours",
+      "constant": "NP4_412_CD_EPP_CUMULATIVE_HOURS",
+      "fields_constant": "NP4_412_CD_EPP_CUMULATIVE_HOURS_FIELDS"
+    },
+    {
+      "input": "np4-442-cd--hrly_sys_reg_wind_fcast_model.json",
+      "model": "Np4442CdHrlySysRegWindFcastModel",
+      "constant": "NP4_442_CD_HRLY_SYS_REG_WIND_FCAST_MODEL",
+      "fields_constant": "NP4_442_CD_HRLY_SYS_REG_WIND_FCAST_MODEL_FIELDS"
+    },
+    {
+      "input": "np4-443-cd--hrly_sys_reg_solar_fcast_model.json",
+      "model": "Np4443CdHrlySysRegSolarFcastModel",
+      "constant": "NP4_443_CD_HRLY_SYS_REG_SOLAR_FCAST_MODEL",
+      "fields_constant": "NP4_443_CD_HRLY_SYS_REG_SOLAR_FCAST_MODEL_FIELDS"
+    },
+    {
+      "input": "np4-532-cd--dam_as_sold.json",
+      "model": "Np4532CdDamAsSold",
+      "constant": "NP4_532_CD_DAM_AS_SOLD",
+      "fields_constant": "NP4_532_CD_DAM_AS_SOLD_FIELDS"
+    },
+    {
+      "input": "np4-722-cd--weather_assumptions.json",
+      "model": "Np4722CdWeatherAssumptions",
+      "constant": "NP4_722_CD_WEATHER_ASSUMPTIONS",
+      "fields_constant": "NP4_722_CD_WEATHER_ASSUMPTIONS_FIELDS"
+    },
+    {
+      "input": "np4-732-cd--wpp_hrly_avrg_actl_fcast.json",
+      "model": "Np4732CdWppHrlyAvrgActlFcast",
+      "constant": "NP4_732_CD_WPP_HRLY_AVRG_ACTL_FCAST",
+      "fields_constant": "NP4_732_CD_WPP_HRLY_AVRG_ACTL_FCAST_FIELDS"
+    },
+    {
+      "input": "np4-733-cd--wpp_actual_5min_avg_values.json",
+      "model": "Np4733CdWppActual5minAvgValues",
+      "constant": "NP4_733_CD_WPP_ACTUAL_5MIN_AVG_VALUES",
+      "fields_constant": "NP4_733_CD_WPP_ACTUAL_5MIN_AVG_VALUES_FIELDS"
+    },
+    {
+      "input": "np4-737-cd--spp_hrly_avrg_actl_fcast.json",
+      "model": "Np4737CdSppHrlyAvrgActlFcast",
+      "constant": "NP4_737_CD_SPP_HRLY_AVRG_ACTL_FCAST",
+      "fields_constant": "NP4_737_CD_SPP_HRLY_AVRG_ACTL_FCAST_FIELDS"
+    },
+    {
+      "input": "np4-738-cd--spp_actual_5min_avg_values.json",
+      "model": "Np4738CdSppActual5minAvgValues",
+      "constant": "NP4_738_CD_SPP_ACTUAL_5MIN_AVG_VALUES",
+      "fields_constant": "NP4_738_CD_SPP_ACTUAL_5MIN_AVG_VALUES_FIELDS"
+    },
+    {
+      "input": "np4-742-cd--wpp_hrly_actual_fcast_geo.json",
+      "model": "Np4742CdWppHrlyActualFcastGeo",
+      "constant": "NP4_742_CD_WPP_HRLY_ACTUAL_FCAST_GEO",
+      "fields_constant": "NP4_742_CD_WPP_HRLY_ACTUAL_FCAST_GEO_FIELDS"
+    },
+    {
+      "input": "np4-743-cd--wpp_actual_5min_avg_values_geo.json",
+      "model": "Np4743CdWppActual5minAvgValuesGeo",
+      "constant": "NP4_743_CD_WPP_ACTUAL_5MIN_AVG_VALUES_GEO",
+      "fields_constant": "NP4_743_CD_WPP_ACTUAL_5MIN_AVG_VALUES_GEO_FIELDS"
+    },
+    {
+      "input": "np4-745-cd--spp_hrly_actual_fcast_geo.json",
+      "model": "Np4745CdSppHrlyActualFcastGeo",
+      "constant": "NP4_745_CD_SPP_HRLY_ACTUAL_FCAST_GEO",
+      "fields_constant": "NP4_745_CD_SPP_HRLY_ACTUAL_FCAST_GEO_FIELDS"
+    },
+    {
+      "input": "np4-746-cd--spp_actual_5min_avg_values_geo.json",
+      "model": "Np4746CdSppActual5minAvgValuesGeo",
+      "constant": "NP4_746_CD_SPP_ACTUAL_5MIN_AVG_VALUES_GEO",
+      "fields_constant": "NP4_746_CD_SPP_ACTUAL_5MIN_AVG_VALUES_GEO_FIELDS"
+    },
+    {
+      "input": "np4-751-cd--ih_wind_fcast_geo.json",
+      "model": "Np4751CdIhWindFcastGeo",
+      "constant": "NP4_751_CD_IH_WIND_FCAST_GEO",
+      "fields_constant": "NP4_751_CD_IH_WIND_FCAST_GEO_FIELDS"
+    },
+    {
+      "input": "np4-752-cd--ih_solar_fcast_geo.json",
+      "model": "Np4752CdIhSolarFcastGeo",
+      "constant": "NP4_752_CD_IH_SOLAR_FCAST_GEO",
+      "fields_constant": "NP4_752_CD_IH_SOLAR_FCAST_GEO_FIELDS"
+    },
+    {
+      "input": "np4-790-cd--peaker_net_margin.json",
+      "model": "Np4790CdPeakerNetMargin",
+      "constant": "NP4_790_CD_PEAKER_NET_MARGIN",
+      "fields_constant": "NP4_790_CD_PEAKER_NET_MARGIN_FIELDS"
+    },
+    {
+      "input": "np4-791-cd--da_sw_offer_caps.json",
+      "model": "Np4791CdDaSwOfferCaps",
+      "constant": "NP4_791_CD_DA_SW_OFFER_CAPS",
+      "fields_constant": "NP4_791_CD_DA_SW_OFFER_CAPS_FIELDS"
+    },
+    {
+      "input": "np5-108-cd--hrly_rmr_services_deployed.json",
+      "model": "Np5108CdHrlyRmrServicesDeployed",
+      "constant": "NP5_108_CD_HRLY_RMR_SERVICES_DEPLOYED",
+      "fields_constant": "NP5_108_CD_HRLY_RMR_SERVICES_DEPLOYED_FIELDS"
+    },
+    {
+      "input": "np5-525-cd--wruc_as_deploy_factors.json",
+      "model": "Np5525CdWrucAsDeployFactors",
+      "constant": "NP5_525_CD_WRUC_AS_DEPLOY_FACTORS",
+      "fields_constant": "NP5_525_CD_WRUC_AS_DEPLOY_FACTORS_FIELDS"
+    },
+    {
+      "input": "np5-526-cd--proj_as_deploy_factor.json",
+      "model": "Np5526CdProjAsDeployFactor",
+      "constant": "NP5_526_CD_PROJ_AS_DEPLOY_FACTOR",
+      "fields_constant": "NP5_526_CD_PROJ_AS_DEPLOY_FACTOR_FIELDS"
+    },
+    {
+      "input": "np5-527-cd--druc_as_deploy_factors.json",
+      "model": "Np5527CdDrucAsDeployFactors",
+      "constant": "NP5_527_CD_DRUC_AS_DEPLOY_FACTORS",
+      "fields_constant": "NP5_527_CD_DRUC_AS_DEPLOY_FACTORS_FIELDS"
+    },
+    {
+      "input": "np5-528-cd--hruc_as_deploy_factors.json",
+      "model": "Np5528CdHrucAsDeployFactors",
+      "constant": "NP5_528_CD_HRUC_AS_DEPLOY_FACTORS",
+      "fields_constant": "NP5_528_CD_HRUC_AS_DEPLOY_FACTORS_FIELDS"
+    },
+    {
+      "input": "np5-754-cd--daily_ruc_act_and_bind_tran_const.json",
+      "model": "Np5754CdDailyRucActAndBindTranConst",
+      "constant": "NP5_754_CD_DAILY_RUC_ACT_AND_BIND_TRAN_CONST",
+      "fields_constant": "NP5_754_CD_DAILY_RUC_ACT_AND_BIND_TRAN_CONST_FIELDS"
+    },
+    {
+      "input": "np5-755-cd--hrly_ruc_act_and_bind_tran_const.json",
+      "model": "Np5755CdHrlyRucActAndBindTranConst",
+      "constant": "NP5_755_CD_HRLY_RUC_ACT_AND_BIND_TRAN_CONST",
+      "fields_constant": "NP5_755_CD_HRLY_RUC_ACT_AND_BIND_TRAN_CONST_FIELDS"
+    },
+    {
+      "input": "np6-235-cd--system_wide_demand.json",
+      "model": "Np6235CdSystemWideDemand",
+      "constant": "NP6_235_CD_SYSTEM_WIDE_DEMAND",
+      "fields_constant": "NP6_235_CD_SYSTEM_WIDE_DEMAND_FIELDS"
+    },
+    {
+      "input": "np6-344-cd--act_sys_load_by_study_area.json",
+      "model": "Np6344CdActSysLoadByStudyArea",
+      "constant": "NP6_344_CD_ACT_SYS_LOAD_BY_STUDY_AREA",
+      "fields_constant": "NP6_344_CD_ACT_SYS_LOAD_BY_STUDY_AREA_FIELDS"
+    },
+    {
+      "input": "np6-625-cd--se_ld_rpt_ercot_gen.json",
+      "model": "Np6625CdSeLdRptErcotGen",
+      "constant": "NP6_625_CD_SE_LD_RPT_ERCOT_GEN",
+      "fields_constant": "NP6_625_CD_SE_LD_RPT_ERCOT_GEN_FIELDS"
+    },
+    {
+      "input": "np6-626-cd--se_load_dcties_flows.json",
+      "model": "Np6626CdSeLoadDctiesFlows",
+      "constant": "NP6_626_CD_SE_LOAD_DCTIES_FLOWS",
+      "fields_constant": "NP6_626_CD_SE_LOAD_DCTIES_FLOWS_FIELDS"
+    },
+    {
+      "input": "np7-464-cd--dam_ptp_option_price_report.json",
+      "model": "Np7464CdDamPtpOptionPriceReport",
+      "constant": "NP7_464_CD_DAM_PTP_OPTION_PRICE_REPORT",
+      "fields_constant": "NP7_464_CD_DAM_PTP_OPTION_PRICE_REPORT_FIELDS"
     }
   ]
 }

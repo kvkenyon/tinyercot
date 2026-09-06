@@ -1,0 +1,205 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np3-566-cd/lf_by_model_study_area",
+  "observed_at": "2026-09-06 00:38:42.505495+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "deliveryDateFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "deliveryDateTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "hourEnding",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "valleyFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "valleyTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "model",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "DSTFlag",
+      "in": "query",
+      "schema": {
+        "type": "boolean",
+        "format": "true | false"
+      }
+    },
+    {
+      "name": "postedDatetimeFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "postedDatetimeTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 2,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "valley",
+      "label": "Valley",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "model",
+      "label": "Model",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 6,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np3-566-cd/lf_by_model_study_area?size=1&page=1&sort=deliveryDate&dir=desc",
+    "retrieved_at": "2026-09-06 00:38:42.505495+00:00",
+    "sha256": "47a6806cf808c8026ddec7988608fa3ef2d963697573ffde6932bd8ddddfb0cf",
+    "byte_count": 1373,
+    "status": 200
+  },
+  "observed_nullable_fields": [],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np3-566-cd/lf_by_model_study_area?size=1&page=1&sort=deliveryDate&dir=desc",
+      "retrieved_at": "2026-09-06 00:38:42.505495+00:00",
+      "sha256": "47a6806cf808c8026ddec7988608fa3ef2d963697573ffde6932bd8ddddfb0cf",
+      "byte_count": 1373,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np3-566-cd/lf_by_model_study_area?size=1&page=1&sort=deliveryDate&dir=asc",
+      "retrieved_at": "2026-09-06 00:38:48.346099+00:00",
+      "sha256": "b4c87baedf61edbab84b5e1eabda0ab0d53abea007cc0cd818972fff06475243",
+      "byte_count": 1372,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP3-566-CD",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 15953,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}

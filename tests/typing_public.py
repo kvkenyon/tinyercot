@@ -15,6 +15,7 @@ from tinyercot.public import (
     DAM_PRICES,
     RT_PRICES,
     SYSTEM_LOAD,
+    AdditionalDashboardClient,
     AggregateDashboardClient,
     APIArchive,
     APIArchiveClient,
@@ -28,6 +29,7 @@ from tinyercot.public import (
     DamCapacityPrice,
     DamPrice,
     DashboardClient,
+    DayAheadDashboardPrice,
     DcTieRow,
     DcTieSnapshot,
     Download,
@@ -37,6 +39,7 @@ from tinyercot.public import (
     MetadataClient,
     Product,
     PublicClient,
+    RealTimeDashboardPrice,
     RealTimePrice,
     Receipt,
     ReportsClient,
@@ -45,7 +48,12 @@ from tinyercot.public import (
     RTArchiveClient,
     RTArchivePrice,
     RTArchiveRecord,
+    SupplyActualRow,
+    SupplyDemandSnapshot,
+    SupplyForecastRow,
+    SupplyOutlookRow,
     SystemLoad,
+    SystemPricesSnapshot,
     WebClient,
     iter_dam_archive,
     iter_resource_dme,
@@ -131,6 +139,35 @@ def live_and_metadata_contracts(
     assert_type(metadata.product("np4-190-cd")[0].access, Access)
     assert_type(metadata.product("np4-190-cd")[0].artifacts, tuple[Artifact, ...])
     assert_type(metadata.product("np4-190-cd")[0].artifacts[0].path, str | None)
+
+
+def additional_dashboard_contracts(client: AdditionalDashboardClient) -> None:
+    """Check source price rows and observed versus published supply values."""
+    with client as scoped:
+        assert_type(scoped, AdditionalDashboardClient)
+    prices = client.system_prices()
+    assert_type(prices, SystemPricesSnapshot)
+    assert_type(prices.real_time, tuple[RealTimeDashboardPrice, ...])
+    assert_type(prices.day_ahead, tuple[DayAheadDashboardPrice, ...])
+    assert_type(prices.real_time[0].hbHouston, Decimal)
+    assert_type(prices.real_time[0].intervalEnding, str)
+    assert_type(prices.real_time[0].interval, int)
+    assert_type(prices.real_time[0].timestamp, str)
+    assert_type(prices.day_ahead[0].hourEnding, int)
+    supply = client.supply_demand()
+    assert_type(supply, SupplyDemandSnapshot)
+    assert_type(supply.data, tuple[SupplyActualRow | SupplyForecastRow, ...])
+    assert_type(supply.forecast, tuple[SupplyOutlookRow, ...])
+    for row in supply.data:
+        assert_type(row.demand, int)
+        if isinstance(row, SupplyForecastRow):
+            assert_type(row.available, int)
+            assert_type(row.forecast, Literal[1])
+        else:
+            assert_type(row, SupplyActualRow)
+            assert_type(row.forecast, Literal[0])
+    assert_type(supply.forecast[0].forecastedDemand, int)
+    assert_type(supply.forecast[0].deliveryDateHrBegin, str)
 
 
 def archive_contracts(

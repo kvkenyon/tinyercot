@@ -8,6 +8,7 @@ from typing import Literal
 from tinyercot.catalog import operations
 
 from ._schemas import ENDPOINTS
+from .metadata import RETIRED_PRODUCTS
 
 
 @dataclass(frozen=True)
@@ -65,15 +66,25 @@ def coverage() -> tuple[Coverage, ...]:
         supported = (operation.service, operation.method, operation.path) in {
             ("public-reports", "GET", endpoint.path) for endpoint in ENDPOINTS
         }
+        retired = (
+            operation.service == "public-reports"
+            and operation.path.split("/")[1].upper() in RETIRED_PRODUCTS
+        )
         entries.append(
             Coverage(
                 f"api:{operation.service}:{operation.method}:{operation.path}",
                 operation.path,
-                "covered" if supported or metadata_scope else "pending",
+                "covered"
+                if supported or metadata_scope
+                else "retired"
+                if retired
+                else "pending",
                 metadata_scope
                 or (
-                    "Observed required fields, explicitly observed nullability, and generated query filters; opt-in complete page/row iteration with explicit budgets. Two bounded source selections verified through the installed wheel; oldest chronology requires a temporal sort. No full-history, as-of, or schema-epoch guarantee."
+                    "Required source fields, observed nullability, and generated query filters; opt-in page/row iteration with explicit budgets. Per-operation installed observations and failures are recorded separately in the receipt index. No full-history, as-of, or schema-epoch guarantee."
                     if supported
+                    else "Retired current publication; excluded from current row generation. Public document access and available history remain active work."
+                    if retired
                     else "Active public coverage work. No verified typed row contract for this operation; missing schemas remain unsupported. Retirement and document/history access are tracked separately."
                 ),
                 (operation.source_url,),
@@ -104,6 +115,20 @@ def coverage() -> tuple[Coverage, ...]:
         )
     )
     for key, title, scope, url, product in (
+        (
+            "system-prices",
+            "Public rolling system-wide price snapshots",
+            "Installed anonymous retrieval of typed RT intervals and DAM hour-ending rows. Preserve source freshness, including an observed stale price snapshot; no Public Reports API numerator or historical completeness claim.",
+            "https://www.ercot.com/api/1/services/read/dashboards/system-wide-prices.json",
+            "GEN-542-UI",
+        ),
+        (
+            "supply-demand",
+            "Public rolling supply/demand and published outlook",
+            "Installed anonymous retrieval preserves actual, same-day forecast and multi-day outlook source sections with distinct required fields. No forecast computation, automatic polling or historical extraction.",
+            "https://www.ercot.com/api/1/services/read/dashboards/supply-demand.json",
+            "GEN-530-UI",
+        ),
         (
             "resource-dme",
             "Public Resource DME CSV documents",

@@ -1,0 +1,179 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np3-907-ex/2d_agg_min_esc_houston",
+  "observed_at": "2026-09-06 01:14:23.438876+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "deliveryDateFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "deliveryDateTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "hourEndingFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "hourEndingTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "MWFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "MWTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "priceFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "priceTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "MW",
+      "label": "MW",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price",
+      "label": "Price",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np3-907-ex/2d_agg_min_esc_houston?size=1&page=1&sort=deliveryDate&dir=desc",
+    "retrieved_at": "2026-09-06 01:14:23.438876+00:00",
+    "sha256": "73c3606c279545252a15b5df3ad8d4a3633a29f4d8646b0f43d854a406665e94",
+    "byte_count": 1067,
+    "status": 200
+  },
+  "observed_nullable_fields": [],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np3-907-ex/2d_agg_min_esc_houston?size=1&page=1&sort=deliveryDate&dir=desc",
+      "retrieved_at": "2026-09-06 01:14:23.438876+00:00",
+      "sha256": "73c3606c279545252a15b5df3ad8d4a3633a29f4d8646b0f43d854a406665e94",
+      "byte_count": 1067,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np3-907-ex/2d_agg_min_esc_houston?size=1&page=1&sort=deliveryDate&dir=asc",
+      "retrieved_at": "2026-09-06 01:14:24.746211+00:00",
+      "sha256": "6bf518bcfffccfb4a4e2d0d31a49d3ea8ef3e83b060a4aae836c63989daacc61",
+      "byte_count": 1071,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP3-907-EX",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 25813,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}

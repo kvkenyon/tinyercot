@@ -16,6 +16,7 @@ ROW_TYPES = {
     "DATETIME",
     "VARCHAR",
     "DOUBLE",
+    "DECIMAL",
     "FLOAT",
     "INTEGER",
     "LONG",
@@ -106,6 +107,7 @@ def discover(
     fields = body.get("fields", [])
     status = "verified_observed"
     nullable = set()
+    issues = []
     if not fields:
         status = "missing"
     elif not isinstance(fields, list):
@@ -144,7 +146,7 @@ def discover(
                         nullable.add(descriptor["name"])
                         continue
                     valid = True
-                    if kind in {"DOUBLE", "FLOAT"}:
+                    if kind in {"DOUBLE", "FLOAT", "DECIMAL"}:
                         valid = (
                             type(value) in {int, Decimal} and Decimal(value).is_finite()
                         )
@@ -167,6 +169,13 @@ def discover(
                                 valid = False
                     if not valid:
                         status = "unknown"
+                        issue = {
+                            "field": descriptor["name"],
+                            "declared_type": kind,
+                            "observed_type": type(value).__name__,
+                        }
+                        if issue not in issues:
+                            issues.append(issue)
     return {
         "format_version": 1,
         "service": "public-reports",
@@ -175,10 +184,15 @@ def discover(
         "row_schema": status,
         "query_parameters": queries,
         "fields": fields,
-        "nullability_policy": "Reject nulls; observed fields do not establish nullability.",
+        "nullability_policy": (
+            "Accept null only for explicitly observed nullable fields with declared source types; field presence stays required."
+            if allow_observed_nulls
+            else "Reject nulls; observed fields do not establish nullability."
+        ),
         "source_url": SOURCE_URL,
         "query_source_sha256": hashlib.sha256(spec.read_bytes()).hexdigest(),
         "response_source": record,
+        **({"schema_issues": issues} if issues else {}),
         **(
             {"observed_nullable_fields": sorted(nullable)}
             if allow_observed_nulls

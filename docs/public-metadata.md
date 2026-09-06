@@ -1,8 +1,9 @@
 # Public metadata and generated retrieval
 
-The opt-in registry now has 56 typed Public Reports operations. Its 52 new
-operations use the same `ReportsClient.page`, `iter_pages`, and `iter_rows`
-contracts as the four previously delivered operations. Legacy runtime files
+The opt-in registry now has 120 generated Public Reports operations. The first
+metadata batch added 52 to the original four; the [next batch](public-coverage-batches.md)
+adds 64. All use the same `ReportsClient.page`, `iter_pages`, and `iter_rows`
+contracts. Legacy runtime files
 remain byte-identical. Importing metadata or generated products makes no
 request and requires no credentials.
 
@@ -59,15 +60,17 @@ headers, tokens, credential values, or private responses are retained.
 ## Exact evidence limits
 
 [The machine-readable installed index](evidence/installed-registry-index.json)
-contains all 56 unique generated paths and their receipt references. It records
-57 current requests across 56 paths (including an earlier DAM second page),
-and 56 oldest-first requests across 56 paths. The new 52-path batch contributes
-104 one-row requests. All have successful typed decoding through an isolated
-installed wheel. The index builder is offline and makes no repeat requests.
+separates generated paths, attempted operations, successful typed current and
+oldest-first observations, and failures. The prior 56-path checkpoint recorded
+57 current and 56 oldest-first successful responses, including an earlier DAM
+second page. The latest counts and per-operation gaps are recorded in the
+[coverage batch note](public-coverage-batches.md). Successful observations use
+an isolated installed wheel. The index builder is offline and makes no repeat
+requests; failed operations do not inflate typed retrieval coverage.
 
 Pagination evidence is separate: two API paths have live multiple-page
 retrieval, and one RT selection completed its two pages/two rows. The new
-52-path batch adds no live pagination or completeness proof. Complete page
+registry batches add no live pagination or completeness proof. Complete page
 iteration, failure budgets, and annual multi-worksheet iteration also have
 offline mocked tests. No complete history or annual extraction was performed.
 Oldest-first rows identify available observations within source retention and
@@ -83,7 +86,7 @@ telemetry/bids/COP/awards and customer/participant settlement data remain
 restricted. Delayed disclosures explicitly classified Public are a separate
 public coverage category.
 
-The other 187 observed data paths and remaining public document/history
+The other 123 observed data paths and remaining public document/history
 families remain active work for subsequent stacked PRs. Website fuel mix,
 PRC, outage and DC-tie snapshots, RT annual files, and DME document decoding
 have separate evidence; they do not increase the 243-path API numerator.

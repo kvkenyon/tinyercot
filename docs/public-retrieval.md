@@ -7,9 +7,11 @@ Use `coverage()` for retrieval scope states.
 ## Coverage and evidence
 
 On 2026-09-05/06 UTC isolated installed wheels retrieved and decoded public data.
-Generated typed API coverage is **56 operations**, each checked through an
-installed wheel with current and oldest-first source requests. PRs #2–3
-established four contracts; the [metadata batch](public-metadata.md) adds 52
+Generated typed API coverage is **120 operations**. The
+[installed receipt index](evidence/installed-registry-index.json) separately
+counts successful current/oldest-first decoding and unsuccessful operations.
+PRs #2–3 established four contracts; the [metadata batch](public-metadata.md)
+added 52 and the [next coverage batch](public-coverage-batches.md) adds 64
 through reusable product/artifact discovery and generation.
 The denominator is **243 observed public data paths in 98 product namespaces**
 (242 public-reports paths and one public-data ESR path). This is a bounded
@@ -27,7 +29,7 @@ Public Data API. A namespace count does not establish an EMIL product census.
 | Complete bounded installed-client query | Two RT rows for HB_HOUSTON, 2026-09-04, hour 1, intervals 1–2, retrieved across two one-row pages with matching totals. |
 | Public metadata | `MetadataClient` retrieves product/artifact identities, preserving access and lifecycle separately from row schema. The installed root lists 116 products and 242 artifacts. |
 | Fixture-only behavior | Rate limits, transport retries, expired tokens, 401/403, malformed JSON/ZIP/XLSX, cache mutation, repeated pages, DST transitions. These faults were simulated, not induced on ERCOT. |
-| Pending schema | The other 187 observed data paths remain active coverage work. Stage 0 recorded 40 missing and 203 unverified cached schemas. Current source evidence verifies 56 endpoints. No guessed raw or typed models. |
+| Pending schema | The other 123 observed data paths remain active coverage work. Stage 0 recorded 40 missing and 203 unverified cached schemas. Current source evidence supports 120 generated endpoints; installed retrieval is counted separately. No guessed raw or typed models. |
 | Restricted | Secure, Certified, EWS, private telemetry, bids/COP/awards, participant settlements and customer data. No requests. |
 | Retired | Total-AS-offer and SASM new publication ended. Installed archive listings verify available public history; first-page listings do not establish full document or row retrieval. |
 | Unavailable | Hourly-load 2001, as explicitly recorded by ERCOT. One bounded 2018 DAM bundle attempt was unsuccessful; other public bundle/history access remains active work. |
@@ -199,7 +201,8 @@ and [ESR website feed](https://www.ercot.com/api/1/services/read/dashboards/ener
 ## Audited source families
 
 This table enumerates all 39 audited families, including 33 deferred public or
-conditional boundaries, three restricted families, and three unavailable gaps.
+conditional boundaries, three restricted families, two retired publications,
+and one unavailable gap.
 Supported narrow subsets above do not mark an entire family covered. Product
 IDs and primary ERCOT URLs are retained in `tinyercot/public/_coverage.json`.
 This inventory includes website collections as well as EMIL products.
@@ -214,7 +217,7 @@ This inventory includes website collections as well as EMIL products.
 | RTC+B ancillary prices, capability, and SOG | deferred | NP6-323-CD, NP6-324-CD, NP6-326-CD, NP6-327-CD, NP6-328-CD, NP6-331-CD, NP6-332-CD |
 | Historical RT adders and RTC+B archives | deferred | NP6-792-ER, NP6-793-ER, NP6-794-ER, NP6-795-ER, NP6-796-ER |
 | DAM plans, energy totals, AS offers/demand curves | deferred | NP4-33-CD, NP4-19-CD, NP4-192-CD, NP4-193-CD, NP4-212-CD, NP4-532-CD, NP1-302 |
-| Legacy total AS offers | unavailable | NP4-179-CD |
+| Legacy total AS offers | retired | NP4-179-CD |
 | RUC demand curves, deployment factors, constraints | deferred | NP4-213-CD, NP4-214-CD, NP4-215-CD, NP5-525-CD, NP5-526-CD, NP5-527-CD, NP5-528-CD, NP5-520-ER, NP5-753-CD, NP5-754-CD, NP5-755-CD, NP5-108-CD, NP3-764-CD |
 | System and zonal actual load | deferred | NP6-345-CD, NP6-346-CD, NP6-344-CD, NP6-235-CD, GEN-55-CD |
 | Load forecasts | deferred | NP3-565-CD, NP3-566-CD, NP3-560-CD, NP3-561-CD, NP3-562-CD |
@@ -231,7 +234,7 @@ This inventory includes website collections as well as EMIL products.
 | 3-day and event disclosures | deferred | NP3-257-EX, NP3-914-EX, NP3-915-EX, NP3-916-EX, NP3-987-EX |
 | 60-day SCED and DAM disclosures, including ESR | deferred | NP3-965-ER, NP3-966-ER |
 | COP snapshot and all updates | deferred | NP1-301, NP3-991-EX |
-| Legacy SASM disclosures | unavailable | NP3-990-EX |
+| Legacy SASM disclosures | retired | NP3-990-EX |
 | Settlement-point and electrical-bus mapping | deferred | NP4-160-SG, NP4-158-SG, NP4-200-CD, NP4-231-CD, NP4-159-CD |
 | Public CRR auctions, ownership, and PTP results | deferred | NP7-802-M, NP7-803-M, NP7-535-SG, NP7-536-SG, NP7-157-SG, NP7-464-CD, NP4-194-CD |
 | Scarcity, fuel cost, demand response, and integration reports | deferred | NP4-790-CD, NP4-791-CD, NP4-412-CD, NP4-494-ER, NP3-107, NP3-108, NP3-109, NP3-110, NP4-760-ER, NP4-765-ER, EIA-930-ER |

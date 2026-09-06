@@ -1,0 +1,163 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np6-235-cd/system_wide_demand",
+  "observed_at": "2026-09-06 01:01:05.158114+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "deliveryDateFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "deliveryDateTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "timeEnding",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "demandFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "demandTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "DSTFlag",
+      "in": "query",
+      "schema": {
+        "type": "boolean",
+        "format": "true | false"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "timeEnding",
+      "label": "Time Ending",
+      "cardinality": 2,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "demand",
+      "label": "Demand",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 4,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np6-235-cd/system_wide_demand?size=1&page=1&sort=deliveryDate&dir=desc",
+    "retrieved_at": "2026-09-06 01:01:05.158114+00:00",
+    "sha256": "6579b3943e5c41c2ac32c01cc98e8d0141a60f1d1170bfedfc933053a710a3d1",
+    "byte_count": 1055,
+    "status": 200
+  },
+  "observed_nullable_fields": [],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np6-235-cd/system_wide_demand?size=1&page=1&sort=deliveryDate&dir=desc",
+      "retrieved_at": "2026-09-06 01:01:05.158114+00:00",
+      "sha256": "6579b3943e5c41c2ac32c01cc98e8d0141a60f1d1170bfedfc933053a710a3d1",
+      "byte_count": 1055,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np6-235-cd/system_wide_demand?size=1&page=1&sort=deliveryDate&dir=asc",
+      "retrieved_at": "2026-09-06 01:01:07.397587+00:00",
+      "sha256": "6ddd775543fbd1929f8823b6e317d9dd7c3b9f8b009aaf2b27dd29a983f6e611",
+      "byte_count": 1054,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP6-235-CD",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 12340,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}

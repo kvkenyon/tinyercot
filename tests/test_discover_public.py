@@ -108,6 +108,40 @@ def test_unknown_schema_is_never_generated(monkeypatch, tmp_path):
 
 
 @pytest.mark.parametrize(
+    "value,valid",
+    [
+        (35.9325485229492, True),
+        (0, True),
+        (True, False),
+        ("12:00", False),
+        ("35.93", False),
+    ],
+)
+def test_declared_decimal_requires_finite_json_numbers(evidence, value, valid):
+    body = json.loads(evidence["response"].read_bytes())
+    column = next(
+        i for i, field in enumerate(body["fields"]) if field["dataType"] == "DOUBLE"
+    )
+    body["fields"][column]["dataType"] = "DECIMAL"
+    body["data"][0][column] = value
+    raw = json.dumps(body).encode()
+    evidence["response"].write_bytes(raw)
+    receipt = json.loads(evidence["receipt"].read_text())
+    receipt.update(sha256=hashlib.sha256(raw).hexdigest(), byte_count=len(raw))
+    evidence["receipt"].write_text(json.dumps(receipt))
+    projected = discovery.discover(**evidence)
+    assert (projected["row_schema"] == "verified_observed") is valid
+    if not valid:
+        assert projected["schema_issues"] == [
+            {
+                "field": body["fields"][column]["name"],
+                "declared_type": "DECIMAL",
+                "observed_type": type(value).__name__,
+            }
+        ]
+
+
+@pytest.mark.parametrize(
     "fault",
     [
         "missing_status",

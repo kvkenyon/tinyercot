@@ -16,10 +16,44 @@ from ._generated import (
     Np3161Cd7dPlusAvailResPocMargin,
     Np3162Cd7dAvailResPocMargin,
     Np3233CdHourlyResOutageCap,
+    Np3257Ex3dHighPriceBidsSelDispSced,
     Np3560Cd7dLoadFcastByFzn,
     Np3561Cd7dLoadFcastByWzn,
     Np3562CdIhLoadFcastByWzn,
     Np3565CdLfByModelWeatherZone,
+    Np3566CdLfByModelStudyArea,
+    Np3764CdHrlyRucOnlineScedOfflineCop,
+    Np3765CdApprovedDctieSchedules,
+    Np3906Ex2dayAggScedAsOffersEcrsm,
+    Np3906Ex2dayAggScedAsOffersEcrss,
+    Np3906Ex2dayAggScedAsOffersNspin,
+    Np3906Ex2dayAggScedAsOffersNspnm,
+    Np3906Ex2dayAggScedAsOffersRegdn,
+    Np3906Ex2dayAggScedAsOffersRegup,
+    Np3906Ex2dayAggScedAsOffersRrsffr,
+    Np3906Ex2dayAggScedAsOffersRrspfr,
+    Np3906Ex2dayAggScedAsOffersRrsufr,
+    Np3907Ex2dAggEdc,
+    Np3907Ex2dAggEdcHouston,
+    Np3907Ex2dAggEdcNorth,
+    Np3907Ex2dAggEdcSouth,
+    Np3907Ex2dAggEdcWest,
+    Np3907Ex2dAggEsc,
+    Np3907Ex2dAggEscHouston,
+    Np3907Ex2dAggEscNorth,
+    Np3907Ex2dAggEscSouth,
+    Np3907Ex2dAggEscWest,
+    Np3907Ex2dAggMinEsc,
+    Np3907Ex2dAggMinEscHouston,
+    Np3907Ex2dAggMinEscNorth,
+    Np3907Ex2dAggMinEscSouth,
+    Np3907Ex2dAggMinEscWest,
+    Np3914Ex3dScedHighAsOffers,
+    Np3915Ex3dDamHighAsOffers,
+    Np3916Ex3dHighestPriceOfferSced,
+    Np3987Ex7dTrigLmp50xfip,
+    Np3987Ex7dTrigMcpc50xfip,
+    Np3987Ex7dTrigRtmMcpc50xfip,
     Np4158SgDamEssps,
     Np4159CdLoadDistributionFactors,
     Np4183CdDamHourlyLmp,
@@ -44,7 +78,32 @@ from ._generated import (
     Np4214CdDrucAsDemandCurves,
     Np4215CdWrucAsDemandCurves,
     Np4231CdElectricalBusMapHeurPrice,
+    Np4412CdEppCumulativeHours,
+    Np4442CdHrlySysRegWindFcastModel,
+    Np4443CdHrlySysRegSolarFcastModel,
     Np4523CdDamSystemLambda,
+    Np4532CdDamAsSold,
+    Np4722CdWeatherAssumptions,
+    Np4732CdWppHrlyAvrgActlFcast,
+    Np4733CdWppActual5minAvgValues,
+    Np4737CdSppHrlyAvrgActlFcast,
+    Np4738CdSppActual5minAvgValues,
+    Np4742CdWppHrlyActualFcastGeo,
+    Np4743CdWppActual5minAvgValuesGeo,
+    Np4745CdSppHrlyActualFcastGeo,
+    Np4746CdSppActual5minAvgValuesGeo,
+    Np4751CdIhWindFcastGeo,
+    Np4752CdIhSolarFcastGeo,
+    Np4790CdPeakerNetMargin,
+    Np4791CdDaSwOfferCaps,
+    Np5108CdHrlyRmrServicesDeployed,
+    Np5525CdWrucAsDeployFactors,
+    Np5526CdProjAsDeployFactor,
+    Np5527CdDrucAsDeployFactors,
+    Np5528CdHrucAsDeployFactors,
+    Np5754CdDailyRucActAndBindTranConst,
+    Np5755CdHrlyRucActAndBindTranConst,
+    Np6235CdSystemWideDemand,
     Np6322CdScedSystemLambda,
     Np6323CdRtPriceAdderSced,
     Np6324CdRt15minPriceAdders,
@@ -55,11 +114,16 @@ from ._generated import (
     Np6329CdRtdIndMcpc,
     Np6331CdRtClearPriceCap,
     Np6332CdRtClearPriceCapSced,
+    Np6344CdActSysLoadByStudyArea,
     Np6346CdActSysLoadByFzn,
+    Np6625CdSeLdRptErcotGen,
+    Np6626CdSeLoadDctiesFlows,
     Np6787CdLmpElectricalBus,
     Np6788CdLmpNodeZoneHub,
     Np6915CdSumHdlLdl,
     Np6970CdRtdLmpNodeZoneHub,
+    Np7464CdDamPtpOptionPriceReport,
+    Np130160CopAdjPeriodSnapshot,
     RealTimePrice,
     SystemLoad,
 )
@@ -1665,6 +1729,2046 @@ NP6_970_CD_RTD_LMP_NODE_ZONE_HUB: Endpoint[
 )
 
 
+class Np130160CopAdjPeriodSnapshotFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    qseName: str
+    resourceName: str
+    hourEnding: str
+    status: str
+    highSustainedLimitFrom: float | Decimal
+    highSustainedLimitTo: float | Decimal
+    lowSustainedLimitFrom: float | Decimal
+    lowSustainedLimitTo: float | Decimal
+    highEmergencyLimitFrom: float | Decimal
+    highEmergencyLimitTo: float | Decimal
+    lowEmergencyLimitFrom: float | Decimal
+    lowEmergencyLimitTo: float | Decimal
+    REGUPFrom: float | Decimal
+    REGUPTo: float | Decimal
+    REGDNFrom: float | Decimal
+    REGDNTo: float | Decimal
+    RRSPFRFrom: float | Decimal
+    RRSPFRTo: float | Decimal
+    RRSFFRFrom: float | Decimal
+    RRSFFRTo: float | Decimal
+    RRSUFRFrom: float | Decimal
+    RRSUFRTo: float | Decimal
+    NSPINFrom: float | Decimal
+    NSPINTo: float | Decimal
+    ECRSFrom: float | Decimal
+    ECRSTo: float | Decimal
+    minSOCFrom: float | Decimal
+    minSOCTo: float | Decimal
+    maxSOCFrom: float | Decimal
+    maxSOCTo: float | Decimal
+    hourBeginningPlannedSOCFrom: float | Decimal
+    hourBeginningPlannedSOCTo: float | Decimal
+
+
+NP1_301_60_COP_ADJ_PERIOD_SNAPSHOT: Endpoint[
+    Np130160CopAdjPeriodSnapshot, Np130160CopAdjPeriodSnapshotFilters
+] = Endpoint(
+    "/np1-301/60_cop_adj_period_snapshot",
+    Np130160CopAdjPeriodSnapshot,
+    "np1-301--60_cop_adj_period_snapshot.json",
+)
+
+
+class Np3257Ex3dHighPriceBidsSelDispScedFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    repeatedHourFlag: bool
+    qseName: str
+    dmeName: str
+    loadResource: str
+    highestPriceDispatchedFrom: float | Decimal
+    highestPriceDispatchedTo: float | Decimal
+    proxyExtension: str
+
+
+NP3_257_EX_3D_HIGH_PRICE_BIDS_SEL_DISP_SCED: Endpoint[
+    Np3257Ex3dHighPriceBidsSelDispSced, Np3257Ex3dHighPriceBidsSelDispScedFilters
+] = Endpoint(
+    "/np3-257-ex/3d_high_price_bids_sel_disp_sced",
+    Np3257Ex3dHighPriceBidsSelDispSced,
+    "np3-257-ex--3d_high_price_bids_sel_disp_sced.json",
+)
+
+
+class Np3566CdLfByModelStudyAreaFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEnding: str
+    valleyFrom: float | Decimal
+    valleyTo: float | Decimal
+    model: str
+    DSTFlag: bool
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+
+
+NP3_566_CD_LF_BY_MODEL_STUDY_AREA: Endpoint[
+    Np3566CdLfByModelStudyArea, Np3566CdLfByModelStudyAreaFilters
+] = Endpoint(
+    "/np3-566-cd/lf_by_model_study_area",
+    Np3566CdLfByModelStudyArea,
+    "np3-566-cd--lf_by_model_study_area.json",
+)
+
+
+class Np3764CdHrlyRucOnlineScedOfflineCopFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    sumSCEDWestFrom: float | Decimal
+    sumSCEDWestTo: float | Decimal
+    sumSCEDHoustonFrom: float | Decimal
+    sumSCEDHoustonTo: float | Decimal
+    DSTFlag: bool
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEnding: str
+    RUCTimestampFrom: datetime
+    RUCTimestampTo: datetime
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    sumSCEDSouthFrom: float | Decimal
+    sumSCEDSouthTo: float | Decimal
+    sumSCEDNorthFrom: float | Decimal
+    sumSCEDNorthTo: float | Decimal
+
+
+NP3_764_CD_HRLY_RUC_ONLINE_SCED_OFFLINE_COP: Endpoint[
+    Np3764CdHrlyRucOnlineScedOfflineCop, Np3764CdHrlyRucOnlineScedOfflineCopFilters
+] = Endpoint(
+    "/np3-764-cd/hrly_ruc_online_sced_offline_cop",
+    Np3764CdHrlyRucOnlineScedOfflineCop,
+    "np3-764-cd--hrly_ruc_online_sced_offline_cop.json",
+)
+
+
+class Np3765CdApprovedDctieSchedulesFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    DCTie: str
+    GMTIntervalEndingFrom: datetime
+    GMTIntervalEndingTo: datetime
+    intervalEndingFrom: datetime
+    intervalEndingTo: datetime
+    repeatHourFlag: bool
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    importExport: str
+
+
+NP3_765_CD_APPROVED_DCTIE_SCHEDULES: Endpoint[
+    Np3765CdApprovedDctieSchedules, Np3765CdApprovedDctieSchedulesFilters
+] = Endpoint(
+    "/np3-765-cd/approved_dctie_schedules",
+    Np3765CdApprovedDctieSchedules,
+    "np3-765-cd--approved_dctie_schedules.json",
+)
+
+
+class Np3906Ex2dayAggScedAsOffersEcrsmFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    repeatHourFlag: bool
+    MWOfferedFrom: float | Decimal
+    MWOfferedTo: float | Decimal
+    ECRSMOfferPriceFrom: float | Decimal
+    ECRSMOfferPriceTo: float | Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_ECRSM: Endpoint[
+    Np3906Ex2dayAggScedAsOffersEcrsm, Np3906Ex2dayAggScedAsOffersEcrsmFilters
+] = Endpoint(
+    "/np3-906-ex/2day_agg_sced_as_offers_ecrsm",
+    Np3906Ex2dayAggScedAsOffersEcrsm,
+    "np3-906-ex--2day_agg_sced_as_offers_ecrsm.json",
+)
+
+
+class Np3906Ex2dayAggScedAsOffersEcrssFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    repeatHourFlag: bool
+    MWOfferedFrom: float | Decimal
+    MWOfferedTo: float | Decimal
+    ECRSSOfferPriceFrom: float | Decimal
+    ECRSSOfferPriceTo: float | Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_ECRSS: Endpoint[
+    Np3906Ex2dayAggScedAsOffersEcrss, Np3906Ex2dayAggScedAsOffersEcrssFilters
+] = Endpoint(
+    "/np3-906-ex/2day_agg_sced_as_offers_ecrss",
+    Np3906Ex2dayAggScedAsOffersEcrss,
+    "np3-906-ex--2day_agg_sced_as_offers_ecrss.json",
+)
+
+
+class Np3906Ex2dayAggScedAsOffersNspinFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    repeatHourFlag: bool
+    MWOfferedFrom: float | Decimal
+    MWOfferedTo: float | Decimal
+    NSPINOfferPriceFrom: float | Decimal
+    NSPINOfferPriceTo: float | Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_NSPIN: Endpoint[
+    Np3906Ex2dayAggScedAsOffersNspin, Np3906Ex2dayAggScedAsOffersNspinFilters
+] = Endpoint(
+    "/np3-906-ex/2day_agg_sced_as_offers_nspin",
+    Np3906Ex2dayAggScedAsOffersNspin,
+    "np3-906-ex--2day_agg_sced_as_offers_nspin.json",
+)
+
+
+class Np3906Ex2dayAggScedAsOffersNspnmFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    repeatHourFlag: bool
+    MWOfferedFrom: float | Decimal
+    MWOfferedTo: float | Decimal
+    NSPNMOfferPriceFrom: float | Decimal
+    NSPNMOfferPriceTo: float | Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_NSPNM: Endpoint[
+    Np3906Ex2dayAggScedAsOffersNspnm, Np3906Ex2dayAggScedAsOffersNspnmFilters
+] = Endpoint(
+    "/np3-906-ex/2day_agg_sced_as_offers_nspnm",
+    Np3906Ex2dayAggScedAsOffersNspnm,
+    "np3-906-ex--2day_agg_sced_as_offers_nspnm.json",
+)
+
+
+class Np3906Ex2dayAggScedAsOffersRegdnFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    repeatHourFlag: bool
+    MWOfferedFrom: float | Decimal
+    MWOfferedTo: float | Decimal
+    REGDNOfferPriceFrom: float | Decimal
+    REGDNOfferPriceTo: float | Decimal
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_REGDN: Endpoint[
+    Np3906Ex2dayAggScedAsOffersRegdn, Np3906Ex2dayAggScedAsOffersRegdnFilters
+] = Endpoint(
+    "/np3-906-ex/2day_agg_sced_as_offers_regdn",
+    Np3906Ex2dayAggScedAsOffersRegdn,
+    "np3-906-ex--2day_agg_sced_as_offers_regdn.json",
+)
+
+
+class Np3906Ex2dayAggScedAsOffersRegupFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    repeatHourFlag: bool
+    MWOfferedFrom: float | Decimal
+    MWOfferedTo: float | Decimal
+    REGUPOfferPriceFrom: float | Decimal
+    REGUPOfferPriceTo: float | Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_REGUP: Endpoint[
+    Np3906Ex2dayAggScedAsOffersRegup, Np3906Ex2dayAggScedAsOffersRegupFilters
+] = Endpoint(
+    "/np3-906-ex/2day_agg_sced_as_offers_regup",
+    Np3906Ex2dayAggScedAsOffersRegup,
+    "np3-906-ex--2day_agg_sced_as_offers_regup.json",
+)
+
+
+class Np3906Ex2dayAggScedAsOffersRrsffrFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    RRSFFROfferPriceFrom: float | Decimal
+    RRSFFROfferPriceTo: float | Decimal
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    repeatHourFlag: bool
+    MWOfferedFrom: float | Decimal
+    MWOfferedTo: float | Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSFFR: Endpoint[
+    Np3906Ex2dayAggScedAsOffersRrsffr, Np3906Ex2dayAggScedAsOffersRrsffrFilters
+] = Endpoint(
+    "/np3-906-ex/2day_agg_sced_as_offers_rrsffr",
+    Np3906Ex2dayAggScedAsOffersRrsffr,
+    "np3-906-ex--2day_agg_sced_as_offers_rrsffr.json",
+)
+
+
+class Np3906Ex2dayAggScedAsOffersRrspfrFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    repeatHourFlag: bool
+    MWOfferedFrom: float | Decimal
+    MWOfferedTo: float | Decimal
+    RRSPFROfferPriceFrom: float | Decimal
+    RRSPFROfferPriceTo: float | Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSPFR: Endpoint[
+    Np3906Ex2dayAggScedAsOffersRrspfr, Np3906Ex2dayAggScedAsOffersRrspfrFilters
+] = Endpoint(
+    "/np3-906-ex/2day_agg_sced_as_offers_rrspfr",
+    Np3906Ex2dayAggScedAsOffersRrspfr,
+    "np3-906-ex--2day_agg_sced_as_offers_rrspfr.json",
+)
+
+
+class Np3906Ex2dayAggScedAsOffersRrsufrFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    repeatHourFlag: bool
+    MWOfferedFrom: float | Decimal
+    MWOfferedTo: float | Decimal
+    RRSUFROfferPriceFrom: float | Decimal
+    RRSUFROfferPriceTo: float | Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSUFR: Endpoint[
+    Np3906Ex2dayAggScedAsOffersRrsufr, Np3906Ex2dayAggScedAsOffersRrsufrFilters
+] = Endpoint(
+    "/np3-906-ex/2day_agg_sced_as_offers_rrsufr",
+    Np3906Ex2dayAggScedAsOffersRrsufr,
+    "np3-906-ex--2day_agg_sced_as_offers_rrsufr.json",
+)
+
+
+class Np3907Ex2dAggEdcFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_EDC: Endpoint[Np3907Ex2dAggEdc, Np3907Ex2dAggEdcFilters] = Endpoint(
+    "/np3-907-ex/2d_agg_edc", Np3907Ex2dAggEdc, "np3-907-ex--2d_agg_edc.json"
+)
+
+
+class Np3907Ex2dAggEdcHoustonFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_EDC_HOUSTON: Endpoint[
+    Np3907Ex2dAggEdcHouston, Np3907Ex2dAggEdcHoustonFilters
+] = Endpoint(
+    "/np3-907-ex/2d_agg_edc_houston",
+    Np3907Ex2dAggEdcHouston,
+    "np3-907-ex--2d_agg_edc_houston.json",
+)
+
+
+class Np3907Ex2dAggEdcNorthFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+
+
+NP3_907_EX_2D_AGG_EDC_NORTH: Endpoint[
+    Np3907Ex2dAggEdcNorth, Np3907Ex2dAggEdcNorthFilters
+] = Endpoint(
+    "/np3-907-ex/2d_agg_edc_north",
+    Np3907Ex2dAggEdcNorth,
+    "np3-907-ex--2d_agg_edc_north.json",
+)
+
+
+class Np3907Ex2dAggEdcSouthFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_EDC_SOUTH: Endpoint[
+    Np3907Ex2dAggEdcSouth, Np3907Ex2dAggEdcSouthFilters
+] = Endpoint(
+    "/np3-907-ex/2d_agg_edc_south",
+    Np3907Ex2dAggEdcSouth,
+    "np3-907-ex--2d_agg_edc_south.json",
+)
+
+
+class Np3907Ex2dAggEdcWestFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_EDC_WEST: Endpoint[
+    Np3907Ex2dAggEdcWest, Np3907Ex2dAggEdcWestFilters
+] = Endpoint(
+    "/np3-907-ex/2d_agg_edc_west",
+    Np3907Ex2dAggEdcWest,
+    "np3-907-ex--2d_agg_edc_west.json",
+)
+
+
+class Np3907Ex2dAggEscFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_ESC: Endpoint[Np3907Ex2dAggEsc, Np3907Ex2dAggEscFilters] = Endpoint(
+    "/np3-907-ex/2d_agg_esc", Np3907Ex2dAggEsc, "np3-907-ex--2d_agg_esc.json"
+)
+
+
+class Np3907Ex2dAggEscHoustonFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_ESC_HOUSTON: Endpoint[
+    Np3907Ex2dAggEscHouston, Np3907Ex2dAggEscHoustonFilters
+] = Endpoint(
+    "/np3-907-ex/2d_agg_esc_houston",
+    Np3907Ex2dAggEscHouston,
+    "np3-907-ex--2d_agg_esc_houston.json",
+)
+
+
+class Np3907Ex2dAggEscNorthFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_ESC_NORTH: Endpoint[
+    Np3907Ex2dAggEscNorth, Np3907Ex2dAggEscNorthFilters
+] = Endpoint(
+    "/np3-907-ex/2d_agg_esc_north",
+    Np3907Ex2dAggEscNorth,
+    "np3-907-ex--2d_agg_esc_north.json",
+)
+
+
+class Np3907Ex2dAggEscSouthFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_ESC_SOUTH: Endpoint[
+    Np3907Ex2dAggEscSouth, Np3907Ex2dAggEscSouthFilters
+] = Endpoint(
+    "/np3-907-ex/2d_agg_esc_south",
+    Np3907Ex2dAggEscSouth,
+    "np3-907-ex--2d_agg_esc_south.json",
+)
+
+
+class Np3907Ex2dAggEscWestFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_ESC_WEST: Endpoint[
+    Np3907Ex2dAggEscWest, Np3907Ex2dAggEscWestFilters
+] = Endpoint(
+    "/np3-907-ex/2d_agg_esc_west",
+    Np3907Ex2dAggEscWest,
+    "np3-907-ex--2d_agg_esc_west.json",
+)
+
+
+class Np3907Ex2dAggMinEscFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+
+
+NP3_907_EX_2D_AGG_MIN_ESC: Endpoint[Np3907Ex2dAggMinEsc, Np3907Ex2dAggMinEscFilters] = (
+    Endpoint(
+        "/np3-907-ex/2d_agg_min_esc",
+        Np3907Ex2dAggMinEsc,
+        "np3-907-ex--2d_agg_min_esc.json",
+    )
+)
+
+
+class Np3907Ex2dAggMinEscHoustonFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_MIN_ESC_HOUSTON: Endpoint[
+    Np3907Ex2dAggMinEscHouston, Np3907Ex2dAggMinEscHoustonFilters
+] = Endpoint(
+    "/np3-907-ex/2d_agg_min_esc_houston",
+    Np3907Ex2dAggMinEscHouston,
+    "np3-907-ex--2d_agg_min_esc_houston.json",
+)
+
+
+class Np3907Ex2dAggMinEscNorthFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_MIN_ESC_NORTH: Endpoint[
+    Np3907Ex2dAggMinEscNorth, Np3907Ex2dAggMinEscNorthFilters
+] = Endpoint(
+    "/np3-907-ex/2d_agg_min_esc_north",
+    Np3907Ex2dAggMinEscNorth,
+    "np3-907-ex--2d_agg_min_esc_north.json",
+)
+
+
+class Np3907Ex2dAggMinEscSouthFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_MIN_ESC_SOUTH: Endpoint[
+    Np3907Ex2dAggMinEscSouth, Np3907Ex2dAggMinEscSouthFilters
+] = Endpoint(
+    "/np3-907-ex/2d_agg_min_esc_south",
+    Np3907Ex2dAggMinEscSouth,
+    "np3-907-ex--2d_agg_min_esc_south.json",
+)
+
+
+class Np3907Ex2dAggMinEscWestFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    MWFrom: float | Decimal
+    MWTo: float | Decimal
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+
+
+NP3_907_EX_2D_AGG_MIN_ESC_WEST: Endpoint[
+    Np3907Ex2dAggMinEscWest, Np3907Ex2dAggMinEscWestFilters
+] = Endpoint(
+    "/np3-907-ex/2d_agg_min_esc_west",
+    Np3907Ex2dAggMinEscWest,
+    "np3-907-ex--2d_agg_min_esc_west.json",
+)
+
+
+class Np3914Ex3dScedHighAsOffersFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    qseName: str
+    dmeName: str
+    resourceName: str
+    ASType: str
+
+
+NP3_914_EX_3D_SCED_HIGH_AS_OFFERS: Endpoint[
+    Np3914Ex3dScedHighAsOffers, Np3914Ex3dScedHighAsOffersFilters
+] = Endpoint(
+    "/np3-914-ex/3d_sced_high_as_offers",
+    Np3914Ex3dScedHighAsOffers,
+    "np3-914-ex--3d_sced_high_as_offers.json",
+)
+
+
+class Np3915Ex3dDamHighAsOffersFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    qseName: str
+    dmeName: str
+    resourceName: str
+    ASType: str
+
+
+NP3_915_EX_3D_DAM_HIGH_AS_OFFERS: Endpoint[
+    Np3915Ex3dDamHighAsOffers, Np3915Ex3dDamHighAsOffersFilters
+] = Endpoint(
+    "/np3-915-ex/3d_dam_high_as_offers",
+    Np3915Ex3dDamHighAsOffers,
+    "np3-915-ex--3d_dam_high_as_offers.json",
+)
+
+
+class Np3916Ex3dHighestPriceOfferScedFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    qseName: str
+    dmeName: str
+    resourceName: str
+    proxyExtension: str
+    penaltyFlag: str
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    repeatedHourFlag: bool
+    LMPFrom: float | Decimal
+    LMPTo: float | Decimal
+
+
+NP3_916_EX_3D_HIGHEST_PRICE_OFFER_SCED: Endpoint[
+    Np3916Ex3dHighestPriceOfferSced, Np3916Ex3dHighestPriceOfferScedFilters
+] = Endpoint(
+    "/np3-916-ex/3d_highest_price_offer_sced",
+    Np3916Ex3dHighestPriceOfferSced,
+    "np3-916-ex--3d_highest_price_offer_sced.json",
+)
+
+
+class Np3987Ex7dTrigLmp50xfipFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    repeatHourFlag: bool
+    resourceName: str
+    LMPFrom: float | Decimal
+    LMPTo: float | Decimal
+    FIPx50From: float | Decimal
+    FIPx50To: float | Decimal
+    SCED2CurveMW1From: float | Decimal
+    SCED2CurveMW1To: float | Decimal
+    SCED2CurvePrice1From: float | Decimal
+    SCED2CurvePrice1To: float | Decimal
+    SCED2CurveMW2From: float | Decimal
+    SCED2CurveMW2To: float | Decimal
+    SCED2CurvePrice2From: float | Decimal
+    SCED2CurvePrice2To: float | Decimal
+    SCED2CurveMW3From: float | Decimal
+    SCED2CurveMW3To: float | Decimal
+    SCED2CurvePrice3From: float | Decimal
+    SCED2CurvePrice3To: float | Decimal
+    SCED2CurveMW4From: float | Decimal
+    SCED2CurveMW4To: float | Decimal
+    SCED2CurvePrice4From: float | Decimal
+    SCED2CurvePrice4To: float | Decimal
+    SCED2CurveMW5From: float | Decimal
+    SCED2CurveMW5To: float | Decimal
+    SCED2CurvePrice5From: float | Decimal
+    SCED2CurvePrice5To: float | Decimal
+    SCED2CurveMW6From: float | Decimal
+    SCED2CurveMW6To: float | Decimal
+    SCED2CurvePrice6From: float | Decimal
+    SCED2CurvePrice6To: float | Decimal
+    SCED2CurveMW7From: float | Decimal
+    SCED2CurveMW7To: float | Decimal
+    SCED2CurvePrice7From: float | Decimal
+    SCED2CurvePrice7To: float | Decimal
+    SCED2CurveMW8From: float | Decimal
+    SCED2CurveMW8To: float | Decimal
+    SCED2CurvePrice8From: float | Decimal
+    SCED2CurvePrice8To: float | Decimal
+    SCED2CurveMW9From: float | Decimal
+    SCED2CurveMW9To: float | Decimal
+    SCED2CurvePrice9From: float | Decimal
+    SCED2CurvePrice9To: float | Decimal
+    SCED2CurveMW10From: float | Decimal
+    SCED2CurveMW10To: float | Decimal
+    SCED2CurvePrice10From: float | Decimal
+    SCED2CurvePrice10To: float | Decimal
+    SCED2CurveMW11From: float | Decimal
+    SCED2CurveMW11To: float | Decimal
+    SCED2CurvePrice11From: float | Decimal
+    SCED2CurvePrice11To: float | Decimal
+    SCED2CurveMW12From: float | Decimal
+    SCED2CurveMW12To: float | Decimal
+    SCED2CurvePrice12From: float | Decimal
+    SCED2CurvePrice12To: float | Decimal
+    SCED2CurveMW13From: float | Decimal
+    SCED2CurveMW13To: float | Decimal
+    SCED2CurvePrice13From: float | Decimal
+    SCED2CurvePrice13To: float | Decimal
+    SCED2CurveMW14From: float | Decimal
+    SCED2CurveMW14To: float | Decimal
+    SCED2CurvePrice14From: float | Decimal
+    SCED2CurvePrice14To: float | Decimal
+    SCED2CurveMW15From: float | Decimal
+    SCED2CurveMW15To: float | Decimal
+    SCED2CurvePrice15From: float | Decimal
+    SCED2CurvePrice15To: float | Decimal
+    SCED2CurveMW16From: float | Decimal
+    SCED2CurveMW16To: float | Decimal
+    SCED2CurvePrice16From: float | Decimal
+    SCED2CurvePrice16To: float | Decimal
+    SCED2CurveMW17From: float | Decimal
+    SCED2CurveMW17To: float | Decimal
+    SCED2CurvePrice17From: float | Decimal
+    SCED2CurvePrice17To: float | Decimal
+    SCED2CurveMW18From: float | Decimal
+    SCED2CurveMW18To: float | Decimal
+    SCED2CurvePrice18From: float | Decimal
+    SCED2CurvePrice18To: float | Decimal
+    SCED2CurveMW19From: float | Decimal
+    SCED2CurveMW19To: float | Decimal
+    SCED2CurvePrice19From: float | Decimal
+    SCED2CurvePrice19To: float | Decimal
+    SCED2CurveMW20From: float | Decimal
+    SCED2CurveMW20To: float | Decimal
+    SCED2CurvePrice20From: float | Decimal
+    SCED2CurvePrice20To: float | Decimal
+    SCED2CurveMW21From: float | Decimal
+    SCED2CurveMW21To: float | Decimal
+    SCED2CurvePrice21From: float | Decimal
+    SCED2CurvePrice21To: float | Decimal
+    SCED2CurveMW22From: float | Decimal
+    SCED2CurveMW22To: float | Decimal
+    SCED2CurvePrice22From: float | Decimal
+    SCED2CurvePrice22To: float | Decimal
+    SCED2CurveMW23From: float | Decimal
+    SCED2CurveMW23To: float | Decimal
+    SCED2CurvePrice23From: float | Decimal
+    SCED2CurvePrice23To: float | Decimal
+    SCED2CurveMW24From: float | Decimal
+    SCED2CurveMW24To: float | Decimal
+    SCED2CurvePrice24From: float | Decimal
+    SCED2CurvePrice24To: float | Decimal
+    SCED2CurveMW25From: float | Decimal
+    SCED2CurveMW25To: float | Decimal
+    SCED2CurvePrice25From: float | Decimal
+    SCED2CurvePrice25To: float | Decimal
+    SCED2CurveMW26From: float | Decimal
+    SCED2CurveMW26To: float | Decimal
+    SCED2CurvePrice26From: float | Decimal
+    SCED2CurvePrice26To: float | Decimal
+    SCED2CurveMW27From: float | Decimal
+    SCED2CurveMW27To: float | Decimal
+    SCED2CurvePrice27From: float | Decimal
+    SCED2CurvePrice27To: float | Decimal
+    SCED2CurveMW28From: float | Decimal
+    SCED2CurveMW28To: float | Decimal
+    SCED2CurvePrice28From: float | Decimal
+    SCED2CurvePrice28To: float | Decimal
+    SCED2CurveMW29From: float | Decimal
+    SCED2CurveMW29To: float | Decimal
+    SCED2CurvePrice29From: float | Decimal
+    SCED2CurvePrice29To: float | Decimal
+    SCED2CurveMW30From: float | Decimal
+    SCED2CurveMW30To: float | Decimal
+    SCED2CurvePrice30From: float | Decimal
+    SCED2CurvePrice30To: float | Decimal
+    SCED2CurveMW31From: float | Decimal
+    SCED2CurveMW31To: float | Decimal
+    SCED2CurvePrice31From: float | Decimal
+    SCED2CurvePrice31To: float | Decimal
+    SCED2CurveMW32From: float | Decimal
+    SCED2CurveMW32To: float | Decimal
+    SCED2CurvePrice32From: float | Decimal
+    SCED2CurvePrice32To: float | Decimal
+    SCED2CurveMW33From: float | Decimal
+    SCED2CurveMW33To: float | Decimal
+    SCED2CurvePrice33From: float | Decimal
+    SCED2CurvePrice33To: float | Decimal
+    SCED2CurveMW34From: float | Decimal
+    SCED2CurveMW34To: float | Decimal
+    SCED2CurvePrice34From: float | Decimal
+    SCED2CurvePrice34To: float | Decimal
+    SCED2CurveMW35From: float | Decimal
+    SCED2CurveMW35To: float | Decimal
+    SCED2CurvePrice35From: float | Decimal
+    SCED2CurvePrice35To: float | Decimal
+    bidType: str
+    submittedTPOMW1From: float | Decimal
+    submittedTPOMW1To: float | Decimal
+    submittedTPOPrice1From: float | Decimal
+    submittedTPOPrice1To: float | Decimal
+    submittedTPOMW2From: float | Decimal
+    submittedTPOMW2To: float | Decimal
+    submittedTPOPrice2From: float | Decimal
+    submittedTPOPrice2To: float | Decimal
+    submittedTPOMW3From: float | Decimal
+    submittedTPOMW3To: float | Decimal
+    submittedTPOPrice3From: float | Decimal
+    submittedTPOPrice3To: float | Decimal
+    submittedTPOMW4From: float | Decimal
+    submittedTPOMW4To: float | Decimal
+    submittedTPOPrice4From: float | Decimal
+    submittedTPOPrice4To: float | Decimal
+    submittedTPOMW5From: float | Decimal
+    submittedTPOMW5To: float | Decimal
+    submittedTPOPrice5From: float | Decimal
+    submittedTPOPrice5To: float | Decimal
+    submittedTPOMW6From: float | Decimal
+    submittedTPOMW6To: float | Decimal
+    submittedTPOPrice6From: float | Decimal
+    submittedTPOPrice6To: float | Decimal
+    submittedTPOMW7From: float | Decimal
+    submittedTPOMW7To: float | Decimal
+    submittedTPOPrice7From: float | Decimal
+    submittedTPOPrice7To: float | Decimal
+    submittedTPOMW8From: float | Decimal
+    submittedTPOMW8To: float | Decimal
+    submittedTPOPrice8From: float | Decimal
+    submittedTPOPrice8To: float | Decimal
+    submittedTPOMW9From: float | Decimal
+    submittedTPOMW9To: float | Decimal
+    submittedTPOPrice9From: float | Decimal
+    submittedTPOPrice9To: float | Decimal
+    submittedTPOMW10From: float | Decimal
+    submittedTPOMW10To: float | Decimal
+    submittedTPOPrice10From: float | Decimal
+    submittedTPOPrice10To: float | Decimal
+    proxyExtension: str
+
+
+NP3_987_EX_7D_TRIG_LMP_50XFIP: Endpoint[
+    Np3987Ex7dTrigLmp50xfip, Np3987Ex7dTrigLmp50xfipFilters
+] = Endpoint(
+    "/np3-987-ex/7d_trig_lmp_50xfip",
+    Np3987Ex7dTrigLmp50xfip,
+    "np3-987-ex--7d_trig_lmp_50xfip.json",
+)
+
+
+class Np3987Ex7dTrigMcpc50xfipFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    price5REGUPFrom: float | Decimal
+    price5REGUPTo: float | Decimal
+    price5REGDOWNFrom: float | Decimal
+    price5REGDOWNTo: float | Decimal
+    price5OfflineNONSPINFrom: float | Decimal
+    price5OfflineNONSPINTo: float | Decimal
+    quantityMW5From: float | Decimal
+    quantityMW5To: float | Decimal
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    qseName: str
+    dmeName: str
+    resourceName: str
+    FIPx50From: float | Decimal
+    FIPx50To: float | Decimal
+    MCPCFrom: float | Decimal
+    MCPCTo: float | Decimal
+    multiHourBlockFlag: bool
+    blockIndicator1: str
+    price1RRSPFRFrom: float | Decimal
+    price1RRSPFRTo: float | Decimal
+    price1RRSFFRFrom: float | Decimal
+    price1RRSFFRTo: float | Decimal
+    price1RRSUFRFrom: float | Decimal
+    price1RRSUFRTo: float | Decimal
+    price1ECRSFrom: float | Decimal
+    price1ECRSTo: float | Decimal
+    price1OFFECFrom: float | Decimal
+    price1OFFECTo: float | Decimal
+    price1OnlineNONSPINFrom: float | Decimal
+    price1OnlineNONSPINTo: float | Decimal
+    price1REGUPFrom: float | Decimal
+    price1REGUPTo: float | Decimal
+    price1REGDOWNFrom: float | Decimal
+    price1REGDOWNTo: float | Decimal
+    price1OfflineNONSPINFrom: float | Decimal
+    price1OfflineNONSPINTo: float | Decimal
+    quantityMW1From: float | Decimal
+    quantityMW1To: float | Decimal
+    blockIndicator2: str
+    price2RRSPFRFrom: float | Decimal
+    price2RRSPFRTo: float | Decimal
+    price2RRSFFRFrom: float | Decimal
+    price2RRSFFRTo: float | Decimal
+    price2RRSUFRFrom: float | Decimal
+    price2RRSUFRTo: float | Decimal
+    price2ECRSFrom: float | Decimal
+    price2ECRSTo: float | Decimal
+    price2OFFECFrom: float | Decimal
+    price2OFFECTo: float | Decimal
+    price2OnlineNONSPINFrom: float | Decimal
+    price2OnlineNONSPINTo: float | Decimal
+    price2REGUPFrom: float | Decimal
+    price2REGUPTo: float | Decimal
+    price2REGDOWNFrom: float | Decimal
+    price2REGDOWNTo: float | Decimal
+    price2OfflineNONSPINFrom: float | Decimal
+    price2OfflineNONSPINTo: float | Decimal
+    quantityMW2From: float | Decimal
+    quantityMW2To: float | Decimal
+    blockIndicator3: str
+    price3RRSPFRFrom: float | Decimal
+    price3RRSPFRTo: float | Decimal
+    price3RRSFFRFrom: float | Decimal
+    price3RRSFFRTo: float | Decimal
+    price3RRSUFRFrom: float | Decimal
+    price3RRSUFRTo: float | Decimal
+    price3ECRSFrom: float | Decimal
+    price3ECRSTo: float | Decimal
+    price3OFFECFrom: float | Decimal
+    price3OFFECTo: float | Decimal
+    price3OnlineNONSPINFrom: float | Decimal
+    price3OnlineNONSPINTo: float | Decimal
+    price3REGUPFrom: float | Decimal
+    price3REGUPTo: float | Decimal
+    price3REGDOWNFrom: float | Decimal
+    price3REGDOWNTo: float | Decimal
+    price3OfflineNONSPINFrom: float | Decimal
+    price3OfflineNONSPINTo: float | Decimal
+    quantityMW3From: float | Decimal
+    quantityMW3To: float | Decimal
+    blockIndicator4: str
+    price4RRSPFRFrom: float | Decimal
+    price4RRSPFRTo: float | Decimal
+    price4RRSFFRFrom: float | Decimal
+    price4RRSFFRTo: float | Decimal
+    price4RRSUFRFrom: float | Decimal
+    price4RRSUFRTo: float | Decimal
+    price4ECRSFrom: float | Decimal
+    price4ECRSTo: float | Decimal
+    price4OFFECFrom: float | Decimal
+    price4OFFECTo: float | Decimal
+    price4OnlineNONSPINFrom: float | Decimal
+    price4OnlineNONSPINTo: float | Decimal
+    price4REGUPFrom: float | Decimal
+    price4REGUPTo: float | Decimal
+    price4REGDOWNFrom: float | Decimal
+    price4REGDOWNTo: float | Decimal
+    price4OfflineNONSPINFrom: float | Decimal
+    price4OfflineNONSPINTo: float | Decimal
+    quantityMW4From: float | Decimal
+    quantityMW4To: float | Decimal
+    blockIndicator5: str
+    price5RRSPFRFrom: float | Decimal
+    price5RRSPFRTo: float | Decimal
+    price5RRSFFRFrom: float | Decimal
+    price5RRSFFRTo: float | Decimal
+    price5RRSUFRFrom: float | Decimal
+    price5RRSUFRTo: float | Decimal
+    price5ECRSFrom: float | Decimal
+    price5ECRSTo: float | Decimal
+    price5OFFECFrom: float | Decimal
+    price5OFFECTo: float | Decimal
+    price5OnlineNONSPINFrom: float | Decimal
+    price5OnlineNONSPINTo: float | Decimal
+
+
+NP3_987_EX_7D_TRIG_MCPC_50XFIP: Endpoint[
+    Np3987Ex7dTrigMcpc50xfip, Np3987Ex7dTrigMcpc50xfipFilters
+] = Endpoint(
+    "/np3-987-ex/7d_trig_mcpc_50xfip",
+    Np3987Ex7dTrigMcpc50xfip,
+    "np3-987-ex--7d_trig_mcpc_50xfip.json",
+)
+
+
+class Np3987Ex7dTrigRtmMcpc50xfipFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    SCEDTimestampFrom: datetime
+    SCEDTimestampTo: datetime
+    repeatHourFlag: bool
+    resourceName: str
+    FIPx50From: float | Decimal
+    FIPx50To: float | Decimal
+    RTMCPCFrom: float | Decimal
+    RTMCPCTo: float | Decimal
+    price1REGUPFrom: float | Decimal
+    price1REGUPTo: float | Decimal
+    price1REGDOWNFrom: float | Decimal
+    price1REGDOWNTo: float | Decimal
+    price1RRSPFRFrom: float | Decimal
+    price1RRSPFRTo: float | Decimal
+    price1RRSUFRFrom: float | Decimal
+    price1RRSUFRTo: float | Decimal
+    price1RRSFFRFrom: float | Decimal
+    price1RRSFFRTo: float | Decimal
+    price1NONSPINFrom: float | Decimal
+    price1NONSPINTo: float | Decimal
+    price1ECRSFrom: float | Decimal
+    price1ECRSTo: float | Decimal
+    quantityMW1From: float | Decimal
+    quantityMW1To: float | Decimal
+    price2REGUPFrom: float | Decimal
+    price2REGUPTo: float | Decimal
+    price2REGDOWNFrom: float | Decimal
+    price2REGDOWNTo: float | Decimal
+    price2RRSPFRFrom: float | Decimal
+    price2RRSPFRTo: float | Decimal
+    price2RRSUFRFrom: float | Decimal
+    price2RRSUFRTo: float | Decimal
+    price2RRSFFRFrom: float | Decimal
+    price2RRSFFRTo: float | Decimal
+    price2NONSPINFrom: float | Decimal
+    price2NONSPINTo: float | Decimal
+    price2ECRSFrom: float | Decimal
+    price2ECRSTo: float | Decimal
+    quantityMW2From: float | Decimal
+    quantityMW2To: float | Decimal
+    price3REGUPFrom: float | Decimal
+    price3REGUPTo: float | Decimal
+    price3REGDOWNFrom: float | Decimal
+    price3REGDOWNTo: float | Decimal
+    price3RRSPFRFrom: float | Decimal
+    price3RRSPFRTo: float | Decimal
+    price3RRSUFRFrom: float | Decimal
+    price3RRSUFRTo: float | Decimal
+    price3RRSFFRFrom: float | Decimal
+    price3RRSFFRTo: float | Decimal
+    price3NONSPINFrom: float | Decimal
+    price3NONSPINTo: float | Decimal
+    price3ECRSFrom: float | Decimal
+    price3ECRSTo: float | Decimal
+    quantityMW3From: float | Decimal
+    quantityMW3To: float | Decimal
+    price4REGUPFrom: float | Decimal
+    price4REGUPTo: float | Decimal
+    price4REGDOWNFrom: float | Decimal
+    price4REGDOWNTo: float | Decimal
+    price4RRSPFRFrom: float | Decimal
+    price4RRSPFRTo: float | Decimal
+    price4RRSUFRFrom: float | Decimal
+    price4RRSUFRTo: float | Decimal
+    price4RRSFFRFrom: float | Decimal
+    price4RRSFFRTo: float | Decimal
+    price4NONSPINFrom: float | Decimal
+    price4NONSPINTo: float | Decimal
+    price4ECRSFrom: float | Decimal
+    price4ECRSTo: float | Decimal
+    quantityMW4From: float | Decimal
+    quantityMW4To: float | Decimal
+    price5REGUPFrom: float | Decimal
+    price5REGUPTo: float | Decimal
+    price5REGDOWNFrom: float | Decimal
+    price5REGDOWNTo: float | Decimal
+    price5RRSPFRFrom: float | Decimal
+    price5RRSPFRTo: float | Decimal
+    price5RRSUFRFrom: float | Decimal
+    price5RRSUFRTo: float | Decimal
+    price5RRSFFRFrom: float | Decimal
+    price5RRSFFRTo: float | Decimal
+    price5NONSPINFrom: float | Decimal
+    price5NONSPINTo: float | Decimal
+    price5ECRSFrom: float | Decimal
+    price5ECRSTo: float | Decimal
+    quantityMW5From: float | Decimal
+    quantityMW5To: float | Decimal
+
+
+NP3_987_EX_7D_TRIG_RTM_MCPC_50XFIP: Endpoint[
+    Np3987Ex7dTrigRtmMcpc50xfip, Np3987Ex7dTrigRtmMcpc50xfipFilters
+] = Endpoint(
+    "/np3-987-ex/7d_trig_rtm_mcpc_50xfip",
+    Np3987Ex7dTrigRtmMcpc50xfip,
+    "np3-987-ex--7d_trig_rtm_mcpc_50xfip.json",
+)
+
+
+class Np4412CdEppCumulativeHoursFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    HCAPDAMFrom: float | Decimal
+    HCAPDAMTo: float | Decimal
+    hoursHCAPDAMFrom: float | Decimal
+    hoursHCAPDAMTo: float | Decimal
+    repeatHourFlag: bool
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    deliveryHourFrom: int
+    deliveryHourTo: int
+    deliveryIntervalFrom: int
+    deliveryIntervalTo: int
+    RTSystemLambdaFrom: float | Decimal
+    RTSystemLambdaTo: float | Decimal
+    RTRDPAFrom: float | Decimal
+    RTRDPATo: float | Decimal
+    RTSystemLambdaRTDPAFrom: float | Decimal
+    RTSystemLambdaRTDPATo: float | Decimal
+
+
+NP4_412_CD_EPP_CUMULATIVE_HOURS: Endpoint[
+    Np4412CdEppCumulativeHours, Np4412CdEppCumulativeHoursFilters
+] = Endpoint(
+    "/np4-412-cd/epp_cumulative_hours",
+    Np4412CdEppCumulativeHours,
+    "np4-412-cd--epp_cumulative_hours.json",
+)
+
+
+class Np4442CdHrlySysRegWindFcastModelFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    region: str
+    valueFrom: float | Decimal
+    valueTo: float | Decimal
+    model: str
+    inUseFlag: bool
+    DSTFlag: bool
+
+
+NP4_442_CD_HRLY_SYS_REG_WIND_FCAST_MODEL: Endpoint[
+    Np4442CdHrlySysRegWindFcastModel, Np4442CdHrlySysRegWindFcastModelFilters
+] = Endpoint(
+    "/np4-442-cd/hrly_sys_reg_wind_fcast_model",
+    Np4442CdHrlySysRegWindFcastModel,
+    "np4-442-cd--hrly_sys_reg_wind_fcast_model.json",
+)
+
+
+class Np4443CdHrlySysRegSolarFcastModelFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    valueFrom: float | Decimal
+    valueTo: float | Decimal
+    model: str
+    inUseFlag: bool
+    DSTFlag: bool
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    region: str
+
+
+NP4_443_CD_HRLY_SYS_REG_SOLAR_FCAST_MODEL: Endpoint[
+    Np4443CdHrlySysRegSolarFcastModel, Np4443CdHrlySysRegSolarFcastModelFilters
+] = Endpoint(
+    "/np4-443-cd/hrly_sys_reg_solar_fcast_model",
+    Np4443CdHrlySysRegSolarFcastModel,
+    "np4-443-cd--hrly_sys_reg_solar_fcast_model.json",
+)
+
+
+class Np4532CdDamAsSoldFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEnding: str
+    ASType: str
+    quantityFrom: float | Decimal
+    quantityTo: float | Decimal
+    repeatHourFlag: bool
+
+
+NP4_532_CD_DAM_AS_SOLD: Endpoint[Np4532CdDamAsSold, Np4532CdDamAsSoldFilters] = (
+    Endpoint(
+        "/np4-532-cd/dam_as_sold", Np4532CdDamAsSold, "np4-532-cd--dam_as_sold.json"
+    )
+)
+
+
+class Np4722CdWeatherAssumptionsFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEnding: str
+    coastFrom: float | Decimal
+    coastTo: float | Decimal
+    eastFrom: float | Decimal
+    eastTo: float | Decimal
+    farWestFrom: float | Decimal
+    farWestTo: float | Decimal
+    northFrom: float | Decimal
+    northTo: float | Decimal
+    northCentralFrom: float | Decimal
+    northCentralTo: float | Decimal
+    southCentralFrom: float | Decimal
+    southCentralTo: float | Decimal
+    southernFrom: float | Decimal
+    southernTo: float | Decimal
+    westFrom: float | Decimal
+    westTo: float | Decimal
+    repeatedHourFlag: bool
+
+
+NP4_722_CD_WEATHER_ASSUMPTIONS: Endpoint[
+    Np4722CdWeatherAssumptions, Np4722CdWeatherAssumptionsFilters
+] = Endpoint(
+    "/np4-722-cd/weather_assumptions",
+    Np4722CdWeatherAssumptions,
+    "np4-722-cd--weather_assumptions.json",
+)
+
+
+class Np4732CdWppHrlyAvrgActlFcastFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    WGRPPLoadZoneNorthFrom: float | Decimal
+    WGRPPLoadZoneNorthTo: float | Decimal
+    DSTFlag: bool
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    HSLSystemWideFrom: float | Decimal
+    HSLSystemWideTo: float | Decimal
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    genSystemWideFrom: float | Decimal
+    genSystemWideTo: float | Decimal
+    COPHSLSystemWideFrom: float | Decimal
+    COPHSLSystemWideTo: float | Decimal
+    STWPFSystemWideFrom: float | Decimal
+    STWPFSystemWideTo: float | Decimal
+    WGRPPSystemWideFrom: float | Decimal
+    WGRPPSystemWideTo: float | Decimal
+    genLoadZoneSouthHoustonFrom: float | Decimal
+    genLoadZoneSouthHoustonTo: float | Decimal
+    COPHSLLoadZoneSouthHoustonFrom: float | Decimal
+    COPHSLLoadZoneSouthHoustonTo: float | Decimal
+    STWPFLoadZoneSouthHoustonFrom: float | Decimal
+    STWPFLoadZoneSouthHoustonTo: float | Decimal
+    WGRPPLoadZoneSouthHoustonFrom: float | Decimal
+    WGRPPLoadZoneSouthHoustonTo: float | Decimal
+    genLoadZoneWestFrom: float | Decimal
+    genLoadZoneWestTo: float | Decimal
+    COPHSLLoadZoneWestFrom: float | Decimal
+    COPHSLLoadZoneWestTo: float | Decimal
+    STWPFLoadZoneWestFrom: float | Decimal
+    STWPFLoadZoneWestTo: float | Decimal
+    WGRPPLoadZoneWestFrom: float | Decimal
+    WGRPPLoadZoneWestTo: float | Decimal
+    genLoadZoneNorthFrom: float | Decimal
+    genLoadZoneNorthTo: float | Decimal
+    COPHSLLoadZoneNorthFrom: float | Decimal
+    COPHSLLoadZoneNorthTo: float | Decimal
+    STWPFLoadZoneNorthFrom: float | Decimal
+    STWPFLoadZoneNorthTo: float | Decimal
+
+
+NP4_732_CD_WPP_HRLY_AVRG_ACTL_FCAST: Endpoint[
+    Np4732CdWppHrlyAvrgActlFcast, Np4732CdWppHrlyAvrgActlFcastFilters
+] = Endpoint(
+    "/np4-732-cd/wpp_hrly_avrg_actl_fcast",
+    Np4732CdWppHrlyAvrgActlFcast,
+    "np4-732-cd--wpp_hrly_avrg_actl_fcast.json",
+)
+
+
+class Np4733CdWppActual5minAvgValuesFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    intervalEndingFrom: datetime
+    intervalEndingTo: datetime
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    genSystemWideFrom: float | Decimal
+    genSystemWideTo: float | Decimal
+    LZSouthHoustonFrom: float | Decimal
+    LZSouthHoustonTo: float | Decimal
+    LZWestFrom: float | Decimal
+    LZWestTo: float | Decimal
+    LZNorthFrom: float | Decimal
+    LZNorthTo: float | Decimal
+    DSTFlag: bool
+    HSLSystemWideFrom: float | Decimal
+    HSLSystemWideTo: float | Decimal
+
+
+NP4_733_CD_WPP_ACTUAL_5MIN_AVG_VALUES: Endpoint[
+    Np4733CdWppActual5minAvgValues, Np4733CdWppActual5minAvgValuesFilters
+] = Endpoint(
+    "/np4-733-cd/wpp_actual_5min_avg_values",
+    Np4733CdWppActual5minAvgValues,
+    "np4-733-cd--wpp_actual_5min_avg_values.json",
+)
+
+
+class Np4737CdSppHrlyAvrgActlFcastFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    STPPFSystemWideFrom: float | Decimal
+    STPPFSystemWideTo: float | Decimal
+    PVGRPPSystemWideFrom: float | Decimal
+    PVGRPPSystemWideTo: float | Decimal
+    DSTFlag: bool
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    HSLSystemWideFrom: float | Decimal
+    HSLSystemWideTo: float | Decimal
+    hourEndingFrom: int
+    hourEndingTo: int
+    genSystemWideFrom: float | Decimal
+    genSystemWideTo: float | Decimal
+    COPHSLSystemWideFrom: float | Decimal
+    COPHSLSystemWideTo: float | Decimal
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+
+
+NP4_737_CD_SPP_HRLY_AVRG_ACTL_FCAST: Endpoint[
+    Np4737CdSppHrlyAvrgActlFcast, Np4737CdSppHrlyAvrgActlFcastFilters
+] = Endpoint(
+    "/np4-737-cd/spp_hrly_avrg_actl_fcast",
+    Np4737CdSppHrlyAvrgActlFcast,
+    "np4-737-cd--spp_hrly_avrg_actl_fcast.json",
+)
+
+
+class Np4738CdSppActual5minAvgValuesFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    intervalEndingFrom: datetime
+    intervalEndingTo: datetime
+    genSystemWideFrom: float | Decimal
+    genSystemWideTo: float | Decimal
+    DSTFlag: bool
+    HSLSystemWideFrom: float | Decimal
+    HSLSystemWideTo: float | Decimal
+
+
+NP4_738_CD_SPP_ACTUAL_5MIN_AVG_VALUES: Endpoint[
+    Np4738CdSppActual5minAvgValues, Np4738CdSppActual5minAvgValuesFilters
+] = Endpoint(
+    "/np4-738-cd/spp_actual_5min_avg_values",
+    Np4738CdSppActual5minAvgValues,
+    "np4-738-cd--spp_actual_5min_avg_values.json",
+)
+
+
+class Np4742CdWppHrlyActualFcastGeoFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEndingFrom: int
+    hourEndingTo: int
+    genSystemWideFrom: float | Decimal
+    genSystemWideTo: float | Decimal
+    COPHSLSystemWideFrom: float | Decimal
+    COPHSLSystemWideTo: float | Decimal
+    STWPFSystemWideFrom: float | Decimal
+    STWPFSystemWideTo: float | Decimal
+    WGRPPSystemWideFrom: float | Decimal
+    WGRPPSystemWideTo: float | Decimal
+    genPanhandleFrom: float | Decimal
+    genPanhandleTo: float | Decimal
+    COPHSLPanhandleFrom: float | Decimal
+    COPHSLPanhandleTo: float | Decimal
+    STWPFPanhandleFrom: float | Decimal
+    STWPFPanhandleTo: float | Decimal
+    WGRPPPanhandleFrom: float | Decimal
+    WGRPPPanhandleTo: float | Decimal
+    genCoastalFrom: float | Decimal
+    genCoastalTo: float | Decimal
+    COPHSLCoastalFrom: float | Decimal
+    COPHSLCoastalTo: float | Decimal
+    STWPFCoastalFrom: float | Decimal
+    STWPFCoastalTo: float | Decimal
+    WGRPPCoastalFrom: float | Decimal
+    WGRPPCoastalTo: float | Decimal
+    genSouthFrom: float | Decimal
+    genSouthTo: float | Decimal
+    COPHSLSouthFrom: float | Decimal
+    COPHSLSouthTo: float | Decimal
+    STWPFSouthFrom: float | Decimal
+    STWPFSouthTo: float | Decimal
+    WGRPPSouthFrom: float | Decimal
+    WGRPPSouthTo: float | Decimal
+    genWestFrom: float | Decimal
+    genWestTo: float | Decimal
+    COPHSLWestFrom: float | Decimal
+    COPHSLWestTo: float | Decimal
+    STWPFWestFrom: float | Decimal
+    STWPFWestTo: float | Decimal
+    HSLSystemWideFrom: float | Decimal
+    HSLSystemWideTo: float | Decimal
+    WGRPPWestFrom: float | Decimal
+    WGRPPWestTo: float | Decimal
+    genNorthFrom: float | Decimal
+    genNorthTo: float | Decimal
+    COPHSLNorthFrom: float | Decimal
+    COPHSLNorthTo: float | Decimal
+    STWPFNorthFrom: float | Decimal
+    STWPFNorthTo: float | Decimal
+    WGRPPNorthFrom: float | Decimal
+    WGRPPNorthTo: float | Decimal
+    DSTFlag: bool
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+
+
+NP4_742_CD_WPP_HRLY_ACTUAL_FCAST_GEO: Endpoint[
+    Np4742CdWppHrlyActualFcastGeo, Np4742CdWppHrlyActualFcastGeoFilters
+] = Endpoint(
+    "/np4-742-cd/wpp_hrly_actual_fcast_geo",
+    Np4742CdWppHrlyActualFcastGeo,
+    "np4-742-cd--wpp_hrly_actual_fcast_geo.json",
+)
+
+
+class Np4743CdWppActual5minAvgValuesGeoFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    intervalEndingFrom: datetime
+    intervalEndingTo: datetime
+    genSystemWideFrom: float | Decimal
+    genSystemWideTo: float | Decimal
+    panhandleFrom: float | Decimal
+    panhandleTo: float | Decimal
+    coastalFrom: float | Decimal
+    coastalTo: float | Decimal
+    southFrom: float | Decimal
+    southTo: float | Decimal
+    westFrom: float | Decimal
+    westTo: float | Decimal
+    northFrom: float | Decimal
+    northTo: float | Decimal
+    DSTFlag: bool
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    HSLSystemWideFrom: float | Decimal
+    HSLSystemWideTo: float | Decimal
+
+
+NP4_743_CD_WPP_ACTUAL_5MIN_AVG_VALUES_GEO: Endpoint[
+    Np4743CdWppActual5minAvgValuesGeo, Np4743CdWppActual5minAvgValuesGeoFilters
+] = Endpoint(
+    "/np4-743-cd/wpp_actual_5min_avg_values_geo",
+    Np4743CdWppActual5minAvgValuesGeo,
+    "np4-743-cd--wpp_actual_5min_avg_values_geo.json",
+)
+
+
+class Np4745CdSppHrlyActualFcastGeoFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    hourEndingFrom: int
+    hourEndingTo: int
+    genSystemWideFrom: float | Decimal
+    genSystemWideTo: float | Decimal
+    COPHSLSystemWideFrom: float | Decimal
+    COPHSLSystemWideTo: float | Decimal
+    STPPFSystemWideFrom: float | Decimal
+    STPPFSystemWideTo: float | Decimal
+    PVGRPPSystemWideFrom: float | Decimal
+    PVGRPPSystemWideTo: float | Decimal
+    genCenterWestFrom: float | Decimal
+    genCenterWestTo: float | Decimal
+    COPHSLCenterWestFrom: float | Decimal
+    COPHSLCenterWestTo: float | Decimal
+    STPPFCenterWestFrom: float | Decimal
+    STPPFCenterWestTo: float | Decimal
+    PVGRPPCenterWestFrom: float | Decimal
+    PVGRPPCenterWestTo: float | Decimal
+    genNorthWestFrom: float | Decimal
+    genNorthWestTo: float | Decimal
+    COPHSLNorthWestFrom: float | Decimal
+    COPHSLNorthWestTo: float | Decimal
+    STPPFNorthWestFrom: float | Decimal
+    STPPFNorthWestTo: float | Decimal
+    PVGRPPNorthWestFrom: float | Decimal
+    PVGRPPNorthWestTo: float | Decimal
+    genFarWestFrom: float | Decimal
+    genFarWestTo: float | Decimal
+    COPHSLFarWestFrom: float | Decimal
+    COPHSLFarWestTo: float | Decimal
+    STPPFFarWestFrom: float | Decimal
+    STPPFFarWestTo: float | Decimal
+    PVGRPPFarWestFrom: float | Decimal
+    PVGRPPFarWestTo: float | Decimal
+    genFarEastFrom: float | Decimal
+    genFarEastTo: float | Decimal
+    COPHSLFarEastFrom: float | Decimal
+    COPHSLFarEastTo: float | Decimal
+    STPPFFarEastFrom: float | Decimal
+    STPPFFarEastTo: float | Decimal
+    PVGRPPFarEastFrom: float | Decimal
+    PVGRPPFarEastTo: float | Decimal
+    genSouthEastFrom: float | Decimal
+    genSouthEastTo: float | Decimal
+    COPHSLSouthEastFrom: float | Decimal
+    COPHSLSouthEastTo: float | Decimal
+    STPPFSouthEastFrom: float | Decimal
+    STPPFSouthEastTo: float | Decimal
+    PVGRPPSouthEastFrom: float | Decimal
+    PVGRPPSouthEastTo: float | Decimal
+    genCenterEastFrom: float | Decimal
+    genCenterEastTo: float | Decimal
+    COPHSLCenterEastFrom: float | Decimal
+    COPHSLCenterEastTo: float | Decimal
+    STPPFCenterEastFrom: float | Decimal
+    STPPFCenterEastTo: float | Decimal
+    PVGRPPCenterEastFrom: float | Decimal
+    PVGRPPCenterEastTo: float | Decimal
+    DSTFlag: bool
+    HSLSystemWideFrom: float | Decimal
+    HSLSystemWideTo: float | Decimal
+
+
+NP4_745_CD_SPP_HRLY_ACTUAL_FCAST_GEO: Endpoint[
+    Np4745CdSppHrlyActualFcastGeo, Np4745CdSppHrlyActualFcastGeoFilters
+] = Endpoint(
+    "/np4-745-cd/spp_hrly_actual_fcast_geo",
+    Np4745CdSppHrlyActualFcastGeo,
+    "np4-745-cd--spp_hrly_actual_fcast_geo.json",
+)
+
+
+class Np4746CdSppActual5minAvgValuesGeoFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    intervalEndingFrom: datetime
+    intervalEndingTo: datetime
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    genSystemWideFrom: float | Decimal
+    genSystemWideTo: float | Decimal
+    genCenterWestFrom: float | Decimal
+    genCenterWestTo: float | Decimal
+    genNorthWestFrom: float | Decimal
+    genNorthWestTo: float | Decimal
+    genFarWestFrom: float | Decimal
+    genFarWestTo: float | Decimal
+    genFarEastFrom: float | Decimal
+    genFarEastTo: float | Decimal
+    genSouthEastFrom: float | Decimal
+    genSouthEastTo: float | Decimal
+    genCenterEastFrom: float | Decimal
+    genCenterEastTo: float | Decimal
+    DSTFlag: bool
+    HSLSystemWideFrom: float | Decimal
+    HSLSystemWideTo: float | Decimal
+
+
+NP4_746_CD_SPP_ACTUAL_5MIN_AVG_VALUES_GEO: Endpoint[
+    Np4746CdSppActual5minAvgValuesGeo, Np4746CdSppActual5minAvgValuesGeoFilters
+] = Endpoint(
+    "/np4-746-cd/spp_actual_5min_avg_values_geo",
+    Np4746CdSppActual5minAvgValuesGeo,
+    "np4-746-cd--spp_actual_5min_avg_values_geo.json",
+)
+
+
+class Np4751CdIhWindFcastGeoFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    intervalEndingFrom: datetime
+    intervalEndingTo: datetime
+    region: str
+    valueFrom: float | Decimal
+    valueTo: float | Decimal
+    model: str
+    inUseFlag: bool
+    DSTFlag: bool
+
+
+NP4_751_CD_IH_WIND_FCAST_GEO: Endpoint[
+    Np4751CdIhWindFcastGeo, Np4751CdIhWindFcastGeoFilters
+] = Endpoint(
+    "/np4-751-cd/ih_wind_fcast_geo",
+    Np4751CdIhWindFcastGeo,
+    "np4-751-cd--ih_wind_fcast_geo.json",
+)
+
+
+class Np4752CdIhSolarFcastGeoFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    intervalEndingFrom: datetime
+    intervalEndingTo: datetime
+    region: str
+    valueFrom: float | Decimal
+    valueTo: float | Decimal
+    model: str
+    inUseFlag: bool
+    DSTFlag: bool
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+
+
+NP4_752_CD_IH_SOLAR_FCAST_GEO: Endpoint[
+    Np4752CdIhSolarFcastGeo, Np4752CdIhSolarFcastGeoFilters
+] = Endpoint(
+    "/np4-752-cd/ih_solar_fcast_geo",
+    Np4752CdIhSolarFcastGeo,
+    "np4-752-cd--ih_solar_fcast_geo.json",
+)
+
+
+class Np4790CdPeakerNetMarginFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    asOfDateFrom: datetime
+    asOfDateTo: datetime
+    peakerNetMarginFrom: float | Decimal
+    peakerNetMarginTo: float | Decimal
+
+
+NP4_790_CD_PEAKER_NET_MARGIN: Endpoint[
+    Np4790CdPeakerNetMargin, Np4790CdPeakerNetMarginFilters
+] = Endpoint(
+    "/np4-790-cd/peaker_net_margin",
+    Np4790CdPeakerNetMargin,
+    "np4-790-cd--peaker_net_margin.json",
+)
+
+
+class Np4791CdDaSwOfferCapsFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    SWCAPType: str
+    DASWCAPFrom: float | Decimal
+    DASWCAPTo: float | Decimal
+    RTSWCAPFrom: float | Decimal
+    RTSWCAPTo: float | Decimal
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+
+
+NP4_791_CD_DA_SW_OFFER_CAPS: Endpoint[
+    Np4791CdDaSwOfferCaps, Np4791CdDaSwOfferCapsFilters
+] = Endpoint(
+    "/np4-791-cd/da_sw_offer_caps",
+    Np4791CdDaSwOfferCaps,
+    "np4-791-cd--da_sw_offer_caps.json",
+)
+
+
+class Np5108CdHrlyRmrServicesDeployedFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    hourEnding: str
+    resourceName: str
+    mwhDeploymentFrom: float | Decimal
+    mwhDeploymentTo: float | Decimal
+    repeatHourFlag: bool
+
+
+NP5_108_CD_HRLY_RMR_SERVICES_DEPLOYED: Endpoint[
+    Np5108CdHrlyRmrServicesDeployed, Np5108CdHrlyRmrServicesDeployedFilters
+] = Endpoint(
+    "/np5-108-cd/hrly_rmr_services_deployed",
+    Np5108CdHrlyRmrServicesDeployed,
+    "np5-108-cd--hrly_rmr_services_deployed.json",
+)
+
+
+class Np5525CdWrucAsDeployFactorsFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    ASType: str
+    ASDeploymentFactorsFrom: float | Decimal
+    ASDeploymentFactorsTo: float | Decimal
+    repeatHourFlag: bool
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    RUCTimestampFrom: datetime
+    RUCTimestampTo: datetime
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    deliveryHour: str
+
+
+NP5_525_CD_WRUC_AS_DEPLOY_FACTORS: Endpoint[
+    Np5525CdWrucAsDeployFactors, Np5525CdWrucAsDeployFactorsFilters
+] = Endpoint(
+    "/np5-525-cd/wruc_as_deploy_factors",
+    Np5525CdWrucAsDeployFactors,
+    "np5-525-cd--wruc_as_deploy_factors.json",
+)
+
+
+class Np5526CdProjAsDeployFactorFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEnding: str
+    ASType: str
+    ASDeploymentFactorsFrom: float | Decimal
+    ASDeploymentFactorsTo: float | Decimal
+    repeatHourFlag: bool
+
+
+NP5_526_CD_PROJ_AS_DEPLOY_FACTOR: Endpoint[
+    Np5526CdProjAsDeployFactor, Np5526CdProjAsDeployFactorFilters
+] = Endpoint(
+    "/np5-526-cd/proj_as_deploy_factor",
+    Np5526CdProjAsDeployFactor,
+    "np5-526-cd--proj_as_deploy_factor.json",
+)
+
+
+class Np5527CdDrucAsDeployFactorsFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    ASType: str
+    ASDeploymentFactorsFrom: float | Decimal
+    ASDeploymentFactorsTo: float | Decimal
+    repeatHourFlag: bool
+    RUCTimestampFrom: datetime
+    RUCTimestampTo: datetime
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    deliveryHour: str
+
+
+NP5_527_CD_DRUC_AS_DEPLOY_FACTORS: Endpoint[
+    Np5527CdDrucAsDeployFactors, Np5527CdDrucAsDeployFactorsFilters
+] = Endpoint(
+    "/np5-527-cd/druc_as_deploy_factors",
+    Np5527CdDrucAsDeployFactors,
+    "np5-527-cd--druc_as_deploy_factors.json",
+)
+
+
+class Np5528CdHrucAsDeployFactorsFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    RUCTimestampFrom: datetime
+    RUCTimestampTo: datetime
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    deliveryHour: str
+    ASType: str
+    ASDeploymentFactorsFrom: float | Decimal
+    ASDeploymentFactorsTo: float | Decimal
+    repeatHourFlag: bool
+
+
+NP5_528_CD_HRUC_AS_DEPLOY_FACTORS: Endpoint[
+    Np5528CdHrucAsDeployFactors, Np5528CdHrucAsDeployFactorsFilters
+] = Endpoint(
+    "/np5-528-cd/hruc_as_deploy_factors",
+    Np5528CdHrucAsDeployFactors,
+    "np5-528-cd--hruc_as_deploy_factors.json",
+)
+
+
+class Np5754CdDailyRucActAndBindTranConstFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEnding: str
+    RUCTimestampFrom: datetime
+    RUCTimestampTo: datetime
+    constraintIDFrom: int
+    constraintIDTo: int
+    constraintName: str
+    contingencyName: str
+    limitFrom: float | Decimal
+    limitTo: float | Decimal
+    valueFrom: float | Decimal
+    valueTo: float | Decimal
+    violationAmountFrom: float | Decimal
+    violationAmountTo: float | Decimal
+    fromStation: str
+    toStation: str
+    fromStationkVFrom: float | Decimal
+    fromStationkVTo: float | Decimal
+    toStationkVFrom: float | Decimal
+    toStationkVTo: float | Decimal
+    repeatedHourFlag: bool
+
+
+NP5_754_CD_DAILY_RUC_ACT_AND_BIND_TRAN_CONST: Endpoint[
+    Np5754CdDailyRucActAndBindTranConst, Np5754CdDailyRucActAndBindTranConstFilters
+] = Endpoint(
+    "/np5-754-cd/daily_ruc_act_and_bind_tran_const",
+    Np5754CdDailyRucActAndBindTranConst,
+    "np5-754-cd--daily_ruc_act_and_bind_tran_const.json",
+)
+
+
+class Np5755CdHrlyRucActAndBindTranConstFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    fromStation: str
+    toStation: str
+    fromStationkVFrom: float | Decimal
+    fromStationkVTo: float | Decimal
+    toStationkVFrom: float | Decimal
+    toStationkVTo: float | Decimal
+    DSTFlag: bool
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEnding: str
+    RUCTimestampFrom: datetime
+    RUCTimestampTo: datetime
+    constraintIDFrom: int
+    constraintIDTo: int
+    constraintName: str
+    contingencyName: str
+    limitFrom: float | Decimal
+    limitTo: float | Decimal
+    valueFrom: float | Decimal
+    valueTo: float | Decimal
+    violationAmountFrom: float | Decimal
+    violationAmountTo: float | Decimal
+
+
+NP5_755_CD_HRLY_RUC_ACT_AND_BIND_TRAN_CONST: Endpoint[
+    Np5755CdHrlyRucActAndBindTranConst, Np5755CdHrlyRucActAndBindTranConstFilters
+] = Endpoint(
+    "/np5-755-cd/hrly_ruc_act_and_bind_tran_const",
+    Np5755CdHrlyRucActAndBindTranConst,
+    "np5-755-cd--hrly_ruc_act_and_bind_tran_const.json",
+)
+
+
+class Np6235CdSystemWideDemandFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    timeEnding: str
+    demandFrom: float | Decimal
+    demandTo: float | Decimal
+    DSTFlag: bool
+
+
+NP6_235_CD_SYSTEM_WIDE_DEMAND: Endpoint[
+    Np6235CdSystemWideDemand, Np6235CdSystemWideDemandFilters
+] = Endpoint(
+    "/np6-235-cd/system_wide_demand",
+    Np6235CdSystemWideDemand,
+    "np6-235-cd--system_wide_demand.json",
+)
+
+
+class Np6344CdActSysLoadByStudyAreaFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    hourEnding: str
+    valleyFrom: float | Decimal
+    valleyTo: float | Decimal
+    repeatedHourFlag: bool
+    operatingDayFrom: date
+    operatingDayTo: date
+
+
+NP6_344_CD_ACT_SYS_LOAD_BY_STUDY_AREA: Endpoint[
+    Np6344CdActSysLoadByStudyArea, Np6344CdActSysLoadByStudyAreaFilters
+] = Endpoint(
+    "/np6-344-cd/act_sys_load_by_study_area",
+    Np6344CdActSysLoadByStudyArea,
+    "np6-344-cd--act_sys_load_by_study_area.json",
+)
+
+
+class Np6625CdSeLdRptErcotGenFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    scadaMWFrom: float | Decimal
+    scadaMWTo: float | Decimal
+    seExeTimeFrom: datetime
+    seExeTimeTo: datetime
+    seExeTimeDST: str
+    seMWFrom: float | Decimal
+    seMWTo: float | Decimal
+    seMVARFrom: float | Decimal
+    seMVARTo: float | Decimal
+
+
+NP6_625_CD_SE_LD_RPT_ERCOT_GEN: Endpoint[
+    Np6625CdSeLdRptErcotGen, Np6625CdSeLdRptErcotGenFilters
+] = Endpoint(
+    "/np6-625-cd/se_ld_rpt_ercot_gen",
+    Np6625CdSeLdRptErcotGen,
+    "np6-625-cd--se_ld_rpt_ercot_gen.json",
+)
+
+
+class Np6626CdSeLoadDctiesFlowsFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    TAGCTimestampFrom: datetime
+    TAGCTimestampTo: datetime
+    TAGCTimeDST: str
+    TIELineId: str
+    MWTIEFrom: float | Decimal
+    MWTIETo: float | Decimal
+    TEIDTIEFrom: float | Decimal
+    TEIDTIETo: float | Decimal
+
+
+NP6_626_CD_SE_LOAD_DCTIES_FLOWS: Endpoint[
+    Np6626CdSeLoadDctiesFlows, Np6626CdSeLoadDctiesFlowsFilters
+] = Endpoint(
+    "/np6-626-cd/se_load_dcties_flows",
+    Np6626CdSeLoadDctiesFlows,
+    "np6-626-cd--se_load_dcties_flows.json",
+)
+
+
+class Np7464CdDamPtpOptionPriceReportFilters(TypedDict, total=False):
+    """Optional filters from the pinned current query specification."""
+
+    deliveryDateFrom: date
+    deliveryDateTo: date
+    hourEnding: str
+    priceFrom: float | Decimal
+    priceTo: float | Decimal
+    source: str
+    sink: str
+    repeatedHourFlag: bool
+    postedDatetimeFrom: datetime
+    postedDatetimeTo: datetime
+
+
+NP7_464_CD_DAM_PTP_OPTION_PRICE_REPORT: Endpoint[
+    Np7464CdDamPtpOptionPriceReport, Np7464CdDamPtpOptionPriceReportFilters
+] = Endpoint(
+    "/np7-464-cd/dam_ptp_option_price_report",
+    Np7464CdDamPtpOptionPriceReport,
+    "np7-464-cd--dam_ptp_option_price_report.json",
+)
+
+
 ENDPOINTS = (
     DAM_PRICES,
     DAM_CAPACITY_PRICES,
@@ -1722,4 +3826,68 @@ ENDPOINTS = (
     NP6_86_CD_SHDW_PRICES_BND_TRNS_CONST,
     NP6_915_CD_SUM_HDL_LDL,
     NP6_970_CD_RTD_LMP_NODE_ZONE_HUB,
+    NP1_301_60_COP_ADJ_PERIOD_SNAPSHOT,
+    NP3_257_EX_3D_HIGH_PRICE_BIDS_SEL_DISP_SCED,
+    NP3_566_CD_LF_BY_MODEL_STUDY_AREA,
+    NP3_764_CD_HRLY_RUC_ONLINE_SCED_OFFLINE_COP,
+    NP3_765_CD_APPROVED_DCTIE_SCHEDULES,
+    NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_ECRSM,
+    NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_ECRSS,
+    NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_NSPIN,
+    NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_NSPNM,
+    NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_REGDN,
+    NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_REGUP,
+    NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSFFR,
+    NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSPFR,
+    NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSUFR,
+    NP3_907_EX_2D_AGG_EDC,
+    NP3_907_EX_2D_AGG_EDC_HOUSTON,
+    NP3_907_EX_2D_AGG_EDC_NORTH,
+    NP3_907_EX_2D_AGG_EDC_SOUTH,
+    NP3_907_EX_2D_AGG_EDC_WEST,
+    NP3_907_EX_2D_AGG_ESC,
+    NP3_907_EX_2D_AGG_ESC_HOUSTON,
+    NP3_907_EX_2D_AGG_ESC_NORTH,
+    NP3_907_EX_2D_AGG_ESC_SOUTH,
+    NP3_907_EX_2D_AGG_ESC_WEST,
+    NP3_907_EX_2D_AGG_MIN_ESC,
+    NP3_907_EX_2D_AGG_MIN_ESC_HOUSTON,
+    NP3_907_EX_2D_AGG_MIN_ESC_NORTH,
+    NP3_907_EX_2D_AGG_MIN_ESC_SOUTH,
+    NP3_907_EX_2D_AGG_MIN_ESC_WEST,
+    NP3_914_EX_3D_SCED_HIGH_AS_OFFERS,
+    NP3_915_EX_3D_DAM_HIGH_AS_OFFERS,
+    NP3_916_EX_3D_HIGHEST_PRICE_OFFER_SCED,
+    NP3_987_EX_7D_TRIG_LMP_50XFIP,
+    NP3_987_EX_7D_TRIG_MCPC_50XFIP,
+    NP3_987_EX_7D_TRIG_RTM_MCPC_50XFIP,
+    NP4_412_CD_EPP_CUMULATIVE_HOURS,
+    NP4_442_CD_HRLY_SYS_REG_WIND_FCAST_MODEL,
+    NP4_443_CD_HRLY_SYS_REG_SOLAR_FCAST_MODEL,
+    NP4_532_CD_DAM_AS_SOLD,
+    NP4_722_CD_WEATHER_ASSUMPTIONS,
+    NP4_732_CD_WPP_HRLY_AVRG_ACTL_FCAST,
+    NP4_733_CD_WPP_ACTUAL_5MIN_AVG_VALUES,
+    NP4_737_CD_SPP_HRLY_AVRG_ACTL_FCAST,
+    NP4_738_CD_SPP_ACTUAL_5MIN_AVG_VALUES,
+    NP4_742_CD_WPP_HRLY_ACTUAL_FCAST_GEO,
+    NP4_743_CD_WPP_ACTUAL_5MIN_AVG_VALUES_GEO,
+    NP4_745_CD_SPP_HRLY_ACTUAL_FCAST_GEO,
+    NP4_746_CD_SPP_ACTUAL_5MIN_AVG_VALUES_GEO,
+    NP4_751_CD_IH_WIND_FCAST_GEO,
+    NP4_752_CD_IH_SOLAR_FCAST_GEO,
+    NP4_790_CD_PEAKER_NET_MARGIN,
+    NP4_791_CD_DA_SW_OFFER_CAPS,
+    NP5_108_CD_HRLY_RMR_SERVICES_DEPLOYED,
+    NP5_525_CD_WRUC_AS_DEPLOY_FACTORS,
+    NP5_526_CD_PROJ_AS_DEPLOY_FACTOR,
+    NP5_527_CD_DRUC_AS_DEPLOY_FACTORS,
+    NP5_528_CD_HRUC_AS_DEPLOY_FACTORS,
+    NP5_754_CD_DAILY_RUC_ACT_AND_BIND_TRAN_CONST,
+    NP5_755_CD_HRLY_RUC_ACT_AND_BIND_TRAN_CONST,
+    NP6_235_CD_SYSTEM_WIDE_DEMAND,
+    NP6_344_CD_ACT_SYS_LOAD_BY_STUDY_AREA,
+    NP6_625_CD_SE_LD_RPT_ERCOT_GEN,
+    NP6_626_CD_SE_LOAD_DCTIES_FLOWS,
+    NP7_464_CD_DAM_PTP_OPTION_PRICE_REPORT,
 )

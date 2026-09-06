@@ -14,6 +14,27 @@ from tinyercot.public import Credentials, ReportsClient, StreamingLimits
 from tinyercot.public._schemas import ENDPOINTS
 
 
+def remaining_periods(records: list[dict]) -> tuple[tuple[str, str], ...]:
+    """Select periods without a previously successful typed observation.
+
+    Args:
+        records: Saved redacted records for this exact operation.
+
+    Returns:
+        Requested period/direction pairs; successful periods are never repeated.
+    """
+    successful = {
+        record["period"]
+        for record in records
+        if record["status"] == "typed" and record["rows"] > 0
+    }
+    return tuple(
+        (period, direction)
+        for period, direction in (("latest", "desc"), ("oldest", "asc"))
+        if period not in successful
+    )
+
+
 def main() -> None:
     """Run one explicit installed-client batch and save public receipts only.
 
@@ -26,9 +47,13 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--start", type=int, default=0)
     parser.add_argument("--count", type=int, default=20)
+    parser.add_argument("--retry-failures", action="store_true")
+    parser.add_argument("--attempts", type=int, default=3)
     args = parser.parse_args()
     if not args.live or not 1 <= args.count <= 20 or args.start < 0:
         raise SystemExit("Explicit --live and a 1–20 operation batch are required")
+    if not 1 <= args.attempts <= 3:
+        raise SystemExit("Choose one to three transport attempts per request")
     if (
         Path(tinyercot.__file__).resolve().parent
         == Path(__file__).resolve().parents[1] / "tinyercot"
@@ -74,14 +99,22 @@ def main() -> None:
         del values
         endpoints = [ep for ep in ENDPOINTS if "product_evidence" in ep.contract]
         with ReportsClient(
-            credentials, limits=StreamingLimits(max_requests=90)
+            credentials, limits=StreamingLimits(max_requests=90, attempts=args.attempts)
         ) as client:
             for endpoint in endpoints[args.start : args.start + args.count]:
                 output = args.output / (
                     endpoint.path.strip("/").replace("/", "--") + ".json"
                 )
-                if output.exists():
+                if output.exists() and not args.retry_failures:
                     continue
+                records = []
+                if output.exists():
+                    previous = json.loads(output.read_text())
+                    if previous["path"] != endpoint.path:
+                        raise ValueError(
+                            "Saved observation belongs to another operation"
+                        )
+                    records = previous["records"]
                 temporal = [
                     field["name"]
                     for field in endpoint.contract["fields"]
@@ -89,8 +122,7 @@ def main() -> None:
                     and field.get("sortable")
                 ]
                 sort = temporal[0] if temporal else None
-                records = []
-                for period, direction in (("latest", "desc"), ("oldest", "asc")):
+                for period, direction in remaining_periods(records):
                     try:
                         page = client.page(
                             endpoint, size=1, sort=sort, direction=direction

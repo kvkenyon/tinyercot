@@ -62,6 +62,7 @@ def main() -> None:
     parser.add_argument("--spec", type=Path)
     parser.add_argument("--samples", action="store_true")
     parser.add_argument("--max-requests", type=int, default=60)
+    parser.add_argument("--attempts", type=int, default=3)
     args = parser.parse_args()
     if args.samples:
         catalog = json.loads(
@@ -77,6 +78,8 @@ def main() -> None:
             raise SystemExit("Sampling requires the pinned current OpenAPI export")
     if not args.live or not 1 <= args.max_requests <= 100:
         raise SystemExit("Explicit --live and a 1–100 request budget are required")
+    if not 1 <= args.attempts <= 3:
+        raise SystemExit("Choose one to three transport attempts per request")
     known = {
         op.path for op in operations(service="public-reports") if op.kind == "data"
     }
@@ -120,7 +123,10 @@ def main() -> None:
         )
         del values
         with PublicClient(
-            credentials, limits=StreamingLimits(max_requests=args.max_requests)
+            credentials,
+            limits=StreamingLimits(
+                max_requests=args.max_requests, attempts=args.attempts
+            ),
         ) as client:
             if args.root:
                 payload = client._authenticated_payload("/", {})

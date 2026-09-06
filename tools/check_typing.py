@@ -57,6 +57,7 @@ def registry_assertions(source: str, bundle: dict) -> tuple[str, str, dict[str, 
         "LONG": "int",
         "BOOLEAN": "bool",
         "DOUBLE": "Decimal",
+        "DECIMAL": "Decimal",
         "FLOAT": "Decimal",
     }
     query_types = {

@@ -346,6 +346,30 @@
           "status": 200
         }
       ]
+    },
+    {
+      "fixture": "system-wide-prices-live.json",
+      "sha256": "eb0fa529c5e5a08fe092dbee57fc6ed84461ad663c6c1f3798ad11fbd6b8b08a",
+      "source": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/system-wide-prices.json",
+        "retrieved_at": "2026-09-06 01:04:51.647937+00:00",
+        "sha256": "8e38ba06d829fcee282409af8db0ac41648a4d1b5e5fdd2d8f0acbf44ead239c",
+        "byte_count": 35242,
+        "status": 200
+      },
+      "transformation": "First and last two rows from rtSppData and damSppData; retain all fields and exact JSON number values."
+    },
+    {
+      "fixture": "supply-demand-live.json",
+      "sha256": "8311d571a8073e7d0183e331f77f907d34b27ef7d34edd372c762436eb91a647",
+      "source": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/supply-demand.json",
+        "retrieved_at": "2026-09-06 01:04:53.692382+00:00",
+        "sha256": "21f046e85d59c4097fbc26507fcd7e12f909f4150c1b7da10e85a7a7ebaa044c",
+        "byte_count": 80541,
+        "status": 200
+      },
+      "transformation": "First and last two actual rows, same-day forecast rows, and multi-day outlook rows; all fields and source discriminator values retained."
     }
   ]
 }

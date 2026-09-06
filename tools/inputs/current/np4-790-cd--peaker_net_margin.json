@@ -1,0 +1,129 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np4-790-cd/peaker_net_margin",
+  "observed_at": "2026-09-06 01:00:27.245340+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "asOfDateFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "asOfDateTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "peakerNetMarginFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "peakerNetMarginTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "asOfDate",
+      "label": "As of Date",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "peakerNetMargin",
+      "label": "Peaker Net Margin",
+      "cardinality": 2,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np4-790-cd/peaker_net_margin?size=1&page=1&sort=asOfDate&dir=desc",
+    "retrieved_at": "2026-09-06 01:00:27.245340+00:00",
+    "sha256": "affd9f3d5512ea8727a1ec47debb2421a1d87623c8df324f3e9f3f7eeb210234",
+    "byte_count": 794,
+    "status": 200
+  },
+  "observed_nullable_fields": [],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np4-790-cd/peaker_net_margin?size=1&page=1&sort=asOfDate&dir=desc",
+      "retrieved_at": "2026-09-06 01:00:27.245340+00:00",
+      "sha256": "affd9f3d5512ea8727a1ec47debb2421a1d87623c8df324f3e9f3f7eeb210234",
+      "byte_count": 794,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np4-790-cd/peaker_net_margin?size=1&page=1&sort=asOfDate&dir=asc",
+      "retrieved_at": "2026-09-06 01:00:29.345250+00:00",
+      "sha256": "629a2012711ea7ec78627d054e66804802b190703f359bdd8cb8db2b7b2074f1",
+      "byte_count": 793,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP4-790-CD",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 12348,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}

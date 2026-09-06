@@ -78,6 +78,10 @@ def project_batch(directory: Path, spec: Path) -> tuple[list[dict], dict]:
                         allow_observed_nulls=True,
                     )
                     state["periods"][period] = projection["row_schema"]
+                    if projection.get("schema_issues"):
+                        state.setdefault("schema_issues", {})[period] = projection[
+                            "schema_issues"
+                        ]
                     if projection["row_schema"] == "verified_observed":
                         projections.append(projection)
                 except (KeyError, TypeError, ValueError) as error:

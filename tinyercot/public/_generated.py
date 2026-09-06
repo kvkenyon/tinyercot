@@ -2283,3 +2283,2834 @@ NP6_970_CD_RTD_LMP_NODE_ZONE_HUB_FIELDS = {
     "settlementPointType": "VARCHAR",
     "LMP": "DOUBLE",
 }
+
+
+class Np130160CopAdjPeriodSnapshot(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        qseName: Source qseName value.
+        resourceName: Source resourceName value.
+        hourEnding: Source hour-ending label, including 24:00.
+        status: Source status value.
+        highSustainedLimit: Source highSustainedLimit value.
+        lowSustainedLimit: Source lowSustainedLimit value.
+        highEmergencyLimit: Source highEmergencyLimit value.
+        lowEmergencyLimit: Source lowEmergencyLimit value.
+        REGUP: Source REGUP value.
+        REGDN: Source REGDN value.
+        RRSPFR: Source RRSPFR value.
+        RRSFFR: Source RRSFFR value.
+        RRSUFR: Source RRSUFR value.
+        NSPIN: Source NSPIN value.
+        ECRS: Source ECRS value.
+        minSOC: Source minSOC value.
+        maxSOC: Source maxSOC value.
+        hourBeginningPlannedSOC: Source hourBeginningPlannedSOC value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    qseName: StrictStr
+    resourceName: StrictStr
+    hourEnding: StrictStr
+    status: StrictStr
+    highSustainedLimit: Decimal
+    lowSustainedLimit: Decimal
+    highEmergencyLimit: Decimal
+    lowEmergencyLimit: Decimal
+    REGUP: Decimal
+    REGDN: Decimal
+    RRSPFR: Decimal
+    RRSFFR: Decimal
+    RRSUFR: Decimal
+    NSPIN: Decimal
+    ECRS: Decimal
+    minSOC: Decimal
+    maxSOC: Decimal
+    hourBeginningPlannedSOC: Decimal
+
+
+NP1_301_60_COP_ADJ_PERIOD_SNAPSHOT_FIELDS = {
+    "deliveryDate": "DATE",
+    "qseName": "VARCHAR",
+    "resourceName": "VARCHAR",
+    "hourEnding": "VARCHAR",
+    "status": "VARCHAR",
+    "highSustainedLimit": "DOUBLE",
+    "lowSustainedLimit": "DOUBLE",
+    "highEmergencyLimit": "DOUBLE",
+    "lowEmergencyLimit": "DOUBLE",
+    "REGUP": "DOUBLE",
+    "REGDN": "DOUBLE",
+    "RRSPFR": "DOUBLE",
+    "RRSFFR": "DOUBLE",
+    "RRSUFR": "DOUBLE",
+    "NSPIN": "DOUBLE",
+    "ECRS": "DOUBLE",
+    "minSOC": "DOUBLE",
+    "maxSOC": "DOUBLE",
+    "hourBeginningPlannedSOC": "DOUBLE",
+}
+
+
+class Np3257Ex3dHighPriceBidsSelDispSced(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatedHourFlag: Source repeatedHourFlag value.
+        qseName: Source qseName value.
+        dmeName: Source dmeName value.
+        loadResource: Source loadResource value.
+        highestPriceDispatched: Source highestPriceDispatched value.
+        proxyExtension: Source proxyExtension value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatedHourFlag: StrictBool
+    qseName: StrictStr
+    dmeName: StrictStr
+    loadResource: StrictStr
+    highestPriceDispatched: Decimal
+    proxyExtension: StrictStr
+
+
+NP3_257_EX_3D_HIGH_PRICE_BIDS_SEL_DISP_SCED_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatedHourFlag": "BOOLEAN",
+    "qseName": "VARCHAR",
+    "dmeName": "VARCHAR",
+    "loadResource": "VARCHAR",
+    "highestPriceDispatched": "DOUBLE",
+    "proxyExtension": "VARCHAR",
+}
+
+
+class Np3566CdLfByModelStudyArea(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        valley: Source valley value.
+        model: Source model value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    deliveryDate: date
+    hourEnding: StrictStr
+    valley: Decimal
+    model: StrictStr
+    DSTFlag: StrictBool
+
+
+NP3_566_CD_LF_BY_MODEL_STUDY_AREA_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "deliveryDate": "DATE",
+    "hourEnding": "VARCHAR",
+    "valley": "DOUBLE",
+    "model": "VARCHAR",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np3764CdHrlyRucOnlineScedOfflineCop(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        RUCTimestamp: Source RUCTimestamp value.
+        SCEDTimestamp: Source SCEDTimestamp value.
+        sumSCEDSouth: Source sumSCEDSouth value.
+        sumSCEDNorth: Source sumSCEDNorth value.
+        sumSCEDWest: Source sumSCEDWest value.
+        sumSCEDHouston: Source sumSCEDHouston value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictStr
+    RUCTimestamp: datetime
+    SCEDTimestamp: datetime
+    sumSCEDSouth: Decimal
+    sumSCEDNorth: Decimal
+    sumSCEDWest: Decimal
+    sumSCEDHouston: Decimal
+    DSTFlag: StrictBool
+
+
+NP3_764_CD_HRLY_RUC_ONLINE_SCED_OFFLINE_COP_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "VARCHAR",
+    "RUCTimestamp": "DATETIME",
+    "SCEDTimestamp": "DATETIME",
+    "sumSCEDSouth": "DOUBLE",
+    "sumSCEDNorth": "DOUBLE",
+    "sumSCEDWest": "DOUBLE",
+    "sumSCEDHouston": "DOUBLE",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np3765CdApprovedDctieSchedules(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        DCTie: Source DCTie value.
+        GMTIntervalEnding: Source GMTIntervalEnding value.
+        intervalEnding: Source intervalEnding value.
+        repeatHourFlag: Source repeatHourFlag value.
+        MW: Source MW value.
+        importExport: Source importExport value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    DCTie: StrictStr
+    GMTIntervalEnding: datetime
+    intervalEnding: datetime
+    repeatHourFlag: StrictBool
+    MW: Decimal
+    importExport: StrictStr
+
+
+NP3_765_CD_APPROVED_DCTIE_SCHEDULES_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "DCTie": "VARCHAR",
+    "GMTIntervalEnding": "DATETIME",
+    "intervalEnding": "DATETIME",
+    "repeatHourFlag": "BOOLEAN",
+    "MW": "DOUBLE",
+    "importExport": "VARCHAR",
+}
+
+
+class Np3906Ex2dayAggScedAsOffersEcrsm(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatHourFlag: Source repeatHourFlag value.
+        MWOffered: Source MWOffered value.
+        ECRSMOfferPrice: Source ECRSMOfferPrice value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatHourFlag: StrictBool
+    MWOffered: Decimal
+    ECRSMOfferPrice: Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_ECRSM_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatHourFlag": "BOOLEAN",
+    "MWOffered": "DOUBLE",
+    "ECRSMOfferPrice": "DOUBLE",
+}
+
+
+class Np3906Ex2dayAggScedAsOffersEcrss(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatHourFlag: Source repeatHourFlag value.
+        MWOffered: Source MWOffered value.
+        ECRSSOfferPrice: Source ECRSSOfferPrice value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatHourFlag: StrictBool
+    MWOffered: Decimal
+    ECRSSOfferPrice: Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_ECRSS_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatHourFlag": "BOOLEAN",
+    "MWOffered": "DOUBLE",
+    "ECRSSOfferPrice": "DOUBLE",
+}
+
+
+class Np3906Ex2dayAggScedAsOffersNspin(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatHourFlag: Source repeatHourFlag value.
+        MWOffered: Source MWOffered value.
+        NSPINOfferPrice: Source NSPINOfferPrice value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatHourFlag: StrictBool
+    MWOffered: Decimal
+    NSPINOfferPrice: Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_NSPIN_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatHourFlag": "BOOLEAN",
+    "MWOffered": "DOUBLE",
+    "NSPINOfferPrice": "DOUBLE",
+}
+
+
+class Np3906Ex2dayAggScedAsOffersNspnm(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatHourFlag: Source repeatHourFlag value.
+        MWOffered: Source MWOffered value.
+        NSPNMOfferPrice: Source NSPNMOfferPrice value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatHourFlag: StrictBool
+    MWOffered: Decimal
+    NSPNMOfferPrice: Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_NSPNM_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatHourFlag": "BOOLEAN",
+    "MWOffered": "DOUBLE",
+    "NSPNMOfferPrice": "DOUBLE",
+}
+
+
+class Np3906Ex2dayAggScedAsOffersRegdn(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatHourFlag: Source repeatHourFlag value.
+        MWOffered: Source MWOffered value.
+        REGDNOfferPrice: Source REGDNOfferPrice value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatHourFlag: StrictBool
+    MWOffered: Decimal
+    REGDNOfferPrice: Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_REGDN_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatHourFlag": "BOOLEAN",
+    "MWOffered": "DOUBLE",
+    "REGDNOfferPrice": "DOUBLE",
+}
+
+
+class Np3906Ex2dayAggScedAsOffersRegup(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatHourFlag: Source repeatHourFlag value.
+        MWOffered: Source MWOffered value.
+        REGUPOfferPrice: Source REGUPOfferPrice value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatHourFlag: StrictBool
+    MWOffered: Decimal
+    REGUPOfferPrice: Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_REGUP_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatHourFlag": "BOOLEAN",
+    "MWOffered": "DOUBLE",
+    "REGUPOfferPrice": "DOUBLE",
+}
+
+
+class Np3906Ex2dayAggScedAsOffersRrsffr(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatHourFlag: Source repeatHourFlag value.
+        MWOffered: Source MWOffered value.
+        RRSFFROfferPrice: Source RRSFFROfferPrice value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatHourFlag: StrictBool
+    MWOffered: Decimal
+    RRSFFROfferPrice: Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSFFR_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatHourFlag": "BOOLEAN",
+    "MWOffered": "DOUBLE",
+    "RRSFFROfferPrice": "DOUBLE",
+}
+
+
+class Np3906Ex2dayAggScedAsOffersRrspfr(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatHourFlag: Source repeatHourFlag value.
+        MWOffered: Source MWOffered value.
+        RRSPFROfferPrice: Source RRSPFROfferPrice value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatHourFlag: StrictBool
+    MWOffered: Decimal
+    RRSPFROfferPrice: Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSPFR_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatHourFlag": "BOOLEAN",
+    "MWOffered": "DOUBLE",
+    "RRSPFROfferPrice": "DOUBLE",
+}
+
+
+class Np3906Ex2dayAggScedAsOffersRrsufr(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatHourFlag: Source repeatHourFlag value.
+        MWOffered: Source MWOffered value.
+        RRSUFROfferPrice: Source RRSUFROfferPrice value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatHourFlag: StrictBool
+    MWOffered: Decimal
+    RRSUFROfferPrice: Decimal
+
+
+NP3_906_EX_2DAY_AGG_SCED_AS_OFFERS_RRSUFR_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatHourFlag": "BOOLEAN",
+    "MWOffered": "DOUBLE",
+    "RRSUFROfferPrice": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggEdc(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_EDC_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggEdcHouston(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_EDC_HOUSTON_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggEdcNorth(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_EDC_NORTH_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggEdcSouth(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_EDC_SOUTH_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggEdcWest(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_EDC_WEST_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggEsc(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_ESC_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggEscHouston(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_ESC_HOUSTON_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggEscNorth(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_ESC_NORTH_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggEscSouth(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_ESC_SOUTH_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggEscWest(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_ESC_WEST_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggMinEsc(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_MIN_ESC_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggMinEscHouston(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_MIN_ESC_HOUSTON_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggMinEscNorth(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_MIN_ESC_NORTH_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggMinEscSouth(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_MIN_ESC_SOUTH_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3907Ex2dAggMinEscWest(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        MW: Source MW value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    MW: Decimal
+    price: Decimal
+
+
+NP3_907_EX_2D_AGG_MIN_ESC_WEST_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "MW": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3914Ex3dScedHighAsOffers(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        qseName: Source qseName value.
+        dmeName: Source dmeName value.
+        resourceName: Source resourceName value.
+        ASType: Source ASType value.
+        quantity: Source quantity value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    qseName: StrictStr
+    dmeName: StrictStr
+    resourceName: StrictStr
+    ASType: StrictStr
+    quantity: Decimal
+    price: Decimal
+
+
+NP3_914_EX_3D_SCED_HIGH_AS_OFFERS_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "qseName": "VARCHAR",
+    "dmeName": "VARCHAR",
+    "resourceName": "VARCHAR",
+    "ASType": "VARCHAR",
+    "quantity": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3915Ex3dDamHighAsOffers(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        qseName: Source qseName value.
+        dmeName: Source dmeName value.
+        resourceName: Source resourceName value.
+        ASType: Source ASType value.
+        blockIndicator: Source blockIndicator value.
+        quantity: Source quantity value.
+        price: Source price value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    qseName: StrictStr
+    dmeName: StrictStr
+    resourceName: StrictStr
+    ASType: StrictStr
+    blockIndicator: StrictStr
+    quantity: Decimal
+    price: Decimal
+
+
+NP3_915_EX_3D_DAM_HIGH_AS_OFFERS_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "qseName": "VARCHAR",
+    "dmeName": "VARCHAR",
+    "resourceName": "VARCHAR",
+    "ASType": "VARCHAR",
+    "blockIndicator": "VARCHAR",
+    "quantity": "DOUBLE",
+    "price": "DOUBLE",
+}
+
+
+class Np3916Ex3dHighestPriceOfferSced(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatedHourFlag: Source repeatedHourFlag value.
+        LMP: Source LMP value.
+        qseName: Source qseName value.
+        dmeName: Source dmeName value.
+        resourceName: Source resourceName value.
+        proxyExtension: Source proxyExtension value.
+        penaltyFlag: Source penaltyFlag value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatedHourFlag: StrictBool
+    LMP: Decimal
+    qseName: StrictStr
+    dmeName: StrictStr
+    resourceName: StrictStr
+    proxyExtension: StrictStr
+    penaltyFlag: StrictStr
+
+
+NP3_916_EX_3D_HIGHEST_PRICE_OFFER_SCED_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatedHourFlag": "BOOLEAN",
+    "LMP": "DECIMAL",
+    "qseName": "VARCHAR",
+    "dmeName": "VARCHAR",
+    "resourceName": "VARCHAR",
+    "proxyExtension": "VARCHAR",
+    "penaltyFlag": "VARCHAR",
+}
+
+
+class Np3987Ex7dTrigLmp50xfip(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatHourFlag: Source repeatHourFlag value.
+        resourceName: Source resourceName value.
+        LMP: Source LMP value.
+        FIPx50: Source FIPx50 value.
+        SCED2CurveMW1: Source SCED2CurveMW1 value.
+        SCED2CurvePrice1: Source SCED2CurvePrice1 value.
+        SCED2CurveMW2: Source SCED2CurveMW2 value.
+        SCED2CurvePrice2: Source SCED2CurvePrice2 value.
+        SCED2CurveMW3: Source SCED2CurveMW3 value.
+        SCED2CurvePrice3: Source SCED2CurvePrice3 value.
+        SCED2CurveMW4: Source SCED2CurveMW4 value.
+        SCED2CurvePrice4: Source SCED2CurvePrice4 value.
+        SCED2CurveMW5: Source SCED2CurveMW5 value.
+        SCED2CurvePrice5: Source SCED2CurvePrice5 value.
+        SCED2CurveMW6: Source SCED2CurveMW6 value.
+        SCED2CurvePrice6: Source SCED2CurvePrice6 value.
+        SCED2CurveMW7: Source SCED2CurveMW7 value.
+        SCED2CurvePrice7: Source SCED2CurvePrice7 value.
+        SCED2CurveMW8: Source SCED2CurveMW8 value.
+        SCED2CurvePrice8: Source SCED2CurvePrice8 value.
+        SCED2CurveMW9: Source SCED2CurveMW9 value.
+        SCED2CurvePrice9: Source SCED2CurvePrice9 value.
+        SCED2CurveMW10: Source SCED2CurveMW10 value.
+        SCED2CurvePrice10: Source SCED2CurvePrice10 value.
+        SCED2CurveMW11: Source SCED2CurveMW11 value.
+        SCED2CurvePrice11: Source SCED2CurvePrice11 value.
+        SCED2CurveMW12: Source SCED2CurveMW12 value.
+        SCED2CurvePrice12: Source SCED2CurvePrice12 value.
+        SCED2CurveMW13: Source SCED2CurveMW13 value.
+        SCED2CurvePrice13: Source SCED2CurvePrice13 value.
+        SCED2CurveMW14: Source SCED2CurveMW14 value.
+        SCED2CurvePrice14: Source SCED2CurvePrice14 value.
+        SCED2CurveMW15: Source SCED2CurveMW15 value.
+        SCED2CurvePrice15: Source SCED2CurvePrice15 value.
+        SCED2CurveMW16: Source SCED2CurveMW16 value.
+        SCED2CurvePrice16: Source SCED2CurvePrice16 value.
+        SCED2CurveMW17: Source SCED2CurveMW17 value.
+        SCED2CurvePrice17: Source SCED2CurvePrice17 value.
+        SCED2CurveMW18: Source SCED2CurveMW18 value.
+        SCED2CurvePrice18: Source SCED2CurvePrice18 value.
+        SCED2CurveMW19: Source SCED2CurveMW19 value.
+        SCED2CurvePrice19: Source SCED2CurvePrice19 value.
+        SCED2CurveMW20: Source SCED2CurveMW20 value.
+        SCED2CurvePrice20: Source SCED2CurvePrice20 value.
+        SCED2CurveMW21: Source SCED2CurveMW21 value.
+        SCED2CurvePrice21: Source SCED2CurvePrice21 value.
+        SCED2CurveMW22: Source SCED2CurveMW22 value.
+        SCED2CurvePrice22: Source SCED2CurvePrice22 value.
+        SCED2CurveMW23: Source SCED2CurveMW23 value.
+        SCED2CurvePrice23: Source SCED2CurvePrice23 value.
+        SCED2CurveMW24: Source SCED2CurveMW24 value.
+        SCED2CurvePrice24: Source SCED2CurvePrice24 value.
+        SCED2CurveMW25: Source SCED2CurveMW25 value.
+        SCED2CurvePrice25: Source SCED2CurvePrice25 value.
+        SCED2CurveMW26: Source SCED2CurveMW26 value.
+        SCED2CurvePrice26: Source SCED2CurvePrice26 value.
+        SCED2CurveMW27: Source SCED2CurveMW27 value.
+        SCED2CurvePrice27: Source SCED2CurvePrice27 value.
+        SCED2CurveMW28: Source SCED2CurveMW28 value.
+        SCED2CurvePrice28: Source SCED2CurvePrice28 value.
+        SCED2CurveMW29: Source SCED2CurveMW29 value.
+        SCED2CurvePrice29: Source SCED2CurvePrice29 value.
+        SCED2CurveMW30: Source SCED2CurveMW30 value.
+        SCED2CurvePrice30: Source SCED2CurvePrice30 value.
+        SCED2CurveMW31: Source SCED2CurveMW31 value.
+        SCED2CurvePrice31: Source SCED2CurvePrice31 value.
+        SCED2CurveMW32: Source SCED2CurveMW32 value.
+        SCED2CurvePrice32: Source SCED2CurvePrice32 value.
+        SCED2CurveMW33: Source SCED2CurveMW33 value.
+        SCED2CurvePrice33: Source SCED2CurvePrice33 value.
+        SCED2CurveMW34: Source SCED2CurveMW34 value.
+        SCED2CurvePrice34: Source SCED2CurvePrice34 value.
+        SCED2CurveMW35: Source SCED2CurveMW35 value.
+        SCED2CurvePrice35: Source SCED2CurvePrice35 value.
+        bidType: Source bidType value.
+        submittedTPOMW1: Source submittedTPOMW1 value.
+        submittedTPOPrice1: Source submittedTPOPrice1 value.
+        submittedTPOMW2: Source submittedTPOMW2 value.
+        submittedTPOPrice2: Source submittedTPOPrice2 value.
+        submittedTPOMW3: Source submittedTPOMW3 value.
+        submittedTPOPrice3: Source submittedTPOPrice3 value.
+        submittedTPOMW4: Source submittedTPOMW4 value.
+        submittedTPOPrice4: Source submittedTPOPrice4 value.
+        submittedTPOMW5: Source submittedTPOMW5 value.
+        submittedTPOPrice5: Source submittedTPOPrice5 value.
+        submittedTPOMW6: Source submittedTPOMW6 value.
+        submittedTPOPrice6: Source submittedTPOPrice6 value.
+        submittedTPOMW7: Source submittedTPOMW7 value.
+        submittedTPOPrice7: Source submittedTPOPrice7 value.
+        submittedTPOMW8: Source submittedTPOMW8 value.
+        submittedTPOPrice8: Source submittedTPOPrice8 value.
+        submittedTPOMW9: Source submittedTPOMW9 value.
+        submittedTPOPrice9: Source submittedTPOPrice9 value.
+        submittedTPOMW10: Source submittedTPOMW10 value.
+        submittedTPOPrice10: Source submittedTPOPrice10 value.
+        proxyExtension: Source proxyExtension value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatHourFlag: StrictBool
+    resourceName: StrictStr
+    LMP: Decimal
+    FIPx50: Decimal
+    SCED2CurveMW1: Decimal | None
+    SCED2CurvePrice1: Decimal | None
+    SCED2CurveMW2: Decimal | None
+    SCED2CurvePrice2: Decimal | None
+    SCED2CurveMW3: Decimal | None
+    SCED2CurvePrice3: Decimal | None
+    SCED2CurveMW4: Decimal
+    SCED2CurvePrice4: Decimal
+    SCED2CurveMW5: Decimal | None
+    SCED2CurvePrice5: Decimal | None
+    SCED2CurveMW6: Decimal | None
+    SCED2CurvePrice6: Decimal | None
+    SCED2CurveMW7: Decimal | None
+    SCED2CurvePrice7: Decimal | None
+    SCED2CurveMW8: Decimal | None
+    SCED2CurvePrice8: Decimal | None
+    SCED2CurveMW9: Decimal | None
+    SCED2CurvePrice9: Decimal | None
+    SCED2CurveMW10: Decimal | None
+    SCED2CurvePrice10: Decimal | None
+    SCED2CurveMW11: Decimal | None
+    SCED2CurvePrice11: Decimal | None
+    SCED2CurveMW12: Decimal | None
+    SCED2CurvePrice12: Decimal | None
+    SCED2CurveMW13: Decimal | None
+    SCED2CurvePrice13: Decimal | None
+    SCED2CurveMW14: Decimal | None
+    SCED2CurvePrice14: Decimal | None
+    SCED2CurveMW15: Decimal | None
+    SCED2CurvePrice15: Decimal | None
+    SCED2CurveMW16: Decimal | None
+    SCED2CurvePrice16: Decimal | None
+    SCED2CurveMW17: Decimal | None
+    SCED2CurvePrice17: Decimal | None
+    SCED2CurveMW18: Decimal | None
+    SCED2CurvePrice18: Decimal | None
+    SCED2CurveMW19: Decimal | None
+    SCED2CurvePrice19: Decimal | None
+    SCED2CurveMW20: Decimal | None
+    SCED2CurvePrice20: Decimal | None
+    SCED2CurveMW21: Decimal | None
+    SCED2CurvePrice21: Decimal | None
+    SCED2CurveMW22: Decimal | None
+    SCED2CurvePrice22: Decimal | None
+    SCED2CurveMW23: Decimal | None
+    SCED2CurvePrice23: Decimal | None
+    SCED2CurveMW24: Decimal | None
+    SCED2CurvePrice24: Decimal | None
+    SCED2CurveMW25: Decimal | None
+    SCED2CurvePrice25: Decimal | None
+    SCED2CurveMW26: Decimal | None
+    SCED2CurvePrice26: Decimal | None
+    SCED2CurveMW27: Decimal | None
+    SCED2CurvePrice27: Decimal | None
+    SCED2CurveMW28: Decimal | None
+    SCED2CurvePrice28: Decimal | None
+    SCED2CurveMW29: Decimal | None
+    SCED2CurvePrice29: Decimal | None
+    SCED2CurveMW30: Decimal | None
+    SCED2CurvePrice30: Decimal | None
+    SCED2CurveMW31: Decimal | None
+    SCED2CurvePrice31: Decimal | None
+    SCED2CurveMW32: Decimal | None
+    SCED2CurvePrice32: Decimal | None
+    SCED2CurveMW33: Decimal | None
+    SCED2CurvePrice33: Decimal | None
+    SCED2CurveMW34: Decimal | None
+    SCED2CurvePrice34: Decimal | None
+    SCED2CurveMW35: Decimal | None
+    SCED2CurvePrice35: Decimal | None
+    bidType: StrictStr | None
+    submittedTPOMW1: Decimal | None
+    submittedTPOPrice1: Decimal | None
+    submittedTPOMW2: Decimal | None
+    submittedTPOPrice2: Decimal | None
+    submittedTPOMW3: Decimal | None
+    submittedTPOPrice3: Decimal | None
+    submittedTPOMW4: Decimal | None
+    submittedTPOPrice4: Decimal | None
+    submittedTPOMW5: Decimal | None
+    submittedTPOPrice5: Decimal | None
+    submittedTPOMW6: Decimal | None
+    submittedTPOPrice6: Decimal | None
+    submittedTPOMW7: Decimal | None
+    submittedTPOPrice7: Decimal | None
+    submittedTPOMW8: Decimal | None
+    submittedTPOPrice8: Decimal | None
+    submittedTPOMW9: Decimal | None
+    submittedTPOPrice9: Decimal | None
+    submittedTPOMW10: Decimal | None
+    submittedTPOPrice10: Decimal | None
+    proxyExtension: StrictStr
+
+
+NP3_987_EX_7D_TRIG_LMP_50XFIP_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatHourFlag": "BOOLEAN",
+    "resourceName": "VARCHAR",
+    "LMP": "DOUBLE",
+    "FIPx50": "DOUBLE",
+    "SCED2CurveMW1": "DOUBLE",
+    "SCED2CurvePrice1": "DOUBLE",
+    "SCED2CurveMW2": "DOUBLE",
+    "SCED2CurvePrice2": "DOUBLE",
+    "SCED2CurveMW3": "DOUBLE",
+    "SCED2CurvePrice3": "DOUBLE",
+    "SCED2CurveMW4": "DOUBLE",
+    "SCED2CurvePrice4": "DOUBLE",
+    "SCED2CurveMW5": "DOUBLE",
+    "SCED2CurvePrice5": "DOUBLE",
+    "SCED2CurveMW6": "DOUBLE",
+    "SCED2CurvePrice6": "DOUBLE",
+    "SCED2CurveMW7": "DOUBLE",
+    "SCED2CurvePrice7": "DOUBLE",
+    "SCED2CurveMW8": "DOUBLE",
+    "SCED2CurvePrice8": "DOUBLE",
+    "SCED2CurveMW9": "DOUBLE",
+    "SCED2CurvePrice9": "DOUBLE",
+    "SCED2CurveMW10": "DOUBLE",
+    "SCED2CurvePrice10": "DOUBLE",
+    "SCED2CurveMW11": "DOUBLE",
+    "SCED2CurvePrice11": "DOUBLE",
+    "SCED2CurveMW12": "DOUBLE",
+    "SCED2CurvePrice12": "DOUBLE",
+    "SCED2CurveMW13": "DOUBLE",
+    "SCED2CurvePrice13": "DOUBLE",
+    "SCED2CurveMW14": "DOUBLE",
+    "SCED2CurvePrice14": "DOUBLE",
+    "SCED2CurveMW15": "DOUBLE",
+    "SCED2CurvePrice15": "DOUBLE",
+    "SCED2CurveMW16": "DOUBLE",
+    "SCED2CurvePrice16": "DOUBLE",
+    "SCED2CurveMW17": "DOUBLE",
+    "SCED2CurvePrice17": "DOUBLE",
+    "SCED2CurveMW18": "DOUBLE",
+    "SCED2CurvePrice18": "DOUBLE",
+    "SCED2CurveMW19": "DOUBLE",
+    "SCED2CurvePrice19": "DOUBLE",
+    "SCED2CurveMW20": "DOUBLE",
+    "SCED2CurvePrice20": "DOUBLE",
+    "SCED2CurveMW21": "DOUBLE",
+    "SCED2CurvePrice21": "DOUBLE",
+    "SCED2CurveMW22": "DOUBLE",
+    "SCED2CurvePrice22": "DOUBLE",
+    "SCED2CurveMW23": "DOUBLE",
+    "SCED2CurvePrice23": "DOUBLE",
+    "SCED2CurveMW24": "DOUBLE",
+    "SCED2CurvePrice24": "DOUBLE",
+    "SCED2CurveMW25": "DOUBLE",
+    "SCED2CurvePrice25": "DOUBLE",
+    "SCED2CurveMW26": "DOUBLE",
+    "SCED2CurvePrice26": "DOUBLE",
+    "SCED2CurveMW27": "DOUBLE",
+    "SCED2CurvePrice27": "DOUBLE",
+    "SCED2CurveMW28": "DOUBLE",
+    "SCED2CurvePrice28": "DOUBLE",
+    "SCED2CurveMW29": "DOUBLE",
+    "SCED2CurvePrice29": "DOUBLE",
+    "SCED2CurveMW30": "DOUBLE",
+    "SCED2CurvePrice30": "DOUBLE",
+    "SCED2CurveMW31": "DOUBLE",
+    "SCED2CurvePrice31": "DOUBLE",
+    "SCED2CurveMW32": "DOUBLE",
+    "SCED2CurvePrice32": "DOUBLE",
+    "SCED2CurveMW33": "DOUBLE",
+    "SCED2CurvePrice33": "DOUBLE",
+    "SCED2CurveMW34": "DOUBLE",
+    "SCED2CurvePrice34": "DOUBLE",
+    "SCED2CurveMW35": "DOUBLE",
+    "SCED2CurvePrice35": "DOUBLE",
+    "bidType": "VARCHAR",
+    "submittedTPOMW1": "DOUBLE",
+    "submittedTPOPrice1": "DOUBLE",
+    "submittedTPOMW2": "DOUBLE",
+    "submittedTPOPrice2": "DOUBLE",
+    "submittedTPOMW3": "DOUBLE",
+    "submittedTPOPrice3": "DOUBLE",
+    "submittedTPOMW4": "DOUBLE",
+    "submittedTPOPrice4": "DOUBLE",
+    "submittedTPOMW5": "DOUBLE",
+    "submittedTPOPrice5": "DOUBLE",
+    "submittedTPOMW6": "DOUBLE",
+    "submittedTPOPrice6": "DOUBLE",
+    "submittedTPOMW7": "DOUBLE",
+    "submittedTPOPrice7": "DOUBLE",
+    "submittedTPOMW8": "DOUBLE",
+    "submittedTPOPrice8": "DOUBLE",
+    "submittedTPOMW9": "DOUBLE",
+    "submittedTPOPrice9": "DOUBLE",
+    "submittedTPOMW10": "DOUBLE",
+    "submittedTPOPrice10": "DOUBLE",
+    "proxyExtension": "VARCHAR",
+}
+
+
+class Np3987Ex7dTrigMcpc50xfip(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        qseName: Source qseName value.
+        dmeName: Source dmeName value.
+        resourceName: Source resourceName value.
+        FIPx50: Source FIPx50 value.
+        MCPC: Decimal source capacity clearing price.
+        multiHourBlockFlag: Source multiHourBlockFlag value.
+        blockIndicator1: Source blockIndicator1 value.
+        price1RRSPFR: Source price1RRSPFR value.
+        price1RRSFFR: Source price1RRSFFR value.
+        price1RRSUFR: Source price1RRSUFR value.
+        price1ECRS: Source price1ECRS value.
+        price1OFFEC: Source price1OFFEC value.
+        price1OnlineNONSPIN: Source price1OnlineNONSPIN value.
+        price1REGUP: Source price1REGUP value.
+        price1REGDOWN: Source price1REGDOWN value.
+        price1OfflineNONSPIN: Source price1OfflineNONSPIN value.
+        quantityMW1: Source quantityMW1 value.
+        blockIndicator2: Source blockIndicator2 value.
+        price2RRSPFR: Source price2RRSPFR value.
+        price2RRSFFR: Source price2RRSFFR value.
+        price2RRSUFR: Source price2RRSUFR value.
+        price2ECRS: Source price2ECRS value.
+        price2OFFEC: Source price2OFFEC value.
+        price2OnlineNONSPIN: Source price2OnlineNONSPIN value.
+        price2REGUP: Source price2REGUP value.
+        price2REGDOWN: Source price2REGDOWN value.
+        price2OfflineNONSPIN: Source price2OfflineNONSPIN value.
+        quantityMW2: Source quantityMW2 value.
+        blockIndicator3: Source blockIndicator3 value.
+        price3RRSPFR: Source price3RRSPFR value.
+        price3RRSFFR: Source price3RRSFFR value.
+        price3RRSUFR: Source price3RRSUFR value.
+        price3ECRS: Source price3ECRS value.
+        price3OFFEC: Source price3OFFEC value.
+        price3OnlineNONSPIN: Source price3OnlineNONSPIN value.
+        price3REGUP: Source price3REGUP value.
+        price3REGDOWN: Source price3REGDOWN value.
+        price3OfflineNONSPIN: Source price3OfflineNONSPIN value.
+        quantityMW3: Source quantityMW3 value.
+        blockIndicator4: Source blockIndicator4 value.
+        price4RRSPFR: Source price4RRSPFR value.
+        price4RRSFFR: Source price4RRSFFR value.
+        price4RRSUFR: Source price4RRSUFR value.
+        price4ECRS: Source price4ECRS value.
+        price4OFFEC: Source price4OFFEC value.
+        price4OnlineNONSPIN: Source price4OnlineNONSPIN value.
+        price4REGUP: Source price4REGUP value.
+        price4REGDOWN: Source price4REGDOWN value.
+        price4OfflineNONSPIN: Source price4OfflineNONSPIN value.
+        quantityMW4: Source quantityMW4 value.
+        blockIndicator5: Source blockIndicator5 value.
+        price5RRSPFR: Source price5RRSPFR value.
+        price5RRSFFR: Source price5RRSFFR value.
+        price5RRSUFR: Source price5RRSUFR value.
+        price5ECRS: Source price5ECRS value.
+        price5OFFEC: Source price5OFFEC value.
+        price5OnlineNONSPIN: Source price5OnlineNONSPIN value.
+        price5REGUP: Source price5REGUP value.
+        price5REGDOWN: Source price5REGDOWN value.
+        price5OfflineNONSPIN: Source price5OfflineNONSPIN value.
+        quantityMW5: Source quantityMW5 value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictInt
+    qseName: StrictStr
+    dmeName: StrictStr
+    resourceName: StrictStr
+    FIPx50: Decimal
+    MCPC: Decimal
+    multiHourBlockFlag: StrictBool
+    blockIndicator1: StrictStr
+    price1RRSPFR: Decimal | None
+    price1RRSFFR: Decimal | None
+    price1RRSUFR: Decimal | None
+    price1ECRS: Decimal | None
+    price1OFFEC: Decimal | None
+    price1OnlineNONSPIN: Decimal
+    price1REGUP: Decimal | None
+    price1REGDOWN: Decimal | None
+    price1OfflineNONSPIN: Decimal | None
+    quantityMW1: Decimal
+    blockIndicator2: StrictStr
+    price2RRSPFR: Decimal | None
+    price2RRSFFR: Decimal | None
+    price2RRSUFR: Decimal | None
+    price2ECRS: Decimal | None
+    price2OFFEC: Decimal | None
+    price2OnlineNONSPIN: Decimal
+    price2REGUP: Decimal | None
+    price2REGDOWN: Decimal | None
+    price2OfflineNONSPIN: Decimal | None
+    quantityMW2: Decimal
+    blockIndicator3: StrictStr
+    price3RRSPFR: Decimal | None
+    price3RRSFFR: Decimal | None
+    price3RRSUFR: Decimal | None
+    price3ECRS: Decimal | None
+    price3OFFEC: Decimal | None
+    price3OnlineNONSPIN: Decimal
+    price3REGUP: Decimal | None
+    price3REGDOWN: Decimal | None
+    price3OfflineNONSPIN: Decimal | None
+    quantityMW3: Decimal
+    blockIndicator4: StrictStr | None
+    price4RRSPFR: Decimal | None
+    price4RRSFFR: Decimal | None
+    price4RRSUFR: Decimal | None
+    price4ECRS: Decimal | None
+    price4OFFEC: Decimal | None
+    price4OnlineNONSPIN: Decimal | None
+    price4REGUP: Decimal | None
+    price4REGDOWN: Decimal | None
+    price4OfflineNONSPIN: Decimal | None
+    quantityMW4: Decimal | None
+    blockIndicator5: StrictStr
+    price5RRSPFR: Decimal | None
+    price5RRSFFR: Decimal | None
+    price5RRSUFR: Decimal | None
+    price5ECRS: Decimal | None
+    price5OFFEC: Decimal | None
+    price5OnlineNONSPIN: Decimal
+    price5REGUP: Decimal | None
+    price5REGDOWN: Decimal | None
+    price5OfflineNONSPIN: Decimal | None
+    quantityMW5: Decimal
+
+
+NP3_987_EX_7D_TRIG_MCPC_50XFIP_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "qseName": "VARCHAR",
+    "dmeName": "VARCHAR",
+    "resourceName": "VARCHAR",
+    "FIPx50": "DOUBLE",
+    "MCPC": "DOUBLE",
+    "multiHourBlockFlag": "BOOLEAN",
+    "blockIndicator1": "VARCHAR",
+    "price1RRSPFR": "DOUBLE",
+    "price1RRSFFR": "DOUBLE",
+    "price1RRSUFR": "DOUBLE",
+    "price1ECRS": "DOUBLE",
+    "price1OFFEC": "DOUBLE",
+    "price1OnlineNONSPIN": "DOUBLE",
+    "price1REGUP": "DOUBLE",
+    "price1REGDOWN": "DOUBLE",
+    "price1OfflineNONSPIN": "DOUBLE",
+    "quantityMW1": "DOUBLE",
+    "blockIndicator2": "VARCHAR",
+    "price2RRSPFR": "DOUBLE",
+    "price2RRSFFR": "DOUBLE",
+    "price2RRSUFR": "DOUBLE",
+    "price2ECRS": "DOUBLE",
+    "price2OFFEC": "DOUBLE",
+    "price2OnlineNONSPIN": "DOUBLE",
+    "price2REGUP": "DOUBLE",
+    "price2REGDOWN": "DOUBLE",
+    "price2OfflineNONSPIN": "DOUBLE",
+    "quantityMW2": "DOUBLE",
+    "blockIndicator3": "VARCHAR",
+    "price3RRSPFR": "DOUBLE",
+    "price3RRSFFR": "DOUBLE",
+    "price3RRSUFR": "DOUBLE",
+    "price3ECRS": "DOUBLE",
+    "price3OFFEC": "DOUBLE",
+    "price3OnlineNONSPIN": "DOUBLE",
+    "price3REGUP": "DOUBLE",
+    "price3REGDOWN": "DOUBLE",
+    "price3OfflineNONSPIN": "DOUBLE",
+    "quantityMW3": "DOUBLE",
+    "blockIndicator4": "VARCHAR",
+    "price4RRSPFR": "DOUBLE",
+    "price4RRSFFR": "DOUBLE",
+    "price4RRSUFR": "DOUBLE",
+    "price4ECRS": "DOUBLE",
+    "price4OFFEC": "DOUBLE",
+    "price4OnlineNONSPIN": "DOUBLE",
+    "price4REGUP": "DOUBLE",
+    "price4REGDOWN": "DOUBLE",
+    "price4OfflineNONSPIN": "DOUBLE",
+    "quantityMW4": "DOUBLE",
+    "blockIndicator5": "VARCHAR",
+    "price5RRSPFR": "DOUBLE",
+    "price5RRSFFR": "DOUBLE",
+    "price5RRSUFR": "DOUBLE",
+    "price5ECRS": "DOUBLE",
+    "price5OFFEC": "DOUBLE",
+    "price5OnlineNONSPIN": "DOUBLE",
+    "price5REGUP": "DOUBLE",
+    "price5REGDOWN": "DOUBLE",
+    "price5OfflineNONSPIN": "DOUBLE",
+    "quantityMW5": "DOUBLE",
+}
+
+
+class Np3987Ex7dTrigRtmMcpc50xfip(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        SCEDTimestamp: Source SCEDTimestamp value.
+        repeatHourFlag: Source repeatHourFlag value.
+        resourceName: Source resourceName value.
+        FIPx50: Source FIPx50 value.
+        RTMCPC: Source RTMCPC value.
+        price1REGUP: Source price1REGUP value.
+        price1REGDOWN: Source price1REGDOWN value.
+        price1RRSPFR: Source price1RRSPFR value.
+        price1RRSUFR: Source price1RRSUFR value.
+        price1RRSFFR: Source price1RRSFFR value.
+        price1NONSPIN: Source price1NONSPIN value.
+        price1ECRS: Source price1ECRS value.
+        quantityMW1: Source quantityMW1 value.
+        price2REGUP: Source price2REGUP value.
+        price2REGDOWN: Source price2REGDOWN value.
+        price2RRSPFR: Source price2RRSPFR value.
+        price2RRSUFR: Source price2RRSUFR value.
+        price2RRSFFR: Source price2RRSFFR value.
+        price2NONSPIN: Source price2NONSPIN value.
+        price2ECRS: Source price2ECRS value.
+        quantityMW2: Source quantityMW2 value.
+        price3REGUP: Source price3REGUP value.
+        price3REGDOWN: Source price3REGDOWN value.
+        price3RRSPFR: Source price3RRSPFR value.
+        price3RRSUFR: Source price3RRSUFR value.
+        price3RRSFFR: Source price3RRSFFR value.
+        price3NONSPIN: Source price3NONSPIN value.
+        price3ECRS: Source price3ECRS value.
+        quantityMW3: Source quantityMW3 value.
+        price4REGUP: Source price4REGUP value.
+        price4REGDOWN: Source price4REGDOWN value.
+        price4RRSPFR: Source price4RRSPFR value.
+        price4RRSUFR: Source price4RRSUFR value.
+        price4RRSFFR: Source price4RRSFFR value.
+        price4NONSPIN: Source price4NONSPIN value.
+        price4ECRS: Source price4ECRS value.
+        quantityMW4: Source quantityMW4 value.
+        price5REGUP: Source price5REGUP value.
+        price5REGDOWN: Source price5REGDOWN value.
+        price5RRSPFR: Source price5RRSPFR value.
+        price5RRSUFR: Source price5RRSUFR value.
+        price5RRSFFR: Source price5RRSFFR value.
+        price5NONSPIN: Source price5NONSPIN value.
+        price5ECRS: Source price5ECRS value.
+        quantityMW5: Source quantityMW5 value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    SCEDTimestamp: datetime
+    repeatHourFlag: StrictBool
+    resourceName: StrictStr
+    FIPx50: Decimal
+    RTMCPC: Decimal
+    price1REGUP: Decimal | None
+    price1REGDOWN: Decimal | None
+    price1RRSPFR: Decimal | None
+    price1RRSUFR: Decimal | None
+    price1RRSFFR: Decimal | None
+    price1NONSPIN: Decimal | None
+    price1ECRS: Decimal | None
+    quantityMW1: Decimal | None
+    price2REGUP: Decimal | None
+    price2REGDOWN: Decimal | None
+    price2RRSPFR: Decimal | None
+    price2RRSUFR: Decimal | None
+    price2RRSFFR: Decimal | None
+    price2NONSPIN: Decimal | None
+    price2ECRS: Decimal | None
+    quantityMW2: Decimal
+    price3REGUP: Decimal | None
+    price3REGDOWN: Decimal | None
+    price3RRSPFR: Decimal | None
+    price3RRSUFR: Decimal | None
+    price3RRSFFR: Decimal | None
+    price3NONSPIN: Decimal | None
+    price3ECRS: Decimal | None
+    quantityMW3: Decimal | None
+    price4REGUP: Decimal | None
+    price4REGDOWN: Decimal | None
+    price4RRSPFR: Decimal | None
+    price4RRSUFR: Decimal | None
+    price4RRSFFR: Decimal | None
+    price4NONSPIN: Decimal | None
+    price4ECRS: Decimal | None
+    quantityMW4: Decimal | None
+    price5REGUP: Decimal | None
+    price5REGDOWN: Decimal | None
+    price5RRSPFR: Decimal | None
+    price5RRSUFR: Decimal | None
+    price5RRSFFR: Decimal | None
+    price5NONSPIN: Decimal | None
+    price5ECRS: Decimal | None
+    quantityMW5: Decimal | None
+
+
+NP3_987_EX_7D_TRIG_RTM_MCPC_50XFIP_FIELDS = {
+    "SCEDTimestamp": "DATETIME",
+    "repeatHourFlag": "BOOLEAN",
+    "resourceName": "VARCHAR",
+    "FIPx50": "DOUBLE",
+    "RTMCPC": "DOUBLE",
+    "price1REGUP": "DOUBLE",
+    "price1REGDOWN": "DOUBLE",
+    "price1RRSPFR": "DOUBLE",
+    "price1RRSUFR": "DOUBLE",
+    "price1RRSFFR": "DOUBLE",
+    "price1NONSPIN": "DOUBLE",
+    "price1ECRS": "DOUBLE",
+    "quantityMW1": "DOUBLE",
+    "price2REGUP": "DOUBLE",
+    "price2REGDOWN": "DOUBLE",
+    "price2RRSPFR": "DOUBLE",
+    "price2RRSUFR": "DOUBLE",
+    "price2RRSFFR": "DOUBLE",
+    "price2NONSPIN": "DOUBLE",
+    "price2ECRS": "DOUBLE",
+    "quantityMW2": "DOUBLE",
+    "price3REGUP": "DOUBLE",
+    "price3REGDOWN": "DOUBLE",
+    "price3RRSPFR": "DOUBLE",
+    "price3RRSUFR": "DOUBLE",
+    "price3RRSFFR": "DOUBLE",
+    "price3NONSPIN": "DOUBLE",
+    "price3ECRS": "DOUBLE",
+    "quantityMW3": "DOUBLE",
+    "price4REGUP": "DOUBLE",
+    "price4REGDOWN": "DOUBLE",
+    "price4RRSPFR": "DOUBLE",
+    "price4RRSUFR": "DOUBLE",
+    "price4RRSFFR": "DOUBLE",
+    "price4NONSPIN": "DOUBLE",
+    "price4ECRS": "DOUBLE",
+    "quantityMW4": "DOUBLE",
+    "price5REGUP": "DOUBLE",
+    "price5REGDOWN": "DOUBLE",
+    "price5RRSPFR": "DOUBLE",
+    "price5RRSUFR": "DOUBLE",
+    "price5RRSFFR": "DOUBLE",
+    "price5NONSPIN": "DOUBLE",
+    "price5ECRS": "DOUBLE",
+    "quantityMW5": "DOUBLE",
+}
+
+
+class Np4412CdEppCumulativeHours(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        deliveryHour: Source deliveryHour value.
+        deliveryInterval: Source deliveryInterval value.
+        RTSystemLambda: Source RTSystemLambda value.
+        RTRDPA: Source RTRDPA value.
+        RTSystemLambdaRTDPA: Source RTSystemLambdaRTDPA value.
+        HCAPDAM: Source HCAPDAM value.
+        hoursHCAPDAM: Source hoursHCAPDAM value.
+        repeatHourFlag: Source repeatHourFlag value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    deliveryHour: StrictInt
+    deliveryInterval: StrictInt
+    RTSystemLambda: Decimal
+    RTRDPA: Decimal
+    RTSystemLambdaRTDPA: Decimal
+    HCAPDAM: Decimal
+    hoursHCAPDAM: Decimal
+    repeatHourFlag: StrictBool
+
+
+NP4_412_CD_EPP_CUMULATIVE_HOURS_FIELDS = {
+    "deliveryDate": "DATE",
+    "deliveryHour": "INTEGER",
+    "deliveryInterval": "INTEGER",
+    "RTSystemLambda": "DOUBLE",
+    "RTRDPA": "DOUBLE",
+    "RTSystemLambdaRTDPA": "DOUBLE",
+    "HCAPDAM": "DOUBLE",
+    "hoursHCAPDAM": "DOUBLE",
+    "repeatHourFlag": "BOOLEAN",
+}
+
+
+class Np4442CdHrlySysRegWindFcastModel(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        region: Source region value.
+        value: Source value value.
+        model: Source model value.
+        inUseFlag: Source inUseFlag value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    deliveryDate: date
+    hourEnding: StrictInt
+    region: StrictStr
+    value: Decimal
+    model: StrictStr
+    inUseFlag: StrictBool
+    DSTFlag: StrictBool
+
+
+NP4_442_CD_HRLY_SYS_REG_WIND_FCAST_MODEL_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "region": "VARCHAR",
+    "value": "DOUBLE",
+    "model": "VARCHAR",
+    "inUseFlag": "BOOLEAN",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np4443CdHrlySysRegSolarFcastModel(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        region: Source region value.
+        value: Source value value.
+        model: Source model value.
+        inUseFlag: Source inUseFlag value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    deliveryDate: date
+    hourEnding: StrictInt
+    region: StrictStr
+    value: Decimal
+    model: StrictStr
+    inUseFlag: StrictBool
+    DSTFlag: StrictBool
+
+
+NP4_443_CD_HRLY_SYS_REG_SOLAR_FCAST_MODEL_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "region": "VARCHAR",
+    "value": "DOUBLE",
+    "model": "VARCHAR",
+    "inUseFlag": "BOOLEAN",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np4532CdDamAsSold(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        ASType: Source ASType value.
+        quantity: Source quantity value.
+        repeatHourFlag: Source repeatHourFlag value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictStr
+    ASType: StrictStr
+    quantity: Decimal
+    repeatHourFlag: StrictBool
+
+
+NP4_532_CD_DAM_AS_SOLD_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "VARCHAR",
+    "ASType": "VARCHAR",
+    "quantity": "DOUBLE",
+    "repeatHourFlag": "BOOLEAN",
+}
+
+
+class Np4722CdWeatherAssumptions(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        coast: Source coast value.
+        east: Source east value.
+        farWest: Source farWest value.
+        north: Source north value.
+        northCentral: Source northCentral value.
+        southCentral: Source southCentral value.
+        southern: Source southern value.
+        west: Source west value.
+        repeatedHourFlag: Source repeatedHourFlag value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictStr
+    coast: Decimal
+    east: Decimal
+    farWest: Decimal
+    north: Decimal
+    northCentral: Decimal
+    southCentral: Decimal
+    southern: Decimal
+    west: Decimal
+    repeatedHourFlag: StrictBool
+
+
+NP4_722_CD_WEATHER_ASSUMPTIONS_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "VARCHAR",
+    "coast": "DOUBLE",
+    "east": "DOUBLE",
+    "farWest": "DOUBLE",
+    "north": "DOUBLE",
+    "northCentral": "DOUBLE",
+    "southCentral": "DOUBLE",
+    "southern": "DOUBLE",
+    "west": "DOUBLE",
+    "repeatedHourFlag": "BOOLEAN",
+}
+
+
+class Np4732CdWppHrlyAvrgActlFcast(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        genSystemWide: Source genSystemWide value.
+        COPHSLSystemWide: Source COPHSLSystemWide value.
+        STWPFSystemWide: Source STWPFSystemWide value.
+        WGRPPSystemWide: Source WGRPPSystemWide value.
+        genLoadZoneSouthHouston: Source genLoadZoneSouthHouston value.
+        COPHSLLoadZoneSouthHouston: Source COPHSLLoadZoneSouthHouston value.
+        STWPFLoadZoneSouthHouston: Source STWPFLoadZoneSouthHouston value.
+        WGRPPLoadZoneSouthHouston: Source WGRPPLoadZoneSouthHouston value.
+        genLoadZoneWest: Source genLoadZoneWest value.
+        COPHSLLoadZoneWest: Source COPHSLLoadZoneWest value.
+        STWPFLoadZoneWest: Source STWPFLoadZoneWest value.
+        WGRPPLoadZoneWest: Source WGRPPLoadZoneWest value.
+        genLoadZoneNorth: Source genLoadZoneNorth value.
+        COPHSLLoadZoneNorth: Source COPHSLLoadZoneNorth value.
+        STWPFLoadZoneNorth: Source STWPFLoadZoneNorth value.
+        WGRPPLoadZoneNorth: Source WGRPPLoadZoneNorth value.
+        HSLSystemWide: Source HSLSystemWide value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    deliveryDate: date
+    hourEnding: StrictInt
+    genSystemWide: Decimal | None
+    COPHSLSystemWide: Decimal
+    STWPFSystemWide: Decimal
+    WGRPPSystemWide: Decimal
+    genLoadZoneSouthHouston: Decimal | None
+    COPHSLLoadZoneSouthHouston: Decimal
+    STWPFLoadZoneSouthHouston: Decimal
+    WGRPPLoadZoneSouthHouston: Decimal
+    genLoadZoneWest: Decimal | None
+    COPHSLLoadZoneWest: Decimal
+    STWPFLoadZoneWest: Decimal
+    WGRPPLoadZoneWest: Decimal
+    genLoadZoneNorth: Decimal | None
+    COPHSLLoadZoneNorth: Decimal
+    STWPFLoadZoneNorth: Decimal
+    WGRPPLoadZoneNorth: Decimal
+    HSLSystemWide: Decimal | None
+    DSTFlag: StrictBool
+
+
+NP4_732_CD_WPP_HRLY_AVRG_ACTL_FCAST_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "genSystemWide": "DOUBLE",
+    "COPHSLSystemWide": "DOUBLE",
+    "STWPFSystemWide": "DOUBLE",
+    "WGRPPSystemWide": "DOUBLE",
+    "genLoadZoneSouthHouston": "DOUBLE",
+    "COPHSLLoadZoneSouthHouston": "DOUBLE",
+    "STWPFLoadZoneSouthHouston": "DOUBLE",
+    "WGRPPLoadZoneSouthHouston": "DOUBLE",
+    "genLoadZoneWest": "DOUBLE",
+    "COPHSLLoadZoneWest": "DOUBLE",
+    "STWPFLoadZoneWest": "DOUBLE",
+    "WGRPPLoadZoneWest": "DOUBLE",
+    "genLoadZoneNorth": "DOUBLE",
+    "COPHSLLoadZoneNorth": "DOUBLE",
+    "STWPFLoadZoneNorth": "DOUBLE",
+    "WGRPPLoadZoneNorth": "DOUBLE",
+    "HSLSystemWide": "DOUBLE",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np4733CdWppActual5minAvgValues(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        intervalEnding: Source intervalEnding value.
+        genSystemWide: Source genSystemWide value.
+        LZSouthHouston: Source LZSouthHouston value.
+        LZWest: Source LZWest value.
+        LZNorth: Source LZNorth value.
+        HSLSystemWide: Source HSLSystemWide value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    intervalEnding: datetime
+    genSystemWide: Decimal
+    LZSouthHouston: Decimal
+    LZWest: Decimal
+    LZNorth: Decimal
+    HSLSystemWide: Decimal | None
+    DSTFlag: StrictBool
+
+
+NP4_733_CD_WPP_ACTUAL_5MIN_AVG_VALUES_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "intervalEnding": "DATETIME",
+    "genSystemWide": "DOUBLE",
+    "LZSouthHouston": "DOUBLE",
+    "LZWest": "DOUBLE",
+    "LZNorth": "DOUBLE",
+    "HSLSystemWide": "DOUBLE",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np4737CdSppHrlyAvrgActlFcast(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        genSystemWide: Source genSystemWide value.
+        COPHSLSystemWide: Source COPHSLSystemWide value.
+        STPPFSystemWide: Source STPPFSystemWide value.
+        PVGRPPSystemWide: Source PVGRPPSystemWide value.
+        HSLSystemWide: Source HSLSystemWide value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    deliveryDate: date
+    hourEnding: StrictInt
+    genSystemWide: Decimal | None
+    COPHSLSystemWide: Decimal
+    STPPFSystemWide: Decimal
+    PVGRPPSystemWide: Decimal
+    HSLSystemWide: Decimal | None
+    DSTFlag: StrictBool
+
+
+NP4_737_CD_SPP_HRLY_AVRG_ACTL_FCAST_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "genSystemWide": "DOUBLE",
+    "COPHSLSystemWide": "DOUBLE",
+    "STPPFSystemWide": "DOUBLE",
+    "PVGRPPSystemWide": "DOUBLE",
+    "HSLSystemWide": "DOUBLE",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np4738CdSppActual5minAvgValues(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        intervalEnding: Source intervalEnding value.
+        genSystemWide: Source genSystemWide value.
+        HSLSystemWide: Source HSLSystemWide value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    intervalEnding: datetime
+    genSystemWide: Decimal
+    HSLSystemWide: Decimal | None
+    DSTFlag: StrictBool
+
+
+NP4_738_CD_SPP_ACTUAL_5MIN_AVG_VALUES_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "intervalEnding": "DATETIME",
+    "genSystemWide": "DOUBLE",
+    "HSLSystemWide": "DOUBLE",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np4742CdWppHrlyActualFcastGeo(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        genSystemWide: Source genSystemWide value.
+        COPHSLSystemWide: Source COPHSLSystemWide value.
+        STWPFSystemWide: Source STWPFSystemWide value.
+        WGRPPSystemWide: Source WGRPPSystemWide value.
+        genPanhandle: Source genPanhandle value.
+        COPHSLPanhandle: Source COPHSLPanhandle value.
+        STWPFPanhandle: Source STWPFPanhandle value.
+        WGRPPPanhandle: Source WGRPPPanhandle value.
+        genCoastal: Source genCoastal value.
+        COPHSLCoastal: Source COPHSLCoastal value.
+        STWPFCoastal: Source STWPFCoastal value.
+        WGRPPCoastal: Source WGRPPCoastal value.
+        genSouth: Source genSouth value.
+        COPHSLSouth: Source COPHSLSouth value.
+        STWPFSouth: Source STWPFSouth value.
+        WGRPPSouth: Source WGRPPSouth value.
+        genWest: Source genWest value.
+        COPHSLWest: Source COPHSLWest value.
+        STWPFWest: Source STWPFWest value.
+        WGRPPWest: Source WGRPPWest value.
+        genNorth: Source genNorth value.
+        COPHSLNorth: Source COPHSLNorth value.
+        STWPFNorth: Source STWPFNorth value.
+        WGRPPNorth: Source WGRPPNorth value.
+        HSLSystemWide: Source HSLSystemWide value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    deliveryDate: date
+    hourEnding: StrictInt
+    genSystemWide: Decimal | None
+    COPHSLSystemWide: Decimal
+    STWPFSystemWide: Decimal
+    WGRPPSystemWide: Decimal
+    genPanhandle: Decimal | None
+    COPHSLPanhandle: Decimal
+    STWPFPanhandle: Decimal
+    WGRPPPanhandle: Decimal
+    genCoastal: Decimal | None
+    COPHSLCoastal: Decimal
+    STWPFCoastal: Decimal
+    WGRPPCoastal: Decimal
+    genSouth: Decimal | None
+    COPHSLSouth: Decimal
+    STWPFSouth: Decimal
+    WGRPPSouth: Decimal
+    genWest: Decimal | None
+    COPHSLWest: Decimal
+    STWPFWest: Decimal
+    WGRPPWest: Decimal
+    genNorth: Decimal | None
+    COPHSLNorth: Decimal
+    STWPFNorth: Decimal
+    WGRPPNorth: Decimal
+    HSLSystemWide: Decimal | None
+    DSTFlag: StrictBool
+
+
+NP4_742_CD_WPP_HRLY_ACTUAL_FCAST_GEO_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "genSystemWide": "DOUBLE",
+    "COPHSLSystemWide": "DOUBLE",
+    "STWPFSystemWide": "DOUBLE",
+    "WGRPPSystemWide": "DOUBLE",
+    "genPanhandle": "DOUBLE",
+    "COPHSLPanhandle": "DOUBLE",
+    "STWPFPanhandle": "DOUBLE",
+    "WGRPPPanhandle": "DOUBLE",
+    "genCoastal": "DOUBLE",
+    "COPHSLCoastal": "DOUBLE",
+    "STWPFCoastal": "DOUBLE",
+    "WGRPPCoastal": "DOUBLE",
+    "genSouth": "DOUBLE",
+    "COPHSLSouth": "DOUBLE",
+    "STWPFSouth": "DOUBLE",
+    "WGRPPSouth": "DOUBLE",
+    "genWest": "DOUBLE",
+    "COPHSLWest": "DOUBLE",
+    "STWPFWest": "DOUBLE",
+    "WGRPPWest": "DOUBLE",
+    "genNorth": "DOUBLE",
+    "COPHSLNorth": "DOUBLE",
+    "STWPFNorth": "DOUBLE",
+    "WGRPPNorth": "DOUBLE",
+    "HSLSystemWide": "DOUBLE",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np4743CdWppActual5minAvgValuesGeo(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        intervalEnding: Source intervalEnding value.
+        genSystemWide: Source genSystemWide value.
+        panhandle: Source panhandle value.
+        coastal: Source coastal value.
+        south: Source south value.
+        west: Source west value.
+        north: Source north value.
+        HSLSystemWide: Source HSLSystemWide value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    intervalEnding: datetime
+    genSystemWide: Decimal
+    panhandle: Decimal
+    coastal: Decimal
+    south: Decimal
+    west: Decimal
+    north: Decimal
+    HSLSystemWide: Decimal | None
+    DSTFlag: StrictBool
+
+
+NP4_743_CD_WPP_ACTUAL_5MIN_AVG_VALUES_GEO_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "intervalEnding": "DATETIME",
+    "genSystemWide": "DOUBLE",
+    "panhandle": "DOUBLE",
+    "coastal": "DOUBLE",
+    "south": "DOUBLE",
+    "west": "DOUBLE",
+    "north": "DOUBLE",
+    "HSLSystemWide": "DOUBLE",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np4745CdSppHrlyActualFcastGeo(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        genSystemWide: Source genSystemWide value.
+        COPHSLSystemWide: Source COPHSLSystemWide value.
+        STPPFSystemWide: Source STPPFSystemWide value.
+        PVGRPPSystemWide: Source PVGRPPSystemWide value.
+        genCenterWest: Source genCenterWest value.
+        COPHSLCenterWest: Source COPHSLCenterWest value.
+        STPPFCenterWest: Source STPPFCenterWest value.
+        PVGRPPCenterWest: Source PVGRPPCenterWest value.
+        genNorthWest: Source genNorthWest value.
+        COPHSLNorthWest: Source COPHSLNorthWest value.
+        STPPFNorthWest: Source STPPFNorthWest value.
+        PVGRPPNorthWest: Source PVGRPPNorthWest value.
+        genFarWest: Source genFarWest value.
+        COPHSLFarWest: Source COPHSLFarWest value.
+        STPPFFarWest: Source STPPFFarWest value.
+        PVGRPPFarWest: Source PVGRPPFarWest value.
+        genFarEast: Source genFarEast value.
+        COPHSLFarEast: Source COPHSLFarEast value.
+        STPPFFarEast: Source STPPFFarEast value.
+        PVGRPPFarEast: Source PVGRPPFarEast value.
+        genSouthEast: Source genSouthEast value.
+        COPHSLSouthEast: Source COPHSLSouthEast value.
+        STPPFSouthEast: Source STPPFSouthEast value.
+        PVGRPPSouthEast: Source PVGRPPSouthEast value.
+        genCenterEast: Source genCenterEast value.
+        COPHSLCenterEast: Source COPHSLCenterEast value.
+        STPPFCenterEast: Source STPPFCenterEast value.
+        PVGRPPCenterEast: Source PVGRPPCenterEast value.
+        HSLSystemWide: Source HSLSystemWide value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    deliveryDate: date
+    hourEnding: StrictInt
+    genSystemWide: Decimal | None
+    COPHSLSystemWide: Decimal
+    STPPFSystemWide: Decimal
+    PVGRPPSystemWide: Decimal
+    genCenterWest: Decimal | None
+    COPHSLCenterWest: Decimal
+    STPPFCenterWest: Decimal
+    PVGRPPCenterWest: Decimal
+    genNorthWest: Decimal | None
+    COPHSLNorthWest: Decimal
+    STPPFNorthWest: Decimal
+    PVGRPPNorthWest: Decimal
+    genFarWest: Decimal | None
+    COPHSLFarWest: Decimal
+    STPPFFarWest: Decimal
+    PVGRPPFarWest: Decimal
+    genFarEast: Decimal | None
+    COPHSLFarEast: Decimal
+    STPPFFarEast: Decimal
+    PVGRPPFarEast: Decimal
+    genSouthEast: Decimal | None
+    COPHSLSouthEast: Decimal
+    STPPFSouthEast: Decimal
+    PVGRPPSouthEast: Decimal
+    genCenterEast: Decimal | None
+    COPHSLCenterEast: Decimal
+    STPPFCenterEast: Decimal
+    PVGRPPCenterEast: Decimal
+    HSLSystemWide: Decimal | None
+    DSTFlag: StrictBool
+
+
+NP4_745_CD_SPP_HRLY_ACTUAL_FCAST_GEO_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "deliveryDate": "DATE",
+    "hourEnding": "INTEGER",
+    "genSystemWide": "DOUBLE",
+    "COPHSLSystemWide": "DOUBLE",
+    "STPPFSystemWide": "DOUBLE",
+    "PVGRPPSystemWide": "DOUBLE",
+    "genCenterWest": "DOUBLE",
+    "COPHSLCenterWest": "DOUBLE",
+    "STPPFCenterWest": "DOUBLE",
+    "PVGRPPCenterWest": "DOUBLE",
+    "genNorthWest": "DOUBLE",
+    "COPHSLNorthWest": "DOUBLE",
+    "STPPFNorthWest": "DOUBLE",
+    "PVGRPPNorthWest": "DOUBLE",
+    "genFarWest": "DOUBLE",
+    "COPHSLFarWest": "DOUBLE",
+    "STPPFFarWest": "DOUBLE",
+    "PVGRPPFarWest": "DOUBLE",
+    "genFarEast": "DOUBLE",
+    "COPHSLFarEast": "DOUBLE",
+    "STPPFFarEast": "DOUBLE",
+    "PVGRPPFarEast": "DOUBLE",
+    "genSouthEast": "DOUBLE",
+    "COPHSLSouthEast": "DOUBLE",
+    "STPPFSouthEast": "DOUBLE",
+    "PVGRPPSouthEast": "DOUBLE",
+    "genCenterEast": "DOUBLE",
+    "COPHSLCenterEast": "DOUBLE",
+    "STPPFCenterEast": "DOUBLE",
+    "PVGRPPCenterEast": "DOUBLE",
+    "HSLSystemWide": "DOUBLE",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np4746CdSppActual5minAvgValuesGeo(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        intervalEnding: Source intervalEnding value.
+        genSystemWide: Source genSystemWide value.
+        genCenterWest: Source genCenterWest value.
+        genNorthWest: Source genNorthWest value.
+        genFarWest: Source genFarWest value.
+        genFarEast: Source genFarEast value.
+        genSouthEast: Source genSouthEast value.
+        genCenterEast: Source genCenterEast value.
+        HSLSystemWide: Source HSLSystemWide value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    intervalEnding: datetime
+    genSystemWide: Decimal
+    genCenterWest: Decimal
+    genNorthWest: Decimal
+    genFarWest: Decimal
+    genFarEast: Decimal
+    genSouthEast: Decimal
+    genCenterEast: Decimal
+    HSLSystemWide: Decimal | None
+    DSTFlag: StrictBool
+
+
+NP4_746_CD_SPP_ACTUAL_5MIN_AVG_VALUES_GEO_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "intervalEnding": "DATETIME",
+    "genSystemWide": "DOUBLE",
+    "genCenterWest": "DOUBLE",
+    "genNorthWest": "DOUBLE",
+    "genFarWest": "DOUBLE",
+    "genFarEast": "DOUBLE",
+    "genSouthEast": "DOUBLE",
+    "genCenterEast": "DOUBLE",
+    "HSLSystemWide": "DOUBLE",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np4751CdIhWindFcastGeo(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        intervalEnding: Source intervalEnding value.
+        region: Source region value.
+        value: Source value value.
+        model: Source model value.
+        inUseFlag: Source inUseFlag value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    intervalEnding: datetime
+    region: StrictStr
+    value: Decimal
+    model: StrictStr
+    inUseFlag: StrictBool
+    DSTFlag: StrictBool
+
+
+NP4_751_CD_IH_WIND_FCAST_GEO_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "intervalEnding": "DATETIME",
+    "region": "VARCHAR",
+    "value": "DOUBLE",
+    "model": "VARCHAR",
+    "inUseFlag": "BOOLEAN",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np4752CdIhSolarFcastGeo(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        intervalEnding: Source intervalEnding value.
+        region: Source region value.
+        value: Source value value.
+        model: Source model value.
+        inUseFlag: Source inUseFlag value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    intervalEnding: datetime
+    region: StrictStr
+    value: Decimal
+    model: StrictStr
+    inUseFlag: StrictBool
+    DSTFlag: StrictBool
+
+
+NP4_752_CD_IH_SOLAR_FCAST_GEO_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "intervalEnding": "DATETIME",
+    "region": "VARCHAR",
+    "value": "DOUBLE",
+    "model": "VARCHAR",
+    "inUseFlag": "BOOLEAN",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np4790CdPeakerNetMargin(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        asOfDate: Source asOfDate value.
+        peakerNetMargin: Source peakerNetMargin value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    asOfDate: datetime
+    peakerNetMargin: Decimal
+
+
+NP4_790_CD_PEAKER_NET_MARGIN_FIELDS = {
+    "asOfDate": "DATETIME",
+    "peakerNetMargin": "DOUBLE",
+}
+
+
+class Np4791CdDaSwOfferCaps(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        SWCAPType: Source SWCAPType value.
+        DASWCAP: Source DASWCAP value.
+        RTSWCAP: Source RTSWCAP value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    SWCAPType: StrictStr
+    DASWCAP: Decimal
+    RTSWCAP: Decimal
+
+
+NP4_791_CD_DA_SW_OFFER_CAPS_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "SWCAPType": "VARCHAR",
+    "DASWCAP": "DOUBLE",
+    "RTSWCAP": "DOUBLE",
+}
+
+
+class Np5108CdHrlyRmrServicesDeployed(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        hourEnding: Source hour-ending label, including 24:00.
+        resourceName: Source resourceName value.
+        mwhDeployment: Source mwhDeployment value.
+        repeatHourFlag: Source repeatHourFlag value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    hourEnding: StrictStr
+    resourceName: StrictStr
+    mwhDeployment: Decimal
+    repeatHourFlag: StrictBool
+
+
+NP5_108_CD_HRLY_RMR_SERVICES_DEPLOYED_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "hourEnding": "VARCHAR",
+    "resourceName": "VARCHAR",
+    "mwhDeployment": "DOUBLE",
+    "repeatHourFlag": "BOOLEAN",
+}
+
+
+class Np5525CdWrucAsDeployFactors(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        RUCTimestamp: Source RUCTimestamp value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        deliveryHour: Source deliveryHour value.
+        ASType: Source ASType value.
+        ASDeploymentFactors: Source ASDeploymentFactors value.
+        repeatHourFlag: Source repeatHourFlag value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    RUCTimestamp: datetime
+    deliveryDate: date
+    deliveryHour: StrictStr
+    ASType: StrictStr
+    ASDeploymentFactors: Decimal
+    repeatHourFlag: StrictBool
+
+
+NP5_525_CD_WRUC_AS_DEPLOY_FACTORS_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "RUCTimestamp": "DATETIME",
+    "deliveryDate": "DATE",
+    "deliveryHour": "VARCHAR",
+    "ASType": "VARCHAR",
+    "ASDeploymentFactors": "DOUBLE",
+    "repeatHourFlag": "BOOLEAN",
+}
+
+
+class Np5526CdProjAsDeployFactor(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        ASType: Source ASType value.
+        ASDeploymentFactors: Source ASDeploymentFactors value.
+        repeatHourFlag: Source repeatHourFlag value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    deliveryDate: date
+    hourEnding: StrictStr
+    ASType: StrictStr
+    ASDeploymentFactors: Decimal
+    repeatHourFlag: StrictBool
+
+
+NP5_526_CD_PROJ_AS_DEPLOY_FACTOR_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "deliveryDate": "DATE",
+    "hourEnding": "VARCHAR",
+    "ASType": "VARCHAR",
+    "ASDeploymentFactors": "DOUBLE",
+    "repeatHourFlag": "BOOLEAN",
+}
+
+
+class Np5527CdDrucAsDeployFactors(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        RUCTimestamp: Source RUCTimestamp value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        deliveryHour: Source deliveryHour value.
+        ASType: Source ASType value.
+        ASDeploymentFactors: Source ASDeploymentFactors value.
+        repeatHourFlag: Source repeatHourFlag value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    RUCTimestamp: datetime
+    deliveryDate: date
+    deliveryHour: StrictStr
+    ASType: StrictStr
+    ASDeploymentFactors: Decimal
+    repeatHourFlag: StrictBool
+
+
+NP5_527_CD_DRUC_AS_DEPLOY_FACTORS_FIELDS = {
+    "RUCTimestamp": "DATETIME",
+    "deliveryDate": "DATE",
+    "deliveryHour": "VARCHAR",
+    "ASType": "VARCHAR",
+    "ASDeploymentFactors": "DOUBLE",
+    "repeatHourFlag": "BOOLEAN",
+}
+
+
+class Np5528CdHrucAsDeployFactors(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        RUCTimestamp: Source RUCTimestamp value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        deliveryHour: Source deliveryHour value.
+        ASType: Source ASType value.
+        ASDeploymentFactors: Source ASDeploymentFactors value.
+        repeatHourFlag: Source repeatHourFlag value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    RUCTimestamp: datetime
+    deliveryDate: date
+    deliveryHour: StrictStr
+    ASType: StrictStr
+    ASDeploymentFactors: Decimal
+    repeatHourFlag: StrictBool
+
+
+NP5_528_CD_HRUC_AS_DEPLOY_FACTORS_FIELDS = {
+    "RUCTimestamp": "DATETIME",
+    "deliveryDate": "DATE",
+    "deliveryHour": "VARCHAR",
+    "ASType": "VARCHAR",
+    "ASDeploymentFactors": "DOUBLE",
+    "repeatHourFlag": "BOOLEAN",
+}
+
+
+class Np5754CdDailyRucActAndBindTranConst(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        RUCTimestamp: Source RUCTimestamp value.
+        constraintID: Source constraintID value.
+        constraintName: Source constraintName value.
+        contingencyName: Source contingencyName value.
+        limit: Source limit value.
+        value: Source value value.
+        violationAmount: Source violationAmount value.
+        fromStation: Source fromStation value.
+        toStation: Source toStation value.
+        fromStationkV: Source fromStationkV value.
+        toStationkV: Source toStationkV value.
+        repeatedHourFlag: Source repeatedHourFlag value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    hourEnding: StrictStr
+    RUCTimestamp: datetime
+    constraintID: StrictInt
+    constraintName: StrictStr
+    contingencyName: StrictStr
+    limit: Decimal
+    value: Decimal
+    violationAmount: Decimal
+    fromStation: StrictStr
+    toStation: StrictStr
+    fromStationkV: Decimal
+    toStationkV: Decimal
+    repeatedHourFlag: StrictBool
+
+
+NP5_754_CD_DAILY_RUC_ACT_AND_BIND_TRAN_CONST_FIELDS = {
+    "deliveryDate": "DATE",
+    "hourEnding": "VARCHAR",
+    "RUCTimestamp": "DATETIME",
+    "constraintID": "INTEGER",
+    "constraintName": "VARCHAR",
+    "contingencyName": "VARCHAR",
+    "limit": "DOUBLE",
+    "value": "DOUBLE",
+    "violationAmount": "DOUBLE",
+    "fromStation": "VARCHAR",
+    "toStation": "VARCHAR",
+    "fromStationkV": "DOUBLE",
+    "toStationkV": "DOUBLE",
+    "repeatedHourFlag": "BOOLEAN",
+}
+
+
+class Np5755CdHrlyRucActAndBindTranConst(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        RUCTimestamp: Source RUCTimestamp value.
+        constraintID: Source constraintID value.
+        constraintName: Source constraintName value.
+        contingencyName: Source contingencyName value.
+        limit: Source limit value.
+        value: Source value value.
+        violationAmount: Source violationAmount value.
+        fromStation: Source fromStation value.
+        toStation: Source toStation value.
+        fromStationkV: Source fromStationkV value.
+        toStationkV: Source toStationkV value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    deliveryDate: date
+    hourEnding: StrictStr
+    RUCTimestamp: datetime
+    constraintID: StrictInt
+    constraintName: StrictStr
+    contingencyName: StrictStr
+    limit: Decimal
+    value: Decimal
+    violationAmount: Decimal
+    fromStation: StrictStr
+    toStation: StrictStr
+    fromStationkV: Decimal
+    toStationkV: Decimal
+    DSTFlag: StrictBool
+
+
+NP5_755_CD_HRLY_RUC_ACT_AND_BIND_TRAN_CONST_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "deliveryDate": "DATE",
+    "hourEnding": "VARCHAR",
+    "RUCTimestamp": "DATETIME",
+    "constraintID": "INTEGER",
+    "constraintName": "VARCHAR",
+    "contingencyName": "VARCHAR",
+    "limit": "DOUBLE",
+    "value": "DOUBLE",
+    "violationAmount": "DOUBLE",
+    "fromStation": "VARCHAR",
+    "toStation": "VARCHAR",
+    "fromStationkV": "DOUBLE",
+    "toStationkV": "DOUBLE",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np6235CdSystemWideDemand(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        deliveryDate: Source operating date, without an inferred timezone.
+        timeEnding: Source timeEnding value.
+        demand: Source demand value.
+        DSTFlag: Raw source flag; no repeated-hour meaning is inferred.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    deliveryDate: date
+    timeEnding: StrictStr
+    demand: Decimal
+    DSTFlag: StrictBool
+
+
+NP6_235_CD_SYSTEM_WIDE_DEMAND_FIELDS = {
+    "deliveryDate": "DATE",
+    "timeEnding": "VARCHAR",
+    "demand": "DOUBLE",
+    "DSTFlag": "BOOLEAN",
+}
+
+
+class Np6344CdActSysLoadByStudyArea(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        operatingDay: Source operatingDay value.
+        hourEnding: Source hour-ending label, including 24:00.
+        valley: Source valley value.
+        repeatedHourFlag: Source repeatedHourFlag value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    operatingDay: date
+    hourEnding: StrictStr
+    valley: Decimal
+    repeatedHourFlag: StrictBool
+
+
+NP6_344_CD_ACT_SYS_LOAD_BY_STUDY_AREA_FIELDS = {
+    "operatingDay": "DATE",
+    "hourEnding": "VARCHAR",
+    "valley": "DOUBLE",
+    "repeatedHourFlag": "BOOLEAN",
+}
+
+
+class Np6625CdSeLdRptErcotGen(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        seExeTime: Source seExeTime value.
+        seExeTimeDST: Source seExeTimeDST value.
+        seMW: Source seMW value.
+        seMVAR: Source seMVAR value.
+        scadaMW: Source scadaMW value.
+        scadaMVAR: Source scadaMVAR value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    seExeTime: datetime
+    seExeTimeDST: StrictStr
+    seMW: Decimal
+    seMVAR: Decimal
+    scadaMW: Decimal
+    scadaMVAR: StrictStr
+
+
+NP6_625_CD_SE_LD_RPT_ERCOT_GEN_FIELDS = {
+    "seExeTime": "DATETIME",
+    "seExeTimeDST": "VARCHAR",
+    "seMW": "DOUBLE",
+    "seMVAR": "DOUBLE",
+    "scadaMW": "DOUBLE",
+    "scadaMVAR": "VARCHAR",
+}
+
+
+class Np6626CdSeLoadDctiesFlows(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        TAGCTimestamp: Source TAGCTimestamp value.
+        TAGCTimeDST: Source TAGCTimeDST value.
+        TIELineId: Source TIELineId value.
+        MWTIE: Source MWTIE value.
+        TEIDTIE: Source TEIDTIE value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    TAGCTimestamp: datetime
+    TAGCTimeDST: StrictStr
+    TIELineId: StrictStr
+    MWTIE: Decimal
+    TEIDTIE: Decimal
+
+
+NP6_626_CD_SE_LOAD_DCTIES_FLOWS_FIELDS = {
+    "TAGCTimestamp": "DATETIME",
+    "TAGCTimeDST": "VARCHAR",
+    "TIELineId": "VARCHAR",
+    "MWTIE": "DOUBLE",
+    "TEIDTIE": "DOUBLE",
+}
+
+
+class Np7464CdDamPtpOptionPriceReport(BaseModel):
+    """A row from the observed public field contract.
+
+    Attributes:
+        postedDatetime: Source postedDatetime value.
+        deliveryDate: Source operating date, without an inferred timezone.
+        hourEnding: Source hour-ending label, including 24:00.
+        price: Source price value.
+        source: Source source value.
+        sink: Source sink value.
+        repeatedHourFlag: Source repeatedHourFlag value.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    postedDatetime: datetime
+    deliveryDate: date
+    hourEnding: StrictStr
+    price: Decimal
+    source: StrictStr
+    sink: StrictStr
+    repeatedHourFlag: StrictBool
+
+
+NP7_464_CD_DAM_PTP_OPTION_PRICE_REPORT_FIELDS = {
+    "postedDatetime": "DATETIME",
+    "deliveryDate": "DATE",
+    "hourEnding": "VARCHAR",
+    "price": "DOUBLE",
+    "source": "VARCHAR",
+    "sink": "VARCHAR",
+    "repeatedHourFlag": "BOOLEAN",
+}

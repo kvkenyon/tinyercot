@@ -126,7 +126,9 @@ def decode_page(
         SchemaMismatchError: Row fields, types, or pagination metadata disagree.
     """
     body = payload.json()
-    expected = {f["name"]: f["dataType"] for f in endpoint.contract["fields"]}
+    contract = endpoint.contract
+    expected = {f["name"]: f["dataType"] for f in contract["fields"]}
+    nullable = frozenset(contract.get("observed_nullable_fields", []))
     try:
         fields = body["fields"]
         names = [f["name"] for f in fields]
@@ -164,11 +166,9 @@ def decode_page(
                 raise ValueError
             for name, kind in expected.items():
                 value = values[name]
-                if value is None and name in endpoint.contract.get(
-                    "observed_nullable_fields", []
-                ):
+                if value is None and name in nullable:
                     continue
-                if kind in {"DOUBLE", "FLOAT"}:
+                if kind in {"DOUBLE", "FLOAT", "DECIMAL"}:
                     if (
                         type(value) not in (Decimal, int)
                         or not Decimal(value).is_finite()

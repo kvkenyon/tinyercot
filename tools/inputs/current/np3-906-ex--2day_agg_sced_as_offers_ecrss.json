@@ -1,0 +1,171 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np3-906-ex/2day_agg_sced_as_offers_ecrss",
+  "observed_at": "2026-09-06 01:13:27.032684+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "SCEDTimestampFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "SCEDTimestampTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "repeatHourFlag",
+      "in": "query",
+      "schema": {
+        "type": "boolean",
+        "format": "true | false"
+      }
+    },
+    {
+      "name": "MWOfferedFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "MWOfferedTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "ECRSSOfferPriceFrom",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "ECRSSOfferPriceTo",
+      "in": "query",
+      "schema": {
+        "type": "number",
+        "format": "####.###"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "MWOffered",
+      "label": "MW Offered",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ECRSSOfferPrice",
+      "label": "ECRSS Offer Price",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np3-906-ex/2day_agg_sced_as_offers_ecrss?size=1&page=1&sort=SCEDTimestamp&dir=desc",
+    "retrieved_at": "2026-09-06 01:13:27.032684+00:00",
+    "sha256": "d6e781d7418a9a4c0f434c7ddf3b221f0d5190d220e117137c500dbbd5a6a073",
+    "byte_count": 1156,
+    "status": 200
+  },
+  "observed_nullable_fields": [],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np3-906-ex/2day_agg_sced_as_offers_ecrss?size=1&page=1&sort=SCEDTimestamp&dir=desc",
+      "retrieved_at": "2026-09-06 01:13:27.032684+00:00",
+      "sha256": "d6e781d7418a9a4c0f434c7ddf3b221f0d5190d220e117137c500dbbd5a6a073",
+      "byte_count": 1156,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np3-906-ex/2day_agg_sced_as_offers_ecrss?size=1&page=1&sort=SCEDTimestamp&dir=asc",
+      "retrieved_at": "2026-09-06 01:13:29.273242+00:00",
+      "sha256": "c296e451f0eb44b96f2cb50cb703188b2e08f6db13225da4794878518cd13b2f",
+      "byte_count": 1150,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP3-906-EX",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 25814,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}
