@@ -57,11 +57,25 @@ assert str(frame.settlementPointPrice.dtype) == "float64"
 assert frame.settlementPointPrice[0] == 12.25
 assert str(frame.DSTFlag.dtype) == "bool"
 public = importlib.import_module("tinyercot.public")
-assert len(public.coverage()) == 298
+coverage = public.coverage()
+assert len({entry.key for entry in coverage}) == len(coverage)
+assert len([entry for entry in coverage if entry.key.startswith("api:")]) == len(
+    catalog.operations()
+)
+assert len([entry for entry in coverage if entry.key.startswith("family:")]) == 39
 assert files("tinyercot").joinpath("py.typed").is_file()
 assert files("tinyercot.public").joinpath("_contracts.json").is_file()
 assert public.RT_PRICES.row_model is public.RealTimePrice
-assert len([entry for entry in public.coverage() if entry.status == "covered"]) == 6
+registry = importlib.import_module("tinyercot.public._schemas")
+data_paths = {
+    operation.path for operation in catalog.operations() if operation.kind == "data"
+}
+assert {
+    entry.title
+    for entry in coverage
+    if entry.status == "covered" and entry.title in data_paths
+} == {endpoint.path for endpoint in registry.ENDPOINTS}
+assert public.products.np6_322_cd.sced_system_lambda in registry.ENDPOINTS
 assert public.Credentials("test", "test", "test")
 with public.WebClient():
     pass

@@ -93,3 +93,14 @@ commands and the optional bundle failure. No merge or no-mistakes action ran.
 The next renewable/load/RUC batch already has source samples, and further
 Public Reports disclosure discovery is active. Subsequent stacked PRs continue
 the public/history objective without waiting for earlier merges.
+
+## CI smoke correction
+
+The first CI run passed generation, tests, lint, formatting and build, then
+caught stale fixed coverage counts in `tests/wheel_smoke.py`, a standalone
+script outside pytest discovery. The script now reconciles installed data-path
+coverage with the installed registry and checks the new product facade.
+`uv run ruff check tests/wheel_smoke.py` passed; both
+`/tmp/tinyercot-typing-proof.fbtIin/venv/bin/python -I tests/wheel_smoke.py` and
+`/tmp/tinyercot-locked-wheel/bin/python -I tests/wheel_smoke.py` passed using
+installed wheels. This correction changes only validation and documentation.
