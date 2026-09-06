@@ -1,0 +1,454 @@
+{
+  "format_version": 1,
+  "service": "public-reports",
+  "path": "/np3-233-cd/hourly_res_outage_cap",
+  "observed_at": "2026-09-06 00:37:36.517906+00:00",
+  "row_schema": "verified_observed",
+  "query_parameters": [
+    {
+      "name": "operatingDateFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "operatingDateTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-dd"
+      }
+    },
+    {
+      "name": "hourEndingFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "hourEndingTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalResourceMWZoneSouthFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalResourceMWZoneSouthTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalResourceMWZoneNorthFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalResourceMWZoneNorthTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalResourceMWZoneWestFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalResourceMWZoneWestTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalResourceMWZoneHoustonFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalResourceMWZoneHoustonTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalIRRMWZoneSouthFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalIRRMWZoneSouthTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalIRRMWZoneNorthFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalIRRMWZoneNorthTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalIRRMWZoneWestFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalIRRMWZoneWestTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalIRRMWZoneHoustonFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalIRRMWZoneHoustonTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneSouthFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneSouthTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneNorthFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneNorthTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneWestFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneWestTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneHoustonFrom",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneHoustonTo",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "postedDatetimeFrom",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "postedDatetimeTo",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "yyyy-MM-ddTH24:mm:ss"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "schema": {
+        "type": "integer",
+        "format": "###"
+      }
+    },
+    {
+      "name": "sort",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    },
+    {
+      "name": "dir",
+      "in": "query",
+      "schema": {
+        "type": "string",
+        "format": "abc123"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "operatingDate",
+      "label": "Operating Date",
+      "cardinality": 2,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 3,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalResourceMWZoneSouth",
+      "label": "Total Resource MW Zone South",
+      "cardinality": 4,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalResourceMWZoneNorth",
+      "label": "Total Resource MW Zone North",
+      "cardinality": 5,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalResourceMWZoneWest",
+      "label": "Total Resource MW Zone West",
+      "cardinality": 6,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalResourceMWZoneHouston",
+      "label": "Total Resource MW Zone Houston",
+      "cardinality": 7,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalIRRMWZoneSouth",
+      "label": "Total IRR MW Zone South",
+      "cardinality": 8,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalIRRMWZoneNorth",
+      "label": "Total IRR MW Zone North",
+      "cardinality": 9,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalIRRMWZoneWest",
+      "label": "Total IRR MW Zone West",
+      "cardinality": 10,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalIRRMWZoneHouston",
+      "label": "Total IRR MW Zone Houston",
+      "cardinality": 11,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneSouth",
+      "label": "Total New Equipment Resource MW Zone South",
+      "cardinality": 12,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneNorth",
+      "label": "Total New Equipment Resource MW Zone North",
+      "cardinality": 13,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneWest",
+      "label": "Total New Equipment Resource MW Zone West",
+      "cardinality": 14,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneHouston",
+      "label": "Total New Equipment Resource MW Zone Houston",
+      "cardinality": 15,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "nullability_policy": "Accept null only for fields observed null in pinned samples; field presence stays required. Unobserved nullability remains unknown.",
+  "source_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "query_source_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "response_source": {
+    "source_url": "https://api.ercot.com/api/public-reports/np3-233-cd/hourly_res_outage_cap?size=1&page=1&sort=operatingDate&dir=desc",
+    "retrieved_at": "2026-09-06 00:37:36.517906+00:00",
+    "sha256": "0d10814cf4976d2530b429563fd684a65d08da0deb8e4cda18a9706d7862fcad",
+    "byte_count": 3018,
+    "status": 200
+  },
+  "observed_nullable_fields": [],
+  "observations": [
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np3-233-cd/hourly_res_outage_cap?size=1&page=1&sort=operatingDate&dir=desc",
+      "retrieved_at": "2026-09-06 00:37:36.517906+00:00",
+      "sha256": "0d10814cf4976d2530b429563fd684a65d08da0deb8e4cda18a9706d7862fcad",
+      "byte_count": 3018,
+      "status": 200
+    },
+    {
+      "source_url": "https://api.ercot.com/api/public-reports/np3-233-cd/hourly_res_outage_cap?size=1&page=1&sort=operatingDate&dir=asc",
+      "retrieved_at": "2026-09-06 00:37:38.432391+00:00",
+      "sha256": "a616d9597a1dbd1e6d3e979ef4471e8b98a1688cb5d3cb4e6e0b61bff5bf9ee3",
+      "byte_count": 3024,
+      "status": 200
+    }
+  ],
+  "product_evidence": {
+    "emilId": "NP3-233-CD",
+    "status": "Active",
+    "audience": "Public",
+    "securityClassification": "Public",
+    "contentType": "DATA",
+    "artifactReportTypeId": 13103,
+    "root_sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38"
+  }
+}

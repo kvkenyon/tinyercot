@@ -1,0 +1,35 @@
+{
+  "distribution_version": "0.2.2",
+  "installed_module": "/private/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/public/aggregate_dashboards.py",
+  "verified_at": "2026-09-06T00:49:59.809551+00:00",
+  "authentication": "none",
+  "scope": "Two rolling snapshots; no polling or historical extraction.",
+  "captures": [
+    {
+      "adapter": "generation_outages",
+      "receipt": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/generation-outages.json",
+        "retrieved_at": "2026-09-06T00:49:57.691582+00:00",
+        "sha256": "0bd37237b2f64ead3f610a06e2f083e5d2156403faf1460c0e264853516bd0e5",
+        "byte_count": 496014,
+        "status": 200
+      },
+      "source_last_updated": "2026-09-05 19:46:00-0500",
+      "typed_rows": 1966,
+      "stale_at_ten_minutes": false
+    },
+    {
+      "adapter": "dc_tie_flows",
+      "receipt": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/dc-tie-flows.json",
+        "retrieved_at": "2026-09-06T00:49:59.701530+00:00",
+        "sha256": "30a15dde2303551dd1ca361b6d353af899240b7a06dcce402850a51b0b77d0c3",
+        "byte_count": 1366048,
+        "status": 200
+      },
+      "source_last_updated": "2026-09-05 19:48:00-0500",
+      "typed_rows": 7128,
+      "stale_at_ten_minutes": false
+    }
+  ]
+}

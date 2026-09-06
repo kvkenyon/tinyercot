@@ -3,7 +3,9 @@
 TinyERCOT preserves its legacy public Python API. The opt-in `tinyercot.catalog`
 module supplies offline metadata only. Read `docs/public-foundation.md` before
 adding current data capabilities. Read `docs/public-retrieval.md` for the opt-in
-four-endpoint registry client, annual file adapter, and ESR website feed.
+registry client, annual file adapter, and ESR website feed. Read
+`docs/public-metadata.md` for reusable discovery, product facades, and evidence
+accounting for the expanded public contracts.
 
 ## Local checks
 

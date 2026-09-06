@@ -1,9 +1,10 @@
 """Positive static contracts; copy outside the checkout for installed checks."""
 
-from collections.abc import AsyncIterator, Iterator
-from datetime import date
+from collections.abc import AsyncIterator, Generator, Iterator
+from datetime import date, datetime
 from decimal import Decimal
-from typing import assert_type
+from pathlib import Path
+from typing import Literal, assert_type
 
 import pandas as pd
 
@@ -14,16 +15,41 @@ from tinyercot.public import (
     DAM_PRICES,
     RT_PRICES,
     SYSTEM_LOAD,
+    AggregateDashboardClient,
+    APIArchive,
+    APIArchiveClient,
+    APIArchiveFile,
+    APIArchivePage,
+    APIBundle,
+    APIBundlePage,
+    ArchiveDocument,
     ArchivePrice,
+    Artifact,
     DamCapacityPrice,
     DamPrice,
+    DashboardClient,
+    DcTieRow,
+    DcTieSnapshot,
     Download,
+    FuelMixSnapshot,
+    GenerationOutagesSnapshot,
+    GridConditionsSnapshot,
+    MetadataClient,
+    Product,
     PublicClient,
     RealTimePrice,
+    Receipt,
     ReportsClient,
+    ResourceDmeRecord,
+    ResourceDmeRow,
+    RTArchiveClient,
+    RTArchivePrice,
+    RTArchiveRecord,
     SystemLoad,
     WebClient,
     iter_dam_archive,
+    iter_resource_dme,
+    iter_rt_archive,
 )
 
 
@@ -76,3 +102,68 @@ def public_contracts(
 async def legacy_async_contract() -> None:
     """Check the legacy async DataFrame return contract without running it."""
     assert_type(await np4_190_cd.dam_stlmnt_pnt_prices_df_async(), pd.DataFrame)
+
+
+def live_and_metadata_contracts(
+    dashboard: DashboardClient,
+    aggregates: AggregateDashboardClient,
+    metadata: MetadataClient,
+) -> None:
+    """Verify precise anonymous snapshots and independent public metadata types."""
+    with aggregates as scoped:
+        assert_type(scoped, AggregateDashboardClient)
+    assert_type(dashboard.fuel_mix(), FuelMixSnapshot)
+    assert_type(dashboard.fuel_mix().rows[0].generation.natural_gas, Decimal)
+    assert_type(dashboard.fuel_mix().rows[0].source_timestamp, str)
+    assert_type(dashboard.fuel_mix().rows[0].timestamp, datetime)
+    assert_type(dashboard.grid_conditions(), GridConditionsSnapshot)
+    assert_type(dashboard.grid_conditions().current_condition.state, str)
+    assert_type(dashboard.grid_conditions().rows[0].prc, int)
+    assert_type(aggregates.generation_outages(), GenerationOutagesSnapshot)
+    assert_type(aggregates.generation_outages().current[0].row.combined.total, int)
+    assert_type(aggregates.generation_outages().current[0].source_epoch, str)
+    assert_type(aggregates.dc_tie_flows(), DcTieSnapshot)
+    assert_type(aggregates.dc_tie_flows().rows, tuple[DcTieRow, ...])
+    assert_type(aggregates.dc_tie_flows().rows[0].currentFrequency, Decimal)
+    assert_type(aggregates.dc_tie_flows().rows[0].dcN, int)
+    assert_type(metadata.products(), tuple[tuple[Product, ...], Receipt])
+    assert_type(metadata.product("np4-190-cd"), tuple[Product, Receipt])
+    assert_type(metadata.product("np4-190-cd")[0].access, Access)
+    assert_type(metadata.product("np4-190-cd")[0].artifacts, tuple[Artifact, ...])
+    assert_type(metadata.product("np4-190-cd")[0].artifacts[0].path, str | None)
+
+
+def archive_contracts(
+    annual: RTArchiveClient,
+    archives: APIArchiveClient,
+    document: ArchiveDocument,
+    download: Download,
+    api_file: APIArchiveFile,
+) -> None:
+    """Verify selected file rows while keeping generic archive schemas unknown."""
+    assert_type(annual.archives(), tuple[tuple[ArchiveDocument, ...], Receipt])
+    assert_type(annual.download(document, cache=Path("cache")), Download)
+    assert_type(
+        iter_rt_archive(download, max_rows=None), Generator[RTArchiveRecord, None, None]
+    )
+    assert_type(next(iter_rt_archive(download)).row, RTArchivePrice)
+    assert_type(next(iter_rt_archive(download)).row.settlement_point_price, Decimal)
+    assert_type(archives.archives("np4-190-cd"), APIArchivePage)
+    assert_type(archives.archives("np4-190-cd").documents, tuple[APIArchive, ...])
+    assert_type(archives.bundles("np4-190-cd"), APIBundlePage)
+    assert_type(archives.bundles("np4-190-cd").documents, tuple[APIBundle, ...])
+    assert_type(
+        archives.archives("np4-190-cd").lifecycle,
+        Literal["active", "retired-or-inactive", "unknown"],
+    )
+    assert_type(
+        archives.download(archives.archives("np4-190-cd").documents[0]), APIArchiveFile
+    )
+    assert_type(
+        archives.download_bundle(archives.bundles("np4-190-cd").documents[0]),
+        APIArchiveFile,
+    )
+    assert_type(api_file.row_schema, Literal["unknown"])
+    assert_type(iter_resource_dme(api_file), Generator[ResourceDmeRecord, None, None])
+    assert_type(next(iter_resource_dme(api_file)).row, ResourceDmeRow)
+    assert_type(next(iter_resource_dme(api_file)).row.dme_duns, str)

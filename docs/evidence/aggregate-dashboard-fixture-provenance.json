@@ -1,0 +1,43 @@
+{
+  "description": "Anonymous rolling outage and DC-tie website source captures; no historical date queries or continuous polling.",
+  "source_pages": [
+    {
+      "url": "https://www.ercot.com/gridmktinfo/dashboards/generationoutages",
+      "observed_route": "/api/1/services/read/dashboards/generation-outages.json"
+    },
+    {
+      "url": "https://www.ercot.com/gridmktinfo/dashboards/dctieflows",
+      "observed_route": "/api/1/services/read/dashboards/dc-tie-flows.json"
+    }
+  ],
+  "fixtures": [
+    {
+      "fixture": "tests/fixtures/public/generation-outages-live.json",
+      "fixture_sha256": "feec97543fe9b88cee73b32cd5419eee67a6bd588d4dd0f114f52a8af1be6933",
+      "source_receipt": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/generation-outages.json",
+        "retrieved_at": "2026-09-06T00:34:49.810383+00:00",
+        "sha256": "93b58993e27f231852ea7fe9f91d078455c9e9e095c5e60a6f75ea4581494e9e",
+        "byte_count": 495264,
+        "status": 200
+      },
+      "transformation": "Retain first and last two observations in each current/previous section; retain all metadata and source categories; no value transformations.",
+      "authentication": "none; one anonymous snapshot request",
+      "observed_nullability": "No source nulls observed; models reject nulls."
+    },
+    {
+      "fixture": "tests/fixtures/public/dc-tie-flows-live.json",
+      "fixture_sha256": "e2274cd4dcace70592400f63e5ebc75e14a82960ae36adcb7a5f8b8508cc3992",
+      "source_receipt": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/dc-tie-flows.json",
+        "retrieved_at": "2026-09-06T00:34:51.838286+00:00",
+        "sha256": "a5ff699999b2ef3974a1100c087839579dbd39b71441530793c32deac07ac137",
+        "byte_count": 1347948,
+        "status": 200
+      },
+      "transformation": "Retain first and last two observations; preserve all fields and serialize JSON numbers losslessly.",
+      "authentication": "none; one anonymous snapshot request",
+      "observed_nullability": "No source nulls observed; models reject nulls."
+    }
+  ]
+}

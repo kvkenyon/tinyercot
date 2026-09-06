@@ -214,6 +214,138 @@
         "byte_count": 2098,
         "status": 200
       }
+    },
+    {
+      "fixture": "api-archive-excerpt.json",
+      "sha256": "3f02500550f4910c82b72783609f1c5e51f9a1cb4d83d4f7f4c758fe1f68ae55",
+      "transformation": "One product from the public root and first two archive entries. Source metadata counters and all retained field values remain unchanged. Tests adjust count to two only in synthetic responses.",
+      "sources": [
+        {
+          "source_url": "https://api.ercot.com/api/public-reports/",
+          "retrieved_at": "2026-09-06 00:28:10.305638+00:00",
+          "sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38",
+          "byte_count": 204591,
+          "status": 200
+        },
+        {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er",
+          "retrieved_at": "2026-09-06 00:36:49.025821+00:00",
+          "sha256": "fb7e721472adabcd6850e71c096f29eff591f97811425835879fc84f3de39cf7",
+          "byte_count": 59354,
+          "status": 200
+        }
+      ]
+    },
+    {
+      "fixture": "api-bundle-excerpt.json",
+      "sha256": "4a8dac40101c2bd112037f6044b149b998e2df6369484c267c1d06b44e35a8d4",
+      "transformation": "First two and final source bundle records, without altering source field values or pagination counters.",
+      "sources": [
+        {
+          "source_url": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd",
+          "retrieved_at": "2026-09-06 00:45:59.453486+00:00",
+          "sha256": "c8f081661149de29141e7d4cf1431d11d0e6739951f4452f0536b3261c3aef47",
+          "byte_count": 22196,
+          "status": 200
+        }
+      ]
+    },
+    {
+      "fixture": "daily-prc-live.json",
+      "sha256": "7c9d9684f91bbf1e50216222b4d6f8a55685a2098039c9eb70e448c7dbecb550",
+      "transformation": "Retain first two and last two PRC observations and all current_condition fields; serialize numbers losslessly.",
+      "source": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/daily-prc.json",
+        "retrieved_at": "2026-09-06T00:27:11.989638+00:00",
+        "sha256": "e7e48bf1454fc0a50e0dd8d3c817c0f332ce59c08567808f4b9457b70b751aef",
+        "byte_count": 777495,
+        "status": 200
+      }
+    },
+    {
+      "fixture": "dc-tie-flows-live.json",
+      "sha256": "e2274cd4dcace70592400f63e5ebc75e14a82960ae36adcb7a5f8b8508cc3992",
+      "transformation": "Retain first and last two observations; preserve all fields and serialize JSON numbers losslessly.",
+      "source": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/dc-tie-flows.json",
+        "retrieved_at": "2026-09-06T00:34:51.838286+00:00",
+        "sha256": "a5ff699999b2ef3974a1100c087839579dbd39b71441530793c32deac07ac137",
+        "byte_count": 1347948,
+        "status": 200
+      }
+    },
+    {
+      "fixture": "fuel-mix-live.json",
+      "sha256": "e8fcebd6ef548bf9fefe3d81fafe689feb2b2e91504b3973314012e2aa0d1602",
+      "transformation": "Retain first two and last two observations of each source day; retain all categories and monthlyCapacity; serialize numbers losslessly.",
+      "source": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/fuel-mix.json",
+        "retrieved_at": "2026-09-06T00:27:11.954853+00:00",
+        "sha256": "9d969e4f9ba0cd976cc210b8ae1dadff6ee62f6da306a945a36fc9a2aae32de5",
+        "byte_count": 162715,
+        "status": 200
+      }
+    },
+    {
+      "fixture": "generation-outages-live.json",
+      "sha256": "feec97543fe9b88cee73b32cd5419eee67a6bd588d4dd0f114f52a8af1be6933",
+      "transformation": "Retain first and last two observations in each current/previous section; retain all metadata and source categories; no value transformations.",
+      "source": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/generation-outages.json",
+        "retrieved_at": "2026-09-06T00:34:49.810383+00:00",
+        "sha256": "93b58993e27f231852ea7fe9f91d078455c9e9e095c5e60a6f75ea4581494e9e",
+        "byte_count": 495264,
+        "status": 200
+      }
+    },
+    {
+      "fixture": "resource-dme-excerpt.json",
+      "sha256": "fc4826fc0f1e4fa77db57b3b9e834ef67f07ab9f781e3b112ecb677995ec6cca",
+      "transformation": "Exact CSV headers and first three data records of two selected public source documents. All cells remain strings; complete CSV/ZIP bytes remain ignored local evidence.",
+      "sources": [
+        {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er/download",
+          "retrieved_at": "2026-09-06 00:41:23.171960+00:00",
+          "sha256": "98d58b35701a712bab1ca82449063ac512a8b63851fae51cf5096388773cd455",
+          "byte_count": 22983,
+          "status": 200
+        },
+        {
+          "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er/download",
+          "retrieved_at": "2026-09-06 00:46:01.484878+00:00",
+          "sha256": "a9bba9ffbe187ba84ba64452378c229bf99e6b76e5a04f596d6952b89cf6408d",
+          "byte_count": 21892,
+          "status": 200
+        }
+      ]
+    },
+    {
+      "fixture": "rt-archive-excerpt.json",
+      "sha256": "6d2c5a06228cf4ccf67420f715e155eefb80746d073c4e3b8daddc3a8bb71468",
+      "transformation": "First header and three data rows from Dec_1/2010 and Jan/2026; unmodified cell values. Workbook bytes remain outside the repository.",
+      "sources": [
+        {
+          "source_url": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=13061",
+          "retrieved_at": "2026-09-06 00:26:33.636260+00:00",
+          "sha256": "0c7866f25ce81543e62538522df8d1c6eda20a60ef9bcf37558255ab7cdb5a11",
+          "byte_count": 7812,
+          "status": 200
+        },
+        {
+          "source_url": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=318479603&reportTypeId=13061",
+          "retrieved_at": "2026-09-06 00:26:46.768037+00:00",
+          "sha256": "c5bd52346cc6644abdf65dbf452060fef6dac40f4b79c151726f3d3c8c4c8fe0",
+          "byte_count": 1292145,
+          "status": 200
+        },
+        {
+          "source_url": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=1268443390&reportTypeId=13061",
+          "retrieved_at": "2026-09-06 00:27:10.672048+00:00",
+          "sha256": "d2dd9f121dbcbdba370d4bc50f9652ff4e7d38987860b9e8fe454e65adc25238",
+          "byte_count": 9091870,
+          "status": 200
+        }
+      ]
     }
   ]
 }

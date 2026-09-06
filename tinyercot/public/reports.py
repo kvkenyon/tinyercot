@@ -62,6 +62,17 @@ def query_parameters(
         if kind == "string" and schema.get("format") == "yyyy-MM-dd":
             valid = type(value) is datetime.date
             encoded = value.isoformat() if isinstance(value, datetime.date) else ""
+        elif kind == "string" and schema.get("format") == "yyyy-MM-ddTH24:mm:ss":
+            valid = (
+                type(value) is datetime.datetime
+                and value.tzinfo is None
+                and value.microsecond == 0
+            )
+            encoded = (
+                value.isoformat(timespec="seconds")
+                if isinstance(value, datetime.datetime)
+                else ""
+            )
         elif kind == "string":
             valid = type(value) is str and len(value) <= 1024
             encoded = str(value)
@@ -109,7 +120,7 @@ def decode_page(
         size: Requested maximum number of rows.
 
     Returns:
-        Non-null typed rows and complete source pagination metadata.
+        Typed required fields with observed nullability and source pagination.
 
     Raises:
         SchemaMismatchError: Row fields, types, or pagination metadata disagree.
@@ -153,6 +164,10 @@ def decode_page(
                 raise ValueError
             for name, kind in expected.items():
                 value = values[name]
+                if value is None and name in endpoint.contract.get(
+                    "observed_nullable_fields", []
+                ):
+                    continue
                 if kind in {"DOUBLE", "FLOAT"}:
                     if (
                         type(value) not in (Decimal, int)

@@ -5,8 +5,8 @@
     {
       "key": "family:DAM prices, lambda, constraints",
       "title": "DAM prices, lambda, constraints",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-183-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-188-cd",
@@ -25,8 +25,8 @@
     {
       "key": "family:RT SCED prices and constraints",
       "title": "RT SCED prices and constraints",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np6-787-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np6-788-cd",
@@ -45,8 +45,8 @@
     {
       "key": "family:Price corrections and investigations",
       "title": "Price corrections and investigations",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-196-m",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-197-m",
@@ -67,8 +67,8 @@
     {
       "key": "family:Historical hub/zone and AS price files",
       "title": "Historical hub/zone and AS price files",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-180-er",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np6-785-er",
@@ -83,8 +83,8 @@
     {
       "key": "family:RTD indicative prices and capacity prices",
       "title": "RTD indicative prices and capacity prices",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np6-970-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np6-325-cd",
@@ -99,8 +99,8 @@
     {
       "key": "family:RTC+B ancillary prices, capability, and SOG",
       "title": "RTC+B ancillary prices, capability, and SOG",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np6-323-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np6-324-cd",
@@ -123,8 +123,8 @@
     {
       "key": "family:Historical RT adders and RTC+B archives",
       "title": "Historical RT adders and RTC+B archives",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np6-792-er",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np6-793-er",
@@ -143,8 +143,8 @@
     {
       "key": "family:DAM plans, energy totals, AS offers/demand curves",
       "title": "DAM plans, energy totals, AS offers/demand curves",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-33-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-19-cd",
@@ -167,8 +167,8 @@
     {
       "key": "family:Legacy total AS offers",
       "title": "Legacy total AS offers",
-      "status": "unavailable",
-      "scope": "Retired for new publication per ERCOT notice. Last data 2025-12-05 posted 2025-12-04. Current OpenAPI retains path; current EMIL omits product. Preserve import for history.",
+      "status": "retired",
+      "scope": "Retired for new publication per ERCOT notice. Last data 2025-12-05 posted 2025-12-04. Current OpenAPI retains path; current EMIL omits product. Preserve import for history. Public archive/document retrieval and available history remain active coverage work; retirement excludes only new current publication.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-179-cd"
       ],
@@ -179,8 +179,8 @@
     {
       "key": "family:RUC demand curves, deployment factors, constraints",
       "title": "RUC demand curves, deployment factors, constraints",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-213-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-214-cd",
@@ -215,8 +215,8 @@
     {
       "key": "family:System and zonal actual load",
       "title": "System and zonal actual load",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np6-345-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np6-346-cd",
@@ -235,8 +235,8 @@
     {
       "key": "family:Load forecasts",
       "title": "Load forecasts",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-565-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-566-cd",
@@ -255,8 +255,8 @@
     {
       "key": "family:Long hourly-load archive",
       "title": "Long hourly-load archive",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/gridinfo/load/load_hist"
       ],
@@ -267,8 +267,8 @@
     {
       "key": "family:Wind and solar actual/forecast series",
       "title": "Wind and solar actual/forecast series",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-732-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-733-cd",
@@ -293,8 +293,8 @@
     {
       "key": "family:Renewable forecast models and intra-hour forecasts",
       "title": "Renewable forecast models and intra-hour forecasts",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-442-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-443-cd",
@@ -311,8 +311,8 @@
     {
       "key": "family:Storage four-second Public Data API",
       "title": "Storage four-second Public Data API",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://apiexplorer.ercot.com/api-details#api=esrapi-apim-api"
       ],
@@ -323,8 +323,8 @@
     {
       "key": "family:Live storage, fuel mix, and generation outages",
       "title": "Live storage, fuel mix, and generation outages",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=gen-545-ui",
         "https://www.ercot.com/mp/data-products/data-product-details?id=gen-544-ui",
@@ -339,8 +339,8 @@
     {
       "key": "family:Live grid conditions, reserves, supply and demand",
       "title": "Live grid conditions, reserves, supply and demand",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=gen-530-ui",
         "https://www.ercot.com/mp/data-products/data-product-details?id=gen-518-ui",
@@ -363,8 +363,8 @@
     {
       "key": "family:Live price, weather, combined renewable displays",
       "title": "Live price, weather, combined renewable displays",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=gen-502-ui",
         "https://www.ercot.com/mp/data-products/data-product-details?id=gen-523-ui",
@@ -391,8 +391,8 @@
     {
       "key": "family:Outage capacity, unplanned outages, adequacy",
       "title": "Outage capacity, unplanned outages, adequacy",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-233-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np1-346-er",
@@ -413,8 +413,8 @@
     {
       "key": "family:DC tie schedules, flows, and state-estimator aggregates",
       "title": "DC tie schedules, flows, and state-estimator aggregates",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-765-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np6-626-cd",
@@ -431,8 +431,8 @@
     {
       "key": "family:2-day dispatch, energy curves, bids and offers",
       "title": "2-day dispatch, energy curves, bids and offers",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-906-ex",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-907-ex",
@@ -453,8 +453,8 @@
     {
       "key": "family:3-day and event disclosures",
       "title": "3-day and event disclosures",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-257-ex",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-914-ex",
@@ -473,8 +473,8 @@
     {
       "key": "family:60-day SCED and DAM disclosures, including ESR",
       "title": "60-day SCED and DAM disclosures, including ESR",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-965-er",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-966-er"
@@ -487,8 +487,8 @@
     {
       "key": "family:COP snapshot and all updates",
       "title": "COP snapshot and all updates",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np1-301",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-991-ex"
@@ -501,8 +501,8 @@
     {
       "key": "family:Legacy SASM disclosures",
       "title": "Legacy SASM disclosures",
-      "status": "unavailable",
-      "scope": "Four generated endpoints persist in current OpenAPI. New publication ended: final 2025-12-04 operating data posted 2026-02-03. EMIL still Active. Preserve history and imports.",
+      "status": "retired",
+      "scope": "Four generated endpoints persist in current OpenAPI. New publication ended: final 2025-12-04 operating data posted 2026-02-03. EMIL still Active. Preserve history and imports. Public archive/document retrieval and available history remain active coverage work; retirement excludes only new current publication.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-990-ex"
       ],
@@ -513,8 +513,8 @@
     {
       "key": "family:Settlement-point and electrical-bus mapping",
       "title": "Settlement-point and electrical-bus mapping",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-160-sg",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-158-sg",
@@ -533,8 +533,8 @@
     {
       "key": "family:Public CRR auctions, ownership, and PTP results",
       "title": "Public CRR auctions, ownership, and PTP results",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np7-802-m",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np7-803-m",
@@ -557,8 +557,8 @@
     {
       "key": "family:Scarcity, fuel cost, demand response, and integration reports",
       "title": "Scarcity, fuel cost, demand response, and integration reports",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-790-cd",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-791-cd",
@@ -589,8 +589,8 @@
     {
       "key": "family:Load profiles, loss factors, and settlement aggregates",
       "title": "Load profiles, loss factors, and settlement aggregates",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=zp18-68-m",
         "https://www.ercot.com/mp/data-products/data-product-details?id=zp18-67-m",
@@ -619,8 +619,8 @@
     {
       "key": "family:Adequacy, planning, CDR, MORA and SARA history",
       "title": "Adequacy, planning, CDR, MORA and SARA history",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-774-m",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-784-m",
@@ -640,8 +640,8 @@
     {
       "key": "family:Interconnection, resource lists and DG reports",
       "title": "Interconnection, resource lists and DG reports",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=pg7-201-er",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np3-988-er",
@@ -663,8 +663,8 @@
     {
       "key": "family:Frequency events and public notices",
       "title": "Frequency events and public notices",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np12-261-m",
         "https://www.ercot.com/mp/data-products/data-product-details?id=np12-265-m",
@@ -688,8 +688,8 @@
     {
       "key": "family:Weather archive contractual boundary",
       "title": "Weather archive contractual boundary",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mp/data-products/data-product-details?id=np4-722-cd",
         "https://www.ercot.com/mktinfo/loadprofile"
@@ -765,8 +765,8 @@
     {
       "key": "family:Zonal-era and other old public collections",
       "title": "Zonal-era and other old public collections",
-      "status": "deferred",
-      "scope": "No current public retrieval for the whole family; selected supported subsets have separate entries.",
+      "status": "pending",
+      "scope": "Active public coverage work. Selected verified subsets have separate entries; remaining operations, documents, and available history are not yet covered.",
       "source_urls": [
         "https://www.ercot.com/mktrules"
       ],

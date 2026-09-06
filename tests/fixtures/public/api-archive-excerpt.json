@@ -1,0 +1,115 @@
+{
+  "source_spec_url": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api?export=true&api-version=2022-04-01-preview",
+  "source_spec_sha256": "b978bf35fbf9dcb8edca14025d4b5d3108582885a6c1b92a9bf445e69b08a7f8",
+  "root_receipt": {
+    "source_url": "https://api.ercot.com/api/public-reports/",
+    "retrieved_at": "2026-09-06 00:28:10.305638+00:00",
+    "sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38",
+    "byte_count": 204591,
+    "status": 200
+  },
+  "product": {
+    "emilId": "NP3-988-ER",
+    "name": "Resource Decision-Making Entity List",
+    "description": "Daily Resource Decision-Making Entity List containing the decision-making entities for each Resource.",
+    "status": "Active",
+    "reportTypeId": 10036,
+    "audience": "Public",
+    "generationFrequency": "Chron - Daily",
+    "securityClassification": "Public",
+    "lastUpdated": "2025-12-05",
+    "firstRun": "2010-12-01",
+    "eceii": "",
+    "channel": "Public,EWS",
+    "userGuide": null,
+    "postingType": "Report",
+    "market": "Nodal",
+    "extractSubscriber": "",
+    "xsdName": "",
+    "misPostingLocation": "",
+    "certificateRole": "",
+    "fileType": "csv",
+    "ddlName": "",
+    "misDisplayDuration": 31,
+    "archiveDuration": 2555,
+    "notificationType": "",
+    "contentType": "BINARY",
+    "downloadLimit": 1000,
+    "lastPostDatetime": "2026-09-05T05:02:43",
+    "bundle": 1,
+    "protocolRules": {
+      "NP3.2.5(10)": "https://www.ercot.com/mp/data-products?protocolRules=NP3.2.5(10)"
+    },
+    "artifacts": [],
+    "_links": {
+      "self": {
+        "href": "https://api.ercot.com/api/public-reports/np3-988-er"
+      },
+      "parent": {
+        "href": "https://api.ercot.com/api/public-reports"
+      },
+      "archive": {
+        "href": "https://api.ercot.com/api/public-reports/archive/np3-988-er"
+      },
+      "bundle": {
+        "href": "https://api.ercot.com/api/public-reports/bundle/np3-988-er"
+      }
+    }
+  },
+  "archive_receipt": {
+    "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er",
+    "retrieved_at": "2026-09-06 00:36:49.025821+00:00",
+    "sha256": "fb7e721472adabcd6850e71c096f29eff591f97811425835879fc84f3de39cf7",
+    "byte_count": 59354,
+    "status": 200
+  },
+  "archive_excerpt": {
+    "_meta": {
+      "totalRecords": 278,
+      "pageSize": 1000,
+      "totalPages": 1,
+      "currentPage": 1,
+      "query": {
+        "parameterCount": 0,
+        "parameters": {},
+        "sortedBy": "postDatetime: DESC"
+      }
+    },
+    "product": {
+      "emilId": "NP3-988-ER",
+      "name": "Resource Decision-Making Entity List",
+      "reportTypeId": 10036
+    },
+    "archives": [
+      {
+        "docId": 1270779234,
+        "friendlyName": "ResDMEList_05092026",
+        "postDatetime": "2026-09-05T05:02:43.000",
+        "_links": {
+          "endpoint": {
+            "href": "https://api.ercot.com/api/public-reports/archive/np3-988-er?download=1270779234"
+          }
+        }
+      },
+      {
+        "docId": 1270379615,
+        "friendlyName": "ResDMEList_04092026",
+        "postDatetime": "2026-09-04T05:01:01.000",
+        "_links": {
+          "endpoint": {
+            "href": "https://api.ercot.com/api/public-reports/archive/np3-988-er?download=1270379615"
+          }
+        }
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://api.ercot.com/api/public-reports/archive/np3-988-er"
+      },
+      "parent": {
+        "href": "https://api.ercot.com/api/public-reports"
+      }
+    }
+  },
+  "transformation": "One product from the public root and first two archive entries. Source metadata counters and all retained field values remain unchanged. Tests adjust count to two only in synthetic responses."
+}

@@ -1,0 +1,35 @@
+{
+  "distribution_version": "0.2.2",
+  "installed_module": "/private/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/public/dashboards.py",
+  "verified_at": "2026-09-06T00:49:59.758286+00:00",
+  "authentication": "none",
+  "scope": "Two rolling snapshots; no polling or historical extraction.",
+  "captures": [
+    {
+      "adapter": "fuel_mix",
+      "receipt": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/fuel-mix.json",
+        "retrieved_at": "2026-09-06T00:49:57.634616+00:00",
+        "sha256": "a1ed94a8a4bafb9957f2e3bae590a452fb317cb5f61b91f2ae4586a2bb79818f",
+        "byte_count": 164279,
+        "status": 200
+      },
+      "source_last_updated": "2026-09-05 19:46:00-0500",
+      "typed_rows": 526,
+      "stale_at_ten_minutes": false
+    },
+    {
+      "adapter": "grid_conditions",
+      "receipt": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/daily-prc.json",
+        "retrieved_at": "2026-09-06T00:49:59.668003+00:00",
+        "sha256": "c4c8fd6502cac5da82e9e1c7cd550b676b47c5d984712c774156a3fd72f9de90",
+        "byte_count": 792480,
+        "status": 200
+      },
+      "source_last_updated": "2026-09-05 19:49:26-0500",
+      "typed_rows": 7137,
+      "stale_at_ten_minutes": false
+    }
+  ]
+}

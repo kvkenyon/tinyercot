@@ -393,12 +393,21 @@ class PublicClient:
             raise ValueError("Unsupported price path")
         return self._authenticated_payload(path, params)
 
-    def _authenticated_payload(self, path: str, params: dict) -> Payload:
+    def _authenticated_payload(
+        self,
+        path: str,
+        params: dict,
+        *,
+        method: str = "GET",
+        json_body: dict | None = None,
+    ) -> Payload:
         """Fetch a route already checked by an opt-in public adapter.
 
         Args:
             path: Adapter-verified relative public report path.
             params: Validated public query parameters.
+            method: Adapter-verified GET or selected archive download POST.
+            json_body: Explicit public document selection, if required.
 
         Returns:
             Public bytes after bounded token acquisition and transport retries.
@@ -412,9 +421,10 @@ class PublicClient:
                     self.refresh_token()
                 try:
                     return self._http.request(
-                        "GET",
+                        method,
                         BASE + path,
                         params=params,
+                        json_body=json_body,
                         headers={
                             "Authorization": f"Bearer {self._token}",
                             "Ocp-Apim-Subscription-Key": self._credentials.subscription_key,

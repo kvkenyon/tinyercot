@@ -1,0 +1,105 @@
+{
+  "product_id": "NP3-988-ER",
+  "source_url": "https://www.ercot.com/mp/data-products/data-product-details?id=np3-988-er",
+  "transformation": "Exact CSV headers and first three data records of two selected public source documents. All cells remain strings; complete CSV/ZIP bytes remain ignored local evidence.",
+  "samples": [
+    {
+      "document_id": 1270779234,
+      "receipt": {
+        "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er/download",
+        "retrieved_at": "2026-09-06 00:41:23.171960+00:00",
+        "sha256": "98d58b35701a712bab1ca82449063ac512a8b63851fae51cf5096388773cd455",
+        "byte_count": 22983,
+        "status": 200
+      },
+      "member": "1270779234.rpt.00010036.0000000000000000.20260905.050243.ResDMEList_05092026.csv",
+      "header": [
+        "OWNER RE",
+        "RESOURCE NAME",
+        "TYPE",
+        "SPLIT GEN RESOURCE",
+        "DME",
+        "DME DUNS",
+        "RMR"
+      ],
+      "rows": [
+        [
+          "1370 SHANNON LLC (RE)",
+          "SHANNONW_UNIT_1",
+          "Generation",
+          "Not Applicable",
+          "1370 SHANNON LLC (DME)",
+          "1450336317000",
+          "N"
+        ],
+        [
+          "224WB 8ME LLC (RE)",
+          "GALLOWAY_SOLAR2",
+          "Generation",
+          "Not Applicable",
+          "224WB 8ME LLC (DME)",
+          "0815527087000",
+          "N"
+        ],
+        [
+          "225DD 8ME LLC (RE)",
+          "GALLOWAY_SOLAR1",
+          "Generation",
+          "Not Applicable",
+          "225DD 8ME LLC (DME)",
+          "0815490207000",
+          "N"
+        ]
+      ]
+    },
+    {
+      "document_id": 1166614741,
+      "receipt": {
+        "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er/download",
+        "retrieved_at": "2026-09-06 00:46:01.484878+00:00",
+        "sha256": "a9bba9ffbe187ba84ba64452378c229bf99e6b76e5a04f596d6952b89cf6408d",
+        "byte_count": 21892,
+        "status": 200
+      },
+      "member": "1166614741.rpt.00010036.0000000000000000.20251201.051353614.ResDMEList_01122025.csv",
+      "header": [
+        "OWNER RE",
+        "RESOURCE NAME",
+        "TYPE",
+        "SPLIT GEN RESOURCE",
+        "DME",
+        "DME DUNS",
+        "RMR"
+      ],
+      "rows": [
+        [
+          "224WB 8ME LLC (RE)",
+          "GALLOWAY_SOLAR2",
+          "Generation",
+          "Not Applicable",
+          "224WB 8ME LLC (DME)",
+          "0815527087000",
+          "N"
+        ],
+        [
+          "225DD 8ME LLC (RE)",
+          "GALLOWAY_SOLAR1",
+          "Generation",
+          "Not Applicable",
+          "225DD 8ME LLC (DME)",
+          "0815490207000",
+          "N"
+        ],
+        [
+          "226HC 8ME LLC (RE)",
+          "HOLSTEIN_SOLAR1",
+          "Generation",
+          "Not Applicable",
+          "226HC 8ME LLC (DME)",
+          "1169540657000",
+          "N"
+        ]
+      ]
+    }
+  ]
+}

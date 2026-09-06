@@ -1,0 +1,121 @@
+{
+  "installed_module": "/private/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+  "checks": [
+    {
+      "kind": "installed-public-root",
+      "product_count": 116,
+      "receipt": {
+        "source_url": "https://api.ercot.com/api/public-reports/",
+        "retrieved_at": "2026-09-06 00:58:15.179809+00:00",
+        "sha256": "b54049717512596a8b0b4f8f35c30dccb4c6273358fe2d25e06fb6f387871a38",
+        "byte_count": 204591,
+        "status": 200
+      }
+    },
+    {
+      "kind": "installed-archive-listing",
+      "emil_id": "NP3-988-ER",
+      "documents": 278,
+      "total_records": 278,
+      "lifecycle": "active",
+      "receipt": {
+        "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er",
+        "retrieved_at": "2026-09-06 00:58:17.003587+00:00",
+        "sha256": "fb7e721472adabcd6850e71c096f29eff591f97811425835879fc84f3de39cf7",
+        "byte_count": 59354,
+        "status": 200
+      }
+    },
+    {
+      "kind": "installed-cached-typed-dme",
+      "document": {
+        "emil_id": "np3-988-er",
+        "document_id": 1270779234,
+        "friendly_name": "ResDMEList_05092026",
+        "post_datetime": "2026-09-05T05:02:43.000"
+      },
+      "typed_rows": 4,
+      "receipt": {
+        "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er/download",
+        "retrieved_at": "2026-09-06 00:41:23.171960+00:00",
+        "sha256": "98d58b35701a712bab1ca82449063ac512a8b63851fae51cf5096388773cd455",
+        "byte_count": 22983,
+        "status": 200
+      },
+      "network_download": false
+    },
+    {
+      "kind": "installed-cached-typed-dme",
+      "document": {
+        "emil_id": "np3-988-er",
+        "document_id": 1166614741,
+        "friendly_name": "ResDMEList_01122025",
+        "post_datetime": "2025-12-01T05:13:53.000"
+      },
+      "typed_rows": 4,
+      "receipt": {
+        "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er/download",
+        "retrieved_at": "2026-09-06 00:46:01.484878+00:00",
+        "sha256": "a9bba9ffbe187ba84ba64452378c229bf99e6b76e5a04f596d6952b89cf6408d",
+        "byte_count": 21892,
+        "status": 200
+      },
+      "network_download": false
+    },
+    {
+      "kind": "installed-bundle-listing",
+      "emil_id": "NP4-190-CD",
+      "documents": 103,
+      "total_records": 103,
+      "receipt": {
+        "source_url": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd",
+        "retrieved_at": "2026-09-06 00:58:19.105527+00:00",
+        "sha256": "c8f081661149de29141e7d4cf1431d11d0e6739951f4452f0536b3261c3aef47",
+        "byte_count": 22196,
+        "status": 200
+      }
+    },
+    {
+      "kind": "installed-retired-history-listing",
+      "emil_id": "NP4-179-CD",
+      "documents": 1000,
+      "total_records": 4236,
+      "lifecycle": "retired-or-inactive",
+      "receipt": {
+        "source_url": "https://api.ercot.com/api/public-reports/archive/np4-179-cd",
+        "retrieved_at": "2026-09-06 00:58:21.477582+00:00",
+        "sha256": "ee4d528a7e9f30d96dfa4ca24b628a44e92d5cf084fd21fc0a5446c60b21f47a",
+        "byte_count": 206581,
+        "status": 200
+      }
+    },
+    {
+      "kind": "installed-retired-history-listing",
+      "emil_id": "NP3-990-EX",
+      "documents": 1000,
+      "total_records": 2602,
+      "lifecycle": "retired-or-inactive",
+      "receipt": {
+        "source_url": "https://api.ercot.com/api/public-reports/archive/np3-990-ex",
+        "retrieved_at": "2026-09-06 00:58:23.374081+00:00",
+        "sha256": "da1fffd15e5c0d1219981205a27b43c82b2668eaec99d3e62f09d1def4428b80",
+        "byte_count": 214693,
+        "status": 200
+      }
+    },
+    {
+      "kind": "selected-bundle-boundary",
+      "document": {
+        "emil_id": "np4-190-cd",
+        "document_id": -593019152,
+        "friendly_name": "DAMSPNP4190_2018-01",
+        "post_datetime": "2018-01-31T23:59:59.000"
+      },
+      "result": "SourceUnavailableError",
+      "response_byte_limit": 16000000,
+      "typed_rows": 0
+    }
+  ],
+  "all_history_extraction": false,
+  "interpretation": "Real installed public metadata requests; two original source ZIPs decoded from hash-verified local cache. One selected oldest bundle transfer failed with SourceUnavailableError; no bundle bytes or rows claimed. Exact HTTP status was not retained by this initial probe."
+}

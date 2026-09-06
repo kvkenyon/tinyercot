@@ -241,6 +241,7 @@ class _HTTP:
         params: dict | None = None,
         headers: dict | None = None,
         data: dict | None = None,
+        json_body: dict | None = None,
         authentication: bool = False,
     ) -> Payload:
         """Fetch within limits without retaining sensitive HTTP error objects.
@@ -251,6 +252,7 @@ class _HTTP:
             params: Public query parameters only.
             headers: Authentication headers, when needed.
             data: Form-encoded auth fields; never placed in a URL or receipt.
+            json_body: Explicit public archive document selection for a POST.
             authentication: Whether to suppress auth payload provenance.
 
         Returns:
@@ -272,6 +274,7 @@ class _HTTP:
                         params=params,
                         headers=headers,
                         data=data,
+                        json=json_body,
                         follow_redirects=False,
                     ) as response:
                         status = response.status_code

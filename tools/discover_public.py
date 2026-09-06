@@ -23,7 +23,14 @@ ROW_TYPES = {
 }
 
 
-def discover(*, spec: Path, response: Path, receipt: Path, path: str) -> dict:
+def discover(
+    *,
+    spec: Path,
+    response: Path,
+    receipt: Path,
+    path: str,
+    allow_observed_nulls: bool = False,
+) -> dict:
     """Project query and observed row metadata with exact source identities.
 
     Args:
@@ -31,10 +38,13 @@ def discover(*, spec: Path, response: Path, receipt: Path, path: str) -> dict:
         response: Small saved public data response, including fields and rows.
         receipt: Public-only receipt for those exact response bytes.
         path: An observed public data GET path from the offline catalog.
+        allow_observed_nulls: Record explicitly observed nullable fields while
+            requiring their declared source types; default preserves strict pins.
 
     Returns:
         A compact contract with verified_observed, missing, or unknown row status.
-        Empty rows, nulls, and unknown field types do not establish typed coverage.
+        Empty rows and unknown field types do not establish typed coverage.
+        Nulls require explicit opt-in and retain only their declared source type.
 
     Raises:
         ValueError: Source identity, hash, or public-operation evidence disagrees.
@@ -69,6 +79,7 @@ def discover(*, spec: Path, response: Path, receipt: Path, path: str) -> dict:
     source = urlsplit(record["source_url"])
     if (
         source.scheme != "https"
+        or source.fragment
         or source.netloc != "api.ercot.com"
         or source.path != "/api/public-reports" + path
         or record["status"] != 200
@@ -85,7 +96,7 @@ def discover(*, spec: Path, response: Path, receipt: Path, path: str) -> dict:
     ]
     query_names = {query["name"] for query in queries}
     if (
-        set(parse_qs(source.query)) - query_names
+        set(parse_qs(source.query, keep_blank_values=True)) - query_names
         or set(record.get("query", {})) - query_names
     ):
         raise ValueError(
@@ -94,6 +105,7 @@ def discover(*, spec: Path, response: Path, receipt: Path, path: str) -> dict:
     body = json.loads(raw, parse_float=Decimal)
     fields = body.get("fields", [])
     status = "verified_observed"
+    nullable = set()
     if not fields:
         status = "missing"
     elif not isinstance(fields, list):
@@ -124,10 +136,13 @@ def discover(*, spec: Path, response: Path, receipt: Path, path: str) -> dict:
                     values = row
                 else:
                     raise ValueError("Response row width differs from fields")
-                if any(value is None for value in values):
+                if any(value is None for value in values) and not allow_observed_nulls:
                     status = "unknown"
                 for descriptor, value in zip(fields, values, strict=True):
                     kind = descriptor["dataType"]
+                    if value is None and allow_observed_nulls:
+                        nullable.add(descriptor["name"])
+                        continue
                     valid = True
                     if kind in {"DOUBLE", "FLOAT"}:
                         valid = (
@@ -164,6 +179,11 @@ def discover(*, spec: Path, response: Path, receipt: Path, path: str) -> dict:
         "source_url": SOURCE_URL,
         "query_source_sha256": hashlib.sha256(spec.read_bytes()).hexdigest(),
         "response_source": record,
+        **(
+            {"observed_nullable_fields": sorted(nullable)}
+            if allow_observed_nulls
+            else {}
+        ),
     }
 
 

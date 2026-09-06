@@ -23,7 +23,7 @@ class Endpoint(Generic[RowT, FiltersT]):
 
     Attributes:
         path: Verified Public Reports data path.
-        row_model: Generated model for observed non-null rows.
+        row_model: Required source fields with explicitly observed nullability.
         contract_name: Bundled compact source projection key.
     """
 

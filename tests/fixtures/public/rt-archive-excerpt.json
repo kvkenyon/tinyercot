@@ -1,0 +1,144 @@
+{
+  "product_id": "NP6-785-ER",
+  "product_url": "https://www.ercot.com/mp/data-products/data-product-details?id=np6-785-er",
+  "listing_receipt": {
+    "source_url": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=13061",
+    "retrieved_at": "2026-09-06 00:26:33.636260+00:00",
+    "sha256": "0c7866f25ce81543e62538522df8d1c6eda20a60ef9bcf37558255ab7cdb5a11",
+    "byte_count": 7812,
+    "status": 200
+  },
+  "transformation": "First header and three data rows from Dec_1/2010 and Jan/2026; unmodified cell values. Workbook bytes remain outside the repository.",
+  "samples": [
+    {
+      "listing_document": {
+        "ExpiredDate": "4712-12-31T00:00:00-06:00",
+        "ILMStatus": "EXT",
+        "SecurityStatus": "P",
+        "ContentSize": "1292145",
+        "Extension": "zip",
+        "ReportTypeID": "13061",
+        "Prefix": "rpt",
+        "FriendlyName": "RTMLZHBSPP_2010",
+        "ConstructedName": "rpt.00013061.0000000000000000.20130614.140718000.RTMLZHBSPP_2010.zip",
+        "DocID": "318479603",
+        "PublishDate": "2013-06-14T14:07:18-05:00",
+        "ReportName": "Historical RTM Load Zone and Hub Prices",
+        "DUNS": "0000000000000000",
+        "DocCount": "0"
+      },
+      "receipt": {
+        "source_url": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=318479603&reportTypeId=13061",
+        "retrieved_at": "2026-09-06 00:26:46.768037+00:00",
+        "sha256": "c5bd52346cc6644abdf65dbf452060fef6dac40f4b79c151726f3d3c8c4c8fe0",
+        "byte_count": 1292145,
+        "status": 200
+      },
+      "member": "rpt.00013061.0000000000000000.RTMLZHBSPP_2010.xlsx",
+      "sheet": "Dec_1",
+      "header": [
+        "Delivery Date",
+        "Delivery Hour",
+        "Delivery Interval",
+        "Repeated Hour Flag",
+        "Settlement Point Name",
+        "Settlement Point Type",
+        "Settlement Point Price"
+      ],
+      "rows": [
+        [
+          "12/01/2010",
+          1,
+          1,
+          "N",
+          "HB_BUSAVG",
+          "SH",
+          25.08
+        ],
+        [
+          "12/01/2010",
+          1,
+          2,
+          "N",
+          "HB_BUSAVG",
+          "SH",
+          23.19
+        ],
+        [
+          "12/01/2010",
+          1,
+          3,
+          "N",
+          "HB_BUSAVG",
+          "SH",
+          23.59
+        ]
+      ]
+    },
+    {
+      "listing_document": {
+        "ExpiredDate": "4712-12-31T00:00:00-06:00",
+        "ILMStatus": "EXT",
+        "SecurityStatus": "P",
+        "ContentSize": "9091870",
+        "Extension": "zip",
+        "ReportTypeID": "13061",
+        "Prefix": "rpt",
+        "FriendlyName": "RTMLZHBSPP_2026",
+        "ConstructedName": "rpt.00013061.0000000000000000.20260830.080747312.RTMLZHBSPP_2026.zip",
+        "DocID": "1268443390",
+        "PublishDate": "2026-08-30T08:07:44-05:00",
+        "ReportName": "Historical RTM Load Zone and Hub Prices",
+        "DUNS": "0000000000000000",
+        "DocCount": "0"
+      },
+      "receipt": {
+        "source_url": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=1268443390&reportTypeId=13061",
+        "retrieved_at": "2026-09-06 00:27:10.672048+00:00",
+        "sha256": "d2dd9f121dbcbdba370d4bc50f9652ff4e7d38987860b9e8fe454e65adc25238",
+        "byte_count": 9091870,
+        "status": 200
+      },
+      "member": "rpt.00013061.0000000000000000.RTMLZHBSPP_2026.xlsx",
+      "sheet": "Jan",
+      "header": [
+        "Delivery Date",
+        "Delivery Hour",
+        "Delivery Interval",
+        "Repeated Hour Flag",
+        "Settlement Point Name",
+        "Settlement Point Type",
+        "Settlement Point Price"
+      ],
+      "rows": [
+        [
+          "01/01/2026",
+          1,
+          1,
+          "N",
+          "HB_BUSAVG",
+          "SH",
+          18.06
+        ],
+        [
+          "01/01/2026",
+          1,
+          2,
+          "N",
+          "HB_BUSAVG",
+          "SH",
+          17.96
+        ],
+        [
+          "01/01/2026",
+          1,
+          3,
+          "N",
+          "HB_BUSAVG",
+          "SH",
+          18.62
+        ]
+      ]
+    }
+  ]
+}

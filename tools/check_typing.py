@@ -2,6 +2,8 @@
 
 import argparse
 import ast
+import json
+import keyword
 import os
 import re
 import shutil
@@ -11,6 +13,142 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def registry_assertions(source: str, bundle: dict) -> tuple[str, str, dict[str, int]]:
+    """Build precise static consumers for every installed generated endpoint.
+
+    Args:
+        source: Installed generated registry source, used only to locate symbols.
+        bundle: Installed pinned contracts, used for expected field/filter types.
+
+    Returns:
+        Positive assertions, negative filter uses, and exact proof counts. The
+        emitted functions are type-checked only and never make data requests.
+
+    Raises:
+        ValueError: Registry identities or types do not match the pinned contracts.
+    """
+    imports = [
+        '"""Installed static assertions; these functions are never executed."""',
+        "from collections.abc import Iterator",
+        "from datetime import date, datetime",
+        "from decimal import Decimal",
+        "from typing import assert_type",
+        "from tinyercot import public",
+        "from tinyercot.public import DataPage, Endpoint, ReportsClient, products",
+        "from tinyercot.public import _generated as rows, _schemas as schemas",
+        "",
+    ]
+    positive = list(imports)
+    negative = [
+        '"""Every installed endpoint must reject an unknown query filter."""',
+        "from tinyercot.public import ReportsClient, products",
+        "",
+        "def invalid_registry(client: ReportsClient) -> None:",
+    ]
+    counts = {"endpoints": 0, "row_fields": 0, "filter_fields": 0, "invalid_uses": 0}
+    observed_paths = set()
+    row_types = {
+        "DATE": "date",
+        "DATETIME": "datetime",
+        "VARCHAR": "str",
+        "INTEGER": "int",
+        "LONG": "int",
+        "BOOLEAN": "bool",
+        "DOUBLE": "Decimal",
+        "FLOAT": "Decimal",
+    }
+    query_types = {
+        "string": "str",
+        "integer": "int",
+        "number": "float | Decimal",
+        "boolean": "bool",
+    }
+    examples = {
+        "str": '"synthetic"',
+        "int": "1",
+        "float | Decimal": 'Decimal("1.25")',
+        "bool": "False",
+        "date": "date(2026, 9, 4)",
+        "datetime": "datetime(2026, 9, 4, 1, 2, 3)",
+    }
+    for node in ast.parse(source).body:
+        if not isinstance(node, ast.AnnAssign) or not isinstance(node.target, ast.Name):
+            continue
+        if not isinstance(node.value, ast.Call):
+            raise TypeError("Unknown generated endpoint declaration")
+        path, model, contract_name = (ast.unparse(arg) for arg in node.value.args)
+        path = ast.literal_eval(path)
+        contract_name = ast.literal_eval(contract_name)
+        contract = bundle[contract_name]
+        if contract["path"] != path or path in observed_paths:
+            raise ValueError("Installed endpoint identity differs from its contract")
+        observed_paths.add(path)
+        constant = node.target.id
+        filter_type = model + "Filters"
+        product, method = path.strip("/").split("/")
+        if not method.isidentifier() or keyword.iskeyword(method):
+            method = "_" + method
+        facade = "products." + product.replace("-", "_") + "." + method
+        generic = f"Endpoint[rows.{model}, schemas.{filter_type}]"
+        positive.extend(
+            [
+                f"def check_{constant}(client: ReportsClient, row: rows.{model}) -> None:",
+                f"    assert_type(schemas.{constant}, {generic})",
+                f"    assert_type({facade}, {generic})",
+                f"    filters: schemas.{filter_type} = {{",
+            ]
+        )
+        if constant in {
+            "DAM_PRICES",
+            "DAM_CAPACITY_PRICES",
+            "RT_PRICES",
+            "SYSTEM_LOAD",
+        }:
+            positive.insert(
+                len(positive) - 1, f"    assert_type(public.{constant}, {generic})"
+            )
+        filters = []
+        for parameter in contract["query_parameters"]:
+            name, schema = parameter["name"], parameter["schema"]
+            if name in {"page", "size", "sort", "dir"}:
+                continue
+            expected = query_types[schema["type"]]
+            if schema.get("format") == "yyyy-MM-dd":
+                expected = "date"
+            elif schema.get("format") == "yyyy-MM-ddTH24:mm:ss":
+                expected = "datetime"
+            positive.append(f"        {name!r}: {examples[expected]},")
+            filters.append((name, expected))
+        positive.append("    }")
+        for name, expected in filters:
+            positive.append(f"    assert_type(filters[{name!r}], {expected})")
+        positive.extend(
+            [
+                f"    assert_type(schemas.{constant}.page(client, filters=filters), DataPage[rows.{model}])",
+                f"    assert_type(client.page(schemas.{constant}, filters=filters).rows, tuple[rows.{model}, ...])",
+                f"    assert_type({facade}.pages(client, filters=filters), Iterator[DataPage[rows.{model}]])",
+                f"    assert_type({facade}.iter_rows(client, filters=filters), Iterator[rows.{model}])",
+            ]
+        )
+        for descriptor in contract["fields"]:
+            name = descriptor["name"]
+            expected = row_types[descriptor["dataType"]]
+            if name in contract.get("observed_nullable_fields", []):
+                expected += " | None"
+            positive.append(f"    assert_type(row.{name}, {expected})")
+        positive.append("")
+        negative.append(
+            f"    {facade}.page(client, filters={{'not_a_source_filter': 1}})"
+        )
+        counts["endpoints"] += 1
+        counts["row_fields"] += len(contract["fields"])
+        counts["filter_fields"] += len(filters)
+        counts["invalid_uses"] += 1
+    if observed_paths != {contract["path"] for contract in bundle.values()}:
+        raise ValueError("Installed registry does not cover every bundled contract")
+    return "\n".join(positive) + "\n", "\n".join(negative) + "\n", counts
 
 
 def legacy_assertions(source: str) -> tuple[str, int]:
@@ -93,14 +231,41 @@ def main() -> None:
     parser.add_argument("--python", required=True, type=Path)
     args = parser.parse_args()
     result = subprocess.run(
-        [str(args.python), "-I", "-c", "import tinyercot; print(tinyercot.__file__)"],
+        [
+            str(args.python),
+            "-I",
+            "-c",
+            (
+                "import importlib.metadata,json,sys,tinyercot; "
+                "dist=importlib.metadata.distribution('tinyercot'); "
+                "print(json.dumps({'module':tinyercot.__file__,'prefix':sys.prefix,"
+                "'base_prefix':sys.base_prefix,'isolated':sys.flags.isolated,"
+                "'wheel':dist.read_text('WHEEL'),'origin':json.loads(dist.read_text('direct_url.json') or '{}')}))"
+            ),
+        ],
         capture_output=True,
         text=True,
         check=True,
     )
-    package = Path(result.stdout.strip()).resolve().parent
-    if package == ROOT / "tinyercot" or not (package / "py.typed").is_file():
+    installation = json.loads(result.stdout)
+    package = Path(installation["module"]).resolve().parent
+    if (
+        package == ROOT / "tinyercot"
+        or not (package / "py.typed").is_file()
+        or not installation["isolated"]
+        or installation["prefix"] == installation["base_prefix"]
+        or not package.is_relative_to(Path(installation["prefix"]).resolve())
+        or "site-packages" not in package.parts
+        or not installation["wheel"]
+        or "archive_info" not in installation["origin"]
+    ):
         raise SystemExit("Typing proof requires an installed PEP 561 wheel")
+    installed_bundle = (package / "public/_contracts.json").read_bytes()
+    if installed_bundle != (ROOT / "tinyercot/public/_contracts.json").read_bytes():
+        raise SystemExit("Installed registry differs from the current pinned contracts")
+    registry, invalid_registry, registry_counts = registry_assertions(
+        (package / "public/_schemas.py").read_text(), json.loads(installed_bundle)
+    )
     legacy, count = legacy_assertions((package / "_generated.py").read_text())
     if count != 510:
         raise SystemExit("Installed legacy method inventory changed")
@@ -116,6 +281,8 @@ def main() -> None:
             ROOT / "tests/typing_invalid.py", scratch / "invalid_contracts.py"
         )
         (scratch / "legacy_contracts.py").write_text(legacy)
+        (scratch / "registry_contracts.py").write_text(registry)
+        (scratch / "invalid_registry.py").write_text(invalid_registry)
         environment = {
             k: v for k, v in os.environ.items() if k not in {"MYPYPATH", "PYTHONPATH"}
         }
@@ -131,7 +298,8 @@ def main() -> None:
             "--no-incremental",
         ]
         positive = subprocess.run(
-            command + ["public_contracts.py", "legacy_contracts.py"],
+            command
+            + ["public_contracts.py", "legacy_contracts.py", "registry_contracts.py"],
             cwd=scratch,
             env=environment,
             capture_output=True,
@@ -142,20 +310,27 @@ def main() -> None:
             print(positive.stdout)
             raise SystemExit("Installed positive typing proof failed")
         negative = subprocess.run(
-            command + ["invalid_contracts.py"],
+            command + ["invalid_contracts.py", "invalid_registry.py"],
             cwd=scratch,
             env=environment,
             capture_output=True,
             text=True,
             check=False,
         )
-        if negative.returncode != 1 or negative.stdout.count(": error:") != 4:
+        expected_invalid = 8 + registry_counts["invalid_uses"]
+        if (
+            negative.returncode != 1
+            or negative.stdout.count(": error:") != expected_invalid
+        ):
             print(negative.stdout)
             raise SystemExit(
-                "Installed typing proof did not reject exactly four invalid uses"
+                f"Installed typing proof did not reject exactly {expected_invalid} invalid uses"
             )
     print(
-        f"Installed PEP 561 proof passed: {count} legacy methods, {field_count} row fields, public surfaces, four rejected invalid uses"
+        f"Installed PEP 561 proof passed: {count} legacy methods, {field_count} legacy row fields, "
+        f"{registry_counts['endpoints']} current endpoints and product facades, "
+        f"{registry_counts['row_fields']} current row fields, {registry_counts['filter_fields']} filters, "
+        f"live/archive/metadata surfaces, {expected_invalid} rejected invalid uses"
     )
 
 

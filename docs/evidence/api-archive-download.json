@@ -1,0 +1,26 @@
+{
+  "emil_id": "NP3-988-ER",
+  "document_id": 1270779234,
+  "selection_body": {
+    "docIds": [
+      1270779234
+    ]
+  },
+  "receipt": {
+    "source_url": "https://api.ercot.com/api/public-reports/archive/np3-988-er/download",
+    "retrieved_at": "2026-09-06 00:41:23.171960+00:00",
+    "sha256": "98d58b35701a712bab1ca82449063ac512a8b63851fae51cf5096388773cd455",
+    "byte_count": 22983,
+    "status": 200
+  },
+  "members": [
+    {
+      "name": "1270779234.rpt.00010036.0000000000000000.20260905.050243.ResDMEList_05092026.csv",
+      "expanded_bytes": 212038,
+      "compressed_bytes": 22709
+    }
+  ],
+  "zip_crc_verified": true,
+  "member_row_schema": "unknown",
+  "transformation": "Receipt and ZIP directory metadata only; no CSV contents retained or typed."
+}

@@ -1,0 +1,41 @@
+{
+  "description": "Two bounded public dashboard captures; snapshots only, no historical extraction or polling.",
+  "source_pages": [
+    {
+      "url": "https://www.ercot.com/gridmktinfo/dashboards/fuelmix",
+      "observed_route": "/api/1/services/read/dashboards/fuel-mix.json"
+    },
+    {
+      "url": "https://www.ercot.com/gridmktinfo/dashboards/gridconditions",
+      "observed_route": "/api/1/services/read/dashboards/daily-prc.json"
+    }
+  ],
+  "fixtures": [
+    {
+      "fixture": "tests/fixtures/public/fuel-mix-live.json",
+      "fixture_sha256": "e8fcebd6ef548bf9fefe3d81fafe689feb2b2e91504b3973314012e2aa0d1602",
+      "source_receipt": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/fuel-mix.json",
+        "retrieved_at": "2026-09-06T00:27:11.954853+00:00",
+        "sha256": "9d969e4f9ba0cd976cc210b8ae1dadff6ee62f6da306a945a36fc9a2aae32de5",
+        "byte_count": 162715,
+        "status": 200
+      },
+      "transformation": "Retain first two and last two observations of each source day; retain all categories and monthlyCapacity; serialize numbers losslessly.",
+      "authentication": "none; anonymous ERCOT website request"
+    },
+    {
+      "fixture": "tests/fixtures/public/daily-prc-live.json",
+      "fixture_sha256": "7c9d9684f91bbf1e50216222b4d6f8a55685a2098039c9eb70e448c7dbecb550",
+      "source_receipt": {
+        "source_url": "https://www.ercot.com/api/1/services/read/dashboards/daily-prc.json",
+        "retrieved_at": "2026-09-06T00:27:11.989638+00:00",
+        "sha256": "e7e48bf1454fc0a50e0dd8d3c817c0f332ce59c08567808f4b9457b70b751aef",
+        "byte_count": 777495,
+        "status": 200
+      },
+      "transformation": "Retain first two and last two PRC observations and all current_condition fields; serialize numbers losslessly.",
+      "authentication": "none; anonymous ERCOT website request"
+    }
+  ]
+}

@@ -1,0 +1,1961 @@
+{
+  "format_version": 1,
+  "manifest_sha256": "c3cc79d66d3eca8cf510f6d9f7ae317e3028ddcc76f07e456daa77a10cb25404",
+  "generated_unique_paths": 56,
+  "installed_unique_paths": 56,
+  "current_unique_paths": 56,
+  "current_requests": 57,
+  "oldest_first_unique_paths": 56,
+  "oldest_first_requests": 56,
+  "observed_public_data_paths": 243,
+  "pending_generated_paths": [],
+  "pagination": {
+    "live_paginated_unique_paths": 2,
+    "live_complete_selection_unique_paths": 1,
+    "partial_selection": {
+      "path": "/np4-190-cd/dam_stlmnt_pnt_prices",
+      "pages": [
+        1,
+        2
+      ],
+      "total_pages": 12,
+      "evidence": "docs/evidence/installed-receipts.json"
+    },
+    "complete_selection": {
+      "path": "/np6-905-cd/spp_node_zone_hub",
+      "pages": [
+        1,
+        2
+      ],
+      "total_records": 2,
+      "evidence": "docs/evidence/installed-reports-receipts.json"
+    },
+    "new_batch_pagination_requests": 0,
+    "complete_history_extraction": false,
+    "annual_complete_iteration": "Offline synthetic multi-worksheet proof only; live source files sampled from verified cache."
+  },
+  "limits": "One-row newest/oldest source-directed selections for the 52-path batch. Oldest is scoped to source retention and optional filters, not all historical availability. No cross-epoch schema or full-history completeness claim.",
+  "authenticated_public_requests": true,
+  "restricted_requests": false,
+  "historical_bulk_extraction": false,
+  "paths": [
+    {
+      "path": "/gen-55-cd/hrly_rt_load_fcast_actual",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/gen-55-cd/hrly_rt_load_fcast_actual?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:48:30.776612+00:00",
+            "sha256": "1f13194f01aff5b70ffe5ce39239f2e71a2231547b7d927a777827eeacb1ffb6",
+            "byte_count": 1674,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-02-25",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/gen-55-cd/hrly_rt_load_fcast_actual?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:48:33.039038+00:00",
+            "sha256": "8f0155f666c3607327c4bc7d9814d18fcf5e015c6415637434a37fa488692ad0",
+            "byte_count": 1681,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np1-302/as_obligation",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-03-09",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np1-302/as_obligation?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:48:34.983959+00:00",
+            "sha256": "36f971b0020b4186524c7c7e5fa8c7245fd4f3b428d2e2c6e13b43a3cf8672b2",
+            "byte_count": 2473,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2025-12-05",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np1-302/as_obligation?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:48:37.120052+00:00",
+            "sha256": "7ea5d9661aa9744d086b052605b815b3eca42c2a4e43d15ba5dc2cd799dc4d5e",
+            "byte_count": 2455,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np3-161-cd/7d_plus_avail_res_poc_margin",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-09-05 18:00:08",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-161-cd/7d_plus_avail_res_poc_margin?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:48:39.285331+00:00",
+            "sha256": "780f72f2049581f9b4a73de823bcc336d5f653f48a48bc12eb7384805d317d66",
+            "byte_count": 2320,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-06-25 18:00:07",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-161-cd/7d_plus_avail_res_poc_margin?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:48:41.174144+00:00",
+            "sha256": "abf3829f721bc0e1e9f551a6313a1ff5728732235ecbbd4ed5e808954c6f0954",
+            "byte_count": 2314,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np3-162-cd/7d_avail_res_poc_margin",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-09-05 19:05:03",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-162-cd/7d_avail_res_poc_margin?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:48:43.394101+00:00",
+            "sha256": "64d6f7d9551479a30d896e51321cae1f06b1def528ad50c8935e79f52e454091",
+            "byte_count": 2615,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-06-25 17:05:03",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-162-cd/7d_avail_res_poc_margin?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:48:45.434747+00:00",
+            "sha256": "705b702f2f12a56068efebbb5f9bbe317b600bb6c95281dac95f55d99e6ed3d1",
+            "byte_count": 2614,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np3-233-cd/hourly_res_outage_cap",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-09-05 19:00:47",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-233-cd/hourly_res_outage_cap?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:48:47.534726+00:00",
+            "sha256": "39e3ec64a38c93e280b4cecb1e6b2ee1b661a81b98d85462cb1d498fc7818767",
+            "byte_count": 3020,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2023-12-11 15:03:49",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-233-cd/hourly_res_outage_cap?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:48:49.635095+00:00",
+            "sha256": "d2280b7e7a6c864f2650501bdbcb4307fcfd2580f2b47ceb802e48fa242f469d",
+            "byte_count": 3025,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np3-560-cd/7d_load_fcast_by_fzn",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-09-05 19:30:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-560-cd/7d_load_fcast_by_fzn?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:48:52.094037+00:00",
+            "sha256": "5e437bd30381b74c0cda614dc74f3e1af0125714b66e21ee7b9f33737000019f",
+            "byte_count": 1809,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-03-26 15:30:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-560-cd/7d_load_fcast_by_fzn?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:48:53.855880+00:00",
+            "sha256": "35354df61beb7ef65de9788a557ca12fb1ae9cd71297a858349679dd53c64be9",
+            "byte_count": 1805,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np3-561-cd/7d_load_fcast_by_wzn",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-09-05 19:30:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-561-cd/7d_load_fcast_by_wzn?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:48:56.078962+00:00",
+            "sha256": "07b07250cd9ee51044c99e4bb7779d3a13277648e08c23ed0284b4c13920b901",
+            "byte_count": 2320,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-03-26 12:30:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-561-cd/7d_load_fcast_by_wzn?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:48:58.249386+00:00",
+            "sha256": "896f0026fd3affb4d1d9d6f620fc3f111e47544b853da7959f7f6b4518305a5b",
+            "byte_count": 2309,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np3-562-cd/ih_load_fcast_by_wzn",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-09-05 19:42:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-562-cd/ih_load_fcast_by_wzn?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:49:00.143383+00:00",
+            "sha256": "aa34c3e7e89a93759507a8881797e8e821ddefd99ca0432c3ede9903eeceffa8",
+            "byte_count": 2516,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-03-26 11:42:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-562-cd/ih_load_fcast_by_wzn?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:49:02.388759+00:00",
+            "sha256": "e2a81d00041478fee8990d8c0931de956321e26291be0829a3cac2b683de901c",
+            "byte_count": 2515,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np3-565-cd/lf_by_model_weather_zone",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-09-05 19:30:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-565-cd/lf_by_model_weather_zone?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:49:04.813169+00:00",
+            "sha256": "52e6b5bb552d5850b3b0565c73fd0d66e5aa03a92c2bcae4c2feee3eee6f2aaf",
+            "byte_count": 2608,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2023-12-11 14:30:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np3-565-cd/lf_by_model_weather_zone?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:49:07.267868+00:00",
+            "sha256": "c2049defc914d78879883917ea87cb46f8010bfa077e414843632d91a13da986",
+            "byte_count": 2605,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-158-sg/dam_essps",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-09-05 12:34:27",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-158-sg/dam_essps?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:49:08.582161+00:00",
+            "sha256": "2ec1865a530ed3acaa47f7b1d47ee0a60bbce036584d2be19ffd318ff5248f61",
+            "byte_count": 1548,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-05-28 12:35:15",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-158-sg/dam_essps?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:49:10.662315+00:00",
+            "sha256": "41062012de7a8e87058091f7228ebfb4e2f43547fd9acf3038cbee9f05d52228",
+            "byte_count": 1544,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-159-cd/load_distribution_factors",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-08-14 15:31:48",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-159-cd/load_distribution_factors?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:49:13.727413+00:00",
+            "sha256": "576c1159973290954a60dc33843bb1e02baa5e53897e03a44c0fad2e9a0c038b",
+            "byte_count": 1846,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2024-02-01 17:24:06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-159-cd/load_distribution_factors?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:49:15.156467+00:00",
+            "sha256": "c169e6a1bcc8e4b0276bfba9f826bb7a97442d4571edf1e86e172bd430c2ea3b",
+            "byte_count": 1834,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-183-cd/dam_hourly_lmp",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-05",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-183-cd/dam_hourly_lmp?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:17.136667+00:00",
+            "sha256": "cfa236240f8622d5755d3c1896af78322e875f9923ab981157181a021e60ef1f",
+            "byte_count": 1235,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-05",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-183-cd/dam_hourly_lmp?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:19.028480+00:00",
+            "sha256": "1c9275c26f20a05a4c8386121890e93f4f8685ada25650b4e89f24174650204b",
+            "byte_count": 1231,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-188-cd/dam_clear_price_for_cap",
+      "installed_module": "isolated site-packages/tinyercot/__init__.py (Python 3.14)",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 2,
+          "sort": "deliveryDate",
+          "receipt": {
+            "retrieved_at": "2026-09-05 21:07:59.139161+00:00",
+            "byte_count": 1336,
+            "source_url": "https://api.ercot.com/api/public-reports/np4-188-cd/dam_clear_price_for_cap?ancillaryType=REGUP&page=1&size=2&sort=deliveryDate&dir=desc&deliveryDateFrom=2026-09-04&deliveryDateTo=2026-09-04",
+            "status": 200,
+            "sha256": "2bb390340e7bd53c5813eb9feec867fb9344e60b9d8f7a406b36c4c9a4c40db4"
+          },
+          "evidence_ref": "docs/evidence/installed-receipts.json#/receipts/4"
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "receipt": {
+            "retrieved_at": "2026-09-05 21:08:02.329327+00:00",
+            "byte_count": 1237,
+            "source_url": "https://api.ercot.com/api/public-reports/np4-188-cd/dam_clear_price_for_cap?ancillaryType=REGUP&page=1&size=1&sort=deliveryDate&dir=asc",
+            "status": 200,
+            "sha256": "ed8731e3b8bb8e9c682403f11b0722f6c61f935d5a1ce23dac219b164623f855"
+          },
+          "evidence_ref": "docs/evidence/installed-receipts.json#/receipts/5"
+        }
+      ]
+    },
+    {
+      "path": "/np4-19-cd/dam_agg_as_offer_curve",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-19-cd/dam_agg_as_offer_curve?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:23.172864+00:00",
+            "sha256": "01f76a32421c4eabbeda42e45dcbb0dec10ef7a4fb05c095b158150793a58da6",
+            "byte_count": 1358,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2025-12-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-19-cd/dam_agg_as_offer_curve?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:24.402470+00:00",
+            "sha256": "112ed960c283728aa67652f67fa1ecaa134eb41fb10f535af3bbbde2799dc562",
+            "byte_count": 1359,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-190-cd/dam_stlmnt_pnt_prices",
+      "installed_module": "isolated site-packages/tinyercot/__init__.py (Python 3.14)",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 2,
+          "sort": "deliveryDate",
+          "receipt": {
+            "retrieved_at": "2026-09-05 21:07:45.518924+00:00",
+            "byte_count": 1383,
+            "source_url": "https://api.ercot.com/api/public-reports/np4-190-cd/dam_stlmnt_pnt_prices?settlementPoint=HB_HOUSTON&page=1&size=2&sort=deliveryDate&dir=asc&deliveryDateFrom=2026-09-04&deliveryDateTo=2026-09-04",
+            "status": 200,
+            "sha256": "a15b73447a360b4e75809f3211d80f448b79717cfa0d0ed52a6e2c152856895f"
+          },
+          "evidence_ref": "docs/evidence/installed-receipts.json#/receipts/0"
+        },
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 2,
+          "sort": "deliveryDate",
+          "receipt": {
+            "retrieved_at": "2026-09-05 21:07:47.526077+00:00",
+            "byte_count": 1383,
+            "source_url": "https://api.ercot.com/api/public-reports/np4-190-cd/dam_stlmnt_pnt_prices?settlementPoint=HB_HOUSTON&page=2&size=2&sort=deliveryDate&dir=asc&deliveryDateFrom=2026-09-04&deliveryDateTo=2026-09-04",
+            "status": 200,
+            "sha256": "1ff1da41ba3ecad8ef29b6d5f5bf274bd18a44b6301fe38ea71f6af41a8b7cdc"
+          },
+          "evidence_ref": "docs/evidence/installed-receipts.json#/receipts/1"
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "receipt": {
+            "retrieved_at": "2026-09-05 21:07:54.843199+00:00",
+            "byte_count": 1279,
+            "source_url": "https://api.ercot.com/api/public-reports/np4-190-cd/dam_stlmnt_pnt_prices?settlementPoint=HB_HOUSTON&page=1&size=1&sort=deliveryDate&dir=asc",
+            "status": 200,
+            "sha256": "c887c6583e05dede55a538e49f1d19136d6b733df1542eaf87f7b24672357ef6"
+          },
+          "evidence_ref": "docs/evidence/installed-receipts.json#/receipts/2"
+        }
+      ]
+    },
+    {
+      "path": "/np4-191-cd/dam_shadow_prices",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-191-cd/dam_shadow_prices?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:25.644445+00:00",
+            "sha256": "db45f1a9cb9f9cd1b1c99e27813b992446bcc029b2a39c4639a4baf4aae652f0",
+            "byte_count": 2674,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2023-12-13",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-191-cd/dam_shadow_prices?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:27.619194+00:00",
+            "sha256": "de4b4145be0ec6b778a82fdfeb20d4dfbc1d85c1c24c74cef4fc959c1ddebb8b",
+            "byte_count": 2674,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-192-cd/dam_total_energy_purchased",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-192-cd/dam_total_energy_purchased?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:29.686887+00:00",
+            "sha256": "1c4bf6d563b3e77e988766b08cd083598e37ff0ecb297f65918c09cbce362a66",
+            "byte_count": 1280,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2025-12-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-192-cd/dam_total_energy_purchased?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:31.814820+00:00",
+            "sha256": "84234f8ad8273961086d9bddab4bbfa5014e2f23d3cf8f370fc59a4be32c5330",
+            "byte_count": 1274,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-193-cd/total_dam_energy_sold",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-193-cd/total_dam_energy_sold?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:33.861418+00:00",
+            "sha256": "9a2a56d1bc33f2a79cdb8f2bcdbef7d34ae3ab32fe6d23783d3bbc1e91eff4f9",
+            "byte_count": 1260,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2025-12-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-193-cd/total_dam_energy_sold?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:35.920269+00:00",
+            "sha256": "da2ce61b6c5bd72f62af5705613c88f28cd7e28c22cde16ccdd76b6ff40e088b",
+            "byte_count": 1261,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-194-cd/dam_ptp_obligation_sp_results",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-194-cd/dam_ptp_obligation_sp_results?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:38.011127+00:00",
+            "sha256": "9fa2ba5a6579c6187dd44163d5bf9a1659b681843d697cde4cbbdc00380adf55",
+            "byte_count": 1463,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-06-26",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-194-cd/dam_ptp_obligation_sp_results?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:40.106174+00:00",
+            "sha256": "8b9cc5740cc0f00497248a284bdef1a929a0e3cce8627df32adb97a9b9470d4f",
+            "byte_count": 1459,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-196-m/dam_price_corrections_eblmp",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2025-12-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-196-m/dam_price_corrections_eblmp?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:42.472636+00:00",
+            "sha256": "73a38d542e10bee603ef8d7957332b7a977ff806dff171eafa3727c9e4a5c656",
+            "byte_count": 1550,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2024-01-10",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-196-m/dam_price_corrections_eblmp?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:44.337789+00:00",
+            "sha256": "c48c8ec1db8c625acb254116d4760d2b18323bb500ebda873e39bcd319863500",
+            "byte_count": 1553,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-196-m/dam_price_corrections_mcpc",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2025-06-27",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-196-m/dam_price_corrections_mcpc?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:46.644528+00:00",
+            "sha256": "3c0814c609efe98095dc5f475e84760b80dac09c9a528b1566fb428fc4579091",
+            "byte_count": 1525,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2024-01-10",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-196-m/dam_price_corrections_mcpc?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:48.497602+00:00",
+            "sha256": "b8e89ccaf67a683bf2498a7d7e17dedc5aeb09e4727904945410a7b131bdcca7",
+            "byte_count": 1524,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-196-m/dam_price_corrections_spp",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2025-12-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-196-m/dam_price_corrections_spp?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:50.693260+00:00",
+            "sha256": "0986bf2b1d6c488c242c4a898e18f62e5c6f7278b991d48cc12e777e2d1ad359",
+            "byte_count": 1586,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2024-01-10",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-196-m/dam_price_corrections_spp?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:49:52.736171+00:00",
+            "sha256": "bb578b6630a5e4d18cc67f46243b91420504dceee91b3761a99ebee239333e72",
+            "byte_count": 1590,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-197-m/rtm_price_corrections_eblmp",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-08-30 09:25:18",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_eblmp?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:50:26.873799+00:00",
+            "sha256": "3c5dea8f56af02bbce5a48ccbb19f5850624b31bc1b002c787a288d6302c22df",
+            "byte_count": 1792,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2023-10-22 12:15:16",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_eblmp?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:50:28.262793+00:00",
+            "sha256": "7abba5a9589f63a422f3cd7e987d1aebda546bcd0ef20907978783fec742eae0",
+            "byte_count": 1789,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-197-m/rtm_price_corrections_mcpc_sced",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-08-30 09:15:19",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_mcpc_sced?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:50:29.783008+00:00",
+            "sha256": "f603f64a418ba88a5a92de01e1929e5ff768c905916f37e346127877195386dd",
+            "byte_count": 1792,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-01-10 00:45:16",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_mcpc_sced?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:50:31.876949+00:00",
+            "sha256": "6307e492749c04525fe05cac1dbf51edd82a98f29ed0735f0194f8bde2e7f26c",
+            "byte_count": 1791,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-197-m/rtm_price_corrections_mcpc_spp",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-08-30",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_mcpc_spp?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:50:34.003638+00:00",
+            "sha256": "fbb304d4504addd1b5e73f8c2fa4d04823224b7f00285c5ac8532124c986d3c8",
+            "byte_count": 1725,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-01-10",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_mcpc_spp?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:50:36.223459+00:00",
+            "sha256": "eeb144654fc2913f308fcf676c614fb7a307a1c3c8a5042e4988a30c83352d06",
+            "byte_count": 1723,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-197-m/rtm_price_corrections_shadow",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-08-30 09:25:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_shadow?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:50:38.198965+00:00",
+            "sha256": "f5606e297fb1d959006e4768e4c05ef868dd0868e122e278f69d3a0791543601",
+            "byte_count": 2340,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2023-10-22 12:15:16",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_shadow?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:50:40.282037+00:00",
+            "sha256": "0dd9440b9b6a75387286287f289543aa1361c71e7d0baf894f4f3e3cf7ee4b72",
+            "byte_count": 2332,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-197-m/rtm_price_corrections_soglmp",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-08-30 09:25:18",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_soglmp?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:50:42.867404+00:00",
+            "sha256": "6e44a667ea8adf224d6516c9df931bbd0ad9b4d80d26c51573d19af1af278dce",
+            "byte_count": 2650,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2023-10-22 12:15:16",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_soglmp?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:50:44.984355+00:00",
+            "sha256": "c8629403994867e0335a4e0ed090b7ce75a66b8b118d490b3bc58ba0e72703c4",
+            "byte_count": 2647,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-197-m/rtm_price_corrections_sogprice",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-08-30",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_sogprice?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:50:47.040564+00:00",
+            "sha256": "3ec799b42a7f5dbbcf928e22341229aa28202ec7a04bd68208059f2e72a9f67b",
+            "byte_count": 2013,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2023-10-22",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_sogprice?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:50:49.233054+00:00",
+            "sha256": "40515fc1bb929fababb59e5838b2f4f3ef6a7c86abfe59e6258dc1644392f601",
+            "byte_count": 2008,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-197-m/rtm_price_corrections_splmp",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-08-30 09:25:18",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_splmp?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:50:51.149615+00:00",
+            "sha256": "258b17eb9fbb0ddcf66436cf271a8526691da7193985a4629dce8bcbe24e9b7e",
+            "byte_count": 1440,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2023-10-22 12:15:16",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_splmp?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:50:53.110064+00:00",
+            "sha256": "82792ad8259c3ed0b7c6162a4583999cc40f9c00700c7b7a48933a0a8b5d5d90",
+            "byte_count": 1441,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-197-m/rtm_price_corrections_spp",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-08-30",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_spp?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:50:55.259065+00:00",
+            "sha256": "058496e9703c6dc9381b788dab58a8551638f06cb4be13efc354e3e62020033e",
+            "byte_count": 1865,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2023-10-22",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_spp?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:50:57.347162+00:00",
+            "sha256": "9a7592136c8c0179bc1f114a33c326ec8c5ebc848b8a9b3cd4dd8115c7c1ab3a",
+            "byte_count": 1863,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-200-cd/dam_de_energized_spbc",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-200-cd/dam_de_energized_spbc?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:50:59.216324+00:00",
+            "sha256": "04fce1756dcf0732ef9aae79179c8d0f8cff83f7f313931584c0a4c094df7361",
+            "byte_count": 1133,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-08-01",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-200-cd/dam_de_energized_spbc?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:51:01.555333+00:00",
+            "sha256": "08ac3b070979f0acf986d284df465112be8b6ebce528458e1a2be3e7d2034a68",
+            "byte_count": 1132,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-212-cd/dam_sced_as_demand_curves",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-09-05 04:55:40",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-212-cd/dam_sced_as_demand_curves?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:51:10.293891+00:00",
+            "sha256": "c0f4e123289450c5181d49b4355075216ffd9546820726a9e95b684b8809e7c0",
+            "byte_count": 1681,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2025-12-05 04:56:03",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-212-cd/dam_sced_as_demand_curves?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:51:13.880102+00:00",
+            "sha256": "fdf0c6af9faa4867820233b305d59d0acfcafbb12d74a14a6918bad439d24ca1",
+            "byte_count": 1682,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-213-cd/hruc_as_demand_curves",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-213-cd/hruc_as_demand_curves?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:51:21.546132+00:00",
+            "sha256": "4a4d5f8551c941d5c9978cb435f4c90a3bfd8ce77052c17127df3bfdb75b349b",
+            "byte_count": 1674,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-02-26",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-213-cd/hruc_as_demand_curves?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:51:35.223245+00:00",
+            "sha256": "66d52d07fc7ac60680f5722ecb8a41f0b4e2c927043c91e3a89385bb64558367",
+            "byte_count": 1673,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-214-cd/druc_as_demand_curves",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-214-cd/druc_as_demand_curves?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:51:35.744116+00:00",
+            "sha256": "70e2be03bae063a1228ad564f4ee5ca9a5ed120580867da6158bbaaa1f063626",
+            "byte_count": 1670,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-02-28",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-214-cd/druc_as_demand_curves?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:51:37.759995+00:00",
+            "sha256": "8c9352a6467b5e4692f5ccea9aeb38f2cb68e02d25a8e845f056a16ad056aa15",
+            "byte_count": 1672,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-215-cd/wruc_as_demand_curves",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-09-05 02:54:35",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-215-cd/wruc_as_demand_curves?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:51:42.018062+00:00",
+            "sha256": "ed7433735b66b8920357ad1770c025117b8c4f3fae2c0f174e1a9d5d28013e62",
+            "byte_count": 1825,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-02-27 02:46:04",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-215-cd/wruc_as_demand_curves?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:51:43.843894+00:00",
+            "sha256": "e8e396838ccf075c55dd8a8077550334c56b0f07f65b738cc1a77ab4da90e157",
+            "byte_count": 1826,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-231-cd/electrical_bus_map_heur_price",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-09-05 05:50:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-231-cd/electrical_bus_map_heur_price?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:51:44.269302+00:00",
+            "sha256": "0757c36af7899c97591b482f4f7e9380dc03c393078d36b2b59c9c940196e2bc",
+            "byte_count": 1393,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-07-31 05:50:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-231-cd/electrical_bus_map_heur_price?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:51:46.343568+00:00",
+            "sha256": "14f185bca4e7364790b212ec7d5d5a6ccf79d3e9edf533e2d1ce4e6b06527d64",
+            "byte_count": 1389,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-33-cd/dam_as_plan",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2026-09-05 05:00:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-33-cd/dam_as_plan?page=1&size=1&dir=desc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:51:48.559219+00:00",
+            "sha256": "539470e910a7ca129662f1cc5f9bc58a6eff0c637a08d5ece825b7a712550eca",
+            "byte_count": 1346,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "postedDatetime",
+          "source_time": "2023-12-12 05:00:00",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-33-cd/dam_as_plan?page=1&size=1&dir=asc&sort=postedDatetime",
+            "retrieved_at": "2026-09-06 00:51:50.628809+00:00",
+            "sha256": "9a2cd73cbb7b336405dafe83b96f50ed8666b2a648e861e9c6151042f4715446",
+            "byte_count": 1346,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np4-523-cd/dam_system_lambda",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-06",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-523-cd/dam_system_lambda?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:51:52.631764+00:00",
+            "sha256": "766feac4c56955e0a17ad211f1591588f375f40e8da86206d748897b66bdb7a0",
+            "byte_count": 1061,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2023-12-13",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np4-523-cd/dam_system_lambda?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:51:54.701091+00:00",
+            "sha256": "2b988b1c0c75b3a7aa1eea3c6658c0237f22cae1870eaaf8e6f17879bb0e02b8",
+            "byte_count": 1059,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-322-cd/sced_system_lambda",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-09-05 19:45:24",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-322-cd/sced_system_lambda?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:51:56.848194+00:00",
+            "sha256": "c167276b1783c1a3e241e78c5b719594bb2c8959eecd4f9c70723177695c2f67",
+            "byte_count": 1136,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2023-12-11 14:30:18",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-322-cd/sced_system_lambda?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:51:59.028692+00:00",
+            "sha256": "bf24795af0b2903787b246ad870e9fb6a3af44539efb07b8bf36cb669785f424",
+            "byte_count": 1139,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-323-cd/rt_price_adder_sced",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-09-05 19:45:24",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-323-cd/rt_price_adder_sced?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:52:01.100465+00:00",
+            "sha256": "6a09e7a8a80abd0584b517f9e21c6fb61b6f20927367a0f602c35bc2519dcfb6",
+            "byte_count": 3211,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2025-12-05 00:10:17",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-323-cd/rt_price_adder_sced?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:52:03.160739+00:00",
+            "sha256": "93abbe69b7cc865a65bcf0c9f8d1b94d379211a27a78fb11b28e40d167697943",
+            "byte_count": 3211,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-324-cd/rt_15min_price_adders",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-05",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-324-cd/rt_15min_price_adders?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:52:05.734939+00:00",
+            "sha256": "efa94ba388d806c20f90719ff65885b82d0cb9aa0cda46cdadf9d6c9e8d43f99",
+            "byte_count": 1891,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2025-12-05",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-324-cd/rt_15min_price_adders?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:52:07.687756+00:00",
+            "sha256": "5d90fac25f3184aeb4b21d3e0b8f7cb65e5d40ddd713bf23ce168ee207033083",
+            "byte_count": 1891,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-325-cd/rtd_price_adders",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "RTDTimestamp",
+          "source_time": "2026-09-05 19:45:03",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-325-cd/rtd_price_adders?page=1&size=1&dir=desc&sort=RTDTimestamp",
+            "retrieved_at": "2026-09-06 00:52:09.627054+00:00",
+            "sha256": "d5c698ae7aaefba422c2501b4b56d9a83f824392be48b91c8410289d6a952a0f",
+            "byte_count": 3647,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "RTDTimestamp",
+          "source_time": "2025-12-05 00:00:03",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-325-cd/rtd_price_adders?page=1&size=1&dir=asc&sort=RTDTimestamp",
+            "retrieved_at": "2026-09-06 00:52:12.689338+00:00",
+            "sha256": "cd76f149d2532631576d913f386d1722656b4acf68554c3da1c4468a2afaf313",
+            "byte_count": 3635,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-326-cd/rt_price_sog",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-05",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-326-cd/rt_price_sog?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:54:10.740664+00:00",
+            "sha256": "51ee024447556b34dcde108bc3e7463284540027102e70c347a09cfa283fc65c",
+            "byte_count": 1646,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-04-30",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-326-cd/rt_price_sog?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:54:12.101640+00:00",
+            "sha256": "a8aeb19efea4ba2854c1539d405cb2d38443103de77561446c852a2c3a4e0152",
+            "byte_count": 1644,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-327-cd/lmp_sog_price_adders",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-09-05 19:50:22",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-327-cd/lmp_sog_price_adders?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:16.605984+00:00",
+            "sha256": "fabee85fce554900b0762a3f718a27dd82ad5813a4ba701d43b658b9a613eb02",
+            "byte_count": 1957,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2025-12-05 00:10:17",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-327-cd/lmp_sog_price_adders?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:17.704881+00:00",
+            "sha256": "71d0abe3ee25a38d713f075f8681397498fd3f4e19bee25e57f73334d36b0f0a",
+            "byte_count": 1957,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-328-cd/tot_as_res_cap",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-09-05 19:50:22",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-328-cd/tot_as_res_cap?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:18.858780+00:00",
+            "sha256": "0be083d2c25fce0734e429c7b13acaa2b5e6558ff3ee26ef735eb78e37771d6e",
+            "byte_count": 2008,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2025-12-04 23:45:16",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-328-cd/tot_as_res_cap?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:21.202013+00:00",
+            "sha256": "43d4146ac570b7178dd37fe5e5bd6fbbc695a1e6b29863df6e763dbb17ab0d67",
+            "byte_count": 2007,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-329-cd/rtd_ind_mcpc",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "RTDTimestamp",
+          "source_time": "2026-09-05 19:50:03",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-329-cd/rtd_ind_mcpc?page=1&size=1&dir=desc&sort=RTDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:23.110226+00:00",
+            "sha256": "2fc6003d2e29d6f3f9e98ecb82b3a99a69f48d43119e3d599368668ea493f367",
+            "byte_count": 1890,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "RTDTimestamp",
+          "source_time": "2025-12-05 00:00:03",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-329-cd/rtd_ind_mcpc?page=1&size=1&dir=asc&sort=RTDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:25.608954+00:00",
+            "sha256": "ac9bce41acecc91b9a2ca32ccf38c1ec96ae86e1008fad86bb1cd2d612941549",
+            "byte_count": 1892,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-331-cd/rt_clear_price_cap",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2026-09-05",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-331-cd/rt_clear_price_cap?page=1&size=1&dir=desc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:54:27.338551+00:00",
+            "sha256": "61c9a8dcbd807e16cb5508ca8352cb72575eda7fbfa8094d73e0862c60384ab5",
+            "byte_count": 1386,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "source_time": "2025-12-04",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-331-cd/rt_clear_price_cap?page=1&size=1&dir=asc&sort=deliveryDate",
+            "retrieved_at": "2026-09-06 00:54:29.347069+00:00",
+            "sha256": "fd33eb975daf9e9e1944b78a770f24a0de948024cb854cda6f6c5aa8b0116fba",
+            "byte_count": 1385,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-332-cd/rt_clear_price_cap_sced",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-09-05 19:50:22",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-332-cd/rt_clear_price_cap_sced?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:31.500907+00:00",
+            "sha256": "6697089422c9ab7e9f1c15a42d455e64a118386d75802e5686bfc546e1d09733",
+            "byte_count": 1272,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2025-12-05 00:05:17",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-332-cd/rt_clear_price_cap_sced?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:33.662959+00:00",
+            "sha256": "8efd55d9ba90daca12ad46ba693e4b3a5507b8e35d77c95f6ae2a580fdaae490",
+            "byte_count": 1270,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-345-cd/act_sys_load_by_wzn",
+      "installed_module": "/private/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 2,
+          "sort": "operatingDay",
+          "receipt": {
+            "retrieved_at": "2026-09-06 00:11:12.286973+00:00",
+            "byte_count": 2262,
+            "source_url": "https://api.ercot.com/api/public-reports/np6-345-cd/act_sys_load_by_wzn?operatingDayFrom=2026-09-04&operatingDayTo=2026-09-04&page=1&size=2&dir=desc&sort=operatingDay",
+            "status": 200,
+            "sha256": "e9b68e868a08ba0e04becd610fbbd781421f87545864d26b05f1ac234403cf13"
+          },
+          "evidence_ref": "docs/evidence/installed-reports-receipts.json#/receipts/2"
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "operatingDay",
+          "receipt": {
+            "retrieved_at": "2026-09-06 00:11:14.396157+00:00",
+            "byte_count": 2098,
+            "source_url": "https://api.ercot.com/api/public-reports/np6-345-cd/act_sys_load_by_wzn?page=1&size=1&dir=asc&sort=operatingDay",
+            "status": 200,
+            "sha256": "061222a12fc005428f277f7692ff4e530e2177c2ff8e4fe8e3763426a32e41c7"
+          },
+          "evidence_ref": "docs/evidence/installed-reports-receipts.json#/receipts/3"
+        }
+      ]
+    },
+    {
+      "path": "/np6-346-cd/act_sys_load_by_fzn",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "operatingDay",
+          "source_time": "2026-09-04",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-346-cd/act_sys_load_by_fzn?page=1&size=1&dir=desc&sort=operatingDay",
+            "retrieved_at": "2026-09-06 00:54:35.637907+00:00",
+            "sha256": "dc5832d9a14dc3ebf634cad1fcdcb34d7bcf955a102dd40b910cf7e698b31456",
+            "byte_count": 1584,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "operatingDay",
+          "source_time": "2023-12-11",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-346-cd/act_sys_load_by_fzn?page=1&size=1&dir=asc&sort=operatingDay",
+            "retrieved_at": "2026-09-06 00:54:37.705613+00:00",
+            "sha256": "e174bfdd94814df13b850064adaae472f24e4fec341c438300feeb3d5c76dcfb",
+            "byte_count": 1582,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-787-cd/lmp_electrical_bus",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-09-05 19:50:22",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-787-cd/lmp_electrical_bus?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:41.210350+00:00",
+            "sha256": "971be657f656b4ee65923c5b24604ebf61cd9928e76da1fefee6d2cdb66ae041",
+            "byte_count": 1329,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-09-05 00:00:20",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-787-cd/lmp_electrical_bus?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:42.841971+00:00",
+            "sha256": "8d67cf729f4bc621cfedfbae330a51857165309c07c24f5fc162db1050c91ae5",
+            "byte_count": 1328,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-788-cd/lmp_node_zone_hub",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-09-05 19:50:22",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-788-cd/lmp_node_zone_hub?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:44.122981+00:00",
+            "sha256": "812ead259540652cb94556c5382fd31c35cc185955d0977e1a7a1a292afe6ce8",
+            "byte_count": 1205,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-09-05 00:00:20",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-788-cd/lmp_node_zone_hub?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:46.175864+00:00",
+            "sha256": "3737f8d532af0839401d68810857c84b4c80261377e0d876a5d763e2fad63a24",
+            "byte_count": 1206,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-86-cd/shdw_prices_bnd_trns_const",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-09-05 18:55:21",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-86-cd/shdw_prices_bnd_trns_const?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:48.276483+00:00",
+            "sha256": "a56d0f58cc9348f746e2a354af30679aa7ed95259a7a9b91e5bb5aabf8c24f35",
+            "byte_count": 2699,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2023-12-11 14:00:24",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-86-cd/shdw_prices_bnd_trns_const?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:50.518992+00:00",
+            "sha256": "890c8e8a29b30d9f42070f7fc64b510f45ce9fb0f53755c2c6ad030b4356996c",
+            "byte_count": 2676,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-905-cd/spp_node_zone_hub",
+      "installed_module": "/private/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 2,
+          "sort": "deliveryDate",
+          "receipt": {
+            "retrieved_at": "2026-09-06 00:11:08.089128+00:00",
+            "byte_count": 1711,
+            "source_url": "https://api.ercot.com/api/public-reports/np6-905-cd/spp_node_zone_hub?settlementPoint=HB_HOUSTON&deliveryDateFrom=2026-09-04&deliveryDateTo=2026-09-04&page=1&size=2&dir=desc&sort=deliveryDate",
+            "status": 200,
+            "sha256": "211a6808039b86dfefbdfcab99e8859cf83de61ab67d2da87bd4b4bc13545c6a"
+          },
+          "evidence_ref": "docs/evidence/installed-reports-receipts.json#/receipts/0"
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "deliveryDate",
+          "receipt": {
+            "retrieved_at": "2026-09-06 00:11:10.314260+00:00",
+            "byte_count": 1605,
+            "source_url": "https://api.ercot.com/api/public-reports/np6-905-cd/spp_node_zone_hub?settlementPoint=HB_HOUSTON&page=1&size=1&dir=asc&sort=deliveryDate",
+            "status": 200,
+            "sha256": "b1b0c0845989e9ae6717beb8d093bfcedd9b433971703898429387be1d719a63"
+          },
+          "evidence_ref": "docs/evidence/installed-reports-receipts.json#/receipts/1"
+        }
+      ]
+    },
+    {
+      "path": "/np6-915-cd/sum_hdl_ldl",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-09-05 19:50:22",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-915-cd/sum_hdl_ldl?page=1&size=1&dir=desc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:52.453587+00:00",
+            "sha256": "d344c266e527aa407fc376bcc0d0b7a5a1c3d4d8f1a452adeba6708f784f1657",
+            "byte_count": 1258,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "SCEDTimestamp",
+          "source_time": "2026-04-30 11:10:19",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-915-cd/sum_hdl_ldl?page=1&size=1&dir=asc&sort=SCEDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:54.529111+00:00",
+            "sha256": "54300b55e6200b9f3d3ed90e31681070b6aa6836347e05f2c71f163bd79658a9",
+            "byte_count": 1257,
+            "status": 200
+          }
+        }
+      ]
+    },
+    {
+      "path": "/np6-970-cd/rtd_lmp_node_zone_hub",
+      "installed_module": "/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+      "records": [
+        {
+          "period": "current",
+          "status": "typed",
+          "rows": 1,
+          "sort": "RTDTimestamp",
+          "source_time": "2026-09-05 19:50:03",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-970-cd/rtd_lmp_node_zone_hub?page=1&size=1&dir=desc&sort=RTDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:57.753274+00:00",
+            "sha256": "aa762cc522e3288d4304c9de4278cb11736f8725bb1d452cf29d2d9f567b7713",
+            "byte_count": 1836,
+            "status": 200
+          }
+        },
+        {
+          "period": "historical",
+          "status": "typed",
+          "rows": 1,
+          "sort": "RTDTimestamp",
+          "source_time": "2026-09-05 00:00:03",
+          "receipt": {
+            "source_url": "https://api.ercot.com/api/public-reports/np6-970-cd/rtd_lmp_node_zone_hub?page=1&size=1&dir=asc&sort=RTDTimestamp",
+            "retrieved_at": "2026-09-06 00:54:59.847079+00:00",
+            "sha256": "14c5ac6ed0da26671f655b2d2767e4a90eee983721b3dd45c46d00b751e09fcb",
+            "byte_count": 1832,
+            "status": 200
+          }
+        }
+      ]
+    }
+  ]
+}

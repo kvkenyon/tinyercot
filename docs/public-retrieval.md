@@ -7,10 +7,10 @@ Use `coverage()` for retrieval scope states.
 ## Coverage and evidence
 
 On 2026-09-05/06 UTC isolated installed wheels retrieved and decoded public data.
-Generated typed API coverage is **4 operations in 4 products**: NP4-190-CD,
-NP4-188-CD, NP6-905-CD, and NP6-345-CD. PR #2 established the first two DAM
-contracts; this iteration adds RT settlement prices and weather-zone actual load
-through a shared registry and retrieval client.
+Generated typed API coverage is **56 operations**, each checked through an
+installed wheel with current and oldest-first source requests. PRs #2–3
+established four contracts; the [metadata batch](public-metadata.md) adds 52
+through reusable product/artifact discovery and generation.
 The denominator is **243 observed public data paths in 98 product namespaces**
 (242 public-reports paths and one public-data ESR path). This is a bounded
 vertical slice, not broad typed coverage. The legacy 102 endpoints do not add
@@ -25,15 +25,17 @@ Public Data API. A namespace count does not establish an EMIL product census.
 | New typed installed-client current fetch | NP6-905-CD HB_HOUSTON RT prices and NP6-345-CD weather-zone load: two rows each for 2026-09-04. |
 | New typed installed-client historical fetch | One oldest-first row per new endpoint, both dated 2023-12-11. These dates establish observations, not complete retention. |
 | Complete bounded installed-client query | Two RT rows for HB_HOUSTON, 2026-09-04, hour 1, intervals 1–2, retrieved across two one-row pages with matching totals. |
-| Real source retrieval only | NP4-190-CD product metadata, retained as a fixture. This is not an implemented product-metadata method. |
+| Public metadata | `MetadataClient` retrieves product/artifact identities, preserving access and lifecycle separately from row schema. The installed root lists 116 products and 242 artifacts. |
 | Fixture-only behavior | Rate limits, transport retries, expired tokens, 401/403, malformed JSON/ZIP/XLSX, cache mutation, repeated pages, DST transitions. These faults were simulated, not induced on ERCOT. |
-| Deferred schema | The other 239 observed data paths. Stage 0 recorded 40 missing and 203 unverified cached schemas. Current field evidence verifies four endpoints. No guessed raw or typed models. |
+| Pending schema | The other 187 observed data paths remain active coverage work. Stage 0 recorded 40 missing and 203 unverified cached schemas. Current source evidence verifies 56 endpoints. No guessed raw or typed models. |
 | Restricted | Secure, Certified, EWS, private telemetry, bids/COP/awards, participant settlements and customer data. No requests. |
-| Unavailable | Retired total-AS-offer and SASM sources and the unavailable hourly-load 2001 year, as recorded in the audit. |
+| Retired | Total-AS-offer and SASM new publication ended. Installed archive listings verify available public history; first-page listings do not establish full document or row retrieval. |
+| Unavailable | Hourly-load 2001, as explicitly recorded by ERCOT. One bounded 2018 DAM bundle attempt was unsuccessful; other public bundle/history access remains active work. |
 
-Only two selected annual files were downloaded. Each was retrieved once during
-source discovery and once through the installed adapter. Later uses reuse a
-hash-verified cache. No all-year iteration or bulk historical extraction ran.
+The first DAM milestone downloaded two selected annual files. This expansion
+adds two selected RT annual files and two small DME documents; installed decoding
+reuses verified source captures. No all-year iteration or bulk historical
+extraction ran. See [API archives](api-archives.md) and [RT files](rt-archives.md).
 Authorized Public API authentication did occur in this milestone. No credential
 or token values were retained in evidence, fixtures, logs, source, or PR text.
 
@@ -44,7 +46,7 @@ No adapter provides an as-of vintage, revision merge, or complete-year claim.
 Typed installed-client retrieval means generated or explicit Pydantic row decoding.
 The wheel now separately includes PEP 561 metadata. An isolated mypy proof checks
 all 510 legacy method return contracts, all 1,334 legacy row fields, new public
-row/filter/iterator contracts, and rejection of four invalid uses. Legacy
+row/filter/iterator contracts, and rejection of invalid uses. Legacy
 runtime files remain byte-identical; companion stubs expose their existing types.
 
 ## Use annual files

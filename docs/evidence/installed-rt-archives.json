@@ -1,0 +1,58 @@
+{
+  "installed_package": "/private/tmp/tinyercot-retrieval-wheel/lib/python3.14/site-packages/tinyercot/__init__.py",
+  "listing": {
+    "source_url": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=13061",
+    "retrieved_at": "2026-09-06 00:49:57.719070+00:00",
+    "sha256": "0c7866f25ce81543e62538522df8d1c6eda20a60ef9bcf37558255ab7cdb5a11",
+    "byte_count": 7812,
+    "status": 200
+  },
+  "samples": [
+    {
+      "document": {
+        "document_id": "318479603",
+        "report_type_id": 13061,
+        "friendly_name": "RTMLZHBSPP_2010",
+        "published_at": "2013-06-14 14:07:18-05:00",
+        "byte_count": 1292145,
+        "security": "P"
+      },
+      "download": {
+        "source_url": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=318479603&reportTypeId=13061",
+        "retrieved_at": "2026-09-06 00:26:46.768037+00:00",
+        "sha256": "c5bd52346cc6644abdf65dbf452060fef6dac40f4b79c151726f3d3c8c4c8fe0",
+        "byte_count": 1292145,
+        "status": 200
+      },
+      "initial_cache_hit": true,
+      "cache_reuse_verified": true,
+      "sheet": "Dec_1",
+      "typed_rows": 4,
+      "complete_file_iteration": false
+    },
+    {
+      "document": {
+        "document_id": "1268443390",
+        "report_type_id": 13061,
+        "friendly_name": "RTMLZHBSPP_2026",
+        "published_at": "2026-08-30 08:07:44-05:00",
+        "byte_count": 9091870,
+        "security": "P"
+      },
+      "download": {
+        "source_url": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=1268443390&reportTypeId=13061",
+        "retrieved_at": "2026-09-06 00:27:10.672048+00:00",
+        "sha256": "d2dd9f121dbcbdba370d4bc50f9652ff4e7d38987860b9e8fe454e65adc25238",
+        "byte_count": 9091870,
+        "status": 200
+      },
+      "initial_cache_hit": true,
+      "cache_reuse_verified": true,
+      "sheet": "Jan",
+      "typed_rows": 4,
+      "complete_file_iteration": false
+    }
+  ],
+  "authenticated_requests": 0,
+  "all_history_extraction": false
+}
