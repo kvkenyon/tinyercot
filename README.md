@@ -4,6 +4,13 @@ A small, fully typed client for ERCOT public data.
 
 **Development status:** all 242 Public Reports endpoints have typed methods and captured-response tests. The separate ESR API is awaiting an enabled subscription key. MIS is not included.
 
+The live inventory check matched all 249 published HTTP operations: 242 generated
+report queries and seven shared operations. All 5,973 query-parameter definitions
+matched the saved inputs, and all four generated query variants expose the
+expected named parameters and types. The live catalog lists the same 242 report
+paths. See `tools/inputs/live-inventory-evidence.json` for the check date and
+scope; endpoint coverage does not establish every historical file layout.
+
 ```python
 from datetime import date
 from tinyercot import Client
