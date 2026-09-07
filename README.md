@@ -423,3 +423,12 @@ separate, with absent columns represented by `None`. Delivery dates, SCED
 timestamps and published batch IDs remain available. A workbook's year label
 does not guarantee a complete year: the sampled early 2018 SCED file contains
 only January rows.
+
+The capacity workbooks also have typed readers:
+`ercot.np6_794_er.capability_history`,
+`ercot.np6_795_er.clearing_prices_history` (SCED), and
+`ercot.np6_796_er.clearing_prices_history` (15-minute). Resource capability
+combinations retain their reported fields; historical `MCPC` remains separate
+from `cappedMCPC` and `uncappedMCPC`. Monthly sheet names, service types and the
+SCED timestamp or delivery interval identify each row. These readers use the
+existing `tinyercot[files]` extra.

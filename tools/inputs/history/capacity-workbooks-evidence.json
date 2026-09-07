@@ -1,0 +1,408 @@
+[
+  {
+    "endpoint": "np6-794-er/capability",
+    "fixture": "np6-794-er-history-current.xlsx",
+    "file": "HistTotASResCapability_2026.xlsx",
+    "sheet_rows": {
+      "Jan": 9081,
+      "Feb": 8181,
+      "Mar": 9034,
+      "Apr": 8814,
+      "May": 8975,
+      "Jun": 8689,
+      "Jul": 8981,
+      "Aug": 9005,
+      "Sep": 1459
+    },
+    "source_folder": "history-current",
+    "rows_decoded": 72219,
+    "first_rows": {
+      "Jan": {
+        "sourceSheet": "Jan",
+        "SCEDTimestamp": "2026-01-01T00:00:16.999000",
+        "repeatHourFlag": false,
+        "CapREGUPTotal": "15870.8663",
+        "CapREGDNTotal": "18508.3761",
+        "CapRRSTotal": "14287.3083",
+        "CapECRSTotal": "14076.7994",
+        "CapNSPINTotal": "17121.7064",
+        "CapREGUP_RRSTotal": "21333.3254",
+        "CapREGUP_RRS_ECRSTotal": "25423.0417",
+        "CapREGUP_RRS_ECRS_NSPINTotal": "35182.0952"
+      },
+      "Feb": {
+        "sourceSheet": "Feb",
+        "SCEDTimestamp": "2026-02-01T00:00:22",
+        "repeatHourFlag": false,
+        "CapREGUPTotal": "12825.428",
+        "CapREGDNTotal": "20240.4464",
+        "CapRRSTotal": "13644.6659",
+        "CapECRSTotal": "12813.0671",
+        "CapNSPINTotal": "15003.103",
+        "CapREGUP_RRSTotal": "19446.1497",
+        "CapREGUP_RRS_ECRSTotal": "24247.6107",
+        "CapREGUP_RRS_ECRS_NSPINTotal": "31362.4362"
+      },
+      "Mar": {
+        "sourceSheet": "Mar",
+        "SCEDTimestamp": "2026-03-01T00:00:22",
+        "repeatHourFlag": false,
+        "CapREGUPTotal": "12396.0652",
+        "CapREGDNTotal": "22841.6794",
+        "CapRRSTotal": "11980.0885",
+        "CapECRSTotal": "10540.9308",
+        "CapNSPINTotal": "14652.9478",
+        "CapREGUP_RRSTotal": "16745.9895",
+        "CapREGUP_RRS_ECRSTotal": "19982.933",
+        "CapREGUP_RRS_ECRS_NSPINTotal": "29391.1658"
+      },
+      "Apr": {
+        "sourceSheet": "Apr",
+        "SCEDTimestamp": "2026-04-01T00:00:28",
+        "repeatHourFlag": false,
+        "CapREGUPTotal": "9109.2682",
+        "CapREGDNTotal": "22223.8696",
+        "CapRRSTotal": "11049.7644",
+        "CapECRSTotal": "8550.6142",
+        "CapNSPINTotal": "13206.3851",
+        "CapREGUP_RRSTotal": "13777.9282",
+        "CapREGUP_RRS_ECRSTotal": "16949.5897",
+        "CapREGUP_RRS_ECRS_NSPINTotal": "25287.8482"
+      },
+      "May": {
+        "sourceSheet": "May",
+        "SCEDTimestamp": "2026-05-01T00:00:28.999000",
+        "repeatHourFlag": false,
+        "CapREGUPTotal": "12694.4228",
+        "CapREGDNTotal": "22160.0591",
+        "CapRRSTotal": "12485.2641",
+        "CapECRSTotal": "11695.4264",
+        "CapNSPINTotal": "12708.4144",
+        "CapREGUP_RRSTotal": "17798.9363",
+        "CapREGUP_RRS_ECRSTotal": "21272.9713",
+        "CapREGUP_RRS_ECRS_NSPINTotal": "28055.2669"
+      },
+      "Jun": {
+        "sourceSheet": "Jun",
+        "SCEDTimestamp": "2026-06-01T00:00:21",
+        "repeatHourFlag": false,
+        "CapREGUPTotal": "8220.0057",
+        "CapREGDNTotal": "24081.3226",
+        "CapRRSTotal": "10939.7045",
+        "CapECRSTotal": "9620.8275",
+        "CapNSPINTotal": "15781.4665",
+        "CapREGUP_RRSTotal": "14445.9717",
+        "CapREGUP_RRS_ECRSTotal": "18879.9263",
+        "CapREGUP_RRS_ECRS_NSPINTotal": "28139.2593"
+      },
+      "Jul": {
+        "sourceSheet": "Jul",
+        "SCEDTimestamp": "2026-07-01T00:00:25.999000",
+        "repeatHourFlag": false,
+        "CapREGUPTotal": "11812.8694",
+        "CapREGDNTotal": "27165.9649",
+        "CapRRSTotal": "13192.6167",
+        "CapECRSTotal": "11783.7179",
+        "CapNSPINTotal": "17087.1674",
+        "CapREGUP_RRSTotal": "18012.6553",
+        "CapREGUP_RRS_ECRSTotal": "22214.7476",
+        "CapREGUP_RRS_ECRS_NSPINTotal": "32606.7329"
+      },
+      "Aug": {
+        "sourceSheet": "Aug",
+        "SCEDTimestamp": "2026-08-01T00:00:21",
+        "repeatHourFlag": false,
+        "CapREGUPTotal": "15073.9164",
+        "CapREGDNTotal": "29445.8965",
+        "CapRRSTotal": "15242.6689",
+        "CapECRSTotal": "14914.3783",
+        "CapNSPINTotal": "17838.1071",
+        "CapREGUP_RRSTotal": "22137.1561",
+        "CapREGUP_RRS_ECRSTotal": "27075.0452",
+        "CapREGUP_RRS_ECRS_NSPINTotal": "35677.6313"
+      },
+      "Sep": {
+        "sourceSheet": "Sep",
+        "SCEDTimestamp": "2026-09-01T00:00:20",
+        "repeatHourFlag": false,
+        "CapREGUPTotal": "7437.5419",
+        "CapREGDNTotal": "29584.4077",
+        "CapRRSTotal": "10788.5361",
+        "CapECRSTotal": "8950.6781",
+        "CapNSPINTotal": "15539.708",
+        "CapREGUP_RRSTotal": "14027.615",
+        "CapREGUP_RRS_ECRSTotal": "18275.6549",
+        "CapREGUP_RRS_ECRS_NSPINTotal": "27534.1697"
+      }
+    }
+  },
+  {
+    "endpoint": "np6-794-er/capability",
+    "fixture": "np6-794-er-history-samples.xlsx",
+    "file": "HistTotASResCapability_2025.xlsx",
+    "sheet_rows": {
+      "Dec": 581
+    },
+    "source_folder": "history-samples",
+    "rows_decoded": 581,
+    "first_rows": {
+      "Dec": {
+        "sourceSheet": "Dec",
+        "SCEDTimestamp": "2025-12-05T00:00:18.999000",
+        "repeatHourFlag": false,
+        "CapREGUPTotal": "17673.1866",
+        "CapREGDNTotal": "12496.8657",
+        "CapRRSTotal": "15792.347",
+        "CapECRSTotal": "16307.1828",
+        "CapNSPINTotal": "17738.6429",
+        "CapREGUP_RRSTotal": "25196.7364",
+        "CapREGUP_RRS_ECRSTotal": "30327.3035",
+        "CapREGUP_RRS_ECRS_NSPINTotal": "39745.3392"
+      }
+    }
+  },
+  {
+    "endpoint": "np6-795-er/clearing_prices",
+    "fixture": "np6-795-er-history-current.xlsx",
+    "file": "rpt.00025569.0000000000000000.20260906.100008.HIST_SCED_RTM_MCPC_2026.xlsx",
+    "sheet_rows": {
+      "Jan": 45405,
+      "Feb": 40905,
+      "Mar": 45170,
+      "Apr": 44070,
+      "May": 44875,
+      "Jun": 43445,
+      "Jul": 44905,
+      "Aug": 45025,
+      "Sep": 7295
+    },
+    "source_folder": "history-current",
+    "rows_decoded": 361095,
+    "first_rows": {
+      "Jan": {
+        "sourceSheet": "Jan",
+        "SCEDTimestamp": "2026-01-01T00:00:16.999000",
+        "ASType": "ECRS",
+        "cappedMCPC": "0.06",
+        "uncappedMCPC": "0.06",
+        "repeatHourFlag": false,
+        "MCPC": null
+      },
+      "Feb": {
+        "sourceSheet": "Feb",
+        "SCEDTimestamp": "2026-02-01T00:00:22",
+        "ASType": "ECRS",
+        "cappedMCPC": "1.09",
+        "uncappedMCPC": "1.09",
+        "repeatHourFlag": false,
+        "MCPC": null
+      },
+      "Mar": {
+        "sourceSheet": "Mar",
+        "SCEDTimestamp": "2026-03-01T00:00:22",
+        "ASType": "ECRS",
+        "cappedMCPC": "0.09",
+        "uncappedMCPC": "0.09",
+        "repeatHourFlag": false,
+        "MCPC": null
+      },
+      "Apr": {
+        "sourceSheet": "Apr",
+        "SCEDTimestamp": "2026-04-01T00:00:28",
+        "ASType": "ECRS",
+        "cappedMCPC": "0.27",
+        "uncappedMCPC": "0.27",
+        "repeatHourFlag": false,
+        "MCPC": null
+      },
+      "May": {
+        "sourceSheet": "May",
+        "SCEDTimestamp": "2026-05-01T00:00:28.999000",
+        "ASType": "ECRS",
+        "cappedMCPC": "1.86",
+        "uncappedMCPC": "1.86",
+        "repeatHourFlag": false,
+        "MCPC": null
+      },
+      "Jun": {
+        "sourceSheet": "Jun",
+        "SCEDTimestamp": "2026-06-01T00:00:21",
+        "ASType": "ECRS",
+        "cappedMCPC": "0.38",
+        "uncappedMCPC": "0.38",
+        "repeatHourFlag": false,
+        "MCPC": null
+      },
+      "Jul": {
+        "sourceSheet": "Jul",
+        "SCEDTimestamp": "2026-07-01T00:00:25.999000",
+        "ASType": "ECRS",
+        "cappedMCPC": "0.24",
+        "uncappedMCPC": "0.24",
+        "repeatHourFlag": false,
+        "MCPC": null
+      },
+      "Aug": {
+        "sourceSheet": "Aug",
+        "SCEDTimestamp": "2026-08-01T00:00:21",
+        "ASType": "ECRS",
+        "cappedMCPC": "0.27",
+        "uncappedMCPC": "0.27",
+        "repeatHourFlag": false,
+        "MCPC": null
+      },
+      "Sep": {
+        "sourceSheet": "Sep",
+        "SCEDTimestamp": "2026-09-01T00:00:20",
+        "ASType": "ECRS",
+        "cappedMCPC": "0.38",
+        "uncappedMCPC": "0.38",
+        "repeatHourFlag": false,
+        "MCPC": null
+      }
+    }
+  },
+  {
+    "endpoint": "np6-795-er/clearing_prices",
+    "fixture": "np6-795-er-history-samples.xlsx",
+    "file": "rpt.00025569.0000000000000000.20251207.105423.HIST_SCED_RTM_MCPC_2025.xlsx",
+    "sheet_rows": {
+      "Dec": 2905
+    },
+    "source_folder": "history-samples",
+    "rows_decoded": 2905,
+    "first_rows": {
+      "Dec": {
+        "sourceSheet": "Dec",
+        "SCEDTimestamp": "2025-12-05T00:00:18.999000",
+        "ASType": "ECRS",
+        "cappedMCPC": null,
+        "uncappedMCPC": null,
+        "repeatHourFlag": false,
+        "MCPC": "0.53"
+      }
+    }
+  },
+  {
+    "endpoint": "np6-796-er/clearing_prices",
+    "fixture": "np6-796-er-history-current.xlsx",
+    "file": "rpt.00025570.0000000000000000.20260906.100004.HIST_15Min_RTM_MCPC_2026.xlsx",
+    "sheet_rows": {
+      "Jan": 14880,
+      "Feb": 13440,
+      "Mar": 14860,
+      "Apr": 14400,
+      "May": 14880,
+      "Jun": 14400,
+      "Jul": 14880,
+      "Aug": 14880,
+      "Sep": 2400
+    },
+    "source_folder": "history-current",
+    "rows_decoded": 119020,
+    "first_rows": {
+      "Jan": {
+        "sourceSheet": "Jan",
+        "deliveryDate": "2026-01-01",
+        "deliveryHour": 1,
+        "deliveryInterval": 1,
+        "ASType": "ECRS",
+        "MCPC": "0.07",
+        "repeatHourFlag": false
+      },
+      "Feb": {
+        "sourceSheet": "Feb",
+        "deliveryDate": "2026-02-01",
+        "deliveryHour": 1,
+        "deliveryInterval": 1,
+        "ASType": "ECRS",
+        "MCPC": "0.96",
+        "repeatHourFlag": false
+      },
+      "Mar": {
+        "sourceSheet": "Mar",
+        "deliveryDate": "2026-03-01",
+        "deliveryHour": 1,
+        "deliveryInterval": 1,
+        "ASType": "ECRS",
+        "MCPC": "0.09",
+        "repeatHourFlag": false
+      },
+      "Apr": {
+        "sourceSheet": "Apr",
+        "deliveryDate": "2026-04-01",
+        "deliveryHour": 1,
+        "deliveryInterval": 1,
+        "ASType": "ECRS",
+        "MCPC": "0.27",
+        "repeatHourFlag": false
+      },
+      "May": {
+        "sourceSheet": "May",
+        "deliveryDate": "2026-05-01",
+        "deliveryHour": 1,
+        "deliveryInterval": 1,
+        "ASType": "ECRS",
+        "MCPC": "1.65",
+        "repeatHourFlag": false
+      },
+      "Jun": {
+        "sourceSheet": "Jun",
+        "deliveryDate": "2026-06-01",
+        "deliveryHour": 1,
+        "deliveryInterval": 1,
+        "ASType": "ECRS",
+        "MCPC": "0.48",
+        "repeatHourFlag": false
+      },
+      "Jul": {
+        "sourceSheet": "Jul",
+        "deliveryDate": "2026-07-01",
+        "deliveryHour": 1,
+        "deliveryInterval": 1,
+        "ASType": "ECRS",
+        "MCPC": "0.25",
+        "repeatHourFlag": false
+      },
+      "Aug": {
+        "sourceSheet": "Aug",
+        "deliveryDate": "2026-08-01",
+        "deliveryHour": 1,
+        "deliveryInterval": 1,
+        "ASType": "ECRS",
+        "MCPC": "0.27",
+        "repeatHourFlag": false
+      },
+      "Sep": {
+        "sourceSheet": "Sep",
+        "deliveryDate": "2026-09-01",
+        "deliveryHour": 1,
+        "deliveryInterval": 1,
+        "ASType": "ECRS",
+        "MCPC": "0.64",
+        "repeatHourFlag": false
+      }
+    }
+  },
+  {
+    "endpoint": "np6-796-er/clearing_prices",
+    "fixture": "np6-796-er-history-samples.xlsx",
+    "file": "rpt.00025570.0000000000000000.20251207.100005.HIST_15Min_RTM_MCPC_2025.xlsx",
+    "sheet_rows": {
+      "Dec": 960
+    },
+    "source_folder": "history-samples",
+    "rows_decoded": 960,
+    "first_rows": {
+      "Dec": {
+        "sourceSheet": "Dec",
+        "deliveryDate": "2025-12-05",
+        "deliveryHour": 1,
+        "deliveryInterval": 1,
+        "ASType": "ECRS",
+        "MCPC": "0.67",
+        "repeatHourFlag": false
+      }
+    }
+  }
+]
