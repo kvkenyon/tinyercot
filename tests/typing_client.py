@@ -90,3 +90,9 @@ with Client() as client:
     for solar_interval in client.np4_752_cd.ih_solar_fcast_geo_history.rows():
         assert_type(solar_interval.intervalEnding, datetime | None)
         assert_type(solar_interval.value, Decimal | None)
+
+    for factor in client.np5_527_cd.druc_as_deploy_factors_history.rows():
+        assert_type(factor.RUCTimestamp, datetime | None)
+        assert_type(factor.deliveryDate, date | None)
+        assert_type(factor.deliveryHour, str | None)
+        assert_type(factor.ASDeploymentFactors, Decimal | None)

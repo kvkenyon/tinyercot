@@ -1,0 +1,4 @@
+DeliveryDate,HourEnding,ASType,ASDeploymentFactors,RepeatedHourFlag
+12/06/2025,01:00,ECRS,0.04,N
+12/06/2025,01:00,NSPIN,0.15,N
+12/06/2025,01:00,REGDN,0.25,N
