@@ -223,3 +223,42 @@ def test_capacity_workbooks_preserve_capped_and_legacy_prices():
     assert current.ASType == "ECRS"
     assert capacity.CapREGUPTotal == Decimal("17673.1866")
     assert capacity.CapREGUP_RRS_ECRS_NSPINTotal == Decimal("39745.3392")
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "fuel-paths-evidence.json").read_text()),
+    ids=lambda s: s["fixture"],
+)
+def test_fuel_and_path_archive_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")), method + "_history"
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == 3
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_path_adders_preserve_dates_and_signed_coefficients():
+    with Client() as client:
+        row = next(
+            client.np7_535_sg.path_adders_history.read(
+                zipped(
+                    "MAY2026.CSV",
+                    (INPUTS / "np7-535-sg-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+    assert row.targetDate == date(2026, 4, 1)
+    assert row.startDate == date(2026, 5, 1)
+    assert row.source == "HHOLLW4_WND1"
+    assert row.sink == "CHISMGRD_RN"
+    assert row.timeOfUse == "Off-peak"
+    assert row.ACI99 == Decimal("-2.9138")
+    assert row.ACP == Decimal("-1.0881")

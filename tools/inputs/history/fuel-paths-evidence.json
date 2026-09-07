@@ -1,0 +1,66 @@
+[
+  {
+    "endpoint": "np4-494-er/fuel_cost_submissions",
+    "file": "1271630534.rpt.00024276.0000000000000000.20260907.090038.ExceptionalFuelCost_090626.xlsx",
+    "fixture": "np4-494-er-history-current.xlsx",
+    "source_folder": "history-current",
+    "rows": 27,
+    "rows_decoded": 27,
+    "first_row": {
+      "sourceSheet": "Exceptional Fuel Cost Data",
+      "deliveryDate": "2026-09-06",
+      "deliveryHour": 1,
+      "resourceCount": 2
+    }
+  },
+  {
+    "endpoint": "np7-535-sg/path_adders",
+    "file": "OCT2026_MonthlyPathSpecificAdders.CSV",
+    "fixture": "np7-535-sg-history-current.csv",
+    "source_folder": "history-current",
+    "rows": 9708,
+    "rows_decoded": 9708,
+    "first_row": {
+      "targetDate": "2026-09-01",
+      "source": "INDNENR_2_RN",
+      "sink": "MAVCRK_W_ALL",
+      "timeOfUse": "PeakWE",
+      "startDate": "2026-10-01",
+      "ACI99": "-25.0135",
+      "ACP": "-13.8052"
+    },
+    "xml_rows_compared": 9708
+  },
+  {
+    "endpoint": "np4-494-er/fuel_cost_submissions",
+    "file": "1171555991.rpt.00024276.0000000000000000.20251215.090039150.ExceptionalFuelCost_121425.xlsx",
+    "fixture": "np4-494-er-history-samples.xlsx",
+    "source_folder": "history-samples",
+    "rows": 16,
+    "rows_decoded": 16,
+    "first_row": {
+      "sourceSheet": "Exceptional Fuel Cost Data",
+      "deliveryDate": "2025-12-14",
+      "deliveryHour": 12,
+      "resourceCount": 2
+    }
+  },
+  {
+    "endpoint": "np7-535-sg/path_adders",
+    "file": "MAY2026_MonthlyPathSpecificAdders.CSV",
+    "fixture": "np7-535-sg-history-samples.csv",
+    "source_folder": "history-samples",
+    "rows": 9482,
+    "rows_decoded": 9482,
+    "first_row": {
+      "targetDate": "2026-04-01",
+      "source": "HHOLLW4_WND1",
+      "sink": "CHISMGRD_RN",
+      "timeOfUse": "Off-peak",
+      "startDate": "2026-05-01",
+      "ACI99": "-2.9138",
+      "ACP": "-1.0881"
+    },
+    "xml_rows_compared": 9482
+  }
+]
