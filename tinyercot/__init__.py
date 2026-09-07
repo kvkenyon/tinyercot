@@ -9,6 +9,7 @@ from ._history import Archive as Archive
 from ._legacy_load import LegacyHourlyLoad as LegacyHourlyLoad
 from ._load import LoadArchive as LoadArchive
 from ._load import WeatherZoneLoad as WeatherZoneLoad
+from ._load_outlook import LoadOutlook as LoadOutlook
 from ._pdf import PdfArchive as PdfArchive
 from ._pdf import PdfChartArchive as PdfChartArchive
 from ._wind import WindArchive as WindArchive

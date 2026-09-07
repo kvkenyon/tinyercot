@@ -204,10 +204,27 @@ Legacy date bounds are applied to file contents after considering all older
 files: the file labelled 1996 continues into February 1997, and the ZIP labelled
 1997 contains 1996 records. System totals, individual control areas and
 load-serving entities are not added together or mapped to modern weather zones.
-These readers decode hourly measurements; companion forecasts and separate
-workbook summary tables remain outside their scope. See
+See
 `tools/inputs/public-legacy-hourly-load-evidence.json` for the source checks and
 EEI format reference.
+
+The companion annual/monthly outlook and summary tables have a separate typed
+reader, using the same `tinyercot[files]` extra:
+
+```python
+with Client(timeout=120) as ercot:
+    for value in ercot.hourly_load.outlook(year_from=1999, year_to=1999):
+        print(value.entity, value.periodLabel, value.status, value.value, value.unit)
+```
+
+`outlook()` discovers the five linked source archives/workbooks and filters their
+contents by inclusive target start year. Without bounds it yields all 2,087 values,
+with target years 1996–2010. `read_outlook(data, filename=...)` reads saved files.
+Actual, reporting-year, next-year and projected values retain their source labels;
+these labels do not establish publication dates. Winter spans such as `1999/00`
+retain both years. Printed MW, MWh and GWh units are preserved without rescaling;
+unlabelled units and measures remain explicit. See
+`tools/inputs/public-load-outlook-evidence.json` for source comparisons.
 
 ### Direct public wind archives
 
