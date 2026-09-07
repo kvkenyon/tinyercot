@@ -222,3 +222,12 @@ with Client() as client:
         assert_type(cop_update.submitTime, datetime | None)
         assert_type(cop_update.RRS, Decimal | None)
         assert_type(cop_update.cancelFlag, bool | None)
+
+    for sced_resource in client.np3_965_er._60_sced_gen_res_data_history.rows():
+        assert_type(sced_resource.resourceName, str | None)
+        assert_type(sced_resource.SCED1CurveMW1, Decimal | None)
+    for self_arranged in client.np3_965_er._60_sced_qse_self_arranged_as_history.rows():
+        assert_type(self_arranged.RRSGN, Decimal | None)
+        assert_type(self_arranged.RRSPFR, Decimal | None)
+    for cap_override in client.np3_965_er._60d_sced_as_cap_man_override_history.rows():
+        assert_type(cap_override.startTime, datetime | None)

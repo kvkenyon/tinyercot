@@ -1551,3 +1551,71 @@ def test_cop_update_timestamps_and_revisions_are_preserved():
     assert revisions[0].RRS == Decimal(0)
     assert revisions[0].RRSPFR is None
     assert latest.cancelFlag is False
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "sced-disclosure-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_sced_disclosure_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    if rows:
+        assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_sced_disclosure_keeps_legacy_services_and_override_values():
+    with Client() as client:
+        legacy = next(
+            client.np3_965_er._60_sced_qse_self_arranged_as_history.read(
+                zipped(
+                    "60d_SCED_QSE_Self_Arranged_AS-01-MAY-14.csv",
+                    (
+                        INPUTS
+                        / "np3-965-er--60_sced_qse_self_arranged_as-history-samples.csv"
+                    ).read_bytes(),
+                )
+            )
+        )
+        override = next(
+            client.np3_965_er._60_hdl_ldl_man_override_history.read(
+                zipped(
+                    "60d_HDL_LDL_ManOverride-07-JUN-24.csv",
+                    (
+                        INPUTS
+                        / "np3-965-er--60_hdl_ldl_man_override-history-hdl-override.csv"
+                    ).read_bytes(),
+                )
+            )
+        )
+        capability = next(
+            client.np3_965_er._60d_sced_as_cap_man_override_history.read(
+                zipped(
+                    "60d_AS_Capability_ManOverride-14-JUN-26.csv",
+                    (
+                        INPUTS
+                        / "np3-965-er--60d_sced_as_cap_man_override-history-as-override.csv"
+                    ).read_bytes(),
+                )
+            )
+        )
+    assert legacy.RRSGN == Decimal(12)
+    assert legacy.RRSNC == Decimal(45)
+    assert legacy.RRSPFR is None
+    assert override.HDLOriginal == Decimal("95.13999938")
+    assert override.HDLManual == Decimal(0)
+    assert override.LDLManual == Decimal(160)
+    assert capability.startTime is not None
+    assert capability.startTime.isoformat() == "2026-04-15T12:03:39"
+    assert capability.ASType == "REGDN"

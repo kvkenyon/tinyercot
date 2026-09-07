@@ -408,3 +408,10 @@ separate; the reader accepts the explicitly mapped minute and second formats.
 Cancellation flags and all revisions remain as published. Legacy combined `RRS`
 remains separate from newer response categories. Applications must select the
 appropriate revision themselves; the reader does not collapse updates.
+
+Sixty-day SCED disclosures (NP3-965) have eleven typed historical readers,
+covering generation, load, storage, offer curves, updates, manual overrides,
+self-arranged services and legacy demand-side response loads. Readers select
+individual tables from the shared archive. Older QSE/DME fields may be absent,
+and legacy `RRSGN`, `RRSLD`, `RRSNC` quantities remain separate from newer service
+categories. Curve points and reported revisions remain as published.
