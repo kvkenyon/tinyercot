@@ -505,6 +505,15 @@ file count matched an independent CSV row count. These files needed no reader
 changes. See `tools/inputs/history/annual-dam-solar-evidence.json` for publication
 queries, document IDs, source hashes and counts.
 
+Annual 2015–2025 energy-curve and solar checks matched all 324 CSV members to
+generated readers. The aggregate controllable-load reader accepts the older
+`Aggr` filename spelling, including header-only files, while excluding regional
+tables. Solar history accepts the intermediate delivery-date/hour layout with
+`ACTUAL_SYSTEM_WIDE`. All 4,970,040 rows in the 20 selected controllable-load and
+solar tables decoded, with independent CSV counts matching. Other curve tables
+were checked only through their headers and first three rows. Publication IDs,
+hashes and scope are recorded in `tools/inputs/history/annual-curves-solar-evidence.json`.
+
 The latest checks for NP6-569, NP6-655 and NP6-913 returned no archives or bundles.
 Their typed catalog/document operations remain usable, but no historical row
 schema is inferred from absent files. Point-in-time listing evidence is recorded

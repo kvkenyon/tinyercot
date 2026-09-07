@@ -2184,6 +2184,15 @@
         "STPPF_SYSTEM_WIDE": "STPPFSystemWide",
         "PVGRPP_SYSTEM_WIDE": "PVGRPPSystemWide",
         "DSTFlag": "DSTFlag"
+      },
+      {
+        "DELIVERY_DATE": "deliveryDate",
+        "HOUR_ENDING": "hourEnding",
+        "ACTUAL_SYSTEM_WIDE": "genSystemWide",
+        "COP_HSL_SYSTEM_WIDE": "COPHSLSystemWide",
+        "STPPF_SYSTEM_WIDE": "STPPFSystemWide",
+        "PVGRPP_SYSTEM_WIDE": "PVGRPPSystemWide",
+        "DSTFlag": "DSTFlag"
       }
     ],
     "fields": {
@@ -6006,7 +6015,7 @@
     }
   },
   "np3-908-er/2d_agg_edc_clr": {
-    "member": "*_Agg_Energy_Demand_Curves_CLR-[0-9]*.csv",
+    "member": "*_Energy_Demand_Curves_CLR-[0-9]*.csv",
     "columns": {
       "SCED Time Stamp": "SCEDTimestamp",
       "Repeated Hour Flag": "repeatHourFlag",
