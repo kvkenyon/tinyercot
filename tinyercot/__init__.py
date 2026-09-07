@@ -19,3 +19,4 @@ from ._pdf import PdfChartArchive as PdfChartArchive
 from ._wind import WindArchive as WindArchive
 from ._wind import WindDailyValues as WindDailyValues
 from ._xlsx import WorkbookArchive as WorkbookArchive
+from ._zonal_generation import ScheduledGeneration as ScheduledGeneration
