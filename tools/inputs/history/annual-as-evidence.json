@@ -1,0 +1,1845 @@
+{
+  "scope": "One January publication per year where listed in 2015 through 2025. Every CSV header and up to three rows matched a generated reader. All ancillary-service disclosure rows were decoded and compared with independent CSV row counts. COP updates were checked only through headers and up to three rows. Empty January COP listings before 2020 and reused January 2020 observations are recorded. This is not proof of continuous retention, all historical layouts or numerical correctness of every field.",
+  "csvFilesWithExactlyOneReader": 214,
+  "fullyDecodedAncillaryServiceFiles": 208,
+  "fullyDecodedAncillaryServiceRows": 89849,
+  "formats": {
+    ".zip": 17,
+    ".csv": 214
+  },
+  "samples": [
+    {
+      "year": 2015,
+      "product": "NP3-911-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2015-01-01T00:00:00",
+        "postDatetimeTo": "2015-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 471247194,
+        "friendlyName": "48_Hour_AS_Disclosure",
+        "postDatetime": "2015-01-31T03:07:32"
+      },
+      "source": "work/history-annual-as-2015/NP3-911-ER.zip",
+      "zipSha256": "f44a04b111310408bf605d8422ba5e21a9c78d3147cda363fa540f9b61c8d572",
+      "files": [
+        {
+          "member": "48h_Cleared_DAM_AS_RRSLOAD-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsload",
+          "csvSha256": "7e8c1da675c3461a538037889f261c7be1750dc0cc212aceb30d9a31c7873c3d",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Cleared_DAM_AS_RRSGEN-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsgen",
+          "csvSha256": "221942297c4fc5359e4b698dfac17ea38d79b3af7876bade4a8ae0a3b450cfe6",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Cleared_DAM_AS_NSPIN-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_nspin",
+          "csvSha256": "362c8a99074da7e39e5e3e8aa92371e667a776eaf85381bf2dd4af8366bdc51c",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Cleared_DAM_AS_REGDN-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regdn",
+          "csvSha256": "314fda8504310a5c5726c129ec5c53e43af8ed697aa2ac5e8f27713e357bdcb4",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Cleared_DAM_AS_REGUP-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regup",
+          "csvSha256": "ef0f9df8ac2403d1987eb475f24032852e58a3be9d9423ef1a10cc941897e050",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_RRSLOAD-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsload",
+          "csvSha256": "d549aae9b19e7d38edda685807a042f4d1da3af503aaeba4763b33e36be38699",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_RRSGEN-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsgen",
+          "csvSha256": "dd26913063712200f2d5b16875a8649cfa4ed6c07d1b1f0399cb72fb300ad93f",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_NSPIN-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspin",
+          "csvSha256": "a63938d0779632bbded96a7b586e85b2271a510a0bf7951df6de9ad7daa8ff06",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_REGDN-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regdn",
+          "csvSha256": "28bb0d6bca592b063e5a755d138d66ce9bc7c58e3c175228541459351eb440d1",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_REGUP-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regup",
+          "csvSha256": "d65898daf27477bbb5db8d22355d0f4824592b47802894fb10c8ec1ad4e11012",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Agg_AS_Offers_RRSNC-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsnc",
+          "csvSha256": "dde08988bdfc462c9d09543e922d82e41790519d2fea171d25d762d32ade38dd",
+          "sourceRows": 321,
+          "decodedRows": 321
+        },
+        {
+          "member": "48h_Agg_AS_Offers_RRSLD-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsld",
+          "csvSha256": "70088585691715ed7542b03489059bd60326b77f72d90f30b60bb0207cb3e326",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "48h_Agg_AS_Offers_RRSGN-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsgn",
+          "csvSha256": "318fce3db5d2cf24ae76283c9cb663b11860399de24d17dfb1f69825160f01cc",
+          "sourceRows": 1207,
+          "decodedRows": 1207
+        },
+        {
+          "member": "48h_Agg_AS_Offers_OFFNS-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_offns",
+          "csvSha256": "dddaf509658280bf18a8e528960fc2e5c3cb13f38a5c659924fe962ee8471428",
+          "sourceRows": 461,
+          "decodedRows": 461
+        },
+        {
+          "member": "48h_Agg_AS_Offers_ONNS-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_onns",
+          "csvSha256": "0975d97b2809cf86696864eba5780bae5f983a629d6c7a776d8db1390bc55968",
+          "sourceRows": 846,
+          "decodedRows": 846
+        },
+        {
+          "member": "48h_Agg_AS_Offers_REGDN-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regdn",
+          "csvSha256": "c6c67a9ae670eb6d072fe3640edea89e112e7d6f64277901682659796c13af2d",
+          "sourceRows": 1471,
+          "decodedRows": 1471
+        },
+        {
+          "member": "48h_Agg_AS_Offers_REGUP-31-JAN-15.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regup",
+          "csvSha256": "7905b1670d65f14283acc576d44819e7746ef00da3631e124112bcb8932d4904",
+          "sourceRows": 1083,
+          "decodedRows": 1083
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "product": "NP3-991-EX",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2015-01-01T00:00:00",
+        "postDatetimeTo": "2015-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2016,
+      "product": "NP3-911-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2016-01-01T00:00:00",
+        "postDatetimeTo": "2016-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 508454718,
+        "friendlyName": "48_Hour_AS_Disclosure",
+        "postDatetime": "2016-01-31T03:13:33"
+      },
+      "source": "work/history-annual-as-2016/NP3-911-ER.zip",
+      "zipSha256": "d4d4cba45331d57e5c4abd354183c7286dd2618ea8a2782ae78881c274bbd1fe",
+      "files": [
+        {
+          "member": "48h_Cleared_DAM_AS_RRSLOAD-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsload",
+          "csvSha256": "0bd6fc0197a3ae5cf9a08f236d48162375fa91f49b0e25a7ef870188d8718d3f",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Cleared_DAM_AS_RRSGEN-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsgen",
+          "csvSha256": "c476179320f7dab3f1d951562d552a4c4bca55d478221cd554389411b8caa2e9",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Cleared_DAM_AS_NSPIN-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_nspin",
+          "csvSha256": "a876412ff5a37adff21a40e40f7f98195b30399781ef187ae2aa2dcbd9a48aa2",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Cleared_DAM_AS_REGDN-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regdn",
+          "csvSha256": "d42f23d36f4bc480a66419ebd11ed91bd354eb82f5426389e12898e6a5ae803b",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Cleared_DAM_AS_REGUP-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regup",
+          "csvSha256": "0e06c10437e31c6fa55e31f3af7387e35448c1433f86bc1b5a80a65f505debff",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_RRSLOAD-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsload",
+          "csvSha256": "ac6a105f84c02cc284b5e01ee0677bcada0e1b7bf87436e1a661567811261a3b",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_RRSGEN-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsgen",
+          "csvSha256": "2a8bd25f1fc4697a00360975c1becb1dbf955354d37bae51b5481144ff8ec918",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_NSPIN-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspin",
+          "csvSha256": "c8d75d41028c8e279b199b84a279079fceb72296f8be394f6b7f429db245b96b",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_REGDN-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regdn",
+          "csvSha256": "b3a0b33d24033f196803dc09a3c3bf51c78b72c1675fa206ea7e2f88bbf663ff",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_REGUP-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regup",
+          "csvSha256": "b39961cd478aafc1f6221a700c100a71ca7d3c01f96290b073ac45a421f1331f",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Agg_AS_Offers_RRSNC-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsnc",
+          "csvSha256": "325a736b13a77b32830175906610189dc5b13edbb289169469b54b08c2f9ac39",
+          "sourceRows": 132,
+          "decodedRows": 132
+        },
+        {
+          "member": "48h_Agg_AS_Offers_RRSLD-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsld",
+          "csvSha256": "70088585691715ed7542b03489059bd60326b77f72d90f30b60bb0207cb3e326",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "48h_Agg_AS_Offers_RRSGN-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsgn",
+          "csvSha256": "a1568a9de7f1e1bfd379fa8707bc8af508c0ec0db4d64b6dfe1d4bfea008e5e3",
+          "sourceRows": 1248,
+          "decodedRows": 1248
+        },
+        {
+          "member": "48h_Agg_AS_Offers_OFFNS-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_offns",
+          "csvSha256": "bee7e4415d172155a64f452e4124d0d07d0d8774237f277786dd7a6fc6561bf7",
+          "sourceRows": 1257,
+          "decodedRows": 1257
+        },
+        {
+          "member": "48h_Agg_AS_Offers_ONNS-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_onns",
+          "csvSha256": "a493487ca57b7045c345d7bc7f965fbf35ab8995001d1b88a16db0e97de1570c",
+          "sourceRows": 727,
+          "decodedRows": 727
+        },
+        {
+          "member": "48h_Agg_AS_Offers_REGDN-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regdn",
+          "csvSha256": "6aa9b16691bd4e3cf9a738be8e59b2527d14cd171f3739bfdb2dac7ff2c14688",
+          "sourceRows": 1579,
+          "decodedRows": 1579
+        },
+        {
+          "member": "48h_Agg_AS_Offers_REGUP-31-JAN-16.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regup",
+          "csvSha256": "26e50b745d41b431ab63801411c55d8d154997cc00f114a4f501eabab516e977",
+          "sourceRows": 1220,
+          "decodedRows": 1220
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "product": "NP3-991-EX",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2016-01-01T00:00:00",
+        "postDatetimeTo": "2016-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2017,
+      "product": "NP3-911-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2017-01-01T00:00:00",
+        "postDatetimeTo": "2017-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 550571473,
+        "friendlyName": "48_Hour_AS_Disclosure",
+        "postDatetime": "2017-01-31T03:19:57"
+      },
+      "source": "work/history-annual-as-2017/NP3-911-ER.zip",
+      "zipSha256": "ba41eff96b5a0834cdf858d48af146184eceadbddd80be03009c656154a7c0cd",
+      "files": [
+        {
+          "member": "48h_Cleared_DAM_AS_RRSLOAD-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsload",
+          "csvSha256": "d97bd88dca35558ecbcaf94abba008e6440cf1306bc0ed262c0ca5cab9678303",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Cleared_DAM_AS_RRSGEN-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsgen",
+          "csvSha256": "9708a865391802ef0e1facad6a08ebb1892e8500af43e0cbbb591c17b842e639",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Cleared_DAM_AS_NSPIN-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_nspin",
+          "csvSha256": "bf541f62f4b0f18f707c662eae3b18276c4bd9a9a10a178227a501eb41302db3",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Cleared_DAM_AS_REGDN-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regdn",
+          "csvSha256": "eb26d6411795fbe8324e566580d30c1acc38e8c45c877e4ee2780d9ad454fe38",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Cleared_DAM_AS_REGUP-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regup",
+          "csvSha256": "6c73c5d7269e14bd41c898b4490344dc1856db9ed88c087bbbf2d9e6e8feb0fd",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_RRSLOAD-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsload",
+          "csvSha256": "a3ca10acde9ac5d3dca0895bd4b46084055ab68c5b1e19943fa6a68c547afc2d",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_RRSGEN-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsgen",
+          "csvSha256": "ea6d70ab98fb19fef2f939dfcaad0ea7362aeba750dba0c3fd541f17aa6a7d78",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_NSPIN-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspin",
+          "csvSha256": "46573bb7bd46913f6be696f013f3e63acfa00bc3295a3a5c3d0aa8d3fcfc148b",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_REGDN-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regdn",
+          "csvSha256": "cce456ab666465fc00736d7187845f8a0709924264dc021049d1050ff78284a7",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Self_Arranged_AS_REGUP-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regup",
+          "csvSha256": "1c7c02e6d5eda37d32b2538412eea03e0875ed45d1f7f6ff6ef4cea977b011a0",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "48h_Agg_AS_Offers_RRSNC-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsnc",
+          "csvSha256": "f011d63e9a1185ad29e900103372e06c73d2ab6d69ab924609c16c2f40efa2c2",
+          "sourceRows": 180,
+          "decodedRows": 180
+        },
+        {
+          "member": "48h_Agg_AS_Offers_RRSLD-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsld",
+          "csvSha256": "70088585691715ed7542b03489059bd60326b77f72d90f30b60bb0207cb3e326",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "48h_Agg_AS_Offers_RRSGN-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsgn",
+          "csvSha256": "9f78513f91cfea86aabb36f3d6584cb238c60c0c709bbf4ae5f82c080380ec34",
+          "sourceRows": 1516,
+          "decodedRows": 1516
+        },
+        {
+          "member": "48h_Agg_AS_Offers_OFFNS-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_offns",
+          "csvSha256": "a98c053cb893553aa4bcd8c3e0c1bb43fefb2635976d2b33ac2bbcc8d77f28ef",
+          "sourceRows": 603,
+          "decodedRows": 603
+        },
+        {
+          "member": "48h_Agg_AS_Offers_ONNS-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_onns",
+          "csvSha256": "c59f0fdadc342aced212d141f32bb1fc5bd8c7018a9ed1e29df3f9595d03cbc8",
+          "sourceRows": 533,
+          "decodedRows": 533
+        },
+        {
+          "member": "48h_Agg_AS_Offers_REGDN-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regdn",
+          "csvSha256": "026cf0bb11cfa302104d34521d36563b003888be2c6fe9bd6d732fbeca8ed47b",
+          "sourceRows": 1275,
+          "decodedRows": 1275
+        },
+        {
+          "member": "48h_Agg_AS_Offers_REGUP-31-JAN-17.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regup",
+          "csvSha256": "3394974de92b5108efb2a46ad89430f441316ae3529102054f5204e842e7905c",
+          "sourceRows": 1279,
+          "decodedRows": 1279
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "product": "NP3-991-EX",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2017-01-01T00:00:00",
+        "postDatetimeTo": "2017-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2018,
+      "product": "NP3-911-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2018-01-01T00:00:00",
+        "postDatetimeTo": "2018-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 596923456,
+        "friendlyName": "2_Day_AS_Disclosure",
+        "postDatetime": "2018-01-31T03:17:39"
+      },
+      "source": "work/history-annual-as-2018/NP3-911-ER.zip",
+      "zipSha256": "e1780b2d765fab568834c6d171c327148fe376782d76e60197bb794f989d4732",
+      "files": [
+        {
+          "member": "2d_Cleared_DAM_AS_RRSLOAD-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsload",
+          "csvSha256": "b03da5662e2b203d65d885f4cc2087eda40d6997801e433087b2ffc63aea6f3f",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSGEN-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsgen",
+          "csvSha256": "91b7431605a6885cb6d4820adc36cd3e9acc97e6dbbf9fb5fb1618be93582847",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_NSPIN-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_nspin",
+          "csvSha256": "c7b42740477d3740c82c3d536609dcee64daa509c8eac0ce1aec4fc41accc926",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGDN-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regdn",
+          "csvSha256": "063aadfbe250b73fa671f7ee0553ddd94b155fa8e541b764868b968abf56d615",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGUP-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regup",
+          "csvSha256": "a421d0947f89e023ea4e6cea529036cca7248f320c5ff79f65aa07cf4ff0120c",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSLOAD-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsload",
+          "csvSha256": "14237a5ca4e8ae8759da562d7a2a71a8807580e81912eda258405be4f0cbfc53",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSGEN-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsgen",
+          "csvSha256": "80181562b6e70525aac352049286b5d5bc04ccec526287f423a8c453e1fcdd6d",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_NSPIN-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspin",
+          "csvSha256": "ef8b163c206b9f2337cb484433d35352276823d97006df9c6ec3752223587156",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGDN-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regdn",
+          "csvSha256": "356c4de6185023cf5baaac9bf8a0d8f006153b8336578c373ad88275c2bc3d00",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGUP-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regup",
+          "csvSha256": "c5bf4731f86a5039b4da65555b047b39f0a1e80cd019722a026cccaf3db8d239",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSNC-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsnc",
+          "csvSha256": "7c6a40be92bdfa4720b2bfc7baef9e9ac0cbfb6b6c903afc7b3a70a0e025cfbb",
+          "sourceRows": 552,
+          "decodedRows": 552
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSLD-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsld",
+          "csvSha256": "70088585691715ed7542b03489059bd60326b77f72d90f30b60bb0207cb3e326",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSGN-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsgn",
+          "csvSha256": "b3e494a24421dfb4a5cb23b07e18eebc1c1234a9322908047bbe73221a337480",
+          "sourceRows": 1572,
+          "decodedRows": 1572
+        },
+        {
+          "member": "2d_Agg_AS_Offers_OFFNS-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_offns",
+          "csvSha256": "28536b3e68df63094a77ac8abc4bc59f8b84f042ac6030cf90263e5bb14441ef",
+          "sourceRows": 1449,
+          "decodedRows": 1449
+        },
+        {
+          "member": "2d_Agg_AS_Offers_ONNS-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_onns",
+          "csvSha256": "ce03c8f6eb4ad78e13280c2532717b14c9bea34d4d93245f29ae266ec3c4e2cf",
+          "sourceRows": 665,
+          "decodedRows": 665
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGDN-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regdn",
+          "csvSha256": "ae91743ba2a2ee4956f04d85e6178613558edb475efc8b01322a7b2967981713",
+          "sourceRows": 1390,
+          "decodedRows": 1390
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGUP-31-JAN-18.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regup",
+          "csvSha256": "d1bf38437a5c64d8cee95d54835662eb226734dcfb6d5ebf3fce704218e1a3aa",
+          "sourceRows": 1291,
+          "decodedRows": 1291
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "product": "NP3-991-EX",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2018-01-01T00:00:00",
+        "postDatetimeTo": "2018-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2019,
+      "product": "NP3-911-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2019-01-01T00:00:00",
+        "postDatetimeTo": "2019-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 646659128,
+        "friendlyName": "2_Day_AS_Disclosure",
+        "postDatetime": "2019-01-31T03:09:23"
+      },
+      "source": "work/history-annual-as-2019/NP3-911-ER.zip",
+      "zipSha256": "4386c676fa3dff867d2e9741435a9888340d65281ec8a59453bfcf939e32b637",
+      "files": [
+        {
+          "member": "2d_Cleared_DAM_AS_RRSLOAD-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsload",
+          "csvSha256": "02a2688fb7ad47c8fb443efeebc51ed59f07a3344c3fe59846993f4e52879716",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSGEN-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsgen",
+          "csvSha256": "bfab6950f09f374a08edb955e87884dcf0149211a09b970f6ec94d5aabc600bc",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_NSPIN-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_nspin",
+          "csvSha256": "8f2cd214462900c61fa245c05c96bb3fb79dee393df57d4396015b36aa135dfa",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGDN-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regdn",
+          "csvSha256": "0ec0cda2f122cb4cfd61ae1cddf4c6e8216867f6000aaca7f020beeac8a6ab20",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGUP-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regup",
+          "csvSha256": "9f58ec14da8768fdcc68bf26963c3b10793980bfb3dd4224259ca105af27d6d7",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSLOAD-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsload",
+          "csvSha256": "9f897df8339c1f4598ac186f59596a54bdcb555e8f3f8621fe166b388193e591",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSGEN-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsgen",
+          "csvSha256": "d0c79ee409d3c54713f75c1bd141c321005ea546bdece892cdd03137ba2521dc",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_NSPIN-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspin",
+          "csvSha256": "78f1e425a00106ccbb7948c53d9e5d15af894a3f345e7567e29211bd41217120",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGDN-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regdn",
+          "csvSha256": "f2c64aae393b909e7676a3d9ba46b8d4462634d3115f6faf0e7260fb78772c6c",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGUP-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regup",
+          "csvSha256": "5c9db0c0f0caa2f757b39c59cde57b698f3fcb07c1b46666c950190b3832d95f",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSNC-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsnc",
+          "csvSha256": "dbf895a250db47dcef693f2f28184317deba7f8a51cd37a97833ca2ce52cec7b",
+          "sourceRows": 120,
+          "decodedRows": 120
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSLD-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsld",
+          "csvSha256": "70088585691715ed7542b03489059bd60326b77f72d90f30b60bb0207cb3e326",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSGN-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsgn",
+          "csvSha256": "321bb08766b35da688b7d561198557a082fd44b719aaf4801435f03178dd6f1a",
+          "sourceRows": 1628,
+          "decodedRows": 1628
+        },
+        {
+          "member": "2d_Agg_AS_Offers_OFFNS-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_offns",
+          "csvSha256": "c923ba0783a86b34216a446ed8c14fc3a27de57d8ab1971953a115b27eba9d43",
+          "sourceRows": 1553,
+          "decodedRows": 1553
+        },
+        {
+          "member": "2d_Agg_AS_Offers_ONNS-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_onns",
+          "csvSha256": "e6a7c7b6d63160aceceb318a3d08bc3e4be9cb7a1486adcb4f9c6a5b9fc3f1f2",
+          "sourceRows": 734,
+          "decodedRows": 734
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGDN-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regdn",
+          "csvSha256": "6a9c40ce74770eb39062d215bd7b9f68b2aa776139268e2fe1c1bc1630a877b5",
+          "sourceRows": 2232,
+          "decodedRows": 2232
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGUP-31-JAN-19.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regup",
+          "csvSha256": "556b8ffdf0f30fedc822ca783cefcb0fa048244058c0811327159281fa84034e",
+          "sourceRows": 1485,
+          "decodedRows": 1485
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "product": "NP3-991-EX",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2019-01-01T00:00:00",
+        "postDatetimeTo": "2019-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2020,
+      "product": "NP3-911-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2020-01-01T00:00:00",
+        "postDatetimeTo": "2020-02-01T00:00:00"
+      },
+      "listingReusedFrom": "history-middle-listings.json",
+      "document": {
+        "docId": 698693027,
+        "friendlyName": "2_Day_AS_Disclosure",
+        "postDatetime": "2020-01-31T03:19:42"
+      },
+      "source": "work/history-middle-2020/NP3-911-ER.zip",
+      "zipSha256": "a1d5ab1a85c45f31313550fc0fe3f47d32c5f658de15fe14fa53bfa33def950c",
+      "files": [
+        {
+          "member": "2d_Cleared_DAM_AS_RRSLOAD-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsload",
+          "csvSha256": "1f6ba851425ccba1878d2bb93649f3de50eb1603dd81601d1f330403480f1632",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSGEN-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsgen",
+          "csvSha256": "39c5f4818d8d2b8b2c8fabf2aed0e992e9ed536c8ed1d31b4a8b7a4e175dfd49",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_NSPIN-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_nspin",
+          "csvSha256": "7039ece87da5e6d05aa5077f8442386619d1e733c6fc4a3f13fa910491b5f3e4",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGDN-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regdn",
+          "csvSha256": "ee6b8ad7465f6bcaa0282312ce4283c6488966c5c104d6651efd1be94185e410",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGUP-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regup",
+          "csvSha256": "b36b1d285f60c4e01f06b58926012c442934f0c793242ccbb8799e2a3eab7894",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSLOAD-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsload",
+          "csvSha256": "252e1fdf8ecbebf9a0c16c097b72ddb9635be9504233c4703438818eee2169fe",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSGEN-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsgen",
+          "csvSha256": "71c1a645fbb973c527582cc4ac572401473a8a374c93ef40964b83856e36047c",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_NSPIN-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspin",
+          "csvSha256": "039203c50c4af4123f6d0d0c0fdae17a96a810e2a1a7688f4ecac411f6804670",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGDN-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regdn",
+          "csvSha256": "2520c874f85608b78bf688f0911d31ed3d0be48df9d745ab07f16df7b27882a6",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGUP-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regup",
+          "csvSha256": "f39c001b5e1f613a9886895dc0c0f35e6ccce8d6ccaa7d596c28c6299a14e5e3",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSNC-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsnc",
+          "csvSha256": "635b4625093bb87965a6b2aa13523245f1d39ab19d709261ba6a38ad1413e9b8",
+          "sourceRows": 48,
+          "decodedRows": 48
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSLD-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsld",
+          "csvSha256": "70088585691715ed7542b03489059bd60326b77f72d90f30b60bb0207cb3e326",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSGN-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsgn",
+          "csvSha256": "ac5f7561548d420dcf5264b9e1fe9a5c85f801b1cf957de99d0f978e542f021b",
+          "sourceRows": 1664,
+          "decodedRows": 1664
+        },
+        {
+          "member": "2d_Agg_AS_Offers_OFFNS-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_offns",
+          "csvSha256": "5fd6f2c6f1f0237f5ad789bfc07693ad380aa849ccc478f1f5a868e23c977044",
+          "sourceRows": 1266,
+          "decodedRows": 1266
+        },
+        {
+          "member": "2d_Agg_AS_Offers_ONNS-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_onns",
+          "csvSha256": "38e9d7b7301041743751cf8ce863d9cbac2b69b7ece8d8d7fcaaf05b6799ce1c",
+          "sourceRows": 514,
+          "decodedRows": 514
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGDN-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regdn",
+          "csvSha256": "57bbd96b67ade97432f3338f80cd2f6a990c7e2b74fb33ba22e07398d0d1340e",
+          "sourceRows": 1472,
+          "decodedRows": 1472
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGUP-31-JAN-20.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regup",
+          "csvSha256": "f687a50cfa5980ee59060c8b46f55d58661b2df8186b9dd795e583304bc4ad3f",
+          "sourceRows": 1412,
+          "decodedRows": 1412
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "product": "NP3-991-EX",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2020-01-01T00:00:00",
+        "postDatetimeTo": "2020-02-01T00:00:00"
+      },
+      "listingReusedFrom": "history-middle-listings.json",
+      "document": {
+        "docId": 698706908,
+        "friendlyName": "60_Day_COP_Disclosure",
+        "postDatetime": "2020-01-31T05:20:54"
+      },
+      "source": "work/history-middle-2020/NP3-991-EX.zip",
+      "zipSha256": "ec2249f31c7a3b53ae6d1b85f8ae954f36cb04e0e5a1e31b1756cc5856e3327b",
+      "files": [
+        {
+          "member": "60d_Complete_COP-31-JAN-20.csv",
+          "reader": "np3-991-ex/60_cop_all_updates"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "product": "NP3-911-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2021-01-01T00:00:00",
+        "postDatetimeTo": "2021-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 756220865,
+        "friendlyName": "2_Day_AS_Disclosure",
+        "postDatetime": "2021-01-31T03:32:20"
+      },
+      "source": "work/history-annual-as-2021/NP3-911-ER.zip",
+      "zipSha256": "69a9c8e18100415a588035b665ae3ff7ae4701c9ae45cea82cfc7a8c65809d61",
+      "files": [
+        {
+          "member": "2d_Agg_AS_Offers_REGUP-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regup",
+          "csvSha256": "cce25c98b86b8cfedaa3b469a9b80a0107e20d36b61c8842034f6b8824129032",
+          "sourceRows": 1345,
+          "decodedRows": 1345
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGDN-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regdn",
+          "csvSha256": "981d7470ab62f0bfcd36c8692d597fed10cd0df759f17be16d40b672f3e446e7",
+          "sourceRows": 1603,
+          "decodedRows": 1603
+        },
+        {
+          "member": "2d_Agg_AS_Offers_ONNS-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_onns",
+          "csvSha256": "483b39b7a6dd1713710730cf3d0dd3becf99b1a8ae698ecfe5d7a434a30b76c4",
+          "sourceRows": 620,
+          "decodedRows": 620
+        },
+        {
+          "member": "2d_Agg_AS_Offers_OFFNS-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_offns",
+          "csvSha256": "06ac997be9ca15957409ea2231aa091cc06a33a1108f032305dbd0dc199904ea",
+          "sourceRows": 1323,
+          "decodedRows": 1323
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSGN-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsgn",
+          "csvSha256": "3ff706e839baf117040185b44b12c19f83b2103b32e07a04c3364c240dcb8de6",
+          "sourceRows": 1592,
+          "decodedRows": 1592
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSLD-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsld",
+          "csvSha256": "bbd98ff82939f161c19610b5712566563b4c1088d0cc2fb1b407832fbe6f8040",
+          "sourceRows": 31,
+          "decodedRows": 31
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSNC-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsnc",
+          "csvSha256": "c557366ae0099fc368955101f3be9835fb8b14991c021c1680be2bdca2e8e177",
+          "sourceRows": 72,
+          "decodedRows": 72
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGUP-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regup",
+          "csvSha256": "69f4d1ab816760bb29295c35609ce6255a932da882b0ea41a8756114573fb96c",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGDN-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regdn",
+          "csvSha256": "fc2346dcfee11a7c2f4f33e79d5d9c12def88a3a346e5059fc2cab4611c3e644",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_NSPIN-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspin",
+          "csvSha256": "5b882de39618de52b0d3d3bce527a7f8398136236cf6c2cd5730aed74956c0c7",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSGEN-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsgen",
+          "csvSha256": "d33ea2d3479e862354ac0d93a80844d6cd1ffb44d43f7119eae5ee6d419a39bd",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSLOAD-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsload",
+          "csvSha256": "e6dcce5f3c4d5dfe719f5dff5d56890ba424f0a4fff4281251fee60f548f4b6e",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGUP-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regup",
+          "csvSha256": "b4f629841991d3bd48df2ceeeab07aaaa6291dbeb3f4abb0d831134432c84d1d",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGDN-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regdn",
+          "csvSha256": "226a231cd4a8416e79f563921a0488982f0caae7c52b5bbff436c52627a9f5dc",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_NSPIN-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_nspin",
+          "csvSha256": "4ccdfe0e8fa0e99bc99265336d786a79c08e7875adc1856b9bdbd060cf44b6f9",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSGEN-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsgen",
+          "csvSha256": "e17f1cb5c909d73c1965d43fb58416ccb111e376dc2bd387fea47996ac4efd8d",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSLOAD-31-JAN-21.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsload",
+          "csvSha256": "26315b2164e9052b3363cdb66dbbdcebbc72bd7bb06c628c50c1b435a0802d43",
+          "sourceRows": 24,
+          "decodedRows": 24
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "product": "NP3-991-EX",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2021-01-01T00:00:00",
+        "postDatetimeTo": "2021-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 756233846,
+        "friendlyName": "60_Day_COP_Disclosure",
+        "postDatetime": "2021-01-31T05:17:26"
+      },
+      "source": "work/history-annual-as-2021/NP3-991-EX.zip",
+      "zipSha256": "56969a5bd00fa59f87293e0bdca341ef0a64d096f736a8e8218f6d5fbdcf17bb",
+      "files": [
+        {
+          "member": "60d_Complete_COP-31-JAN-21.csv",
+          "reader": "np3-991-ex/60_cop_all_updates"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "product": "NP3-911-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2022-01-01T00:00:00",
+        "postDatetimeTo": "2022-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 820357577,
+        "friendlyName": "2_Day_AS_Disclosure",
+        "postDatetime": "2022-01-31T03:24:03"
+      },
+      "source": "work/history-annual-as-2022/NP3-911-ER.zip",
+      "zipSha256": "823685b4b57b2bbf577c4b91e6b95c2d796719c277f0af0cf5a0305292ae3d2d",
+      "files": [
+        {
+          "member": "2d_Agg_AS_Offers_REGUP-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regup",
+          "csvSha256": "238ec0f107f0cbddee6c882a8a611b6d8d7f33448e9553f000a724ab49a0e0b0",
+          "sourceRows": 2123,
+          "decodedRows": 2123
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGDN-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regdn",
+          "csvSha256": "2fd67a4f5e74c6343d42dbad0d4dc4405d918fa145b893e4be127f9386c38a75",
+          "sourceRows": 2057,
+          "decodedRows": 2057
+        },
+        {
+          "member": "2d_Agg_AS_Offers_ONNS-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_onns",
+          "csvSha256": "83be578d693efddf0760879b0312d90e09dceddb9ef444c381b81b03115f02aa",
+          "sourceRows": 1147,
+          "decodedRows": 1147
+        },
+        {
+          "member": "2d_Agg_AS_Offers_OFFNS-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_offns",
+          "csvSha256": "a1b56f0008053f51485dca539fc34f8c6e18853307456ccbc965b7390e6fd60a",
+          "sourceRows": 2292,
+          "decodedRows": 2292
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSGN-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsgn",
+          "csvSha256": "c7f0777e5a29781811a76e0d793c8de8f15abfba92387506ba8d871510c313ed",
+          "sourceRows": 1842,
+          "decodedRows": 1842
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSLD-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsld",
+          "csvSha256": "94c539f5ff7a9e18b46dc1f77ac27b952352c17e3b3caa4b5d3356f87150c03e",
+          "sourceRows": 157,
+          "decodedRows": 157
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSNC-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsnc",
+          "csvSha256": "c74455cf096914ad82dc666593407d48b94a35170d25e3ab2143cee90fcfa7ec",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGUP-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regup",
+          "csvSha256": "cc0d7c6971d2b930ac28ea9fdb58bb1a91bab7d6a22cdf5bc2bcb251e19ea6a4",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGDN-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regdn",
+          "csvSha256": "1c80e0160e807aba78f396e3f733e7b4d93588f8cbf0fe9da4b21fdb3434fa7c",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_NSPIN-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspin",
+          "csvSha256": "cf9685a06342f75a6e51d979f83afb4b198e8772bf1fe8fdcf26bb3fbbcde559",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSGEN-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsgen",
+          "csvSha256": "7be8805e4e28960cae8652476b7d8254773ed6faaa940964bed9f2bfdec0f876",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSLOAD-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsload",
+          "csvSha256": "f048356b3a900ef809b7d44072bf5183ed33457f66066ec95760af313722df67",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGUP-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regup",
+          "csvSha256": "a0f8d022c790be188c149ae0c8a02a8e7ac8a19ccbf10b460a56f26ce7ec8239",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGDN-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regdn",
+          "csvSha256": "8a682f049e7900591b3b2173346ea2f406c19441aa4caeabf40c349adecbeab9",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_NSPIN-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_nspin",
+          "csvSha256": "74170e26895387e194a8910a6744b5b5d88ddf8286b4d7570bb6dfab005b53cc",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSGEN-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsgen",
+          "csvSha256": "1c80b9614ad675c9e2be071ee8cd9624c0c2e03f1a3eb86957640d40d27b6eb4",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSLOAD-31-JAN-22.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsload",
+          "csvSha256": "e2c90f0a1ec72ced76795956f21c16bde82338551586d649979be842d6ed025a",
+          "sourceRows": 24,
+          "decodedRows": 24
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "product": "NP3-991-EX",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2022-01-01T00:00:00",
+        "postDatetimeTo": "2022-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 820384216,
+        "friendlyName": "60_Day_COP_Disclosure",
+        "postDatetime": "2022-01-31T05:24:04"
+      },
+      "source": "work/history-annual-as-2022/NP3-991-EX.zip",
+      "zipSha256": "12846d74244b7e94af917b48cc4266bd79474e5a5423692e3ece2a05e61020c1",
+      "files": [
+        {
+          "member": "60d_Complete_COP-31-JAN-22.csv",
+          "reader": "np3-991-ex/60_cop_all_updates"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "product": "NP3-911-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-01-01T00:00:00",
+        "postDatetimeTo": "2023-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 892920211,
+        "friendlyName": "2_Day_AS_Disclosure",
+        "postDatetime": "2023-01-31T03:25:01.310000"
+      },
+      "source": "work/history-annual-as-2023/NP3-911-ER.zip",
+      "zipSha256": "004520ba80aebd28472394f29160be0e535cce905e18df2d5d33266ecb05749d",
+      "files": [
+        {
+          "member": "2d_Self_Arranged_AS_NSPNM-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspnm",
+          "csvSha256": "2c31a6e4ac302e8e3a21943baf6731fc1f7321ef4aac1671f53dda1328d9bb38",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSPFR-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrspfr",
+          "csvSha256": "4457aa933c8983a0e88bfbd4fabbc958c0f7e080938e05a817e300542cb0ffd3",
+          "sourceRows": 2346,
+          "decodedRows": 2346
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSUFR-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsufr",
+          "csvSha256": "9c82873eb2992fddd7a27b718be747c9d24d8ea9e4cec8be33a02f0634eac4a2",
+          "sourceRows": 29,
+          "decodedRows": 29
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSFFR-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsffr",
+          "csvSha256": "a964c706a743a7a36f4a4fa87c5368267bf7883c7af69ae859bfa29e50b521d4",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSPFR-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrspfr",
+          "csvSha256": "88d1dfa20496fe3098b687d06fe8a3ad8361c9addf5da2a31d7b54a36ab6c579",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSUFR-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsufr",
+          "csvSha256": "f03e387c0d34d864931b967ab59193ed01c145647a81bcf06cf2d1e25524abdd",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSFFR-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsffr",
+          "csvSha256": "472383eefd79dfbc6713042dc6ded1d6acfc1a8990f4edbbfb1a61d063e38d8e",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSPFR-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrspfr",
+          "csvSha256": "c6ab21944381bdb3cb0662f6eeefc312448f0367230240ad60b3b15c1362f213",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSUFR-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsufr",
+          "csvSha256": "a06e409299709467852bf831f2ddf493d0bcec361b984d93b199ad4363785bfe",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSFFR-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsffr",
+          "csvSha256": "4d7c0a5cb60435f9ad7968976759a646aff09a9a188d3505c0f37386d0c6347f",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGUP-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regup",
+          "csvSha256": "eb9a043b1c676f0fd5467719d16441ff8b12e25a5c83d95bb41411d8104c022e",
+          "sourceRows": 1776,
+          "decodedRows": 1776
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGDN-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regdn",
+          "csvSha256": "d8a83f19e0aa3dd672718359037a5931c82aefc008f440e94ef02489a2a4b505",
+          "sourceRows": 1802,
+          "decodedRows": 1802
+        },
+        {
+          "member": "2d_Agg_AS_Offers_ONNS-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_onns",
+          "csvSha256": "6f64134fdbcab65981d3ac868650db093d5bcde482dfcaf2afb96edc7c8f85ed",
+          "sourceRows": 968,
+          "decodedRows": 968
+        },
+        {
+          "member": "2d_Agg_AS_Offers_OFFNS-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_offns",
+          "csvSha256": "93f68df19bc0fb439840a76dc3e6e2412caf064e8d654a3a00be499d52625703",
+          "sourceRows": 1659,
+          "decodedRows": 1659
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGUP-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regup",
+          "csvSha256": "50cd30a497eb071340681067a75f25b4f8fb1c0fd9b6b7c0d052eeb15da3c79e",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGDN-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regdn",
+          "csvSha256": "c5584035ea882db8133ec21aeb808ecdb681ae5016218a708b0671287f376e2d",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_NSPIN-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspin",
+          "csvSha256": "59194968d377c14c01c3102fb594e8bea0b7f945346cc5f9e3b8110aa9c318e9",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGUP-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regup",
+          "csvSha256": "b3ceb93e659e8c451fea15f93fd58e5f79db37783aebf5ba53b002d2fe661aff",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGDN-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regdn",
+          "csvSha256": "eb0850501be69aaf8e21fae4f499216d613279132384e7216ab442b644929457",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_NSPIN-31-JAN-23.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_nspin",
+          "csvSha256": "64b2930ea4e7bff9c4b342dab8cff8bb9c5316564008b4064bdd38f49a9daad4",
+          "sourceRows": 24,
+          "decodedRows": 24
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "product": "NP3-991-EX",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-01-01T00:00:00",
+        "postDatetimeTo": "2023-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 892936514,
+        "friendlyName": "60_Day_COP_All_Updates",
+        "postDatetime": "2023-01-31T05:10:05.502000"
+      },
+      "source": "work/history-annual-as-2023/NP3-991-EX.zip",
+      "zipSha256": "b0251e9ff4bc819deb62b1fbace8d5598b957aba31c8b7e1a892430825060626",
+      "files": [
+        {
+          "member": "60d_COP_All_Updates-31-JAN-23.csv",
+          "reader": "np3-991-ex/60_cop_all_updates"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "product": "NP3-911-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-01-01T00:00:00",
+        "postDatetimeTo": "2024-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 977271304,
+        "friendlyName": "2_Day_AS_Disclosure",
+        "postDatetime": "2024-01-31T03:11:07"
+      },
+      "source": "work/history-annual-as-2024/NP3-911-ER.zip",
+      "zipSha256": "0dc5cc61140b6da9fa666e77b5e28f815a1c1204363b69cc4ac63ca082fc7936",
+      "files": [
+        {
+          "member": "2d_Self_Arranged_AS_NSPNM-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspnm",
+          "csvSha256": "34755a4d6e7620e4f8f9fcf3c7cffb0676dcd7ae34abe31d534f114db5b3444d",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSPFR-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrspfr",
+          "csvSha256": "11bb1c6714e0c44cbcae61038a629fbe1fa95e3a93891360af602e728310fb1d",
+          "sourceRows": 2502,
+          "decodedRows": 2502
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSUFR-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsufr",
+          "csvSha256": "5515b6b5ea216a895122c1267a5b4941fb5d32894219f2547e13049f8c3a68f9",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSFFR-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsffr",
+          "csvSha256": "688104dadbdcef7ffa71d80b45b141c21de48c7e9760bb11448768f8598f5101",
+          "sourceRows": 135,
+          "decodedRows": 135
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSPFR-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrspfr",
+          "csvSha256": "600c527679c9c08839a60195b8ca6645110fb1b94c9a24ab026849184bf5b354",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSUFR-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsufr",
+          "csvSha256": "d90f78324a3f5c6337d4ab89804a10b84629d148f1bc122e78f29a24dd0d85ca",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSFFR-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsffr",
+          "csvSha256": "d63eb0b596e076af5a0599fc465eb08ae095014ca0f80d4b0d5fa833de06d078",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSPFR-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrspfr",
+          "csvSha256": "a1472adca95a23b1f358763ba7ad8863d4fa5bb73e28fa50c4fe00e6cff3cdb4",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSUFR-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsufr",
+          "csvSha256": "4a01560f94261b9c1c67d0db8d76711487e20e15f286d5aaa19cf43f948110bb",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSFFR-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsffr",
+          "csvSha256": "4ebc529c032e4b7ae1e04ce9e2ad3e08ae444c5c3152ee9bf5e89d406e95d531",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_ECRSM-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_ecrsm",
+          "csvSha256": "1e9f053534b29fe347e52e7a317707fdafa0c8c1db4b8fd3670845d3b532abb7",
+          "sourceRows": 48,
+          "decodedRows": 48
+        },
+        {
+          "member": "2d_Agg_AS_Offers_ECRSS-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_ecrss",
+          "csvSha256": "b6ebf04cc614a4b9a461e6e08afa3c386426596392bca97d53216d73a3265e65",
+          "sourceRows": 2306,
+          "decodedRows": 2306
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_ECRSM-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_ecrsm",
+          "csvSha256": "c6c6801b41f2c8fd23a5a76746a5d60f9464e722f7c3833988207d237697f61e",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_ECRSS-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_ecrss",
+          "csvSha256": "0f980c7125a7898f131c0c23e6c502845c16c8d0b2b6d2add1664ac4b236f5d2",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_ECRSM-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_ecrsm",
+          "csvSha256": "7e40dad11e1bcf9e03652523b5a8f65225f9ccc96bd60413cd066b123129a860",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_ECRSS-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_ecrss",
+          "csvSha256": "a63b6cef54ca17fc9eb821a39d36f5cc0cf54f31dd50127f7edbf58c45314648",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGUP-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regup",
+          "csvSha256": "cd7b7f9fc0696cad4b71b8e746d03c7bb0f9d693a506795a173ec372c43f8abe",
+          "sourceRows": 1779,
+          "decodedRows": 1779
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGDN-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regdn",
+          "csvSha256": "24dacc717a2784f47d63867a0babf362aa1b0ee92f62502fd9c9be4394e60198",
+          "sourceRows": 2005,
+          "decodedRows": 2005
+        },
+        {
+          "member": "2d_Agg_AS_Offers_ONNS-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_onns",
+          "csvSha256": "da0c8ac7ea73f3d1b8033584c12bd8aad8facb382352732accd9bfbf205ebf3a",
+          "sourceRows": 650,
+          "decodedRows": 650
+        },
+        {
+          "member": "2d_Agg_AS_Offers_OFFNS-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_offns",
+          "csvSha256": "79741a96f70d12ffd9ed28706291fda6fe39a12c90da7402149e7c7a7fcb7d71",
+          "sourceRows": 1507,
+          "decodedRows": 1507
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGUP-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regup",
+          "csvSha256": "5433ac482340bb0548f462552e585239d9282280e2e361764ce08c610e286804",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGDN-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regdn",
+          "csvSha256": "8f05a49661c9f2ca3041db53e2b63d733e940d5b07b1854ccafa7c2fe59c7a0f",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_NSPIN-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspin",
+          "csvSha256": "0de16834b6143c0c7fa1de4d54b8af1c173d073891eaf2bbb20822daf09abf2b",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGUP-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regup",
+          "csvSha256": "088994b431c43267fdb63187950983600edee69487fa877fc1cbf7a586495f57",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGDN-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regdn",
+          "csvSha256": "7538b8cce00316a01427b97f628e86d0be7195d7636d2a3158e5465c53850755",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_NSPIN-31-JAN-24.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_nspin",
+          "csvSha256": "e1cfb64d26842a1075a495d894c6a6f8a81187b535aecb36d555d19a2ad69c35",
+          "sourceRows": 24,
+          "decodedRows": 24
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "product": "NP3-991-EX",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-01-01T00:00:00",
+        "postDatetimeTo": "2024-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 977292723,
+        "friendlyName": "60_Day_COP_All_Updates",
+        "postDatetime": "2024-01-31T05:11:21"
+      },
+      "source": "work/history-annual-as-2024/NP3-991-EX.zip",
+      "zipSha256": "ec09b7f743742d7632ce8400c45b40ce8aca53a6eb1fe620869263ab85caa314",
+      "files": [
+        {
+          "member": "60d_COP_All_Updates-31-JAN-24.csv",
+          "reader": "np3-991-ex/60_cop_all_updates"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "product": "NP3-911-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-01-01T00:00:00",
+        "postDatetimeTo": "2025-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 1073732150,
+        "friendlyName": "2_Day_AS_Disclosure",
+        "postDatetime": "2025-01-31T03:49:58"
+      },
+      "source": "work/history-annual-as-2025/NP3-911-ER.zip",
+      "zipSha256": "23ae632ac982eedcb62f3e6c41532bf4588d1d0a9c21e5169cb3fef3ec817d08",
+      "files": [
+        {
+          "member": "2d_Self_Arranged_AS_NSPNM-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspnm",
+          "csvSha256": "6ab261911a539bced96b2d31e0debb8f80e395fa26459e8a248c8edd3204dcb8",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSPFR-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrspfr",
+          "csvSha256": "943393996c1d1ef7ddd00f2edc67fddeb4c197a79fb02f62d24dbf57a5ab28aa",
+          "sourceRows": 2598,
+          "decodedRows": 2598
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSUFR-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsufr",
+          "csvSha256": "a0d168ce3792ddcfbd75f9b3bb6532a1564c4736f988c082fbcd772651a34ac5",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_RRSFFR-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_rrsffr",
+          "csvSha256": "fda98662acc5c50c2cc2c5816489b35ed1cc6ce491cdcc6c2dca3f8f89997884",
+          "sourceRows": 177,
+          "decodedRows": 177
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSPFR-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrspfr",
+          "csvSha256": "13da81536d97084a10ae636b31aee110677124cec89d53ee03f0efec6628b5e5",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSUFR-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsufr",
+          "csvSha256": "73e61a83f87997938ae5b9eb8abde95a03df7281f3ab49b112eb9b20072de6e0",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_RRSFFR-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_rrsffr",
+          "csvSha256": "143087683d751ab96132e2929eb4fe6dea3938e340178297bf9b4619748eb8cf",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSPFR-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrspfr",
+          "csvSha256": "d5f3e2c00f629ed10a448d42d3eee951cd11efc712be601a4e56fd1350874e20",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSUFR-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsufr",
+          "csvSha256": "713c1c7bf93382fb47c2a910a338a75f87a9f089482d2279483b61d148f3784c",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_RRSFFR-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_rrsffr",
+          "csvSha256": "d18a33b132ed05f3cbaa2eb2ef1b39a3879c0b8b5b092fef60a5580a69330e65",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_ECRSM-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_ecrsm",
+          "csvSha256": "f7e0d2c671a39169fee3c6ce7661baa329c7a8976b2bf2ea9c2eff6a5b15fa32",
+          "sourceRows": 113,
+          "decodedRows": 113
+        },
+        {
+          "member": "2d_Agg_AS_Offers_ECRSS-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_ecrss",
+          "csvSha256": "2514ce0b0dfc29fe3edc6c72d7582f5e94232eca8fa72edaeb18f077dac36d85",
+          "sourceRows": 2482,
+          "decodedRows": 2482
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_ECRSM-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_ecrsm",
+          "csvSha256": "1cba57801307c44acac5771368f13c113b4aeb4112d792594006fba87db72daf",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_ECRSS-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_ecrss",
+          "csvSha256": "21bc7b7d55a1fb6bf5bee16e95889d0ef2427353b525640e8df3e29b830c7b2f",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_ECRSM-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_ecrsm",
+          "csvSha256": "3ceeec6120db5df25b819cbe0beb4428db803aa222afaf6e3108b7d5d0caf47f",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_ECRSS-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_ecrss",
+          "csvSha256": "6a6ae4ae4769cb40c54fdb42e65140d7d45cb8b285c031df808831aacbfd74ca",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGUP-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regup",
+          "csvSha256": "fab02cc2bfcd67eb04339bdf82b1f62df43234b6184d6c92716e98b313455f7f",
+          "sourceRows": 2171,
+          "decodedRows": 2171
+        },
+        {
+          "member": "2d_Agg_AS_Offers_REGDN-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_regdn",
+          "csvSha256": "e9d952ee56a00282316003c9539ce93cced6d30b92c954a4d16896775ba7662f",
+          "sourceRows": 3010,
+          "decodedRows": 3010
+        },
+        {
+          "member": "2d_Agg_AS_Offers_ONNS-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_onns",
+          "csvSha256": "a82e8a594b9dfc4986a5b8d1cbda04c09ab453d9f5d7c3d4569fbce5ea6ed288",
+          "sourceRows": 972,
+          "decodedRows": 972
+        },
+        {
+          "member": "2d_Agg_AS_Offers_OFFNS-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_agg_as_offers_offns",
+          "csvSha256": "bc00422bea656d6d30b0a5f92580ec757e9f9c7759cae113cb412d8a38206f7a",
+          "sourceRows": 1505,
+          "decodedRows": 1505
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGUP-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regup",
+          "csvSha256": "eb7f9648cefd32d40eb685087743320a54fbcac3910b352e69d3857518e8ad82",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_REGDN-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_regdn",
+          "csvSha256": "8a92cb70ee90ecf78440018efe8e68265d4caa435c58e986117ed206873b166e",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Self_Arranged_AS_NSPIN-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_self_arranged_as_nspin",
+          "csvSha256": "32012b2d183565950ec6ebf8afa91fde9097e34c29f01e89a35548e8ec98fe39",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGUP-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regup",
+          "csvSha256": "f457238d9c60ea0fb89a586104577e6477aece8074a7d15482ea8c631c0f33d5",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_REGDN-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_regdn",
+          "csvSha256": "21fa1f69a46270ece8a9704734314bd19736f0e4a495bd06eaf0673cbc2e4c3f",
+          "sourceRows": 24,
+          "decodedRows": 24
+        },
+        {
+          "member": "2d_Cleared_DAM_AS_NSPIN-31-JAN-25.csv",
+          "reader": "np3-911-er/2d_cleared_dam_as_nspin",
+          "csvSha256": "2ba112c3da34e9bb5f653af7903d6d1fc633a0e9c0fc16d461430197139d1e46",
+          "sourceRows": 24,
+          "decodedRows": 24
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "product": "NP3-991-EX",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-01-01T00:00:00",
+        "postDatetimeTo": "2025-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 1073751083,
+        "friendlyName": "60_Day_COP_All_Updates",
+        "postDatetime": "2025-01-31T05:19:58"
+      },
+      "source": "work/history-annual-as-2025/NP3-991-EX.zip",
+      "zipSha256": "5363006f8bb03fc0def48fbef63e2fbd7f8b656b7aa70b5c73894e08b1a3742e",
+      "files": [
+        {
+          "member": "60d_COP_All_Updates-31-JAN-25.csv",
+          "reader": "np3-991-ex/60_cop_all_updates"
+        }
+      ]
+    }
+  ]
+}

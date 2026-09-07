@@ -529,6 +529,13 @@ legacy price components. Newer components absent from those files remain
 Queries, document IDs, hashes and worksheet counts are recorded in
 `tools/inputs/history/annual-workbooks-evidence.json`.
 
+Annual ancillary-service disclosures from 2015–2025 decoded all 89,849 rows
+in 208 CSV tables with independent row counts matching. Combined with six
+COP-update samples, all 214 CSV members matched a generated reader. The COP
+checks cover only headers and up to three rows; their January listings before
+2020 were empty. No reader changes were needed. Publication queries, source
+hashes and per-table counts are in `tools/inputs/history/annual-as-evidence.json`.
+
 The latest checks for NP6-569, NP6-655 and NP6-913 returned no archives or bundles.
 Their typed catalog/document operations remain usable, but no historical row
 schema is inferred from absent files. Point-in-time listing evidence is recorded
