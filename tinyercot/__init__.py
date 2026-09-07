@@ -6,6 +6,8 @@ from ._client import Page as Page
 from ._client import Product as Product
 from ._generated import *
 from ._history import Archive as Archive
+from ._load import LoadArchive as LoadArchive
+from ._load import WeatherZoneLoad as WeatherZoneLoad
 from ._pdf import PdfArchive as PdfArchive
 from ._pdf import PdfChartArchive as PdfChartArchive
 from ._wind import WindArchive as WindArchive

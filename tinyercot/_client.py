@@ -16,6 +16,7 @@ from httpx_retries import Retry, RetryTransport
 from pydantic import BaseModel, ConfigDict, Field
 
 from ._dashboards import Dashboards
+from ._load import HourlyLoad
 from ._wind import WindIntegration
 
 T = TypeVar("T", bound=BaseModel)
@@ -326,6 +327,10 @@ class Transport:
             if page >= result.meta.totalPages:
                 return
             page += 1
+
+    @property
+    def hourly_load(self) -> HourlyLoad:
+        return HourlyLoad(self._http)
 
     @property
     def wind_integration(self) -> WindIntegration:

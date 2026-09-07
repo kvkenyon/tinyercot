@@ -6,7 +6,9 @@ from typing import assert_type
 from tinyercot import (
     Archive,
     Client,
+    LoadArchive,
     Page,
+    WeatherZoneLoad,
     WindArchive,
     WindDailyValues,
     np3_966_er,
@@ -306,3 +308,11 @@ with Client() as client:
         Iterator[WindDailyValues],
     )
     assert_type(client.wind_integration.read(b""), Iterator[WindDailyValues])
+
+with Client() as client:
+    assert_type(client.hourly_load.archives(), list[LoadArchive])
+    assert_type(
+        client.hourly_load.weather_zones(date_from=date(2002, 1, 1)),
+        Iterator[WeatherZoneLoad],
+    )
+    assert_type(client.hourly_load.read_weather_zones(b""), Iterator[WeatherZoneLoad])

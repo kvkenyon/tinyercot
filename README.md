@@ -138,6 +138,46 @@ raise with the member name instead of silently dropping data.
 
 Listing metadata includes the server's total and page counts; `iter_documents()` streams all listing pages.
 
+### Direct public hourly load archives
+
+Install `tinyercot[files]` for XLS and XLSX support. These files are downloaded
+from ERCOT's public website without API credentials.
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client(timeout=120) as ercot:
+    for load in ercot.hourly_load.weather_zones(
+        date_from=date(2002, 1, 1), date_to=date(2002, 1, 2)
+    ):
+        print(load.operatingDay, load.hourEnding, load.coast, load.total)
+
+    archives = ercot.hourly_load.archives()
+    archive = next(item for item in archives if item.year == 2002)
+    data = ercot.hourly_load.download(archive)
+    saved_rows = list(ercot.hourly_load.read_weather_zones(data))
+```
+
+`archives()` discovers all linked load files, including older control-area and
+system-only publications. `weather_zones()` decodes the workbook series beginning
+in 2002. It uses inclusive **operating-date** bounds and retains hour ending 24 on
+its original operating day. The source's literal `DST` suffix stays in `dstLabel`;
+it is not interpreted as a UTC offset or the API's repeat-hour flag. Excel serials
+with millisecond rounding noise are read as their displayed whole hour, with the
+unrounded converted clock retained in `sourceHourEnding`. Load values use
+`Decimal`; missing cells remain `None`.
+
+All 24 workbooks for 2002–2025 decoded: 210,384 hourly rows, with every one of the
+1,893,456 load cells compared against its source (including nine absent cells).
+The 2016 workbook has an hour with all nine values missing. In the September 2026
+check, the linked **2026 ZIP failed its CRC check on two identical downloads**;
+that integrity error propagates. Bound queries through 2025 to read the verified
+completed years. The earlier 1995–2000 files are downloadable, but their distinct
+control-area, system-total and load-serving-entity row formats are not decoded by
+this weather-zone reader. The index has no 2001 file. See
+`tools/inputs/public-hourly-load-evidence.json` for the inventory and source issues.
+
 ### Direct public wind archives
 
 Install `tinyercot[pdf]`. These public website files need no API credentials.
@@ -244,7 +284,7 @@ fields still apply, and unknown columns, duplicate aliases, or ambiguous reused
 headers raise an error. This supports compatible schema evolution without
 silently discarding source columns or assuming changed fields mean the same thing.
 
-Install `tinyercot[files]` for typed XLSX archives. This adds workbook support
+Install `tinyercot[files]` for typed XLS/XLSX archives. This adds workbook support
 without changing the dependencies needed for API and CSV access:
 
 ```python
