@@ -536,6 +536,14 @@ checks cover only headers and up to three rows; their January listings before
 2020 were empty. No reader changes were needed. Publication queries, source
 hashes and per-table counts are in `tools/inputs/history/annual-as-evidence.json`.
 
+Quarterly outage samples from 2023–2025 decoded all 4,519 rows, preserving
+separate planned and actual end dates. Annual load-forecast samples from
+2019–2025 decoded 1,344 rows, preserving hour labels and DST flags. All source
+data values matched independently in both checks; neither required reader
+changes. Earlier January load-forecast listings in this probe were empty.
+See `tools/inputs/history/outage-load-evidence.json` for the bounded query
+periods, document IDs, hashes and counts.
+
 The latest checks for NP6-569, NP6-655 and NP6-913 returned no archives or bundles.
 Their typed catalog/document operations remain usable, but no historical row
 schema is inferred from absent files. Point-in-time listing evidence is recorded
