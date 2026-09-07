@@ -532,3 +532,19 @@ Verified PDF table samples span December 2023, September 2024, September 2025
 and September 2026. The first three omit the all-time record section; the 2026
 sample contains seven record rows. These samples do not establish the exact
 record-table introduction date or continuous historical completeness.
+
+
+Intermediate 2020 and 2023 samples require additional historical layouts. The
+SCED load-resource reader preserves all 35 published bid-curve points in the
+2020 file, including blank points, alongside `HASL` and `LASL`. Older self-arranged
+AS timestamps containing spaces before colons parse explicitly. Historical
+ancillary-service responsibilities and quantities remain separate from newer
+award/capability fields; the published `ECRSM ` header is recognized as well.
+
+The wind reader preserves `actualLoadZoneSouthHouston`, `actualLoadZoneWest` and
+`actualLoadZoneNorth` in the intermediate layouts. These fields remain distinct
+from older combined-region and current `genLoadZone*` fields. With a separate
+`deliveryDate`, the intermediate `HOUR_ENDING` value is an hour number rather than
+the oldest layout's timestamp. All 213,456 rows across seven affected files were
+decoded; the broader saved-file audit checks headers and short samples only and
+does not establish continuous historical completeness.

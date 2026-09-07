@@ -233,7 +233,10 @@
       "actualWestNorth": null,
       "COPHSLWestNorth": null,
       "STWPFWestNorth": null,
-      "WGRPPWestNorth": null
+      "WGRPPWestNorth": null,
+      "actualLoadZoneSouthHouston": null,
+      "actualLoadZoneWest": null,
+      "actualLoadZoneNorth": null
     },
     "rows_decoded": 216
   },
@@ -273,7 +276,10 @@
       "actualWestNorth": "3262.13",
       "COPHSLWestNorth": "4302.2",
       "STWPFWestNorth": "4077",
-      "WGRPPWestNorth": "3407.5"
+      "WGRPPWestNorth": "3407.5",
+      "actualLoadZoneSouthHouston": null,
+      "actualLoadZoneWest": null,
+      "actualLoadZoneNorth": null
     },
     "rows_decoded": 96
   }
