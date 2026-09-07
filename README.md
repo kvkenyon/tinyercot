@@ -496,6 +496,15 @@ West/North values without assigning them to separate regions. All 431 rows
 in those two wind files decoded successfully. Source evidence is in
 `tools/inputs/history/annual-evidence.json`.
 
+Annual DAM disclosure and regional solar checks decoded all 3,639,815 rows
+in 146 CSV files from 14 downloaded publications. DAM samples cover one
+January publication in each year from 2015–2025; the regional solar product
+returned January files only for 2023–2025 in this check. Earlier empty January
+listings are recorded, without inferring a product start date. Every decoded
+file count matched an independent CSV row count. These files needed no reader
+changes. See `tools/inputs/history/annual-dam-solar-evidence.json` for publication
+queries, document IDs, source hashes and counts.
+
 The latest checks for NP6-569, NP6-655 and NP6-913 returned no archives or bundles.
 Their typed catalog/document operations remain usable, but no historical row
 schema is inferred from absent files. Point-in-time listing evidence is recorded
