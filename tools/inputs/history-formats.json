@@ -6358,5 +6358,587 @@
       "price": "Decimal",
       "MW": "Decimal"
     }
+  },
+  "np3-911-er/2d_agg_dam_as_offers_nspnm": {
+    "member": "*_Agg_DAM_AS_Offers_NSPNM-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "NSPNM Offer Price": "NSPNMOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_dam_as_offers_nspin": {
+    "member": "*_Agg_DAM_AS_Offers_NSPIN-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "NSPIN Offer Price": "NSPINOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_cleared_dam_as_nspnm": {
+    "member": "*_Cleared_DAM_AS_NSPNM-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Cleared AS - NSPNM": "totalClearedASNSPNM"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_dam_as_offers_regup": {
+    "member": "*_Agg_DAM_AS_Offers_REGUP-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "REGUP Offer Price": "REGUPOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_dam_as_offers_regdn": {
+    "member": "*_Agg_DAM_AS_Offers_REGDN-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "REGDN Offer Price": "REGDNOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_self_arranged_as_regup": {
+    "member": "*_Self_Arranged_AS_REGUP-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Self-Arranged AS - RegUp": "totalSelfArrangedASREGUP"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_self_arranged_as_regdn": {
+    "member": "*_Self_Arranged_AS_REGDN-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Self-Arranged AS - RegDown": "totalSelfArrangedASREGDN"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_self_arranged_as_nspin": {
+    "member": "*_Self_Arranged_AS_NSPIN-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Self-Arranged AS - NonSpin": "totalSelfArrangedASNSPIN"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_cleared_dam_as_regup": {
+    "member": "*_Cleared_DAM_AS_REGUP-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Cleared AS - RegUp": "totalClearedASREGUP"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_cleared_dam_as_regdn": {
+    "member": "*_Cleared_DAM_AS_REGDN-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Cleared AS - RegDown": "totalClearedASREGDN"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_cleared_dam_as_nspin": {
+    "member": "*_Cleared_DAM_AS_NSPIN-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Cleared AS - NonSpin": "totalClearedASNSPIN"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_dam_as_offers_rrspfr": {
+    "member": "*_Agg_DAM_AS_Offers_RRSPFR-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "RRSPFR Offer Price": "RRSPFROfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_dam_as_offers_rrsufr": {
+    "member": "*_Agg_DAM_AS_Offers_RRSUFR-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "RRSUFR Offer Price": "RRSUFROfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_dam_as_offers_rrsffr": {
+    "member": "*_Agg_DAM_AS_Offers_RRSFFR-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "RRSFFR Offer Price": "RRSFFROfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_cleared_dam_as_rrspfr": {
+    "member": "*_Cleared_DAM_AS_RRSPFR-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Cleared AS - RRSPFR": "totalClearedASRRSPFR"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_cleared_dam_as_rrsufr": {
+    "member": "*_Cleared_DAM_AS_RRSUFR-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Cleared AS - RRSUFR": "totalClearedASRRSUFR"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_cleared_dam_as_rrsffr": {
+    "member": "*_Cleared_DAM_AS_RRSFFR-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Cleared AS - RRSFFR": "totalClearedASRRSFFR"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_self_arranged_as_rrspfr": {
+    "member": "*_Self_Arranged_AS_RRSPFR-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Self-Arranged AS - RRSPFR": "totalSelfArrangedASRRSPFR"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_self_arranged_as_rrsufr": {
+    "member": "*_Self_Arranged_AS_RRSUFR-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Self-Arranged AS - RRSUFR": "totalSelfArrangedASRRSUFR"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_self_arranged_as_rrsffr": {
+    "member": "*_Self_Arranged_AS_RRSFFR-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Self-Arranged AS - RRSFFR": "totalSelfArrangedASRRSFFR"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_self_arranged_as_nspnm": {
+    "member": "*_Self_Arranged_AS_NSPNM-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Self-Arranged AS - NSPNM": "totalSelfArrangedASNSPNM"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_dam_as_offers_ecrss": {
+    "member": "*_Agg_DAM_AS_Offers_ECRSS-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "ECRSS Offer Price": "ECRSSOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_dam_as_offers_ecrsm": {
+    "member": "*_Agg_DAM_AS_Offers_ECRSM-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "ECRSM Offer Price": "ECRSMOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_cleared_dam_as_ecrss": {
+    "member": "*_Cleared_DAM_AS_ECRSS-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Cleared AS - ECRSS": "totalClearedASECRSS"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_cleared_dam_as_ecrsm": {
+    "member": "*_Cleared_DAM_AS_ECRSM-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Cleared AS - ECRSM": "totalClearedASECRSM"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_self_arranged_as_ecrss": {
+    "member": "*_Self_Arranged_AS_ECRSS-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Self-Arranged AS - ECRSS": "totalSelfArrangedASECRSS"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_self_arranged_as_ecrsm": {
+    "member": "*_Self_Arranged_AS_ECRSM-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Self-Arranged AS - ECRSM": "totalSelfArrangedASECRSM"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_cleared_dam_as_rrsload": {
+    "member": "*_Cleared_DAM_AS_RRSLOAD-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Cleared AS - RRS Load": "totalClearedASRRSLOAD"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "archive_only": true,
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "totalClearedASRRSLOAD": "Decimal"
+    }
+  },
+  "np3-911-er/2d_cleared_dam_as_rrsgen": {
+    "member": "*_Cleared_DAM_AS_RRSGEN-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Cleared AS - RRS Gen": "totalClearedASRRSGEN"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "archive_only": true,
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "totalClearedASRRSGEN": "Decimal"
+    }
+  },
+  "np3-911-er/2d_self_arranged_as_rrsload": {
+    "member": "*_Self_Arranged_AS_RRSLOAD-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Self-Arranged AS - RRS Load": "totalSelfArrangedASRRSLOAD"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "archive_only": true,
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "totalSelfArrangedASRRSLOAD": "Decimal"
+    }
+  },
+  "np3-911-er/2d_self_arranged_as_rrsgen": {
+    "member": "*_Self_Arranged_AS_RRSGEN-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Total Self-Arranged AS - RRS Gen": "totalSelfArrangedASRRSGEN"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "archive_only": true,
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "totalSelfArrangedASRRSGEN": "Decimal"
+    }
+  },
+  "np3-911-er/2d_agg_as_offers_rrsnc": {
+    "member": "*_Agg_AS_Offers_RRSNC-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "RRSNC Offer Price": "RRSNCOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "archive_only": true,
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "MWOffered": "Decimal",
+      "RRSNCOfferPrice": "Decimal"
+    }
+  },
+  "np3-911-er/2d_agg_as_offers_rrsld": {
+    "member": "*_Agg_AS_Offers_RRSLD-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "RRSLD Offer Price": "RRSLDOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "archive_only": true,
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "MWOffered": "Decimal",
+      "RRSLDOfferPrice": "Decimal"
+    }
+  },
+  "np3-911-er/2d_agg_as_offers_rrsgn": {
+    "member": "*_Agg_AS_Offers_RRSGN-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "RRSGN Offer Price": "RRSGNOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "archive_only": true,
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "MWOffered": "Decimal",
+      "RRSGNOfferPrice": "Decimal"
+    }
+  },
+  "np3-911-er/2d_agg_as_offers_offns": {
+    "member": "*_Agg_AS_Offers_OFFNS-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "OFFNS Offer Price": "OFFNSOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_as_offers_onns": {
+    "member": "*_Agg_AS_Offers_ONNS-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "ONNS Offer Price": "ONNSOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_as_offers_regdn": {
+    "member": "*_Agg_AS_Offers_REGDN-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "REGDN Offer Price": "REGDNOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_as_offers_regup": {
+    "member": "*_Agg_AS_Offers_REGUP-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "REGUP Offer Price": "REGUPOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_as_offers_rrspfr": {
+    "member": "*_Agg_AS_Offers_RRSPFR-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "RRSPFR Offer Price": "RRSPFROfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_as_offers_rrsufr": {
+    "member": "*_Agg_AS_Offers_RRSUFR-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "RRSUFR Offer Price": "RRSUFROfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_as_offers_rrsffr": {
+    "member": "*_Agg_AS_Offers_RRSFFR-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "RRSFFR Offer Price": "RRSFFROfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_as_offers_ecrsm": {
+    "member": "*_Agg_AS_Offers_ECRSM-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "ECRSM Offer Price": "ECRSMOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-911-er/2d_agg_as_offers_ecrss": {
+    "member": "*_Agg_AS_Offers_ECRSS-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "MW Offered": "MWOffered",
+      "ECRSS Offer Price": "ECRSSOfferPrice"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
   }
 }

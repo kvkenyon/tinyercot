@@ -3587,6 +3587,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_as_offers_ecrsm_history(self) -> Archive[np3_911_er._2dAggAsOffersEcrsmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersEcrsmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'ECRSM Offer Price': 'ECRSMOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_ECRSM-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_as_offers_ecrsm(self, *, ECRSMOfferPriceFrom: Decimal | None = None, ECRSMOfferPriceTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersEcrsmRow]:
         '2-Day Aggregated Ancillary Service Offers ECRSM'
         return self._client._page('/np3-911-er/2d_agg_as_offers_ecrsm', np3_911_er._2dAggAsOffersEcrsmRow, {'ECRSMOfferPriceFrom': ECRSMOfferPriceFrom, 'ECRSMOfferPriceTo': ECRSMOfferPriceTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3607,6 +3612,11 @@ class np3_911_er:
         MWOffered: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_as_offers_ecrss_history(self) -> Archive[np3_911_er._2dAggAsOffersEcrssRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersEcrssRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'ECRSS Offer Price': 'ECRSSOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_ECRSS-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_as_offers_ecrss(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, ECRSSOfferPriceFrom: Decimal | None = None, ECRSSOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersEcrssRow]:
         '2-Day Aggregated Ancillary Service Offers ECRSS'
@@ -3629,6 +3639,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_as_offers_offns_history(self) -> Archive[np3_911_er._2dAggAsOffersOffnsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersOffnsRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'OFFNS Offer Price': 'OFFNSOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_OFFNS-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_as_offers_offns(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, OFFNSOfferPriceFrom: Decimal | None = None, OFFNSOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersOffnsRow]:
         '2-Day Aggregated Ancillary Service Offers OFFNS'
         return self._client._page('/np3-911-er/2d_agg_as_offers_offns', np3_911_er._2dAggAsOffersOffnsRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'OFFNSOfferPriceFrom': OFFNSOfferPriceFrom, 'OFFNSOfferPriceTo': OFFNSOfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3649,6 +3664,11 @@ class np3_911_er:
         ONNSOfferPrice: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_as_offers_onns_history(self) -> Archive[np3_911_er._2dAggAsOffersOnnsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersOnnsRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'ONNS Offer Price': 'ONNSOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_ONNS-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_as_offers_onns(self, *, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, ONNSOfferPriceFrom: Decimal | None = None, ONNSOfferPriceTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersOnnsRow]:
         '2-Day Aggregated Ancillary Service Offers ONNS'
@@ -3671,6 +3691,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_as_offers_regdn_history(self) -> Archive[np3_911_er._2dAggAsOffersRegdnRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRegdnRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'REGDN Offer Price': 'REGDNOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_REGDN-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_as_offers_regdn(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, REGDNOfferPriceFrom: Decimal | None = None, REGDNOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersRegdnRow]:
         '2-Day Aggregated Ancillary Service Offers REGDN'
         return self._client._page('/np3-911-er/2d_agg_as_offers_regdn', np3_911_er._2dAggAsOffersRegdnRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'REGDNOfferPriceFrom': REGDNOfferPriceFrom, 'REGDNOfferPriceTo': REGDNOfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3691,6 +3716,11 @@ class np3_911_er:
         REGUPOfferPrice: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_as_offers_regup_history(self) -> Archive[np3_911_er._2dAggAsOffersRegupRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRegupRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'REGUP Offer Price': 'REGUPOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_REGUP-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_as_offers_regup(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, REGUPOfferPriceFrom: Decimal | None = None, REGUPOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersRegupRow]:
         '2-Day Aggregated Ancillary Service Offers REGUP'
@@ -3713,6 +3743,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_as_offers_rrsffr_history(self) -> Archive[np3_911_er._2dAggAsOffersRrsffrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRrsffrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSFFR Offer Price': 'RRSFFROfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_RRSFFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_as_offers_rrsffr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, RRSFFROfferPriceFrom: Decimal | None = None, RRSFFROfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersRrsffrRow]:
         '2-Day Aggregated Ancillary Service Offers RRSFFR'
         return self._client._page('/np3-911-er/2d_agg_as_offers_rrsffr', np3_911_er._2dAggAsOffersRrsffrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'RRSFFROfferPriceFrom': RRSFFROfferPriceFrom, 'RRSFFROfferPriceTo': RRSFFROfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3733,6 +3768,11 @@ class np3_911_er:
         RRSPFROfferPrice: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_as_offers_rrspfr_history(self) -> Archive[np3_911_er._2dAggAsOffersRrspfrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRrspfrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSPFR Offer Price': 'RRSPFROfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_RRSPFR-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_as_offers_rrspfr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, RRSPFROfferPriceFrom: Decimal | None = None, RRSPFROfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersRrspfrRow]:
         '2-Day Aggregated Ancillary Service Offers RRSPFR'
@@ -3755,6 +3795,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_as_offers_rrsufr_history(self) -> Archive[np3_911_er._2dAggAsOffersRrsufrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRrsufrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSUFR Offer Price': 'RRSUFROfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_RRSUFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_as_offers_rrsufr(self, *, RRSUFROfferPriceFrom: Decimal | None = None, RRSUFROfferPriceTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersRrsufrRow]:
         '2-Day Aggregated Ancillary Service Offers RRSUFR'
         return self._client._page('/np3-911-er/2d_agg_as_offers_rrsufr', np3_911_er._2dAggAsOffersRrsufrRow, {'RRSUFROfferPriceFrom': RRSUFROfferPriceFrom, 'RRSUFROfferPriceTo': RRSUFROfferPriceTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3775,6 +3820,11 @@ class np3_911_er:
         MWOffered: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_dam_as_offers_ecrsm_history(self) -> Archive[np3_911_er._2dAggDamAsOffersEcrsmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersEcrsmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'ECRSM Offer Price': 'ECRSMOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_ECRSM-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_dam_as_offers_ecrsm(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, ECRSMOfferPriceFrom: Decimal | None = None, ECRSMOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersEcrsmRow]:
         '2-Day Aggregated DAM Ancillary Service Offers ECRSM'
@@ -3797,6 +3847,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_dam_as_offers_ecrss_history(self) -> Archive[np3_911_er._2dAggDamAsOffersEcrssRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersEcrssRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'ECRSS Offer Price': 'ECRSSOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_ECRSS-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_dam_as_offers_ecrss(self, *, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, ECRSSOfferPriceFrom: Decimal | None = None, ECRSSOfferPriceTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersEcrssRow]:
         '2-Day Aggregated DAM Ancillary Service Offers ECRSS'
         return self._client._page('/np3-911-er/2d_agg_dam_as_offers_ecrss', np3_911_er._2dAggDamAsOffersEcrssRow, {'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'ECRSSOfferPriceFrom': ECRSSOfferPriceFrom, 'ECRSSOfferPriceTo': ECRSSOfferPriceTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3817,6 +3872,11 @@ class np3_911_er:
         NSPINOfferPrice: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_dam_as_offers_nspin_history(self) -> Archive[np3_911_er._2dAggDamAsOffersNspinRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersNspinRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'NSPIN Offer Price': 'NSPINOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_NSPIN-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_dam_as_offers_nspin(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, NSPINOfferPriceFrom: Decimal | None = None, NSPINOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersNspinRow]:
         '2-Day Aggregated DAM Ancillary Service Offers NSPIN'
@@ -3839,6 +3899,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_dam_as_offers_nspnm_history(self) -> Archive[np3_911_er._2dAggDamAsOffersNspnmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersNspnmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'NSPNM Offer Price': 'NSPNMOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_NSPNM-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_dam_as_offers_nspnm(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, NSPNMOfferPriceFrom: Decimal | None = None, NSPNMOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersNspnmRow]:
         '2-Day Aggregated DAM Ancillary Service Offers NSPNM'
         return self._client._page('/np3-911-er/2d_agg_dam_as_offers_nspnm', np3_911_er._2dAggDamAsOffersNspnmRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'NSPNMOfferPriceFrom': NSPNMOfferPriceFrom, 'NSPNMOfferPriceTo': NSPNMOfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3859,6 +3924,11 @@ class np3_911_er:
         REGDNOfferPrice: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_dam_as_offers_regdn_history(self) -> Archive[np3_911_er._2dAggDamAsOffersRegdnRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersRegdnRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'REGDN Offer Price': 'REGDNOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_REGDN-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_dam_as_offers_regdn(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, REGDNOfferPriceFrom: Decimal | None = None, REGDNOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersRegdnRow]:
         '2-Day Aggregated DAM Ancillary Service Offers REGDN'
@@ -3881,6 +3951,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_dam_as_offers_regup_history(self) -> Archive[np3_911_er._2dAggDamAsOffersRegupRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersRegupRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'REGUP Offer Price': 'REGUPOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_REGUP-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_dam_as_offers_regup(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, REGUPOfferPriceFrom: Decimal | None = None, REGUPOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersRegupRow]:
         '2-Day Aggregated DAM Ancillary Service Offers REGUP'
         return self._client._page('/np3-911-er/2d_agg_dam_as_offers_regup', np3_911_er._2dAggDamAsOffersRegupRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'REGUPOfferPriceFrom': REGUPOfferPriceFrom, 'REGUPOfferPriceTo': REGUPOfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3901,6 +3976,11 @@ class np3_911_er:
         RRSFFROfferPrice: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_dam_as_offers_rrsffr_history(self) -> Archive[np3_911_er._2dAggDamAsOffersRrsffrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersRrsffrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSFFR Offer Price': 'RRSFFROfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_RRSFFR-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_dam_as_offers_rrsffr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, RRSFFROfferPriceFrom: Decimal | None = None, RRSFFROfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersRrsffrRow]:
         '2-Day Aggregated DAM Ancillary Service Offers RRSFFR'
@@ -3923,6 +4003,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_dam_as_offers_rrspfr_history(self) -> Archive[np3_911_er._2dAggDamAsOffersRrspfrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersRrspfrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSPFR Offer Price': 'RRSPFROfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_RRSPFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_dam_as_offers_rrspfr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, RRSPFROfferPriceFrom: Decimal | None = None, RRSPFROfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersRrspfrRow]:
         '2-Day Aggregated DAM Ancillary Service Offers RRSPFR'
         return self._client._page('/np3-911-er/2d_agg_dam_as_offers_rrspfr', np3_911_er._2dAggDamAsOffersRrspfrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'RRSPFROfferPriceFrom': RRSPFROfferPriceFrom, 'RRSPFROfferPriceTo': RRSPFROfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3944,6 +4029,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_dam_as_offers_rrsufr_history(self) -> Archive[np3_911_er._2dAggDamAsOffersRrsufrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersRrsufrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSUFR Offer Price': 'RRSUFROfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_RRSUFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_dam_as_offers_rrsufr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, RRSUFROfferPriceFrom: Decimal | None = None, RRSUFROfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersRrsufrRow]:
         '2-Day Aggregated DAM Ancillary Service Offers RRSUFR'
         return self._client._page('/np3-911-er/2d_agg_dam_as_offers_rrsufr', np3_911_er._2dAggDamAsOffersRrsufrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'RRSUFROfferPriceFrom': RRSUFROfferPriceFrom, 'RRSUFROfferPriceTo': RRSUFROfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3963,6 +4053,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalClearedASECRSM: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_ecrsm_history(self) -> Archive[np3_911_er._2dClearedDamAsEcrsmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsEcrsmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - ECRSM': 'totalClearedASECRSM'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_ECRSM-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_cleared_dam_as_ecrsm(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASECRSMFrom: Decimal | None = None, totalClearedASECRSMTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsEcrsmRow]:
         '2-Day Cleared DAM Ancillary Service ECRSM'
@@ -3984,6 +4079,11 @@ class np3_911_er:
         hourEnding: int | None
         totalClearedASECRSS: Decimal | None
 
+    @property
+    def _2d_cleared_dam_as_ecrss_history(self) -> Archive[np3_911_er._2dClearedDamAsEcrssRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsEcrssRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - ECRSS': 'totalClearedASECRSS'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_ECRSS-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_cleared_dam_as_ecrss(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASECRSSFrom: Decimal | None = None, totalClearedASECRSSTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsEcrssRow]:
         '2-Day Cleared DAM Ancillary Service ECRSS'
         return self._client._page('/np3-911-er/2d_cleared_dam_as_ecrss', np3_911_er._2dClearedDamAsEcrssRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalClearedASECRSSFrom': totalClearedASECRSSFrom, 'totalClearedASECRSSTo': totalClearedASECRSSTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4003,6 +4103,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalClearedASNSPIN: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_nspin_history(self) -> Archive[np3_911_er._2dClearedDamAsNspinRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsNspinRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - NonSpin': 'totalClearedASNSPIN'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_NSPIN-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_cleared_dam_as_nspin(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASNSPINFrom: Decimal | None = None, totalClearedASNSPINTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsNspinRow]:
         '2-Day Cleared DAM Ancillary Service NSPIN'
@@ -4024,6 +4129,11 @@ class np3_911_er:
         hourEnding: int | None
         totalClearedASNSPNM: Decimal | None
 
+    @property
+    def _2d_cleared_dam_as_nspnm_history(self) -> Archive[np3_911_er._2dClearedDamAsNspnmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsNspnmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - NSPNM': 'totalClearedASNSPNM'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_NSPNM-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_cleared_dam_as_nspnm(self, *, totalClearedASNSPNMFrom: Decimal | None = None, totalClearedASNSPNMTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsNspnmRow]:
         '2-Day Cleared DAM Ancillary Service NSPNM'
         return self._client._page('/np3-911-er/2d_cleared_dam_as_nspnm', np3_911_er._2dClearedDamAsNspnmRow, {'totalClearedASNSPNMFrom': totalClearedASNSPNMFrom, 'totalClearedASNSPNMTo': totalClearedASNSPNMTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4043,6 +4153,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalClearedASREGDN: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_regdn_history(self) -> Archive[np3_911_er._2dClearedDamAsRegdnRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRegdnRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RegDown': 'totalClearedASREGDN'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_REGDN-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_cleared_dam_as_regdn(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASREGDNFrom: Decimal | None = None, totalClearedASREGDNTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsRegdnRow]:
         '2-Day Cleared DAM Ancillary Service REGDN'
@@ -4064,6 +4179,11 @@ class np3_911_er:
         hourEnding: int | None
         totalClearedASREGUP: Decimal | None
 
+    @property
+    def _2d_cleared_dam_as_regup_history(self) -> Archive[np3_911_er._2dClearedDamAsRegupRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRegupRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RegUp': 'totalClearedASREGUP'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_REGUP-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_cleared_dam_as_regup(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASREGUPFrom: Decimal | None = None, totalClearedASREGUPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsRegupRow]:
         '2-Day Cleared DAM Ancillary Service REGUP'
         return self._client._page('/np3-911-er/2d_cleared_dam_as_regup', np3_911_er._2dClearedDamAsRegupRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalClearedASREGUPFrom': totalClearedASREGUPFrom, 'totalClearedASREGUPTo': totalClearedASREGUPTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4083,6 +4203,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalClearedASRRSFFR: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_rrsffr_history(self) -> Archive[np3_911_er._2dClearedDamAsRrsffrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRrsffrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RRSFFR': 'totalClearedASRRSFFR'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_RRSFFR-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_cleared_dam_as_rrsffr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASRRSFFRFrom: Decimal | None = None, totalClearedASRRSFFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsRrsffrRow]:
         '2-Day Cleared DAM Ancillary Service RRSFFR'
@@ -4104,6 +4229,11 @@ class np3_911_er:
         hourEnding: int | None
         totalClearedASRRSPFR: Decimal | None
 
+    @property
+    def _2d_cleared_dam_as_rrspfr_history(self) -> Archive[np3_911_er._2dClearedDamAsRrspfrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRrspfrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RRSPFR': 'totalClearedASRRSPFR'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_RRSPFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_cleared_dam_as_rrspfr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASRRSPFRFrom: Decimal | None = None, totalClearedASRRSPFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsRrspfrRow]:
         '2-Day Cleared DAM Ancillary Service RRSPFR'
         return self._client._page('/np3-911-er/2d_cleared_dam_as_rrspfr', np3_911_er._2dClearedDamAsRrspfrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalClearedASRRSPFRFrom': totalClearedASRRSPFRFrom, 'totalClearedASRRSPFRTo': totalClearedASRRSPFRTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4123,6 +4253,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalClearedASRRSUFR: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_rrsufr_history(self) -> Archive[np3_911_er._2dClearedDamAsRrsufrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRrsufrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RRSUFR': 'totalClearedASRRSUFR'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_RRSUFR-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_cleared_dam_as_rrsufr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASRRSUFRFrom: Decimal | None = None, totalClearedASRRSUFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsRrsufrRow]:
         '2-Day Cleared DAM Ancillary Service RRSUFR'
@@ -4144,6 +4279,11 @@ class np3_911_er:
         hourEnding: int | None
         totalSelfArrangedASECRSM: Decimal | None
 
+    @property
+    def _2d_self_arranged_as_ecrsm_history(self) -> Archive[np3_911_er._2dSelfArrangedAsEcrsmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsEcrsmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - ECRSM': 'totalSelfArrangedASECRSM'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_ECRSM-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_self_arranged_as_ecrsm(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASECRSMFrom: Decimal | None = None, totalSelfArrangedASECRSMTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsEcrsmRow]:
         '2-Day Self Arranged Ancillary Service ECRSM'
         return self._client._page('/np3-911-er/2d_self_arranged_as_ecrsm', np3_911_er._2dSelfArrangedAsEcrsmRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalSelfArrangedASECRSMFrom': totalSelfArrangedASECRSMFrom, 'totalSelfArrangedASECRSMTo': totalSelfArrangedASECRSMTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4163,6 +4303,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalSelfArrangedASECRSS: Decimal | None
+
+    @property
+    def _2d_self_arranged_as_ecrss_history(self) -> Archive[np3_911_er._2dSelfArrangedAsEcrssRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsEcrssRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - ECRSS': 'totalSelfArrangedASECRSS'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_ECRSS-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_self_arranged_as_ecrss(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASECRSSFrom: Decimal | None = None, totalSelfArrangedASECRSSTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsEcrssRow]:
         '2-Day Self Arranged Ancillary Service ECRSS'
@@ -4184,6 +4329,11 @@ class np3_911_er:
         hourEnding: int | None
         totalSelfArrangedASNSPIN: Decimal | None
 
+    @property
+    def _2d_self_arranged_as_nspin_history(self) -> Archive[np3_911_er._2dSelfArrangedAsNspinRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsNspinRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - NonSpin': 'totalSelfArrangedASNSPIN'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_NSPIN-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_self_arranged_as_nspin(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASNSPINFrom: Decimal | None = None, totalSelfArrangedASNSPINTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsNspinRow]:
         '2-Day Self Arranged Ancillary Service NSPIN'
         return self._client._page('/np3-911-er/2d_self_arranged_as_nspin', np3_911_er._2dSelfArrangedAsNspinRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalSelfArrangedASNSPINFrom': totalSelfArrangedASNSPINFrom, 'totalSelfArrangedASNSPINTo': totalSelfArrangedASNSPINTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4203,6 +4353,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalSelfArrangedASNSPNM: Decimal | None
+
+    @property
+    def _2d_self_arranged_as_nspnm_history(self) -> Archive[np3_911_er._2dSelfArrangedAsNspnmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsNspnmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - NSPNM': 'totalSelfArrangedASNSPNM'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_NSPNM-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_self_arranged_as_nspnm(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASNSPNMFrom: Decimal | None = None, totalSelfArrangedASNSPNMTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsNspnmRow]:
         '2-Day Self Arranged Ancillary Service NSPNM'
@@ -4224,6 +4379,11 @@ class np3_911_er:
         hourEnding: int | None
         totalSelfArrangedASREGDN: Decimal | None
 
+    @property
+    def _2d_self_arranged_as_regdn_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRegdnRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRegdnRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RegDown': 'totalSelfArrangedASREGDN'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_REGDN-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_self_arranged_as_regdn(self, *, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASREGDNFrom: Decimal | None = None, totalSelfArrangedASREGDNTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsRegdnRow]:
         '2-Day Self Arranged Ancillary Service REGDN'
         return self._client._page('/np3-911-er/2d_self_arranged_as_regdn', np3_911_er._2dSelfArrangedAsRegdnRow, {'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalSelfArrangedASREGDNFrom': totalSelfArrangedASREGDNFrom, 'totalSelfArrangedASREGDNTo': totalSelfArrangedASREGDNTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4243,6 +4403,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalSelfArrangedASREGUP: Decimal | None
+
+    @property
+    def _2d_self_arranged_as_regup_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRegupRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRegupRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RegUp': 'totalSelfArrangedASREGUP'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_REGUP-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_self_arranged_as_regup(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASREGUPFrom: Decimal | None = None, totalSelfArrangedASREGUPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsRegupRow]:
         '2-Day Self Arranged Ancillary Service REGUP'
@@ -4264,6 +4429,11 @@ class np3_911_er:
         hourEnding: int | None
         totalSelfArrangedASRRSFFR: Decimal | None
 
+    @property
+    def _2d_self_arranged_as_rrsffr_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRrsffrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRrsffrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RRSFFR': 'totalSelfArrangedASRRSFFR'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_RRSFFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_self_arranged_as_rrsffr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASRRSFFRFrom: Decimal | None = None, totalSelfArrangedASRRSFFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsRrsffrRow]:
         '2-Day Self Arranged Ancillary Service RRSFFR'
         return self._client._page('/np3-911-er/2d_self_arranged_as_rrsffr', np3_911_er._2dSelfArrangedAsRrsffrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalSelfArrangedASRRSFFRFrom': totalSelfArrangedASRRSFFRFrom, 'totalSelfArrangedASRRSFFRTo': totalSelfArrangedASRRSFFRTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4283,6 +4453,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalSelfArrangedASRRSPFR: Decimal | None
+
+    @property
+    def _2d_self_arranged_as_rrspfr_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRrspfrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRrspfrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RRSPFR': 'totalSelfArrangedASRRSPFR'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_RRSPFR-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_self_arranged_as_rrspfr(self, *, totalSelfArrangedASRRSPFRFrom: Decimal | None = None, totalSelfArrangedASRRSPFRTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsRrspfrRow]:
         '2-Day Self Arranged Ancillary Service RRSPFR'
@@ -4304,6 +4479,11 @@ class np3_911_er:
         hourEnding: int | None
         totalSelfArrangedASRRSUFR: Decimal | None
 
+    @property
+    def _2d_self_arranged_as_rrsufr_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRrsufrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRrsufrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RRSUFR': 'totalSelfArrangedASRRSUFR'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_RRSUFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_self_arranged_as_rrsufr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASRRSUFRFrom: Decimal | None = None, totalSelfArrangedASRRSUFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsRrsufrRow]:
         '2-Day Self Arranged Ancillary Service RRSUFR'
         return self._client._page('/np3-911-er/2d_self_arranged_as_rrsufr', np3_911_er._2dSelfArrangedAsRrsufrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalSelfArrangedASRRSUFRFrom': totalSelfArrangedASRRSUFRFrom, 'totalSelfArrangedASRRSUFRTo': totalSelfArrangedASRRSUFRTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4319,6 +4499,79 @@ class np3_911_er:
     def _2d_self_arranged_as_rrsufr_iter_async(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASRRSUFRFrom: Decimal | None = None, totalSelfArrangedASRRSUFRTo: Decimal | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> AsyncIterator[np3_911_er._2dSelfArrangedAsRrsufrRow]:
         '2-Day Self Arranged Ancillary Service RRSUFR'
         return self._client._aiter('/np3-911-er/2d_self_arranged_as_rrsufr', np3_911_er._2dSelfArrangedAsRrsufrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalSelfArrangedASRRSUFRFrom': totalSelfArrangedASRRSUFRFrom, 'totalSelfArrangedASRRSUFRTo': totalSelfArrangedASRRSUFRTo, 'size': size, 'sort': sort, 'dir': dir})
+
+    class _2dClearedDamAsRrsloadHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        totalClearedASRRSLOAD: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_rrsload_history(self) -> Archive[np3_911_er._2dClearedDamAsRrsloadHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRrsloadHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RRS Load': 'totalClearedASRRSLOAD'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_RRSLOAD-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dClearedDamAsRrsgenHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        totalClearedASRRSGEN: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_rrsgen_history(self) -> Archive[np3_911_er._2dClearedDamAsRrsgenHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRrsgenHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RRS Gen': 'totalClearedASRRSGEN'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_RRSGEN-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dSelfArrangedAsRrsloadHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        totalSelfArrangedASRRSLOAD: Decimal | None
+
+    @property
+    def _2d_self_arranged_as_rrsload_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRrsloadHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRrsloadHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RRS Load': 'totalSelfArrangedASRRSLOAD'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_RRSLOAD-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dSelfArrangedAsRrsgenHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        totalSelfArrangedASRRSGEN: Decimal | None
+
+    @property
+    def _2d_self_arranged_as_rrsgen_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRrsgenHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRrsgenHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RRS Gen': 'totalSelfArrangedASRRSGEN'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_RRSGEN-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggAsOffersRrsncHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        MWOffered: Decimal | None
+        RRSNCOfferPrice: Decimal | None
+
+    @property
+    def _2d_agg_as_offers_rrsnc_history(self) -> Archive[np3_911_er._2dAggAsOffersRrsncHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRrsncHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSNC Offer Price': 'RRSNCOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_RRSNC-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggAsOffersRrsldHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        MWOffered: Decimal | None
+        RRSLDOfferPrice: Decimal | None
+
+    @property
+    def _2d_agg_as_offers_rrsld_history(self) -> Archive[np3_911_er._2dAggAsOffersRrsldHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRrsldHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSLD Offer Price': 'RRSLDOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_RRSLD-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggAsOffersRrsgnHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        MWOffered: Decimal | None
+        RRSGNOfferPrice: Decimal | None
+
+    @property
+    def _2d_agg_as_offers_rrsgn_history(self) -> Archive[np3_911_er._2dAggAsOffersRrsgnHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRrsgnHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSGN Offer Price': 'RRSGNOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_RRSGN-[0-9]*.csv', datetimes={}, variants=())
 
 class np3_914_ex:
     def __init__(self, client: Transport) -> None:

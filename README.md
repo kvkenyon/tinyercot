@@ -375,3 +375,12 @@ under `_2d_agg_dam_*_history`, plus separate `_2d_agg_esc_non_wind*_history`
 readers. These older categories are retained explicitly. The sampled March 2014
 ZIP contains tables no longer included in the sampled August 2026 ZIP; requesting
 a missing table raises an error. Header-only tables yield no rows.
+
+DAM ancillary-service disclosures (NP3-911) have 36 readers matching the API
+report tables and seven legacy RRS readers. Aggregate offer curves and the newer
+DAM-specific curves keep separate `_2d_agg_as_offers_*_history` and
+`_2d_agg_dam_as_offers_*_history` names. Legacy RRS load/generation cleared and
+self-arranged quantities, and `RRSNC`, `RRSLD`, `RRSGN` offer curves, remain
+separate from newer RRS response categories. The sampled 2014, 2025 and current
+archives cover different sets of tables; a missing table raises an error rather
+than silently substituting another category.

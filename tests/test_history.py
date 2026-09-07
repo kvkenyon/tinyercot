@@ -1345,3 +1345,54 @@ def test_sced_curves_keep_non_wind_and_dam_tables_separate():
     assert dam[0].deliveryDate == date(2014, 3, 10)
     assert dam[0].MW == Decimal(609)
     assert empty == []
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "dam-as-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_dam_as_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    if rows:
+        assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_dam_as_readers_keep_legacy_and_current_categories_separate():
+    samples = json.loads((INPUTS / "dam-as-evidence.json").read_text())
+    content = BytesIO()
+    with ZipFile(content, "w") as archive:
+        for sample in samples:
+            archive.writestr(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+    with Client() as client:
+        legacy = list(
+            client.np3_911_er._2d_cleared_dam_as_rrsload_history.read(
+                content.getvalue()
+            )
+        )
+        aggregate = list(
+            client.np3_911_er._2d_agg_as_offers_rrspfr_history.read(content.getvalue())
+        )
+        dam = list(
+            client.np3_911_er._2d_agg_dam_as_offers_rrspfr_history.read(
+                content.getvalue()
+            )
+        )
+    assert len(legacy) == len(aggregate) == len(dam) == 3
+    assert legacy[0].totalClearedASRRSLOAD == Decimal("960.9")
+    assert aggregate[0].MWOffered == Decimal("19.2")
+    assert dam[0].MWOffered == Decimal(51)
+    assert legacy[0].deliveryDate == date(2014, 4, 29)
+    assert aggregate[0].deliveryDate == date(2025, 4, 24)
+    assert dam[0].deliveryDate == date(2026, 9, 5)
