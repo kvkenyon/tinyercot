@@ -3815,5 +3815,105 @@
       "RTDTimestamp": "%m/%d/%Y %H:%M:%S",
       "intervalEnding": "%m/%d/%Y %H:%M:%S"
     }
+  },
+  "np4-158-sg/dam_essps": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "SettlementPoint": "settlementPoint",
+      "GroupIndex": "groupIndex",
+      "UpdateTime": "updateTime",
+      "DSTFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S",
+      "updateTime": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "settlementPoint": "str",
+      "groupIndex": "int",
+      "updateTime": "datetime",
+      "repeatHourFlag": "bool"
+    }
+  },
+  "np4-159-cd/load_distribution_factors": {
+    "columns": {
+      "LdfDate": "LDFDate",
+      "LdfHour": "LDFHour",
+      "SubStation": "substation",
+      "DistributionFactor": "distributionFactor",
+      "LoadID": "loadId",
+      "MVARDistributionFactor": "MVARDistributionFactor",
+      "MRIDLoad": "MRIDLoad",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "LDFDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S"
+    },
+    "variants": [
+      {
+        "LdfDate": "LDFDate",
+        "LdfHour": "LDFHour",
+        "SubStation": "substation",
+        "LoadDistributionFactor": "distributionFactor",
+        "LoadID": "loadId",
+        "MVARDistributionFactor": "MVARDistributionFactor",
+        "MRIDLoad": "MRIDLoad",
+        "DSTFlag": "DSTFlag"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "LDFDate": "date",
+      "LDFHour": "str",
+      "substation": "str",
+      "distributionFactor": "Decimal",
+      "loadId": "str",
+      "MVARDistributionFactor": "Decimal",
+      "MRIDLoad": "str",
+      "DSTFlag": "bool"
+    }
+  },
+  "np4-200-cd/dam_de_energized_spbc": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "SettlementPoint": "settlementPoint",
+      "DSTFlag": "repeatedHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np4-231-cd/electrical_bus_map_heur_price": {
+    "columns": {
+      "MarketType": "marketType",
+      "FromEBName": "fromEBName",
+      "ToEBName": "toEBName",
+      "Type": "type",
+      "Priority": "priority"
+    },
+    "dates": {},
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "marketType": "str",
+      "fromEBName": "str",
+      "toEBName": "str",
+      "type": "str",
+      "priority": "Decimal"
+    }
   }
 }

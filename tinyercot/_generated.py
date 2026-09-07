@@ -6154,6 +6154,20 @@ class np4_158_sg:
         settlementPoint: str | None
         updateTime: datetime | None
 
+    class DamEsspsHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        settlementPoint: str | None
+        groupIndex: int | None
+        updateTime: datetime | None
+        repeatHourFlag: bool | None
+
+    @property
+    def dam_essps_history(self) -> Archive[np4_158_sg.DamEsspsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-158-sg', np4_158_sg.DamEsspsHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'SettlementPoint': 'settlementPoint', 'GroupIndex': 'groupIndex', 'UpdateTime': 'updateTime', 'DSTFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S', 'updateTime': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def dam_essps(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, settlementPoint: str | None = None, groupIndexFrom: int | None = None, groupIndexTo: int | None = None, updateTimeFrom: datetime | None = None, updateTimeTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_158_sg.DamEsspsRow]:
         'DAM Electrically Similar Settlement Points'
         return self._client._page('/np4-158-sg/dam_essps', np4_158_sg.DamEsspsRow, {'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'settlementPoint': settlementPoint, 'groupIndexFrom': groupIndexFrom, 'groupIndexTo': groupIndexTo, 'updateTimeFrom': updateTimeFrom, 'updateTimeTo': updateTimeTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6184,6 +6198,22 @@ class np4_159_cd:
         loadId: str | None
         postedDatetime: datetime | None
         substation: str | None
+
+    class LoadDistributionFactorsHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        LDFDate: date | None
+        LDFHour: str | None
+        substation: str | None
+        distributionFactor: Decimal | None
+        loadId: str | None
+        MVARDistributionFactor: Decimal | None
+        MRIDLoad: str | None
+        DSTFlag: bool | None
+
+    @property
+    def load_distribution_factors_history(self) -> Archive[np4_159_cd.LoadDistributionFactorsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-159-cd', np4_159_cd.LoadDistributionFactorsHistoryRow, {'LdfDate': 'LDFDate', 'LdfHour': 'LDFHour', 'SubStation': 'substation', 'DistributionFactor': 'distributionFactor', 'LoadID': 'loadId', 'MVARDistributionFactor': 'MVARDistributionFactor', 'MRIDLoad': 'MRIDLoad', 'DSTFlag': 'DSTFlag'}, {'LDFDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=({'LdfDate': 'LDFDate', 'LdfHour': 'LDFHour', 'SubStation': 'substation', 'LoadDistributionFactor': 'distributionFactor', 'LoadID': 'loadId', 'MVARDistributionFactor': 'MVARDistributionFactor', 'MRIDLoad': 'MRIDLoad', 'DSTFlag': 'DSTFlag'},))
 
     def load_distribution_factors(self, *, LDFDateFrom: date | None = None, LDFDateTo: date | None = None, LDFHour: str | None = None, substation: str | None = None, distributionFactorFrom: Decimal | None = None, distributionFactorTo: Decimal | None = None, loadId: str | None = None, MVARDistributionFactorFrom: Decimal | None = None, MVARDistributionFactorTo: Decimal | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, MRIDLoad: str | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_159_cd.LoadDistributionFactorsRow]:
         'Load Distribution Factors'
@@ -6819,6 +6849,11 @@ class np4_200_cd:
         repeatedHourFlag: bool | None
         settlementPoint: str | None
 
+    @property
+    def dam_de_energized_spbc_history(self) -> Archive[np4_200_cd.DamDeEnergizedSpbcRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-200-cd', np4_200_cd.DamDeEnergizedSpbcRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'SettlementPoint': 'settlementPoint', 'DSTFlag': 'repeatedHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
+
     def dam_de_energized_spbc(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, settlementPoint: str | None = None, repeatedHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_200_cd.DamDeEnergizedSpbcRow]:
         'DAM De-Energized Settlement Points in Base Case'
         return self._client._page('/np4-200-cd/dam_de_energized_spbc', np4_200_cd.DamDeEnergizedSpbcRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'settlementPoint': settlementPoint, 'repeatedHourFlag': repeatedHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7008,6 +7043,19 @@ class np4_231_cd:
         priority: Decimal | None
         toEBName: str | None
         type: str | None
+
+    class ElectricalBusMapHeurPriceHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        marketType: str | None
+        fromEBName: str | None
+        toEBName: str | None
+        type: str | None
+        priority: Decimal | None
+
+    @property
+    def electrical_bus_map_heur_price_history(self) -> Archive[np4_231_cd.ElectricalBusMapHeurPriceHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-231-cd', np4_231_cd.ElectricalBusMapHeurPriceHistoryRow, {'MarketType': 'marketType', 'FromEBName': 'fromEBName', 'ToEBName': 'toEBName', 'Type': 'type', 'Priority': 'priority'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def electrical_bus_map_heur_price(self, *, toEBName: str | None = None, type: str | None = None, priorityFrom: Decimal | None = None, priorityTo: Decimal | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, marketType: str | None = None, fromEBName: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_231_cd.ElectricalBusMapHeurPriceRow]:
         'Electrical Bus Mapping for Heuristic Pricing'
