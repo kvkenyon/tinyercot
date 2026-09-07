@@ -205,3 +205,14 @@ with Client() as client:
         assert_type(obligation.REGUPObligation, Decimal | None)
         assert_type(obligation.REGUPResponsibility, Decimal | None)
         assert_type(obligation.REGUPOblFinal, Decimal | None)
+
+    for trigger in client.np3_987_ex._7d_trig_mcpc_50xfip_history.rows():
+        assert_type(trigger.FIPx50, Decimal | None)
+        assert_type(trigger.price1RRSPFR, Decimal | None)
+    for sasm_award in client.np3_990_ex._60_sasm_gen_res_as_offer_awards_history.rows():
+        assert_type(sasm_award.SASMId, datetime | None)
+        assert_type(sasm_award.RRSAwarded, Decimal | None)
+        assert_type(sasm_award.RRSPFRAwarded, Decimal | None)
+    for sasm_offer in client.np3_990_ex._60_sasm_load_res_as_offers_history.rows():
+        assert_type(sasm_offer.price1RRS, Decimal | None)
+        assert_type(sasm_offer.price1RRSPFR, Decimal | None)

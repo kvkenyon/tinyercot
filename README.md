@@ -391,3 +391,13 @@ COP adjustment-period snapshots (NP1-301) and ancillary-service obligations
 such as `01:00` as strings. Older obligation and responsibility fields remain
 separate from advisory/final obligations; absent values remain `None`. Archive
 publication dates differ from the delivery dates in these delayed reports.
+
+Seven-day event-trigger reports (NP3-987) have separate LMP, DAM MCPC and
+real-time MCPC history readers. These tables are conditional: the latest ZIP
+may contain only one of them. Sixty-day SASM disclosures (NP3-990) have four
+readers for generation/load offers and awards. SASM IDs parse as timestamps,
+including the AM/PM format in award files; legacy combined-RRS offers and
+awards stay separate from newer response categories. Header-only files are
+valid and yield no rows. A sampled populated SASM archive was published in
+January 2026 for November 2025 activity, while the latest listed February file
+was empty; latest publication does not imply recent activity.
