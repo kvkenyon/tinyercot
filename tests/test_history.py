@@ -1843,3 +1843,45 @@ def test_wind_preserves_hour_beginning_and_combined_regions(
     assert row.actualLoadZoneWest is None
     assert row.actualLoadZoneNorth is None
     assert row.genSystemWide is None
+
+
+def test_solar_history_accepts_delivery_date_with_legacy_actual_column():
+    with Client() as client:
+        rows = list(
+            client.np4_737_cd.spp_hrly_avrg_actl_fcast_history.read(
+                zipped(
+                    "solar.csv", (INPUTS / "np4-737-cd-history-2017.csv").read_bytes()
+                )
+            )
+        )
+    assert [row.deliveryDate for row in rows] == [
+        date(2017, 1, 29),
+        date(2017, 1, 30),
+        date(2017, 2, 7),
+    ]
+    assert [row.hourEnding for row in rows] == [24, 1, 23]
+    assert [row.genSystemWide for row in rows] == [Decimal(0), Decimal("0.09"), None]
+    assert all(row.hourEndingTimestamp is None for row in rows)
+    assert all(row.HSLSystemWide is None for row in rows)
+
+
+def test_sced_clr_history_recognizes_legacy_aggr_filename():
+    header = (INPUTS / "np3-908-er-clr-history-2015.csv").read_bytes()
+    data = BytesIO()
+    with ZipFile(data, "w") as archive:
+        archive.writestr("48_Hour_Aggr_Energy_Demand_Curves_CLR-31-JAN-15.csv", header)
+        archive.writestr(
+            "48_Hour_Agg_Energy_Demand_Curves_CLR_West-31-JAN-15.csv", b"other\n"
+        )
+    with Client() as client:
+        reader = client.np3_908_er._2d_agg_edc_clr_history
+        assert list(reader.read(data.getvalue())) == []
+        with pytest.raises(ValueError, match="unexpected CSV columns"):
+            list(
+                reader.read(
+                    zipped(
+                        "48_Hour_Aggr_Energy_Demand_Curves_CLR-31-JAN-15.csv",
+                        b"unknown\n",
+                    )
+                )
+            )
