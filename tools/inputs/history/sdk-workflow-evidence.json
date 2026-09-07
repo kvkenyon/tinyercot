@@ -1,0 +1,173 @@
+{
+  "scope": "Fresh SDK clients using vault credentials and default transports; no token injection. Bounded report, individual archive, monthly bundle and async query. Public response metadata only; no credential/header/body logging. Event hooks recorded only method, host, path and status. This verifies the stated bounded workflows, not all products, pagination, token-expiry refresh or full historical completeness.",
+  "checks": [
+    {
+      "name": "typedQuery",
+      "rows": 24,
+      "firstRow": {
+        "DSTFlag": false,
+        "deliveryDate": "2026-09-04",
+        "hourEnding": "01:00",
+        "settlementPoint": "HB_HOUSTON",
+        "settlementPointPrice": "28.76"
+      },
+      "lastRow": {
+        "DSTFlag": false,
+        "deliveryDate": "2026-09-04",
+        "hourEnding": "24:00",
+        "settlementPoint": "HB_HOUSTON",
+        "settlementPointPrice": "31.55"
+      },
+      "minDeliveryDate": "2026-09-04",
+      "maxDeliveryDate": "2026-09-04",
+      "rowType": "np4_190_cd.DamStlmntPntPricesRow",
+      "query": {
+        "deliveryDateFrom": "2026-09-04",
+        "deliveryDateTo": "2026-09-04",
+        "settlementPoint": "HB_HOUSTON",
+        "size": 100
+      }
+    },
+    {
+      "name": "archiveRowsMay2014",
+      "rows": 24,
+      "firstRow": {
+        "DSTFlag": false,
+        "deliveryDate": "2014-05-02",
+        "hourEnding": "01:00",
+        "settlementPoint": "HB_HOUSTON",
+        "settlementPointPrice": "30.2"
+      },
+      "lastRow": {
+        "DSTFlag": false,
+        "deliveryDate": "2014-05-02",
+        "hourEnding": "24:00",
+        "settlementPoint": "HB_HOUSTON",
+        "settlementPointPrice": "33.69"
+      },
+      "minDeliveryDate": "2014-05-02",
+      "maxDeliveryDate": "2014-05-02",
+      "rowType": "np4_190_cd.DamStlmntPntPricesRow",
+      "where": "settlementPoint == HB_HOUSTON",
+      "kind": "archive",
+      "postedFrom": "2014-05-01T00:00:00",
+      "postedTo": "2014-05-01T23:59:59"
+    },
+    {
+      "name": "bundleRowsJanuary2018",
+      "rows": 744,
+      "firstRow": {
+        "DSTFlag": false,
+        "deliveryDate": "2018-01-02",
+        "hourEnding": "01:00",
+        "settlementPoint": "HB_HOUSTON",
+        "settlementPointPrice": "34.55"
+      },
+      "lastRow": {
+        "DSTFlag": false,
+        "deliveryDate": "2018-02-01",
+        "hourEnding": "24:00",
+        "settlementPoint": "HB_HOUSTON",
+        "settlementPointPrice": "18.51"
+      },
+      "minDeliveryDate": "2018-01-02",
+      "maxDeliveryDate": "2018-02-01",
+      "rowType": "np4_190_cd.DamStlmntPntPricesRow",
+      "where": "settlementPoint == HB_HOUSTON",
+      "kind": "bundle",
+      "postedFrom": "2018-01-01T00:00:00",
+      "postedTo": "2018-01-31T23:59:59"
+    },
+    {
+      "name": "freshAsyncQuery",
+      "rows": 1,
+      "firstRow": {
+        "DSTFlag": false,
+        "deliveryDate": "2026-09-04",
+        "hourEnding": "01:00",
+        "settlementPoint": "HB_HOUSTON",
+        "settlementPointPrice": "28.76"
+      },
+      "lastRow": {
+        "DSTFlag": false,
+        "deliveryDate": "2026-09-04",
+        "hourEnding": "01:00",
+        "settlementPoint": "HB_HOUSTON",
+        "settlementPointPrice": "28.76"
+      },
+      "minDeliveryDate": "2026-09-04",
+      "maxDeliveryDate": "2026-09-04",
+      "rowType": "np4_190_cd.DamStlmntPntPricesRow",
+      "query": {
+        "deliveryDateFrom": "2026-09-04",
+        "deliveryDateTo": "2026-09-04",
+        "settlementPoint": "HB_HOUSTON",
+        "size": 1
+      }
+    }
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "host": "ercotb2c.b2clogin.com",
+      "path": "/ercotb2c.onmicrosoft.com/B2C_1_PUBAPI-ROPC-FLOW/oauth2/v2.0/token",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "host": "api.ercot.com",
+      "path": "/api/public-reports/",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "host": "api.ercot.com",
+      "path": "/api/public-reports/np4-190-cd/dam_stlmnt_pnt_prices",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "host": "api.ercot.com",
+      "path": "/api/public-reports/archive/np4-190-cd",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "host": "api.ercot.com",
+      "path": "/api/public-reports/archive/np4-190-cd/download",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "host": "api.ercot.com",
+      "path": "/api/public-reports/bundle/np4-190-cd",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "host": "api.ercot.com",
+      "path": "/api/public-reports/bundle/np4-190-cd/download",
+      "status": 400
+    },
+    {
+      "method": "GET",
+      "host": "api.ercot.com",
+      "path": "/api/public-reports/bundle/np4-190-cd",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "host": "ercotb2c.b2clogin.com",
+      "path": "/ercotb2c.onmicrosoft.com/B2C_1_PUBAPI-ROPC-FLOW/oauth2/v2.0/token",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "host": "api.ercot.com",
+      "path": "/api/public-reports/np4-190-cd/dam_stlmnt_pnt_prices",
+      "status": 200
+    }
+  ],
+  "productCount": 116,
+  "authenticationRequests": 2
+}
