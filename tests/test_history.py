@@ -1619,3 +1619,35 @@ def test_sced_disclosure_keeps_legacy_services_and_override_values():
     assert capability.startTime is not None
     assert capability.startTime.isoformat() == "2026-04-15T12:03:39"
     assert capability.ASType == "REGDN"
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "eia-hourly-evidence.json").read_text()),
+    ids=lambda s: s["fixture"],
+)
+def test_eia_hourly_archive_formats(sample):
+    with Client() as client:
+        rows = list(
+            client.eia_930_cd.hourly_operations_history.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert [r.model_dump(mode="json") for r in rows] == sample["rows"]
+
+
+def test_eia_hourly_preserves_unreported_hours_and_utc_timestamps():
+    with Client() as client:
+        timestamps, demand = client.eia_930_cd.hourly_operations_history.read(
+            zipped(
+                "same-day.csv",
+                (INPUTS / "eia-930-cd-remaining-archive.csv").read_bytes(),
+            )
+        )
+    assert timestamps.dataDate == date(2026, 9, 7)
+    assert timestamps.dataType == "UTC0"
+    assert timestamps.HR1 == datetime(2026, 9, 7, 6, tzinfo=UTC)
+    assert demand.dataType == "D"
+    assert demand.HR1 == Decimal(63489)
+    assert demand.HR15 is None
+    assert demand.HR25 is None

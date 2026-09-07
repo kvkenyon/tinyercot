@@ -440,3 +440,16 @@ Monthly path-specific adders (NP7-535) expose `path_adders_history`, reading the
 CSV in each archive. Target date and start date remain separate, with source,
 sink, time-of-use and signed decimal coefficients preserved. In both sampled
 archives, every CSV row matched its XML counterpart.
+
+`ercot.eia_930_cd.hourly_operations_history` reads EIA same-day hourly reports.
+Hour fields contain either UTC timestamps or demand values, according to the
+row's `dataType`, and unreported hours remain `None`. Julian data dates are
+parsed as dates. Date-bounded archive queries work for this product; older
+unfiltered attempts timed out, while the latest check succeeded. The oldest
+file in that listing was posted April 30, 2026, despite the product's earlier
+catalog start date. This is observed availability, not a retention guarantee.
+
+The latest checks for NP6-569, NP6-655 and NP6-913 returned no archives or bundles.
+Their typed catalog/document operations remain usable, but no historical row
+schema is inferred from absent files. Point-in-time listing evidence is recorded
+in `tools/inputs/history/availability-observations.json`.
