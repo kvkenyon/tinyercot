@@ -7417,6 +7417,11 @@ class np4_722_cd:
         southern: Decimal | None
         west: Decimal | None
 
+    @property
+    def weather_assumptions_history(self) -> Archive[np4_722_cd.WeatherAssumptionsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-722-cd', np4_722_cd.WeatherAssumptionsRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Coast': 'coast', 'East': 'east', 'FarWest': 'farWest', 'North': 'north', 'NorthCentral': 'northCentral', 'SouthCentral': 'southCentral', 'Southern': 'southern', 'West': 'west', 'DSTFlag': 'repeatedHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
+
     def weather_assumptions(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, coastFrom: Decimal | None = None, coastTo: Decimal | None = None, eastFrom: Decimal | None = None, eastTo: Decimal | None = None, farWestFrom: Decimal | None = None, farWestTo: Decimal | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, northCentralFrom: Decimal | None = None, northCentralTo: Decimal | None = None, southCentralFrom: Decimal | None = None, southCentralTo: Decimal | None = None, southernFrom: Decimal | None = None, southernTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, repeatedHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_722_cd.WeatherAssumptionsRow]:
         'Weather Assumptions'
         return self._client._page('/np4-722-cd/weather_assumptions', np4_722_cd.WeatherAssumptionsRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'coastFrom': coastFrom, 'coastTo': coastTo, 'eastFrom': eastFrom, 'eastTo': eastTo, 'farWestFrom': farWestFrom, 'farWestTo': farWestTo, 'northFrom': northFrom, 'northTo': northTo, 'northCentralFrom': northCentralFrom, 'northCentralTo': northCentralTo, 'southCentralFrom': southCentralFrom, 'southCentralTo': southCentralTo, 'southernFrom': southernFrom, 'southernTo': southernTo, 'westFrom': westFrom, 'westTo': westTo, 'repeatedHourFlag': repeatedHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -8691,6 +8696,11 @@ class np6_326_cd:
         resourceName: str | None
         resourceType: str | None
 
+    @property
+    def rt_price_sog_history(self) -> Archive[np6_326_cd.RtPriceSogRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-326-cd', np6_326_cd.RtPriceSogRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'ResourceType': 'resourceType', 'ResourceName': 'resourceName', 'MeterName': 'meterName', 'MeterPrice': 'meterPrice', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
+
     def rt_price_sog(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, resourceType: str | None = None, resourceName: str | None = None, meterName: str | None = None, meterPriceFrom: Decimal | None = None, meterPriceTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_326_cd.RtPriceSogRow]:
         'Real-Time Price for SOG'
         return self._client._page('/np6-326-cd/rt_price_sog', np6_326_cd.RtPriceSogRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'deliveryIntervalFrom': deliveryIntervalFrom, 'deliveryIntervalTo': deliveryIntervalTo, 'resourceType': resourceType, 'resourceName': resourceName, 'meterName': meterName, 'meterPriceFrom': meterPriceFrom, 'meterPriceTo': meterPriceTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -8722,6 +8732,25 @@ class np6_327_cd:
         resourceType: str | None
         stationName: str | None
         voltageLevel: Decimal | None
+
+    class LmpSogPriceAddersHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        resourceType: str | None
+        resourceName: str | None
+        stationName: str | None
+        voltageLevel: Decimal | None
+        meterName: str | None
+        meterLMP: Decimal | None
+        RTRDPA: Decimal | None = None
+        finalLMP: Decimal | None
+        RTORPA: Decimal | None = None
+        RTORDPA: Decimal | None = None
+
+    @property
+    def lmp_sog_price_adders_history(self) -> Archive[np6_327_cd.LmpSogPriceAddersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-327-cd', np6_327_cd.LmpSogPriceAddersHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'ResourceType': 'resourceType', 'ResourceName': 'resourceName', 'StationName': 'stationName', 'VoltageLevel': 'voltageLevel', 'MeterName': 'meterName', 'MeterLMP': 'meterLMP', 'RTRDPA': 'RTRDPA', 'FinalLMP': 'finalLMP'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'ResourceType': 'resourceType', 'ResourceName': 'resourceName', 'StationName': 'stationName', 'VoltageLevel': 'voltageLevel', 'MeterName': 'meterName', 'MeterLMP': 'meterLMP', 'RTORPA': 'RTORPA', 'RTORDPA': 'RTORDPA', 'FinalLMP': 'finalLMP'},))
 
     def lmp_sog_price_adders(self, *, resourceType: str | None = None, resourceName: str | None = None, stationName: str | None = None, voltageLevelFrom: Decimal | None = None, voltageLevelTo: Decimal | None = None, meterName: str | None = None, meterLMPFrom: Decimal | None = None, meterLMPTo: Decimal | None = None, RTRDPAFrom: Decimal | None = None, RTRDPATo: Decimal | None = None, finalLMPFrom: Decimal | None = None, finalLMPTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_327_cd.LmpSogPriceAddersRow]:
         'LMP By SOG Including Price Adders'

@@ -134,3 +134,12 @@ with Client() as client:
     for bus_correction in client.np4_196_m.dam_price_corrections_eblmp_history.rows():
         assert_type(bus_correction.electricalBus, str | None)
         assert_type(bus_correction.LMPCorrected, Decimal | None)
+
+    for sog_price in client.np6_327_cd.lmp_sog_price_adders_history.rows():
+        assert_type(sog_price.meterName, str | None)
+        assert_type(sog_price.RTORPA, Decimal | None)
+        assert_type(sog_price.RTORDPA, Decimal | None)
+        assert_type(sog_price.RTRDPA, Decimal | None)
+    for assumption in client.np4_722_cd.weather_assumptions_history.rows():
+        assert_type(assumption.deliveryDate, date | None)
+        assert_type(assumption.coast, Decimal | None)
