@@ -196,3 +196,12 @@ with Client() as client:
         assert_type(dam_rrs.RRSPFROfferPrice, Decimal | None)
     for aggregated_rrs in client.np3_911_er._2d_agg_as_offers_rrspfr_history.rows():
         assert_type(aggregated_rrs.RRSPFROfferPrice, Decimal | None)
+
+    for cop_snapshot in client.np1_301._60_cop_adj_period_snapshot_history.rows():
+        assert_type(cop_snapshot.hourEnding, str | None)
+        assert_type(cop_snapshot.RRS, Decimal | None)
+        assert_type(cop_snapshot.RRSPFR, Decimal | None)
+    for obligation in client.np1_302.as_obligation_history.rows():
+        assert_type(obligation.REGUPObligation, Decimal | None)
+        assert_type(obligation.REGUPResponsibility, Decimal | None)
+        assert_type(obligation.REGUPOblFinal, Decimal | None)
