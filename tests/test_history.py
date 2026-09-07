@@ -313,3 +313,61 @@ def test_eia_invalid_hour_reports_the_csv_member(invalid):
         list(
             client.eia_930_er.daily_operations_history.read(zipped("eia.csv", content))
         )
+
+
+def test_download_batches_respect_product_limit_and_stay_lazy():
+    downloads = []
+    data = (INPUTS / "np4-190-cd.csv").read_bytes()
+
+    def handler(request):
+        if "b2clogin" in request.url.host:
+            return httpx.Response(200, json={"id_token": "test", "expires_in": 3600})
+        if request.method == "GET":
+            return httpx.Response(
+                200,
+                json={
+                    "emilId": "NP4-190-CD",
+                    "name": "DAM",
+                    "status": "Active",
+                    "reportTypeId": 12331,
+                    "downloadLimit": 2,
+                },
+            )
+        ids = json.loads(request.content)["docIds"]
+        downloads.append(ids)
+        body = BytesIO()
+        with ZipFile(body, "w") as archive:
+            for doc_id in ids:
+                archive.writestr(f"{doc_id}.zip", zipped("prices.csv", data))
+        return httpx.Response(200, content=body.getvalue())
+
+    with (
+        httpx.Client(transport=httpx.MockTransport(handler)) as http,
+        Client("u", "p", "k", client=http) as client,
+    ):
+        rows = client.np4_190_cd.dam_stlmnt_pnt_prices_history.download(
+            iter([1, 2, 3, 4, 5]), batch_size=3
+        )
+        assert downloads == []
+        first = next(rows)
+        assert downloads == [[1, 2]]
+        assert len([first, *rows]) == 15
+    assert downloads == [[1, 2], [3, 4], [5]]
+
+
+def test_empty_batch_needs_no_credentials():
+    with Client() as client:
+        assert (
+            list(
+                client.np4_190_cd.dam_stlmnt_pnt_prices_history.download(
+                    [], batch_size=100
+                )
+            )
+            == []
+        )
+
+
+@pytest.mark.parametrize("size", [0, -1])
+def test_invalid_batch_size_fails_before_retrieval(size):
+    with Client() as client, pytest.raises(ValueError, match="batch_size"):
+        list(client.np4_190_cd.dam_stlmnt_pnt_prices_history.rows(batch_size=size))
