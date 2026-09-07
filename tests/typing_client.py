@@ -279,3 +279,10 @@ with Client() as client:
         assert_type(percentages.reportDate, date | None)
         assert_type(percentages.hourEnding, str | None)
         assert_type(percentages.netLoadPercent, Decimal | None)
+
+    for legacy_load in client.np3_965_er._60_load_res_data_in_sced_history.rows():
+        assert_type(legacy_load.SCEDBidCurveMW35, Decimal | None)
+        assert_type(legacy_load.SCEDBidCurvePrice35, Decimal | None)
+    for legacy_wind in client.np4_732_cd.wpp_hrly_avrg_actl_fcast_history.rows():
+        assert_type(legacy_wind.actualLoadZoneWest, Decimal | None)
+        assert_type(legacy_wind.actualLoadZoneNorth, Decimal | None)

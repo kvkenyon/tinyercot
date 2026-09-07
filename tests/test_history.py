@@ -1773,3 +1773,42 @@ def test_bad_correction_bundle_table_still_raises():
                 [-1], kind="bundle"
             )
         )
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "middle-evidence.json").read_text()),
+    ids=lambda sample: sample["fixture"],
+)
+def test_intermediate_sced_and_wind_layouts(sample):
+    product, method = sample["endpoint"].split("/")
+    method = ("_" if method[0].isdigit() else "") + method + "_history"
+    with Client() as client:
+        reader = getattr(getattr(client, product.replace("-", "_")), method)
+        rows = list(
+            reader.read(
+                zipped(sample["member"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == sample["fixtureRows"]
+    assert rows[0].model_dump(mode="json") == sample["firstRow"]
+    if sample["endpoint"] == "np4-732-cd/wpp_hrly_avrg_actl_fcast":
+        assert rows[0].hourEnding == 24
+        assert rows[0].hourEndingTimestamp is None
+        assert rows[0].genSystemWide is None
+        assert rows[0].actualWestNorth is None
+        assert rows[0].actualLoadZoneWest is not None
+        assert rows[0].actualLoadZoneNorth is not None
+    if sample["fixture"].endswith("60_load_res_data_in_sced-2020.csv"):
+        assert rows[0].HASL == Decimal(0)
+        assert rows[0].LASL == Decimal(0)
+        # This published layout contains 35 curve points, all blank in this sample.
+        assert rows[0].SCEDBidCurveMW35 is None
+        assert rows[0].SCEDBidCurvePrice35 is None
+        assert rows[0].ASAwardsNSPIN is None
+    if sample["fixture"].endswith("60_sced_qse_self_arranged_as-2020.csv"):
+        assert rows[0].SCEDTimestamp.isoformat() == "2019-12-02T00:00:22"
+    if sample["fixture"].endswith("60_sced_gen_res_data-2023.csv"):
+        assert rows[0].ASRRSFFR == Decimal(0)
+        assert rows[0].ASECRS == Decimal(0)
+        assert rows[0].ASAwardsECRS is None
