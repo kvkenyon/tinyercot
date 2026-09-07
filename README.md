@@ -226,3 +226,13 @@ model issue time. These CSVs omit `postedDatetime`, so that row field remains
 `None` when reading the file; a delivery date must not substitute for publication
 or issue time. Distinct publications can contain forecasts for the same delivery
 hour, and are retained without deduplication.
+
+Outage and adequacy history includes seven-day and longer planned-outage margins,
+hourly resource outage capacity, short-term system adequacy, hourly RUC status,
+and approved DC-tie schedules. For example,
+`ercot.np3_233_cd.hourly_res_outage_cap_history.rows(...)` reads old system totals
+as `totalResourceMW` and `totalIRRMW`; regional fields absent from those files
+remain `None`. Old RUC reports similarly preserve `sumSCEDTotal` separately from
+newer regional values. RUC and SCED timestamps retain their seconds, and DC-tie
+schedules retain both GMT and local interval-ending fields. System-adequacy
+hour-ending labels remain strings, including `24:00`.

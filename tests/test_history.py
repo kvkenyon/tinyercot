@@ -623,3 +623,49 @@ def test_forecast_publication_time_is_not_inferred_from_delivery():
         assert interval.model == "A6"
         assert interval.inUseFlag is False
         assert interval.postedDatetime is None
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "adequacy-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_adequacy_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_legacy_outage_and_ruc_totals_are_not_assigned_to_regions():
+    with Client() as client:
+        outage = next(
+            client.np3_233_cd.hourly_res_outage_cap_history.read(
+                zipped(
+                    "outages.csv",
+                    (INPUTS / "np3-233-cd-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+        assert outage.totalResourceMW == 18542
+        assert outage.totalIRRMW == 685
+        assert outage.totalResourceMWZoneSouth is None
+        ruc = next(
+            client.np3_764_cd.hrly_ruc_online_sced_offline_cop_history.read(
+                zipped(
+                    "ruc.csv", (INPUTS / "np3-764-cd-history-samples.csv").read_bytes()
+                )
+            )
+        )
+        assert ruc.sumSCEDTotal == Decimal(0)
+        assert ruc.sumSCEDSouth is None
+        assert ruc.RUCTimestamp.isoformat() == "2018-10-25T17:03:01"
