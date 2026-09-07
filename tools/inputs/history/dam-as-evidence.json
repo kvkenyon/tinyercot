@@ -1,0 +1,925 @@
+[
+  {
+    "endpoint": "np3-911-er/2d_agg_dam_as_offers_nspnm",
+    "fixture": "np3-911-er--2d_agg_dam_as_offers_nspnm-history-current.csv",
+    "file": "2d_Agg_DAM_AS_Offers_NSPNM-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 0,
+    "rows_decoded": 0
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_dam_as_offers_nspin",
+    "fixture": "np3-911-er--2d_agg_dam_as_offers_nspin-history-current.csv",
+    "file": "2d_Agg_DAM_AS_Offers_NSPIN-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 4466,
+    "first_row": {
+      "MWOffered": "305.3",
+      "NSPINOfferPrice": "0",
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1
+    },
+    "rows_decoded": 4466
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_nspnm",
+    "fixture": "np3-911-er--2d_cleared_dam_as_nspnm-history-current.csv",
+    "file": "2d_Cleared_DAM_AS_NSPNM-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalClearedASNSPNM": "0"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_dam_as_offers_regup",
+    "fixture": "np3-911-er--2d_agg_dam_as_offers_regup-history-current.csv",
+    "file": "2d_Agg_DAM_AS_Offers_REGUP-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 5931,
+    "first_row": {
+      "MWOffered": "12.9",
+      "REGUPOfferPrice": "0.01",
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1
+    },
+    "rows_decoded": 5931
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_dam_as_offers_regdn",
+    "fixture": "np3-911-er--2d_agg_dam_as_offers_regdn-history-current.csv",
+    "file": "2d_Agg_DAM_AS_Offers_REGDN-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 5908,
+    "first_row": {
+      "MWOffered": "29.7",
+      "REGDNOfferPrice": "0.22",
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1
+    },
+    "rows_decoded": 5908
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_regup",
+    "fixture": "np3-911-er--2d_self_arranged_as_regup-history-current.csv",
+    "file": "2d_Self_Arranged_AS_REGUP-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalSelfArrangedASREGUP": "9.4"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_regdn",
+    "fixture": "np3-911-er--2d_self_arranged_as_regdn-history-current.csv",
+    "file": "2d_Self_Arranged_AS_REGDN-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalSelfArrangedASREGDN": "-1"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_nspin",
+    "fixture": "np3-911-er--2d_self_arranged_as_nspin-history-current.csv",
+    "file": "2d_Self_Arranged_AS_NSPIN-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalSelfArrangedASNSPIN": "39.6"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_regup",
+    "fixture": "np3-911-er--2d_cleared_dam_as_regup-history-current.csv",
+    "file": "2d_Cleared_DAM_AS_REGUP-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalClearedASREGUP": "324.5"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_regdn",
+    "fixture": "np3-911-er--2d_cleared_dam_as_regdn-history-current.csv",
+    "file": "2d_Cleared_DAM_AS_REGDN-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalClearedASREGDN": "393.2"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_nspin",
+    "fixture": "np3-911-er--2d_cleared_dam_as_nspin-history-current.csv",
+    "file": "2d_Cleared_DAM_AS_NSPIN-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalClearedASNSPIN": "4705"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_dam_as_offers_rrspfr",
+    "fixture": "np3-911-er--2d_agg_dam_as_offers_rrspfr-history-current.csv",
+    "file": "2d_Agg_DAM_AS_Offers_RRSPFR-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 5350,
+    "first_row": {
+      "MWOffered": "51",
+      "RRSPFROfferPrice": "0",
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1
+    },
+    "rows_decoded": 5350
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_dam_as_offers_rrsufr",
+    "fixture": "np3-911-er--2d_agg_dam_as_offers_rrsufr-history-current.csv",
+    "file": "2d_Agg_DAM_AS_Offers_RRSUFR-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "MWOffered": "886.4",
+      "RRSUFROfferPrice": "0",
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_dam_as_offers_rrsffr",
+    "fixture": "np3-911-er--2d_agg_dam_as_offers_rrsffr-history-current.csv",
+    "file": "2d_Agg_DAM_AS_Offers_RRSFFR-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 191,
+    "first_row": {
+      "MWOffered": "19.2",
+      "RRSFFROfferPrice": "0",
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1
+    },
+    "rows_decoded": 191
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_rrspfr",
+    "fixture": "np3-911-er--2d_cleared_dam_as_rrspfr-history-current.csv",
+    "file": "2d_Cleared_DAM_AS_RRSPFR-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalClearedASRRSPFR": "1317.7"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_rrsufr",
+    "fixture": "np3-911-er--2d_cleared_dam_as_rrsufr-history-current.csv",
+    "file": "2d_Cleared_DAM_AS_RRSUFR-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalClearedASRRSUFR": "883.7"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_rrsffr",
+    "fixture": "np3-911-er--2d_cleared_dam_as_rrsffr-history-current.csv",
+    "file": "2d_Cleared_DAM_AS_RRSFFR-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalClearedASRRSFFR": "19.2"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_rrspfr",
+    "fixture": "np3-911-er--2d_self_arranged_as_rrspfr-history-current.csv",
+    "file": "2d_Self_Arranged_AS_RRSPFR-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalSelfArrangedASRRSPFR": "58.6"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_rrsufr",
+    "fixture": "np3-911-er--2d_self_arranged_as_rrsufr-history-current.csv",
+    "file": "2d_Self_Arranged_AS_RRSUFR-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalSelfArrangedASRRSUFR": "148.3"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_rrsffr",
+    "fixture": "np3-911-er--2d_self_arranged_as_rrsffr-history-current.csv",
+    "file": "2d_Self_Arranged_AS_RRSFFR-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalSelfArrangedASRRSFFR": "0"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_nspnm",
+    "fixture": "np3-911-er--2d_self_arranged_as_nspnm-history-current.csv",
+    "file": "2d_Self_Arranged_AS_NSPNM-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalSelfArrangedASNSPNM": "0"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_dam_as_offers_ecrss",
+    "fixture": "np3-911-er--2d_agg_dam_as_offers_ecrss-history-current.csv",
+    "file": "2d_Agg_DAM_AS_Offers_ECRSS-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 4050,
+    "first_row": {
+      "ECRSSOfferPrice": "0",
+      "MWOffered": "52",
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1
+    },
+    "rows_decoded": 4050
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_dam_as_offers_ecrsm",
+    "fixture": "np3-911-er--2d_agg_dam_as_offers_ecrsm-history-current.csv",
+    "file": "2d_Agg_DAM_AS_Offers_ECRSM-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 48,
+    "first_row": {
+      "ECRSMOfferPrice": "0",
+      "MWOffered": "128",
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1
+    },
+    "rows_decoded": 48
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_ecrss",
+    "fixture": "np3-911-er--2d_cleared_dam_as_ecrss-history-current.csv",
+    "file": "2d_Cleared_DAM_AS_ECRSS-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalClearedASECRSS": "912.8"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_ecrsm",
+    "fixture": "np3-911-er--2d_cleared_dam_as_ecrsm-history-current.csv",
+    "file": "2d_Cleared_DAM_AS_ECRSM-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalClearedASECRSM": "248.3"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_ecrss",
+    "fixture": "np3-911-er--2d_self_arranged_as_ecrss-history-current.csv",
+    "file": "2d_Self_Arranged_AS_ECRSS-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalSelfArrangedASECRSS": "-11"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_ecrsm",
+    "fixture": "np3-911-er--2d_self_arranged_as_ecrsm-history-current.csv",
+    "file": "2d_Self_Arranged_AS_ECRSM-07-SEP-26.csv",
+    "folder": "history-current",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "totalSelfArrangedASECRSM": "0"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_rrsload",
+    "fixture": "np3-911-er--2d_cleared_dam_as_rrsload-history-samples.csv",
+    "file": "48h_Cleared_DAM_AS_RRSLOAD-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1,
+      "totalClearedASRRSLOAD": "960.9"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_rrsgen",
+    "fixture": "np3-911-er--2d_cleared_dam_as_rrsgen-history-samples.csv",
+    "file": "48h_Cleared_DAM_AS_RRSGEN-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1,
+      "totalClearedASRRSGEN": "1467.9"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_nspin",
+    "fixture": "np3-911-er--2d_cleared_dam_as_nspin-history-samples.csv",
+    "file": "48h_Cleared_DAM_AS_NSPIN-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1,
+      "totalClearedASNSPIN": "1413.6"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_regdn",
+    "fixture": "np3-911-er--2d_cleared_dam_as_regdn-history-samples.csv",
+    "file": "48h_Cleared_DAM_AS_REGDN-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1,
+      "totalClearedASREGDN": "444.8"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_regup",
+    "fixture": "np3-911-er--2d_cleared_dam_as_regup-history-samples.csv",
+    "file": "48h_Cleared_DAM_AS_REGUP-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1,
+      "totalClearedASREGUP": "549.9"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_rrsload",
+    "fixture": "np3-911-er--2d_self_arranged_as_rrsload-history-samples.csv",
+    "file": "48h_Self_Arranged_AS_RRSLOAD-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1,
+      "totalSelfArrangedASRRSLOAD": "365.3"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_rrsgen",
+    "fixture": "np3-911-er--2d_self_arranged_as_rrsgen-history-samples.csv",
+    "file": "48h_Self_Arranged_AS_RRSGEN-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1,
+      "totalSelfArrangedASRRSGEN": "5.7"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_nspin",
+    "fixture": "np3-911-er--2d_self_arranged_as_nspin-history-samples.csv",
+    "file": "48h_Self_Arranged_AS_NSPIN-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1,
+      "totalSelfArrangedASNSPIN": "86.4"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_regdn",
+    "fixture": "np3-911-er--2d_self_arranged_as_regdn-history-samples.csv",
+    "file": "48h_Self_Arranged_AS_REGDN-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1,
+      "totalSelfArrangedASREGDN": "-17.7"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_regup",
+    "fixture": "np3-911-er--2d_self_arranged_as_regup-history-samples.csv",
+    "file": "48h_Self_Arranged_AS_REGUP-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1,
+      "totalSelfArrangedASREGUP": "0.2"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_rrsnc",
+    "fixture": "np3-911-er--2d_agg_as_offers_rrsnc-history-samples.csv",
+    "file": "48h_Agg_AS_Offers_RRSNC-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 220,
+    "first_row": {
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1,
+      "MWOffered": "961.5",
+      "RRSNCOfferPrice": "750"
+    },
+    "rows_decoded": 220
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_rrsld",
+    "fixture": "np3-911-er--2d_agg_as_offers_rrsld-history-samples.csv",
+    "file": "48h_Agg_AS_Offers_RRSLD-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 0,
+    "rows_decoded": 0
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_rrsgn",
+    "fixture": "np3-911-er--2d_agg_as_offers_rrsgn-history-samples.csv",
+    "file": "48h_Agg_AS_Offers_RRSGN-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 1132,
+    "first_row": {
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1,
+      "MWOffered": "703.3",
+      "RRSGNOfferPrice": "0.01"
+    },
+    "rows_decoded": 1132
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_offns",
+    "fixture": "np3-911-er--2d_agg_as_offers_offns-history-samples.csv",
+    "file": "48h_Agg_AS_Offers_OFFNS-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 388,
+    "first_row": {
+      "MWOffered": "198",
+      "OFFNSOfferPrice": "0.01",
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1
+    },
+    "rows_decoded": 388
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_onns",
+    "fixture": "np3-911-er--2d_agg_as_offers_onns-history-samples.csv",
+    "file": "48h_Agg_AS_Offers_ONNS-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 690,
+    "first_row": {
+      "MWOffered": "164",
+      "ONNSOfferPrice": "1",
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1
+    },
+    "rows_decoded": 690
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_regdn",
+    "fixture": "np3-911-er--2d_agg_as_offers_regdn-history-samples.csv",
+    "file": "48h_Agg_AS_Offers_REGDN-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 1331,
+    "first_row": {
+      "MWOffered": "50",
+      "REGDNOfferPrice": "0.01",
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1
+    },
+    "rows_decoded": 1331
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_regup",
+    "fixture": "np3-911-er--2d_agg_as_offers_regup-history-samples.csv",
+    "file": "48h_Agg_AS_Offers_REGUP-01-MAY-14.csv",
+    "folder": "history-samples",
+    "csv_rows": 1125,
+    "first_row": {
+      "MWOffered": "217.7",
+      "REGUPOfferPrice": "0.01",
+      "deliveryDate": "2014-04-29",
+      "hourEnding": 1
+    },
+    "rows_decoded": 1125
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_nspnm",
+    "fixture": "np3-911-er--2d_self_arranged_as_nspnm-history-middle.csv",
+    "file": "2d_Self_Arranged_AS_NSPNM-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalSelfArrangedASNSPNM": "0"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_rrspfr",
+    "fixture": "np3-911-er--2d_agg_as_offers_rrspfr-history-middle.csv",
+    "file": "2d_Agg_AS_Offers_RRSPFR-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 3476,
+    "first_row": {
+      "MWOffered": "19.2",
+      "RRSPFROfferPrice": "0",
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1
+    },
+    "rows_decoded": 3476
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_rrsufr",
+    "fixture": "np3-911-er--2d_agg_as_offers_rrsufr-history-middle.csv",
+    "file": "2d_Agg_AS_Offers_RRSUFR-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "MWOffered": "958.3",
+      "RRSUFROfferPrice": "0",
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_rrsffr",
+    "fixture": "np3-911-er--2d_agg_as_offers_rrsffr-history-middle.csv",
+    "file": "2d_Agg_AS_Offers_RRSFFR-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 127,
+    "first_row": {
+      "MWOffered": "7.5",
+      "RRSFFROfferPrice": "0.1",
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1
+    },
+    "rows_decoded": 127
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_rrspfr",
+    "fixture": "np3-911-er--2d_cleared_dam_as_rrspfr-history-middle.csv",
+    "file": "2d_Cleared_DAM_AS_RRSPFR-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalClearedASRRSPFR": "1502.2"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_rrsufr",
+    "fixture": "np3-911-er--2d_cleared_dam_as_rrsufr-history-middle.csv",
+    "file": "2d_Cleared_DAM_AS_RRSUFR-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalClearedASRRSUFR": "958.3"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_rrsffr",
+    "fixture": "np3-911-er--2d_cleared_dam_as_rrsffr-history-middle.csv",
+    "file": "2d_Cleared_DAM_AS_RRSFFR-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalClearedASRRSFFR": "125"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_rrspfr",
+    "fixture": "np3-911-er--2d_self_arranged_as_rrspfr-history-middle.csv",
+    "file": "2d_Self_Arranged_AS_RRSPFR-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalSelfArrangedASRRSPFR": "22"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_rrsufr",
+    "fixture": "np3-911-er--2d_self_arranged_as_rrsufr-history-middle.csv",
+    "file": "2d_Self_Arranged_AS_RRSUFR-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalSelfArrangedASRRSUFR": "460.5"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_rrsffr",
+    "fixture": "np3-911-er--2d_self_arranged_as_rrsffr-history-middle.csv",
+    "file": "2d_Self_Arranged_AS_RRSFFR-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalSelfArrangedASRRSFFR": "0"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_ecrsm",
+    "fixture": "np3-911-er--2d_agg_as_offers_ecrsm-history-middle.csv",
+    "file": "2d_Agg_AS_Offers_ECRSM-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 106,
+    "first_row": {
+      "ECRSMOfferPrice": "0",
+      "MWOffered": "23.5",
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1
+    },
+    "rows_decoded": 106
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_ecrss",
+    "fixture": "np3-911-er--2d_agg_as_offers_ecrss-history-middle.csv",
+    "file": "2d_Agg_AS_Offers_ECRSS-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 2442,
+    "first_row": {
+      "ECRSSOfferPrice": "0.01",
+      "MWOffered": "47",
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1
+    },
+    "rows_decoded": 2442
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_ecrsm",
+    "fixture": "np3-911-er--2d_cleared_dam_as_ecrsm-history-middle.csv",
+    "file": "2d_Cleared_DAM_AS_ECRSM-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalClearedASECRSM": "65.4"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_ecrss",
+    "fixture": "np3-911-er--2d_cleared_dam_as_ecrss-history-middle.csv",
+    "file": "2d_Cleared_DAM_AS_ECRSS-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalClearedASECRSS": "676.6"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_ecrsm",
+    "fixture": "np3-911-er--2d_self_arranged_as_ecrsm-history-middle.csv",
+    "file": "2d_Self_Arranged_AS_ECRSM-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalSelfArrangedASECRSM": "0"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_ecrss",
+    "fixture": "np3-911-er--2d_self_arranged_as_ecrss-history-middle.csv",
+    "file": "2d_Self_Arranged_AS_ECRSS-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalSelfArrangedASECRSS": "38"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_regup",
+    "fixture": "np3-911-er--2d_agg_as_offers_regup-history-middle.csv",
+    "file": "2d_Agg_AS_Offers_REGUP-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 3971,
+    "first_row": {
+      "MWOffered": "40.5",
+      "REGUPOfferPrice": "0",
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1
+    },
+    "rows_decoded": 3971
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_regdn",
+    "fixture": "np3-911-er--2d_agg_as_offers_regdn-history-middle.csv",
+    "file": "2d_Agg_AS_Offers_REGDN-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 4304,
+    "first_row": {
+      "MWOffered": "31.4",
+      "REGDNOfferPrice": "0",
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1
+    },
+    "rows_decoded": 4304
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_onns",
+    "fixture": "np3-911-er--2d_agg_as_offers_onns-history-middle.csv",
+    "file": "2d_Agg_AS_Offers_ONNS-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 1183,
+    "first_row": {
+      "MWOffered": "27.6",
+      "ONNSOfferPrice": "0.24",
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1
+    },
+    "rows_decoded": 1183
+  },
+  {
+    "endpoint": "np3-911-er/2d_agg_as_offers_offns",
+    "fixture": "np3-911-er--2d_agg_as_offers_offns-history-middle.csv",
+    "file": "2d_Agg_AS_Offers_OFFNS-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 1139,
+    "first_row": {
+      "MWOffered": "615.7",
+      "OFFNSOfferPrice": "0.01",
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1
+    },
+    "rows_decoded": 1139
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_regup",
+    "fixture": "np3-911-er--2d_self_arranged_as_regup-history-middle.csv",
+    "file": "2d_Self_Arranged_AS_REGUP-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalSelfArrangedASREGUP": "0"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_regdn",
+    "fixture": "np3-911-er--2d_self_arranged_as_regdn-history-middle.csv",
+    "file": "2d_Self_Arranged_AS_REGDN-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalSelfArrangedASREGDN": "17.5"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_self_arranged_as_nspin",
+    "fixture": "np3-911-er--2d_self_arranged_as_nspin-history-middle.csv",
+    "file": "2d_Self_Arranged_AS_NSPIN-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalSelfArrangedASNSPIN": "95"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_regup",
+    "fixture": "np3-911-er--2d_cleared_dam_as_regup-history-middle.csv",
+    "file": "2d_Cleared_DAM_AS_REGUP-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalClearedASREGUP": "374"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_regdn",
+    "fixture": "np3-911-er--2d_cleared_dam_as_regdn-history-middle.csv",
+    "file": "2d_Cleared_DAM_AS_REGDN-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalClearedASREGDN": "336.5"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-911-er/2d_cleared_dam_as_nspin",
+    "fixture": "np3-911-er--2d_cleared_dam_as_nspin-history-middle.csv",
+    "file": "2d_Cleared_DAM_AS_NSPIN-26-APR-25.csv",
+    "folder": "history-middle",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-04-24",
+      "hourEnding": 1,
+      "totalClearedASNSPIN": "1634"
+    },
+    "rows_decoded": 24
+  }
+]

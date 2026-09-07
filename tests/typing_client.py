@@ -189,3 +189,10 @@ with Client() as client:
     for old_dam_curve in client.np3_908_er._2d_agg_dam_min_esc_history.rows():
         assert_type(old_dam_curve.deliveryDate, date | None)
         assert_type(old_dam_curve.MW, Decimal | None)
+
+    for legacy_rrs in client.np3_911_er._2d_cleared_dam_as_rrsload_history.rows():
+        assert_type(legacy_rrs.totalClearedASRRSLOAD, Decimal | None)
+    for dam_rrs in client.np3_911_er._2d_agg_dam_as_offers_rrspfr_history.rows():
+        assert_type(dam_rrs.RRSPFROfferPrice, Decimal | None)
+    for aggregated_rrs in client.np3_911_er._2d_agg_as_offers_rrspfr_history.rows():
+        assert_type(aggregated_rrs.RRSPFROfferPrice, Decimal | None)
