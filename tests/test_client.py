@@ -227,3 +227,72 @@ def test_weather_forecast():
     forecast = WeatherForecasts.model_validate(body).root
     assert len(forecast) == len(body)
     assert forecast[0].data["DFW"].high == int(body[0]["data"]["DFW"]["high"])
+
+
+def test_single_bundle_400_uses_published_get_download():
+    calls = []
+
+    def handler(request):
+        if "b2clogin" in request.url.host:
+            return httpx.Response(200, json={"id_token": "test", "expires_in": 3600})
+        calls.append(request)
+        if request.method == "POST":
+            assert json.loads(request.content) == {"docIds": [-593019152]}
+            return httpx.Response(
+                400, json={"message": "Your request could not be processed."}
+            )
+        assert request.url.path == "/api/public-reports/bundle/np4-190-cd"
+        assert request.url.params["download"] == "-593019152"
+        return httpx.Response(200, content=b"recovered zip bytes")
+
+    with (
+        httpx.Client(transport=httpx.MockTransport(handler)) as http,
+        Client("u", "p", "k", client=http) as client,
+    ):
+        assert (
+            client.download("NP4-190-CD", [-593019152], kind="bundle")
+            == b"recovered zip bytes"
+        )
+    assert [r.method for r in calls] == ["POST", "GET"]
+
+
+@pytest.mark.parametrize(
+    "kind,ids,status",
+    [
+        ("archive", [123], 400),
+        ("bundle", [-123, -456], 400),
+        ("bundle", [-123], 403),
+    ],
+)
+def test_other_download_failures_are_not_reinterpreted(kind, ids, status):
+    calls = []
+
+    def handler(request):
+        if "b2clogin" in request.url.host:
+            return httpx.Response(200, json={"id_token": "test", "expires_in": 3600})
+        calls.append(request)
+        return httpx.Response(status, json={"message": "failed"})
+
+    with (
+        httpx.Client(transport=httpx.MockTransport(handler)) as http,
+        Client("u", "p", "k", client=http) as client,
+        pytest.raises(httpx.HTTPStatusError) as error,
+    ):
+        client.download("NP4-190-CD", ids, kind=kind)
+    assert error.value.response.status_code == status
+    assert len(calls) == 1
+
+
+def test_bundle_get_failure_propagates():
+    def handler(request):
+        if "b2clogin" in request.url.host:
+            return httpx.Response(200, json={"id_token": "test", "expires_in": 3600})
+        return httpx.Response(400 if request.method == "POST" else 404)
+
+    with (
+        httpx.Client(transport=httpx.MockTransport(handler)) as http,
+        Client("u", "p", "k", client=http) as client,
+        pytest.raises(httpx.HTTPStatusError) as error,
+    ):
+        client.download("NP4-190-CD", [-123], kind="bundle")
+    assert error.value.response.status_code == 404
