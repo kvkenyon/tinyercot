@@ -120,3 +120,10 @@ that preserve the old `RRSAwarded` field separately from newer `RRSPFRAwarded`,
 are `None`. The current API row contracts remain unchanged. Reading a ZIP that
 predates a table raises a missing-member error; full-range queries across table
 introduction dates still need handling.
+
+Archive-only CSV products also have generated namespaces: resource ownership
+(`ercot.np3_988_er.resources_history`), public load estimation counts
+(`ercot.copg_316.load_estimation_counts_history`), and confidentiality-expired
+adjusted meter load (`ercot.np1_300.adjusted_meter_load_history`). These expose the same typed
+`read`, `download`, and `rows` methods without inventing row-query API endpoints.
+DUNS identifiers remain strings, counts are integers, and percentages are decimals.

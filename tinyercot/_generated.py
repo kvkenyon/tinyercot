@@ -7,7 +7,31 @@ from typing import ClassVar
 from ._client import Transport, Page, Row
 from ._history import Archive
 
-__all__ = ['Client', 'gen_55_cd', 'np1_301', 'np1_302', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd']
+__all__ = ['Client', 'copg_316', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd']
+class copg_316:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class LoadEstimationCountsHistoryRow(Row):
+        type: str | None
+        region: str | None
+        TDSP: str | None
+        operatingDay: date | None
+        channel: str | None
+        actualCount: int | None
+        historicalEstimatedCount: int | None
+        defaultProfileCount: int | None
+        totalCount: int | None
+        percentActualCount: Decimal | None
+        percentHistoricalEstimatedCount: Decimal | None
+        percentDefaultProfileCount: Decimal | None
+
+    @property
+    def load_estimation_counts_history(self) -> Archive[copg_316.LoadEstimationCountsHistoryRow]:
+        """Historical CSV rows, including files predating the API."""
+        return Archive(self._client, 'copg-316', copg_316.LoadEstimationCountsHistoryRow, {'TYPE': 'type', 'Region': 'region', 'TDSP': 'TDSP', 'Operating Day': 'operatingDay', 'Channel': 'channel', 'Actual Count': 'actualCount', 'Historical Estimated Count': 'historicalEstimatedCount', 'Default Profile Count': 'defaultProfileCount', 'Total Count': 'totalCount', 'Percent Actual Count': 'percentActualCount', 'Percent Hist Estimated Count': 'percentHistoricalEstimatedCount', 'Percent Default Profile Count': 'percentDefaultProfileCount'}, {'operatingDay': '%d-%b-%y'}, member='*.csv', datetimes={}, variants=())
+
 class gen_55_cd:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -37,6 +61,122 @@ class gen_55_cd:
     def hrly_rt_load_fcast_actual_iter_async(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, currentDayFcastFrom: Decimal | None = None, currentDayFcastTo: Decimal | None = None, dayAheadFcastFrom: Decimal | None = None, dayAheadFcastTo: Decimal | None = None, actualLoadFrom: Decimal | None = None, actualLoadTo: Decimal | None = None, dayAheadHSLFrom: Decimal | None = None, dayAheadHSLTo: Decimal | None = None, currentDayHSLFrom: Decimal | None = None, currentDayHSLTo: Decimal | None = None, DSTFlag: bool | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> AsyncIterator[gen_55_cd.HrlyRtLoadFcastActualRow]:
         'Hourly Real-Time Load vs. Actual Report'
         return self._client._aiter('/gen-55-cd/hrly_rt_load_fcast_actual', gen_55_cd.HrlyRtLoadFcastActualRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'currentDayFcastFrom': currentDayFcastFrom, 'currentDayFcastTo': currentDayFcastTo, 'dayAheadFcastFrom': dayAheadFcastFrom, 'dayAheadFcastTo': dayAheadFcastTo, 'actualLoadFrom': actualLoadFrom, 'actualLoadTo': actualLoadTo, 'dayAheadHSLFrom': dayAheadHSLFrom, 'dayAheadHSLTo': dayAheadHSLTo, 'currentDayHSLFrom': currentDayHSLFrom, 'currentDayHSLTo': currentDayHSLTo, 'DSTFlag': DSTFlag, 'size': size, 'sort': sort, 'dir': dir})
+
+class np1_300:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class AdjustedMeterLoadHistoryRow(Row):
+        saveRecorder: str | None
+        saveChannel: str | None
+        startTime: date | None
+        INT001: Decimal | None
+        INT002: Decimal | None
+        INT003: Decimal | None
+        INT004: Decimal | None
+        INT005: Decimal | None
+        INT006: Decimal | None
+        INT007: Decimal | None
+        INT008: Decimal | None
+        INT009: Decimal | None
+        INT010: Decimal | None
+        INT011: Decimal | None
+        INT012: Decimal | None
+        INT013: Decimal | None
+        INT014: Decimal | None
+        INT015: Decimal | None
+        INT016: Decimal | None
+        INT017: Decimal | None
+        INT018: Decimal | None
+        INT019: Decimal | None
+        INT020: Decimal | None
+        INT021: Decimal | None
+        INT022: Decimal | None
+        INT023: Decimal | None
+        INT024: Decimal | None
+        INT025: Decimal | None
+        INT026: Decimal | None
+        INT027: Decimal | None
+        INT028: Decimal | None
+        INT029: Decimal | None
+        INT030: Decimal | None
+        INT031: Decimal | None
+        INT032: Decimal | None
+        INT033: Decimal | None
+        INT034: Decimal | None
+        INT035: Decimal | None
+        INT036: Decimal | None
+        INT037: Decimal | None
+        INT038: Decimal | None
+        INT039: Decimal | None
+        INT040: Decimal | None
+        INT041: Decimal | None
+        INT042: Decimal | None
+        INT043: Decimal | None
+        INT044: Decimal | None
+        INT045: Decimal | None
+        INT046: Decimal | None
+        INT047: Decimal | None
+        INT048: Decimal | None
+        INT049: Decimal | None
+        INT050: Decimal | None
+        INT051: Decimal | None
+        INT052: Decimal | None
+        INT053: Decimal | None
+        INT054: Decimal | None
+        INT055: Decimal | None
+        INT056: Decimal | None
+        INT057: Decimal | None
+        INT058: Decimal | None
+        INT059: Decimal | None
+        INT060: Decimal | None
+        INT061: Decimal | None
+        INT062: Decimal | None
+        INT063: Decimal | None
+        INT064: Decimal | None
+        INT065: Decimal | None
+        INT066: Decimal | None
+        INT067: Decimal | None
+        INT068: Decimal | None
+        INT069: Decimal | None
+        INT070: Decimal | None
+        INT071: Decimal | None
+        INT072: Decimal | None
+        INT073: Decimal | None
+        INT074: Decimal | None
+        INT075: Decimal | None
+        INT076: Decimal | None
+        INT077: Decimal | None
+        INT078: Decimal | None
+        INT079: Decimal | None
+        INT080: Decimal | None
+        INT081: Decimal | None
+        INT082: Decimal | None
+        INT083: Decimal | None
+        INT084: Decimal | None
+        INT085: Decimal | None
+        INT086: Decimal | None
+        INT087: Decimal | None
+        INT088: Decimal | None
+        INT089: Decimal | None
+        INT090: Decimal | None
+        INT091: Decimal | None
+        INT092: Decimal | None
+        INT093: Decimal | None
+        INT094: Decimal | None
+        INT095: Decimal | None
+        INT096: Decimal | None
+        INT097: Decimal | None
+        INT098: Decimal | None
+        INT099: Decimal | None
+        INT100: Decimal | None
+        LSTime: date | None
+
+    @property
+    def adjusted_meter_load_history(self) -> Archive[np1_300.AdjustedMeterLoadHistoryRow]:
+        """Historical CSV rows, including files predating the API."""
+        return Archive(self._client, 'np1-300', np1_300.AdjustedMeterLoadHistoryRow, {'SAVERECORDER': 'saveRecorder', 'SAVECHANNEL': 'saveChannel', 'STARTTIME': 'startTime', 'INT001': 'INT001', 'INT002': 'INT002', 'INT003': 'INT003', 'INT004': 'INT004', 'INT005': 'INT005', 'INT006': 'INT006', 'INT007': 'INT007', 'INT008': 'INT008', 'INT009': 'INT009', 'INT010': 'INT010', 'INT011': 'INT011', 'INT012': 'INT012', 'INT013': 'INT013', 'INT014': 'INT014', 'INT015': 'INT015', 'INT016': 'INT016', 'INT017': 'INT017', 'INT018': 'INT018', 'INT019': 'INT019', 'INT020': 'INT020', 'INT021': 'INT021', 'INT022': 'INT022', 'INT023': 'INT023', 'INT024': 'INT024', 'INT025': 'INT025', 'INT026': 'INT026', 'INT027': 'INT027', 'INT028': 'INT028', 'INT029': 'INT029', 'INT030': 'INT030', 'INT031': 'INT031', 'INT032': 'INT032', 'INT033': 'INT033', 'INT034': 'INT034', 'INT035': 'INT035', 'INT036': 'INT036', 'INT037': 'INT037', 'INT038': 'INT038', 'INT039': 'INT039', 'INT040': 'INT040', 'INT041': 'INT041', 'INT042': 'INT042', 'INT043': 'INT043', 'INT044': 'INT044', 'INT045': 'INT045', 'INT046': 'INT046', 'INT047': 'INT047', 'INT048': 'INT048', 'INT049': 'INT049', 'INT050': 'INT050', 'INT051': 'INT051', 'INT052': 'INT052', 'INT053': 'INT053', 'INT054': 'INT054', 'INT055': 'INT055', 'INT056': 'INT056', 'INT057': 'INT057', 'INT058': 'INT058', 'INT059': 'INT059', 'INT060': 'INT060', 'INT061': 'INT061', 'INT062': 'INT062', 'INT063': 'INT063', 'INT064': 'INT064', 'INT065': 'INT065', 'INT066': 'INT066', 'INT067': 'INT067', 'INT068': 'INT068', 'INT069': 'INT069', 'INT070': 'INT070', 'INT071': 'INT071', 'INT072': 'INT072', 'INT073': 'INT073', 'INT074': 'INT074', 'INT075': 'INT075', 'INT076': 'INT076', 'INT077': 'INT077', 'INT078': 'INT078', 'INT079': 'INT079', 'INT080': 'INT080', 'INT081': 'INT081', 'INT082': 'INT082', 'INT083': 'INT083', 'INT084': 'INT084', 'INT085': 'INT085', 'INT086': 'INT086', 'INT087': 'INT087', 'INT088': 'INT088', 'INT089': 'INT089', 'INT090': 'INT090', 'INT091': 'INT091', 'INT092': 'INT092', 'INT093': 'INT093', 'INT094': 'INT094', 'INT095': 'INT095', 'INT096': 'INT096', 'INT097': 'INT097', 'INT098': 'INT098', 'INT099': 'INT099', 'INT100': 'INT100', 'LSTIME': 'LSTime'}, {'startTime': '%d-%b-%y', 'LSTime': '%d-%b-%y'}, member='*.csv', datetimes={}, variants=())
 
 class np1_301:
     def __init__(self, client: Transport) -> None:
@@ -5387,6 +5527,25 @@ class np3_987_ex:
         '7-Day Event Trigger Posting when RTM MCPC exceeds 50xFIP'
         return self._client._aiter('/np3-987-ex/7d_trig_rtm_mcpc_50xfip', np3_987_ex._7dTrigRtmMcpc50xfipRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'resourceName': resourceName, 'FIPx50From': FIPx50From, 'FIPx50To': FIPx50To, 'RTMCPCFrom': RTMCPCFrom, 'RTMCPCTo': RTMCPCTo, 'price1REGUPFrom': price1REGUPFrom, 'price1REGUPTo': price1REGUPTo, 'price1REGDOWNFrom': price1REGDOWNFrom, 'price1REGDOWNTo': price1REGDOWNTo, 'price1RRSPFRFrom': price1RRSPFRFrom, 'price1RRSPFRTo': price1RRSPFRTo, 'price1RRSUFRFrom': price1RRSUFRFrom, 'price1RRSUFRTo': price1RRSUFRTo, 'price1RRSFFRFrom': price1RRSFFRFrom, 'price1RRSFFRTo': price1RRSFFRTo, 'price1NONSPINFrom': price1NONSPINFrom, 'price1NONSPINTo': price1NONSPINTo, 'price1ECRSFrom': price1ECRSFrom, 'price1ECRSTo': price1ECRSTo, 'quantityMW1From': quantityMW1From, 'quantityMW1To': quantityMW1To, 'price2REGUPFrom': price2REGUPFrom, 'price2REGUPTo': price2REGUPTo, 'price2REGDOWNFrom': price2REGDOWNFrom, 'price2REGDOWNTo': price2REGDOWNTo, 'price2RRSPFRFrom': price2RRSPFRFrom, 'price2RRSPFRTo': price2RRSPFRTo, 'price2RRSUFRFrom': price2RRSUFRFrom, 'price2RRSUFRTo': price2RRSUFRTo, 'price2RRSFFRFrom': price2RRSFFRFrom, 'price2RRSFFRTo': price2RRSFFRTo, 'price2NONSPINFrom': price2NONSPINFrom, 'price2NONSPINTo': price2NONSPINTo, 'price2ECRSFrom': price2ECRSFrom, 'price2ECRSTo': price2ECRSTo, 'quantityMW2From': quantityMW2From, 'quantityMW2To': quantityMW2To, 'price3REGUPFrom': price3REGUPFrom, 'price3REGUPTo': price3REGUPTo, 'price3REGDOWNFrom': price3REGDOWNFrom, 'price3REGDOWNTo': price3REGDOWNTo, 'price3RRSPFRFrom': price3RRSPFRFrom, 'price3RRSPFRTo': price3RRSPFRTo, 'price3RRSUFRFrom': price3RRSUFRFrom, 'price3RRSUFRTo': price3RRSUFRTo, 'price3RRSFFRFrom': price3RRSFFRFrom, 'price3RRSFFRTo': price3RRSFFRTo, 'price3NONSPINFrom': price3NONSPINFrom, 'price3NONSPINTo': price3NONSPINTo, 'price3ECRSFrom': price3ECRSFrom, 'price3ECRSTo': price3ECRSTo, 'quantityMW3From': quantityMW3From, 'quantityMW3To': quantityMW3To, 'price4REGUPFrom': price4REGUPFrom, 'price4REGUPTo': price4REGUPTo, 'price4REGDOWNFrom': price4REGDOWNFrom, 'price4REGDOWNTo': price4REGDOWNTo, 'price4RRSPFRFrom': price4RRSPFRFrom, 'price4RRSPFRTo': price4RRSPFRTo, 'price4RRSUFRFrom': price4RRSUFRFrom, 'price4RRSUFRTo': price4RRSUFRTo, 'price4RRSFFRFrom': price4RRSFFRFrom, 'price4RRSFFRTo': price4RRSFFRTo, 'price4NONSPINFrom': price4NONSPINFrom, 'price4NONSPINTo': price4NONSPINTo, 'price4ECRSFrom': price4ECRSFrom, 'price4ECRSTo': price4ECRSTo, 'quantityMW4From': quantityMW4From, 'quantityMW4To': quantityMW4To, 'price5REGUPFrom': price5REGUPFrom, 'price5REGUPTo': price5REGUPTo, 'price5REGDOWNFrom': price5REGDOWNFrom, 'price5REGDOWNTo': price5REGDOWNTo, 'price5RRSPFRFrom': price5RRSPFRFrom, 'price5RRSPFRTo': price5RRSPFRTo, 'price5RRSUFRFrom': price5RRSUFRFrom, 'price5RRSUFRTo': price5RRSUFRTo, 'price5RRSFFRFrom': price5RRSFFRFrom, 'price5RRSFFRTo': price5RRSFFRTo, 'price5NONSPINFrom': price5NONSPINFrom, 'price5NONSPINTo': price5NONSPINTo, 'price5ECRSFrom': price5ECRSFrom, 'price5ECRSTo': price5ECRSTo, 'quantityMW5From': quantityMW5From, 'quantityMW5To': quantityMW5To, 'size': size, 'sort': sort, 'dir': dir})
 
+class np3_988_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class ResourcesHistoryRow(Row):
+        ownerRE: str | None
+        resourceName: str | None
+        resourceType: str | None
+        splitGenResource: str | None
+        DME: str | None
+        DMEDuns: str | None
+        RMR: bool | None
+
+    @property
+    def resources_history(self) -> Archive[np3_988_er.ResourcesHistoryRow]:
+        """Historical CSV rows, including files predating the API."""
+        return Archive(self._client, 'np3-988-er', np3_988_er.ResourcesHistoryRow, {'OWNER RE': 'ownerRE', 'RESOURCE NAME': 'resourceName', 'TYPE': 'resourceType', 'SPLIT GEN RESOURCE': 'splitGenResource', 'DME': 'DME', 'DME DUNS': 'DMEDuns', 'RMR': 'RMR'}, {}, member='*.csv', datetimes={}, variants=())
+
 class np3_990_ex:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -8027,8 +8186,16 @@ class Client(Transport):
     """ERCOT public data, with generated typed product methods."""
 
     @property
+    def copg_316(self) -> copg_316:
+        return copg_316(self)
+
+    @property
     def gen_55_cd(self) -> gen_55_cd:
         return gen_55_cd(self)
+
+    @property
+    def np1_300(self) -> np1_300:
+        return np1_300(self)
 
     @property
     def np1_301(self) -> np1_301:
@@ -8133,6 +8300,10 @@ class Client(Transport):
     @property
     def np3_987_ex(self) -> np3_987_ex:
         return np3_987_ex(self)
+
+    @property
+    def np3_988_er(self) -> np3_988_er:
+        return np3_988_er(self)
 
     @property
     def np3_990_ex(self) -> np3_990_ex:
