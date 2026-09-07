@@ -1,0 +1,4 @@
+"Delivery Date","Hour Ending","QSE Name","Settlement Point Source","Settlement Point Sink","MW","Price","Offer ID","CRR ID"
+"03/02/2014","1","QAEN","FPPYD_FPP_G1","LZ_AEN","273.6",".01","CRR0","13723248"
+"03/02/2014","1","QAEN","FPPYD_FPP_G2","LZ_AEN","273.6",".01","CRR3","13723247"
+"03/02/2014","1","QAEN","HB_NORTH","LZ_AEN","5","0","CRR7","15018574"

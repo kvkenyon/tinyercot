@@ -1,0 +1,4 @@
+Delivery Date,Hour Ending,Settlement Point,QSE Name,Energy Only Bid MW1,Energy Only Bid Price1,Energy Only Bid MW2,Energy Only Bid Price2,Energy Only Bid MW3,Energy Only Bid Price3,Energy Only Bid MW4,Energy Only Bid Price4,Energy Only Bid MW5,Energy Only Bid Price5,Energy Only Bid MW6,Energy Only Bid Price6,Energy Only Bid MW7,Energy Only Bid Price7,Energy Only Bid MW8,Energy Only Bid Price8,Energy Only Bid MW9,Energy Only Bid Price9,Energy Only Bid MW10,Energy Only Bid Price10,Energy Only Bid ID,Multi-Hour Block Indicator,Block/Curve indicator
+07/09/2026,1,LZ_HOUSTON,QAFFOR,54,43.13,,,,,,,,,,,,,,,,,,,ETAFYB3,N,V
+07/09/2026,1,LZ_NORTH,QAFFOR,16,42.55,,,,,,,,,,,,,,,,,,,ETAFYB5,N,V
+07/09/2026,1,LZ_SOUTH,QAFFOR,14,43.34,,,,,,,,,,,,,,,,,,,ETAFYB7,N,V

@@ -1,0 +1,4 @@
+"Delivery Date","Hour Ending","QSE Name","Settlement Point Source","Settlement Point Sink","MW","Price","Offer ID","Multi-Hour Block Indicator","CRR ID"
+"03/02/2014","1","QAEN","WEC_WECG1","LZ_AEN",".1","350","CRR167","N","15018581"
+"03/02/2014","1","QAEN","WEC_WECG1","LZ_AEN","1","350","CRR166","N","15018580"
+"03/02/2014","1","QAEN","WEC_WECG1","LZ_AEN","1","350","CRR169","N","22543894"

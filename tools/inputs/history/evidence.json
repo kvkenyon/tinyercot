@@ -1,0 +1,198 @@
+[
+  {
+    "endpoint": "np4-190-cd/dam_stlmnt_pnt_prices",
+    "sample": "history-samples",
+    "file": "cdr.00012331.0000000000000000.20140501.125924.DAMSPNP4190.csv",
+    "rows_decoded": 13704,
+    "first_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2014-05-02",
+      "hourEnding": "01:00",
+      "settlementPoint": "AMISTAD_ALL",
+      "settlementPointPrice": "29.92"
+    },
+    "last_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2014-05-02",
+      "hourEnding": "24:00",
+      "settlementPoint": "WOO_WOODWRD2",
+      "settlementPointPrice": "33.48"
+    }
+  },
+  {
+    "endpoint": "np4-190-cd/dam_stlmnt_pnt_prices",
+    "sample": "history-current",
+    "file": "cdr.00012331.0000000000000000.20260906.123241.DAMSPNP4190.csv",
+    "rows_decoded": 26952,
+    "first_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "01:00",
+      "settlementPoint": "7RNCHSLR_ALL",
+      "settlementPointPrice": "45.04"
+    },
+    "last_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "24:00",
+      "settlementPoint": "ZIER_SLR_ALL",
+      "settlementPointPrice": "42.96"
+    }
+  },
+  {
+    "endpoint": "np6-905-cd/spp_node_zone_hub",
+    "sample": "history-samples",
+    "file": "cdr.00012301.0000000000000000.20140501.000205.SPPHLZNP6905_20140501_0000.csv",
+    "rows_decoded": 582,
+    "first_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2014-04-30",
+      "deliveryHour": 24,
+      "deliveryInterval": 4,
+      "settlementPoint": "AMISTAD_ALL",
+      "settlementPointPrice": "30.5",
+      "settlementPointType": "RN"
+    },
+    "last_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2014-04-30",
+      "deliveryHour": 24,
+      "deliveryInterval": 4,
+      "settlementPoint": "WOO_WOODWRD2",
+      "settlementPointPrice": "30.5",
+      "settlementPointType": "RN"
+    }
+  },
+  {
+    "endpoint": "np6-905-cd/spp_node_zone_hub",
+    "sample": "history-current",
+    "file": "cdr.00012301.0000000000000000.20260907.104701.SPPHLZNP6905_20260907_1045.csv",
+    "rows_decoded": 1135,
+    "first_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2026-09-07",
+      "deliveryHour": 11,
+      "deliveryInterval": 3,
+      "settlementPoint": "7RNCHSLR_ALL",
+      "settlementPointPrice": "24.76",
+      "settlementPointType": "RN"
+    },
+    "last_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2026-09-07",
+      "deliveryHour": 11,
+      "deliveryInterval": 3,
+      "settlementPoint": "ZIER_SLR_ALL",
+      "settlementPointPrice": "24.47",
+      "settlementPointType": "RN"
+    }
+  },
+  {
+    "endpoint": "np4-188-cd/dam_clear_price_for_cap",
+    "sample": "history-samples",
+    "file": "cdr.00012329.0000000000000000.20140501.125923.DAMCPCNP4188.csv",
+    "rows_decoded": 96,
+    "first_row": {
+      "DSTFlag": false,
+      "MCPC": "7.25",
+      "ancillaryType": "RRS",
+      "deliveryDate": "2014-05-02",
+      "hourEnding": "01:00"
+    },
+    "last_row": {
+      "DSTFlag": false,
+      "MCPC": "4.42",
+      "ancillaryType": "NSPIN",
+      "deliveryDate": "2014-05-02",
+      "hourEnding": "24:00"
+    }
+  },
+  {
+    "endpoint": "np4-188-cd/dam_clear_price_for_cap",
+    "sample": "history-current",
+    "file": "cdr.00012329.0000000000000000.20260906.123241.DAMCPCNP4188.csv",
+    "rows_decoded": 120,
+    "first_row": {
+      "DSTFlag": false,
+      "MCPC": "5.91",
+      "ancillaryType": "NSPIN",
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "01:00"
+    },
+    "last_row": {
+      "DSTFlag": false,
+      "MCPC": "1",
+      "ancillaryType": "REGDN",
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "24:00"
+    }
+  },
+  {
+    "endpoint": "np6-345-cd/act_sys_load_by_wzn",
+    "sample": "history-samples",
+    "file": "cdr.00013101.0000000000000000.20140501.055000.ACTUALSYSLOADWZNP6345.csv",
+    "rows_decoded": 24,
+    "first_row": {
+      "DSTFlag": false,
+      "coast": "8244.87",
+      "east": "1106.17",
+      "farWest": "1691.50",
+      "hourEnding": "01:00",
+      "north": "701.52",
+      "northC": "8254.29",
+      "operatingDay": "2014-04-30",
+      "southC": "4560.52",
+      "southern": "2479.81",
+      "total": "27934.84",
+      "west": "896.17"
+    },
+    "last_row": {
+      "DSTFlag": false,
+      "coast": "8475.31",
+      "east": "1157.06",
+      "farWest": "1707.65",
+      "hourEnding": "24:00",
+      "north": "718.80",
+      "northC": "8985.41",
+      "operatingDay": "2014-04-30",
+      "southC": "4808.23",
+      "southern": "2444.05",
+      "total": "29248.16",
+      "west": "951.65"
+    }
+  },
+  {
+    "endpoint": "np6-345-cd/act_sys_load_by_wzn",
+    "sample": "history-current",
+    "file": "cdr.00013101.0000000000000000.20260907.055000.ACTUALSYSLOADWZNP6345.csv",
+    "rows_decoded": 24,
+    "first_row": {
+      "DSTFlag": false,
+      "coast": "15364.16",
+      "east": "1909.48",
+      "farWest": "7714.55",
+      "hourEnding": "01:00",
+      "north": "1961.02",
+      "northC": "18981.63",
+      "operatingDay": "2026-09-06",
+      "southC": "11031.83",
+      "southern": "5214.50",
+      "total": "64360.71",
+      "west": "2183.53"
+    },
+    "last_row": {
+      "DSTFlag": false,
+      "coast": "15742.08",
+      "east": "2183.42",
+      "farWest": "7831.42",
+      "hourEnding": "24:00",
+      "north": "1982.45",
+      "northC": "20076.63",
+      "operatingDay": "2026-09-06",
+      "southC": "11107.31",
+      "southern": "5599.49",
+      "total": "66732.18",
+      "west": "2209.37"
+    }
+  }
+]

@@ -34,6 +34,7 @@ def generate(*, allow_incomplete: bool = False) -> None:
     overrides = json.loads((INPUTS / "type-overrides.json").read_text())
     row_fields = json.loads((INPUTS / "row-fields.json").read_text())
     defaults = json.loads((INPUTS / "query-defaults.json").read_text())
+    history = json.loads((INPUTS / "history-formats.json").read_text())
     groups = {}
     missing = []
     for op in operations:
@@ -59,6 +60,7 @@ def generate(*, allow_incomplete: bool = False) -> None:
         "from decimal import Decimal",
         "from typing import ClassVar",
         "from ._client import Transport, Page, Row",
+        "from ._history import Archive",
         "",
     ]
     lines.append(f"__all__ = {['Client', *[name(p) for p in sorted(groups)]]!r}")
@@ -91,6 +93,27 @@ def generate(*, allow_incomplete: bool = False) -> None:
                     .get("type", FIELDS[kind])
                 )
                 lines += [f"        {field}: {field_type} | None"]
+            if path in history:
+                contract = history[path]
+                archive_row = row
+                if "fields" in contract:
+                    archive_row = row.removesuffix("Row") + "HistoryRow"
+                    lines += ["", f"    class {archive_row}(Row):"]
+                    layouts = [contract["columns"], *contract.get("variants", [])]
+                    for field, field_type in contract["fields"].items():
+                        default = (
+                            " = None"
+                            if any(field not in layout.values() for layout in layouts)
+                            else ""
+                        )
+                        lines.append(f"        {field}: {field_type} | None{default}")
+                lines += [
+                    "",
+                    "    @property",
+                    f"    def {method}_history(self) -> Archive[{cls}.{archive_row}]:",
+                    '        """Historical CSV rows, including files predating the API."""',
+                    f"        return Archive(self._client, {product!r}, {cls}.{archive_row}, {contract['columns']!r}, {contract['dates']!r}, member={contract.get('member', '*.csv')!r}, variants={tuple(contract.get('variants', []))!r})",
+                ]
             params = (op.get("request") or {}).get("queryParameters", [])
             for mode, prefix, result, helper in [
                 ("", "def", f"Page[{cls}.{row}]", "_page"),
