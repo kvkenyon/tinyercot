@@ -239,3 +239,13 @@ with Client() as client:
     for interval_adder in client.np6_793_er.price_adders_history.rows():
         assert_type(interval_adder.deliveryDate, date | None)
         assert_type(interval_adder.RTRSVPOR, Decimal | None)
+
+    for capability_row in client.np6_794_er.capability_history.rows():
+        assert_type(capability_row.CapREGUP_RRS_ECRS_NSPINTotal, Decimal | None)
+        assert_type(capability_row.SCEDTimestamp, datetime | None)
+    for clearing_row in client.np6_795_er.clearing_prices_history.rows():
+        assert_type(clearing_row.MCPC, Decimal | None)
+        assert_type(clearing_row.cappedMCPC, Decimal | None)
+        assert_type(clearing_row.uncappedMCPC, Decimal | None)
+    for interval_clearing in client.np6_796_er.clearing_prices_history.rows():
+        assert_type(interval_clearing.deliveryDate, date | None)

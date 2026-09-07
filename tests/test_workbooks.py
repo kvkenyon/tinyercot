@@ -161,3 +161,65 @@ def test_price_adder_history_keeps_legacy_components():
     assert current.RTDLL is None
     assert interval.deliveryDate == date(2017, 1, 1)
     assert interval.RTRSVPOR == Decimal("0.31")
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "capacity-workbooks-evidence.json").read_text()),
+    ids=lambda s: s["fixture"],
+)
+def test_capacity_clearing_workbook_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")), method + "_history"
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert Counter(r.sourceSheet for r in rows) == {
+        s: min(n, 3) for s, n in sample["sheet_rows"].items() if n
+    }
+    for sheet, expected in sample["first_rows"].items():
+        assert (
+            next(r for r in rows if r.sourceSheet == sheet).model_dump(mode="json")
+            == expected
+        )
+
+
+def test_capacity_workbooks_preserve_capped_and_legacy_prices():
+    with Client() as client:
+        old = next(
+            client.np6_795_er.clearing_prices_history.read(
+                zipped(
+                    "old.xlsx",
+                    (INPUTS / "np6-795-er-history-samples.xlsx").read_bytes(),
+                )
+            )
+        )
+        current = next(
+            client.np6_795_er.clearing_prices_history.read(
+                zipped(
+                    "current.xlsx",
+                    (INPUTS / "np6-795-er-history-current.xlsx").read_bytes(),
+                )
+            )
+        )
+        capacity = next(
+            client.np6_794_er.capability_history.read(
+                zipped(
+                    "capacity.xlsx",
+                    (INPUTS / "np6-794-er-history-samples.xlsx").read_bytes(),
+                )
+            )
+        )
+    assert old.MCPC == Decimal("0.53")
+    assert old.cappedMCPC is None
+    assert current.MCPC is None
+    assert current.cappedMCPC == Decimal("0.06")
+    assert current.uncappedMCPC == Decimal("0.06")
+    assert current.ASType == "ECRS"
+    assert capacity.CapREGUPTotal == Decimal("17673.1866")
+    assert capacity.CapREGUP_RRS_ECRS_NSPINTotal == Decimal("39745.3392")

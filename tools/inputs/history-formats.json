@@ -9753,5 +9753,127 @@
       "RTRDP": "Decimal"
     },
     "dates": {}
+  },
+  "np6-794-er/capability": {
+    "archive_only": true,
+    "sheets": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
+    "columns": {
+      "SCEDTimestamp": "SCEDTimestamp",
+      "RepeatedHourFlag": "repeatHourFlag",
+      "CapREGUPTotal": "CapREGUPTotal",
+      "CapREGDNTotal": "CapREGDNTotal",
+      "CapRRSTotal": "CapRRSTotal",
+      "CapECRSTotal": "CapECRSTotal",
+      "CapNSPINTotal": "CapNSPINTotal",
+      "CapREGUP_RRSTotal": "CapREGUP_RRSTotal",
+      "CapREGUP_RRS_ECRSTotal": "CapREGUP_RRS_ECRSTotal",
+      "CapREGUP_RRS_ECRS_NSPINTotal": "CapREGUP_RRS_ECRS_NSPINTotal"
+    },
+    "variants": [],
+    "fields": {
+      "sourceSheet": "str",
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "CapREGUPTotal": "Decimal",
+      "CapREGDNTotal": "Decimal",
+      "CapRRSTotal": "Decimal",
+      "CapECRSTotal": "Decimal",
+      "CapNSPINTotal": "Decimal",
+      "CapREGUP_RRSTotal": "Decimal",
+      "CapREGUP_RRS_ECRSTotal": "Decimal",
+      "CapREGUP_RRS_ECRS_NSPINTotal": "Decimal"
+    },
+    "dates": {}
+  },
+  "np6-795-er/clearing_prices": {
+    "archive_only": true,
+    "sheets": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
+    "columns": {
+      "SCED Timestamp": "SCEDTimestamp",
+      "AS Type": "ASType",
+      "CAPPED_MCPC": "cappedMCPC",
+      "UNCAPPED_MCPC": "uncappedMCPC",
+      "Repeated Hour Flag": "repeatHourFlag"
+    },
+    "variants": [
+      {
+        "SCED Timestamp": "SCEDTimestamp",
+        "AS Type": "ASType",
+        "MCPC": "MCPC",
+        "Repeated Hour Flag": "repeatHourFlag"
+      }
+    ],
+    "fields": {
+      "sourceSheet": "str",
+      "SCEDTimestamp": "datetime",
+      "ASType": "str",
+      "cappedMCPC": "Decimal",
+      "uncappedMCPC": "Decimal",
+      "repeatHourFlag": "bool",
+      "MCPC": "Decimal"
+    },
+    "dates": {}
+  },
+  "np6-796-er/clearing_prices": {
+    "archive_only": true,
+    "sheets": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Delivery Hour": "deliveryHour",
+      "Delivery Interval": "deliveryInterval",
+      "AS Type": "ASType",
+      "MCPC": "MCPC",
+      "Repeated Hour Flag": "repeatHourFlag"
+    },
+    "variants": [],
+    "fields": {
+      "sourceSheet": "str",
+      "deliveryDate": "date",
+      "deliveryHour": "int",
+      "deliveryInterval": "int",
+      "ASType": "str",
+      "MCPC": "Decimal",
+      "repeatHourFlag": "bool"
+    },
+    "dates": {}
   }
 }

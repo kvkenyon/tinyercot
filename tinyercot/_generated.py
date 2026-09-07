@@ -8,7 +8,7 @@ from ._client import Transport, Page, Row
 from ._history import Archive, EiaHour
 from ._xlsx import WorkbookArchive
 
-__all__ = ['Client', 'copg_316', 'eia_930_er', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np1_346_er', 'np3_108', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_520_er', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_792_er', 'np6_793_er', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd']
+__all__ = ['Client', 'copg_316', 'eia_930_er', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np1_346_er', 'np3_108', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_520_er', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_792_er', 'np6_793_er', 'np6_794_er', 'np6_795_er', 'np6_796_er', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd']
 class copg_316:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -11576,6 +11576,67 @@ class np6_793_er:
         """Historical report rows, including files predating the API."""
         return WorkbookArchive(self._client, 'np6-793-er', np6_793_er.PriceAddersHistoryRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRDPA': 'RTRDPA', 'RTRDPRU': 'RTRDPRU', 'RTRDPRD': 'RTRDPRD', 'RTRDPRRS': 'RTRDPRRS', 'RTRDPECRS': 'RTRDPECRS', 'RTRDPNS': 'RTRDPNS'}, {}, sheets=('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), variants=({'DeliveryDate': 'deliveryDate', 'DeliveryHour        ': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'RTRDP': 'RTRDP'}, {'DeliveryDate': 'deliveryDate', '         DeliveryHour                ': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'RTRDP': 'RTRDP'}, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'RTRDP': 'RTRDP'}, {'DeliveryDate': 'deliveryDate', 'DeliveryHour ': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'RTRDP': 'RTRDP'}))
 
+class np6_794_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class CapabilityHistoryRow(Row):
+        sourceSheet: str | None = None
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        CapREGUPTotal: Decimal | None
+        CapREGDNTotal: Decimal | None
+        CapRRSTotal: Decimal | None
+        CapECRSTotal: Decimal | None
+        CapNSPINTotal: Decimal | None
+        CapREGUP_RRSTotal: Decimal | None
+        CapREGUP_RRS_ECRSTotal: Decimal | None
+        CapREGUP_RRS_ECRS_NSPINTotal: Decimal | None
+
+    @property
+    def capability_history(self) -> WorkbookArchive[np6_794_er.CapabilityHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np6-794-er', np6_794_er.CapabilityHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'CapREGUPTotal': 'CapREGUPTotal', 'CapREGDNTotal': 'CapREGDNTotal', 'CapRRSTotal': 'CapRRSTotal', 'CapECRSTotal': 'CapECRSTotal', 'CapNSPINTotal': 'CapNSPINTotal', 'CapREGUP_RRSTotal': 'CapREGUP_RRSTotal', 'CapREGUP_RRS_ECRSTotal': 'CapREGUP_RRS_ECRSTotal', 'CapREGUP_RRS_ECRS_NSPINTotal': 'CapREGUP_RRS_ECRS_NSPINTotal'}, {}, sheets=('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), variants=())
+
+class np6_795_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class ClearingPricesHistoryRow(Row):
+        sourceSheet: str | None = None
+        SCEDTimestamp: datetime | None
+        ASType: str | None
+        cappedMCPC: Decimal | None = None
+        uncappedMCPC: Decimal | None = None
+        repeatHourFlag: bool | None
+        MCPC: Decimal | None = None
+
+    @property
+    def clearing_prices_history(self) -> WorkbookArchive[np6_795_er.ClearingPricesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np6-795-er', np6_795_er.ClearingPricesHistoryRow, {'SCED Timestamp': 'SCEDTimestamp', 'AS Type': 'ASType', 'CAPPED_MCPC': 'cappedMCPC', 'UNCAPPED_MCPC': 'uncappedMCPC', 'Repeated Hour Flag': 'repeatHourFlag'}, {}, sheets=('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), variants=({'SCED Timestamp': 'SCEDTimestamp', 'AS Type': 'ASType', 'MCPC': 'MCPC', 'Repeated Hour Flag': 'repeatHourFlag'},))
+
+class np6_796_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class ClearingPricesHistoryRow(Row):
+        sourceSheet: str | None = None
+        deliveryDate: date | None
+        deliveryHour: int | None
+        deliveryInterval: int | None
+        ASType: str | None
+        MCPC: Decimal | None
+        repeatHourFlag: bool | None
+
+    @property
+    def clearing_prices_history(self) -> WorkbookArchive[np6_796_er.ClearingPricesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np6-796-er', np6_796_er.ClearingPricesHistoryRow, {'Delivery Date': 'deliveryDate', 'Delivery Hour': 'deliveryHour', 'Delivery Interval': 'deliveryInterval', 'AS Type': 'ASType', 'MCPC': 'MCPC', 'Repeated Hour Flag': 'repeatHourFlag'}, {}, sheets=('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), variants=())
+
 class np6_86_cd:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -12168,6 +12229,18 @@ class Client(Transport):
     @property
     def np6_793_er(self) -> np6_793_er:
         return np6_793_er(self)
+
+    @property
+    def np6_794_er(self) -> np6_794_er:
+        return np6_794_er(self)
+
+    @property
+    def np6_795_er(self) -> np6_795_er:
+        return np6_795_er(self)
+
+    @property
+    def np6_796_er(self) -> np6_796_er:
+        return np6_796_er(self)
 
     @property
     def np6_86_cd(self) -> np6_86_cd:
