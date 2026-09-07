@@ -2176,6 +2176,20 @@ class np3_909_er:
         settlementPointSink: str | None
         settlementPointSource: str | None
 
+    class _2dPtpOblBidsHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        PTPBidPrice: Decimal | None
+        PTPBidAwardMW: Decimal | None
+        bidId: str | None = None
+
+    @property
+    def _2d_ptp_obl_bids_history(self) -> Archive[np3_909_er._2dPtpOblBidsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dPtpOblBidsHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source Location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink Location for PtP Bid': 'settlementPointSink', 'PtP Bid Price': 'PTPBidPrice', 'PtP Bid MW': 'PTPBidAwardMW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_PTP_Obligation_Bids[ -]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink location for PtP Bid': 'settlementPointSink', 'PtP Bid  MW': 'PTPBidAwardMW', 'PtP Bid  Price': 'PTPBidPrice', 'Bid ID': 'bidId'},))
+
     def _2d_ptp_obl_bids(self, *, PTPBidAwardMWFrom: Decimal | None = None, PTPBidAwardMWTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, PTPBidPriceFrom: Decimal | None = None, PTPBidPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dPtpOblBidsRow]:
         '2-Day Point-to-Point Obligation Bids'
         return self._client._page('/np3-909-er/2d_ptp_obl_bids', np3_909_er._2dPtpOblBidsRow, {'PTPBidAwardMWFrom': PTPBidAwardMWFrom, 'PTPBidAwardMWTo': PTPBidAwardMWTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'settlementPointSource': settlementPointSource, 'settlementPointSink': settlementPointSink, 'PTPBidPriceFrom': PTPBidPriceFrom, 'PTPBidPriceTo': PTPBidPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2198,6 +2212,20 @@ class np3_909_er:
         hourEnding: int | None
         settlementPointSink: str | None
         settlementPointSource: str | None
+
+    class _2dPtpOblBidsHoustonHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        PTPBidPrice: Decimal | None
+        PTPBidAwardMW: Decimal | None
+        bidId: str | None = None
+
+    @property
+    def _2d_ptp_obl_bids_houston_history(self) -> Archive[np3_909_er._2dPtpOblBidsHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dPtpOblBidsHoustonHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source Location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink Location for PtP Bid': 'settlementPointSink', 'PtP Bid Price': 'PTPBidPrice', 'PtP Bid MW': 'PTPBidAwardMW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_PTP_Obligation_Bids_Houston[ -]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink location for PtP Bid': 'settlementPointSink', 'PtP Bid  MW': 'PTPBidAwardMW', 'PtP Bid  Price': 'PTPBidPrice', 'Bid ID': 'bidId'},))
 
     def _2d_ptp_obl_bids_houston(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, PTPBidPriceFrom: Decimal | None = None, PTPBidPriceTo: Decimal | None = None, PTPBidAwardMWFrom: Decimal | None = None, PTPBidAwardMWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dPtpOblBidsHoustonRow]:
         '2-Day Point-to-Point Obligation Bids Houston'
@@ -2222,6 +2250,20 @@ class np3_909_er:
         settlementPointSink: str | None
         settlementPointSource: str | None
 
+    class _2dPtpOblBidsNorthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        PTPBidPrice: Decimal | None
+        PTPBidAwardMW: Decimal | None
+        bidId: str | None = None
+
+    @property
+    def _2d_ptp_obl_bids_north_history(self) -> Archive[np3_909_er._2dPtpOblBidsNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dPtpOblBidsNorthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source Location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink Location for PtP Bid': 'settlementPointSink', 'PtP Bid Price': 'PTPBidPrice', 'PtP Bid MW': 'PTPBidAwardMW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_PTP_Obligation_Bids_North[ -]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink location for PtP Bid': 'settlementPointSink', 'PtP Bid  MW': 'PTPBidAwardMW', 'PtP Bid  Price': 'PTPBidPrice', 'Bid ID': 'bidId'},))
+
     def _2d_ptp_obl_bids_north(self, *, PTPBidAwardMWFrom: Decimal | None = None, PTPBidAwardMWTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, PTPBidPriceFrom: Decimal | None = None, PTPBidPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dPtpOblBidsNorthRow]:
         '2-Day Point-to-Point Obligation Bids North'
         return self._client._page('/np3-909-er/2d_ptp_obl_bids_north', np3_909_er._2dPtpOblBidsNorthRow, {'PTPBidAwardMWFrom': PTPBidAwardMWFrom, 'PTPBidAwardMWTo': PTPBidAwardMWTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'settlementPointSource': settlementPointSource, 'settlementPointSink': settlementPointSink, 'PTPBidPriceFrom': PTPBidPriceFrom, 'PTPBidPriceTo': PTPBidPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2245,6 +2287,20 @@ class np3_909_er:
         settlementPointSink: str | None
         settlementPointSource: str | None
 
+    class _2dPtpOblBidsSouthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        PTPBidPrice: Decimal | None
+        PTPBidAwardMW: Decimal | None
+        bidId: str | None = None
+
+    @property
+    def _2d_ptp_obl_bids_south_history(self) -> Archive[np3_909_er._2dPtpOblBidsSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dPtpOblBidsSouthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source Location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink Location for PtP Bid': 'settlementPointSink', 'PtP Bid Price': 'PTPBidPrice', 'PtP Bid MW': 'PTPBidAwardMW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_PTP_Obligation_Bids_South[ -]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink location for PtP Bid': 'settlementPointSink', 'PtP Bid  MW': 'PTPBidAwardMW', 'PtP Bid  Price': 'PTPBidPrice', 'Bid ID': 'bidId'},))
+
     def _2d_ptp_obl_bids_south(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, PTPBidPriceFrom: Decimal | None = None, PTPBidPriceTo: Decimal | None = None, PTPBidAwardMWFrom: Decimal | None = None, PTPBidAwardMWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dPtpOblBidsSouthRow]:
         '2-Day Point-to-Point Obligation Bids South'
         return self._client._page('/np3-909-er/2d_ptp_obl_bids_south', np3_909_er._2dPtpOblBidsSouthRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'settlementPointSource': settlementPointSource, 'settlementPointSink': settlementPointSink, 'PTPBidPriceFrom': PTPBidPriceFrom, 'PTPBidPriceTo': PTPBidPriceTo, 'PTPBidAwardMWFrom': PTPBidAwardMWFrom, 'PTPBidAwardMWTo': PTPBidAwardMWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2267,6 +2323,20 @@ class np3_909_er:
         hourEnding: int | None
         settlementPointSink: str | None
         settlementPointSource: str | None
+
+    class _2dPtpOblBidsWestHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        PTPBidPrice: Decimal | None
+        PTPBidAwardMW: Decimal | None
+        bidId: str | None = None
+
+    @property
+    def _2d_ptp_obl_bids_west_history(self) -> Archive[np3_909_er._2dPtpOblBidsWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dPtpOblBidsWestHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source Location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink Location for PtP Bid': 'settlementPointSink', 'PtP Bid Price': 'PTPBidPrice', 'PtP Bid MW': 'PTPBidAwardMW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_PTP_Obligation_Bids_West[ -]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink location for PtP Bid': 'settlementPointSink', 'PtP Bid  MW': 'PTPBidAwardMW', 'PtP Bid  Price': 'PTPBidPrice', 'Bid ID': 'bidId'},))
 
     def _2d_ptp_obl_bids_west(self, *, PTPBidAwardMWFrom: Decimal | None = None, PTPBidAwardMWTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, PTPBidPriceFrom: Decimal | None = None, PTPBidPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dPtpOblBidsWestRow]:
         '2-Day Point-to-Point Obligation Bids West'
@@ -2292,6 +2362,20 @@ class np3_909_er:
         sumESRBidsCleared: Decimal | None
         sumESROffersCleared: Decimal | None
 
+    class _2dTotalClearedEnergyBidsOffersHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        sumDamENOnlyBidsCleared: Decimal | None
+        sum3POCleared: Decimal | None
+        sumDamENOnlyOffersCleared: Decimal | None
+        sumESRBidsCleared: Decimal | None = None
+        sumESROffersCleared: Decimal | None = None
+
+    @property
+    def _2d_total_cleared_energy_bids_offers_history(self) -> Archive[np3_909_er._2dTotalClearedEnergyBidsOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dTotalClearedEnergyBidsOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum DAM EN Only Bids cleared': 'sumDamENOnlyBidsCleared', 'Sum 3PO cleared': 'sum3POCleared', 'Sum DAM EN Only Offers cleared': 'sumDamENOnlyOffersCleared', 'Sum ESR Bids cleared': 'sumESRBidsCleared', 'Sum ESR Offers cleared': 'sumESROffersCleared'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Tot_*Offers-[0-9]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum Cleared DAM Bids': 'sumDamENOnlyBidsCleared', 'Sum Cleared 3PO': 'sum3POCleared', 'Sum Cleared Energy Only Offers': 'sumDamENOnlyOffersCleared'},))
+
     def _2d_total_cleared_energy_bids_offers(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, sumDamENOnlyBidsClearedFrom: Decimal | None = None, sumDamENOnlyBidsClearedTo: Decimal | None = None, sum3POClearedFrom: Decimal | None = None, sum3POClearedTo: Decimal | None = None, sumDamENOnlyOffersClearedFrom: Decimal | None = None, sumDamENOnlyOffersClearedTo: Decimal | None = None, sumESRBidsClearedFrom: Decimal | None = None, sumESRBidsClearedTo: Decimal | None = None, sumESROffersClearedFrom: Decimal | None = None, sumESROffersClearedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dTotalClearedEnergyBidsOffersRow]:
         '2-Day Total Cleared Energy Bids and Energy-Only Offers'
         return self._client._page('/np3-909-er/2d_total_cleared_energy_bids_offers', np3_909_er._2dTotalClearedEnergyBidsOffersRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'sumDamENOnlyBidsClearedFrom': sumDamENOnlyBidsClearedFrom, 'sumDamENOnlyBidsClearedTo': sumDamENOnlyBidsClearedTo, 'sum3POClearedFrom': sum3POClearedFrom, 'sum3POClearedTo': sum3POClearedTo, 'sumDamENOnlyOffersClearedFrom': sumDamENOnlyOffersClearedFrom, 'sumDamENOnlyOffersClearedTo': sumDamENOnlyOffersClearedTo, 'sumESRBidsClearedFrom': sumESRBidsClearedFrom, 'sumESRBidsClearedTo': sumESRBidsClearedTo, 'sumESROffersClearedFrom': sumESROffersClearedFrom, 'sumESROffersClearedTo': sumESROffersClearedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2315,6 +2399,20 @@ class np3_909_er:
         sumDamENOnlyOffersCleared: Decimal | None
         sumESRBidsCleared: Decimal | None
         sumESROffersCleared: Decimal | None
+
+    class _2dTotalClearedEnergyBidsOffersHoustonHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        sumDamENOnlyBidsCleared: Decimal | None
+        sum3POCleared: Decimal | None
+        sumDamENOnlyOffersCleared: Decimal | None
+        sumESRBidsCleared: Decimal | None = None
+        sumESROffersCleared: Decimal | None = None
+
+    @property
+    def _2d_total_cleared_energy_bids_offers_houston_history(self) -> Archive[np3_909_er._2dTotalClearedEnergyBidsOffersHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dTotalClearedEnergyBidsOffersHoustonHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum DAM EN Only Bids cleared': 'sumDamENOnlyBidsCleared', 'Sum 3PO cleared': 'sum3POCleared', 'Sum DAM EN Only Offers cleared': 'sumDamENOnlyOffersCleared', 'Sum ESR Bids cleared': 'sumESRBidsCleared', 'Sum ESR Offers cleared': 'sumESROffersCleared'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Tot_*Offers_Houston-[0-9]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum Cleared DAM Bids': 'sumDamENOnlyBidsCleared', 'Sum Cleared 3PO': 'sum3POCleared', 'Sum Cleared Energy Only Offers': 'sumDamENOnlyOffersCleared'},))
 
     def _2d_total_cleared_energy_bids_offers_houston(self, *, sum3POClearedFrom: Decimal | None = None, sum3POClearedTo: Decimal | None = None, sumDamENOnlyOffersClearedFrom: Decimal | None = None, sumDamENOnlyOffersClearedTo: Decimal | None = None, sumESRBidsClearedFrom: Decimal | None = None, sumESRBidsClearedTo: Decimal | None = None, sumESROffersClearedFrom: Decimal | None = None, sumESROffersClearedTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, sumDamENOnlyBidsClearedFrom: Decimal | None = None, sumDamENOnlyBidsClearedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dTotalClearedEnergyBidsOffersHoustonRow]:
         '2-Day Total Cleared Energy Bids and Energy-Only Offers Houston'
@@ -2340,6 +2438,20 @@ class np3_909_er:
         sumESRBidsCleared: Decimal | None
         sumESROffersCleared: Decimal | None
 
+    class _2dTotalClearedEnergyBidsOffersNorthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        sumDamENOnlyBidsCleared: Decimal | None
+        sum3POCleared: Decimal | None
+        sumDamENOnlyOffersCleared: Decimal | None
+        sumESRBidsCleared: Decimal | None = None
+        sumESROffersCleared: Decimal | None = None
+
+    @property
+    def _2d_total_cleared_energy_bids_offers_north_history(self) -> Archive[np3_909_er._2dTotalClearedEnergyBidsOffersNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dTotalClearedEnergyBidsOffersNorthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum DAM EN Only Bids cleared': 'sumDamENOnlyBidsCleared', 'Sum 3PO cleared': 'sum3POCleared', 'Sum DAM EN Only Offers cleared': 'sumDamENOnlyOffersCleared', 'Sum ESR Bids cleared': 'sumESRBidsCleared', 'Sum ESR Offers cleared': 'sumESROffersCleared'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Tot_*Offers_North-[0-9]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum Cleared DAM Bids': 'sumDamENOnlyBidsCleared', 'Sum Cleared 3PO': 'sum3POCleared', 'Sum Cleared Energy Only Offers': 'sumDamENOnlyOffersCleared'},))
+
     def _2d_total_cleared_energy_bids_offers_north(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, sumDamENOnlyBidsClearedFrom: Decimal | None = None, sumDamENOnlyBidsClearedTo: Decimal | None = None, sum3POClearedFrom: Decimal | None = None, sum3POClearedTo: Decimal | None = None, sumDamENOnlyOffersClearedFrom: Decimal | None = None, sumDamENOnlyOffersClearedTo: Decimal | None = None, sumESRBidsClearedFrom: Decimal | None = None, sumESRBidsClearedTo: Decimal | None = None, sumESROffersClearedFrom: Decimal | None = None, sumESROffersClearedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dTotalClearedEnergyBidsOffersNorthRow]:
         '2-Day Total Cleared Energy Bids and Energy-Only Offers North'
         return self._client._page('/np3-909-er/2d_total_cleared_energy_bids_offers_north', np3_909_er._2dTotalClearedEnergyBidsOffersNorthRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'sumDamENOnlyBidsClearedFrom': sumDamENOnlyBidsClearedFrom, 'sumDamENOnlyBidsClearedTo': sumDamENOnlyBidsClearedTo, 'sum3POClearedFrom': sum3POClearedFrom, 'sum3POClearedTo': sum3POClearedTo, 'sumDamENOnlyOffersClearedFrom': sumDamENOnlyOffersClearedFrom, 'sumDamENOnlyOffersClearedTo': sumDamENOnlyOffersClearedTo, 'sumESRBidsClearedFrom': sumESRBidsClearedFrom, 'sumESRBidsClearedTo': sumESRBidsClearedTo, 'sumESROffersClearedFrom': sumESROffersClearedFrom, 'sumESROffersClearedTo': sumESROffersClearedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2364,6 +2476,20 @@ class np3_909_er:
         sumESRBidsCleared: Decimal | None
         sumESROffersCleared: Decimal | None
 
+    class _2dTotalClearedEnergyBidsOffersSouthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        sumDamENOnlyBidsCleared: Decimal | None
+        sum3POCleared: Decimal | None
+        sumDamENOnlyOffersCleared: Decimal | None
+        sumESRBidsCleared: Decimal | None = None
+        sumESROffersCleared: Decimal | None = None
+
+    @property
+    def _2d_total_cleared_energy_bids_offers_south_history(self) -> Archive[np3_909_er._2dTotalClearedEnergyBidsOffersSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dTotalClearedEnergyBidsOffersSouthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum DAM EN Only Bids cleared': 'sumDamENOnlyBidsCleared', 'Sum 3PO cleared': 'sum3POCleared', 'Sum DAM EN Only Offers cleared': 'sumDamENOnlyOffersCleared', 'Sum ESR Bids cleared': 'sumESRBidsCleared', 'Sum ESR Offers cleared': 'sumESROffersCleared'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Tot_*Offers_South-[0-9]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum Cleared DAM Bids': 'sumDamENOnlyBidsCleared', 'Sum Cleared 3PO': 'sum3POCleared', 'Sum Cleared Energy Only Offers': 'sumDamENOnlyOffersCleared'},))
+
     def _2d_total_cleared_energy_bids_offers_south(self, *, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, sumDamENOnlyBidsClearedFrom: Decimal | None = None, sumDamENOnlyBidsClearedTo: Decimal | None = None, sum3POClearedFrom: Decimal | None = None, sum3POClearedTo: Decimal | None = None, sumDamENOnlyOffersClearedFrom: Decimal | None = None, sumDamENOnlyOffersClearedTo: Decimal | None = None, sumESRBidsClearedFrom: Decimal | None = None, sumESRBidsClearedTo: Decimal | None = None, sumESROffersClearedFrom: Decimal | None = None, sumESROffersClearedTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dTotalClearedEnergyBidsOffersSouthRow]:
         '2-Day Total Cleared Energy Bids and Energy-Only Offers South'
         return self._client._page('/np3-909-er/2d_total_cleared_energy_bids_offers_south', np3_909_er._2dTotalClearedEnergyBidsOffersSouthRow, {'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'sumDamENOnlyBidsClearedFrom': sumDamENOnlyBidsClearedFrom, 'sumDamENOnlyBidsClearedTo': sumDamENOnlyBidsClearedTo, 'sum3POClearedFrom': sum3POClearedFrom, 'sum3POClearedTo': sum3POClearedTo, 'sumDamENOnlyOffersClearedFrom': sumDamENOnlyOffersClearedFrom, 'sumDamENOnlyOffersClearedTo': sumDamENOnlyOffersClearedTo, 'sumESRBidsClearedFrom': sumESRBidsClearedFrom, 'sumESRBidsClearedTo': sumESRBidsClearedTo, 'sumESROffersClearedFrom': sumESROffersClearedFrom, 'sumESROffersClearedTo': sumESROffersClearedTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2387,6 +2513,20 @@ class np3_909_er:
         sumDamENOnlyOffersCleared: Decimal | None
         sumESRBidsCleared: Decimal | None
         sumESROffersCleared: Decimal | None
+
+    class _2dTotalClearedEnergyBidsOffersWestHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        sumDamENOnlyBidsCleared: Decimal | None
+        sum3POCleared: Decimal | None
+        sumDamENOnlyOffersCleared: Decimal | None
+        sumESRBidsCleared: Decimal | None = None
+        sumESROffersCleared: Decimal | None = None
+
+    @property
+    def _2d_total_cleared_energy_bids_offers_west_history(self) -> Archive[np3_909_er._2dTotalClearedEnergyBidsOffersWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dTotalClearedEnergyBidsOffersWestHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum DAM EN Only Bids cleared': 'sumDamENOnlyBidsCleared', 'Sum 3PO cleared': 'sum3POCleared', 'Sum DAM EN Only Offers cleared': 'sumDamENOnlyOffersCleared', 'Sum ESR Bids cleared': 'sumESRBidsCleared', 'Sum ESR Offers cleared': 'sumESROffersCleared'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Tot_*Offers_West-[0-9]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum Cleared DAM Bids': 'sumDamENOnlyBidsCleared', 'Sum Cleared 3PO': 'sum3POCleared', 'Sum Cleared Energy Only Offers': 'sumDamENOnlyOffersCleared'},))
 
     def _2d_total_cleared_energy_bids_offers_west(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, sumDamENOnlyBidsClearedFrom: Decimal | None = None, sumDamENOnlyBidsClearedTo: Decimal | None = None, sum3POClearedFrom: Decimal | None = None, sum3POClearedTo: Decimal | None = None, sumDamENOnlyOffersClearedFrom: Decimal | None = None, sumDamENOnlyOffersClearedTo: Decimal | None = None, sumESRBidsClearedFrom: Decimal | None = None, sumESRBidsClearedTo: Decimal | None = None, sumESROffersClearedFrom: Decimal | None = None, sumESROffersClearedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dTotalClearedEnergyBidsOffersWestRow]:
         '2-Day Total Cleared Energy Bids and Energy-Only Offers West'
@@ -2413,6 +2553,17 @@ class np3_910_er:
         repeatHourFlag: bool | None
         sumTelemDSRGen: Decimal | None
         sumTelemDSRLoad: Decimal | None
+
+    class _2dAggDsrLoadsHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumTelemDSRLoad: Decimal | None
+        sumTelemDSRGen: Decimal | None
+
+    @property
+    def _2d_agg_dsr_loads_history(self) -> Archive[np3_910_er._2dAggDsrLoadsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggDsrLoadsHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM TELEM DSR LOAD': 'sumTelemDSRLoad', 'SUM TELEM DSR GEN': 'sumTelemDSRGen'}, {}, member='*_Agg_DSR_Loads[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_dsr_loads(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumTelemDSRLoadFrom: Decimal | None = None, sumTelemDSRLoadTo: Decimal | None = None, sumTelemDSRGenFrom: Decimal | None = None, sumTelemDSRGenTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggDsrLoadsRow]:
         '2-Day Aggregated DSR Loads'
@@ -2449,6 +2600,34 @@ class np3_910_er:
         sumLASLREMRES: Decimal | None
         sumLASLWGR: Decimal | None
 
+    class _2dAggGenSummaryHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumBasePointNonIRR: Decimal | None = None
+        sumBasePointWGR: Decimal | None
+        sumBasePointPVGR: Decimal | None = None
+        sumBasePointREMRES: Decimal | None
+        sumGenTelemMW: Decimal | None
+        sumBasePointESR: Decimal | None = None
+        sumBasePointESRCharge: Decimal | None = None
+        sumBasePointESRDischarge: Decimal | None = None
+        sumHASLNonIRR: Decimal | None = None
+        sumLASLNonIRR: Decimal | None = None
+        sumHASLWGR: Decimal | None = None
+        sumLASLWGR: Decimal | None = None
+        sumHASLPVGR: Decimal | None = None
+        sumLASLPVGR: Decimal | None = None
+        sumHASLREMRES: Decimal | None = None
+        sumLASLREMRES: Decimal | None = None
+        sumBasePointNonWGR: Decimal | None = None
+        sumHASLNonWGR: Decimal | None = None
+        sumLASLNonWGR: Decimal | None = None
+
+    @property
+    def _2d_agg_gen_summary_history(self) -> Archive[np3_910_er._2dAggGenSummaryHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggGenSummaryHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM BASE POINT NON IRR': 'sumBasePointNonIRR', 'SUM BASE POINT WGR': 'sumBasePointWGR', 'SUM BASE POINT PVGR': 'sumBasePointPVGR', 'SUM BASE POINT Remaining Res': 'sumBasePointREMRES', 'SUM GEN TELEM MW': 'sumGenTelemMW', 'SUM BASE POINT ESR': 'sumBasePointESR', 'SUM BASE POINT ESR CHARGING': 'sumBasePointESRCharge', 'SUM BASE POINT ESR DISCHARGING': 'sumBasePointESRDischarge'}, {}, member='*_Agg_Gen_Summary[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time  Stamp': 'SCEDTimestamp', 'Repeated Hour  Flag': 'repeatHourFlag', 'SUM  BASE POINT NON-WGR': 'sumBasePointNonWGR', 'SUM  HASL NON-WGR': 'sumHASLNonWGR', 'SUM  LASL NON-WGR': 'sumLASLNonWGR', 'SUM  BASE POINT WGR': 'sumBasePointWGR', 'SUM   HASL  WGR': 'sumHASLWGR', 'SUM  LASL WGR': 'sumLASLWGR', 'SUM  BASE POINT REMAINING RESOURCES': 'sumBasePointREMRES', 'SUM  HASL REMAINING RESOURCES': 'sumHASLREMRES', 'SUM  LASL REMAINING RESOURCES': 'sumLASLREMRES', 'SUM  GEN  TELEM  MW': 'sumGenTelemMW'},))
+
     def _2d_agg_gen_summary(self, *, sumBasePointREMRESFrom: Decimal | None = None, sumBasePointREMRESTo: Decimal | None = None, sumGenTelemMWFrom: Decimal | None = None, sumGenTelemMWTo: Decimal | None = None, sumBasePointESRFrom: Decimal | None = None, sumBasePointESRTo: Decimal | None = None, sumBasePointESRChargeFrom: Decimal | None = None, sumBasePointESRChargeTo: Decimal | None = None, sumBasePointESRDischargeFrom: Decimal | None = None, sumBasePointESRDischargeTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumBasePointNonIRRFrom: Decimal | None = None, sumBasePointNonIRRTo: Decimal | None = None, sumBasePointWGRFrom: Decimal | None = None, sumBasePointWGRTo: Decimal | None = None, sumBasePointPVGRFrom: Decimal | None = None, sumBasePointPVGRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggGenSummaryRow]:
         '2-Day Aggregated Generation Summary'
         return self._client._page('/np3-910-er/2d_agg_gen_summary', np3_910_er._2dAggGenSummaryRow, {'sumBasePointREMRESFrom': sumBasePointREMRESFrom, 'sumBasePointREMRESTo': sumBasePointREMRESTo, 'sumGenTelemMWFrom': sumGenTelemMWFrom, 'sumGenTelemMWTo': sumGenTelemMWTo, 'sumBasePointESRFrom': sumBasePointESRFrom, 'sumBasePointESRTo': sumBasePointESRTo, 'sumBasePointESRChargeFrom': sumBasePointESRChargeFrom, 'sumBasePointESRChargeTo': sumBasePointESRChargeTo, 'sumBasePointESRDischargeFrom': sumBasePointESRDischargeFrom, 'sumBasePointESRDischargeTo': sumBasePointESRDischargeTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumBasePointNonIRRFrom': sumBasePointNonIRRFrom, 'sumBasePointNonIRRTo': sumBasePointNonIRRTo, 'sumBasePointWGRFrom': sumBasePointWGRFrom, 'sumBasePointWGRTo': sumBasePointWGRTo, 'sumBasePointPVGRFrom': sumBasePointPVGRFrom, 'sumBasePointPVGRTo': sumBasePointPVGRTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2482,6 +2661,34 @@ class np3_910_er:
         sumLaslNonWGR: Decimal | None
         sumLaslRemRes: Decimal | None
         sumLaslWGR: Decimal | None
+
+    class _2dAggGenSummaryHoustonHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumBasePointNonIRR: Decimal | None = None
+        sumBasePointWGR: Decimal | None
+        sumBasePointPVGR: Decimal | None = None
+        sumBasePointREMRES: Decimal | None
+        sumGenTelemMW: Decimal | None
+        sumBasePointESR: Decimal | None = None
+        sumBasePointESRCharge: Decimal | None = None
+        sumBasePointESRDischarge: Decimal | None = None
+        sumBasePointNonWGR: Decimal | None = None
+        sumHaslNonWGR: Decimal | None = None
+        sumLaslNonWGR: Decimal | None = None
+        sumHaslWGR: Decimal | None = None
+        sumLaslWGR: Decimal | None = None
+        sumHaslRemRes: Decimal | None = None
+        sumLaslRemRes: Decimal | None = None
+        sumHASLNonWGR: Decimal | None = None
+        sumLASLNonWGR: Decimal | None = None
+        sumHASLREMRES: Decimal | None = None
+        sumLASLREMRES: Decimal | None = None
+
+    @property
+    def _2d_agg_gen_summary_houston_history(self) -> Archive[np3_910_er._2dAggGenSummaryHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggGenSummaryHoustonHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM BASE POINT NON IRR': 'sumBasePointNonIRR', 'SUM BASE POINT WGR': 'sumBasePointWGR', 'SUM BASE POINT PVGR': 'sumBasePointPVGR', 'SUM BASE POINT Remaining Res': 'sumBasePointREMRES', 'SUM GEN TELEM MW': 'sumGenTelemMW', 'SUM BASE POINT ESR': 'sumBasePointESR', 'SUM BASE POINT ESR CHARGING': 'sumBasePointESRCharge', 'SUM BASE POINT ESR DISCHARGING': 'sumBasePointESRDischarge'}, {}, member='*_Agg_Gen_Summary_Houston[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time  Stamp': 'SCEDTimestamp', 'Repeated Hour  Flag': 'repeatHourFlag', 'SUM  BASE POINT NON-WGR': 'sumBasePointNonWGR', 'SUM  HASL NON-WGR': 'sumHASLNonWGR', 'SUM  LASL NON-WGR': 'sumLASLNonWGR', 'SUM  BASE POINT WGR': 'sumBasePointWGR', 'SUM   HASL  WGR': 'sumHaslWGR', 'SUM  LASL WGR': 'sumLaslWGR', 'SUM  BASE POINT REMAINING RESOURCES': 'sumBasePointREMRES', 'SUM  HASL REMAINING RESOURCES': 'sumHASLREMRES', 'SUM  LASL REMAINING RESOURCES': 'sumLASLREMRES', 'SUM  GEN  TELEM  MW': 'sumGenTelemMW'},))
 
     def _2d_agg_gen_summary_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumBasePointNonIRRFrom: Decimal | None = None, sumBasePointNonIRRTo: Decimal | None = None, sumBasePointWGRFrom: Decimal | None = None, sumBasePointWGRTo: Decimal | None = None, sumBasePointPVGRFrom: Decimal | None = None, sumBasePointPVGRTo: Decimal | None = None, sumBasePointREMRESFrom: Decimal | None = None, sumBasePointREMRESTo: Decimal | None = None, sumGenTelemMWFrom: Decimal | None = None, sumGenTelemMWTo: Decimal | None = None, sumBasePointESRFrom: Decimal | None = None, sumBasePointESRTo: Decimal | None = None, sumBasePointESRChargeFrom: Decimal | None = None, sumBasePointESRChargeTo: Decimal | None = None, sumBasePointESRDischargeFrom: Decimal | None = None, sumBasePointESRDischargeTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggGenSummaryHoustonRow]:
         '2-Day Aggregated Generation Summary Houston'
@@ -2517,6 +2724,34 @@ class np3_910_er:
         sumLaslRemRes: Decimal | None
         sumLaslWGR: Decimal | None
 
+    class _2dAggGenSummaryNorthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumBasePointNonIRR: Decimal | None = None
+        sumBasePointWGR: Decimal | None
+        sumBasePointPVGR: Decimal | None = None
+        sumBasePointREMRES: Decimal | None
+        sumGenTelemMW: Decimal | None
+        sumBasePointESR: Decimal | None = None
+        sumBasePointESRCharge: Decimal | None = None
+        sumBasePointESRDischarge: Decimal | None = None
+        sumBasePointNonWGR: Decimal | None = None
+        sumHaslNonWGR: Decimal | None = None
+        sumLaslNonWGR: Decimal | None = None
+        sumHaslWGR: Decimal | None = None
+        sumLaslWGR: Decimal | None = None
+        sumHaslRemRes: Decimal | None = None
+        sumLaslRemRes: Decimal | None = None
+        sumHASLNonWGR: Decimal | None = None
+        sumLASLNonWGR: Decimal | None = None
+        sumHASLREMRES: Decimal | None = None
+        sumLASLREMRES: Decimal | None = None
+
+    @property
+    def _2d_agg_gen_summary_north_history(self) -> Archive[np3_910_er._2dAggGenSummaryNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggGenSummaryNorthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM BASE POINT NON IRR': 'sumBasePointNonIRR', 'SUM BASE POINT WGR': 'sumBasePointWGR', 'SUM BASE POINT PVGR': 'sumBasePointPVGR', 'SUM BASE POINT Remaining Res': 'sumBasePointREMRES', 'SUM GEN TELEM MW': 'sumGenTelemMW', 'SUM BASE POINT ESR': 'sumBasePointESR', 'SUM BASE POINT ESR CHARGING': 'sumBasePointESRCharge', 'SUM BASE POINT ESR DISCHARGING': 'sumBasePointESRDischarge'}, {}, member='*_Agg_Gen_Summary_North[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time  Stamp': 'SCEDTimestamp', 'Repeated Hour  Flag': 'repeatHourFlag', 'SUM  BASE POINT NON-WGR': 'sumBasePointNonWGR', 'SUM  HASL NON-WGR': 'sumHASLNonWGR', 'SUM  LASL NON-WGR': 'sumLASLNonWGR', 'SUM  BASE POINT WGR': 'sumBasePointWGR', 'SUM   HASL  WGR': 'sumHaslWGR', 'SUM  LASL WGR': 'sumLaslWGR', 'SUM  BASE POINT REMAINING RESOURCES': 'sumBasePointREMRES', 'SUM  HASL REMAINING RESOURCES': 'sumHASLREMRES', 'SUM  LASL REMAINING RESOURCES': 'sumLASLREMRES', 'SUM  GEN  TELEM  MW': 'sumGenTelemMW'},))
+
     def _2d_agg_gen_summary_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumBasePointNonIRRFrom: Decimal | None = None, sumBasePointNonIRRTo: Decimal | None = None, sumBasePointWGRFrom: Decimal | None = None, sumBasePointWGRTo: Decimal | None = None, sumBasePointPVGRFrom: Decimal | None = None, sumBasePointPVGRTo: Decimal | None = None, sumBasePointREMRESFrom: Decimal | None = None, sumBasePointREMRESTo: Decimal | None = None, sumGenTelemMWFrom: Decimal | None = None, sumGenTelemMWTo: Decimal | None = None, sumBasePointESRFrom: Decimal | None = None, sumBasePointESRTo: Decimal | None = None, sumBasePointESRChargeFrom: Decimal | None = None, sumBasePointESRChargeTo: Decimal | None = None, sumBasePointESRDischargeFrom: Decimal | None = None, sumBasePointESRDischargeTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggGenSummaryNorthRow]:
         '2-Day Aggregated Generation Summary North'
         return self._client._page('/np3-910-er/2d_agg_gen_summary_north', np3_910_er._2dAggGenSummaryNorthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumBasePointNonIRRFrom': sumBasePointNonIRRFrom, 'sumBasePointNonIRRTo': sumBasePointNonIRRTo, 'sumBasePointWGRFrom': sumBasePointWGRFrom, 'sumBasePointWGRTo': sumBasePointWGRTo, 'sumBasePointPVGRFrom': sumBasePointPVGRFrom, 'sumBasePointPVGRTo': sumBasePointPVGRTo, 'sumBasePointREMRESFrom': sumBasePointREMRESFrom, 'sumBasePointREMRESTo': sumBasePointREMRESTo, 'sumGenTelemMWFrom': sumGenTelemMWFrom, 'sumGenTelemMWTo': sumGenTelemMWTo, 'sumBasePointESRFrom': sumBasePointESRFrom, 'sumBasePointESRTo': sumBasePointESRTo, 'sumBasePointESRChargeFrom': sumBasePointESRChargeFrom, 'sumBasePointESRChargeTo': sumBasePointESRChargeTo, 'sumBasePointESRDischargeFrom': sumBasePointESRDischargeFrom, 'sumBasePointESRDischargeTo': sumBasePointESRDischargeTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2550,6 +2785,34 @@ class np3_910_er:
         sumLaslNonWGR: Decimal | None
         sumLaslRemRes: Decimal | None
         sumLaslWGR: Decimal | None
+
+    class _2dAggGenSummarySouthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumBasePointNonIRR: Decimal | None = None
+        sumBasePointWGR: Decimal | None
+        sumBasePointPVGR: Decimal | None = None
+        sumBasePointREMRES: Decimal | None
+        sumGenTelemMW: Decimal | None
+        sumBasePointESR: Decimal | None = None
+        sumBasePointESRCharge: Decimal | None = None
+        sumBasePointESRDischarge: Decimal | None = None
+        sumBasePointNonWGR: Decimal | None = None
+        sumHaslNonWGR: Decimal | None = None
+        sumLaslNonWGR: Decimal | None = None
+        sumHaslWGR: Decimal | None = None
+        sumLaslWGR: Decimal | None = None
+        sumHaslRemRes: Decimal | None = None
+        sumLaslRemRes: Decimal | None = None
+        sumHASLNonWGR: Decimal | None = None
+        sumLASLNonWGR: Decimal | None = None
+        sumHASLREMRES: Decimal | None = None
+        sumLASLREMRES: Decimal | None = None
+
+    @property
+    def _2d_agg_gen_summary_south_history(self) -> Archive[np3_910_er._2dAggGenSummarySouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggGenSummarySouthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM BASE POINT NON IRR': 'sumBasePointNonIRR', 'SUM BASE POINT WGR': 'sumBasePointWGR', 'SUM BASE POINT PVGR': 'sumBasePointPVGR', 'SUM BASE POINT Remaining Res': 'sumBasePointREMRES', 'SUM GEN TELEM MW': 'sumGenTelemMW', 'SUM BASE POINT ESR': 'sumBasePointESR', 'SUM BASE POINT ESR CHARGING': 'sumBasePointESRCharge', 'SUM BASE POINT ESR DISCHARGING': 'sumBasePointESRDischarge'}, {}, member='*_Agg_Gen_Summary_South[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time  Stamp': 'SCEDTimestamp', 'Repeated Hour  Flag': 'repeatHourFlag', 'SUM  BASE POINT NON-WGR': 'sumBasePointNonWGR', 'SUM  HASL NON-WGR': 'sumHASLNonWGR', 'SUM  LASL NON-WGR': 'sumLASLNonWGR', 'SUM  BASE POINT WGR': 'sumBasePointWGR', 'SUM   HASL  WGR': 'sumHaslWGR', 'SUM  LASL WGR': 'sumLaslWGR', 'SUM  BASE POINT REMAINING RESOURCES': 'sumBasePointREMRES', 'SUM  HASL REMAINING RESOURCES': 'sumHASLREMRES', 'SUM  LASL REMAINING RESOURCES': 'sumLASLREMRES', 'SUM  GEN  TELEM  MW': 'sumGenTelemMW'},))
 
     def _2d_agg_gen_summary_south(self, *, repeatHourFlag: bool | None = None, sumBasePointNonIRRFrom: Decimal | None = None, sumBasePointNonIRRTo: Decimal | None = None, sumBasePointWGRFrom: Decimal | None = None, sumBasePointWGRTo: Decimal | None = None, sumBasePointPVGRFrom: Decimal | None = None, sumBasePointPVGRTo: Decimal | None = None, sumBasePointREMRESFrom: Decimal | None = None, sumBasePointREMRESTo: Decimal | None = None, sumGenTelemMWFrom: Decimal | None = None, sumGenTelemMWTo: Decimal | None = None, sumBasePointESRFrom: Decimal | None = None, sumBasePointESRTo: Decimal | None = None, sumBasePointESRChargeFrom: Decimal | None = None, sumBasePointESRChargeTo: Decimal | None = None, sumBasePointESRDischargeFrom: Decimal | None = None, sumBasePointESRDischargeTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggGenSummarySouthRow]:
         '2-Day Aggregated Generation Summary South'
@@ -2585,6 +2848,34 @@ class np3_910_er:
         sumLaslRemRes: Decimal | None
         sumLaslWGR: Decimal | None
 
+    class _2dAggGenSummaryWestHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumBasePointNonIRR: Decimal | None = None
+        sumBasePointWGR: Decimal | None
+        sumBasePointPVGR: Decimal | None = None
+        sumBasePointREMRES: Decimal | None
+        sumGenTelemMW: Decimal | None
+        sumBasePointESR: Decimal | None = None
+        sumBasePointESRCharge: Decimal | None = None
+        sumBasePointESRDischarge: Decimal | None = None
+        sumBasePointNonWGR: Decimal | None = None
+        sumHaslNonWGR: Decimal | None = None
+        sumLaslNonWGR: Decimal | None = None
+        sumHaslWGR: Decimal | None = None
+        sumLaslWGR: Decimal | None = None
+        sumHaslRemRes: Decimal | None = None
+        sumLaslRemRes: Decimal | None = None
+        sumHASLNonWGR: Decimal | None = None
+        sumLASLNonWGR: Decimal | None = None
+        sumHASLREMRES: Decimal | None = None
+        sumLASLREMRES: Decimal | None = None
+
+    @property
+    def _2d_agg_gen_summary_west_history(self) -> Archive[np3_910_er._2dAggGenSummaryWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggGenSummaryWestHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM BASE POINT NON IRR': 'sumBasePointNonIRR', 'SUM BASE POINT WGR': 'sumBasePointWGR', 'SUM BASE POINT PVGR': 'sumBasePointPVGR', 'SUM BASE POINT Remaining Res': 'sumBasePointREMRES', 'SUM GEN TELEM MW': 'sumGenTelemMW', 'SUM BASE POINT ESR': 'sumBasePointESR', 'SUM BASE POINT ESR CHARGING': 'sumBasePointESRCharge', 'SUM BASE POINT ESR DISCHARGING': 'sumBasePointESRDischarge'}, {}, member='*_Agg_Gen_Summary_West[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time  Stamp': 'SCEDTimestamp', 'Repeated Hour  Flag': 'repeatHourFlag', 'SUM  BASE POINT NON-WGR': 'sumBasePointNonWGR', 'SUM  HASL NON-WGR': 'sumHASLNonWGR', 'SUM  LASL NON-WGR': 'sumLASLNonWGR', 'SUM  BASE POINT WGR': 'sumBasePointWGR', 'SUM   HASL  WGR': 'sumHaslWGR', 'SUM  LASL WGR': 'sumLaslWGR', 'SUM  BASE POINT REMAINING RESOURCES': 'sumBasePointREMRES', 'SUM  HASL REMAINING RESOURCES': 'sumHASLREMRES', 'SUM  LASL REMAINING RESOURCES': 'sumLASLREMRES', 'SUM  GEN  TELEM  MW': 'sumGenTelemMW'},))
+
     def _2d_agg_gen_summary_west(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumBasePointNonIRRFrom: Decimal | None = None, sumBasePointNonIRRTo: Decimal | None = None, sumBasePointWGRFrom: Decimal | None = None, sumBasePointWGRTo: Decimal | None = None, sumBasePointPVGRFrom: Decimal | None = None, sumBasePointPVGRTo: Decimal | None = None, sumBasePointREMRESFrom: Decimal | None = None, sumBasePointREMRESTo: Decimal | None = None, sumGenTelemMWFrom: Decimal | None = None, sumGenTelemMWTo: Decimal | None = None, sumBasePointESRFrom: Decimal | None = None, sumBasePointESRTo: Decimal | None = None, sumBasePointESRChargeFrom: Decimal | None = None, sumBasePointESRChargeTo: Decimal | None = None, sumBasePointESRDischargeFrom: Decimal | None = None, sumBasePointESRDischargeTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggGenSummaryWestRow]:
         '2-Day Aggregated Generation Summary West'
         return self._client._page('/np3-910-er/2d_agg_gen_summary_west', np3_910_er._2dAggGenSummaryWestRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumBasePointNonIRRFrom': sumBasePointNonIRRFrom, 'sumBasePointNonIRRTo': sumBasePointNonIRRTo, 'sumBasePointWGRFrom': sumBasePointWGRFrom, 'sumBasePointWGRTo': sumBasePointWGRTo, 'sumBasePointPVGRFrom': sumBasePointPVGRFrom, 'sumBasePointPVGRTo': sumBasePointPVGRTo, 'sumBasePointREMRESFrom': sumBasePointREMRESFrom, 'sumBasePointREMRESTo': sumBasePointREMRESTo, 'sumGenTelemMWFrom': sumGenTelemMWFrom, 'sumGenTelemMWTo': sumGenTelemMWTo, 'sumBasePointESRFrom': sumBasePointESRFrom, 'sumBasePointESRTo': sumBasePointESRTo, 'sumBasePointESRChargeFrom': sumBasePointESRChargeFrom, 'sumBasePointESRChargeTo': sumBasePointESRChargeTo, 'sumBasePointESRDischargeFrom': sumBasePointESRDischargeFrom, 'sumBasePointESRDischargeTo': sumBasePointESRDischargeTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2606,6 +2897,18 @@ class np3_910_er:
         repeatHourFlag: bool | None
         sumTelemDCtieMW: Decimal | None
         sumTelemGenMW: Decimal | None
+
+    class _2dAggLoadSummaryHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumTelemGenMW: Decimal | None
+        sumTelemDCtieMW: Decimal | None
+        aggLoadSummary: Decimal | None
+
+    @property
+    def _2d_agg_load_summary_history(self) -> Archive[np3_910_er._2dAggLoadSummaryHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggLoadSummaryHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM TELEM GEN MW': 'sumTelemGenMW', 'SUM TELEM DCTIE MW': 'sumTelemDCtieMW', 'AGG LOAD SUMMARY': 'aggLoadSummary'}, {}, member='*_Agg_Load_Summary[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_load_summary(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumTelemGenMWFrom: Decimal | None = None, sumTelemGenMWTo: Decimal | None = None, sumTelemDCtieMWFrom: Decimal | None = None, sumTelemDCtieMWTo: Decimal | None = None, aggLoadSummaryFrom: Decimal | None = None, aggLoadSummaryTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggLoadSummaryRow]:
         '2-Day Aggregated Load Summary'
@@ -2629,6 +2932,18 @@ class np3_910_er:
         sumTelemDCtieMW: Decimal | None
         sumTelemGenMW: Decimal | None
 
+    class _2dAggLoadSummaryHoustonHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumTelemGenMW: Decimal | None
+        sumTelemDCtieMW: Decimal | None
+        aggLoadSummary: Decimal | None
+
+    @property
+    def _2d_agg_load_summary_houston_history(self) -> Archive[np3_910_er._2dAggLoadSummaryHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggLoadSummaryHoustonHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM TELEM GEN MW': 'sumTelemGenMW', 'SUM TELEM DCTIE MW': 'sumTelemDCtieMW', 'AGG LOAD SUMMARY': 'aggLoadSummary'}, {}, member='*_Agg_Load_Summary_Houston[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_load_summary_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumTelemGenMWFrom: Decimal | None = None, sumTelemGenMWTo: Decimal | None = None, sumTelemDCtieMWFrom: Decimal | None = None, sumTelemDCtieMWTo: Decimal | None = None, aggLoadSummaryFrom: Decimal | None = None, aggLoadSummaryTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggLoadSummaryHoustonRow]:
         '2-Day Aggregated Load Summary Houston'
         return self._client._page('/np3-910-er/2d_agg_load_summary_houston', np3_910_er._2dAggLoadSummaryHoustonRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumTelemGenMWFrom': sumTelemGenMWFrom, 'sumTelemGenMWTo': sumTelemGenMWTo, 'sumTelemDCtieMWFrom': sumTelemDCtieMWFrom, 'sumTelemDCtieMWTo': sumTelemDCtieMWTo, 'aggLoadSummaryFrom': aggLoadSummaryFrom, 'aggLoadSummaryTo': aggLoadSummaryTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2650,6 +2965,18 @@ class np3_910_er:
         repeatHourFlag: bool | None
         sumTelemDCtieMW: Decimal | None
         sumTelemGenMW: Decimal | None
+
+    class _2dAggLoadSummaryNorthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumTelemGenMW: Decimal | None
+        sumTelemDCtieMW: Decimal | None
+        aggLoadSummary: Decimal | None
+
+    @property
+    def _2d_agg_load_summary_north_history(self) -> Archive[np3_910_er._2dAggLoadSummaryNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggLoadSummaryNorthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM TELEM GEN MW': 'sumTelemGenMW', 'SUM TELEM DCTIE MW': 'sumTelemDCtieMW', 'AGG LOAD SUMMARY': 'aggLoadSummary'}, {}, member='*_Agg_Load_Summary_North[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_load_summary_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumTelemGenMWFrom: Decimal | None = None, sumTelemGenMWTo: Decimal | None = None, sumTelemDCtieMWFrom: Decimal | None = None, sumTelemDCtieMWTo: Decimal | None = None, aggLoadSummaryFrom: Decimal | None = None, aggLoadSummaryTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggLoadSummaryNorthRow]:
         '2-Day Aggregated Load Summary North'
@@ -2673,6 +3000,18 @@ class np3_910_er:
         sumTelemDCtieMW: Decimal | None
         sumTelemGenMW: Decimal | None
 
+    class _2dAggLoadSummarySouthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumTelemGenMW: Decimal | None
+        sumTelemDCtieMW: Decimal | None
+        aggLoadSummary: Decimal | None
+
+    @property
+    def _2d_agg_load_summary_south_history(self) -> Archive[np3_910_er._2dAggLoadSummarySouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggLoadSummarySouthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM TELEM GEN MW': 'sumTelemGenMW', 'SUM TELEM DCTIE MW': 'sumTelemDCtieMW', 'AGG LOAD SUMMARY': 'aggLoadSummary'}, {}, member='*_Agg_Load_Summary_South[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_load_summary_south(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumTelemGenMWFrom: Decimal | None = None, sumTelemGenMWTo: Decimal | None = None, sumTelemDCtieMWFrom: Decimal | None = None, sumTelemDCtieMWTo: Decimal | None = None, aggLoadSummaryFrom: Decimal | None = None, aggLoadSummaryTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggLoadSummarySouthRow]:
         '2-Day Aggregated Load Summary South'
         return self._client._page('/np3-910-er/2d_agg_load_summary_south', np3_910_er._2dAggLoadSummarySouthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumTelemGenMWFrom': sumTelemGenMWFrom, 'sumTelemGenMWTo': sumTelemGenMWTo, 'sumTelemDCtieMWFrom': sumTelemDCtieMWFrom, 'sumTelemDCtieMWTo': sumTelemDCtieMWTo, 'aggLoadSummaryFrom': aggLoadSummaryFrom, 'aggLoadSummaryTo': aggLoadSummaryTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2694,6 +3033,18 @@ class np3_910_er:
         repeatHourFlag: bool | None
         sumTelemDCtieMW: Decimal | None
         sumTelemGenMW: Decimal | None
+
+    class _2dAggLoadSummaryWestHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumTelemGenMW: Decimal | None
+        sumTelemDCtieMW: Decimal | None
+        aggLoadSummary: Decimal | None
+
+    @property
+    def _2d_agg_load_summary_west_history(self) -> Archive[np3_910_er._2dAggLoadSummaryWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggLoadSummaryWestHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM TELEM GEN MW': 'sumTelemGenMW', 'SUM TELEM DCTIE MW': 'sumTelemDCtieMW', 'AGG LOAD SUMMARY': 'aggLoadSummary'}, {}, member='*_Agg_Load_Summary_West[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_load_summary_west(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumTelemGenMWFrom: Decimal | None = None, sumTelemGenMWTo: Decimal | None = None, sumTelemDCtieMWFrom: Decimal | None = None, sumTelemDCtieMWTo: Decimal | None = None, aggLoadSummaryFrom: Decimal | None = None, aggLoadSummaryTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggLoadSummaryWestRow]:
         '2-Day Aggregated Load Summary West'
@@ -2717,6 +3068,18 @@ class np3_910_er:
         sumLSLOutputSched: Decimal | None
         sumOutputSched: Decimal | None
 
+    class _2dAggOutSchedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumLSLOutputSched: Decimal | None
+        sumHSLOutputSched: Decimal | None
+        sumOutputSched: Decimal | None
+
+    @property
+    def _2d_agg_out_sched_history(self) -> Archive[np3_910_er._2dAggOutSchedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggOutSchedHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM LSL OUTPUT SCHEDULE': 'sumLSLOutputSched', 'SUM HSL OUTPUT SCHEDULE': 'sumHSLOutputSched', 'SUM OUTPUTSCHEDULE': 'sumOutputSched'}, {}, member='*_Agg_Output_Sched[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_out_sched(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumLSLOutputSchedFrom: Decimal | None = None, sumLSLOutputSchedTo: Decimal | None = None, sumHSLOutputSchedFrom: Decimal | None = None, sumHSLOutputSchedTo: Decimal | None = None, sumOutputSchedFrom: Decimal | None = None, sumOutputSchedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggOutSchedRow]:
         '2-Day Aggregated Output Schedule'
         return self._client._page('/np3-910-er/2d_agg_out_sched', np3_910_er._2dAggOutSchedRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumLSLOutputSchedFrom': sumLSLOutputSchedFrom, 'sumLSLOutputSchedTo': sumLSLOutputSchedTo, 'sumHSLOutputSchedFrom': sumHSLOutputSchedFrom, 'sumHSLOutputSchedTo': sumHSLOutputSchedTo, 'sumOutputSchedFrom': sumOutputSchedFrom, 'sumOutputSchedTo': sumOutputSchedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2738,6 +3101,18 @@ class np3_910_er:
         sumHSLOutputSched: Decimal | None
         sumLSLOutputSched: Decimal | None
         sumOutputSched: Decimal | None
+
+    class _2dAggOutSchedHoustonHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumLSLOutputSched: Decimal | None
+        sumHSLOutputSched: Decimal | None
+        sumOutputSched: Decimal | None
+
+    @property
+    def _2d_agg_out_sched_houston_history(self) -> Archive[np3_910_er._2dAggOutSchedHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggOutSchedHoustonHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM LSL OUTPUT SCHEDULE': 'sumLSLOutputSched', 'SUM HSL OUTPUT SCHEDULE': 'sumHSLOutputSched', 'SUM OUTPUTSCHEDULE': 'sumOutputSched'}, {}, member='*_Agg_Output_Sched_Houston[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_out_sched_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumLSLOutputSchedFrom: Decimal | None = None, sumLSLOutputSchedTo: Decimal | None = None, sumHSLOutputSchedFrom: Decimal | None = None, sumHSLOutputSchedTo: Decimal | None = None, sumOutputSchedFrom: Decimal | None = None, sumOutputSchedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggOutSchedHoustonRow]:
         '2-Day Aggregated Output Schedule Houston'
@@ -2761,6 +3136,18 @@ class np3_910_er:
         sumLSLOutputSched: Decimal | None
         sumOutputSched: Decimal | None
 
+    class _2dAggOutSchedNorthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumLSLOutputSched: Decimal | None
+        sumHSLOutputSched: Decimal | None
+        sumOutputSched: Decimal | None
+
+    @property
+    def _2d_agg_out_sched_north_history(self) -> Archive[np3_910_er._2dAggOutSchedNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggOutSchedNorthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM LSL OUTPUT SCHEDULE': 'sumLSLOutputSched', 'SUM HSL OUTPUT SCHEDULE': 'sumHSLOutputSched', 'SUM OUTPUTSCHEDULE': 'sumOutputSched'}, {}, member='*_Agg_Output_Sched_North[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_out_sched_north(self, *, sumHSLOutputSchedFrom: Decimal | None = None, sumHSLOutputSchedTo: Decimal | None = None, sumOutputSchedFrom: Decimal | None = None, sumOutputSchedTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumLSLOutputSchedFrom: Decimal | None = None, sumLSLOutputSchedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggOutSchedNorthRow]:
         '2-Day Aggregated Output Schedule North'
         return self._client._page('/np3-910-er/2d_agg_out_sched_north', np3_910_er._2dAggOutSchedNorthRow, {'sumHSLOutputSchedFrom': sumHSLOutputSchedFrom, 'sumHSLOutputSchedTo': sumHSLOutputSchedTo, 'sumOutputSchedFrom': sumOutputSchedFrom, 'sumOutputSchedTo': sumOutputSchedTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumLSLOutputSchedFrom': sumLSLOutputSchedFrom, 'sumLSLOutputSchedTo': sumLSLOutputSchedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2783,6 +3170,18 @@ class np3_910_er:
         sumLSLOutputSched: Decimal | None
         sumOutputSched: Decimal | None
 
+    class _2dAggOutSchedSouthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumLSLOutputSched: Decimal | None
+        sumHSLOutputSched: Decimal | None
+        sumOutputSched: Decimal | None
+
+    @property
+    def _2d_agg_out_sched_south_history(self) -> Archive[np3_910_er._2dAggOutSchedSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggOutSchedSouthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM LSL OUTPUT SCHEDULE': 'sumLSLOutputSched', 'SUM HSL OUTPUT SCHEDULE': 'sumHSLOutputSched', 'SUM OUTPUTSCHEDULE': 'sumOutputSched'}, {}, member='*_Agg_Output_Sched_South[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_out_sched_south(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumLSLOutputSchedFrom: Decimal | None = None, sumLSLOutputSchedTo: Decimal | None = None, sumHSLOutputSchedFrom: Decimal | None = None, sumHSLOutputSchedTo: Decimal | None = None, sumOutputSchedFrom: Decimal | None = None, sumOutputSchedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggOutSchedSouthRow]:
         '2-Day Aggregated Output Schedule South'
         return self._client._page('/np3-910-er/2d_agg_out_sched_south', np3_910_er._2dAggOutSchedSouthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumLSLOutputSchedFrom': sumLSLOutputSchedFrom, 'sumLSLOutputSchedTo': sumLSLOutputSchedTo, 'sumHSLOutputSchedFrom': sumHSLOutputSchedFrom, 'sumHSLOutputSchedTo': sumHSLOutputSchedTo, 'sumOutputSchedFrom': sumOutputSchedFrom, 'sumOutputSchedTo': sumOutputSchedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2804,6 +3203,18 @@ class np3_910_er:
         sumHSLOutputSched: Decimal | None
         sumLSLOutputSched: Decimal | None
         sumOutputSched: Decimal | None
+
+    class _2dAggOutSchedWestHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumLSLOutputSched: Decimal | None
+        sumHSLOutputSched: Decimal | None
+        sumOutputSched: Decimal | None
+
+    @property
+    def _2d_agg_out_sched_west_history(self) -> Archive[np3_910_er._2dAggOutSchedWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggOutSchedWestHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM LSL OUTPUT SCHEDULE': 'sumLSLOutputSched', 'SUM HSL OUTPUT SCHEDULE': 'sumHSLOutputSched', 'SUM OUTPUTSCHEDULE': 'sumOutputSched'}, {}, member='*_Agg_Output_Sched_West[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_out_sched_west(self, *, repeatHourFlag: bool | None = None, sumLSLOutputSchedFrom: Decimal | None = None, sumLSLOutputSchedTo: Decimal | None = None, sumHSLOutputSchedFrom: Decimal | None = None, sumHSLOutputSchedTo: Decimal | None = None, sumOutputSchedFrom: Decimal | None = None, sumOutputSchedTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggOutSchedWestRow]:
         '2-Day Aggregated Output Schedule West'

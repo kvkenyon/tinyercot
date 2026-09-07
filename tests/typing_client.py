@@ -172,3 +172,10 @@ with Client() as client:
         assert_type(dam_curve.deliveryDate, date | None)
         assert_type(dam_curve.MW, Decimal | None)
         assert_type(dam_curve.price, Decimal | None)
+
+    for ptp_bid in client.np3_909_er._2d_ptp_obl_bids_history.rows():
+        assert_type(ptp_bid.bidId, str | None)
+        assert_type(ptp_bid.PTPBidAwardMW, Decimal | None)
+    for gen_summary in client.np3_910_er._2d_agg_gen_summary_history.rows():
+        assert_type(gen_summary.sumBasePointNonWGR, Decimal | None)
+        assert_type(gen_summary.sumBasePointNonIRR, Decimal | None)

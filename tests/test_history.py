@@ -1239,3 +1239,63 @@ def test_disclosure_curve_readers_select_their_own_tables():
     assert regulation[0].MWOffered == Decimal("318.1")
     assert regulation[0].REGDNOfferPrice == Decimal(0)
     assert regulation[0].repeatHourFlag is False
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "summaries2-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_two_day_summary_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    if rows:
+        assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_two_day_summary_preserves_legacy_identifiers_and_categories():
+    with Client() as client:
+        bid = next(
+            client.np3_909_er._2d_ptp_obl_bids_history.read(
+                zipped(
+                    "48h_PTP_Obligation_Bids-12-MAR-14.csv",
+                    (
+                        INPUTS / "np3-909-er--2d_ptp_obl_bids-history-samples.csv"
+                    ).read_bytes(),
+                )
+            )
+        )
+        generation = next(
+            client.np3_910_er._2d_agg_gen_summary_history.read(
+                zipped(
+                    "48h_Agg_Gen_Summary-01-MAY-14.csv",
+                    (
+                        INPUTS / "np3-910-er--2d_agg_gen_summary-history-samples.csv"
+                    ).read_bytes(),
+                )
+            )
+        )
+        current = zipped(
+            "2d_Agg_Gen_Summary-07-SEP-26.csv",
+            (
+                INPUTS / "np3-910-er--2d_agg_gen_summary-history-current.csv"
+            ).read_bytes(),
+        )
+        with pytest.raises(ValueError, match="no CSV files matching"):
+            list(client.np3_910_er._2d_agg_dsr_loads_history.read(current))
+    assert bid.bidId == "14a9934be3fb"
+    assert bid.PTPBidPrice == Decimal("-.01")
+    assert generation.sumBasePointNonWGR == Decimal("25912.74570178")
+    assert generation.sumHASLNonWGR == Decimal("28511.51867675")
+    assert generation.sumBasePointNonIRR is None
+    assert generation.sumBasePointESR is None

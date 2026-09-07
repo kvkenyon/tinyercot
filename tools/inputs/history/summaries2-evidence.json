@@ -1,0 +1,915 @@
+[
+  {
+    "endpoint": "np3-909-er/2d_total_cleared_energy_bids_offers",
+    "fixture": "np3-909-er--2d_total_cleared_energy_bids_offers-history-current.csv",
+    "file": "2d_Tot_Cleared_Energy_Bids_Offers-07-SEP-26.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "sumDamENOnlyBidsCleared": "-40439.9",
+      "sum3POCleared": "25272.9",
+      "sumDamENOnlyOffersCleared": "15103.5",
+      "sumESRBidsCleared": "-3.2",
+      "sumESROffersCleared": "66.7"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-909-er/2d_total_cleared_energy_bids_offers_houston",
+    "fixture": "np3-909-er--2d_total_cleared_energy_bids_offers_houston-history-current.csv",
+    "file": "2d_Tot_Cleared_Energy_Bids_Offers_Houston-07-SEP-26.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "sumDamENOnlyBidsCleared": "-5413.3",
+      "sum3POCleared": "4048.1",
+      "sumDamENOnlyOffersCleared": "1190.5",
+      "sumESRBidsCleared": "0",
+      "sumESROffersCleared": "0"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-909-er/2d_total_cleared_energy_bids_offers_north",
+    "fixture": "np3-909-er--2d_total_cleared_energy_bids_offers_north-history-current.csv",
+    "file": "2d_Tot_Cleared_Energy_Bids_Offers_North-07-SEP-26.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "sumDamENOnlyBidsCleared": "-18984.7",
+      "sum3POCleared": "10425",
+      "sumDamENOnlyOffersCleared": "5515.7",
+      "sumESRBidsCleared": "0",
+      "sumESROffersCleared": "0"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-909-er/2d_total_cleared_energy_bids_offers_south",
+    "fixture": "np3-909-er--2d_total_cleared_energy_bids_offers_south-history-current.csv",
+    "file": "2d_Tot_Cleared_Energy_Bids_Offers_South-07-SEP-26.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "sumDamENOnlyBidsCleared": "-11588.2",
+      "sum3POCleared": "8916",
+      "sumDamENOnlyOffersCleared": "3712",
+      "sumESRBidsCleared": "-3.2",
+      "sumESROffersCleared": "25"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-909-er/2d_total_cleared_energy_bids_offers_west",
+    "fixture": "np3-909-er--2d_total_cleared_energy_bids_offers_west-history-current.csv",
+    "file": "2d_Tot_Cleared_Energy_Bids_Offers_West-07-SEP-26.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "sumDamENOnlyBidsCleared": "-3867.8",
+      "sum3POCleared": "1883.8",
+      "sumDamENOnlyOffersCleared": "4334.8",
+      "sumESRBidsCleared": "0",
+      "sumESROffersCleared": "41.7"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-909-er/2d_ptp_obl_bids",
+    "fixture": "np3-909-er--2d_ptp_obl_bids-history-current.csv",
+    "file": "2d_PTP_Obligation_Bids-07-SEP-26.csv",
+    "csv_rows": 192580,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "settlementPointSource": "7RNCHSLR_ALL",
+      "settlementPointSink": "LEONLCPCT1_2",
+      "PTPBidPrice": "50.93",
+      "PTPBidAwardMW": "1.3",
+      "bidId": null
+    },
+    "rows_decoded": 192580
+  },
+  {
+    "endpoint": "np3-909-er/2d_ptp_obl_bids_houston",
+    "fixture": "np3-909-er--2d_ptp_obl_bids_houston-history-current.csv",
+    "file": "2d_PTP_Obligation_Bids_Houston-07-SEP-26.csv",
+    "csv_rows": 19150,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "settlementPointSource": "ADL_RN",
+      "settlementPointSink": "BSS_U1",
+      "PTPBidPrice": "3.2",
+      "PTPBidAwardMW": "6.7",
+      "bidId": null
+    },
+    "rows_decoded": 19150
+  },
+  {
+    "endpoint": "np3-909-er/2d_ptp_obl_bids_north",
+    "fixture": "np3-909-er--2d_ptp_obl_bids_north-history-current.csv",
+    "file": "2d_PTP_Obligation_Bids_North-07-SEP-26.csv",
+    "csv_rows": 44133,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "settlementPointSource": "AGUAYO_UNIT1",
+      "settlementPointSink": "CNLY_ESS_RN",
+      "PTPBidPrice": "100",
+      "PTPBidAwardMW": "10",
+      "bidId": null
+    },
+    "rows_decoded": 44133
+  },
+  {
+    "endpoint": "np3-909-er/2d_ptp_obl_bids_south",
+    "fixture": "np3-909-er--2d_ptp_obl_bids_south-history-current.csv",
+    "file": "2d_PTP_Obligation_Bids_South-07-SEP-26.csv",
+    "csv_rows": 65317,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "settlementPointSource": "7RNCHSLR_ALL",
+      "settlementPointSink": "LEONLCPCT1_2",
+      "PTPBidPrice": "50.93",
+      "PTPBidAwardMW": "1.3",
+      "bidId": null
+    },
+    "rows_decoded": 65317
+  },
+  {
+    "endpoint": "np3-909-er/2d_ptp_obl_bids_west",
+    "fixture": "np3-909-er--2d_ptp_obl_bids_west-history-current.csv",
+    "file": "2d_PTP_Obligation_Bids_West-07-SEP-26.csv",
+    "csv_rows": 57512,
+    "first_row": {
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 1,
+      "settlementPointSource": "ABINDUST_RN",
+      "settlementPointSink": "CALLAHA_WND1",
+      "PTPBidPrice": "-37",
+      "PTPBidAwardMW": "2.3",
+      "bidId": null
+    },
+    "rows_decoded": 57512
+  },
+  {
+    "endpoint": "np3-909-er/2d_ptp_obl_bids_west",
+    "fixture": "np3-909-er--2d_ptp_obl_bids_west-history-samples.csv",
+    "file": "48h_PTP_Obligation_Bids_West-12-MAR-14.csv",
+    "csv_rows": 10419,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "settlementPointSource": "BLSMT1_5_A_6",
+      "settlementPointSink": "BULLCRK_1_2",
+      "PTPBidPrice": "-999",
+      "PTPBidAwardMW": "1",
+      "bidId": "M111933"
+    },
+    "rows_decoded": 10419
+  },
+  {
+    "endpoint": "np3-909-er/2d_ptp_obl_bids_south",
+    "fixture": "np3-909-er--2d_ptp_obl_bids_south-history-samples.csv",
+    "file": "48h_PTP_Obligation_Bids_South-12-MAR-14.csv",
+    "csv_rows": 25150,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "settlementPointSource": "AMOCO_PUN1",
+      "settlementPointSink": "NUE_NUECESG8",
+      "PTPBidPrice": "-0.5",
+      "PTPBidAwardMW": "1.9",
+      "bidId": "2140310018"
+    },
+    "rows_decoded": 25150
+  },
+  {
+    "endpoint": "np3-909-er/2d_ptp_obl_bids_north",
+    "fixture": "np3-909-er--2d_ptp_obl_bids_north-history-samples.csv",
+    "file": "48h_PTP_Obligation_Bids_North-12-MAR-14.csv",
+    "csv_rows": 19702,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "settlementPointSource": "ATK_ATKG345",
+      "settlementPointSink": "ATK_ATKINSG6",
+      "PTPBidPrice": "-1",
+      "PTPBidAwardMW": "25",
+      "bidId": "40132723"
+    },
+    "rows_decoded": 19702
+  },
+  {
+    "endpoint": "np3-909-er/2d_ptp_obl_bids_houston",
+    "fixture": "np3-909-er--2d_ptp_obl_bids_houston-history-samples.csv",
+    "file": "48h_PTP_Obligation_Bids_Houston-12-MAR-14.csv",
+    "csv_rows": 10260,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "settlementPointSource": "AMOCO_PUN1",
+      "settlementPointSink": "CTL_GT_102",
+      "PTPBidPrice": "-0.01",
+      "PTPBidAwardMW": "5",
+      "bidId": "14a9934be3fb"
+    },
+    "rows_decoded": 10260
+  },
+  {
+    "endpoint": "np3-909-er/2d_ptp_obl_bids",
+    "fixture": "np3-909-er--2d_ptp_obl_bids-history-samples.csv",
+    "file": "48h_PTP_Obligation_Bids-12-MAR-14.csv",
+    "csv_rows": 65889,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "settlementPointSource": "AMOCO_PUN1",
+      "settlementPointSink": "CTL_GT_102",
+      "PTPBidPrice": "-0.01",
+      "PTPBidAwardMW": "5",
+      "bidId": "14a9934be3fb"
+    },
+    "rows_decoded": 65889
+  },
+  {
+    "endpoint": "np3-909-er/2d_total_cleared_energy_bids_offers_west",
+    "fixture": "np3-909-er--2d_total_cleared_energy_bids_offers_west-history-samples.csv",
+    "file": "48h_Tot_Clrd_Ene_Bids_Ene_Offers_West-12-MAR-14.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "sumDamENOnlyBidsCleared": "-1585.5",
+      "sum3POCleared": "255.8",
+      "sumDamENOnlyOffersCleared": "859.8",
+      "sumESRBidsCleared": null,
+      "sumESROffersCleared": null
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-909-er/2d_total_cleared_energy_bids_offers_south",
+    "fixture": "np3-909-er--2d_total_cleared_energy_bids_offers_south-history-samples.csv",
+    "file": "48h_Tot_Clrd_Ene_Bids_Ene_Offers_South-12-MAR-14.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "sumDamENOnlyBidsCleared": "-5209.5",
+      "sum3POCleared": "5343.3",
+      "sumDamENOnlyOffersCleared": "544.3",
+      "sumESRBidsCleared": null,
+      "sumESROffersCleared": null
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-909-er/2d_total_cleared_energy_bids_offers_north",
+    "fixture": "np3-909-er--2d_total_cleared_energy_bids_offers_north-history-samples.csv",
+    "file": "48h_Tot_Clrd_Ene_Bids_Ene_Offers_North-12-MAR-14.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "sumDamENOnlyBidsCleared": "-4667.3",
+      "sum3POCleared": "2143.3",
+      "sumDamENOnlyOffersCleared": "1832.3",
+      "sumESRBidsCleared": null,
+      "sumESROffersCleared": null
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-909-er/2d_total_cleared_energy_bids_offers_houston",
+    "fixture": "np3-909-er--2d_total_cleared_energy_bids_offers_houston-history-samples.csv",
+    "file": "48h_Tot_Clrd_Ene_Bids_Ene_Offers_Houston-12-MAR-14.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "sumDamENOnlyBidsCleared": "-1237.6",
+      "sum3POCleared": "930.1",
+      "sumDamENOnlyOffersCleared": "791",
+      "sumESRBidsCleared": null,
+      "sumESROffersCleared": null
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-909-er/2d_total_cleared_energy_bids_offers",
+    "fixture": "np3-909-er--2d_total_cleared_energy_bids_offers-history-samples.csv",
+    "file": "48h_Tot_Clrd_Ene_Bids_Ene_Offers-12-MAR-14.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "sumDamENOnlyBidsCleared": "-12699.9",
+      "sum3POCleared": "8672.5",
+      "sumDamENOnlyOffersCleared": "4027.4",
+      "sumESRBidsCleared": null,
+      "sumESROffersCleared": null
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_out_sched",
+    "fixture": "np3-910-er--2d_agg_out_sched-history-current.csv",
+    "file": "2d_Agg_Output_Sched-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumLSLOutputSched": "1879.48216636",
+      "sumHSLOutputSched": "7466.23505074",
+      "sumOutputSched": "5570.93914093"
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_out_sched_houston",
+    "fixture": "np3-910-er--2d_agg_out_sched_houston-history-current.csv",
+    "file": "2d_Agg_Output_Sched_Houston-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumLSLOutputSched": "253.98100972",
+      "sumHSLOutputSched": "1236.34936594",
+      "sumOutputSched": "606.03206092"
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_out_sched_north",
+    "fixture": "np3-910-er--2d_agg_out_sched_north-history-current.csv",
+    "file": "2d_Agg_Output_Sched_North-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumLSLOutputSched": "653.50000381",
+      "sumHSLOutputSched": "3383.10222148",
+      "sumOutputSched": "2369.78692001"
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_out_sched_south",
+    "fixture": "np3-910-er--2d_agg_out_sched_south-history-current.csv",
+    "file": "2d_Agg_Output_Sched_South-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumLSLOutputSched": "967.01115305",
+      "sumHSLOutputSched": "2837.18346292",
+      "sumOutputSched": "2595.12015999"
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_out_sched_west",
+    "fixture": "np3-910-er--2d_agg_out_sched_west-history-current.csv",
+    "file": "2d_Agg_Output_Sched_West-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumLSLOutputSched": "4.98999977",
+      "sumHSLOutputSched": "9.60000038",
+      "sumOutputSched": "0"
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_gen_summary",
+    "fixture": "np3-910-er--2d_agg_gen_summary-history-current.csv",
+    "file": "2d_Agg_Gen_Summary-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumBasePointNonIRR": "43705.56298071",
+      "sumBasePointWGR": "16092.59081339",
+      "sumBasePointPVGR": "1.05502587",
+      "sumBasePointREMRES": "5571.98185966",
+      "sumGenTelemMW": "65634.39591",
+      "sumBasePointESR": "216.2663321",
+      "sumBasePointESRCharge": "-218.35036787",
+      "sumBasePointESRDischarge": "434.61669998",
+      "sumHASLNonIRR": null,
+      "sumLASLNonIRR": null,
+      "sumHASLWGR": null,
+      "sumLASLWGR": null,
+      "sumHASLPVGR": null,
+      "sumLASLPVGR": null,
+      "sumHASLREMRES": null,
+      "sumLASLREMRES": null,
+      "sumBasePointNonWGR": null,
+      "sumHASLNonWGR": null,
+      "sumLASLNonWGR": null
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_gen_summary_houston",
+    "fixture": "np3-910-er--2d_agg_gen_summary_houston-history-current.csv",
+    "file": "2d_Agg_Gen_Summary_Houston-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumBasePointNonIRR": "9575.66966539",
+      "sumBasePointWGR": "104.07728004",
+      "sumBasePointPVGR": "0.00970499",
+      "sumBasePointREMRES": "607.60309968",
+      "sumGenTelemMW": "10600.70586",
+      "sumBasePointESR": "94.9439633",
+      "sumBasePointESRCharge": "-4.2361173",
+      "sumBasePointESRDischarge": "99.18008061",
+      "sumBasePointNonWGR": null,
+      "sumHaslNonWGR": null,
+      "sumLaslNonWGR": null,
+      "sumHaslWGR": null,
+      "sumLaslWGR": null,
+      "sumHaslRemRes": null,
+      "sumLaslRemRes": null,
+      "sumHASLNonWGR": null,
+      "sumLASLNonWGR": null,
+      "sumHASLREMRES": null,
+      "sumLASLREMRES": null
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_gen_summary_north",
+    "fixture": "np3-910-er--2d_agg_gen_summary_north-history-current.csv",
+    "file": "2d_Agg_Gen_Summary_North-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumBasePointNonIRR": "19487.91349601",
+      "sumBasePointWGR": "1948.86145186",
+      "sumBasePointPVGR": "0.32226315",
+      "sumBasePointREMRES": "2370.04131454",
+      "sumGenTelemMW": "23939.09011",
+      "sumBasePointESR": "0.98313852",
+      "sumBasePointESRCharge": "-100.00001256",
+      "sumBasePointESRDischarge": "100.98315109",
+      "sumBasePointNonWGR": null,
+      "sumHaslNonWGR": null,
+      "sumLaslNonWGR": null,
+      "sumHaslWGR": null,
+      "sumLaslWGR": null,
+      "sumHaslRemRes": null,
+      "sumLaslRemRes": null,
+      "sumHASLNonWGR": null,
+      "sumLASLNonWGR": null,
+      "sumHASLREMRES": null,
+      "sumLASLREMRES": null
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_gen_summary_south",
+    "fixture": "np3-910-er--2d_agg_gen_summary_south-history-current.csv",
+    "file": "2d_Agg_Gen_Summary_South-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumBasePointNonIRR": "11903.07099509",
+      "sumBasePointWGR": "3472.72053718",
+      "sumBasePointPVGR": "0.29553737",
+      "sumBasePointREMRES": "2594.33744544",
+      "sumGenTelemMW": "17958.33817",
+      "sumBasePointESR": "7.20114108",
+      "sumBasePointESRCharge": "-105.57041723",
+      "sumBasePointESRDischarge": "112.77155831",
+      "sumBasePointNonWGR": null,
+      "sumHaslNonWGR": null,
+      "sumLaslNonWGR": null,
+      "sumHaslWGR": null,
+      "sumLaslWGR": null,
+      "sumHaslRemRes": null,
+      "sumLaslRemRes": null,
+      "sumHASLNonWGR": null,
+      "sumLASLNonWGR": null,
+      "sumHASLREMRES": null,
+      "sumLASLREMRES": null
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_gen_summary_west",
+    "fixture": "np3-910-er--2d_agg_gen_summary_west-history-current.csv",
+    "file": "2d_Agg_Gen_Summary_West-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumBasePointNonIRR": "2279.02405858",
+      "sumBasePointWGR": "10566.9315443",
+      "sumBasePointPVGR": "0.42752034",
+      "sumBasePointREMRES": null,
+      "sumGenTelemMW": "12680.53762",
+      "sumBasePointESR": "113.13808919",
+      "sumBasePointESRCharge": "-8.54382076",
+      "sumBasePointESRDischarge": "121.68190995",
+      "sumBasePointNonWGR": null,
+      "sumHaslNonWGR": null,
+      "sumLaslNonWGR": null,
+      "sumHaslWGR": null,
+      "sumLaslWGR": null,
+      "sumHaslRemRes": null,
+      "sumLaslRemRes": null,
+      "sumHASLNonWGR": null,
+      "sumLASLNonWGR": null,
+      "sumHASLREMRES": null,
+      "sumLASLREMRES": null
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_load_summary",
+    "fixture": "np3-910-er--2d_agg_load_summary-history-current.csv",
+    "file": "2d_Agg_Load_Summary-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumTelemGenMW": "65633.48059",
+      "sumTelemDCtieMW": "-232.2",
+      "aggLoadSummary": "65865.68059"
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_load_summary_houston",
+    "fixture": "np3-910-er--2d_agg_load_summary_houston-history-current.csv",
+    "file": "2d_Agg_Load_Summary_Houston-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumTelemGenMW": "10599.51166",
+      "sumTelemDCtieMW": "0",
+      "aggLoadSummary": "10599.51166"
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_load_summary_north",
+    "fixture": "np3-910-er--2d_agg_load_summary_north-history-current.csv",
+    "file": "2d_Agg_Load_Summary_North-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumTelemGenMW": "23939.46944",
+      "sumTelemDCtieMW": "-112.2",
+      "aggLoadSummary": "24051.66944"
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_load_summary_south",
+    "fixture": "np3-910-er--2d_agg_load_summary_south-history-current.csv",
+    "file": "2d_Agg_Load_Summary_South-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumTelemGenMW": "17958.21217",
+      "sumTelemDCtieMW": "98.4",
+      "aggLoadSummary": "17859.81217"
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_load_summary_west",
+    "fixture": "np3-910-er--2d_agg_load_summary_west-history-current.csv",
+    "file": "2d_Agg_Load_Summary_West-07-SEP-26.csv",
+    "csv_rows": 291,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-05T00:00:20",
+      "repeatHourFlag": false,
+      "sumTelemGenMW": "12680.56317",
+      "sumTelemDCtieMW": "-218.4",
+      "aggLoadSummary": "12898.96317"
+    },
+    "rows_decoded": 291
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_gen_summary_south",
+    "fixture": "np3-910-er--2d_agg_gen_summary_south-history-samples.csv",
+    "file": "48h_Agg_Gen_Summary_South-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumBasePointNonIRR": null,
+      "sumBasePointWGR": "1025.17955946",
+      "sumBasePointPVGR": null,
+      "sumBasePointREMRES": "854.81376075",
+      "sumGenTelemMW": "10672.87029",
+      "sumBasePointESR": null,
+      "sumBasePointESRCharge": null,
+      "sumBasePointESRDischarge": null,
+      "sumBasePointNonWGR": "8326.79057025",
+      "sumHaslNonWGR": null,
+      "sumLaslNonWGR": null,
+      "sumHaslWGR": "1025.17955946",
+      "sumLaslWGR": "0",
+      "sumHaslRemRes": null,
+      "sumLaslRemRes": null,
+      "sumHASLNonWGR": "9544.13563537",
+      "sumLASLNonWGR": "5418.8356018",
+      "sumHASLREMRES": "889.07999229",
+      "sumLASLREMRES": "141.49999904"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_gen_summary_north",
+    "fixture": "np3-910-er--2d_agg_gen_summary_north-history-samples.csv",
+    "file": "48h_Agg_Gen_Summary_North-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumBasePointNonIRR": null,
+      "sumBasePointWGR": "102.82153224",
+      "sumBasePointPVGR": null,
+      "sumBasePointREMRES": "89.30606651",
+      "sumGenTelemMW": "12557.14869",
+      "sumBasePointESR": null,
+      "sumBasePointESRCharge": null,
+      "sumBasePointESRDischarge": null,
+      "sumBasePointNonWGR": "12450.92651748",
+      "sumHaslNonWGR": null,
+      "sumLaslNonWGR": null,
+      "sumHaslWGR": "102.82153224",
+      "sumLaslWGR": "0",
+      "sumHaslRemRes": null,
+      "sumLaslRemRes": null,
+      "sumHASLNonWGR": "13118.58305358",
+      "sumLASLNonWGR": "8225.74284362",
+      "sumHASLREMRES": "355",
+      "sumLASLREMRES": "112"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_gen_summary_houston",
+    "fixture": "np3-910-er--2d_agg_gen_summary_houston-history-samples.csv",
+    "file": "48h_Agg_Gen_Summary_Houston-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumBasePointNonIRR": null,
+      "sumBasePointWGR": null,
+      "sumBasePointPVGR": null,
+      "sumBasePointREMRES": "322.95237356",
+      "sumGenTelemMW": "5324.22172",
+      "sumBasePointESR": null,
+      "sumBasePointESRCharge": null,
+      "sumBasePointESRDischarge": null,
+      "sumBasePointNonWGR": "5120.02861404",
+      "sumHaslNonWGR": null,
+      "sumLaslNonWGR": null,
+      "sumHaslWGR": null,
+      "sumLaslWGR": null,
+      "sumHaslRemRes": null,
+      "sumLaslRemRes": null,
+      "sumHASLNonWGR": "5273.79998779",
+      "sumLASLNonWGR": "2969",
+      "sumHASLREMRES": "331.4424377",
+      "sumLASLREMRES": "311.4424377"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_load_summary_west",
+    "fixture": "np3-910-er--2d_agg_load_summary_west-history-samples.csv",
+    "file": "48h_Agg_Load_Summary_West-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumTelemGenMW": "3130.92108",
+      "sumTelemDCtieMW": "20.3",
+      "aggLoadSummary": "3110.62108"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_load_summary_south",
+    "fixture": "np3-910-er--2d_agg_load_summary_south-history-samples.csv",
+    "file": "48h_Agg_Load_Summary_South-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumTelemGenMW": "10672.98389",
+      "sumTelemDCtieMW": "0.3",
+      "aggLoadSummary": "10672.68389"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_load_summary_north",
+    "fixture": "np3-910-er--2d_agg_load_summary_north-history-samples.csv",
+    "file": "48h_Agg_Load_Summary_North-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumTelemGenMW": "12557.22095",
+      "sumTelemDCtieMW": "-562.9",
+      "aggLoadSummary": "13120.12095"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_load_summary_houston",
+    "fixture": "np3-910-er--2d_agg_load_summary_houston-history-samples.csv",
+    "file": "48h_Agg_Load_Summary_Houston-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumTelemGenMW": "5324.22172",
+      "sumTelemDCtieMW": "0",
+      "aggLoadSummary": "5324.22172"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_load_summary",
+    "fixture": "np3-910-er--2d_agg_load_summary-history-samples.csv",
+    "file": "48h_Agg_Load_Summary-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumTelemGenMW": "31685.34764",
+      "sumTelemDCtieMW": "-542.3",
+      "aggLoadSummary": "32227.64764"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_dsr_loads",
+    "fixture": "np3-910-er--2d_agg_dsr_loads-history-samples.csv",
+    "file": "48h_Agg_DSR_Loads-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumTelemDSRLoad": "1426.2",
+      "sumTelemDSRGen": "0"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_gen_summary_west",
+    "fixture": "np3-910-er--2d_agg_gen_summary_west-history-samples.csv",
+    "file": "48h_Agg_Gen_Summary_West-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumBasePointNonIRR": null,
+      "sumBasePointWGR": "3113.11267668",
+      "sumBasePointPVGR": null,
+      "sumBasePointREMRES": null,
+      "sumGenTelemMW": "3130.92108",
+      "sumBasePointESR": null,
+      "sumBasePointESRCharge": null,
+      "sumBasePointESRDischarge": null,
+      "sumBasePointNonWGR": "15",
+      "sumHaslNonWGR": null,
+      "sumLaslNonWGR": null,
+      "sumHaslWGR": "3113.11267668",
+      "sumLaslWGR": "4",
+      "sumHaslRemRes": null,
+      "sumLaslRemRes": null,
+      "sumHASLNonWGR": "575",
+      "sumLASLNonWGR": "3",
+      "sumHASLREMRES": null,
+      "sumLASLREMRES": null
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_gen_summary",
+    "fixture": "np3-910-er--2d_agg_gen_summary-history-samples.csv",
+    "file": "48h_Agg_Gen_Summary-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumBasePointNonIRR": null,
+      "sumBasePointWGR": "4241.11376839",
+      "sumBasePointPVGR": null,
+      "sumBasePointREMRES": "1267.07220083",
+      "sumGenTelemMW": "31685.16178",
+      "sumBasePointESR": null,
+      "sumBasePointESRCharge": null,
+      "sumBasePointESRDischarge": null,
+      "sumHASLNonIRR": null,
+      "sumLASLNonIRR": null,
+      "sumHASLWGR": "4241.11376839",
+      "sumLASLWGR": "4",
+      "sumHASLPVGR": null,
+      "sumLASLPVGR": null,
+      "sumHASLREMRES": "1575.52243",
+      "sumLASLREMRES": "564.94243675",
+      "sumBasePointNonWGR": "25912.74570178",
+      "sumHASLNonWGR": "28511.51867675",
+      "sumLASLNonWGR": "16616.57844543"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_out_sched_west",
+    "fixture": "np3-910-er--2d_agg_out_sched_west-history-samples.csv",
+    "file": "48h_Agg_Output_Sched_West-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumLSLOutputSched": "209.6",
+      "sumHSLOutputSched": "469.3",
+      "sumOutputSched": "0"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_out_sched_south",
+    "fixture": "np3-910-er--2d_agg_out_sched_south-history-samples.csv",
+    "file": "48h_Agg_Output_Sched_South-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumLSLOutputSched": "1300.3",
+      "sumHSLOutputSched": "4184.5",
+      "sumOutputSched": "854.8"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_out_sched_north",
+    "fixture": "np3-910-er--2d_agg_out_sched_north-history-samples.csv",
+    "file": "48h_Agg_Output_Sched_North-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumLSLOutputSched": "999",
+      "sumHSLOutputSched": "2540",
+      "sumOutputSched": "178.4"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_out_sched_houston",
+    "fixture": "np3-910-er--2d_agg_out_sched_houston-history-samples.csv",
+    "file": "48h_Agg_Output_Sched_Houston-01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumLSLOutputSched": "683.5",
+      "sumHSLOutputSched": "1370.5",
+      "sumOutputSched": "323.4"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np3-910-er/2d_agg_out_sched",
+    "fixture": "np3-910-er--2d_agg_out_sched-history-samples.csv",
+    "file": "48h_Agg_Output_Sched -01-MAY-14.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "SCEDTimestamp": "2014-04-29T00:00:16",
+      "repeatHourFlag": false,
+      "sumLSLOutputSched": "3192.4",
+      "sumHSLOutputSched": "8564.3",
+      "sumOutputSched": "1356.6"
+    },
+    "rows_decoded": 96
+  }
+]

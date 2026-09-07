@@ -359,3 +359,11 @@ selects SCED regulation-down offers. These preserve every published curve point,
 including negative prices and decimal MW quantities. The sampled archive
 boundaries for these products are December 2025; this does not establish their
 complete historical retention.
+
+Two-day DAM bid/offer disclosures (NP3-909) and real-time generation/load
+summaries (NP3-910) have 26 typed history readers, including their regional
+tables. Historical PTP bid IDs remain strings. Older non-wind generation fields
+remain separate from non-intermittent generation; absent storage or solar
+fields remain `None`. DSR load summaries are present in the sampled 2014 archive
+but absent from the sampled current ZIP; reading that file with the DSR reader
+raises a missing-table error.
