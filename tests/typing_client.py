@@ -54,3 +54,10 @@ with Client() as client:
         assert_type(solar.genSystemWide, Decimal | None)
     for wind in client.np4_733_cd.wpp_actual_5min_avg_values_history.rows():
         assert_type(wind.LZWestNorth, Decimal | None)
+
+    for price in client.np6_322_cd.sced_system_lambda_history.rows():
+        assert_type(price.systemLambda, Decimal | None)
+        assert_type(price.cappedSystemLambda, Decimal | None)
+    for adder in client.np6_323_cd.rt_price_adder_sced_history.rows():
+        assert_type(adder.RTORPA, Decimal | None)
+        assert_type(adder.RTRDPA, Decimal | None)

@@ -186,3 +186,15 @@ In the September 2026 archive probes, oldest downloadable samples reached April
 later, and the system-wide demand listing reached only March 2026. These are
 observed archive bounds, not guarantees of complete intervening data or permanent
 retention; inspect each product's listings when selecting a backfill.
+
+System-lambda and price-adder history preserves the older ORDC fields separately
+from current reliability-deployment adders. For example,
+`ercot.np6_323_cd.rt_price_adder_sced_history` exposes legacy `RTORPA` and `RTOFFPA`
+alongside `RTRDPA`; absent source columns are `None`. The older SCED lambda report
+has `systemLambda`, while newer files have `cappedSystemLambda` and
+`uncappedSystemLambda`. Reading an older file does not invent capped values.
+The same `_history` workflow covers RTD indicative adders, state-estimator total
+generation and DC-tie flows, HDL/LDL summaries, and SCED shadow prices. Publication
+bounds select archive files; typed predicates can select timestamps, ties, or
+constraints inside them. In the sampled listings, price-adders reached 2014,
+state-estimator reports reached 2019, and HDL/LDL summaries reached April 2026.

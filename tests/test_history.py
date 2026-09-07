@@ -530,3 +530,49 @@ def test_legacy_wind_region_and_solar_timestamp_are_preserved():
         assert solar.hourEndingTimestamp.isoformat() == "2016-02-08T00:00:00"
         assert solar.deliveryDate is None and solar.hourEnding is None
         assert solar.postedDatetime is None
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "operations-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_operation_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")), method + "_history"
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_legacy_lambda_and_ordc_fields_remain_distinct():
+    with Client() as client:
+        price = next(
+            client.np6_322_cd.sced_system_lambda_history.read(
+                zipped(
+                    "lambda.csv",
+                    (INPUTS / "np6-322-cd-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+        assert price.systemLambda == Decimal("28.8797130584717")
+        assert price.cappedSystemLambda is None
+        assert price.uncappedSystemLambda is None
+        adder = next(
+            client.np6_323_cd.rt_price_adder_sced_history.read(
+                zipped(
+                    "adder.csv",
+                    (INPUTS / "np6-323-cd-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+        assert adder.RTORPA == Decimal("0.0033")
+        assert adder.RTOFFPA == Decimal("0.0005")
+        assert adder.RTRDPA is None
