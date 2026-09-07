@@ -1,5 +1,5 @@
 {
-  "note": "Point-in-time bundle listings and full downloaded-file checks. Monthly bundle publication timestamps do not bound source row dates. Failed listed downloads and missing listed months are recorded, not treated as empty data.",
+  "note": "Point-in-time listings and complete downloaded-file checks. Bundle publication timestamps do not bound source row dates. The listed DAM bundle initially failed POST; its GET link subsequently succeeded, and the client fallback decoded every row. Missing listed months remain unresolved.",
   "listings": [
     {
       "product": "NP4-190-CD",
@@ -2919,5 +2919,203 @@
       "docId": -963449156,
       "bytes": 4006121
     }
-  ]
+  ],
+  "alternateDownloadCheck": [
+    {
+      "product": "np4-190-cd",
+      "docId": -593019152,
+      "status": 200,
+      "contentType": "application/zip",
+      "bytes": 2119218,
+      "isZip": true
+    }
+  ],
+  "recoveredDamBundle": {
+    "product": "NP4-190-CD",
+    "docId": -593019152,
+    "checkedAt": "2026-09-07T20:03:45.258824+00:00",
+    "requests": [
+      {
+        "method": "POST",
+        "path": "/api/public-reports/bundle/np4-190-cd/download",
+        "status": 400,
+        "query": ""
+      },
+      {
+        "method": "GET",
+        "path": "/api/public-reports/bundle/np4-190-cd",
+        "status": 200,
+        "query": "download=-593019152"
+      }
+    ],
+    "rows": 473256,
+    "independentCsvRows": 473256,
+    "firstRow": {
+      "DSTFlag": false,
+      "deliveryDate": "2018-01-02",
+      "hourEnding": "01:00",
+      "settlementPoint": "AEEC",
+      "settlementPointPrice": "36.08"
+    },
+    "minDeliveryDate": "2018-01-02",
+    "maxDeliveryDate": "2018-02-01",
+    "zipSha256": "658c40c7f7ea43d06ab629ee608c42eead0db8ccf94d219e4c8af90249f2ab3a",
+    "members": [
+      {
+        "name": "cdr.00012331.0000000000000000.20180101.123343.DAMSPNP4190.csv",
+        "rows": 15288,
+        "sha256": "2fbb34844e0f3bcfeb58fdd72c3f2fd761e926c6a680133a40654d6d5fb11766"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180102.125150.DAMSPNP4190.csv",
+        "rows": 15288,
+        "sha256": "110db05260ed56cff8d126dcaf51605baed35c89fafe8904fec93bc2c0e1a0ad"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180103.123151.DAMSPNP4190.csv",
+        "rows": 15288,
+        "sha256": "47ac3c76e7b5340e105403b4cd129a1b5e0b488ddbc4097d7435ab9c0fef023b"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180104.122808.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "0ddf50a5366ec074e1ea878e3342860c5d60da12fa95b9a29fb243e51a4dae08"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180105.122557.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "21e07736822fc28048caa8a31e127575156968a34b40640369076710324a29f5"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180106.122455.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "516ed567a0596fd245b4a6e17bb0b4e26cad8120a8ffb220631fef1cb34fd01a"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180107.122257.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "c4ee6fdc962cb6d69d6328e03e0127a059388e5a72cb1594980ea1b94150888d"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180108.122938.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "dd4ac66beaa3241c92f41f9288cdbb43e0e036942082ebb06d62ba5a77685455"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180109.123143.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "5989ac7fc8c31c27221c619def8f9f78e2461e1a60142c632bf6a4ef5735b674"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180110.122754.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "7fd2422d22038ac5cf4c1265a1c15e5043a40f7f4891a926d80e55a0a7fec04b"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180111.123653.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "f244737e7ac56f33793812ca2fa3c435e6a4eb514777adc8dc6058966ee99951"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180112.123717.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "ea98da5788abb15c02b0265bdadd2a6c8acbea64583496372b5820b60b1fc714"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180113.122654.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "f58b8700a0349ba7bfa49c3ad3caf8416b163609758391429d3e64189ae88c98"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180114.122630.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "33dab3f069a591346e471801dfcf5f89f379f0985134094e8a5c330108284370"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180115.123747.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "2d151a88f9068deb2152271b3afa350d5ae14e3801b9cdde9040e49d0a3e3148"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180116.132811.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "eca597a50e32b5a31dea2db817a94f9b7d68c22bb443dfc5ddd5d78e586db628"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180117.123905.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "f04f1299f83b7fcc63149ec5672842625e4a317fd3a7d8f682e358cfd8c907aa"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180118.124817.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "f5594372fffdc4a8d6d646d0e377954bd3342d9727ae78de90b1b2c9500d854a"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180119.122736.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "9ef663dcba32f5bbbb046358dfba2abfbc0f0fd44d55a18c804bc768fc61336e"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180120.122945.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "72abdc7fd95beb82add7b829572d7ed055d71cb600d93ceb938344e6ddfbe73f"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180121.122258.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "a584d8ba716741ec7bcb9dbfdc4890cf9351f10308dd82d6234fb4a62f0f6803"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180122.173921.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "8577c8c2e66eab7156c07c66886621c0a59ff88a83b244d4d85a33f1ff88dc1b"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180123.124909.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "76612ef0df3a48b055d2a5796ca963b5e65a69bcde5fdbf4c7352de5843153cc"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180124.124834.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "6c1cbe17aa2e2ce416dd8dda46a61710bead831d5fdbe07de6499216e840e7f4"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180125.123629.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "1d29744ec79cba0b1177dc80487c457f476c45b39f11e647b5bfa219b0ed9d75"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180126.122802.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "6b835e11626dc0ae40fa6450532cdf08826eee6f62782e55d49deff70aed6751"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180127.122710.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "dc47b418f49a15ba74a9ea3f2d9a765877140cc0b354b8e74fd7219c9386d4e7"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180128.122910.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "c8706026ce57398432c7ce3dd628fd3abeb4a95615f516a02843878fb17707b0"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180129.125605.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "3592fd249dc1bcb5c732fb97fb6edd9c0a3c44d773d2afb998a1988e32da3413"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180130.123444.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "0e50b386f9dbdf706120e4277a62e1d903f7190f4d0013474dca3faf173a0536"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180131.123437.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "8086d0a53c450601a1af80ab41fb8c863fd6ad6536336df32e22c220a783b1af"
+      }
+    ]
+  }
 }

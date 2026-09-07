@@ -412,6 +412,18 @@ class Transport:
         kind: Literal["archive", "bundle"] = "archive",
     ) -> bytes:
         """Download selected archive documents or bundles as a ZIP file."""
-        return self._request(
-            "POST", f"{kind}/{emil_id.lower()}/download", doc_ids=doc_ids
-        ).content
+        try:
+            return self._request(
+                "POST", f"{kind}/{emil_id.lower()}/download", doc_ids=doc_ids
+            ).content
+        except httpx.HTTPStatusError as error:
+            if (
+                kind != "bundle"
+                or len(doc_ids) != 1
+                or error.response.status_code != 400
+            ):
+                raise
+            # Some listed bundles reject POST but work through their published GET link.
+            return self._request(
+                "GET", f"bundle/{emil_id.lower()}", params={"download": doc_ids[0]}
+            ).content

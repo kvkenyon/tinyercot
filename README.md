@@ -101,14 +101,18 @@ no rows. Unsupported selected tables still raise.
 
 Archive and bundle retention differ. In the recorded checks, DAM prices and
 system-load archives reached May 2014, while bundles began January 2018. RTD
-price-adder archives reached June 2014, while bundles began January 2019. The DAM-price, ESR Integration and event-trigger bundle listings lacked July
-2026, and the listed January 2018 DAM-price bundle returned HTTP 400 twice.
+price-adder archives reached June 2014, while bundles began January 2019. The
+DAM-price, ESR Integration and event-trigger bundle listings lacked July 2026. The listed January 2018 DAM-price bundle returned HTTP 400 through POST,
+but its published GET download link succeeded. The client now tries that link
+when a single-bundle POST returns 400; all 473,256 price rows in its 31 files
+decoded, covering delivery dates January 2 through February 1, 2018.
 The December 2023 ESR Integration bundle decoded 26 daily PDF summaries.
 These point-in-time observations are recorded in
 `tools/inputs/history/bundle-evidence.json`. Use both listings when assessing maximum
 available history; neither listing alone proves continuous coverage. Reading both
-sources can repeat publications, which the client preserves. Bundle errors
-propagate; automatic fallback is not implemented yet. Unsupported CSV layouts
+sources can repeat publications, which the client preserves. If both bundle
+download routes fail, the error propagates. Automatic selection between monthly
+bundles and individual archives is not implemented yet. Unsupported CSV layouts
 raise with the member name instead of silently dropping data.
 
 Listing metadata includes the server's total and page counts; `iter_documents()` streams all listing pages.
