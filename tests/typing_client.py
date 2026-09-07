@@ -249,3 +249,11 @@ with Client() as client:
         assert_type(clearing_row.uncappedMCPC, Decimal | None)
     for interval_clearing in client.np6_796_er.clearing_prices_history.rows():
         assert_type(interval_clearing.deliveryDate, date | None)
+
+    for fuel_submission in client.np4_494_er.fuel_cost_submissions_history.rows():
+        assert_type(fuel_submission.deliveryHour, int | None)
+        assert_type(fuel_submission.resourceCount, int | None)
+    for path_adder in client.np7_535_sg.path_adders_history.rows():
+        assert_type(path_adder.source, str | None)
+        assert_type(path_adder.startDate, date | None)
+        assert_type(path_adder.ACI99, Decimal | None)

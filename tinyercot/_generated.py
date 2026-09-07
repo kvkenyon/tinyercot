@@ -8,7 +8,7 @@ from ._client import Transport, Page, Row
 from ._history import Archive, EiaHour
 from ._xlsx import WorkbookArchive
 
-__all__ = ['Client', 'copg_316', 'eia_930_er', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np1_346_er', 'np3_108', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_520_er', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_792_er', 'np6_793_er', 'np6_794_er', 'np6_795_er', 'np6_796_er', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd']
+__all__ = ['Client', 'copg_316', 'eia_930_er', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np1_346_er', 'np3_108', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_494_er', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_520_er', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_792_er', 'np6_793_er', 'np6_794_er', 'np6_795_er', 'np6_796_er', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd', 'np7_535_sg']
 class copg_316:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -9677,6 +9677,22 @@ class np4_443_cd:
         'Hourly System-Wide and Regional Solar Forecasts by Model'
         return self._client._aiter('/np4-443-cd/hrly_sys_reg_solar_fcast_model', np4_443_cd.HrlySysRegSolarFcastModelRow, {'valueFrom': valueFrom, 'valueTo': valueTo, 'model': model, 'inUseFlag': inUseFlag, 'DSTFlag': DSTFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'region': region, 'size': size, 'sort': sort, 'dir': dir})
 
+class np4_494_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class FuelCostSubmissionsHistoryRow(Row):
+        sourceSheet: str | None = None
+        deliveryDate: date | None
+        deliveryHour: int | None
+        resourceCount: int | None
+
+    @property
+    def fuel_cost_submissions_history(self) -> WorkbookArchive[np4_494_er.FuelCostSubmissionsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np4-494-er', np4_494_er.FuelCostSubmissionsHistoryRow, {'Delivery Date': 'deliveryDate', 'Delivery Hour': 'deliveryHour', 'Number of resources with submitted EFC': 'resourceCount'}, {}, sheets=('Exceptional Fuel Cost Data',), variants=())
+
 class np4_523_cd:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -11823,6 +11839,25 @@ class np7_464_cd:
         'Day Ahead Point-to-Point Option Price Report'
         return self._client._aiter('/np7-464-cd/dam_ptp_option_price_report', np7_464_cd.DamPtpOptionPriceReportRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'priceFrom': priceFrom, 'priceTo': priceTo, 'source': source, 'sink': sink, 'repeatedHourFlag': repeatedHourFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'size': size, 'sort': sort, 'dir': dir})
 
+class np7_535_sg:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class PathAddersHistoryRow(Row):
+        targetDate: date | None
+        source: str | None
+        sink: str | None
+        timeOfUse: str | None
+        startDate: date | None
+        ACI99: Decimal | None
+        ACP: Decimal | None
+
+    @property
+    def path_adders_history(self) -> Archive[np7_535_sg.PathAddersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np7-535-sg', np7_535_sg.PathAddersHistoryRow, {'TargetDate': 'targetDate', 'Source': 'source', 'Sink': 'sink', 'TimeOfUse': 'timeOfUse', 'StartDate': 'startDate', 'ACI99': 'ACI99', 'ACP': 'ACP'}, {'targetDate': '%m/%d/%Y', 'startDate': '%m/%d/%Y'}, member='*.CSV', datetimes=None, variants=())
+
 class Client(Transport):
     """ERCOT public data, with generated typed product methods."""
 
@@ -12059,6 +12094,10 @@ class Client(Transport):
         return np4_443_cd(self)
 
     @property
+    def np4_494_er(self) -> np4_494_er:
+        return np4_494_er(self)
+
+    @property
     def np4_523_cd(self) -> np4_523_cd:
         return np4_523_cd(self)
 
@@ -12261,3 +12300,7 @@ class Client(Transport):
     @property
     def np7_464_cd(self) -> np7_464_cd:
         return np7_464_cd(self)
+
+    @property
+    def np7_535_sg(self) -> np7_535_sg:
+        return np7_535_sg(self)

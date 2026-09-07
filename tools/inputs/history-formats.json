@@ -9875,5 +9875,49 @@
       "repeatHourFlag": "bool"
     },
     "dates": {}
+  },
+  "np4-494-er/fuel_cost_submissions": {
+    "archive_only": true,
+    "sheets": [
+      "Exceptional Fuel Cost Data"
+    ],
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Delivery Hour": "deliveryHour",
+      "Number of resources with submitted EFC": "resourceCount"
+    },
+    "fields": {
+      "sourceSheet": "str",
+      "deliveryDate": "date",
+      "deliveryHour": "int",
+      "resourceCount": "int"
+    },
+    "dates": {}
+  },
+  "np7-535-sg/path_adders": {
+    "archive_only": true,
+    "member": "*.CSV",
+    "columns": {
+      "TargetDate": "targetDate",
+      "Source": "source",
+      "Sink": "sink",
+      "TimeOfUse": "timeOfUse",
+      "StartDate": "startDate",
+      "ACI99": "ACI99",
+      "ACP": "ACP"
+    },
+    "fields": {
+      "targetDate": "date",
+      "source": "str",
+      "sink": "str",
+      "timeOfUse": "str",
+      "startDate": "date",
+      "ACI99": "Decimal",
+      "ACP": "Decimal"
+    },
+    "dates": {
+      "targetDate": "%m/%d/%Y",
+      "startDate": "%m/%d/%Y"
+    }
   }
 }

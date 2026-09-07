@@ -432,3 +432,11 @@ combinations retain their reported fields; historical `MCPC` remains separate
 from `cappedMCPC` and `uncappedMCPC`. Monthly sheet names, service types and the
 SCED timestamp or delivery interval identify each row. These readers use the
 existing `tinyercot[files]` extra.
+
+Exceptional fuel-cost submissions (NP4-494) expose
+`fuel_cost_submissions_history` through the optional workbook reader. Delivery
+hours remain as reported, including the documented repeated-hour value 25.
+Monthly path-specific adders (NP7-535) expose `path_adders_history`, reading the
+CSV in each archive. Target date and start date remain separate, with source,
+sink, time-of-use and signed decimal coefficients preserved. In both sampled
+archives, every CSV row matched its XML counterpart.
