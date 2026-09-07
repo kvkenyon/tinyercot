@@ -7,7 +7,7 @@ from typing import ClassVar
 from ._client import Transport, Page, Row
 from ._history import Archive, EiaHour
 from ._xlsx import WorkbookArchive
-from ._pdf import PdfArchive
+from ._pdf import PdfArchive, PdfChartArchive
 
 __all__ = ['Client', 'copg_316', 'eia_930_cd', 'eia_930_er', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np1_346_er', 'np3_108', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_494_er', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_765_er', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_520_er', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_792_er', 'np6_793_er', 'np6_794_er', 'np6_795_er', 'np6_796_er', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd', 'np7_535_sg']
 class copg_316:
@@ -10494,6 +10494,18 @@ class np4_765_er:
     def soc_records_history(self) -> PdfArchive[np4_765_er.SocRecordsHistoryRow]:
         """Historical report rows, including files predating the API."""
         return PdfArchive(self._client, 'np4-765-er', np4_765_er.SocRecordsHistoryRow, {'reportDate': 'reportDate', 'category': 'category', 'recordMWh': 'recordMWh', 'recordTime': 'recordTime'}, {}, start='Record\\s*SOC\\s*Delta\\s*Record\\s*SOC\\s*Delta\\s*Time', end='\\*\\s*Sum', pattern='(?P<category>ESR SOC Hourly Increase|ESR SOC Hourly Decrease)\\s*(?P<recordMWh>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MWh\\s*(?P<recordTime>\\d{2}/\\d{2}/\\d{4}\\s+\\d{2}:\\d{2})', records=True, notes=False, numbers=('recordMWh',), datetimes={'recordTime': '%m/%d/%Y %H:%M'})
+
+    class HourlyPercentagesHistoryRow(Row):
+        reportDate: date | None
+        hourEnding: str | None
+        dischargeCapacityPercent: Decimal | None
+        chargeCapacityPercent: Decimal | None
+        netLoadPercent: Decimal | None
+
+    @property
+    def hourly_percentages_history(self) -> PdfChartArchive[np4_765_er.HourlyPercentagesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return PdfChartArchive(self._client, 'np4-765-er', np4_765_er.HourlyPercentagesHistoryRow, {'reportDate': 'reportDate', 'hourEnding': 'hourEnding', 'dischargeCapacityPercent': 'dischargeCapacityPercent', 'chargeCapacityPercent': 'chargeCapacityPercent', 'netLoadPercent': 'netLoadPercent'}, {}, charts={'dischargeCapacityPercent': (3, 'Actual ESR Discharging Output'), 'chargeCapacityPercent': (3, 'Actual ESR Charging Output'), 'netLoadPercent': (4, 'Actual ESR Net Output')})
 
 class np4_790_cd:
     def __init__(self, client: Transport) -> None:

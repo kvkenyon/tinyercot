@@ -68,7 +68,7 @@ def generate(*, allow_incomplete: bool = False) -> None:
         "from ._client import Transport, Page, Row",
         "from ._history import Archive, EiaHour",
         "from ._xlsx import WorkbookArchive",
-        "from ._pdf import PdfArchive",
+        "from ._pdf import PdfArchive, PdfChartArchive",
         "",
     ]
     lines.append(f"__all__ = {['Client', *[name(p) for p in sorted(groups)]]!r}")
@@ -108,6 +108,8 @@ def generate(*, allow_incomplete: bool = False) -> None:
                 reader = "WorkbookArchive" if "sheets" in contract else "Archive"
                 if "pdf" in contract:
                     reader = "PdfArchive"
+                if "charts" in contract:
+                    reader = "PdfChartArchive"
                 if "fields" in contract:
                     archive_row = row.removesuffix("Row") + "HistoryRow"
                     lines += ["", f"    class {archive_row}(Row):"]
@@ -136,6 +138,11 @@ def generate(*, allow_incomplete: bool = False) -> None:
                         if kind in {"Decimal", "int"}
                     )
                     options += f", numbers={numbers!r}, datetimes={contract.get('datetimes', {})!r}"
+                if "charts" in contract:
+                    charts = {
+                        field: tuple(spec) for field, spec in contract["charts"].items()
+                    }
+                    options = f"charts={charts!r}"
                 lines += [
                     "",
                     "    @property",

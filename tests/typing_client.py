@@ -274,3 +274,8 @@ with Client() as client:
         client.np4_190_cd.dam_stlmnt_pnt_prices_history.rows(kind="bundle"),
         Iterator[np4_190_cd.DamStlmntPntPricesRow],
     )
+
+    for percentages in client.np4_765_er.hourly_percentages_history.rows(kind="bundle"):
+        assert_type(percentages.reportDate, date | None)
+        assert_type(percentages.hourEnding, str | None)
+        assert_type(percentages.netLoadPercent, Decimal | None)

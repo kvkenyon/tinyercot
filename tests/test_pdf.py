@@ -242,3 +242,160 @@ def test_malformed_records_are_not_treated_as_absent():
 def test_missing_pdf_raises():
     with Client() as client, pytest.raises(ValueError, match="no PDF"):
         list(client.np4_765_er.daily_values_history.read(zipped("unknown.txt", b"")))
+
+
+def test_hourly_chart_percentages_match_printed_labels():
+    with Client() as client:
+        rows = list(
+            client.np4_765_er.hourly_percentages_history.read(
+                zipped("report.pdf", sample("current"))
+            )
+        )
+    assert [r.hourEnding for r in rows] == [f"{h:02d}" for h in range(1, 25)]
+    assert all(r.reportDate == date(2026, 9, 6) for r in rows)
+    # Transcribed from the rendered charts, including their published rounding.
+    assert [r.dischargeCapacityPercent for r in rows] == [
+        Decimal(x)
+        for x in (
+            [
+                "0.6",
+                "0.2",
+                "0.4",
+                "0.7",
+                "2.5",
+                "5.3",
+                "11.4",
+                "5.5",
+                "0.1",
+                "0.1",
+                "0.1",
+                "0.1",
+                "0.6",
+                "0.3",
+                "0.9",
+                "0.5",
+                "0.3",
+                "1.3",
+                "14.0",
+                "42.9",
+                "40.0",
+                "19.1",
+                "4.2",
+                "1.3",
+            ]
+        )
+    ]
+    assert [r.chargeCapacityPercent for r in rows] == [
+        Decimal(x)
+        for x in (
+            [
+                "1.2",
+                "3.0",
+                "4.4",
+                "1.1",
+                "0.8",
+                "0.8",
+                "0.8",
+                "1.6",
+                "18.6",
+                "44.5",
+                "38.9",
+                "25.0",
+                "15.8",
+                "8.1",
+                "3.7",
+                "2.1",
+                "1.9",
+                "1.0",
+                "0.9",
+                "0.2",
+                "0.6",
+                "0.4",
+                "1.3",
+                "2.1",
+            ]
+        )
+    ]
+    assert {
+        r.hourEnding: r.netLoadPercent for r in rows if r.netLoadPercent is not None
+    } == {
+        "05": Decimal("0.7"),
+        "06": Decimal("1.8"),
+        "07": Decimal("4.2"),
+        "08": Decimal("1.6"),
+        "18": Decimal("0.1"),
+        "19": Decimal("3.6"),
+        "20": Decimal("12.0"),
+        "21": Decimal("11.4"),
+        "22": Decimal("5.6"),
+        "23": Decimal("0.9"),
+    }
+    assert sum(r.netLoadPercent is None for r in rows) == 14
+
+
+@pytest.mark.parametrize("period", ["spring", "fall"])
+def test_chart_hour_axis_preserves_published_dst_labels(period):
+    with Client() as client:
+        rows = list(
+            client.np4_765_er.hourly_percentages_history.read(
+                zipped("outer.zip", zipped("report.pdf", sample(period)))
+            )
+        )
+    expected_hours = [f"{h:02d}" for h in range(1, 25) if period != "spring" or h != 3]
+    assert [r.hourEnding for r in rows] == expected_hours
+    assert all(
+        r.reportDate == (date(2025, 3, 9) if period == "spring" else date(2025, 11, 2))
+        for r in rows
+    )
+    if period == "spring":
+        assert rows[2].hourEnding == "04"
+        assert rows[2].dischargeCapacityPercent == Decimal("0.3")
+        assert rows[2].chargeCapacityPercent == Decimal("6.2")
+    else:
+        assert rows[17].hourEnding == "18"
+        assert rows[17].dischargeCapacityPercent == Decimal("30.8")
+        assert rows[17].chargeCapacityPercent == Decimal("0.5")
+
+
+def test_missing_chart_is_not_silent_partial_data(monkeypatch):
+    from pypdf import PageObject
+
+    original = PageObject.extract_xform_text
+
+    def changed_legend(self, *args, **kwargs):
+        return original(self, *args, **kwargs).replace(
+            "Actual ESR Charging Output", "Unknown series"
+        )
+
+    monkeypatch.setattr(PageObject, "extract_xform_text", changed_legend)
+    with Client() as client, pytest.raises(ValueError, match="Expected one chart"):
+        list(
+            client.np4_765_er.hourly_percentages_history.read(
+                zipped("report.pdf", sample("current"))
+            )
+        )
+
+
+def test_duplicate_chart_label_does_not_overwrite_values(monkeypatch):
+    from pypdf import PageObject
+
+    original = PageObject.extract_xform_text
+
+    def duplicated_label(self, *args, **kwargs):
+        callback = kwargs["visitor_text"]
+
+        def visit(text, *position):
+            callback(text, *position)
+            if text.strip() == "0.6%":
+                callback(text, *position)
+
+        kwargs["visitor_text"] = visit
+        return original(self, *args, **kwargs)
+
+    monkeypatch.setattr(PageObject, "extract_xform_text", duplicated_label)
+    with Client() as client, pytest.raises(ValueError, match="Ambiguous chart label"):
+        list(
+            client.np4_765_er.hourly_percentages_history.read(
+                zipped("report.pdf", sample("current"))
+            )
+        )

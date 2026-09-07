@@ -487,9 +487,9 @@ Their typed catalog/document operations remain usable, but no historical row
 schema is inferred from absent files. Point-in-time listing evidence is recorded
 in `tools/inputs/history/availability-observations.json`.
 
-Public ESR Integration Report PDFs (NP4-765-ER) expose four generated readers:
-`daily_values_history`, `power_records_history`, `penetration_records_history`
-and `soc_records_history`. Install `tinyercot[pdf]` for this optional support.
+Public ESR Integration Report PDFs (NP4-765-ER) expose five generated readers:
+`daily_values_history`, `power_records_history`, `penetration_records_history`,
+`soc_records_history` and `hourly_percentages_history`. Install `tinyercot[pdf]` for this optional support.
 This report belongs to Public Reports and uses the same credentials.
 
 ```python
@@ -504,7 +504,7 @@ with Client() as ercot:
         print(row.reportDate, row.peakLoadMW, row.maxDischargeMW)
 ```
 
-The PDF readers extract the first page's published tables. `reportDate` is the
+The table readers extract the first page's published tables. `reportDate` is the
 operating date printed in the report; publication bounds select documents.
 Power and energy fields name their MW/MWh units, percentage fields preserve
 published percentages, and clocks retain the source's unspecified timezone.
@@ -512,8 +512,15 @@ published percentages, and clocks retain the source's unspecified timezone.
 capacity terminology between older and newer reports. Record tables retain
 separate power and penetration records, even when their MW values differ.
 Older reports without a record section yield no record rows. Unsupported table
-layouts raise. Graphs on subsequent pages are not converted to exact time series;
-their numeric-label and source-data coverage remains to be audited.
+layouts raise. `hourly_percentages_history` reads the printed labels in the three percentage
+charts: discharge/installed discharge capacity, charge/installed charge capacity,
+and net output/ERCOT load. Values retain the printed decimal percentages. An
+unlabelled bar has value `None`, not zero. `hourEnding` preserves source strings:
+the sampled spring transition skips "03", and autumn charts show only "01"
+through "24" without separately labelling a repeated hour. No extra hour or
+timezone is inferred. The reader matches labels to the printed hour axis; it
+does not estimate numbers from bar heights. Exact MW time series in the other
+line charts remain outside the PDF reader's coverage.
 
 Verified PDF table samples span December 2023, September 2024, September 2025
 and September 2026. The first three omit the all-time record section; the 2026
