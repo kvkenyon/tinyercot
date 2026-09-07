@@ -93,6 +93,11 @@ class gen_55_cd:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def hrly_rt_load_fcast_actual_history(self) -> Archive[gen_55_cd.HrlyRtLoadFcastActualRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'gen-55-cd', gen_55_cd.HrlyRtLoadFcastActualRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'CurrentDayForecast': 'currentDayFcast', 'DayAheadForecast': 'dayAheadFcast', 'ActualLoad': 'actualLoad', 'DayAheadHSL': 'dayAheadHSL', 'CurrentDayHSL': 'currentDayHSL', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
+
     def hrly_rt_load_fcast_actual(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, currentDayFcastFrom: Decimal | None = None, currentDayFcastTo: Decimal | None = None, dayAheadFcastFrom: Decimal | None = None, dayAheadFcastTo: Decimal | None = None, actualLoadFrom: Decimal | None = None, actualLoadTo: Decimal | None = None, dayAheadHSLFrom: Decimal | None = None, dayAheadHSLTo: Decimal | None = None, currentDayHSLFrom: Decimal | None = None, currentDayHSLTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[gen_55_cd.HrlyRtLoadFcastActualRow]:
         'Hourly Real-Time Load vs. Actual Report'
         return self._client._page('/gen-55-cd/hrly_rt_load_fcast_actual', gen_55_cd.HrlyRtLoadFcastActualRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'currentDayFcastFrom': currentDayFcastFrom, 'currentDayFcastTo': currentDayFcastTo, 'dayAheadFcastFrom': dayAheadFcastFrom, 'dayAheadFcastTo': dayAheadFcastTo, 'actualLoadFrom': actualLoadFrom, 'actualLoadTo': actualLoadTo, 'dayAheadHSLFrom': dayAheadHSLFrom, 'dayAheadHSLTo': dayAheadHSLTo, 'currentDayHSLFrom': currentDayHSLFrom, 'currentDayHSLTo': currentDayHSLTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -495,6 +500,22 @@ class np3_560_cd:
         systemTotal: Decimal | None
         west: Decimal | None
 
+    class _7dLoadFcastByFznHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        north: Decimal | None
+        south: Decimal | None
+        west: Decimal | None
+        houston: Decimal | None
+        systemTotal: Decimal | None
+        DSTFlag: bool | None
+
+    @property
+    def _7d_load_fcast_by_fzn_history(self) -> Archive[np3_560_cd._7dLoadFcastByFznHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-560-cd', np3_560_cd._7dLoadFcastByFznHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'North': 'north', 'South': 'south', 'West': 'west', 'Houston': 'houston', 'SystemTotal': 'systemTotal', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=({'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'North': 'north', 'South': 'south', 'West': 'west', 'Houston': 'houston', 'SystemTotal': 'systemTotal', 'DSTFlag    ': 'DSTFlag'},))
+
     def _7d_load_fcast_by_fzn(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, southFrom: Decimal | None = None, southTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, houstonFrom: Decimal | None = None, houstonTo: Decimal | None = None, systemTotalFrom: Decimal | None = None, systemTotalTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_560_cd._7dLoadFcastByFznRow]:
         'Seven-Day Load Forecast by Forecast Zone'
         return self._client._page('/np3-560-cd/7d_load_fcast_by_fzn', np3_560_cd._7dLoadFcastByFznRow, {'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'northFrom': northFrom, 'northTo': northTo, 'southFrom': southFrom, 'southTo': southTo, 'westFrom': westFrom, 'westTo': westTo, 'houstonFrom': houstonFrom, 'houstonTo': houstonTo, 'systemTotalFrom': systemTotalFrom, 'systemTotalTo': systemTotalTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -529,6 +550,26 @@ class np3_561_cd:
         southern: Decimal | None
         systemTotal: Decimal | None
         west: Decimal | None
+
+    class _7dLoadFcastByWznHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        coast: Decimal | None
+        east: Decimal | None
+        farWest: Decimal | None
+        north: Decimal | None
+        northCentral: Decimal | None
+        southCentral: Decimal | None
+        southern: Decimal | None
+        west: Decimal | None
+        systemTotal: Decimal | None
+        DSTFlag: bool | None
+
+    @property
+    def _7d_load_fcast_by_wzn_history(self) -> Archive[np3_561_cd._7dLoadFcastByWznHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-561-cd', np3_561_cd._7dLoadFcastByWznHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Coast': 'coast', 'East': 'east', 'FarWest': 'farWest', 'North': 'north', 'NorthCentral': 'northCentral', 'SouthCentral': 'southCentral', 'Southern': 'southern', 'West': 'west', 'SystemTotal': 'systemTotal', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
 
     def _7d_load_fcast_by_wzn(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, coastFrom: Decimal | None = None, coastTo: Decimal | None = None, eastFrom: Decimal | None = None, eastTo: Decimal | None = None, farWestFrom: Decimal | None = None, farWestTo: Decimal | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, northCentralFrom: Decimal | None = None, northCentralTo: Decimal | None = None, southCentralFrom: Decimal | None = None, southCentralTo: Decimal | None = None, southernFrom: Decimal | None = None, southernTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, systemTotalFrom: Decimal | None = None, systemTotalTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_561_cd._7dLoadFcastByWznRow]:
         'Seven-Day Load Forecast by Weather Zone'
@@ -565,6 +606,27 @@ class np3_562_cd:
         southern: Decimal | None
         systemTotal: Decimal | None
         west: Decimal | None
+
+    class IhLoadFcastByWznHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        coast: Decimal | None
+        east: Decimal | None
+        farWest: Decimal | None
+        north: Decimal | None
+        northCentral: Decimal | None
+        southCentral: Decimal | None
+        southern: Decimal | None
+        west: Decimal | None
+        systemTotal: Decimal | None
+        model: str | None
+        inUseFlag: bool | None
+        DSTFlag: bool | None
+
+    @property
+    def ih_load_fcast_by_wzn_history(self) -> Archive[np3_562_cd.IhLoadFcastByWznHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-562-cd', np3_562_cd.IhLoadFcastByWznHistoryRow, {'IntervalEnding': 'intervalEnding', 'Coast': 'coast', 'East': 'east', 'FarWest': 'farWest', 'North': 'north', 'NorthCentral': 'northCentral', 'SouthCentral': 'southCentral', 'Southern': 'southern', 'West': 'west', 'SystemTotal': 'systemTotal', 'Model': 'model', 'InUseFlag': 'inUseFlag', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=())
 
     def ih_load_fcast_by_wzn(self, *, farWestFrom: Decimal | None = None, farWestTo: Decimal | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, northCentralFrom: Decimal | None = None, northCentralTo: Decimal | None = None, southCentralFrom: Decimal | None = None, southCentralTo: Decimal | None = None, southernFrom: Decimal | None = None, southernTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, systemTotalFrom: Decimal | None = None, systemTotalTo: Decimal | None = None, model: str | None = None, inUseFlag: bool | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, coastFrom: Decimal | None = None, coastTo: Decimal | None = None, eastFrom: Decimal | None = None, eastTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_562_cd.IhLoadFcastByWznRow]:
         'Intra-Hour Load Forecast by Weather Zone'
@@ -603,6 +665,28 @@ class np3_565_cd:
         systemTotal: Decimal | None
         west: Decimal | None
 
+    class LfByModelWeatherZoneHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        coast: Decimal | None
+        east: Decimal | None
+        farWest: Decimal | None
+        north: Decimal | None
+        northCentral: Decimal | None
+        southCentral: Decimal | None
+        southern: Decimal | None
+        west: Decimal | None
+        systemTotal: Decimal | None
+        model: str | None
+        inUseFlag: bool | None
+        DSTFlag: bool | None
+
+    @property
+    def lf_by_model_weather_zone_history(self) -> Archive[np3_565_cd.LfByModelWeatherZoneHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-565-cd', np3_565_cd.LfByModelWeatherZoneHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Coast': 'coast', 'East': 'east', 'FarWest': 'farWest', 'North': 'north', 'NorthCentral': 'northCentral', 'SouthCentral': 'southCentral', 'Southern': 'southern', 'West': 'west', 'SystemTotal': 'systemTotal', 'Model': 'model', 'InUseFlag': 'inUseFlag', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
+
     def lf_by_model_weather_zone(self, *, DSTFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, coastFrom: Decimal | None = None, coastTo: Decimal | None = None, eastFrom: Decimal | None = None, eastTo: Decimal | None = None, farWestFrom: Decimal | None = None, farWestTo: Decimal | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, northCentralFrom: Decimal | None = None, northCentralTo: Decimal | None = None, southCentralFrom: Decimal | None = None, southCentralTo: Decimal | None = None, southernFrom: Decimal | None = None, southernTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, systemTotalFrom: Decimal | None = None, systemTotalTo: Decimal | None = None, model: str | None = None, inUseFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_565_cd.LfByModelWeatherZoneRow]:
         'Seven-Day Load Forecast by Model and Weather Zone'
         return self._client._page('/np3-565-cd/lf_by_model_weather_zone', np3_565_cd.LfByModelWeatherZoneRow, {'DSTFlag': DSTFlag, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'coastFrom': coastFrom, 'coastTo': coastTo, 'eastFrom': eastFrom, 'eastTo': eastTo, 'farWestFrom': farWestFrom, 'farWestTo': farWestTo, 'northFrom': northFrom, 'northTo': northTo, 'northCentralFrom': northCentralFrom, 'northCentralTo': northCentralTo, 'southCentralFrom': southCentralFrom, 'southCentralTo': southCentralTo, 'southernFrom': southernFrom, 'southernTo': southernTo, 'westFrom': westFrom, 'westTo': westTo, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'systemTotalFrom': systemTotalFrom, 'systemTotalTo': systemTotalTo, 'model': model, 'inUseFlag': inUseFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -630,6 +714,19 @@ class np3_566_cd:
         model: str | None
         postedDatetime: datetime | None
         valley: Decimal | None
+
+    class LfByModelStudyAreaHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        valley: Decimal | None
+        model: str | None
+        DSTFlag: bool | None
+
+    @property
+    def lf_by_model_study_area_history(self) -> Archive[np3_566_cd.LfByModelStudyAreaHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-566-cd', np3_566_cd.LfByModelStudyAreaHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Valley': 'valley', 'Model': 'model', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
 
     def lf_by_model_study_area(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, valleyFrom: Decimal | None = None, valleyTo: Decimal | None = None, model: str | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_566_cd.LfByModelStudyAreaRow]:
         'Seven-Day Load Forecast by Model and Study Area'

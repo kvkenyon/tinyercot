@@ -198,3 +198,31 @@ generation and DC-tie flows, HDL/LDL summaries, and SCED shadow prices. Publicat
 bounds select archive files; typed predicates can select timestamps, ties, or
 constraints inside them. In the sampled listings, price-adders reached 2014,
 state-estimator reports reached 2019, and HDL/LDL summaries reached April 2026.
+
+
+Load-forecast history includes forecast/actual comparisons, seven-day forecasts
+by forecast and weather zone, intra-hour weather-zone forecasts, and forecasts by
+model/weather zone or study area. Use each generated method's `_history` property.
+Hour-ending labels such as `24:00` remain strings where the report uses them;
+model identifiers and in-use flags remain available for filtering.
+
+To retain which publication each forecast came from, keep the listing metadata
+alongside the rows:
+
+```python
+with Client() as ercot:
+    history = ercot.np3_561_cd._7d_load_fcast_by_wzn_history
+    for document in ercot.iter_documents(
+        "np3-561-cd",
+        posted_from=datetime(2026, 8, 1),
+        posted_to=datetime(2026, 8, 2),
+    ):
+        for forecast in history.download([document.docId]):
+            print(document.postDatetime, forecast.deliveryDate, forecast.coast)
+```
+
+`document.postDatetime` is ERCOT's publication time, not a guarantee of an earlier
+model issue time. These CSVs omit `postedDatetime`, so that row field remains
+`None` when reading the file; a delivery date must not substitute for publication
+or issue time. Distinct publications can contain forecasts for the same delivery
+hour, and are retained without deduplication.
