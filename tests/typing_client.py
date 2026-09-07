@@ -96,3 +96,9 @@ with Client() as client:
         assert_type(factor.deliveryDate, date | None)
         assert_type(factor.deliveryHour, str | None)
         assert_type(factor.ASDeploymentFactors, Decimal | None)
+
+    for point in client.np4_214_cd.druc_as_demand_curves_history.rows():
+        assert_type(point.RUCTimestamp, datetime | None)
+        assert_type(point.demandCurvePoint, Decimal | None)
+        assert_type(point.quantity, Decimal | None)
+        assert_type(point.price, Decimal | None)
