@@ -255,6 +255,33 @@ class np1_301:
         resourceName: str | None
         status: str | None
 
+    class _60CopAdjPeriodSnapshotHistoryRow(Row):
+        deliveryDate: date | None
+        qseName: str | None
+        resourceName: str | None
+        hourEnding: str | None
+        status: str | None
+        highSustainedLimit: Decimal | None
+        lowSustainedLimit: Decimal | None
+        highEmergencyLimit: Decimal | None
+        lowEmergencyLimit: Decimal | None
+        REGUP: Decimal | None
+        REGDN: Decimal | None
+        RRSPFR: Decimal | None = None
+        RRSFFR: Decimal | None = None
+        RRSUFR: Decimal | None = None
+        NSPIN: Decimal | None
+        ECRS: Decimal | None = None
+        minSOC: Decimal | None = None
+        maxSOC: Decimal | None = None
+        hourBeginningPlannedSOC: Decimal | None = None
+        RRS: Decimal | None = None
+
+    @property
+    def _60_cop_adj_period_snapshot_history(self) -> Archive[np1_301._60CopAdjPeriodSnapshotHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np1-301', np1_301._60CopAdjPeriodSnapshotHistoryRow, {'Delivery Date': 'deliveryDate', 'QSE Name': 'qseName', 'Resource Name': 'resourceName', 'Hour Ending': 'hourEnding', 'Status': 'status', 'High Sustained Limit': 'highSustainedLimit', 'Low Sustained Limit': 'lowSustainedLimit', 'High Emergency Limit': 'highEmergencyLimit', 'Low Emergency Limit': 'lowEmergencyLimit', 'Reg Up': 'REGUP', 'Reg Down': 'REGDN', 'RRSPFR': 'RRSPFR', 'RRSFFR': 'RRSFFR', 'RRSUFR': 'RRSUFR', 'NSPIN': 'NSPIN', 'ECRS': 'ECRS', 'Minimum SOC': 'minSOC', 'Maximum SOC': 'maxSOC', 'Hour Beginning Planned SOC': 'hourBeginningPlannedSOC'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'QSE Name': 'qseName', 'Resource Name': 'resourceName', 'Hour Ending': 'hourEnding', 'Status': 'status', 'High Sustained Limit': 'highSustainedLimit', 'Low Sustained Limit': 'lowSustainedLimit', 'High Emergency Limit': 'highEmergencyLimit', 'Low Emergency Limit': 'lowEmergencyLimit', 'Reg Up': 'REGUP', 'Reg Down': 'REGDN', 'RRS': 'RRS', 'NSPIN': 'NSPIN'},))
+
     def _60_cop_adj_period_snapshot(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, qseName: str | None = None, resourceName: str | None = None, hourEnding: str | None = None, status: str | None = None, highSustainedLimitFrom: Decimal | None = None, highSustainedLimitTo: Decimal | None = None, lowSustainedLimitFrom: Decimal | None = None, lowSustainedLimitTo: Decimal | None = None, highEmergencyLimitFrom: Decimal | None = None, highEmergencyLimitTo: Decimal | None = None, lowEmergencyLimitFrom: Decimal | None = None, lowEmergencyLimitTo: Decimal | None = None, REGUPFrom: Decimal | None = None, REGUPTo: Decimal | None = None, REGDNFrom: Decimal | None = None, REGDNTo: Decimal | None = None, RRSPFRFrom: Decimal | None = None, RRSPFRTo: Decimal | None = None, RRSFFRFrom: Decimal | None = None, RRSFFRTo: Decimal | None = None, RRSUFRFrom: Decimal | None = None, RRSUFRTo: Decimal | None = None, NSPINFrom: Decimal | None = None, NSPINTo: Decimal | None = None, ECRSFrom: Decimal | None = None, ECRSTo: Decimal | None = None, minSOCFrom: Decimal | None = None, minSOCTo: Decimal | None = None, maxSOCFrom: Decimal | None = None, maxSOCTo: Decimal | None = None, hourBeginningPlannedSOCFrom: Decimal | None = None, hourBeginningPlannedSOCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np1_301._60CopAdjPeriodSnapshotRow]:
         '60-Day COP Adjustment Period Snapshot'
         return self._client._page('/np1-301/60_cop_adj_period_snapshot', np1_301._60CopAdjPeriodSnapshotRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'qseName': qseName, 'resourceName': resourceName, 'hourEnding': hourEnding, 'status': status, 'highSustainedLimitFrom': highSustainedLimitFrom, 'highSustainedLimitTo': highSustainedLimitTo, 'lowSustainedLimitFrom': lowSustainedLimitFrom, 'lowSustainedLimitTo': lowSustainedLimitTo, 'highEmergencyLimitFrom': highEmergencyLimitFrom, 'highEmergencyLimitTo': highEmergencyLimitTo, 'lowEmergencyLimitFrom': lowEmergencyLimitFrom, 'lowEmergencyLimitTo': lowEmergencyLimitTo, 'REGUPFrom': REGUPFrom, 'REGUPTo': REGUPTo, 'REGDNFrom': REGDNFrom, 'REGDNTo': REGDNTo, 'RRSPFRFrom': RRSPFRFrom, 'RRSPFRTo': RRSPFRTo, 'RRSFFRFrom': RRSFFRFrom, 'RRSFFRTo': RRSFFRTo, 'RRSUFRFrom': RRSUFRFrom, 'RRSUFRTo': RRSUFRTo, 'NSPINFrom': NSPINFrom, 'NSPINTo': NSPINTo, 'ECRSFrom': ECRSFrom, 'ECRSTo': ECRSTo, 'minSOCFrom': minSOCFrom, 'minSOCTo': minSOCTo, 'maxSOCFrom': maxSOCFrom, 'maxSOCTo': maxSOCTo, 'hourBeginningPlannedSOCFrom': hourBeginningPlannedSOCFrom, 'hourBeginningPlannedSOCTo': hourBeginningPlannedSOCTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -289,6 +316,34 @@ class np1_302:
         deliveryDate: date | None
         hourEnding: str | None
         qseName: str | None
+
+    class AsObligationHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: str | None
+        qseName: str | None
+        REGUPOblAdvisory: Decimal | None = None
+        REGDNOblAdvisory: Decimal | None = None
+        RRSOblAdvisory: Decimal | None = None
+        NSPINOblAdvisory: Decimal | None = None
+        ECRSOblAdvisory: Decimal | None = None
+        REGUPOblFinal: Decimal | None = None
+        REGDNOblFinal: Decimal | None = None
+        RRSOblFinal: Decimal | None = None
+        NSPINOblFinal: Decimal | None = None
+        ECRSOblFinal: Decimal | None = None
+        REGUPObligation: Decimal | None = None
+        REGUPResponsibility: Decimal | None = None
+        REGDNObligation: Decimal | None = None
+        REGDNResponsibility: Decimal | None = None
+        RRSObligation: Decimal | None = None
+        RRSResponsibility: Decimal | None = None
+        NSPINObligation: Decimal | None = None
+        NSPINResponsibility: Decimal | None = None
+
+    @property
+    def as_obligation_history(self) -> Archive[np1_302.AsObligationHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np1-302', np1_302.AsObligationHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE Name': 'qseName', 'Reg Up Obligation Advisory': 'REGUPOblAdvisory', 'Reg Down Obligation Advisory': 'REGDNOblAdvisory', 'RRS Obligation Advisory': 'RRSOblAdvisory', 'NSPIN Obligation Advisory': 'NSPINOblAdvisory', 'ECRS Obligation Advisory': 'ECRSOblAdvisory', 'Reg Up Obligation Final': 'REGUPOblFinal', 'Reg Down Obligation Final': 'REGDNOblFinal', 'RRS Obligation Final': 'RRSOblFinal', 'NSPIN Obligation Final': 'NSPINOblFinal', 'ECRS Obligation Final': 'ECRSOblFinal'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE Name': 'qseName', 'Reg Up Obligation': 'REGUPObligation', 'Reg Down Obligation': 'REGDNObligation', 'RRS Obligation': 'RRSObligation', 'NSPIN Obligation': 'NSPINObligation', 'Reg Up Responsibility': 'REGUPResponsibility', 'Reg Down Responsibility': 'REGDNResponsibility', 'RRS Responsibility': 'RRSResponsibility', 'NSPIN Responsibility': 'NSPINResponsibility'},))
 
     def as_obligation(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, qseName: str | None = None, REGUPOblAdvisoryFrom: Decimal | None = None, REGUPOblAdvisoryTo: Decimal | None = None, REGDNOblAdvisoryFrom: Decimal | None = None, REGDNOblAdvisoryTo: Decimal | None = None, RRSOblAdvisoryFrom: Decimal | None = None, RRSOblAdvisoryTo: Decimal | None = None, NSPINOblAdvisoryFrom: Decimal | None = None, NSPINOblAdvisoryTo: Decimal | None = None, ECRSOblAdvisoryFrom: Decimal | None = None, ECRSOblAdvisoryTo: Decimal | None = None, REGUPOblFinalFrom: Decimal | None = None, REGUPOblFinalTo: Decimal | None = None, REGDNOblFinalFrom: Decimal | None = None, REGDNOblFinalTo: Decimal | None = None, RRSOblFinalFrom: Decimal | None = None, RRSOblFinalTo: Decimal | None = None, NSPINOblFinalFrom: Decimal | None = None, NSPINOblFinalTo: Decimal | None = None, ECRSOblFinalFrom: Decimal | None = None, ECRSOblFinalTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np1_302.AsObligationRow]:
         'Ancillary Service Obligations Report'

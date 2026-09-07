@@ -384,3 +384,10 @@ self-arranged quantities, and `RRSNC`, `RRSLD`, `RRSGN` offer curves, remain
 separate from newer RRS response categories. The sampled 2014, 2025 and current
 archives cover different sets of tables; a missing table raises an error rather
 than silently substituting another category.
+
+COP adjustment-period snapshots (NP1-301) and ancillary-service obligations
+(NP1-302) have typed history readers. COP history preserves combined legacy
+`RRS` separately from newer response categories and keeps `hourEnding` labels
+such as `01:00` as strings. Older obligation and responsibility fields remain
+separate from advisory/final obligations; absent values remain `None`. Archive
+publication dates differ from the delivery dates in these delayed reports.

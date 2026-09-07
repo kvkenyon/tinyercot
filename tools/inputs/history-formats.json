@@ -6940,5 +6940,130 @@
       "deliveryDate": "%m/%d/%Y"
     },
     "datetimes": {}
+  },
+  "np1-301/60_cop_adj_period_snapshot": {
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "QSE Name": "qseName",
+      "Resource Name": "resourceName",
+      "Hour Ending": "hourEnding",
+      "Status": "status",
+      "High Sustained Limit": "highSustainedLimit",
+      "Low Sustained Limit": "lowSustainedLimit",
+      "High Emergency Limit": "highEmergencyLimit",
+      "Low Emergency Limit": "lowEmergencyLimit",
+      "Reg Up": "REGUP",
+      "Reg Down": "REGDN",
+      "RRSPFR": "RRSPFR",
+      "RRSFFR": "RRSFFR",
+      "RRSUFR": "RRSUFR",
+      "NSPIN": "NSPIN",
+      "ECRS": "ECRS",
+      "Minimum SOC": "minSOC",
+      "Maximum SOC": "maxSOC",
+      "Hour Beginning Planned SOC": "hourBeginningPlannedSOC"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "QSE Name": "qseName",
+        "Resource Name": "resourceName",
+        "Hour Ending": "hourEnding",
+        "Status": "status",
+        "High Sustained Limit": "highSustainedLimit",
+        "Low Sustained Limit": "lowSustainedLimit",
+        "High Emergency Limit": "highEmergencyLimit",
+        "Low Emergency Limit": "lowEmergencyLimit",
+        "Reg Up": "REGUP",
+        "Reg Down": "REGDN",
+        "RRS": "RRS",
+        "NSPIN": "NSPIN"
+      }
+    ],
+    "fields": {
+      "deliveryDate": "date",
+      "qseName": "str",
+      "resourceName": "str",
+      "hourEnding": "str",
+      "status": "str",
+      "highSustainedLimit": "Decimal",
+      "lowSustainedLimit": "Decimal",
+      "highEmergencyLimit": "Decimal",
+      "lowEmergencyLimit": "Decimal",
+      "REGUP": "Decimal",
+      "REGDN": "Decimal",
+      "RRSPFR": "Decimal",
+      "RRSFFR": "Decimal",
+      "RRSUFR": "Decimal",
+      "NSPIN": "Decimal",
+      "ECRS": "Decimal",
+      "minSOC": "Decimal",
+      "maxSOC": "Decimal",
+      "hourBeginningPlannedSOC": "Decimal",
+      "RRS": "Decimal"
+    }
+  },
+  "np1-302/as_obligation": {
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "QSE Name": "qseName",
+      "Reg Up Obligation Advisory": "REGUPOblAdvisory",
+      "Reg Down Obligation Advisory": "REGDNOblAdvisory",
+      "RRS Obligation Advisory": "RRSOblAdvisory",
+      "NSPIN Obligation Advisory": "NSPINOblAdvisory",
+      "ECRS Obligation Advisory": "ECRSOblAdvisory",
+      "Reg Up Obligation Final": "REGUPOblFinal",
+      "Reg Down Obligation Final": "REGDNOblFinal",
+      "RRS Obligation Final": "RRSOblFinal",
+      "NSPIN Obligation Final": "NSPINOblFinal",
+      "ECRS Obligation Final": "ECRSOblFinal"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "Hour Ending": "hourEnding",
+        "QSE Name": "qseName",
+        "Reg Up Obligation": "REGUPObligation",
+        "Reg Down Obligation": "REGDNObligation",
+        "RRS Obligation": "RRSObligation",
+        "NSPIN Obligation": "NSPINObligation",
+        "Reg Up Responsibility": "REGUPResponsibility",
+        "Reg Down Responsibility": "REGDNResponsibility",
+        "RRS Responsibility": "RRSResponsibility",
+        "NSPIN Responsibility": "NSPINResponsibility"
+      }
+    ],
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "qseName": "str",
+      "REGUPOblAdvisory": "Decimal",
+      "REGDNOblAdvisory": "Decimal",
+      "RRSOblAdvisory": "Decimal",
+      "NSPINOblAdvisory": "Decimal",
+      "ECRSOblAdvisory": "Decimal",
+      "REGUPOblFinal": "Decimal",
+      "REGDNOblFinal": "Decimal",
+      "RRSOblFinal": "Decimal",
+      "NSPINOblFinal": "Decimal",
+      "ECRSOblFinal": "Decimal",
+      "REGUPObligation": "Decimal",
+      "REGUPResponsibility": "Decimal",
+      "REGDNObligation": "Decimal",
+      "REGDNResponsibility": "Decimal",
+      "RRSObligation": "Decimal",
+      "RRSResponsibility": "Decimal",
+      "NSPINObligation": "Decimal",
+      "NSPINResponsibility": "Decimal"
+    }
   }
 }

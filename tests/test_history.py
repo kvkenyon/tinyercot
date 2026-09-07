@@ -1396,3 +1396,54 @@ def test_dam_as_readers_keep_legacy_and_current_categories_separate():
     assert legacy[0].deliveryDate == date(2014, 4, 29)
     assert aggregate[0].deliveryDate == date(2025, 4, 24)
     assert dam[0].deliveryDate == date(2026, 9, 5)
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "cop-obligations-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_cop_obligation_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    if rows:
+        assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_cop_and_obligation_history_preserves_source_meanings():
+    with Client() as client:
+        cop = next(
+            client.np1_301._60_cop_adj_period_snapshot_history.read(
+                zipped("old.csv", (INPUTS / "np1-301-history-samples.csv").read_bytes())
+            )
+        )
+        obligation = next(
+            client.np1_302.as_obligation_history.read(
+                zipped("old.csv", (INPUTS / "np1-302-history-samples.csv").read_bytes())
+            )
+        )
+        current = next(
+            client.np1_302.as_obligation_history.read(
+                zipped("new.csv", (INPUTS / "np1-302-history-current.csv").read_bytes())
+            )
+        )
+    assert cop.hourEnding == "01:00"
+    assert cop.deliveryDate == date(2014, 3, 2)
+    assert cop.RRS == Decimal(0)
+    assert cop.RRSPFR is None
+    assert obligation.RRSObligation == Decimal(1)
+    assert obligation.RRSResponsibility == Decimal(0)
+    assert obligation.RRSOblFinal is None
+    assert current.REGUPOblAdvisory == Decimal(".07869")
+    assert current.REGUPResponsibility is None
+    assert current.deliveryDate == date(2026, 3, 11)
