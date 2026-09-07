@@ -1,0 +1,124 @@
+{
+  "checkedAt": "2026-09-07T23:05:46.956241+00:00",
+  "scope": "Every decoded quantity, source table label, entity and printed target period compared against direct source-cell reads for all five supported source archives/workbooks, including the Word95 attachment. Monthly classification, winter spans and summary units have independent golden tests. No publication-date inference or unit rescaling.",
+  "sources": [
+    {
+      "file": "97frc714.zip",
+      "sha256": "0ccbbfea1c52b25156e071a28b96e63631fe7e94c677885698e4901fd8a15f7a",
+      "rows": 468,
+      "firstTargetYear": 1996,
+      "lastTargetYear": 2006,
+      "statuses": {
+        "actual": 59,
+        "reporting_year": 24,
+        "next_year": 24,
+        "unspecified": 11,
+        "projected": 350
+      },
+      "units": {
+        "MW": 300,
+        "GWh": 157,
+        "None": 11
+      },
+      "missingValues": 2,
+      "decodedRowsSha256": "b0cf46b3a8966315fb2e7f1ef9e59482e8e5894ee2076a0a2d9de46739452bd3",
+      "url": "https://www.ercot.com/files/docs/2002/12/11/97frc714.zip"
+    },
+    {
+      "file": "ferc714.zip",
+      "sha256": "54cb33600a6f46fafbc9992afe74efb22394ecc85d733b41859b182acc8a5b79",
+      "rows": 957,
+      "firstTargetYear": 1999,
+      "lastTargetYear": 2009,
+      "statuses": {
+        "projected": 957
+      },
+      "units": {
+        "MWh": 319,
+        "MW": 638
+      },
+      "missingValues": 0,
+      "decodedRowsSha256": "c1b89669dbaca29217751efe2d0696178a82f29d7dc14eba3f649c8f7f18021b",
+      "url": "https://www.ercot.com/files/docs/2002/12/11/ferc714.zip"
+    },
+    {
+      "file": "1999ferc714.zip",
+      "sha256": "33462ad69c7c85298f67cf248024285f86c2776cd9c5c711f70bc6d3c2dfdfa5",
+      "rows": 330,
+      "firstTargetYear": 2000,
+      "lastTargetYear": 2009,
+      "statuses": {
+        "projected": 330
+      },
+      "units": {
+        "None": 330
+      },
+      "missingValues": 0,
+      "decodedRowsSha256": "6a2553c268493920be2bee4b65b19e8afcb2e9778178174b1988d86e363cf361",
+      "url": "https://www.ercot.com/files/docs/2002/12/11/1999ferc714.zip"
+    },
+    {
+      "file": "2000ferc714.zip",
+      "sha256": "52ab74e4f82b630c05152f781088eaca1a60f111dae2bf674a7380f62b6fb8b7",
+      "rows": 330,
+      "firstTargetYear": 2001,
+      "lastTargetYear": 2010,
+      "statuses": {
+        "projected": 330
+      },
+      "units": {
+        "None": 330
+      },
+      "missingValues": 0,
+      "decodedRowsSha256": "f0c970919b02c38e19817742cbcea9b514cb92472190a56ac9a7c95aeaeaa681",
+      "url": "https://www.ercot.com/files/docs/2005/11/10/2000ferc714.zip"
+    },
+    {
+      "file": "erceei97.xls",
+      "sha256": "4c163bfc487661e9c7041c19be5f0fb6607114612bfab469799342479ff359c0",
+      "rows": 2,
+      "firstTargetYear": 1997,
+      "lastTargetYear": 1997,
+      "statuses": {
+        "actual": 2
+      },
+      "units": {
+        "MW": 1,
+        "GWh": 1
+      },
+      "missingValues": 0,
+      "decodedRowsSha256": "6f3f61243fc630fdad4608001655ad2569217489ce5a80c35205ad2ebfc79bb3",
+      "url": "https://www.ercot.com/files/docs/2004/07/26/erceei97.xls"
+    }
+  ],
+  "anonymousWorkflow": {
+    "checkedAt": "2026-09-07T23:15:33.114089+00:00",
+    "method": "Client().hourly_load.outlook(year_from=1999, year_to=1999)",
+    "rows": 123,
+    "credentials": "none",
+    "winterExample": {
+      "entity": "TNP",
+      "controlArea": null,
+      "reportingYear": null,
+      "region": null,
+      "countryCode": null,
+      "year": 1999,
+      "endYear": 2000,
+      "month": null,
+      "periodLabel": "1999/00",
+      "measure": "peak_demand",
+      "season": "winter",
+      "status": "projected",
+      "value": "687",
+      "unit": "MW",
+      "sourceMember": "TNPFORE.96",
+      "sourceSheet": null,
+      "sourceLabel": "08 Peak Hour Demand - MW - Winter(3,4)"
+    }
+  },
+  "notes": [
+    "All 2087 source quantities, entity labels, table labels and target periods independently compared. Regression tests cover monthly status, winter spans, missing cells, units and original entity labels.",
+    "1999 and 2000 text matrices state no units; values are not rescaled. COA has an unlabelled 11-value row, retained with unspecified measure/status and no unit.",
+    "TNPFORE.96 is a simple Word 95 compound document, read with the existing optional xlrd dependency. No publication date is inferred from a target year."
+  ]
+}

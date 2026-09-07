@@ -17,6 +17,7 @@ import httpx
 from pydantic import BaseModel, ConfigDict
 
 from ._legacy_load import LegacyHourlyLoad, read_legacy
+from ._load_outlook import OUTLOOK_FILES, LoadOutlook, read_outlook
 
 INDEX_URL = "https://www.ercot.com/gridinfo/load/load_hist"
 _COLUMNS = (
@@ -155,6 +156,32 @@ class HourlyLoad:
         response = self._http.get(archive.url, follow_redirects=True)
         response.raise_for_status()
         return response.content
+
+    def outlook(
+        self, *, year_from: int | None = None, year_to: int | None = None
+    ) -> Iterator[LoadOutlook]:
+        """Read historical summary/projection tables with inclusive target-year bounds.
+
+        Actual, reporting-year, next-year and projected values retain their source
+        labels. Target periods do not establish when a forecast became available.
+        """
+        if year_from is not None and year_to is not None and year_from > year_to:
+            raise ValueError("year_from must not be after year_to")
+        for archive in self.archives():
+            name = urlsplit(archive.url).path.rsplit("/", 1)[-1]
+            if name not in OUTLOOK_FILES:
+                continue
+            for row in self.read_outlook(self.download(archive), filename=name):
+                if (year_from is None or row.year >= year_from) and (
+                    year_to is None or row.year <= year_to
+                ):
+                    yield row
+
+    def read_outlook(
+        self, data: bytes, *, filename: str = "download"
+    ) -> Iterator[LoadOutlook]:
+        """Read saved historical outlook ZIPs, workbooks and named text files."""
+        yield from read_outlook(data, filename=filename)
 
     def legacy(
         self, *, date_from: date | None = None, date_to: date | None = None

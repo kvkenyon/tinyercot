@@ -8,6 +8,7 @@ from tinyercot import (
     Client,
     LegacyHourlyLoad,
     LoadArchive,
+    LoadOutlook,
     Page,
     WeatherZoneLoad,
     WindArchive,
@@ -327,3 +328,5 @@ with Client() as client:
         client.hourly_load.read_legacy(b"", filename="erceei95.txt"),
         Iterator[LegacyHourlyLoad],
     )
+    assert_type(client.hourly_load.outlook(year_from=1999), Iterator[LoadOutlook])
+    assert_type(client.hourly_load.read_outlook(b""), Iterator[LoadOutlook])

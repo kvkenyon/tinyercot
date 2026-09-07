@@ -1,3 +1,3 @@
 include api_response_fields.json
-recursive-include tools *.py *.json *.csv *.xlsx
+recursive-include tools *.py *.md *.json *.csv *.xlsx *.pdf *.zip
 recursive-include tests *.py
