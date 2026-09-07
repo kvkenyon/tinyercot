@@ -349,3 +349,13 @@ ancillary-service offers (NP3-915), and SCED energy offers (NP3-916) expose type
 March 2014 DAM layout. Older SCED batch identifiers remain strings; QSE and DME
 values absent from historical files remain `None`. Published duplicate rows,
 proxy-extension and penalty flags, and full decimal prices are preserved.
+
+SCED ancillary-service offer disclosures (NP3-906) have nine typed history
+readers, one for each published service. DAM energy-curve disclosures (NP3-907)
+have fifteen: demand, supply and minimum supply, each for the system and four
+regions. For example, `ercot.np3_907_ex._2d_agg_edc_north_history` selects the
+North demand table from the shared ZIP; `ercot.np3_906_ex._2day_agg_sced_as_offers_regdn_history`
+selects SCED regulation-down offers. These preserve every published curve point,
+including negative prices and decimal MW quantities. The sampled archive
+boundaries for these products are December 2025; this does not establish their
+complete historical retention.

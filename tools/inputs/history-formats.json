@@ -4457,5 +4457,317 @@
       "penaltyFlag": "str",
       "batchId": "str"
     }
+  },
+  "np3-906-ex/2day_agg_sced_as_offers_ecrss": {
+    "member": "2day_Agg_SCED_AS_Offers_ECRSS-[0-9]*.csv",
+    "columns": {
+      "SCED Timestamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "MW Offered": "MWOffered",
+      "ECRSS Offer Price": "ECRSSOfferPrice"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np3-906-ex/2day_agg_sced_as_offers_nspin": {
+    "member": "2day_Agg_SCED_AS_Offers_NSPIN-[0-9]*.csv",
+    "columns": {
+      "SCED Timestamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "MW Offered": "MWOffered",
+      "NSPIN Offer Price": "NSPINOfferPrice"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np3-906-ex/2day_agg_sced_as_offers_ecrsm": {
+    "member": "2day_Agg_SCED_AS_Offers_ECRSM-[0-9]*.csv",
+    "columns": {
+      "SCED Timestamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "MW Offered": "MWOffered",
+      "ECRSM Offer Price": "ECRSMOfferPrice"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np3-906-ex/2day_agg_sced_as_offers_nspnm": {
+    "member": "2day_Agg_SCED_AS_Offers_NSPNM-[0-9]*.csv",
+    "columns": {
+      "SCED Timestamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "MW Offered": "MWOffered",
+      "NSPNM Offer Price": "NSPNMOfferPrice"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np3-906-ex/2day_agg_sced_as_offers_rrsffr": {
+    "member": "2day_Agg_SCED_AS_Offers_RRSFFR-[0-9]*.csv",
+    "columns": {
+      "SCED Timestamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "MW Offered": "MWOffered",
+      "RRSFFR Offer Price": "RRSFFROfferPrice"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np3-906-ex/2day_agg_sced_as_offers_rrspfr": {
+    "member": "2day_Agg_SCED_AS_Offers_RRSPFR-[0-9]*.csv",
+    "columns": {
+      "SCED Timestamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "MW Offered": "MWOffered",
+      "RRSPFR Offer Price": "RRSPFROfferPrice"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np3-906-ex/2day_agg_sced_as_offers_rrsufr": {
+    "member": "2day_Agg_SCED_AS_Offers_RRSUFR-[0-9]*.csv",
+    "columns": {
+      "SCED Timestamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "MW Offered": "MWOffered",
+      "RRSUFR Offer Price": "RRSUFROfferPrice"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np3-906-ex/2day_agg_sced_as_offers_regdn": {
+    "member": "2day_Agg_SCED_AS_Offers_REGDN-[0-9]*.csv",
+    "columns": {
+      "SCED Timestamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "MW Offered": "MWOffered",
+      "REGDN Offer Price": "REGDNOfferPrice"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np3-906-ex/2day_agg_sced_as_offers_regup": {
+    "member": "2day_Agg_SCED_AS_Offers_REGUP-[0-9]*.csv",
+    "columns": {
+      "SCED Timestamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "MW Offered": "MWOffered",
+      "REGUP Offer Price": "REGUPOfferPrice"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np3-907-ex/2d_agg_min_esc": {
+    "member": "2d_Agg_Min_Energy_Supply_Curves-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_min_esc_houston": {
+    "member": "2d_Agg_Min_Energy_Supply_Curves_Houston-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_min_esc_north": {
+    "member": "2d_Agg_Min_Energy_Supply_Curves_North-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_min_esc_south": {
+    "member": "2d_Agg_Min_Energy_Supply_Curves_South-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_min_esc_west": {
+    "member": "2d_Agg_Min_Energy_Supply_Curves_West-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_edc": {
+    "member": "2d_Agg_Energy_Demand_Curves-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_edc_houston": {
+    "member": "2d_Agg_Energy_Demand_Curves_Houston-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_edc_north": {
+    "member": "2d_Agg_Energy_Demand_Curves_North-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_edc_south": {
+    "member": "2d_Agg_Energy_Demand_Curves_South-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_edc_west": {
+    "member": "2d_Agg_Energy_Demand_Curves_West-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_esc": {
+    "member": "2d_Agg_Energy_Supply_Curves-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_esc_houston": {
+    "member": "2d_Agg_Energy_Supply_Curves_Houston-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_esc_north": {
+    "member": "2d_Agg_Energy_Supply_Curves_North-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_esc_south": {
+    "member": "2d_Agg_Energy_Supply_Curves_South-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-907-ex/2d_agg_esc_west": {
+    "member": "2d_Agg_Energy_Supply_Curves_West-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Price": "price",
+      "MW": "MW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
   }
 }
