@@ -1651,3 +1651,125 @@ def test_eia_hourly_preserves_unreported_hours_and_utc_timestamps():
     assert demand.HR1 == Decimal(63489)
     assert demand.HR15 is None
     assert demand.HR25 is None
+
+
+def test_bundle_rows_paginate_filter_and_keep_bundle_downloads_individual():
+    calls = []
+    csv = (INPUTS / "np4-190-cd.csv").read_bytes()
+
+    def handler(request):
+        if "b2clogin" in request.url.host:
+            return httpx.Response(200, json={"id_token": "test", "expires_in": 3600})
+        assert "/bundle/np4-190-cd" in request.url.path
+        if request.method == "POST":
+            ids = json.loads(request.content)["docIds"]
+            assert len(ids) == 1
+            calls.append(ids[0])
+            return httpx.Response(
+                200, content=zipped("inner.zip", zipped("report.csv", csv))
+            )
+        assert "postDatetimeFrom" not in request.url.params
+        page = int(request.url.params["page"])
+        return httpx.Response(
+            200,
+            json={
+                "_meta": {"currentPage": page, "totalPages": 3},
+                "product": {
+                    "emilId": "NP4-190-CD",
+                    "name": "DAM",
+                    "reportTypeId": 12331,
+                },
+                "bundles": [
+                    {
+                        "docId": -page,
+                        "friendlyName": f"DAMSPNP4190_2018-0{page}",
+                        "postDatetime": f"2018-0{page}-28T23:59:59",
+                    }
+                ],
+            },
+        )
+
+    with (
+        httpx.Client(transport=httpx.MockTransport(handler)) as http,
+        Client("u", "p", "k", client=http) as client,
+    ):
+        rows = list(
+            client.np4_190_cd.dam_stlmnt_pnt_prices_history.rows(
+                kind="bundle",
+                batch_size=100,
+                posted_from=datetime(2018, 2, 1),  # noqa: DTZ001
+                posted_to=datetime(2018, 3, 31),  # noqa: DTZ001
+                where=lambda row: row.settlementPoint == "AMISTAD_ALL",
+            )
+        )
+    assert calls == [-2, -3]
+    assert len(rows) == 2
+    # Selection applies to bundle publication dates; payload dates and duplicates remain.
+    assert rows[0] == rows[1]
+    assert rows[0].deliveryDate == date(2014, 5, 2)
+
+
+@pytest.mark.parametrize("contains_subtype", [False, True])
+def test_correction_bundle_uses_members_instead_of_document_name(contains_subtype):
+    csv = (INPUTS / "np4-196-m-spp-current.csv").read_bytes()
+    filename = (
+        "pricecorrection_DAM_SPP_2026.csv"
+        if contains_subtype
+        else "pricecorrection_DAM_MCPC_2026.csv"
+    )
+
+    def handler(request):
+        if "b2clogin" in request.url.host:
+            return httpx.Response(200, json={"id_token": "test", "expires_in": 3600})
+        assert "/bundle/np4-196-m" in request.url.path
+        if request.method == "POST":
+            return httpx.Response(
+                200, content=zipped("nested.zip", zipped(filename, csv))
+            )
+        return httpx.Response(
+            200,
+            json={
+                "_meta": {"currentPage": 1, "totalPages": 1},
+                "product": {
+                    "emilId": "NP4-196-M",
+                    "name": "DAM corrections",
+                    "reportTypeId": 13030,
+                },
+                "bundles": [
+                    {
+                        "docId": -1,
+                        "friendlyName": "DAMPriceCorrections_2026-08",
+                        "postDatetime": "2026-08-31T23:59:59",
+                    }
+                ],
+            },
+        )
+
+    with (
+        httpx.Client(transport=httpx.MockTransport(handler)) as http,
+        Client("u", "p", "k", client=http) as client,
+    ):
+        rows = list(
+            client.np4_196_m.dam_price_corrections_spp_history.rows(kind="bundle")
+        )
+    assert len(rows) == (3 if contains_subtype else 0)
+
+
+def test_bad_correction_bundle_table_still_raises():
+    def handler(request):
+        if "b2clogin" in request.url.host:
+            return httpx.Response(200, json={"id_token": "test", "expires_in": 3600})
+        return httpx.Response(
+            200, content=zipped("pricecorrection_DAM_SPP_2026.csv", b"unknown\n42\n")
+        )
+
+    with (
+        httpx.Client(transport=httpx.MockTransport(handler)) as http,
+        Client("u", "p", "k", client=http) as client,
+        pytest.raises(ValueError, match="unexpected CSV columns"),
+    ):
+        list(
+            client.np4_196_m.dam_price_corrections_spp_history.download(
+                [-1], kind="bundle"
+            )
+        )

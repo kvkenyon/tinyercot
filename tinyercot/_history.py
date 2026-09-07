@@ -191,20 +191,30 @@ class Archive(Generic[T]):
             limit = max(1, limit)
         selected = chain((first,), ids)
         while batch := list(islice(selected, limit)):
-            yield from self.read(self._client.download(self._product, batch, kind=kind))
+            data = self._client.download(self._product, batch, kind=kind)
+            # A mixed correction bundle may contain no publication of this subtype.
+            if (
+                kind == "bundle"
+                and self._document is not None
+                and next(_archive_files(data, self._member), None) is None
+            ):
+                continue
+            yield from self.read(data)
 
     def rows(
         self,
         *,
+        kind: Literal["archive", "bundle"] = "archive",
         posted_from: datetime | None = None,
         posted_to: datetime | None = None,
         where: Callable[[T], bool] | None = None,
         batch_size: int = 1,
     ) -> Iterator[T]:
-        """Read every matching archive document, without a history cutoff.
+        """Read matching archive documents or monthly bundles, without a cutoff.
 
         Bounds are inclusive ERCOT publication timestamps. No ordering or
         deduplication of rows is imposed; corrected publications are preserved.
+        Bundle timestamps identify the bundle publication, not each contained row.
         """
         if (
             posted_from is not None
@@ -213,15 +223,17 @@ class Archive(Generic[T]):
         ):
             raise ValueError("posted_from must not be after posted_to")
         documents = self._client.iter_documents(
-            self._product, posted_from=posted_from, posted_to=posted_to
+            self._product, kind=kind, posted_from=posted_from, posted_to=posted_to
         )
         for row in self.download(
             (
                 document.docId
                 for document in documents
-                if self._document is None
+                if kind == "bundle"
+                or self._document is None
                 or fnmatchcase(document.friendlyName.lower(), self._document.lower())
             ),
+            kind=kind,
             batch_size=batch_size,
         ):
             if where is None or where(row):

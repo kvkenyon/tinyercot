@@ -78,9 +78,38 @@ Corrections are preserved as published; rows are not deduplicated.
 
 `history.read(zip_bytes)` reads an existing download, including nested ZIPs.
 `history.download([doc_id])` downloads and decodes selected documents; pass
-`kind="bundle"` for monthly bundle IDs. Bundle errors propagate; automatic bundle
-fallback is not implemented yet. Unsupported CSV layouts raise with the member
-name instead of silently dropping data. These readers add no runtime dependencies.
+`kind="bundle"` for monthly bundle IDs. `history.rows(kind="bundle")` paginates
+and decodes monthly bundles directly, with the same typed `where` predicate.
+Its publication bounds filter bundle timestamps locally; they do not restrict
+the dates of individual rows inside a bundle. For example:
+
+```python
+with Client() as ercot:
+    for row in ercot.np6_345_cd.act_sys_load_by_wzn_history.rows(
+        kind="bundle",
+        posted_from=datetime(2018, 1, 31),
+        posted_to=datetime(2018, 1, 31, 23, 59, 59),
+    ):
+        print(row.operatingDay, row.total)
+```
+
+The downloaded January 2018 load bundle contained 31 daily files and 744 hourly
+rows, covering operating dates December 31 through January 30. Bundle names and
+publication months are not delivery-date bounds. Mixed correction bundles are
+filtered by CSV member name; months without the selected correction subtype yield
+no rows. Unsupported selected tables still raise.
+
+Archive and bundle retention differ. In the recorded checks, DAM prices and
+system-load archives reached May 2014, while bundles began January 2018. RTD
+price-adder archives reached June 2014, while bundles began January 2019. The DAM-price, ESR Integration and event-trigger bundle listings lacked July
+2026, and the listed January 2018 DAM-price bundle returned HTTP 400 twice.
+The December 2023 ESR Integration bundle decoded 26 daily PDF summaries.
+These point-in-time observations are recorded in
+`tools/inputs/history/bundle-evidence.json`. Use both listings when assessing maximum
+available history; neither listing alone proves continuous coverage. Reading both
+sources can repeat publications, which the client preserves. Bundle errors
+propagate; automatic fallback is not implemented yet. Unsupported CSV layouts
+raise with the member name instead of silently dropping data.
 
 Listing metadata includes the server's total and page counts; `iter_documents()` streams all listing pages.
 
