@@ -1299,3 +1299,49 @@ def test_two_day_summary_preserves_legacy_identifiers_and_categories():
     assert generation.sumHASLNonWGR == Decimal("28511.51867675")
     assert generation.sumBasePointNonIRR is None
     assert generation.sumBasePointESR is None
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "sced-curves-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_sced_curve_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    if rows:
+        assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_sced_curves_keep_non_wind_and_dam_tables_separate():
+    samples = json.loads((INPUTS / "sced-curves-evidence.json").read_text())
+    data = BytesIO()
+    with ZipFile(data, "w") as archive:
+        for sample in samples:
+            archive.writestr(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+    with Client() as client:
+        old = list(client.np3_908_er._2d_agg_esc_non_wind_history.read(data.getvalue()))
+        current = list(
+            client.np3_908_er._2d_agg_esc_nonirr_history.read(data.getvalue())
+        )
+        dam = list(client.np3_908_er._2d_agg_dam_min_esc_history.read(data.getvalue()))
+        empty = list(
+            client.np3_908_er._2d_agg_edc_clr_west_history.read(data.getvalue())
+        )
+    assert len(old) == len(current) == len(dam) == 3
+    assert old[0].MW == Decimal("655.49999845")
+    assert current[0].MW == Decimal("1451.40000152")
+    assert old[0].price == Decimal(-250)
+    assert dam[0].deliveryDate == date(2014, 3, 10)
+    assert dam[0].MW == Decimal(609)
+    assert empty == []

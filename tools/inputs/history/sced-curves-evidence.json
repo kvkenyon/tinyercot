@@ -1,0 +1,640 @@
+[
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_pvgr_houston",
+    "fixture": "np3-908-er--2d_agg_esc_pvgr_houston-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_PVGR_Houston-28-AUG-26.csv",
+    "csv_rows": 15456,
+    "first_row": {
+      "MW": "0",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -50,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 15456
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_pvgr_north",
+    "fixture": "np3-908-er--2d_agg_esc_pvgr_north-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_PVGR_North-28-AUG-26.csv",
+    "csv_rows": 131508,
+    "first_row": {
+      "MW": "0.01213621",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -50,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 131508
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_pvgr_south",
+    "fixture": "np3-908-er--2d_agg_esc_pvgr_south-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_PVGR_South-28-AUG-26.csv",
+    "csv_rows": 260047,
+    "first_row": {
+      "MW": "0",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -50,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 260047
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_pvgr_west",
+    "fixture": "np3-908-er--2d_agg_esc_pvgr_west-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_PVGR_West-28-AUG-26.csv",
+    "csv_rows": 341954,
+    "first_row": {
+      "MW": "0.01976167",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -50,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 341954
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_pvgr",
+    "fixture": "np3-908-er--2d_agg_esc_pvgr-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_PVGR-28-AUG-26.csv",
+    "csv_rows": 408378,
+    "first_row": {
+      "MW": "0.03189789",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -50,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 408378
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_edc_clr_houston",
+    "fixture": "np3-908-er--2d_agg_edc_clr_houston-history-current.csv",
+    "file": "2d_Agg_Energy_Demand_Curves_CLR_Houston-28-AUG-26.csv",
+    "csv_rows": 1514895,
+    "first_row": {
+      "MW": "76",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 1514895
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_edc_clr_north",
+    "fixture": "np3-908-er--2d_agg_edc_clr_north-history-current.csv",
+    "file": "2d_Agg_Energy_Demand_Curves_CLR_North-28-AUG-26.csv",
+    "csv_rows": 1524845,
+    "first_row": {
+      "MW": "45.1",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 1524845
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_esr",
+    "fixture": "np3-908-er--2d_agg_esc_esr-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_ESR-28-AUG-26.csv",
+    "csv_rows": 664045,
+    "first_row": {
+      "MW": "-17277.7348487",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 664045
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_esr_houston",
+    "fixture": "np3-908-er--2d_agg_esc_esr_houston-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_ESR_Houston-28-AUG-26.csv",
+    "csv_rows": 664045,
+    "first_row": {
+      "MW": "-4089.48405957",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 664045
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_esr_north",
+    "fixture": "np3-908-er--2d_agg_esc_esr_north-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_ESR_North-28-AUG-26.csv",
+    "csv_rows": 664045,
+    "first_row": {
+      "MW": "-5202.74882505",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 664045
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_esr_south",
+    "fixture": "np3-908-er--2d_agg_esc_esr_south-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_ESR_South-28-AUG-26.csv",
+    "csv_rows": 664045,
+    "first_row": {
+      "MW": "-3852.20493744",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 664045
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_esr_west",
+    "fixture": "np3-908-er--2d_agg_esc_esr_west-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_ESR_West-28-AUG-26.csv",
+    "csv_rows": 664045,
+    "first_row": {
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "repeatHourFlag": false,
+      "price": -250,
+      "MW": "-4133.29702663"
+    },
+    "rows_decoded": 664045
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_edc_clr_south",
+    "fixture": "np3-908-er--2d_agg_edc_clr_south-history-current.csv",
+    "file": "2d_Agg_Energy_Demand_Curves_CLR_South-28-AUG-26.csv",
+    "csv_rows": 1540778,
+    "first_row": {
+      "MW": "151.2",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 1540778
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_edc_clr_west",
+    "fixture": "np3-908-er--2d_agg_edc_clr_west-history-current.csv",
+    "file": "2d_Agg_Energy_Demand_Curves_CLR_West-28-AUG-26.csv",
+    "csv_rows": 0,
+    "rows_decoded": 0
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_wind",
+    "fixture": "np3-908-er--2d_agg_esc_wind-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_Wind-28-AUG-26.csv",
+    "csv_rows": 95350,
+    "first_row": {
+      "MW": "598.91592979",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -100,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 95350
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_nonirr",
+    "fixture": "np3-908-er--2d_agg_esc_nonirr-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_Non_IRR-28-AUG-26.csv",
+    "csv_rows": 685045,
+    "first_row": {
+      "MW": "1451.40000152",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 685045
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_nonirr_houston",
+    "fixture": "np3-908-er--2d_agg_esc_nonirr_houston-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_Non_IRR_Houston-28-AUG-26.csv",
+    "csv_rows": 605045,
+    "first_row": {
+      "MW": "2033.07033121",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -50,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 605045
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_nonirr_north",
+    "fixture": "np3-908-er--2d_agg_esc_nonirr_north-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_Non_IRR_North-28-AUG-26.csv",
+    "csv_rows": 664045,
+    "first_row": {
+      "MW": "466",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 664045
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_nonirr_south",
+    "fixture": "np3-908-er--2d_agg_esc_nonirr_south-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_Non_IRR_South-28-AUG-26.csv",
+    "csv_rows": 685045,
+    "first_row": {
+      "MW": "985.40000152",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 685045
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_nonirr_west",
+    "fixture": "np3-908-er--2d_agg_esc_nonirr_west-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_Non_IRR_West-28-AUG-26.csv",
+    "csv_rows": 605045,
+    "first_row": {
+      "MW": "0.44039061",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -50,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 605045
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_wind_houston",
+    "fixture": "np3-908-er--2d_agg_esc_wind_houston-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_Wind_Houston-28-AUG-26.csv",
+    "csv_rows": 17110,
+    "first_row": {
+      "MW": "0",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -100,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 17110
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_wind_north",
+    "fixture": "np3-908-er--2d_agg_esc_wind_north-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_Wind_North-28-AUG-26.csv",
+    "csv_rows": 29522,
+    "first_row": {
+      "MW": "48.5",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -100,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 29522
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_wind_south",
+    "fixture": "np3-908-er--2d_agg_esc_wind_south-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_Wind_South-28-AUG-26.csv",
+    "csv_rows": 88551,
+    "first_row": {
+      "MW": "256.24688529",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -100,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 88551
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_wind_west",
+    "fixture": "np3-908-er--2d_agg_esc_wind_west-history-current.csv",
+    "file": "2d_Agg_Supply_Curves_Wind_West-28-AUG-26.csv",
+    "csv_rows": 95350,
+    "first_row": {
+      "MW": "294.16904449",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -100,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 95350
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_edc_clr",
+    "fixture": "np3-908-er--2d_agg_edc_clr-history-current.csv",
+    "file": "2d_Agg_Energy_Demand_Curves_CLR-28-AUG-26.csv",
+    "csv_rows": 1548795,
+    "first_row": {
+      "MW": "272.3",
+      "SCEDTimestamp": "2026-08-26T00:00:29",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 1548795
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_min_esc_west",
+    "fixture": "np3-908-er--2d_agg_dam_min_esc_west-history-samples.csv",
+    "file": "48h_Agg_Min_Energy_Supply_Curves_West-12-MAR-14.csv",
+    "csv_rows": 124,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "41.15",
+      "MW": "161"
+    },
+    "rows_decoded": 124
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_min_esc_south",
+    "fixture": "np3-908-er--2d_agg_dam_min_esc_south-history-samples.csv",
+    "file": "48h_Agg_Min_Energy_Supply_Curves_South-12-MAR-14.csv",
+    "csv_rows": 721,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "5",
+      "MW": "30"
+    },
+    "rows_decoded": 721
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_min_esc_north",
+    "fixture": "np3-908-er--2d_agg_dam_min_esc_north-history-samples.csv",
+    "file": "48h_Agg_Min_Energy_Supply_Curves_North-12-MAR-14.csv",
+    "csv_rows": 494,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "0",
+      "MW": "609"
+    },
+    "rows_decoded": 494
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_min_esc_houston",
+    "fixture": "np3-908-er--2d_agg_dam_min_esc_houston-history-samples.csv",
+    "file": "48h_Agg_Min_Energy_Supply_Curves_Houston-12-MAR-14.csv",
+    "csv_rows": 278,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "1",
+      "MW": "90"
+    },
+    "rows_decoded": 278
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_min_esc",
+    "fixture": "np3-908-er--2d_agg_dam_min_esc-history-samples.csv",
+    "file": "48h_Agg_Min_Energy_Supply_Curves-12-MAR-14.csv",
+    "csv_rows": 1583,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "0",
+      "MW": "609"
+    },
+    "rows_decoded": 1583
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_non_wind",
+    "fixture": "np3-908-er--2d_agg_esc_non_wind-history-samples.csv",
+    "file": "48h_Agg_Supply_Curves_Non_Wind-12-MAR-14.csv",
+    "csv_rows": 504096,
+    "first_row": {
+      "SCEDTimestamp": "2014-03-10T00:00:13",
+      "repeatHourFlag": false,
+      "price": "-250",
+      "MW": "655.49999845"
+    },
+    "rows_decoded": 504096
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_wind",
+    "fixture": "np3-908-er--2d_agg_esc_wind-history-samples.csv",
+    "file": "48h_Agg_Supply_Curves_Wind-12-MAR-14.csv",
+    "csv_rows": 504096,
+    "first_row": {
+      "MW": "0",
+      "SCEDTimestamp": "2014-03-10T00:00:13",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 504096
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_esc",
+    "fixture": "np3-908-er--2d_agg_dam_esc-history-samples.csv",
+    "file": "48h_Agg_Energy_Supply_Curves-12-MAR-14.csv",
+    "csv_rows": 126024,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "-250",
+      "MW": "143"
+    },
+    "rows_decoded": 126024
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_wind_west",
+    "fixture": "np3-908-er--2d_agg_esc_wind_west-history-samples.csv",
+    "file": "48h_Agg_Supply_Curves_Wind_West-12-MAR-14.csv",
+    "csv_rows": 504096,
+    "first_row": {
+      "MW": "0",
+      "SCEDTimestamp": "2014-03-10T00:00:13",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 504096
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_wind_south",
+    "fixture": "np3-908-er--2d_agg_esc_wind_south-history-samples.csv",
+    "file": "48h_Agg_Supply_Curves_Wind_South-12-MAR-14.csv",
+    "csv_rows": 504096,
+    "first_row": {
+      "MW": "0",
+      "SCEDTimestamp": "2014-03-10T00:00:13",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 504096
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_wind_north",
+    "fixture": "np3-908-er--2d_agg_esc_wind_north-history-samples.csv",
+    "file": "48h_Agg_Supply_Curves_Wind_North-12-MAR-14.csv",
+    "csv_rows": 504096,
+    "first_row": {
+      "MW": "0",
+      "SCEDTimestamp": "2014-03-10T00:00:13",
+      "price": -250,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 504096
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_wind_houston",
+    "fixture": "np3-908-er--2d_agg_esc_wind_houston-history-samples.csv",
+    "file": "48h_Agg_Supply_Curves_Wind_Houston-12-MAR-14.csv",
+    "csv_rows": 0,
+    "rows_decoded": 0
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_non_wind_west",
+    "fixture": "np3-908-er--2d_agg_esc_non_wind_west-history-samples.csv",
+    "file": "48h_Agg_Supply_Curves_Non_Wind_West-12-MAR-14.csv",
+    "csv_rows": 504096,
+    "first_row": {
+      "SCEDTimestamp": "2014-03-10T00:00:13",
+      "repeatHourFlag": false,
+      "price": "-250",
+      "MW": "0"
+    },
+    "rows_decoded": 504096
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_non_wind_south",
+    "fixture": "np3-908-er--2d_agg_esc_non_wind_south-history-samples.csv",
+    "file": "48h_Agg_Supply_Curves_Non_Wind_South-12-MAR-14.csv",
+    "csv_rows": 504096,
+    "first_row": {
+      "SCEDTimestamp": "2014-03-10T00:00:13",
+      "repeatHourFlag": false,
+      "price": "-250",
+      "MW": "254.59999847"
+    },
+    "rows_decoded": 504096
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_non_wind_north",
+    "fixture": "np3-908-er--2d_agg_esc_non_wind_north-history-samples.csv",
+    "file": "48h_Agg_Supply_Curves_Non_Wind_North-12-MAR-14.csv",
+    "csv_rows": 504096,
+    "first_row": {
+      "SCEDTimestamp": "2014-03-10T00:00:13",
+      "repeatHourFlag": false,
+      "price": "-250",
+      "MW": "400.89999997"
+    },
+    "rows_decoded": 504096
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_esc_non_wind_houston",
+    "fixture": "np3-908-er--2d_agg_esc_non_wind_houston-history-samples.csv",
+    "file": "48h_Agg_Supply_Curves_Non_Wind_Houston-12-MAR-14.csv",
+    "csv_rows": 504096,
+    "first_row": {
+      "SCEDTimestamp": "2014-03-10T00:00:13",
+      "repeatHourFlag": false,
+      "price": "-250",
+      "MW": "0"
+    },
+    "rows_decoded": 504096
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_esc_west",
+    "fixture": "np3-908-er--2d_agg_dam_esc_west-history-samples.csv",
+    "file": "48h_Agg_Energy_Supply_Curves_West-12-MAR-14.csv",
+    "csv_rows": 126024,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "-250",
+      "MW": "10"
+    },
+    "rows_decoded": 126024
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_esc_south",
+    "fixture": "np3-908-er--2d_agg_dam_esc_south-history-samples.csv",
+    "file": "48h_Agg_Energy_Supply_Curves_South-12-MAR-14.csv",
+    "csv_rows": 126024,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "-250",
+      "MW": "15"
+    },
+    "rows_decoded": 126024
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_esc_north",
+    "fixture": "np3-908-er--2d_agg_dam_esc_north-history-samples.csv",
+    "file": "48h_Agg_Energy_Supply_Curves_North-12-MAR-14.csv",
+    "csv_rows": 126024,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "-250",
+      "MW": "78"
+    },
+    "rows_decoded": 126024
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_esc_houston",
+    "fixture": "np3-908-er--2d_agg_dam_esc_houston-history-samples.csv",
+    "file": "48h_Agg_Energy_Supply_Curves_Houston-12-MAR-14.csv",
+    "csv_rows": 126024,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "-250",
+      "MW": "40"
+    },
+    "rows_decoded": 126024
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_edc_west",
+    "fixture": "np3-908-er--2d_agg_dam_edc_west-history-samples.csv",
+    "file": "48h_Agg_Energy_Demand_Curves_West-12-MAR-14.csv",
+    "csv_rows": 288024,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "-2001",
+      "MW": "1836.4"
+    },
+    "rows_decoded": 288024
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_edc_south",
+    "fixture": "np3-908-er--2d_agg_dam_edc_south-history-samples.csv",
+    "file": "48h_Agg_Energy_Demand_Curves_South-12-MAR-14.csv",
+    "csv_rows": 288024,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "-2001",
+      "MW": "5661.4"
+    },
+    "rows_decoded": 288024
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_edc_north",
+    "fixture": "np3-908-er--2d_agg_dam_edc_north-history-samples.csv",
+    "file": "48h_Agg_Energy_Demand_Curves_North-12-MAR-14.csv",
+    "csv_rows": 288024,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "-2001",
+      "MW": "6767.4"
+    },
+    "rows_decoded": 288024
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_edc_houston",
+    "fixture": "np3-908-er--2d_agg_dam_edc_houston-history-samples.csv",
+    "file": "48h_Agg_Energy_Demand_Curves_Houston-12-MAR-14.csv",
+    "csv_rows": 288024,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "-2001",
+      "MW": "1257.6"
+    },
+    "rows_decoded": 288024
+  },
+  {
+    "endpoint": "np3-908-er/2d_agg_dam_edc",
+    "fixture": "np3-908-er--2d_agg_dam_edc-history-samples.csv",
+    "file": "48h_Agg_Energy_Demand_Curves-12-MAR-14.csv",
+    "csv_rows": 288024,
+    "first_row": {
+      "deliveryDate": "2014-03-10",
+      "hourEnding": 1,
+      "price": "-2001",
+      "MW": "15532.8"
+    },
+    "rows_decoded": 288024
+  }
+]
