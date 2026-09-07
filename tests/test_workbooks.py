@@ -1,5 +1,6 @@
 # XLSX timestamps are deliberately timezone-naive, as published.
 # ruff: noqa: DTZ001
+import json
 from collections import Counter
 from datetime import date, datetime, time
 from decimal import Decimal
@@ -98,3 +99,65 @@ def test_missing_optional_dependency(monkeypatch):
     monkeypatch.setitem(sys.modules, "openpyxl", None)
     with Client() as client, pytest.raises(ImportError, match=r"tinyercot\[files\]"):
         list(client.np1_346_er.outages_history.read(b""))
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "price-workbooks-evidence.json").read_text()),
+    ids=lambda s: s["fixture"],
+)
+def test_price_adder_workbook_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")), method + "_history"
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert Counter(r.sourceSheet for r in rows) == {
+        s: min(n, 3) for s, n in sample["sheet_rows"].items() if n
+    }
+    for sheet, expected in sample["first_rows"].items():
+        assert (
+            next(r for r in rows if r.sourceSheet == sheet).model_dump(mode="json")
+            == expected
+        )
+
+
+def test_price_adder_history_keeps_legacy_components():
+    with Client() as client:
+        old = next(
+            client.np6_792_er.price_adders_history.read(
+                zipped(
+                    "old.xlsx",
+                    (INPUTS / "np6-792-er-history-samples.xlsx").read_bytes(),
+                )
+            )
+        )
+        current = next(
+            client.np6_792_er.price_adders_history.read(
+                zipped(
+                    "new.xlsx",
+                    (INPUTS / "np6-792-er-history-current.xlsx").read_bytes(),
+                )
+            )
+        )
+        interval = next(
+            client.np6_793_er.price_adders_history.read(
+                zipped(
+                    "interval.xlsx",
+                    (INPUTS / "np6-793-er-history-samples.xlsx").read_bytes(),
+                )
+            )
+        )
+    assert old.batchId == 5061293
+    assert old.RTORPA == Decimal(0)
+    assert old.RTRDPA is None
+    assert current.RTORPA is None
+    assert current.RTRDPA == Decimal(0)
+    assert current.RTDLL is None
+    assert interval.deliveryDate == date(2017, 1, 1)
+    assert interval.RTRSVPOR == Decimal("0.31")

@@ -8,7 +8,7 @@ from ._client import Transport, Page, Row
 from ._history import Archive, EiaHour
 from ._xlsx import WorkbookArchive
 
-__all__ = ['Client', 'copg_316', 'eia_930_er', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np1_346_er', 'np3_108', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_520_er', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd']
+__all__ = ['Client', 'copg_316', 'eia_930_er', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np1_346_er', 'np3_108', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_520_er', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_792_er', 'np6_793_er', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd']
 class copg_316:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -11496,6 +11496,86 @@ class np6_788_cd:
         'LMPs by Resource Nodes, Load Zones and Trading Hubs'
         return self._client._aiter('/np6-788-cd/lmp_node_zone_hub', np6_788_cd.LmpNodeZoneHubRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'settlementPoint': settlementPoint, 'LMPFrom': LMPFrom, 'LMPTo': LMPTo, 'size': size, 'sort': sort, 'dir': dir})
 
+class np6_792_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class PriceAddersHistoryRow(Row):
+        sourceSheet: str | None = None
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        systemLambda: Decimal | None
+        RTRDPA: Decimal | None = None
+        RTRDPARUS: Decimal | None = None
+        RTRDPARDS: Decimal | None = None
+        RTRDPARRS: Decimal | None = None
+        RTRDPAECRS: Decimal | None = None
+        RTRDPANSS: Decimal | None = None
+        RTRRUC: Decimal | None
+        RTRRMR: Decimal | None
+        RTDNCLR: Decimal | None
+        RTDERS: Decimal | None
+        RTDCTIEIMPORT: Decimal | None = None
+        RTDCTIEEXPORT: Decimal | None = None
+        RTBLTIMPORT: Decimal | None = None
+        RTBLTEXPORT: Decimal | None = None
+        RTOLLSL: Decimal | None = None
+        RTOLHSL: Decimal | None
+        RTDLL: Decimal | None = None
+        batchId: int | None = None
+        PRC: Decimal | None = None
+        RTOLCAP: Decimal | None = None
+        RTOFFCAP: Decimal | None = None
+        RTORPA: Decimal | None = None
+        RTOFFPA: Decimal | None = None
+        RTBP: Decimal | None = None
+        RTOLNSRS: Decimal | None = None
+        RTCLRCAP: Decimal | None = None
+        RTCLRBP: Decimal | None = None
+        RTCLRLSL: Decimal | None = None
+        RTCLRNS: Decimal | None = None
+        RTCLRREG: Decimal | None = None
+        RTNCLRRRS: Decimal | None = None
+        RTCST30HSL: Decimal | None = None
+        RTOFFNSHSL: Decimal | None = None
+        RTOFF10: Decimal | None = None
+        RTOFF30: Decimal | None = None
+        RTORDPA: Decimal | None = None
+        RTOLLASL: Decimal | None = None
+        RTOLHASL: Decimal | None = None
+
+    @property
+    def price_adders_history(self) -> WorkbookArchive[np6_792_er.PriceAddersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np6-792-er', np6_792_er.PriceAddersHistoryRow, {'      SCED Timestamp      ': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'System Lamda': 'systemLambda', 'RTRDPA': 'RTRDPA', 'RTRDPARUS': 'RTRDPARUS', 'RTRDPARDS': 'RTRDPARDS', 'RTRDPARRS': 'RTRDPARRS', 'RTRDPAECRS': 'RTRDPAECRS', 'RTRDPANSS': 'RTRDPANSS', 'RTRRUC': 'RTRRUC', 'RTRRMR': 'RTRRMR', 'RTDNCLR': 'RTDNCLR', 'RTDERS': 'RTDERS', 'RTDCTIEIMPORT': 'RTDCTIEIMPORT', 'RTDCTIEEXPORT': 'RTDCTIEEXPORT', 'RTBLTIMPORT': 'RTBLTIMPORT', 'RTBLTEXPORT': 'RTBLTEXPORT', 'RTOLLSL': 'RTOLLSL', 'RTOLHSL': 'RTOLHSL', 'RTDLL': 'RTDLL'}, {}, sheets=('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), variants=({'Batch ID': 'batchId', '      SCED Timestamp      ': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'System Lamda': 'systemLambda', 'PRC': 'PRC', 'RTOLCAP': 'RTOLCAP', 'RTOFFCAP': 'RTOFFCAP', 'RTORPA': 'RTORPA', 'RTOFFPA': 'RTOFFPA', 'RTOLHSL': 'RTOLHSL', 'RTBP': 'RTBP', 'RTOLNSRS': 'RTOLNSRS', 'RTCLRCAP': 'RTCLRCAP', 'RTCLRBP': 'RTCLRBP', 'RTCLRLSL': 'RTCLRLSL', 'RTCLRNS': 'RTCLRNS', 'RTCLRREG': 'RTCLRREG', 'RTNCLRRRS': 'RTNCLRRRS', 'RTCST30HSL': 'RTCST30HSL', 'RTOFFNSHSL': 'RTOFFNSHSL', 'RTOFF10': 'RTOFF10', 'RTOFF30': 'RTOFF30', 'RTORDPA': 'RTORDPA', 'RTRRUC': 'RTRRUC', 'RTRRMR': 'RTRRMR', 'RTDNCLR': 'RTDNCLR', 'RTDERS': 'RTDERS', 'RTOLLASL': 'RTOLLASL', 'RTOLHASL': 'RTOLHASL'},))
+
+class np6_793_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class PriceAddersHistoryRow(Row):
+        sourceSheet: str | None = None
+        deliveryDate: date | None
+        deliveryHour: int | None
+        deliveryInterval: int | None
+        repeatHourFlag: bool | None
+        RTRDPA: Decimal | None = None
+        RTRDPRU: Decimal | None = None
+        RTRDPRD: Decimal | None = None
+        RTRDPRRS: Decimal | None = None
+        RTRDPECRS: Decimal | None = None
+        RTRDPNS: Decimal | None = None
+        RTRSVPOR: Decimal | None = None
+        RTRSVPOFF: Decimal | None = None
+        RTRDP: Decimal | None = None
+
+    @property
+    def price_adders_history(self) -> WorkbookArchive[np6_793_er.PriceAddersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np6-793-er', np6_793_er.PriceAddersHistoryRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRDPA': 'RTRDPA', 'RTRDPRU': 'RTRDPRU', 'RTRDPRD': 'RTRDPRD', 'RTRDPRRS': 'RTRDPRRS', 'RTRDPECRS': 'RTRDPECRS', 'RTRDPNS': 'RTRDPNS'}, {}, sheets=('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), variants=({'DeliveryDate': 'deliveryDate', 'DeliveryHour        ': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'RTRDP': 'RTRDP'}, {'DeliveryDate': 'deliveryDate', '         DeliveryHour                ': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'RTRDP': 'RTRDP'}, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'RTRDP': 'RTRDP'}, {'DeliveryDate': 'deliveryDate', 'DeliveryHour ': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'RTRDP': 'RTRDP'}))
+
 class np6_86_cd:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -12080,6 +12160,14 @@ class Client(Transport):
     @property
     def np6_788_cd(self) -> np6_788_cd:
         return np6_788_cd(self)
+
+    @property
+    def np6_792_er(self) -> np6_792_er:
+        return np6_792_er(self)
+
+    @property
+    def np6_793_er(self) -> np6_793_er:
+        return np6_793_er(self)
 
     @property
     def np6_86_cd(self) -> np6_86_cd:

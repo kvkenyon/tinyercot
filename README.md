@@ -415,3 +415,11 @@ self-arranged services and legacy demand-side response loads. Readers select
 individual tables from the shared archive. Older QSE/DME fields may be absent,
 and legacy `RRSGN`, `RRSLD`, `RRSNC` quantities remain separate from newer service
 categories. Curve points and reported revisions remain as published.
+
+Historical SCED and 15-minute price-adder workbooks (NP6-792/793) expose
+`price_adders_history` readers with `tinyercot[files]`. Monthly sheets retain
+`sourceSheet`; older ORDC/reserve fields and newer component adders stay
+separate, with absent columns represented by `None`. Delivery dates, SCED
+timestamps and published batch IDs remain available. A workbook's year label
+does not guarantee a complete year: the sampled early 2018 SCED file contains
+only January rows.
