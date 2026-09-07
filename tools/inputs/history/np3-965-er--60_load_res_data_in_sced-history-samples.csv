@@ -1,0 +1,4 @@
+"SCED Time Stamp","Repeated Hour Flag","Resource Name","Telemetered Resource Status","Max Power Consumption","Low Power Consumption","Real Power Consumption","AS Responsibility for RRS","AS Responsibility for NonSpin","AS Responsibility for RegUp","AS Responsibility for RegDown"
+"03/02/2014 00:00:14","N","ACRLY_LD1","OUTL","0","0",".5","0","0","0","0"
+"03/02/2014 00:00:14","N","ADMDS_LD1","OUTL","9","0","3.4","0","0","0","0"
+"03/02/2014 00:00:14","N","AI_LD2","ONRL","4","0","2.1","1.5","0","0","0"
