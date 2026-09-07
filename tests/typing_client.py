@@ -48,3 +48,9 @@ with Client() as client:
     for response in client.np3_108.demand_response_history.rows():
         assert_type(response.month, date | None)
         assert_type(response.sourceSheet, str | None)
+
+    for solar in client.np4_737_cd.spp_hrly_avrg_actl_fcast_history.rows():
+        assert_type(solar.hourEndingTimestamp, datetime | None)
+        assert_type(solar.genSystemWide, Decimal | None)
+    for wind in client.np4_733_cd.wpp_actual_5min_avg_values_history.rows():
+        assert_type(wind.LZWestNorth, Decimal | None)

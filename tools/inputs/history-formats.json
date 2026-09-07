@@ -2062,5 +2062,420 @@
     "dates": {
       "deliveryMonth": "%Y-%m"
     }
+  },
+  "np4-733-cd/wpp_actual_5min_avg_values": {
+    "columns": {
+      "INTERVAL_ENDING": "intervalEnding",
+      "SYSTEM_WIDE_GEN": "genSystemWide",
+      "LZ_SOUTH_HOUSTON": "LZSouthHouston",
+      "LZ_WEST": "LZWest",
+      "LZ_NORTH": "LZNorth",
+      "SYSTEM_WIDE_HSL": "HSLSystemWide",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M",
+      "intervalEnding": "%m/%d/%Y %H:%M"
+    },
+    "variants": [
+      {
+        "INTERVAL_ENDING": "intervalEnding",
+        "SYSTEM_WIDE": "genSystemWide",
+        "SOUTH_HOUSTON": "LZSouthHouston",
+        "WEST_NORTH": "LZWestNorth",
+        "DSTFlag": "DSTFlag"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "intervalEnding": "datetime",
+      "genSystemWide": "Decimal",
+      "LZSouthHouston": "Decimal",
+      "LZWest": "Decimal",
+      "LZNorth": "Decimal",
+      "HSLSystemWide": "Decimal",
+      "DSTFlag": "bool",
+      "LZWestNorth": "Decimal"
+    }
+  },
+  "np4-737-cd/spp_hrly_avrg_actl_fcast": {
+    "columns": {
+      "DELIVERY_DATE": "deliveryDate",
+      "HOUR_ENDING": "hourEnding",
+      "SYSTEM_WIDE_GEN": "genSystemWide",
+      "COP_HSL_SYSTEM_WIDE": "COPHSLSystemWide",
+      "STPPF_SYSTEM_WIDE": "STPPFSystemWide",
+      "PVGRPP_SYSTEM_WIDE": "PVGRPPSystemWide",
+      "SYSTEM_WIDE_HSL": "HSLSystemWide",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M",
+      "hourEndingTimestamp": "%m/%d/%Y %H:%M"
+    },
+    "variants": [
+      {
+        "HOUR_ENDING": "hourEndingTimestamp",
+        "ACTUAL_SYSTEM_WIDE": "genSystemWide",
+        "COP_HSL_SYSTEM_WIDE": "COPHSLSystemWide",
+        "STPPF_SYSTEM_WIDE": "STPPFSystemWide",
+        "PVGRPP_SYSTEM_WIDE": "PVGRPPSystemWide",
+        "DSTFlag": "DSTFlag"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "genSystemWide": "Decimal",
+      "COPHSLSystemWide": "Decimal",
+      "STPPFSystemWide": "Decimal",
+      "PVGRPPSystemWide": "Decimal",
+      "HSLSystemWide": "Decimal",
+      "DSTFlag": "bool",
+      "hourEndingTimestamp": "datetime"
+    }
+  },
+  "np4-738-cd/spp_actual_5min_avg_values": {
+    "columns": {
+      "INTERVAL_ENDING": "intervalEnding",
+      "SYSTEM_WIDE_GEN": "genSystemWide",
+      "SYSTEM_WIDE_HSL": "HSLSystemWide",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M",
+      "intervalEnding": "%m/%d/%Y %H:%M"
+    },
+    "variants": [
+      {
+        "INTERVAL_ENDING": "intervalEnding",
+        "SYSTEM_WIDE": "genSystemWide",
+        "DSTFlag": "DSTFlag"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "intervalEnding": "datetime",
+      "genSystemWide": "Decimal",
+      "HSLSystemWide": "Decimal",
+      "DSTFlag": "bool"
+    }
+  },
+  "np4-742-cd/wpp_hrly_actual_fcast_geo": {
+    "columns": {
+      "DELIVERY_DATE": "deliveryDate",
+      "HOUR_ENDING": "hourEnding",
+      "SYSTEM_WIDE_GEN": "genSystemWide",
+      "COP_HSL_SYSTEM_WIDE": "COPHSLSystemWide",
+      "STWPF_SYSTEM_WIDE": "STWPFSystemWide",
+      "WGRPP_SYSTEM_WIDE": "WGRPPSystemWide",
+      "GEN_PANHANDLE": "genPanhandle",
+      "COP_HSL_PANHANDLE": "COPHSLPanhandle",
+      "STWPF_PANHANDLE": "STWPFPanhandle",
+      "WGRPP_PANHANDLE": "WGRPPPanhandle",
+      "GEN_COASTAL": "genCoastal",
+      "COP_HSL_COASTAL": "COPHSLCoastal",
+      "STWPF_COASTAL": "STWPFCoastal",
+      "WGRPP_COASTAL": "WGRPPCoastal",
+      "GEN_SOUTH": "genSouth",
+      "COP_HSL_SOUTH": "COPHSLSouth",
+      "STWPF_SOUTH": "STWPFSouth",
+      "WGRPP_SOUTH": "WGRPPSouth",
+      "GEN_WEST": "genWest",
+      "COP_HSL_WEST": "COPHSLWest",
+      "STWPF_WEST": "STWPFWest",
+      "WGRPP_WEST": "WGRPPWest",
+      "GEN_NORTH": "genNorth",
+      "COP_HSL_NORTH": "COPHSLNorth",
+      "STWPF_NORTH": "STWPFNorth",
+      "WGRPP_NORTH": "WGRPPNorth",
+      "SYSTEM_WIDE_HSL": "HSLSystemWide",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M"
+    },
+    "variants": [
+      {
+        "DELIVERY_DATE": "deliveryDate",
+        "HOUR_ENDING": "hourEnding",
+        "ACTUAL_SYSTEM_WIDE": "genSystemWide",
+        "COP_HSL_SYSTEM_WIDE": "COPHSLSystemWide",
+        "STWPF_SYSTEM_WIDE": "STWPFSystemWide",
+        "WGRPP_SYSTEM_WIDE": "WGRPPSystemWide",
+        "ACTUAL_PANHANDLE": "genPanhandle",
+        "COP_HSL_PANHANDLE": "COPHSLPanhandle",
+        "STWPF_PANHANDLE": "STWPFPanhandle",
+        "WGRPP_PANHANDLE": "WGRPPPanhandle",
+        "ACTUAL_COASTAL": "genCoastal",
+        "COP_HSL_COASTAL": "COPHSLCoastal",
+        "STWPF_COASTAL": "STWPFCoastal",
+        "WGRPP_COASTAL": "WGRPPCoastal",
+        "ACTUAL_SOUTH": "genSouth",
+        "COP_HSL_SOUTH": "COPHSLSouth",
+        "STWPF_SOUTH": "STWPFSouth",
+        "WGRPP_SOUTH": "WGRPPSouth",
+        "ACTUAL_WEST": "genWest",
+        "COP_HSL_WEST": "COPHSLWest",
+        "STWPF_WEST": "STWPFWest",
+        "WGRPP_WEST": "WGRPPWest",
+        "ACTUAL_NORTH": "genNorth",
+        "COP_HSL_NORTH": "COPHSLNorth",
+        "STWPF_NORTH": "STWPFNorth",
+        "WGRPP_NORTH": "WGRPPNorth",
+        "DSTFlag": "DSTFlag"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "genSystemWide": "Decimal",
+      "COPHSLSystemWide": "Decimal",
+      "STWPFSystemWide": "Decimal",
+      "WGRPPSystemWide": "Decimal",
+      "genPanhandle": "Decimal",
+      "COPHSLPanhandle": "Decimal",
+      "STWPFPanhandle": "Decimal",
+      "WGRPPPanhandle": "Decimal",
+      "genCoastal": "Decimal",
+      "COPHSLCoastal": "Decimal",
+      "STWPFCoastal": "Decimal",
+      "WGRPPCoastal": "Decimal",
+      "genSouth": "Decimal",
+      "COPHSLSouth": "Decimal",
+      "STWPFSouth": "Decimal",
+      "WGRPPSouth": "Decimal",
+      "genWest": "Decimal",
+      "COPHSLWest": "Decimal",
+      "STWPFWest": "Decimal",
+      "WGRPPWest": "Decimal",
+      "genNorth": "Decimal",
+      "COPHSLNorth": "Decimal",
+      "STWPFNorth": "Decimal",
+      "WGRPPNorth": "Decimal",
+      "HSLSystemWide": "Decimal",
+      "DSTFlag": "bool"
+    }
+  },
+  "np4-743-cd/wpp_actual_5min_avg_values_geo": {
+    "columns": {
+      "INTERVAL_ENDING": "intervalEnding",
+      "SYSTEM_WIDE_GEN": "genSystemWide",
+      "PANHANDLE": "panhandle",
+      "COASTAL": "coastal",
+      "SOUTH": "south",
+      "WEST": "west",
+      "NORTH": "north",
+      "SYSTEM_WIDE_HSL": "HSLSystemWide",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M",
+      "intervalEnding": "%m/%d/%Y %H:%M"
+    },
+    "variants": [
+      {
+        "INTERVAL_ENDING": "intervalEnding",
+        "SYSTEM_WIDE": "genSystemWide",
+        "PANHANDLE": "panhandle",
+        "COASTAL": "coastal",
+        "SOUTH": "south",
+        "WEST": "west",
+        "NORTH": "north",
+        "DSTFlag": "DSTFlag"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "intervalEnding": "datetime",
+      "genSystemWide": "Decimal",
+      "panhandle": "Decimal",
+      "coastal": "Decimal",
+      "south": "Decimal",
+      "west": "Decimal",
+      "north": "Decimal",
+      "HSLSystemWide": "Decimal",
+      "DSTFlag": "bool"
+    }
+  },
+  "np4-745-cd/spp_hrly_actual_fcast_geo": {
+    "columns": {
+      "DELIVERY_DATE": "deliveryDate",
+      "HOUR_ENDING": "hourEnding",
+      "SYSTEM_WIDE_GEN": "genSystemWide",
+      "COP_HSL_SYSTEM_WIDE": "COPHSLSystemWide",
+      "STPPF_SYSTEM_WIDE": "STPPFSystemWide",
+      "PVGRPP_SYSTEM_WIDE": "PVGRPPSystemWide",
+      "GEN_CenterWest": "genCenterWest",
+      "COP_HSL_CenterWest": "COPHSLCenterWest",
+      "STPPF_CenterWest": "STPPFCenterWest",
+      "PVGRPP_CenterWest": "PVGRPPCenterWest",
+      "GEN_NorthWest": "genNorthWest",
+      "COP_HSL_NorthWest": "COPHSLNorthWest",
+      "STPPF_NorthWest": "STPPFNorthWest",
+      "PVGRPP_NorthWest": "PVGRPPNorthWest",
+      "GEN_FarWest": "genFarWest",
+      "COP_HSL_FarWest": "COPHSLFarWest",
+      "STPPF_FarWest": "STPPFFarWest",
+      "PVGRPP_FarWest": "PVGRPPFarWest",
+      "GEN_FarEast": "genFarEast",
+      "COP_HSL_FarEast": "COPHSLFarEast",
+      "STPPF_FarEast": "STPPFFarEast",
+      "PVGRPP_FarEast": "PVGRPPFarEast",
+      "GEN_SouthEast": "genSouthEast",
+      "COP_HSL_SouthEast": "COPHSLSouthEast",
+      "STPPF_SouthEast": "STPPFSouthEast",
+      "PVGRPP_SouthEast": "PVGRPPSouthEast",
+      "GEN_CenterEast": "genCenterEast",
+      "COP_HSL_CenterEast": "COPHSLCenterEast",
+      "STPPF_CenterEast": "STPPFCenterEast",
+      "PVGRPP_CenterEast": "PVGRPPCenterEast",
+      "SYSTEM_WIDE_HSL": "HSLSystemWide",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M"
+    },
+    "variants": [
+      {
+        "DELIVERY_DATE": "deliveryDate",
+        "HOUR_ENDING": "hourEnding",
+        "GEN_SYSTEM_WIDE": "genSystemWide",
+        "COP_HSL_SYSTEM_WIDE": "COPHSLSystemWide",
+        "STPPF_SYSTEM_WIDE": "STPPFSystemWide",
+        "PVGRPP_SYSTEM_WIDE": "PVGRPPSystemWide",
+        "GEN_CenterWest": "genCenterWest",
+        "COP_HSL_CenterWest": "COPHSLCenterWest",
+        "STPPF_CenterWest": "STPPFCenterWest",
+        "PVGRPP_CenterWest": "PVGRPPCenterWest",
+        "GEN_NorthWest": "genNorthWest",
+        "COP_HSL_NorthWest": "COPHSLNorthWest",
+        "STPPF_NorthWest": "STPPFNorthWest",
+        "PVGRPP_NorthWest": "PVGRPPNorthWest",
+        "GEN_FarWest": "genFarWest",
+        "COP_HSL_FarWest": "COPHSLFarWest",
+        "STPPF_FarWest": "STPPFFarWest",
+        "PVGRPP_FarWest": "PVGRPPFarWest",
+        "GEN_FarEast": "genFarEast",
+        "COP_HSL_FarEast": "COPHSLFarEast",
+        "STPPF_FarEast": "STPPFFarEast",
+        "PVGRPP_FarEast": "PVGRPPFarEast",
+        "GEN_SouthEast": "genSouthEast",
+        "COP_HSL_SouthEast": "COPHSLSouthEast",
+        "STPPF_SouthEast": "STPPFSouthEast",
+        "PVGRPP_SouthEast": "PVGRPPSouthEast",
+        "GEN_CenterEast": "genCenterEast",
+        "COP_HSL_CenterEast": "COPHSLCenterEast",
+        "STPPF_CenterEast": "STPPFCenterEast",
+        "PVGRPP_CenterEast": "PVGRPPCenterEast",
+        "DSTFlag": "DSTFlag"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "genSystemWide": "Decimal",
+      "COPHSLSystemWide": "Decimal",
+      "STPPFSystemWide": "Decimal",
+      "PVGRPPSystemWide": "Decimal",
+      "genCenterWest": "Decimal",
+      "COPHSLCenterWest": "Decimal",
+      "STPPFCenterWest": "Decimal",
+      "PVGRPPCenterWest": "Decimal",
+      "genNorthWest": "Decimal",
+      "COPHSLNorthWest": "Decimal",
+      "STPPFNorthWest": "Decimal",
+      "PVGRPPNorthWest": "Decimal",
+      "genFarWest": "Decimal",
+      "COPHSLFarWest": "Decimal",
+      "STPPFFarWest": "Decimal",
+      "PVGRPPFarWest": "Decimal",
+      "genFarEast": "Decimal",
+      "COPHSLFarEast": "Decimal",
+      "STPPFFarEast": "Decimal",
+      "PVGRPPFarEast": "Decimal",
+      "genSouthEast": "Decimal",
+      "COPHSLSouthEast": "Decimal",
+      "STPPFSouthEast": "Decimal",
+      "PVGRPPSouthEast": "Decimal",
+      "genCenterEast": "Decimal",
+      "COPHSLCenterEast": "Decimal",
+      "STPPFCenterEast": "Decimal",
+      "PVGRPPCenterEast": "Decimal",
+      "HSLSystemWide": "Decimal",
+      "DSTFlag": "bool"
+    }
+  },
+  "np4-746-cd/spp_actual_5min_avg_values_geo": {
+    "columns": {
+      "INTERVAL_ENDING": "intervalEnding",
+      "SYSTEM_WIDE_GEN": "genSystemWide",
+      "CenterWest_GEN": "genCenterWest",
+      "NorthWest_GEN": "genNorthWest",
+      "FarWest_GEN": "genFarWest",
+      "FarEast_GEN": "genFarEast",
+      "SouthEast_GEN": "genSouthEast",
+      "CenterEast_GEN": "genCenterEast",
+      "SYSTEM_WIDE_HSL": "HSLSystemWide",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M",
+      "intervalEnding": "%m/%d/%Y %I:%M:%S %p"
+    },
+    "variants": [
+      {
+        "INTERVAL_ENDING": "intervalEnding",
+        "SYSTEM_WIDE_GEN": "genSystemWide",
+        "CenterWest_GEN": "genCenterWest",
+        "NorthWest_GEN": "genNorthWest",
+        "FarWest_GEN": "genFarWest",
+        "FarEast_GEN": "genFarEast",
+        "SouthEast_GEN": "genSouthEast",
+        "CenterEast_GEN": "genCenterEast",
+        "DSTFlag": "DSTFlag"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "intervalEnding": "datetime",
+      "genSystemWide": "Decimal",
+      "genCenterWest": "Decimal",
+      "genNorthWest": "Decimal",
+      "genFarWest": "Decimal",
+      "genFarEast": "Decimal",
+      "genSouthEast": "Decimal",
+      "genCenterEast": "Decimal",
+      "HSLSystemWide": "Decimal",
+      "DSTFlag": "bool"
+    }
+  },
+  "np6-235-cd/system_wide_demand": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "TimeEnding": "timeEnding",
+      "Demand": "demand",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
   }
 }

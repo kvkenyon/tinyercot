@@ -170,3 +170,19 @@ Older outage reports expose `returnToServiceDate`; newer reports expose separate
 `plannedEndDate` and `actualEndDate` fields. Missing fields remain `None`.
 These readers have been checked against the oldest available and recent sampled
 workbooks, not every intervening publication.
+
+
+Historical readers also cover five-minute wind and solar generation, hourly solar
+forecasts, geographical wind/solar generation and forecasts, and system-wide
+demand. Use the API method name with `_history`, for example
+`ercot.np4_742_cd.wpp_hrly_actual_fcast_geo_history.rows(...)`.
+The older five-minute wind layout preserves its combined region as `LZWestNorth`;
+individual west/north values remain `None`. Older solar forecasts preserve a full
+`hourEndingTimestamp` instead of inventing a delivery date and integer hour.
+Archived five-minute timestamps retain their seconds where supplied.
+
+In the September 2026 archive probes, oldest downloadable samples reached April
+2014 for five-minute wind and February 2016 for solar. Regional reports started
+later, and the system-wide demand listing reached only March 2026. These are
+observed archive bounds, not guarantees of complete intervening data or permanent
+retention; inspect each product's listings when selecting a backfill.

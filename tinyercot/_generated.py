@@ -7057,6 +7057,22 @@ class np4_733_cd:
         intervalEnding: datetime | None
         postedDatetime: datetime | None
 
+    class WppActual5minAvgValuesHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        genSystemWide: Decimal | None
+        LZSouthHouston: Decimal | None
+        LZWest: Decimal | None = None
+        LZNorth: Decimal | None = None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+        LZWestNorth: Decimal | None = None
+
+    @property
+    def wpp_actual_5min_avg_values_history(self) -> Archive[np4_733_cd.WppActual5minAvgValuesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-733-cd', np4_733_cd.WppActual5minAvgValuesHistoryRow, {'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'LZ_SOUTH_HOUSTON': 'LZSouthHouston', 'LZ_WEST': 'LZWest', 'LZ_NORTH': 'LZNorth', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=({'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE': 'genSystemWide', 'SOUTH_HOUSTON': 'LZSouthHouston', 'WEST_NORTH': 'LZWestNorth', 'DSTFlag': 'DSTFlag'},))
+
     def wpp_actual_5min_avg_values(self, *, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, LZSouthHoustonFrom: Decimal | None = None, LZSouthHoustonTo: Decimal | None = None, LZWestFrom: Decimal | None = None, LZWestTo: Decimal | None = None, LZNorthFrom: Decimal | None = None, LZNorthTo: Decimal | None = None, DSTFlag: bool | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_733_cd.WppActual5minAvgValuesRow]:
         'Wind Power Production - Actual 5-Minute Averaged Values'
         return self._client._page('/np4-733-cd/wpp_actual_5min_avg_values', np4_733_cd.WppActual5minAvgValuesRow, {'intervalEndingFrom': intervalEndingFrom, 'intervalEndingTo': intervalEndingTo, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'genSystemWideFrom': genSystemWideFrom, 'genSystemWideTo': genSystemWideTo, 'LZSouthHoustonFrom': LZSouthHoustonFrom, 'LZSouthHoustonTo': LZSouthHoustonTo, 'LZWestFrom': LZWestFrom, 'LZWestTo': LZWestTo, 'LZNorthFrom': LZNorthFrom, 'LZNorthTo': LZNorthTo, 'DSTFlag': DSTFlag, 'HSLSystemWideFrom': HSLSystemWideFrom, 'HSLSystemWideTo': HSLSystemWideTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7088,6 +7104,23 @@ class np4_737_cd:
         hourEnding: int | None
         postedDatetime: datetime | None
 
+    class SppHrlyAvrgActlFcastHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None = None
+        hourEnding: int | None = None
+        genSystemWide: Decimal | None
+        COPHSLSystemWide: Decimal | None
+        STPPFSystemWide: Decimal | None
+        PVGRPPSystemWide: Decimal | None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+        hourEndingTimestamp: datetime | None = None
+
+    @property
+    def spp_hrly_avrg_actl_fcast_history(self) -> Archive[np4_737_cd.SppHrlyAvrgActlFcastHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-737-cd', np4_737_cd.SppHrlyAvrgActlFcastHistoryRow, {'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STPPF_SYSTEM_WIDE': 'STPPFSystemWide', 'PVGRPP_SYSTEM_WIDE': 'PVGRPPSystemWide', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'hourEndingTimestamp': '%m/%d/%Y %H:%M'}, variants=({'HOUR_ENDING': 'hourEndingTimestamp', 'ACTUAL_SYSTEM_WIDE': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STPPF_SYSTEM_WIDE': 'STPPFSystemWide', 'PVGRPP_SYSTEM_WIDE': 'PVGRPPSystemWide', 'DSTFlag': 'DSTFlag'},))
+
     def spp_hrly_avrg_actl_fcast(self, *, STPPFSystemWideFrom: Decimal | None = None, STPPFSystemWideTo: Decimal | None = None, PVGRPPSystemWideFrom: Decimal | None = None, PVGRPPSystemWideTo: Decimal | None = None, DSTFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, COPHSLSystemWideFrom: Decimal | None = None, COPHSLSystemWideTo: Decimal | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_737_cd.SppHrlyAvrgActlFcastRow]:
         'Solar Power Production - Hourly Averaged Actual and Forecasted Values'
         return self._client._page('/np4-737-cd/spp_hrly_avrg_actl_fcast', np4_737_cd.SppHrlyAvrgActlFcastRow, {'STPPFSystemWideFrom': STPPFSystemWideFrom, 'STPPFSystemWideTo': STPPFSystemWideTo, 'PVGRPPSystemWideFrom': PVGRPPSystemWideFrom, 'PVGRPPSystemWideTo': PVGRPPSystemWideTo, 'DSTFlag': DSTFlag, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'HSLSystemWideFrom': HSLSystemWideFrom, 'HSLSystemWideTo': HSLSystemWideTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'genSystemWideFrom': genSystemWideFrom, 'genSystemWideTo': genSystemWideTo, 'COPHSLSystemWideFrom': COPHSLSystemWideFrom, 'COPHSLSystemWideTo': COPHSLSystemWideTo, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7114,6 +7147,18 @@ class np4_738_cd:
         genSystemWide: Decimal | None
         intervalEnding: datetime | None
         postedDatetime: datetime | None
+
+    class SppActual5minAvgValuesHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        genSystemWide: Decimal | None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+
+    @property
+    def spp_actual_5min_avg_values_history(self) -> Archive[np4_738_cd.SppActual5minAvgValuesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-738-cd', np4_738_cd.SppActual5minAvgValuesHistoryRow, {'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=({'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE': 'genSystemWide', 'DSTFlag': 'DSTFlag'},))
 
     def spp_actual_5min_avg_values(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, DSTFlag: bool | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_738_cd.SppActual5minAvgValuesRow]:
         'Solar Power Production - Actual 5-Minute Averaged Values'
@@ -7166,6 +7211,42 @@ class np4_742_cd:
         hourEnding: int | None
         postedDatetime: datetime | None
 
+    class WppHrlyActualFcastGeoHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: int | None
+        genSystemWide: Decimal | None
+        COPHSLSystemWide: Decimal | None
+        STWPFSystemWide: Decimal | None
+        WGRPPSystemWide: Decimal | None
+        genPanhandle: Decimal | None
+        COPHSLPanhandle: Decimal | None
+        STWPFPanhandle: Decimal | None
+        WGRPPPanhandle: Decimal | None
+        genCoastal: Decimal | None
+        COPHSLCoastal: Decimal | None
+        STWPFCoastal: Decimal | None
+        WGRPPCoastal: Decimal | None
+        genSouth: Decimal | None
+        COPHSLSouth: Decimal | None
+        STWPFSouth: Decimal | None
+        WGRPPSouth: Decimal | None
+        genWest: Decimal | None
+        COPHSLWest: Decimal | None
+        STWPFWest: Decimal | None
+        WGRPPWest: Decimal | None
+        genNorth: Decimal | None
+        COPHSLNorth: Decimal | None
+        STWPFNorth: Decimal | None
+        WGRPPNorth: Decimal | None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+
+    @property
+    def wpp_hrly_actual_fcast_geo_history(self) -> Archive[np4_742_cd.WppHrlyActualFcastGeoHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-742-cd', np4_742_cd.WppHrlyActualFcastGeoHistoryRow, {'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STWPF_SYSTEM_WIDE': 'STWPFSystemWide', 'WGRPP_SYSTEM_WIDE': 'WGRPPSystemWide', 'GEN_PANHANDLE': 'genPanhandle', 'COP_HSL_PANHANDLE': 'COPHSLPanhandle', 'STWPF_PANHANDLE': 'STWPFPanhandle', 'WGRPP_PANHANDLE': 'WGRPPPanhandle', 'GEN_COASTAL': 'genCoastal', 'COP_HSL_COASTAL': 'COPHSLCoastal', 'STWPF_COASTAL': 'STWPFCoastal', 'WGRPP_COASTAL': 'WGRPPCoastal', 'GEN_SOUTH': 'genSouth', 'COP_HSL_SOUTH': 'COPHSLSouth', 'STWPF_SOUTH': 'STWPFSouth', 'WGRPP_SOUTH': 'WGRPPSouth', 'GEN_WEST': 'genWest', 'COP_HSL_WEST': 'COPHSLWest', 'STWPF_WEST': 'STWPFWest', 'WGRPP_WEST': 'WGRPPWest', 'GEN_NORTH': 'genNorth', 'COP_HSL_NORTH': 'COPHSLNorth', 'STWPF_NORTH': 'STWPFNorth', 'WGRPP_NORTH': 'WGRPPNorth', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=({'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'ACTUAL_SYSTEM_WIDE': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STWPF_SYSTEM_WIDE': 'STWPFSystemWide', 'WGRPP_SYSTEM_WIDE': 'WGRPPSystemWide', 'ACTUAL_PANHANDLE': 'genPanhandle', 'COP_HSL_PANHANDLE': 'COPHSLPanhandle', 'STWPF_PANHANDLE': 'STWPFPanhandle', 'WGRPP_PANHANDLE': 'WGRPPPanhandle', 'ACTUAL_COASTAL': 'genCoastal', 'COP_HSL_COASTAL': 'COPHSLCoastal', 'STWPF_COASTAL': 'STWPFCoastal', 'WGRPP_COASTAL': 'WGRPPCoastal', 'ACTUAL_SOUTH': 'genSouth', 'COP_HSL_SOUTH': 'COPHSLSouth', 'STWPF_SOUTH': 'STWPFSouth', 'WGRPP_SOUTH': 'WGRPPSouth', 'ACTUAL_WEST': 'genWest', 'COP_HSL_WEST': 'COPHSLWest', 'STWPF_WEST': 'STWPFWest', 'WGRPP_WEST': 'WGRPPWest', 'ACTUAL_NORTH': 'genNorth', 'COP_HSL_NORTH': 'COPHSLNorth', 'STWPF_NORTH': 'STWPFNorth', 'WGRPP_NORTH': 'WGRPPNorth', 'DSTFlag': 'DSTFlag'},))
+
     def wpp_hrly_actual_fcast_geo(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, COPHSLSystemWideFrom: Decimal | None = None, COPHSLSystemWideTo: Decimal | None = None, STWPFSystemWideFrom: Decimal | None = None, STWPFSystemWideTo: Decimal | None = None, WGRPPSystemWideFrom: Decimal | None = None, WGRPPSystemWideTo: Decimal | None = None, genPanhandleFrom: Decimal | None = None, genPanhandleTo: Decimal | None = None, COPHSLPanhandleFrom: Decimal | None = None, COPHSLPanhandleTo: Decimal | None = None, STWPFPanhandleFrom: Decimal | None = None, STWPFPanhandleTo: Decimal | None = None, WGRPPPanhandleFrom: Decimal | None = None, WGRPPPanhandleTo: Decimal | None = None, genCoastalFrom: Decimal | None = None, genCoastalTo: Decimal | None = None, COPHSLCoastalFrom: Decimal | None = None, COPHSLCoastalTo: Decimal | None = None, STWPFCoastalFrom: Decimal | None = None, STWPFCoastalTo: Decimal | None = None, WGRPPCoastalFrom: Decimal | None = None, WGRPPCoastalTo: Decimal | None = None, genSouthFrom: Decimal | None = None, genSouthTo: Decimal | None = None, COPHSLSouthFrom: Decimal | None = None, COPHSLSouthTo: Decimal | None = None, STWPFSouthFrom: Decimal | None = None, STWPFSouthTo: Decimal | None = None, WGRPPSouthFrom: Decimal | None = None, WGRPPSouthTo: Decimal | None = None, genWestFrom: Decimal | None = None, genWestTo: Decimal | None = None, COPHSLWestFrom: Decimal | None = None, COPHSLWestTo: Decimal | None = None, STWPFWestFrom: Decimal | None = None, STWPFWestTo: Decimal | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, WGRPPWestFrom: Decimal | None = None, WGRPPWestTo: Decimal | None = None, genNorthFrom: Decimal | None = None, genNorthTo: Decimal | None = None, COPHSLNorthFrom: Decimal | None = None, COPHSLNorthTo: Decimal | None = None, STWPFNorthFrom: Decimal | None = None, STWPFNorthTo: Decimal | None = None, WGRPPNorthFrom: Decimal | None = None, WGRPPNorthTo: Decimal | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_742_cd.WppHrlyActualFcastGeoRow]:
         'Wind Power Production - Hourly Averaged Actual and Forecasted Values by Geographical Region'
         return self._client._page('/np4-742-cd/wpp_hrly_actual_fcast_geo', np4_742_cd.WppHrlyActualFcastGeoRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'genSystemWideFrom': genSystemWideFrom, 'genSystemWideTo': genSystemWideTo, 'COPHSLSystemWideFrom': COPHSLSystemWideFrom, 'COPHSLSystemWideTo': COPHSLSystemWideTo, 'STWPFSystemWideFrom': STWPFSystemWideFrom, 'STWPFSystemWideTo': STWPFSystemWideTo, 'WGRPPSystemWideFrom': WGRPPSystemWideFrom, 'WGRPPSystemWideTo': WGRPPSystemWideTo, 'genPanhandleFrom': genPanhandleFrom, 'genPanhandleTo': genPanhandleTo, 'COPHSLPanhandleFrom': COPHSLPanhandleFrom, 'COPHSLPanhandleTo': COPHSLPanhandleTo, 'STWPFPanhandleFrom': STWPFPanhandleFrom, 'STWPFPanhandleTo': STWPFPanhandleTo, 'WGRPPPanhandleFrom': WGRPPPanhandleFrom, 'WGRPPPanhandleTo': WGRPPPanhandleTo, 'genCoastalFrom': genCoastalFrom, 'genCoastalTo': genCoastalTo, 'COPHSLCoastalFrom': COPHSLCoastalFrom, 'COPHSLCoastalTo': COPHSLCoastalTo, 'STWPFCoastalFrom': STWPFCoastalFrom, 'STWPFCoastalTo': STWPFCoastalTo, 'WGRPPCoastalFrom': WGRPPCoastalFrom, 'WGRPPCoastalTo': WGRPPCoastalTo, 'genSouthFrom': genSouthFrom, 'genSouthTo': genSouthTo, 'COPHSLSouthFrom': COPHSLSouthFrom, 'COPHSLSouthTo': COPHSLSouthTo, 'STWPFSouthFrom': STWPFSouthFrom, 'STWPFSouthTo': STWPFSouthTo, 'WGRPPSouthFrom': WGRPPSouthFrom, 'WGRPPSouthTo': WGRPPSouthTo, 'genWestFrom': genWestFrom, 'genWestTo': genWestTo, 'COPHSLWestFrom': COPHSLWestFrom, 'COPHSLWestTo': COPHSLWestTo, 'STWPFWestFrom': STWPFWestFrom, 'STWPFWestTo': STWPFWestTo, 'HSLSystemWideFrom': HSLSystemWideFrom, 'HSLSystemWideTo': HSLSystemWideTo, 'WGRPPWestFrom': WGRPPWestFrom, 'WGRPPWestTo': WGRPPWestTo, 'genNorthFrom': genNorthFrom, 'genNorthTo': genNorthTo, 'COPHSLNorthFrom': COPHSLNorthFrom, 'COPHSLNorthTo': COPHSLNorthTo, 'STWPFNorthFrom': STWPFNorthFrom, 'STWPFNorthTo': STWPFNorthTo, 'WGRPPNorthFrom': WGRPPNorthFrom, 'WGRPPNorthTo': WGRPPNorthTo, 'DSTFlag': DSTFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7197,6 +7278,23 @@ class np4_743_cd:
         postedDatetime: datetime | None
         south: Decimal | None
         west: Decimal | None
+
+    class WppActual5minAvgValuesGeoHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        genSystemWide: Decimal | None
+        panhandle: Decimal | None
+        coastal: Decimal | None
+        south: Decimal | None
+        west: Decimal | None
+        north: Decimal | None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+
+    @property
+    def wpp_actual_5min_avg_values_geo_history(self) -> Archive[np4_743_cd.WppActual5minAvgValuesGeoHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-743-cd', np4_743_cd.WppActual5minAvgValuesGeoHistoryRow, {'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'PANHANDLE': 'panhandle', 'COASTAL': 'coastal', 'SOUTH': 'south', 'WEST': 'west', 'NORTH': 'north', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=({'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE': 'genSystemWide', 'PANHANDLE': 'panhandle', 'COASTAL': 'coastal', 'SOUTH': 'south', 'WEST': 'west', 'NORTH': 'north', 'DSTFlag': 'DSTFlag'},))
 
     def wpp_actual_5min_avg_values_geo(self, *, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, panhandleFrom: Decimal | None = None, panhandleTo: Decimal | None = None, coastalFrom: Decimal | None = None, coastalTo: Decimal | None = None, southFrom: Decimal | None = None, southTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_743_cd.WppActual5minAvgValuesGeoRow]:
         'Wind Power Production - Actual 5-Minute Averaged Values by Geographical Region'
@@ -7253,6 +7351,46 @@ class np4_745_cd:
         hourEnding: int | None
         postedDatetime: datetime | None
 
+    class SppHrlyActualFcastGeoHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: int | None
+        genSystemWide: Decimal | None
+        COPHSLSystemWide: Decimal | None
+        STPPFSystemWide: Decimal | None
+        PVGRPPSystemWide: Decimal | None
+        genCenterWest: Decimal | None
+        COPHSLCenterWest: Decimal | None
+        STPPFCenterWest: Decimal | None
+        PVGRPPCenterWest: Decimal | None
+        genNorthWest: Decimal | None
+        COPHSLNorthWest: Decimal | None
+        STPPFNorthWest: Decimal | None
+        PVGRPPNorthWest: Decimal | None
+        genFarWest: Decimal | None
+        COPHSLFarWest: Decimal | None
+        STPPFFarWest: Decimal | None
+        PVGRPPFarWest: Decimal | None
+        genFarEast: Decimal | None
+        COPHSLFarEast: Decimal | None
+        STPPFFarEast: Decimal | None
+        PVGRPPFarEast: Decimal | None
+        genSouthEast: Decimal | None
+        COPHSLSouthEast: Decimal | None
+        STPPFSouthEast: Decimal | None
+        PVGRPPSouthEast: Decimal | None
+        genCenterEast: Decimal | None
+        COPHSLCenterEast: Decimal | None
+        STPPFCenterEast: Decimal | None
+        PVGRPPCenterEast: Decimal | None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+
+    @property
+    def spp_hrly_actual_fcast_geo_history(self) -> Archive[np4_745_cd.SppHrlyActualFcastGeoHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-745-cd', np4_745_cd.SppHrlyActualFcastGeoHistoryRow, {'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STPPF_SYSTEM_WIDE': 'STPPFSystemWide', 'PVGRPP_SYSTEM_WIDE': 'PVGRPPSystemWide', 'GEN_CenterWest': 'genCenterWest', 'COP_HSL_CenterWest': 'COPHSLCenterWest', 'STPPF_CenterWest': 'STPPFCenterWest', 'PVGRPP_CenterWest': 'PVGRPPCenterWest', 'GEN_NorthWest': 'genNorthWest', 'COP_HSL_NorthWest': 'COPHSLNorthWest', 'STPPF_NorthWest': 'STPPFNorthWest', 'PVGRPP_NorthWest': 'PVGRPPNorthWest', 'GEN_FarWest': 'genFarWest', 'COP_HSL_FarWest': 'COPHSLFarWest', 'STPPF_FarWest': 'STPPFFarWest', 'PVGRPP_FarWest': 'PVGRPPFarWest', 'GEN_FarEast': 'genFarEast', 'COP_HSL_FarEast': 'COPHSLFarEast', 'STPPF_FarEast': 'STPPFFarEast', 'PVGRPP_FarEast': 'PVGRPPFarEast', 'GEN_SouthEast': 'genSouthEast', 'COP_HSL_SouthEast': 'COPHSLSouthEast', 'STPPF_SouthEast': 'STPPFSouthEast', 'PVGRPP_SouthEast': 'PVGRPPSouthEast', 'GEN_CenterEast': 'genCenterEast', 'COP_HSL_CenterEast': 'COPHSLCenterEast', 'STPPF_CenterEast': 'STPPFCenterEast', 'PVGRPP_CenterEast': 'PVGRPPCenterEast', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=({'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'GEN_SYSTEM_WIDE': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STPPF_SYSTEM_WIDE': 'STPPFSystemWide', 'PVGRPP_SYSTEM_WIDE': 'PVGRPPSystemWide', 'GEN_CenterWest': 'genCenterWest', 'COP_HSL_CenterWest': 'COPHSLCenterWest', 'STPPF_CenterWest': 'STPPFCenterWest', 'PVGRPP_CenterWest': 'PVGRPPCenterWest', 'GEN_NorthWest': 'genNorthWest', 'COP_HSL_NorthWest': 'COPHSLNorthWest', 'STPPF_NorthWest': 'STPPFNorthWest', 'PVGRPP_NorthWest': 'PVGRPPNorthWest', 'GEN_FarWest': 'genFarWest', 'COP_HSL_FarWest': 'COPHSLFarWest', 'STPPF_FarWest': 'STPPFFarWest', 'PVGRPP_FarWest': 'PVGRPPFarWest', 'GEN_FarEast': 'genFarEast', 'COP_HSL_FarEast': 'COPHSLFarEast', 'STPPF_FarEast': 'STPPFFarEast', 'PVGRPP_FarEast': 'PVGRPPFarEast', 'GEN_SouthEast': 'genSouthEast', 'COP_HSL_SouthEast': 'COPHSLSouthEast', 'STPPF_SouthEast': 'STPPFSouthEast', 'PVGRPP_SouthEast': 'PVGRPPSouthEast', 'GEN_CenterEast': 'genCenterEast', 'COP_HSL_CenterEast': 'COPHSLCenterEast', 'STPPF_CenterEast': 'STPPFCenterEast', 'PVGRPP_CenterEast': 'PVGRPPCenterEast', 'DSTFlag': 'DSTFlag'},))
+
     def spp_hrly_actual_fcast_geo(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, COPHSLSystemWideFrom: Decimal | None = None, COPHSLSystemWideTo: Decimal | None = None, STPPFSystemWideFrom: Decimal | None = None, STPPFSystemWideTo: Decimal | None = None, PVGRPPSystemWideFrom: Decimal | None = None, PVGRPPSystemWideTo: Decimal | None = None, genCenterWestFrom: Decimal | None = None, genCenterWestTo: Decimal | None = None, COPHSLCenterWestFrom: Decimal | None = None, COPHSLCenterWestTo: Decimal | None = None, STPPFCenterWestFrom: Decimal | None = None, STPPFCenterWestTo: Decimal | None = None, PVGRPPCenterWestFrom: Decimal | None = None, PVGRPPCenterWestTo: Decimal | None = None, genNorthWestFrom: Decimal | None = None, genNorthWestTo: Decimal | None = None, COPHSLNorthWestFrom: Decimal | None = None, COPHSLNorthWestTo: Decimal | None = None, STPPFNorthWestFrom: Decimal | None = None, STPPFNorthWestTo: Decimal | None = None, PVGRPPNorthWestFrom: Decimal | None = None, PVGRPPNorthWestTo: Decimal | None = None, genFarWestFrom: Decimal | None = None, genFarWestTo: Decimal | None = None, COPHSLFarWestFrom: Decimal | None = None, COPHSLFarWestTo: Decimal | None = None, STPPFFarWestFrom: Decimal | None = None, STPPFFarWestTo: Decimal | None = None, PVGRPPFarWestFrom: Decimal | None = None, PVGRPPFarWestTo: Decimal | None = None, genFarEastFrom: Decimal | None = None, genFarEastTo: Decimal | None = None, COPHSLFarEastFrom: Decimal | None = None, COPHSLFarEastTo: Decimal | None = None, STPPFFarEastFrom: Decimal | None = None, STPPFFarEastTo: Decimal | None = None, PVGRPPFarEastFrom: Decimal | None = None, PVGRPPFarEastTo: Decimal | None = None, genSouthEastFrom: Decimal | None = None, genSouthEastTo: Decimal | None = None, COPHSLSouthEastFrom: Decimal | None = None, COPHSLSouthEastTo: Decimal | None = None, STPPFSouthEastFrom: Decimal | None = None, STPPFSouthEastTo: Decimal | None = None, PVGRPPSouthEastFrom: Decimal | None = None, PVGRPPSouthEastTo: Decimal | None = None, genCenterEastFrom: Decimal | None = None, genCenterEastTo: Decimal | None = None, COPHSLCenterEastFrom: Decimal | None = None, COPHSLCenterEastTo: Decimal | None = None, STPPFCenterEastFrom: Decimal | None = None, STPPFCenterEastTo: Decimal | None = None, PVGRPPCenterEastFrom: Decimal | None = None, PVGRPPCenterEastTo: Decimal | None = None, DSTFlag: bool | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_745_cd.SppHrlyActualFcastGeoRow]:
         'Solar Power Production - Hourly Averaged Actual and Forecasted Values by Geographical Region'
         return self._client._page('/np4-745-cd/spp_hrly_actual_fcast_geo', np4_745_cd.SppHrlyActualFcastGeoRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'genSystemWideFrom': genSystemWideFrom, 'genSystemWideTo': genSystemWideTo, 'COPHSLSystemWideFrom': COPHSLSystemWideFrom, 'COPHSLSystemWideTo': COPHSLSystemWideTo, 'STPPFSystemWideFrom': STPPFSystemWideFrom, 'STPPFSystemWideTo': STPPFSystemWideTo, 'PVGRPPSystemWideFrom': PVGRPPSystemWideFrom, 'PVGRPPSystemWideTo': PVGRPPSystemWideTo, 'genCenterWestFrom': genCenterWestFrom, 'genCenterWestTo': genCenterWestTo, 'COPHSLCenterWestFrom': COPHSLCenterWestFrom, 'COPHSLCenterWestTo': COPHSLCenterWestTo, 'STPPFCenterWestFrom': STPPFCenterWestFrom, 'STPPFCenterWestTo': STPPFCenterWestTo, 'PVGRPPCenterWestFrom': PVGRPPCenterWestFrom, 'PVGRPPCenterWestTo': PVGRPPCenterWestTo, 'genNorthWestFrom': genNorthWestFrom, 'genNorthWestTo': genNorthWestTo, 'COPHSLNorthWestFrom': COPHSLNorthWestFrom, 'COPHSLNorthWestTo': COPHSLNorthWestTo, 'STPPFNorthWestFrom': STPPFNorthWestFrom, 'STPPFNorthWestTo': STPPFNorthWestTo, 'PVGRPPNorthWestFrom': PVGRPPNorthWestFrom, 'PVGRPPNorthWestTo': PVGRPPNorthWestTo, 'genFarWestFrom': genFarWestFrom, 'genFarWestTo': genFarWestTo, 'COPHSLFarWestFrom': COPHSLFarWestFrom, 'COPHSLFarWestTo': COPHSLFarWestTo, 'STPPFFarWestFrom': STPPFFarWestFrom, 'STPPFFarWestTo': STPPFFarWestTo, 'PVGRPPFarWestFrom': PVGRPPFarWestFrom, 'PVGRPPFarWestTo': PVGRPPFarWestTo, 'genFarEastFrom': genFarEastFrom, 'genFarEastTo': genFarEastTo, 'COPHSLFarEastFrom': COPHSLFarEastFrom, 'COPHSLFarEastTo': COPHSLFarEastTo, 'STPPFFarEastFrom': STPPFFarEastFrom, 'STPPFFarEastTo': STPPFFarEastTo, 'PVGRPPFarEastFrom': PVGRPPFarEastFrom, 'PVGRPPFarEastTo': PVGRPPFarEastTo, 'genSouthEastFrom': genSouthEastFrom, 'genSouthEastTo': genSouthEastTo, 'COPHSLSouthEastFrom': COPHSLSouthEastFrom, 'COPHSLSouthEastTo': COPHSLSouthEastTo, 'STPPFSouthEastFrom': STPPFSouthEastFrom, 'STPPFSouthEastTo': STPPFSouthEastTo, 'PVGRPPSouthEastFrom': PVGRPPSouthEastFrom, 'PVGRPPSouthEastTo': PVGRPPSouthEastTo, 'genCenterEastFrom': genCenterEastFrom, 'genCenterEastTo': genCenterEastTo, 'COPHSLCenterEastFrom': COPHSLCenterEastFrom, 'COPHSLCenterEastTo': COPHSLCenterEastTo, 'STPPFCenterEastFrom': STPPFCenterEastFrom, 'STPPFCenterEastTo': STPPFCenterEastTo, 'PVGRPPCenterEastFrom': PVGRPPCenterEastFrom, 'PVGRPPCenterEastTo': PVGRPPCenterEastTo, 'DSTFlag': DSTFlag, 'HSLSystemWideFrom': HSLSystemWideFrom, 'HSLSystemWideTo': HSLSystemWideTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7285,6 +7423,24 @@ class np4_746_cd:
         genSystemWide: Decimal | None
         intervalEnding: datetime | None
         postedDatetime: datetime | None
+
+    class SppActual5minAvgValuesGeoHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        genSystemWide: Decimal | None
+        genCenterWest: Decimal | None
+        genNorthWest: Decimal | None
+        genFarWest: Decimal | None
+        genFarEast: Decimal | None
+        genSouthEast: Decimal | None
+        genCenterEast: Decimal | None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+
+    @property
+    def spp_actual_5min_avg_values_geo_history(self) -> Archive[np4_746_cd.SppActual5minAvgValuesGeoHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-746-cd', np4_746_cd.SppActual5minAvgValuesGeoHistoryRow, {'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'CenterWest_GEN': 'genCenterWest', 'NorthWest_GEN': 'genNorthWest', 'FarWest_GEN': 'genFarWest', 'FarEast_GEN': 'genFarEast', 'SouthEast_GEN': 'genSouthEast', 'CenterEast_GEN': 'genCenterEast', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %I:%M:%S %p'}, variants=({'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'CenterWest_GEN': 'genCenterWest', 'NorthWest_GEN': 'genNorthWest', 'FarWest_GEN': 'genFarWest', 'FarEast_GEN': 'genFarEast', 'SouthEast_GEN': 'genSouthEast', 'CenterEast_GEN': 'genCenterEast', 'DSTFlag': 'DSTFlag'},))
 
     def spp_actual_5min_avg_values_geo(self, *, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, genCenterWestFrom: Decimal | None = None, genCenterWestTo: Decimal | None = None, genNorthWestFrom: Decimal | None = None, genNorthWestTo: Decimal | None = None, genFarWestFrom: Decimal | None = None, genFarWestTo: Decimal | None = None, genFarEastFrom: Decimal | None = None, genFarEastTo: Decimal | None = None, genSouthEastFrom: Decimal | None = None, genSouthEastTo: Decimal | None = None, genCenterEastFrom: Decimal | None = None, genCenterEastTo: Decimal | None = None, DSTFlag: bool | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_746_cd.SppActual5minAvgValuesGeoRow]:
         'Solar Power Production - Actual 5-Minute Averaged Values by Geographical Region'
@@ -7651,6 +7807,11 @@ class np6_235_cd:
         deliveryDate: date | None
         demand: Decimal | None
         timeEnding: str | None
+
+    @property
+    def system_wide_demand_history(self) -> Archive[np6_235_cd.SystemWideDemandRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-235-cd', np6_235_cd.SystemWideDemandRow, {'DeliveryDate': 'deliveryDate', 'TimeEnding': 'timeEnding', 'Demand': 'demand', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
 
     def system_wide_demand(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, timeEnding: str | None = None, demandFrom: Decimal | None = None, demandTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_235_cd.SystemWideDemandRow]:
         'System-Wide Demand'

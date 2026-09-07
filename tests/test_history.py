@@ -486,3 +486,47 @@ def test_ambiguous_header_mapping_is_rejected():
                 zipped("wind.csv", source)
             )
         )
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "renewables-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_renewable_and_demand_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")), method + "_history"
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_legacy_wind_region_and_solar_timestamp_are_preserved():
+    with Client() as client:
+        wind = next(
+            client.np4_733_cd.wpp_actual_5min_avg_values_history.read(
+                zipped(
+                    "wind.csv", (INPUTS / "np4-733-cd-history-samples.csv").read_bytes()
+                )
+            )
+        )
+        assert wind.LZWestNorth == Decimal("645.12")
+        assert wind.LZWest is None and wind.LZNorth is None
+        solar = next(
+            client.np4_737_cd.spp_hrly_avrg_actl_fcast_history.read(
+                zipped(
+                    "solar.csv",
+                    (INPUTS / "np4-737-cd-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+        assert solar.hourEndingTimestamp.isoformat() == "2016-02-08T00:00:00"
+        assert solar.deliveryDate is None and solar.hourEnding is None
+        assert solar.postedDatetime is None
