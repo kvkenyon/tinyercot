@@ -62,7 +62,9 @@
         "RTOFF30": null,
         "RTORDPA": null,
         "RTOLLASL": null,
-        "RTOLHASL": null
+        "RTOLHASL": null,
+        "RTRUCCST30HSL": null,
+        "RTNCLRNSCAP": null
       },
       "Feb": {
         "sourceSheet": "Feb",
@@ -106,7 +108,9 @@
         "RTOFF30": null,
         "RTORDPA": null,
         "RTOLLASL": null,
-        "RTOLHASL": null
+        "RTOLHASL": null,
+        "RTRUCCST30HSL": null,
+        "RTNCLRNSCAP": null
       },
       "Mar": {
         "sourceSheet": "Mar",
@@ -150,7 +154,9 @@
         "RTOFF30": null,
         "RTORDPA": null,
         "RTOLLASL": null,
-        "RTOLHASL": null
+        "RTOLHASL": null,
+        "RTRUCCST30HSL": null,
+        "RTNCLRNSCAP": null
       },
       "Apr": {
         "sourceSheet": "Apr",
@@ -194,7 +200,9 @@
         "RTOFF30": null,
         "RTORDPA": null,
         "RTOLLASL": null,
-        "RTOLHASL": null
+        "RTOLHASL": null,
+        "RTRUCCST30HSL": null,
+        "RTNCLRNSCAP": null
       },
       "May": {
         "sourceSheet": "May",
@@ -238,7 +246,9 @@
         "RTOFF30": null,
         "RTORDPA": null,
         "RTOLLASL": null,
-        "RTOLHASL": null
+        "RTOLHASL": null,
+        "RTRUCCST30HSL": null,
+        "RTNCLRNSCAP": null
       },
       "Jun": {
         "sourceSheet": "Jun",
@@ -282,7 +292,9 @@
         "RTOFF30": null,
         "RTORDPA": null,
         "RTOLLASL": null,
-        "RTOLHASL": null
+        "RTOLHASL": null,
+        "RTRUCCST30HSL": null,
+        "RTNCLRNSCAP": null
       },
       "Jul": {
         "sourceSheet": "Jul",
@@ -326,7 +338,9 @@
         "RTOFF30": null,
         "RTORDPA": null,
         "RTOLLASL": null,
-        "RTOLHASL": null
+        "RTOLHASL": null,
+        "RTRUCCST30HSL": null,
+        "RTNCLRNSCAP": null
       },
       "Aug": {
         "sourceSheet": "Aug",
@@ -370,7 +384,9 @@
         "RTOFF30": null,
         "RTORDPA": null,
         "RTOLLASL": null,
-        "RTOLHASL": null
+        "RTOLHASL": null,
+        "RTRUCCST30HSL": null,
+        "RTNCLRNSCAP": null
       },
       "Sep": {
         "sourceSheet": "Sep",
@@ -414,7 +430,9 @@
         "RTOFF30": null,
         "RTORDPA": null,
         "RTOLLASL": null,
-        "RTOLHASL": null
+        "RTOLHASL": null,
+        "RTRUCCST30HSL": null,
+        "RTNCLRNSCAP": null
       }
     }
   },
@@ -481,7 +499,9 @@
         "RTOFF30": "0",
         "RTORDPA": "0",
         "RTOLLASL": "28149.78",
-        "RTOLHASL": "61085.07"
+        "RTOLHASL": "61085.07",
+        "RTRUCCST30HSL": null,
+        "RTNCLRNSCAP": null
       }
     }
   },
