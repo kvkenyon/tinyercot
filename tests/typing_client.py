@@ -143,3 +143,8 @@ with Client() as client:
     for assumption in client.np4_722_cd.weather_assumptions_history.rows():
         assert_type(assumption.deliveryDate, date | None)
         assert_type(assumption.coast, Decimal | None)
+
+    for offer_point in client.np4_19_cd.dam_agg_as_offer_curve_history.rows():
+        assert_type(offer_point.ancillaryType, str | None)
+        assert_type(offer_point.price, Decimal | None)
+        assert_type(offer_point.quantity, Decimal | None)

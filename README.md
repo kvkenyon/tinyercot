@@ -334,3 +334,10 @@ remain strings even when entirely numeric, and legacy `RTORPA`/`RTORDPA` columns
 remain separate from newer `RTRDPA`. Weather assumptions retain the published
 zone values and hour labels; they are a distinct product from actual load and
 load forecasts.
+
+`ercot.np4_19_cd.dam_agg_as_offer_curve_history` reads aggregated ancillary-service
+offer curves, including the sampled March 2014 layout. Service codes such as
+legacy `OFFNS` and newer `ECRSM` remain as published. Prices and quantities retain
+decimal precision and source order; sort explicitly if an application requires
+ascending prices. Offer curves remain distinct from ancillary-service demand
+curves.
