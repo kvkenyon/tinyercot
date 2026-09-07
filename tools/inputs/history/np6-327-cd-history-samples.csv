@@ -1,0 +1,4 @@
+SCEDTimestamp,RepeatedHourFlag,ResourceType,ResourceName,StationName,VoltageLevel,MeterName,MeterLMP,RTORPA,RTORDPA,FinalLMP
+02/11/2022 00:05:20,N,SODG,ALEXIS_ALEXIS,RACHAL,      138.00,CPLALXSGP0100,       17.85,         .00,         .00,       17.85
+02/11/2022 00:05:20,N,SODG,BOVINE2_BOVINE2,WA,      138.00,1008901022901448240117,       17.85,         .00,         .00,       17.85
+02/11/2022 00:05:20,N,SODG,BRNSN2_BRNSN2,OR,      138.00,1008901006901417790117,       17.85,         .00,         .00,       17.85

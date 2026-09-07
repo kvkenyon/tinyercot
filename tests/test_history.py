@@ -1043,3 +1043,41 @@ def test_correction_rows_select_documents_across_mixed_pages():
     assert rows[0].LMPOriginal == Decimal("45.3")
     assert rows[0].LMPCorrected == Decimal("45.31")
     assert rows[0].priceCorrectionTime.isoformat() == "2025-12-09T10:00:00"
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "sog-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_sog_weather_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_sog_history_keeps_long_meter_ids_and_legacy_adders():
+    with Client() as client:
+        prices = list(
+            client.np6_327_cd.lmp_sog_price_adders_history.read(
+                zipped(
+                    "sog.csv", (INPUTS / "np6-327-cd-history-samples.csv").read_bytes()
+                )
+            )
+        )
+    assert prices[1].meterName == "1008901022901448240117"
+    assert prices[1].meterLMP == Decimal("17.85")
+    assert prices[1].RTORPA == Decimal(0)
+    assert prices[1].RTORDPA == Decimal(0)
+    assert prices[1].RTRDPA is None
+    assert prices[1].SCEDTimestamp.isoformat() == "2022-02-11T00:05:20"

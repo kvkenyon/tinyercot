@@ -327,3 +327,10 @@ newer fields. Publication, delivery/SCED, and correction timestamps keep their
 source meanings; correction records are not automatically applied to other
 reports. `ercot.np4_412_cd.epp_cumulative_hours_history` also reads emergency-pricing
 cumulative-hour reports.
+
+SOG real-time prices (NP6-326), SOG LMPs with adders (NP6-327), and weather
+assumptions (NP4-722) have generated `_history` readers. SOG meter identifiers
+remain strings even when entirely numeric, and legacy `RTORPA`/`RTORDPA` columns
+remain separate from newer `RTRDPA`. Weather assumptions retain the published
+zone values and hour labels; they are a distinct product from actual load and
+load forecasts.

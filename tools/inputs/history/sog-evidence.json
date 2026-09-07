@@ -1,0 +1,118 @@
+[
+  {
+    "endpoint": "np6-326-cd/rt_price_sog",
+    "fixture": "np6-326-cd-history-current.csv",
+    "file": "cdr.00021115.0000000000000000.20260907.130200.SOGPRICENP6326_20260907_1300.csv",
+    "csv_rows": 452,
+    "first_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2026-09-07",
+      "deliveryHour": 13,
+      "deliveryInterval": 4,
+      "meterName": "10443720004133031",
+      "meterPrice": "29.33",
+      "resourceName": "19599_1_PV_A1",
+      "resourceType": "SODG"
+    },
+    "rows_decoded": 452
+  },
+  {
+    "endpoint": "np6-326-cd/rt_price_sog",
+    "fixture": "np6-326-cd-history-samples.csv",
+    "file": "cdr.00021115.0000000000000000.20260430.111701.SOGPRICENP6326_20260430_1115.csv",
+    "csv_rows": 450,
+    "first_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2026-04-30",
+      "deliveryHour": 12,
+      "deliveryInterval": 1,
+      "meterName": "10443720004133031",
+      "meterPrice": "34.04",
+      "resourceName": "19599_1_PV_A1",
+      "resourceType": "SODG"
+    },
+    "rows_decoded": 450
+  },
+  {
+    "endpoint": "np6-327-cd/lmp_sog_price_adders",
+    "fixture": "np6-327-cd-history-current.csv",
+    "file": "cdr.00021114.0000000000000000.20260907.131533.SOGLMPNP6327_20260907_131520.csv",
+    "csv_rows": 452,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-07T13:15:20",
+      "repeatHourFlag": false,
+      "resourceType": "SODG",
+      "resourceName": "19599_1_PV_A1",
+      "stationName": "BLMND",
+      "voltageLevel": "138.00",
+      "meterName": "10443720004133031",
+      "meterLMP": "27.52",
+      "RTRDPA": "0.00",
+      "finalLMP": "27.52",
+      "RTORPA": null,
+      "RTORDPA": null
+    },
+    "rows_decoded": 452
+  },
+  {
+    "endpoint": "np6-327-cd/lmp_sog_price_adders",
+    "fixture": "np6-327-cd-history-samples.csv",
+    "file": "cdr.00021114.0000000000000000.20220211.000523.SOGLMPNP6327_20220211_000520.csv",
+    "csv_rows": 159,
+    "first_row": {
+      "SCEDTimestamp": "2022-02-11T00:05:20",
+      "repeatHourFlag": false,
+      "resourceType": "SODG",
+      "resourceName": "ALEXIS_ALEXIS",
+      "stationName": "RACHAL",
+      "voltageLevel": "138.00",
+      "meterName": "CPLALXSGP0100",
+      "meterLMP": "17.85",
+      "RTRDPA": null,
+      "finalLMP": "17.85",
+      "RTORPA": "0.00",
+      "RTORDPA": "0.00"
+    },
+    "rows_decoded": 159
+  },
+  {
+    "endpoint": "np4-722-cd/weather_assumptions",
+    "fixture": "np4-722-cd-history-current.csv",
+    "file": "cdr.00012325.0000000000000000.20260907.050000.WANP4722.csv",
+    "csv_rows": 288,
+    "first_row": {
+      "coast": "82.7",
+      "deliveryDate": "2026-09-04",
+      "east": "77.5",
+      "farWest": "84.5",
+      "hourEnding": "02:00",
+      "north": "80.5",
+      "northCentral": "79.5",
+      "repeatedHourFlag": false,
+      "southCentral": "81.5",
+      "southern": "84.4",
+      "west": "85"
+    },
+    "rows_decoded": 288
+  },
+  {
+    "endpoint": "np4-722-cd/weather_assumptions",
+    "fixture": "np4-722-cd-history-samples.csv",
+    "file": "cdr.00012325.0000000000000000.20260626.050000.WANP4722.csv",
+    "csv_rows": 288,
+    "first_row": {
+      "coast": "81.9",
+      "deliveryDate": "2026-06-23",
+      "east": "80.5",
+      "farWest": "82.5",
+      "hourEnding": "02:00",
+      "north": "79",
+      "northCentral": "83",
+      "repeatedHourFlag": false,
+      "southCentral": "80",
+      "southern": "82.4",
+      "west": "82"
+    },
+    "rows_decoded": 288
+  }
+]

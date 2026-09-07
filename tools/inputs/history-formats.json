@@ -4233,5 +4233,87 @@
       "deliveryDate": "%m/%d/%Y"
     },
     "datetimes": {}
+  },
+  "np6-326-cd/rt_price_sog": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "DeliveryInterval": "deliveryInterval",
+      "ResourceType": "resourceType",
+      "ResourceName": "resourceName",
+      "MeterName": "meterName",
+      "MeterPrice": "meterPrice",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np6-327-cd/lmp_sog_price_adders": {
+    "columns": {
+      "SCEDTimestamp": "SCEDTimestamp",
+      "RepeatedHourFlag": "repeatHourFlag",
+      "ResourceType": "resourceType",
+      "ResourceName": "resourceName",
+      "StationName": "stationName",
+      "VoltageLevel": "voltageLevel",
+      "MeterName": "meterName",
+      "MeterLMP": "meterLMP",
+      "RTRDPA": "RTRDPA",
+      "FinalLMP": "finalLMP"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "variants": [
+      {
+        "SCEDTimestamp": "SCEDTimestamp",
+        "RepeatedHourFlag": "repeatHourFlag",
+        "ResourceType": "resourceType",
+        "ResourceName": "resourceName",
+        "StationName": "stationName",
+        "VoltageLevel": "voltageLevel",
+        "MeterName": "meterName",
+        "MeterLMP": "meterLMP",
+        "RTORPA": "RTORPA",
+        "RTORDPA": "RTORDPA",
+        "FinalLMP": "finalLMP"
+      }
+    ],
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "resourceType": "str",
+      "resourceName": "str",
+      "stationName": "str",
+      "voltageLevel": "Decimal",
+      "meterName": "str",
+      "meterLMP": "Decimal",
+      "RTRDPA": "Decimal",
+      "finalLMP": "Decimal",
+      "RTORPA": "Decimal",
+      "RTORDPA": "Decimal"
+    }
+  },
+  "np4-722-cd/weather_assumptions": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "Coast": "coast",
+      "East": "east",
+      "FarWest": "farWest",
+      "North": "north",
+      "NorthCentral": "northCentral",
+      "SouthCentral": "southCentral",
+      "Southern": "southern",
+      "West": "west",
+      "DSTFlag": "repeatedHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
   }
 }
