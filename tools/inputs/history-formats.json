@@ -3241,5 +3241,140 @@
       "MW": "Decimal",
       "importExport": "str"
     }
+  },
+  "np4-179-cd/total_as_service_offers": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "REGDN": "REGDN",
+      "REGUP": "REGUP",
+      "RRSPFR": "RRSPFR",
+      "RRSFFR": "RRSFFR",
+      "RRSUFR": "RRSUFR",
+      "ECRSSD": "ECRSSD",
+      "ECRSMD": "ECRSMD",
+      "NSPIN": "NSPIN",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "variants": [
+      {
+        "DeliveryDate": "deliveryDate",
+        "HourEnding": "hourEnding",
+        "REGDN": "REGDN",
+        "REGUP": "REGUP",
+        "RRS": "RRS",
+        "NSPIN": "NSPIN",
+        "DSTFlag": "DSTFlag"
+      }
+    ],
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "REGDN": "Decimal",
+      "REGUP": "Decimal",
+      "RRSPFR": "Decimal",
+      "RRSFFR": "Decimal",
+      "RRSUFR": "Decimal",
+      "ECRSSD": "Decimal",
+      "ECRSMD": "Decimal",
+      "NSPIN": "Decimal",
+      "DSTFlag": "bool",
+      "RRS": "Decimal"
+    }
+  },
+  "np4-532-cd/dam_as_sold": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "ASType": "ASType",
+      "Quantity": "quantity",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np4-790-cd/peaker_net_margin": {
+    "columns": {
+      "AsOfDate": "asOfDate",
+      "PeakerNetMargin": "peakerNetMargin"
+    },
+    "dates": {},
+    "datetimes": {
+      "asOfDate": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np4-791-cd/da_sw_offer_caps": {
+    "columns": {
+      "SWCAPType": "SWCAPType",
+      "DASWCAP": "DASWCAP",
+      "RTSWCAP": "RTSWCAP"
+    },
+    "dates": {},
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S"
+    },
+    "variants": [
+      {
+        "SWCAPType": "SWCAPType",
+        "SWCAP": "SWCAP"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "SWCAPType": "str",
+      "DASWCAP": "Decimal",
+      "RTSWCAP": "Decimal",
+      "SWCAP": "Decimal"
+    }
+  },
+  "np5-108-cd/hrly_rmr_services_deployed": {
+    "columns": {
+      "HourEnding": "hourEnding",
+      "ResourceName": "resourceName",
+      "MWHDeployment": "mwhDeployment",
+      "DSTFlag": "repeatHourFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "hourEnding": "str",
+      "resourceName": "str",
+      "mwhDeployment": "Decimal",
+      "repeatHourFlag": "bool"
+    }
+  },
+  "np7-464-cd/dam_ptp_option_price_report": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "Price": "price",
+      "Source": "source",
+      "Sink": "sink",
+      "DSTFlag": "repeatedHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "price": "Decimal",
+      "source": "str",
+      "sink": "str",
+      "repeatedHourFlag": "bool"
+    }
   }
 }

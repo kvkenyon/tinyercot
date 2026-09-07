@@ -1,0 +1,182 @@
+[
+  {
+    "endpoint": "np4-179-cd/total_as_service_offers",
+    "fixture": "np4-179-cd-history-current.csv",
+    "file": "cdr.00012327.0000000000000000.20251204.123457.TASONP4179.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2025-12-05",
+      "hourEnding": "01:00",
+      "REGDN": "5677.8",
+      "REGUP": "6695.8",
+      "RRSPFR": "8676.7",
+      "RRSFFR": "150.4",
+      "RRSUFR": "892.2",
+      "ECRSSD": "8449.1",
+      "ECRSMD": "268.5",
+      "NSPIN": "8259",
+      "DSTFlag": false,
+      "RRS": null
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np4-179-cd/total_as_service_offers",
+    "fixture": "np4-179-cd-history-samples.csv",
+    "file": "cdr.00012327.0000000000000000.20140501.125911.TASONP4179.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "deliveryDate": "2014-05-02",
+      "hourEnding": "01:00",
+      "REGDN": "1525.7",
+      "REGUP": "1898.2",
+      "RRSPFR": null,
+      "RRSFFR": null,
+      "RRSUFR": null,
+      "ECRSSD": null,
+      "ECRSMD": null,
+      "NSPIN": "3424.3",
+      "DSTFlag": false,
+      "RRS": "4378"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np4-532-cd/dam_as_sold",
+    "fixture": "np4-532-cd-history-current.csv",
+    "file": "cdr.00024888.0000000000000000.20260907.123252.DAMASSOLDNP4532.csv",
+    "csv_rows": 240,
+    "first_row": {
+      "ASType": "ECRSM",
+      "deliveryDate": "2026-09-08",
+      "hourEnding": "01:00",
+      "quantity": "247.8",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 240
+  },
+  {
+    "endpoint": "np4-532-cd/dam_as_sold",
+    "fixture": "np4-532-cd-history-samples.csv",
+    "file": "cdr.00024888.0000000000000000.20251205.131140.DAMASSOLDNP4532.csv",
+    "csv_rows": 240,
+    "first_row": {
+      "ASType": "ECRSM",
+      "deliveryDate": "2025-12-06",
+      "hourEnding": "01:00",
+      "quantity": "182.1",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 240
+  },
+  {
+    "endpoint": "np4-790-cd/peaker_net_margin",
+    "fixture": "np4-790-cd-history-current.csv",
+    "file": "cdr.00012348.0000000000000000.20260906.160000.PNMNP4790.csv",
+    "csv_rows": 1,
+    "first_row": {
+      "asOfDate": "2026-09-06T16:00:00",
+      "peakerNetMargin": "52494.23"
+    },
+    "rows_decoded": 1
+  },
+  {
+    "endpoint": "np4-790-cd/peaker_net_margin",
+    "fixture": "np4-790-cd-history-samples.csv",
+    "file": "cdr.00012348.0000000000000000.20260625.160000.PNMNP4790.csv",
+    "csv_rows": 1,
+    "first_row": {
+      "asOfDate": "2026-06-25T16:00:00",
+      "peakerNetMargin": "36025.36"
+    },
+    "rows_decoded": 1
+  },
+  {
+    "endpoint": "np4-791-cd/da_sw_offer_caps",
+    "fixture": "np4-791-cd-history-current.csv",
+    "file": "cdr.00012349.0000000000000000.20260907.050000.SWOCNP4791.csv",
+    "csv_rows": 2,
+    "first_row": {
+      "postedDatetime": null,
+      "SWCAPType": "AS",
+      "DASWCAP": "5000",
+      "RTSWCAP": "2000",
+      "SWCAP": null
+    },
+    "rows_decoded": 2
+  },
+  {
+    "endpoint": "np4-791-cd/da_sw_offer_caps",
+    "fixture": "np4-791-cd-history-samples.csv",
+    "file": "cdr.00012349.0000000000000000.20140312.050000.SWOCNP4791.csv",
+    "csv_rows": 2,
+    "first_row": {
+      "postedDatetime": null,
+      "SWCAPType": "AS",
+      "DASWCAP": null,
+      "RTSWCAP": null,
+      "SWCAP": "5000"
+    },
+    "rows_decoded": 2
+  },
+  {
+    "endpoint": "np5-108-cd/hrly_rmr_services_deployed",
+    "fixture": "np5-108-cd-history-current.csv",
+    "file": "cdr.00010016.0000000000000000.20260907.120500.RMRServicesDeployedNP5108.csv",
+    "csv_rows": 16,
+    "first_row": {
+      "postedDatetime": null,
+      "hourEnding": "12:00",
+      "resourceName": "A4_DGR1",
+      "mwhDeployment": "0",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 16
+  },
+  {
+    "endpoint": "np5-108-cd/hrly_rmr_services_deployed",
+    "fixture": "np5-108-cd-history-samples.csv",
+    "file": "cdr.00010016.0000000000000000.20260528.120500.RMRServicesDeployedNP5108.csv",
+    "csv_rows": 16,
+    "first_row": {
+      "postedDatetime": null,
+      "hourEnding": "12:00",
+      "resourceName": "A4_DGR1",
+      "mwhDeployment": "0",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 16
+  },
+  {
+    "endpoint": "np7-464-cd/dam_ptp_option_price_report",
+    "fixture": "np7-464-cd-history-current.csv",
+    "file": "cdr.00010042.0000000000000000.20260906.123921.DAMPTPNP7464.csv",
+    "csv_rows": 163608,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "01:00",
+      "price": "0",
+      "source": "7RNCHSLR_ALL",
+      "sink": "FPPYD_FPP_G2",
+      "repeatedHourFlag": false
+    },
+    "rows_decoded": 163608
+  },
+  {
+    "endpoint": "np7-464-cd/dam_ptp_option_price_report",
+    "fixture": "np7-464-cd-history-samples.csv",
+    "file": "cdr.00010042.0000000000000000.20260626.132304.DAMPTPNP7464.csv",
+    "csv_rows": 145008,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-06-27",
+      "hourEnding": "01:00",
+      "price": "0",
+      "source": "7RNCHSLR_ALL",
+      "sink": "CBECII_89",
+      "repeatedHourFlag": false
+    },
+    "rows_decoded": 145008
+  }
+]

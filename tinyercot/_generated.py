@@ -6218,6 +6218,25 @@ class np4_179_cd:
         deliveryDate: date | None
         hourEnding: str | None
 
+    class TotalAsServiceOffersHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: str | None
+        REGDN: Decimal | None
+        REGUP: Decimal | None
+        RRSPFR: Decimal | None = None
+        RRSFFR: Decimal | None = None
+        RRSUFR: Decimal | None = None
+        ECRSSD: Decimal | None = None
+        ECRSMD: Decimal | None = None
+        NSPIN: Decimal | None
+        DSTFlag: bool | None
+        RRS: Decimal | None = None
+
+    @property
+    def total_as_service_offers_history(self) -> Archive[np4_179_cd.TotalAsServiceOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-179-cd', np4_179_cd.TotalAsServiceOffersHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'REGDN': 'REGDN', 'REGUP': 'REGUP', 'RRSPFR': 'RRSPFR', 'RRSFFR': 'RRSFFR', 'RRSUFR': 'RRSUFR', 'ECRSSD': 'ECRSSD', 'ECRSMD': 'ECRSMD', 'NSPIN': 'NSPIN', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=({'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'REGDN': 'REGDN', 'REGUP': 'REGUP', 'RRS': 'RRS', 'NSPIN': 'NSPIN', 'DSTFlag': 'DSTFlag'},))
+
     def total_as_service_offers(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, REGDNFrom: Decimal | None = None, REGDNTo: Decimal | None = None, REGUPFrom: Decimal | None = None, REGUPTo: Decimal | None = None, RRSPFRFrom: Decimal | None = None, RRSPFRTo: Decimal | None = None, RRSFFRFrom: Decimal | None = None, RRSFFRTo: Decimal | None = None, RRSUFRFrom: Decimal | None = None, RRSUFRTo: Decimal | None = None, ECRSSDFrom: Decimal | None = None, ECRSSDTo: Decimal | None = None, ECRSMDFrom: Decimal | None = None, ECRSMDTo: Decimal | None = None, NSPINFrom: Decimal | None = None, NSPINTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_179_cd.TotalAsServiceOffersRow]:
         'Total Ancillary Service Offers'
         return self._client._page('/np4-179-cd/total_as_service_offers', np4_179_cd.TotalAsServiceOffersRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'REGDNFrom': REGDNFrom, 'REGDNTo': REGDNTo, 'REGUPFrom': REGUPFrom, 'REGUPTo': REGUPTo, 'RRSPFRFrom': RRSPFRFrom, 'RRSPFRTo': RRSPFRTo, 'RRSFFRFrom': RRSFFRFrom, 'RRSFFRTo': RRSFFRTo, 'RRSUFRFrom': RRSUFRFrom, 'RRSUFRTo': RRSUFRTo, 'ECRSSDFrom': ECRSSDFrom, 'ECRSSDTo': ECRSSDTo, 'ECRSMDFrom': ECRSMDFrom, 'ECRSMDTo': ECRSMDTo, 'NSPINFrom': NSPINFrom, 'NSPINTo': NSPINTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7139,6 +7158,11 @@ class np4_532_cd:
         quantity: Decimal | None
         repeatHourFlag: bool | None
 
+    @property
+    def dam_as_sold_history(self) -> Archive[np4_532_cd.DamAsSoldRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-532-cd', np4_532_cd.DamAsSoldRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'ASType': 'ASType', 'Quantity': 'quantity', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
+
     def dam_as_sold(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, ASType: str | None = None, quantityFrom: Decimal | None = None, quantityTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_532_cd.DamAsSoldRow]:
         'DAM Total Ancillary Services Sold'
         return self._client._page('/np4-532-cd/dam_as_sold', np4_532_cd.DamAsSoldRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'ASType': ASType, 'quantityFrom': quantityFrom, 'quantityTo': quantityTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7750,6 +7774,11 @@ class np4_790_cd:
         asOfDate: datetime | None
         peakerNetMargin: Decimal | None
 
+    @property
+    def peaker_net_margin_history(self) -> Archive[np4_790_cd.PeakerNetMarginRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-790-cd', np4_790_cd.PeakerNetMarginRow, {'AsOfDate': 'asOfDate', 'PeakerNetMargin': 'peakerNetMargin'}, {}, member='*.csv', datetimes={'asOfDate': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def peaker_net_margin(self, *, asOfDateFrom: datetime | None = None, asOfDateTo: datetime | None = None, peakerNetMarginFrom: Decimal | None = None, peakerNetMarginTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_790_cd.PeakerNetMarginRow]:
         'Peaker Net Margin'
         return self._client._page('/np4-790-cd/peaker_net_margin', np4_790_cd.PeakerNetMarginRow, {'asOfDateFrom': asOfDateFrom, 'asOfDateTo': asOfDateTo, 'peakerNetMarginFrom': peakerNetMarginFrom, 'peakerNetMarginTo': peakerNetMarginTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7775,6 +7804,18 @@ class np4_791_cd:
         RTSWCAP: Decimal | None
         SWCAPType: str | None
         postedDatetime: datetime | None
+
+    class DaSwOfferCapsHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        SWCAPType: str | None
+        DASWCAP: Decimal | None = None
+        RTSWCAP: Decimal | None = None
+        SWCAP: Decimal | None = None
+
+    @property
+    def da_sw_offer_caps_history(self) -> Archive[np4_791_cd.DaSwOfferCapsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-791-cd', np4_791_cd.DaSwOfferCapsHistoryRow, {'SWCAPType': 'SWCAPType', 'DASWCAP': 'DASWCAP', 'RTSWCAP': 'RTSWCAP'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=({'SWCAPType': 'SWCAPType', 'SWCAP': 'SWCAP'},))
 
     def da_sw_offer_caps(self, *, SWCAPType: str | None = None, DASWCAPFrom: Decimal | None = None, DASWCAPTo: Decimal | None = None, RTSWCAPFrom: Decimal | None = None, RTSWCAPTo: Decimal | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_791_cd.DaSwOfferCapsRow]:
         'Day-Ahead and Real-Time System Wide-Offer Caps'
@@ -7802,6 +7843,18 @@ class np5_108_cd:
         postedDatetime: datetime | None
         repeatHourFlag: bool | None
         resourceName: str | None
+
+    class HrlyRmrServicesDeployedHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        hourEnding: str | None
+        resourceName: str | None
+        mwhDeployment: Decimal | None
+        repeatHourFlag: bool | None
+
+    @property
+    def hrly_rmr_services_deployed_history(self) -> Archive[np5_108_cd.HrlyRmrServicesDeployedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-108-cd', np5_108_cd.HrlyRmrServicesDeployedHistoryRow, {'HourEnding': 'hourEnding', 'ResourceName': 'resourceName', 'MWHDeployment': 'mwhDeployment', 'DSTFlag': 'repeatHourFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def hrly_rmr_services_deployed(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, hourEnding: str | None = None, resourceName: str | None = None, mwhDeploymentFrom: Decimal | None = None, mwhDeploymentTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_108_cd.HrlyRmrServicesDeployedRow]:
         'Hourly RMR Services Deployed'
@@ -8883,6 +8936,20 @@ class np7_464_cd:
         repeatedHourFlag: bool | None
         sink: str | None
         source: str | None
+
+    class DamPtpOptionPriceReportHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        price: Decimal | None
+        source: str | None
+        sink: str | None
+        repeatedHourFlag: bool | None
+
+    @property
+    def dam_ptp_option_price_report_history(self) -> Archive[np7_464_cd.DamPtpOptionPriceReportHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np7-464-cd', np7_464_cd.DamPtpOptionPriceReportHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Price': 'price', 'Source': 'source', 'Sink': 'sink', 'DSTFlag': 'repeatedHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def dam_ptp_option_price_report(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, source: str | None = None, sink: str | None = None, repeatedHourFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np7_464_cd.DamPtpOptionPriceReportRow]:
         'Day Ahead Point-to-Point Option Price Report'

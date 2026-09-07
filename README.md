@@ -236,3 +236,11 @@ remain `None`. Old RUC reports similarly preserve `sumSCEDTotal` separately from
 newer regional values. RUC and SCED timestamps retain their seconds, and DC-tie
 schedules retain both GMT and local interval-ending fields. System-adequacy
 hour-ending labels remain strings, including `24:00`.
+
+Ancillary-service offers and sales, peaker net margin, system-wide offer caps,
+RMR deployments, and day-ahead point-to-point option prices also expose typed
+`_history` readers. Legacy offers retain `RRS` separately from later RRS
+categories; legacy offer-cap files retain `SWCAP` separately from `DASWCAP` and
+`RTSWCAP`. Missing later columns remain `None`. The latest listed total-offers
+archive in the September 2026 probe was from December 2025; an archive listing
+must be checked before assuming a product has current historical publications.

@@ -122,6 +122,9 @@ class Archive(Generic[T]):
                     and all(values[field] is None for field in fields[1:])
                 ):
                     continue
+                # Older offer-cap reports append an empty cell beyond the header.
+                if None in values and all(not cell.strip() for cell in values[None]):
+                    del values[None]
                 try:
                     converted: dict[str, object] = {}
                     for source in fields:
