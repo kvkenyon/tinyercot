@@ -221,3 +221,50 @@ def test_additional_price_and_load_archives(sample):
         )
     assert len(rows) == min(3, sample["csv_rows"])
     assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "archive-only-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_archive_only_product_rows(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        namespace = getattr(client, product.replace("-", "_"))
+        assert not hasattr(namespace, method)  # No fictitious API endpoint.
+        reader = getattr(namespace, method + "_history")
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_resource_identifiers_preserve_leading_zeroes():
+    with Client() as client:
+        rows = list(
+            client.np3_988_er.resources_history.read(
+                zipped(
+                    "resources.csv",
+                    (INPUTS / "np3-988-er-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+    assert rows[0].DMEDuns == "0815527087000"
+    assert rows[0].RMR is False
+
+
+def test_meter_load_keeps_decimal_precision_and_unused_intervals():
+    with Client() as client:
+        rows = list(
+            client.np1_300.adjusted_meter_load_history.read(
+                zipped("aml.csv", (INPUTS / "np1-300-history-samples.csv").read_bytes())
+            )
+        )
+    assert rows[0].INT096 == Decimal("65.9150589999")
+    assert rows[0].INT100 is None
+    assert rows[0].startTime == date(2025, 11, 30)
+    assert rows[0].LSTime == date(2026, 5, 26)

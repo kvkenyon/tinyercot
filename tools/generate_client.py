@@ -48,6 +48,12 @@ def generate(*, allow_incomplete: bool = False) -> None:
             schemas[path] = {name: schemas[path][name] for name in row_fields[path]}
         product, method = path.split("/")
         groups.setdefault(product, []).append((method, op, schemas[path]))
+    for path, contract in history.items():
+        if contract.get("archive_only"):
+            product, method = path.split("/")
+            groups.setdefault(product, []).append(
+                (method, {"urlTemplate": "/" + path, "historyOnly": True}, {})
+            )
     if missing and not allow_incomplete:
         raise ValueError("Missing response schemas for: " + ", ".join(missing))
     if missing:
@@ -77,22 +83,23 @@ def generate(*, allow_incomplete: bool = False) -> None:
             row = name(
                 "".join(s.capitalize() for s in method.strip("_").split("_")) + "Row"
             )
-            lines += [f"    class {row}(Row):"]
             path = op["urlTemplate"].lstrip("/")
-            if path in row_fields:
-                lines.append(
-                    f"        __source_fields__: ClassVar[tuple[str, ...]] = {tuple(row_fields[path])!r}"
-                )
-            for field, kind in fields.items():
-                if not field.isidentifier() or keyword.iskeyword(field):
-                    raise ValueError(f"Unsupported field name: {product}/{field}")
-                # Nullable responses are represented explicitly; absent required fields still fail.
-                field_type = (
-                    overrides.get(op["urlTemplate"].lstrip("/"), {})
-                    .get(field, {})
-                    .get("type", FIELDS[kind])
-                )
-                lines += [f"        {field}: {field_type} | None"]
+            if not op.get("historyOnly"):
+                lines += [f"    class {row}(Row):"]
+                if path in row_fields:
+                    lines.append(
+                        f"        __source_fields__: ClassVar[tuple[str, ...]] = {tuple(row_fields[path])!r}"
+                    )
+                for field, kind in fields.items():
+                    if not field.isidentifier() or keyword.iskeyword(field):
+                        raise ValueError(f"Unsupported field name: {product}/{field}")
+                    # Nullable responses are represented explicitly; absent required fields still fail.
+                    field_type = (
+                        overrides.get(op["urlTemplate"].lstrip("/"), {})
+                        .get(field, {})
+                        .get("type", FIELDS[kind])
+                    )
+                    lines += [f"        {field}: {field_type} | None"]
             if path in history:
                 contract = history[path]
                 archive_row = row
@@ -114,6 +121,8 @@ def generate(*, allow_incomplete: bool = False) -> None:
                     '        """Historical CSV rows, including files predating the API."""',
                     f"        return Archive(self._client, {product!r}, {cls}.{archive_row}, {contract['columns']!r}, {contract['dates']!r}, member={contract.get('member', '*.csv')!r}, datetimes={contract.get('datetimes')!r}, variants={tuple(contract.get('variants', []))!r})",
                 ]
+            if op.get("historyOnly"):
+                continue
             params = (op.get("request") or {}).get("queryParameters", [])
             for mode, prefix, result, helper in [
                 ("", "def", f"Page[{cls}.{row}]", "_page"),
@@ -155,7 +164,7 @@ def generate(*, allow_incomplete: bool = False) -> None:
         ]
     (ROOT / "tinyercot" / "_generated.py").write_text("\n".join(lines) + "\n")
     print(
-        f"Generated {sum(map(len, groups.values()))} endpoints in {len(groups)} products"
+        f"Generated {sum(not op.get('historyOnly', False) for entries in groups.values() for _, op, _ in entries)} API endpoints in {len(groups)} product namespaces"
     )
 
 
