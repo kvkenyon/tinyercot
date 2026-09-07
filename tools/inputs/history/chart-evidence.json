@@ -1,0 +1,1506 @@
+{
+  "note": "Every decoded nonempty percentage independently compared with ordered printed chart text; missing labels remain None. Current and DST chart positions visually checked. No values estimated from chart geometry.",
+  "totalRows": 791,
+  "totalPrintedLabels": 1809,
+  "samples": [
+    {
+      "sample": "work/history-samples/NP4-765-ER.zip",
+      "zipSha256": "4d1b1538548ee923145057965cfc59724a78e2e876e1a87d1c45ded88f20ec8e",
+      "pdfs": [
+        {
+          "filename": "963449156.rpt.00023794.0000000000000000.20231206.080221290.ESRIntegrationReport 12-05-23.pdf",
+          "sha256": "0ef80712cb83a13d67285a58d7154139c70cec390ade961f9f5532fd5005203c",
+          "reportDate": "2023-12-05",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 9
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-05",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.3",
+            "chargeCapacityPercent": "1.9",
+            "netLoadPercent": null
+          }
+        }
+      ]
+    },
+    {
+      "sample": "work/history-current/NP4-765-ER.zip",
+      "zipSha256": "b27740746d092aa3fa78014913f48a3ba92ab9f35aeb81be0f84e8a694ff9d97",
+      "pdfs": [
+        {
+          "filename": "1271634350.rpt.00023794.0000000000000000.20260907.091110.ESRIntegrationReport 09-06-26.pdf",
+          "sha256": "cc487e168177681f6fa35d67e1db2e76b98f38cf39eb7099ef4354d25b099c53",
+          "reportDate": "2026-09-06",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 10
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2026-09-06",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.6",
+            "chargeCapacityPercent": "1.2",
+            "netLoadPercent": null
+          }
+        }
+      ]
+    },
+    {
+      "sample": "work/integration-pdf-2024-09-07/NP4-765-ER.zip",
+      "zipSha256": "6f0c3a0333b2c5bea5d7c0a6a2de77367220a5924fc9bac21c9e176d39cb1e25",
+      "pdfs": [
+        {
+          "filename": "1034094117.rpt.00023794.0000000000000000.20240907.080202413.ESRIntegrationReport 09-06-24.pdf",
+          "sha256": "080fe5aa9be73f0612a4ab92a2c0587ed9962c7bee084add5f457833a6a06bf6",
+          "reportDate": "2024-09-06",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 5
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2024-09-06",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.3",
+            "chargeCapacityPercent": "1.4",
+            "netLoadPercent": null
+          }
+        }
+      ]
+    },
+    {
+      "sample": "work/integration-pdf-2025-09-07/NP4-765-ER.zip",
+      "zipSha256": "2e6a19cdb0dfed1b41c76d54120bbb7cd078ffcc4628cb6000784d74d3c9bdb2",
+      "pdfs": [
+        {
+          "filename": "1137977183.rpt.00023794.0000000000000000.20250907.080147.ESRIntegrationReport 09-06-25.pdf",
+          "sha256": "34dbb5358185d7aae2b10f081be392719e0a3aeddb19518d80c2d162ccde2132",
+          "reportDate": "2025-09-06",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 8
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2025-09-06",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "2.3",
+            "chargeCapacityPercent": "4.3",
+            "netLoadPercent": null
+          }
+        }
+      ]
+    },
+    {
+      "sample": "work/integration-pdf-2024-11-04/NP4-765-ER.zip",
+      "zipSha256": "af39282ae20a538272d1c48accd5763ffd1d58b815bb02067813a0280200e616",
+      "pdfs": [
+        {
+          "filename": "1049680121.rpt.00023794.0000000000000000.20241104.103231000.ESRIntegrationReport 11-03-24.pdf",
+          "sha256": "b5d7e340ad10fd4e28ead406539bfa3a0aeb9a09e5b029df2a681ca51b3d67dc",
+          "reportDate": "2024-11-03",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 6
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2024-11-03",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.4",
+            "chargeCapacityPercent": "2.2",
+            "netLoadPercent": null
+          }
+        }
+      ]
+    },
+    {
+      "sample": "work/integration-pdf-2025-03-10/NP4-765-ER.zip",
+      "zipSha256": "1f5b8c0c8deee6c26edc8ff9432fdba09801b7ec47da1e795da56e9a33a1a13f",
+      "pdfs": [
+        {
+          "filename": "1084364626.rpt.00023794.0000000000000000.20250310.080229493.ESRIntegrationReport 03-09-25.pdf",
+          "sha256": "671778af162b0ee79d5a2945babc9b3f94cda40c0181b44d3903f4be76f21d85",
+          "reportDate": "2025-03-09",
+          "rows": 23,
+          "printedLabels": {
+            "dischargeCapacityPercent": 23,
+            "chargeCapacityPercent": 23,
+            "netLoadPercent": 9
+          },
+          "hours": [
+            "01",
+            "02",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2025-03-09",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.6",
+            "chargeCapacityPercent": "3.1",
+            "netLoadPercent": null
+          }
+        }
+      ]
+    },
+    {
+      "sample": "work/integration-pdf-2025-11-03/NP4-765-ER.zip",
+      "zipSha256": "d0466b3e3c0e0c052fcb2de590d8950d3e5ac812bb898084cc11cdf10c048cb3",
+      "pdfs": [
+        {
+          "filename": "1156779987.rpt.00023794.0000000000000000.20251103.080149.ESRIntegrationReport 11-02-25.pdf",
+          "sha256": "bd6ea6b43fbaa8e9b545c80b096db199c9d0fe2f1f581e56d92930da929d81b1",
+          "reportDate": "2025-11-02",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 7
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2025-11-02",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.7",
+            "chargeCapacityPercent": "7.6",
+            "netLoadPercent": null
+          }
+        }
+      ]
+    },
+    {
+      "sample": "work/bundle-audit/np4-765-er.zip",
+      "zipSha256": "68421fd18547e7bd03ba8bc85c32beeb140ea78f04c127b60ed036614d17e697",
+      "pdfs": [
+        {
+          "filename": "965641539.rpt.00023794.0000000000000000.20231215.080213844.ESRIntegrationReport 12-14-23.pdf",
+          "sha256": "ce46e07946b9f2b6218f351b28386e49521982ec08de8f4197970b43f124b9dd",
+          "reportDate": "2023-12-14",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 5
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-14",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.4",
+            "chargeCapacityPercent": "1.4",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "967613046.rpt.00023794.0000000000000000.20231223.080215413.ESRIntegrationReport 12-22-23.pdf",
+          "sha256": "8b32a173cb0897dde0838b2bc2d6674b27e01691152091eb5935bb5c9e44ddc1",
+          "reportDate": "2023-12-22",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 5
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-22",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.3",
+            "chargeCapacityPercent": "0.8",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "968826018.rpt.00023794.0000000000000000.20231228.080203191.ESRIntegrationReport 12-27-23.pdf",
+          "sha256": "63ce32916ae4f8831a5ef8c52ed2db7b241e47b4ef649cd21118f969317a3272",
+          "reportDate": "2023-12-27",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 9
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-27",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.8",
+            "chargeCapacityPercent": "1.0",
+            "netLoadPercent": "0.1"
+          }
+        },
+        {
+          "filename": "963691859.rpt.00023794.0000000000000000.20231207.080216985.ESRIntegrationReport 12-06-23.pdf",
+          "sha256": "3ec9cd34dca43bc93adaf5b2e2e30e02e5a4dd50fd29473ce7bb5dad96793429",
+          "reportDate": "2023-12-06",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 5
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-06",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.0",
+            "chargeCapacityPercent": "2.8",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "966867987.rpt.00023794.0000000000000000.20231220.080215152.ESRIntegrationReport 12-19-23.pdf",
+          "sha256": "3652e228e73d146430b5e36ef32c7268a988baf3b60f43996ad9f1b4d5bf6f3d",
+          "reportDate": "2023-12-19",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 6
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-19",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.0",
+            "chargeCapacityPercent": "0.9",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "966368925.rpt.00023794.0000000000000000.20231218.080219451.ESRIntegrationReport 12-17-23.pdf",
+          "sha256": "5837a52ab242335cb3e57a21c096b05ac6e8760bdd58e2d5ba1aae6b8fc72564",
+          "reportDate": "2023-12-17",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 7
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-17",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.8",
+            "chargeCapacityPercent": "4.0",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "963934709.rpt.00023794.0000000000000000.20231208.080216322.ESRIntegrationReport 12-07-23.pdf",
+          "sha256": "07332184a14f1b2cdfd21c67856b8e5d2fac354d66750fdcdde007c4e4f37895",
+          "reportDate": "2023-12-07",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 6
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-07",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.7",
+            "chargeCapacityPercent": "1.6",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "964899714.rpt.00023794.0000000000000000.20231212.080217984.ESRIntegrationReport 12-11-23.pdf",
+          "sha256": "1d8671491d80949e76ed770a8d165af7e4c496b6f44dd127d6f024d672772901",
+          "reportDate": "2023-12-11",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 5
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-11",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.8",
+            "chargeCapacityPercent": "1.1",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "964644082.rpt.00023794.0000000000000000.20231211.080218993.ESRIntegrationReport 12-10-23.pdf",
+          "sha256": "7a1518c63a76d759e15188914fa0ee31198fbad447ec9d8f9c6e1b82bcf16807",
+          "reportDate": "2023-12-10",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 8
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-10",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.2",
+            "chargeCapacityPercent": "1.2",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "965392663.rpt.00023794.0000000000000000.20231214.080233675.ESRIntegrationReport 12-13-23.pdf",
+          "sha256": "1eca7c906d14727c3be753b8203cb688fa29ff765fcf4173187e36ab617f549d",
+          "reportDate": "2023-12-13",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 3
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-13",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.4",
+            "chargeCapacityPercent": "2.3",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "967364854.rpt.00023794.0000000000000000.20231222.080214742.ESRIntegrationReport 12-21-23.pdf",
+          "sha256": "d11183fd65887b70cf35d77ea836ac2dbbdfb3cac36262ff9fac328407065326",
+          "reportDate": "2023-12-21",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 4
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-21",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.6",
+            "chargeCapacityPercent": "1.3",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "964176617.rpt.00023794.0000000000000000.20231209.080221220.ESRIntegrationReport 12-08-23.pdf",
+          "sha256": "fd1ee35f9265cec282ab4a6e2785cfed21ddbea385528ad500e3bfb165ea10d3",
+          "reportDate": "2023-12-08",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 10
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-08",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "4.8",
+            "chargeCapacityPercent": "2.8",
+            "netLoadPercent": "0.1"
+          }
+        },
+        {
+          "filename": "969564820.rpt.00023794.0000000000000000.20231231.080226626.ESRIntegrationReport 12-30-23.pdf",
+          "sha256": "10896a150096d202e3f7c036517ed8dcc86450137e5db3334879ea346c062bcb",
+          "reportDate": "2023-12-30",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 8
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-30",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.9",
+            "chargeCapacityPercent": "2.7",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "967849886.rpt.00023794.0000000000000000.20231224.080227641.ESRIntegrationReport 12-23-23.pdf",
+          "sha256": "d70a706e590706d2ef13376610f0fd2ae0f942d23c9ab41483309c81d4108f55",
+          "reportDate": "2023-12-23",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 6
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-23",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.0",
+            "chargeCapacityPercent": "2.5",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "968312380.rpt.00023794.0000000000000000.20231226.080207839.ESRIntegrationReport 12-25-23.pdf",
+          "sha256": "dfa73589aef8bb094c018cd24915f8563cf9fb3b429e10667bf91c8faff516f1",
+          "reportDate": "2023-12-25",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 7
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-25",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.6",
+            "chargeCapacityPercent": "2.2",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "965890275.rpt.00023794.0000000000000000.20231216.080217527.ESRIntegrationReport 12-15-23.pdf",
+          "sha256": "d54f61ecd147877840059b421220f863eb379cec336d6897459fe0e97ff059b4",
+          "reportDate": "2023-12-15",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 12
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-15",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.3",
+            "chargeCapacityPercent": "0.6",
+            "netLoadPercent": "0.1"
+          }
+        },
+        {
+          "filename": "969079755.rpt.00023794.0000000000000000.20231229.080205414.ESRIntegrationReport 12-28-23.pdf",
+          "sha256": "5524ee9eaac44ba56d6cd871be5c2be68b53ddfdcaf7ce1af9ea82c7bad7496c",
+          "reportDate": "2023-12-28",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 5
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-28",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.7",
+            "chargeCapacityPercent": "1.3",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "968079959.rpt.00023794.0000000000000000.20231225.080212966.ESRIntegrationReport 12-24-23.pdf",
+          "sha256": "72b2bc016bd800fff15eaa4865cff6304aaad83ae6ccce515cb2d3720b8efffd",
+          "reportDate": "2023-12-24",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 7
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-24",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.1",
+            "chargeCapacityPercent": "1.9",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "964407639.rpt.00023794.0000000000000000.20231210.080451892.ESRIntegrationReport 12-09-23.pdf",
+          "sha256": "a8a89334c85be9630bb7ee699ee245b91b0bdf43bc9e5f96b69d2826790b4252",
+          "reportDate": "2023-12-09",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 4
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-09",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.0",
+            "chargeCapacityPercent": "1.5",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "965147006.rpt.00023794.0000000000000000.20231213.080205389.ESRIntegrationReport 12-12-23.pdf",
+          "sha256": "d02de0c2d2167b2f2746e05c7c6db6c2f97d8ca422852e4ba192422e311163dd",
+          "reportDate": "2023-12-12",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 5
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-12",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.3",
+            "chargeCapacityPercent": "0.5",
+            "netLoadPercent": "0.1"
+          }
+        },
+        {
+          "filename": "966128938.rpt.00023794.0000000000000000.20231217.080230967.ESRIntegrationReport 12-16-23.pdf",
+          "sha256": "e4f9318032c7e9cabfed501b2b592c6fac867468e24f208c51e33653fe9e5491",
+          "reportDate": "2023-12-16",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 7
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-16",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.8",
+            "chargeCapacityPercent": "1.8",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "963449156.rpt.00023794.0000000000000000.20231206.080221290.ESRIntegrationReport 12-05-23.pdf",
+          "sha256": "0ef80712cb83a13d67285a58d7154139c70cec390ade961f9f5532fd5005203c",
+          "reportDate": "2023-12-05",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 9
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-05",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.3",
+            "chargeCapacityPercent": "1.9",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "966625339.rpt.00023794.0000000000000000.20231219.080210074.ESRIntegrationReport 12-18-23.pdf",
+          "sha256": "9041ae311c37bcd06547a30c77d6a47558019331b02376b99fcbcd589b862240",
+          "reportDate": "2023-12-18",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 6
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-18",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.0",
+            "chargeCapacityPercent": "2.0",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "968565068.rpt.00023794.0000000000000000.20231227.080212872.ESRIntegrationReport 12-26-23.pdf",
+          "sha256": "709d54ed4dddb81bb2c5698b2f78de495ad49b45ddd4a518ebd6bd52dca288b7",
+          "reportDate": "2023-12-26",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 8
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-26",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "0.4",
+            "chargeCapacityPercent": "7.0",
+            "netLoadPercent": null
+          }
+        },
+        {
+          "filename": "969324580.rpt.00023794.0000000000000000.20231230.080213816.ESRIntegrationReport 12-29-23.pdf",
+          "sha256": "9c5a7c084be082e47879295caec87260d8494aba00165f93e58cbf3de1f1d087",
+          "reportDate": "2023-12-29",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 9
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-29",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "4.0",
+            "chargeCapacityPercent": "0.7",
+            "netLoadPercent": "0.4"
+          }
+        },
+        {
+          "filename": "967113627.rpt.00023794.0000000000000000.20231221.080217107.ESRIntegrationReport 12-20-23.pdf",
+          "sha256": "6576549f0c1b05782c021cf06dcef9275e0a95b92b4dda224618328952fc457a",
+          "reportDate": "2023-12-20",
+          "rows": 24,
+          "printedLabels": {
+            "dischargeCapacityPercent": 24,
+            "chargeCapacityPercent": 24,
+            "netLoadPercent": 7
+          },
+          "hours": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"
+          ],
+          "firstRow": {
+            "reportDate": "2023-12-20",
+            "hourEnding": "01",
+            "dischargeCapacityPercent": "1.0",
+            "chargeCapacityPercent": "2.6",
+            "netLoadPercent": null
+          }
+        }
+      ]
+    }
+  ]
+}

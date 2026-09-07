@@ -10145,5 +10145,37 @@
     "datetimes": {
       "recordTime": "%m/%d/%Y %H:%M"
     }
+  },
+  "np4-765-er/hourly_percentages": {
+    "archive_only": true,
+    "fields": {
+      "reportDate": "date",
+      "hourEnding": "str",
+      "dischargeCapacityPercent": "Decimal",
+      "chargeCapacityPercent": "Decimal",
+      "netLoadPercent": "Decimal"
+    },
+    "columns": {
+      "reportDate": "reportDate",
+      "hourEnding": "hourEnding",
+      "dischargeCapacityPercent": "dischargeCapacityPercent",
+      "chargeCapacityPercent": "chargeCapacityPercent",
+      "netLoadPercent": "netLoadPercent"
+    },
+    "dates": {},
+    "charts": {
+      "dischargeCapacityPercent": [
+        3,
+        "Actual ESR Discharging Output"
+      ],
+      "chargeCapacityPercent": [
+        3,
+        "Actual ESR Charging Output"
+      ],
+      "netLoadPercent": [
+        4,
+        "Actual ESR Net Output"
+      ]
+    }
   }
 }
