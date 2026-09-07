@@ -271,3 +271,12 @@ RUC execution timestamp separately from delivery date/hour, service type, and th
 decimal factor. The oldest files listed in the September 2026 probes were from
 December 2025; these products do not establish a common start date for other
 ancillary-service history.
+
+DAM/SCED and hourly, daily, and weekly RUC ancillary-service demand curves
+(NP4-212/213/214/215) expose typed `_history` readers. Each source point retains
+its `demandCurvePoint`, `quantity`, `price`, service type, and delivery hour;
+RUC curves also retain execution timestamps. For example,
+`ercot.np4_214_cd.druc_as_demand_curves_history.rows(...)` returns every point,
+including adjacent points with equal prices. Large curve publications are read
+one downloaded file at a time by default; increasing batch size increases memory
+use. Preserve document metadata when comparing separate publications.

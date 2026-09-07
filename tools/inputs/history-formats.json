@@ -3559,5 +3559,98 @@
     "datetimes": {
       "RUCTimestamp": "%m/%d/%Y %H:%M:%S"
     }
+  },
+  "np4-212-cd/dam_sced_as_demand_curves": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "ASType": "ASType",
+      "DemandCurvePoint": "demandCurvePoint",
+      "Quantity": "quantity",
+      "Price": "price",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "ASType": "str",
+      "demandCurvePoint": "Decimal",
+      "quantity": "Decimal",
+      "price": "Decimal",
+      "repeatHourFlag": "bool"
+    }
+  },
+  "np4-213-cd/hruc_as_demand_curves": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "RUCTimeStamp": "RUCTimestamp",
+      "ASType": "ASType",
+      "DemandCurvePoint": "demandCurvePoint",
+      "Quantity": "quantity",
+      "Price": "price",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "RUCTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np4-214-cd/druc_as_demand_curves": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "RUCTimeStamp": "RUCTimestamp",
+      "ASType": "ASType",
+      "DemandCurvePoint": "demandCurvePoint",
+      "Quantity": "quantity",
+      "Price": "price",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "RUCTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np4-215-cd/wruc_as_demand_curves": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "RUCTimeStamp": "RUCTimestamp",
+      "ASType": "ASType",
+      "DemandCurvePoint": "demandCurvePoint",
+      "Quantity": "quantity",
+      "Price": "price",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S",
+      "RUCTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "RUCTimestamp": "datetime",
+      "ASType": "str",
+      "demandCurvePoint": "Decimal",
+      "quantity": "Decimal",
+      "price": "Decimal",
+      "repeatHourFlag": "bool"
+    }
   }
 }

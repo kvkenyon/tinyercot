@@ -802,3 +802,50 @@ def test_deployment_factors_preserve_ruc_time_and_service_types():
     assert factors[0].RUCTimestamp.isoformat() == "2025-12-05T14:33:01"
     assert factors[0].deliveryDate == date(2025, 12, 6)
     assert factors[0].deliveryHour == "01:00"
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "curves-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_demand_curve_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_demand_curve_points_keep_quantities_and_execution_time():
+    with Client() as client:
+        points = list(
+            client.np4_214_cd.druc_as_demand_curves_history.read(
+                zipped(
+                    "curves.csv",
+                    (INPUTS / "np4-214-cd-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+    assert [row.demandCurvePoint for row in points] == [
+        Decimal(1),
+        Decimal(2),
+        Decimal(3),
+    ]
+    assert [row.quantity for row in points] == [Decimal(0), Decimal(40), Decimal(41)]
+    assert [row.price for row in points] == [
+        Decimal(5050),
+        Decimal(5050),
+        Decimal("3353.06"),
+    ]
+    assert points[0].ASType == "ECRS"
+    assert points[0].RUCTimestamp.isoformat() == "2026-02-27T14:33:01"
+    assert points[0].deliveryDate == date(2026, 2, 28)

@@ -6849,6 +6849,21 @@ class np4_212_cd:
         quantity: Decimal | None
         repeatHourFlag: bool | None
 
+    class DamScedAsDemandCurvesHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        ASType: str | None
+        demandCurvePoint: Decimal | None
+        quantity: Decimal | None
+        price: Decimal | None
+        repeatHourFlag: bool | None
+
+    @property
+    def dam_sced_as_demand_curves_history(self) -> Archive[np4_212_cd.DamScedAsDemandCurvesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-212-cd', np4_212_cd.DamScedAsDemandCurvesHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'ASType': 'ASType', 'DemandCurvePoint': 'demandCurvePoint', 'Quantity': 'quantity', 'Price': 'price', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def dam_sced_as_demand_curves(self, *, quantityFrom: Decimal | None = None, quantityTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, repeatHourFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, ASType: str | None = None, demandCurvePointFrom: Decimal | None = None, demandCurvePointTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_212_cd.DamScedAsDemandCurvesRow]:
         'DAM and SCED Ancillary Service Demand Curves'
         return self._client._page('/np4-212-cd/dam_sced_as_demand_curves', np4_212_cd.DamScedAsDemandCurvesRow, {'quantityFrom': quantityFrom, 'quantityTo': quantityTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'repeatHourFlag': repeatHourFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'ASType': ASType, 'demandCurvePointFrom': demandCurvePointFrom, 'demandCurvePointTo': demandCurvePointTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6878,6 +6893,11 @@ class np4_213_cd:
         price: Decimal | None
         quantity: Decimal | None
         repeatHourFlag: bool | None
+
+    @property
+    def hruc_as_demand_curves_history(self) -> Archive[np4_213_cd.HrucAsDemandCurvesRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-213-cd', np4_213_cd.HrucAsDemandCurvesRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimeStamp': 'RUCTimestamp', 'ASType': 'ASType', 'DemandCurvePoint': 'demandCurvePoint', 'Quantity': 'quantity', 'Price': 'price', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def hruc_as_demand_curves(self, *, quantityFrom: Decimal | None = None, quantityTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, repeatHourFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, ASType: str | None = None, demandCurvePointFrom: Decimal | None = None, demandCurvePointTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_213_cd.HrucAsDemandCurvesRow]:
         'Hourly RUC Ancillary Service Demand Curves'
@@ -6909,6 +6929,11 @@ class np4_214_cd:
         quantity: Decimal | None
         repeatHourFlag: bool | None
 
+    @property
+    def druc_as_demand_curves_history(self) -> Archive[np4_214_cd.DrucAsDemandCurvesRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-214-cd', np4_214_cd.DrucAsDemandCurvesRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimeStamp': 'RUCTimestamp', 'ASType': 'ASType', 'DemandCurvePoint': 'demandCurvePoint', 'Quantity': 'quantity', 'Price': 'price', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def druc_as_demand_curves(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, ASType: str | None = None, demandCurvePointFrom: Decimal | None = None, demandCurvePointTo: Decimal | None = None, quantityFrom: Decimal | None = None, quantityTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_214_cd.DrucAsDemandCurvesRow]:
         'Daily RUC Ancillary Service Demand Curves'
         return self._client._page('/np4-214-cd/druc_as_demand_curves', np4_214_cd.DrucAsDemandCurvesRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'RUCTimestampFrom': RUCTimestampFrom, 'RUCTimestampTo': RUCTimestampTo, 'ASType': ASType, 'demandCurvePointFrom': demandCurvePointFrom, 'demandCurvePointTo': demandCurvePointTo, 'quantityFrom': quantityFrom, 'quantityTo': quantityTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6939,6 +6964,22 @@ class np4_215_cd:
         price: Decimal | None
         quantity: Decimal | None
         repeatHourFlag: bool | None
+
+    class WrucAsDemandCurvesHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        RUCTimestamp: datetime | None
+        ASType: str | None
+        demandCurvePoint: Decimal | None
+        quantity: Decimal | None
+        price: Decimal | None
+        repeatHourFlag: bool | None
+
+    @property
+    def wruc_as_demand_curves_history(self) -> Archive[np4_215_cd.WrucAsDemandCurvesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-215-cd', np4_215_cd.WrucAsDemandCurvesHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimeStamp': 'RUCTimestamp', 'ASType': 'ASType', 'DemandCurvePoint': 'demandCurvePoint', 'Quantity': 'quantity', 'Price': 'price', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S', 'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def wruc_as_demand_curves(self, *, quantityFrom: Decimal | None = None, quantityTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, repeatHourFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, ASType: str | None = None, demandCurvePointFrom: Decimal | None = None, demandCurvePointTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_215_cd.WrucAsDemandCurvesRow]:
         'Weekly RUC Ancillary Service Demand Curves'
