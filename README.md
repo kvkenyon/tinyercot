@@ -11,6 +11,12 @@ expected named parameters and types. The live catalog lists the same 242 report
 paths. See `tools/inputs/live-inventory-evidence.json` for the check date and
 scope; endpoint coverage does not establish every historical file layout.
 
+Public website files extend beyond that API inventory. ERCOT also directly links
+wind-integration ZIPs for 2010–2015 and January 2016. The inspected 2010 and
+January 2016 archives contain 176 daily PDFs; typed support for these older
+report layouts is not implemented yet. See
+`tools/inputs/public-website-archives-evidence.json` for the source URLs and scope.
+
 ```python
 from datetime import date
 from tinyercot import Client
