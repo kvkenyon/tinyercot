@@ -4315,5 +4315,19 @@
       "deliveryDate": "%m/%d/%Y"
     },
     "datetimes": {}
+  },
+  "np4-19-cd/dam_agg_as_offer_curve": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "AncillaryType": "ancillaryType",
+      "Price": "price",
+      "Quantity": "quantity",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
   }
 }

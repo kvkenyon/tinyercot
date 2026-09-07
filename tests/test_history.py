@@ -1081,3 +1081,48 @@ def test_sog_history_keeps_long_meter_ids_and_legacy_adders():
     assert prices[1].RTORDPA == Decimal(0)
     assert prices[1].RTRDPA is None
     assert prices[1].SCEDTimestamp.isoformat() == "2022-02-11T00:05:20"
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "offers-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_aggregated_offer_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_aggregated_offers_keep_legacy_service_codes_and_source_order():
+    with Client() as client:
+        offers = list(
+            client.np4_19_cd.dam_agg_as_offer_curve_history.read(
+                zipped(
+                    "offers.csv",
+                    (INPUTS / "np4-19-cd-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+    assert all(row.ancillaryType == "OFFNS" for row in offers)
+    assert [row.price for row in offers] == [
+        Decimal(400),
+        Decimal("0.77"),
+        Decimal("0.01"),
+    ]
+    assert [row.quantity for row in offers] == [
+        Decimal(1757),
+        Decimal("533.8"),
+        Decimal(193),
+    ]
+    assert offers[0].deliveryDate == date(2014, 3, 13)

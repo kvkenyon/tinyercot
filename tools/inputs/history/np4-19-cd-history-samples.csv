@@ -1,0 +1,4 @@
+DeliveryDate,HourEnding,AncillaryType,Price,Quantity,DSTFlag
+03/13/2014,01:00,OFFNS, 400, 1757,N
+03/13/2014,01:00,OFFNS, 0.77, 533.8,N
+03/13/2014,01:00,OFFNS, 0.01, 193,N

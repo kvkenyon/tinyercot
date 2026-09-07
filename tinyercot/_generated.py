@@ -6359,6 +6359,11 @@ class np4_19_cd:
         price: Decimal | None
         quantity: Decimal | None
 
+    @property
+    def dam_agg_as_offer_curve_history(self) -> Archive[np4_19_cd.DamAggAsOfferCurveRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-19-cd', np4_19_cd.DamAggAsOfferCurveRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'AncillaryType': 'ancillaryType', 'Price': 'price', 'Quantity': 'quantity', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
+
     def dam_agg_as_offer_curve(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, ancillaryType: str | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, quantityFrom: Decimal | None = None, quantityTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_19_cd.DamAggAsOfferCurveRow]:
         'DAM Aggregated Ancillary Service Offer Curve'
         return self._client._page('/np4-19-cd/dam_agg_as_offer_curve', np4_19_cd.DamAggAsOfferCurveRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'ancillaryType': ancillaryType, 'priceFrom': priceFrom, 'priceTo': priceTo, 'quantityFrom': quantityFrom, 'quantityTo': quantityTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
