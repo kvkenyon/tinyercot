@@ -2942,6 +2942,1839 @@
           "reader": "np4-745-cd/spp_hrly_actual_fcast_geo"
         }
       ]
+    },
+    {
+      "audit": "history-annual-audit",
+      "scope": "One January publication sample per year, 2015 through 2025, for SCED disclosure and wind. CSV headers and up to three rows; not all retained files or all rows. January 2020 sources reused from the prior sample.",
+      "formats": {
+        ".zip": 22,
+        ".csv": 78
+      },
+      "csvFilesWithExactlyOneReader": 78,
+      "files": [
+        {
+          "sample": "work/history-annual-2015/NP3-965-ER.zip/471251518.ext.00013052.0000000000000000.20150131.042252146.60_Day_SCED_Disclosure.zip",
+          "member": "60d_Load Resource_Data_in_SCED-31-JAN-15.csv",
+          "reader": "np3-965-er/60_load_res_data_in_sced"
+        },
+        {
+          "sample": "work/history-annual-2015/NP3-965-ER.zip/471251518.ext.00013052.0000000000000000.20150131.042252146.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_Gen_Resource_Data-31-JAN-15.csv",
+          "reader": "np3-965-er/60_sced_gen_res_data"
+        },
+        {
+          "sample": "work/history-annual-2015/NP3-965-ER.zip/471251518.ext.00013052.0000000000000000.20150131.042252146.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_SMNE_GEN_RES-31-JAN-15.csv",
+          "reader": "np3-965-er/60_sced_smne_gen_res"
+        },
+        {
+          "sample": "work/history-annual-2015/NP3-965-ER.zip/471251518.ext.00013052.0000000000000000.20150131.042252146.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_DSR_Load_Data-31-JAN-15.csv",
+          "reader": "np3-965-er/60_sced_dsr_load_data"
+        },
+        {
+          "sample": "work/history-annual-2015/NP3-965-ER.zip/471251518.ext.00013052.0000000000000000.20150131.042252146.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_QSE_Self_Arranged_AS-31-JAN-15.csv",
+          "reader": "np3-965-er/60_sced_qse_self_arranged_as"
+        },
+        {
+          "sample": "work/history-annual-2015/NP3-965-ER.zip/471251518.ext.00013052.0000000000000000.20150131.042252146.60_Day_SCED_Disclosure.zip",
+          "member": "60d_HDL_LDL_ManOverride-31-JAN-15.csv",
+          "reader": "np3-965-er/60_hdl_ldl_man_override"
+        },
+        {
+          "sample": "work/history-annual-2015/NP4-732-CD.zip/471323977.cdr.00013028.0000000000000000.20150131.233042645.WPPHRLYAVGACTNP4732_csv.zip",
+          "member": "cdr.00013028.0000000000000000.20150131.233042.WPPHRLYAVGACTNP4732.csv",
+          "reader": "np4-732-cd/wpp_hrly_avrg_actl_fcast"
+        },
+        {
+          "sample": "work/history-annual-2016/NP3-965-ER.zip/508459546.ext.00013052.0000000000000000.20160131.042853283.60_Day_SCED_Disclosure.zip",
+          "member": "60d_Load Resource_Data_in_SCED-31-JAN-16.csv",
+          "reader": "np3-965-er/60_load_res_data_in_sced"
+        },
+        {
+          "sample": "work/history-annual-2016/NP3-965-ER.zip/508459546.ext.00013052.0000000000000000.20160131.042853283.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_Gen_Resource_Data-31-JAN-16.csv",
+          "reader": "np3-965-er/60_sced_gen_res_data"
+        },
+        {
+          "sample": "work/history-annual-2016/NP3-965-ER.zip/508459546.ext.00013052.0000000000000000.20160131.042853283.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_SMNE_GEN_RES-31-JAN-16.csv",
+          "reader": "np3-965-er/60_sced_smne_gen_res"
+        },
+        {
+          "sample": "work/history-annual-2016/NP3-965-ER.zip/508459546.ext.00013052.0000000000000000.20160131.042853283.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_DSR_Load_Data-31-JAN-16.csv",
+          "reader": "np3-965-er/60_sced_dsr_load_data"
+        },
+        {
+          "sample": "work/history-annual-2016/NP3-965-ER.zip/508459546.ext.00013052.0000000000000000.20160131.042853283.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_QSE_Self_Arranged_AS-31-JAN-16.csv",
+          "reader": "np3-965-er/60_sced_qse_self_arranged_as"
+        },
+        {
+          "sample": "work/history-annual-2016/NP3-965-ER.zip/508459546.ext.00013052.0000000000000000.20160131.042853283.60_Day_SCED_Disclosure.zip",
+          "member": "60d_HDL_LDL_ManOverride-31-JAN-16.csv",
+          "reader": "np3-965-er/60_hdl_ldl_man_override"
+        },
+        {
+          "sample": "work/history-annual-2016/NP4-732-CD.zip/508541149.cdr.00013028.0000000000000000.20160131.233108482.WPPHRLYAVGACTNP4732_csv.zip",
+          "member": "cdr.00013028.0000000000000000.20160131.233108.WPPHRLYAVGACTNP4732.csv",
+          "reader": "np4-732-cd/wpp_hrly_avrg_actl_fcast"
+        },
+        {
+          "sample": "work/history-annual-2017/NP3-965-ER.zip/550576150.ext.00013052.0000000000000000.20170131.042006161.60_Day_SCED_Disclosure.zip",
+          "member": "60d_Load Resource_Data_in_SCED-31-JAN-17.csv",
+          "reader": "np3-965-er/60_load_res_data_in_sced"
+        },
+        {
+          "sample": "work/history-annual-2017/NP3-965-ER.zip/550576150.ext.00013052.0000000000000000.20170131.042006161.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_Gen_Resource_Data-31-JAN-17.csv",
+          "reader": "np3-965-er/60_sced_gen_res_data"
+        },
+        {
+          "sample": "work/history-annual-2017/NP3-965-ER.zip/550576150.ext.00013052.0000000000000000.20170131.042006161.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_SMNE_GEN_RES-31-JAN-17.csv",
+          "reader": "np3-965-er/60_sced_smne_gen_res"
+        },
+        {
+          "sample": "work/history-annual-2017/NP3-965-ER.zip/550576150.ext.00013052.0000000000000000.20170131.042006161.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_DSR_Load_Data-31-JAN-17.csv",
+          "reader": "np3-965-er/60_sced_dsr_load_data"
+        },
+        {
+          "sample": "work/history-annual-2017/NP3-965-ER.zip/550576150.ext.00013052.0000000000000000.20170131.042006161.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_QSE_Self_Arranged_AS-31-JAN-17.csv",
+          "reader": "np3-965-er/60_sced_qse_self_arranged_as"
+        },
+        {
+          "sample": "work/history-annual-2017/NP3-965-ER.zip/550576150.ext.00013052.0000000000000000.20170131.042006161.60_Day_SCED_Disclosure.zip",
+          "member": "60d_HDL_LDL_ManOverride-31-JAN-17.csv",
+          "reader": "np3-965-er/60_hdl_ldl_man_override"
+        },
+        {
+          "sample": "work/history-annual-2017/NP4-732-CD.zip/550677301.cdr.00013028.0000000000000000.20170131.233129026.WPPHRLYAVGACTNP4732_csv.zip",
+          "member": "cdr.00013028.0000000000000000.20170131.233128.WPPHRLYAVGACTNP4732.csv",
+          "reader": "np4-732-cd/wpp_hrly_avrg_actl_fcast"
+        },
+        {
+          "sample": "work/history-annual-2018/NP3-965-ER.zip/596928044.ext.00013052.0000000000000000.20180131.041744931.60_Day_SCED_Disclosure.zip",
+          "member": "60d_Load Resource_Data_in_SCED-31-JAN-18.csv",
+          "reader": "np3-965-er/60_load_res_data_in_sced"
+        },
+        {
+          "sample": "work/history-annual-2018/NP3-965-ER.zip/596928044.ext.00013052.0000000000000000.20180131.041744931.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_Gen_Resource_Data-31-JAN-18.csv",
+          "reader": "np3-965-er/60_sced_gen_res_data"
+        },
+        {
+          "sample": "work/history-annual-2018/NP3-965-ER.zip/596928044.ext.00013052.0000000000000000.20180131.041744931.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_SMNE_GEN_RES-31-JAN-18.csv",
+          "reader": "np3-965-er/60_sced_smne_gen_res"
+        },
+        {
+          "sample": "work/history-annual-2018/NP3-965-ER.zip/596928044.ext.00013052.0000000000000000.20180131.041744931.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_DSR_Load_Data-31-JAN-18.csv",
+          "reader": "np3-965-er/60_sced_dsr_load_data"
+        },
+        {
+          "sample": "work/history-annual-2018/NP3-965-ER.zip/596928044.ext.00013052.0000000000000000.20180131.041744931.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_QSE_Self_Arranged_AS-31-JAN-18.csv",
+          "reader": "np3-965-er/60_sced_qse_self_arranged_as"
+        },
+        {
+          "sample": "work/history-annual-2018/NP3-965-ER.zip/596928044.ext.00013052.0000000000000000.20180131.041744931.60_Day_SCED_Disclosure.zip",
+          "member": "60d_HDL_LDL_ManOverride-31-JAN-18.csv",
+          "reader": "np3-965-er/60_hdl_ldl_man_override"
+        },
+        {
+          "sample": "work/history-annual-2018/NP4-732-CD.zip/597033993.cdr.00013028.0000000000000000.20180131.234255015.WPPHRLYAVGACTNP4732_csv.zip",
+          "member": "cdr.00013028.0000000000000000.20180131.234254.WPPHRLYAVGACTNP4732.csv",
+          "reader": "np4-732-cd/wpp_hrly_avrg_actl_fcast"
+        },
+        {
+          "sample": "work/history-annual-2019/NP3-965-ER.zip/646664212.ext.00013052.0000000000000000.20190131.042429796.60_Day_SCED_Disclosure.zip",
+          "member": "60d_Load Resource_Data_in_SCED-31-JAN-19.csv",
+          "reader": "np3-965-er/60_load_res_data_in_sced"
+        },
+        {
+          "sample": "work/history-annual-2019/NP3-965-ER.zip/646664212.ext.00013052.0000000000000000.20190131.042429796.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_Gen_Resource_Data-31-JAN-19.csv",
+          "reader": "np3-965-er/60_sced_gen_res_data"
+        },
+        {
+          "sample": "work/history-annual-2019/NP3-965-ER.zip/646664212.ext.00013052.0000000000000000.20190131.042429796.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_SMNE_GEN_RES-31-JAN-19.csv",
+          "reader": "np3-965-er/60_sced_smne_gen_res"
+        },
+        {
+          "sample": "work/history-annual-2019/NP3-965-ER.zip/646664212.ext.00013052.0000000000000000.20190131.042429796.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_DSR_Load_Data-31-JAN-19.csv",
+          "reader": "np3-965-er/60_sced_dsr_load_data"
+        },
+        {
+          "sample": "work/history-annual-2019/NP3-965-ER.zip/646664212.ext.00013052.0000000000000000.20190131.042429796.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_QSE_Self_Arranged_AS-31-JAN-19.csv",
+          "reader": "np3-965-er/60_sced_qse_self_arranged_as"
+        },
+        {
+          "sample": "work/history-annual-2019/NP3-965-ER.zip/646664212.ext.00013052.0000000000000000.20190131.042429796.60_Day_SCED_Disclosure.zip",
+          "member": "60d_HDL_LDL_ManOverride-31-JAN-19.csv",
+          "reader": "np3-965-er/60_hdl_ldl_man_override"
+        },
+        {
+          "sample": "work/history-annual-2019/NP4-732-CD.zip/646777019.cdr.00013028.0000000000000000.20190131.234311712.WPPHRLYAVGACTNP4732_csv.zip",
+          "member": "cdr.00013028.0000000000000000.20190131.234311.WPPHRLYAVGACTNP4732.csv",
+          "reader": "np4-732-cd/wpp_hrly_avrg_actl_fcast"
+        },
+        {
+          "sample": "work/history-annual-2021/NP3-965-ER.zip/756226707.ext.00013052.0000000000000000.20210131.043220982.60_Day_SCED_Disclosure.zip",
+          "member": "60d_HDL_LDL_ManOverride-31-JAN-21.csv",
+          "reader": "np3-965-er/60_hdl_ldl_man_override"
+        },
+        {
+          "sample": "work/history-annual-2021/NP3-965-ER.zip/756226707.ext.00013052.0000000000000000.20210131.043220982.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_QSE_Self_Arranged_AS-31-JAN-21.csv",
+          "reader": "np3-965-er/60_sced_qse_self_arranged_as"
+        },
+        {
+          "sample": "work/history-annual-2021/NP3-965-ER.zip/756226707.ext.00013052.0000000000000000.20210131.043220982.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_DSR_Load_Data-31-JAN-21.csv",
+          "reader": "np3-965-er/60_sced_dsr_load_data"
+        },
+        {
+          "sample": "work/history-annual-2021/NP3-965-ER.zip/756226707.ext.00013052.0000000000000000.20210131.043220982.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_SMNE_GEN_RES-31-JAN-21.csv",
+          "reader": "np3-965-er/60_sced_smne_gen_res"
+        },
+        {
+          "sample": "work/history-annual-2021/NP3-965-ER.zip/756226707.ext.00013052.0000000000000000.20210131.043220982.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_Gen_Resource_Data-31-JAN-21.csv",
+          "reader": "np3-965-er/60_sced_gen_res_data"
+        },
+        {
+          "sample": "work/history-annual-2021/NP3-965-ER.zip/756226707.ext.00013052.0000000000000000.20210131.043220982.60_Day_SCED_Disclosure.zip",
+          "member": "60d_Load_Resource_Data_in_SCED-31-JAN-21.csv",
+          "reader": "np3-965-er/60_load_res_data_in_sced"
+        },
+        {
+          "sample": "work/history-annual-2021/NP4-732-CD.zip/756356582.cdr.00013028.0000000000000000.20210131.235521704.WPPHRLYAVGACTNP4732_csv.zip",
+          "member": "cdr.00013028.0000000000000000.20210131.235521.WPPHRLYAVGACTNP4732.csv",
+          "reader": "np4-732-cd/wpp_hrly_avrg_actl_fcast"
+        },
+        {
+          "sample": "work/history-annual-2022/NP3-965-ER.zip/820409727.ext.00013052.0000000000000000.20220131.082750317.60_Day_SCED_Disclosure.zip",
+          "member": "60d_HDL_LDL_ManOverride-31-JAN-22.csv",
+          "reader": "np3-965-er/60_hdl_ldl_man_override"
+        },
+        {
+          "sample": "work/history-annual-2022/NP3-965-ER.zip/820409727.ext.00013052.0000000000000000.20220131.082750317.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_QSE_Self_Arranged_AS-31-JAN-22.csv",
+          "reader": "np3-965-er/60_sced_qse_self_arranged_as"
+        },
+        {
+          "sample": "work/history-annual-2022/NP3-965-ER.zip/820409727.ext.00013052.0000000000000000.20220131.082750317.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_DSR_Load_Data-31-JAN-22.csv",
+          "reader": "np3-965-er/60_sced_dsr_load_data"
+        },
+        {
+          "sample": "work/history-annual-2022/NP3-965-ER.zip/820409727.ext.00013052.0000000000000000.20220131.082750317.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_SMNE_GEN_RES-31-JAN-22.csv",
+          "reader": "np3-965-er/60_sced_smne_gen_res"
+        },
+        {
+          "sample": "work/history-annual-2022/NP3-965-ER.zip/820409727.ext.00013052.0000000000000000.20220131.082750317.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_Gen_Resource_Data-31-JAN-22.csv",
+          "reader": "np3-965-er/60_sced_gen_res_data"
+        },
+        {
+          "sample": "work/history-annual-2022/NP3-965-ER.zip/820409727.ext.00013052.0000000000000000.20220131.082750317.60_Day_SCED_Disclosure.zip",
+          "member": "60d_Load_Resource_Data_in_SCED-31-JAN-22.csv",
+          "reader": "np3-965-er/60_load_res_data_in_sced"
+        },
+        {
+          "sample": "work/history-annual-2022/NP4-732-CD.zip/820534787.cdr.00013028.0000000000000000.20220131.235533819.WPPHRLYAVGACTNP4732_csv.zip",
+          "member": "cdr.00013028.0000000000000000.20220131.235533.WPPHRLYAVGACTNP4732.csv",
+          "reader": "np4-732-cd/wpp_hrly_avrg_actl_fcast"
+        },
+        {
+          "sample": "work/history-annual-2023/NP3-965-ER.zip/892946917.ext.00013052.0000000000000000.20230131.061004604.60_Day_SCED_Disclosure.zip",
+          "member": "60d_HDL_LDL_ManOverride-31-JAN-23.csv",
+          "reader": "np3-965-er/60_hdl_ldl_man_override"
+        },
+        {
+          "sample": "work/history-annual-2023/NP3-965-ER.zip/892946917.ext.00013052.0000000000000000.20230131.061004604.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_QSE_Self_Arranged_AS-31-JAN-23.csv",
+          "reader": "np3-965-er/60_sced_qse_self_arranged_as"
+        },
+        {
+          "sample": "work/history-annual-2023/NP3-965-ER.zip/892946917.ext.00013052.0000000000000000.20230131.061004604.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_DSR_Load_Data-31-JAN-23.csv",
+          "reader": "np3-965-er/60_sced_dsr_load_data"
+        },
+        {
+          "sample": "work/history-annual-2023/NP3-965-ER.zip/892946917.ext.00013052.0000000000000000.20230131.061004604.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_SMNE_GEN_RES-31-JAN-23.csv",
+          "reader": "np3-965-er/60_sced_smne_gen_res"
+        },
+        {
+          "sample": "work/history-annual-2023/NP3-965-ER.zip/892946917.ext.00013052.0000000000000000.20230131.061004604.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_Gen_Resource_Data-31-JAN-23.csv",
+          "reader": "np3-965-er/60_sced_gen_res_data"
+        },
+        {
+          "sample": "work/history-annual-2023/NP3-965-ER.zip/892946917.ext.00013052.0000000000000000.20230131.061004604.60_Day_SCED_Disclosure.zip",
+          "member": "60d_Load_Resource_Data_in_SCED-31-JAN-23.csv",
+          "reader": "np3-965-er/60_load_res_data_in_sced"
+        },
+        {
+          "sample": "work/history-annual-2023/NP4-732-CD.zip/893111283.cdr.00013028.0000000000000000.20230131.235529287.WPPHRLYAVGACTNP4732_csv.zip",
+          "member": "cdr.00013028.0000000000000000.20230131.235529.WPPHRLYAVGACTNP4732.csv",
+          "reader": "np4-732-cd/wpp_hrly_avrg_actl_fcast"
+        },
+        {
+          "sample": "work/history-annual-2024/NP3-965-ER.zip/977282759.ext.00013052.0000000000000000.20240131.042605057.60_Day_SCED_Disclosure.zip",
+          "member": "60d_HDL_LDL_ManOverride-31-JAN-24.csv",
+          "reader": "np3-965-er/60_hdl_ldl_man_override"
+        },
+        {
+          "sample": "work/history-annual-2024/NP3-965-ER.zip/977282759.ext.00013052.0000000000000000.20240131.042605057.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_QSE_Self_Arranged_AS-31-JAN-24.csv",
+          "reader": "np3-965-er/60_sced_qse_self_arranged_as"
+        },
+        {
+          "sample": "work/history-annual-2024/NP3-965-ER.zip/977282759.ext.00013052.0000000000000000.20240131.042605057.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_DSR_Load_Data-31-JAN-24.csv",
+          "reader": "np3-965-er/60_sced_dsr_load_data"
+        },
+        {
+          "sample": "work/history-annual-2024/NP3-965-ER.zip/977282759.ext.00013052.0000000000000000.20240131.042605057.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_SMNE_GEN_RES-31-JAN-24.csv",
+          "reader": "np3-965-er/60_sced_smne_gen_res"
+        },
+        {
+          "sample": "work/history-annual-2024/NP3-965-ER.zip/977282759.ext.00013052.0000000000000000.20240131.042605057.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_Gen_Resource_Data-31-JAN-24.csv",
+          "reader": "np3-965-er/60_sced_gen_res_data"
+        },
+        {
+          "sample": "work/history-annual-2024/NP3-965-ER.zip/977282759.ext.00013052.0000000000000000.20240131.042605057.60_Day_SCED_Disclosure.zip",
+          "member": "60d_Load_Resource_Data_in_SCED-31-JAN-24.csv",
+          "reader": "np3-965-er/60_load_res_data_in_sced"
+        },
+        {
+          "sample": "work/history-annual-2024/NP4-732-CD.zip/977491391.cdr.00013028.0000000000000000.20240131.235525.WPPHRLYAVGACTNP4732_csv.zip",
+          "member": "cdr.00013028.0000000000000000.20240131.235525.WPPHRLYAVGACTNP4732.csv",
+          "reader": "np4-732-cd/wpp_hrly_avrg_actl_fcast"
+        },
+        {
+          "sample": "work/history-annual-2025/NP3-965-ER.zip/1073739299.ext.00013052.0000000000000000.20250131.043458.60_Day_SCED_Disclosure.zip",
+          "member": "60d_HDL_LDL_ManOverride-31-JAN-25.csv",
+          "reader": "np3-965-er/60_hdl_ldl_man_override"
+        },
+        {
+          "sample": "work/history-annual-2025/NP3-965-ER.zip/1073739299.ext.00013052.0000000000000000.20250131.043458.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_EOC_Updates_in_OpHour-31-JAN-25.csv",
+          "reader": "np3-965-er/60_sced_eoc_updates_in_ophour"
+        },
+        {
+          "sample": "work/history-annual-2025/NP3-965-ER.zip/1073739299.ext.00013052.0000000000000000.20250131.043458.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_QSE_Self_Arranged_AS-31-JAN-25.csv",
+          "reader": "np3-965-er/60_sced_qse_self_arranged_as"
+        },
+        {
+          "sample": "work/history-annual-2025/NP3-965-ER.zip/1073739299.ext.00013052.0000000000000000.20250131.043458.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_DSR_Load_Data-31-JAN-25.csv",
+          "reader": "np3-965-er/60_sced_dsr_load_data"
+        },
+        {
+          "sample": "work/history-annual-2025/NP3-965-ER.zip/1073739299.ext.00013052.0000000000000000.20250131.043458.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_SMNE_GEN_RES-31-JAN-25.csv",
+          "reader": "np3-965-er/60_sced_smne_gen_res"
+        },
+        {
+          "sample": "work/history-annual-2025/NP3-965-ER.zip/1073739299.ext.00013052.0000000000000000.20250131.043458.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_Gen_Resource_Data-31-JAN-25.csv",
+          "reader": "np3-965-er/60_sced_gen_res_data"
+        },
+        {
+          "sample": "work/history-annual-2025/NP3-965-ER.zip/1073739299.ext.00013052.0000000000000000.20250131.043458.60_Day_SCED_Disclosure.zip",
+          "member": "60d_Load_Resource_Data_in_SCED-31-JAN-25.csv",
+          "reader": "np3-965-er/60_load_res_data_in_sced"
+        },
+        {
+          "sample": "work/history-annual-2025/NP4-732-CD.zip/1073971845.cdr.00013028.0000000000000000.20250131.235510.WPPHRLYAVGACTNP4732_csv.zip",
+          "member": "cdr.00013028.0000000000000000.20250131.235510.WPPHRLYAVGACTNP4732.csv",
+          "reader": "np4-732-cd/wpp_hrly_avrg_actl_fcast"
+        },
+        {
+          "sample": "work/history-middle-2020/NP3-965-ER.zip/698699627.ext.00013052.0000000000000000.20200131.043452665.60_Day_SCED_Disclosure.zip",
+          "member": "60d_Load_Resource_Data_in_SCED-31-JAN-20.csv",
+          "reader": "np3-965-er/60_load_res_data_in_sced"
+        },
+        {
+          "sample": "work/history-middle-2020/NP3-965-ER.zip/698699627.ext.00013052.0000000000000000.20200131.043452665.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_Gen_Resource_Data-31-JAN-20.csv",
+          "reader": "np3-965-er/60_sced_gen_res_data"
+        },
+        {
+          "sample": "work/history-middle-2020/NP3-965-ER.zip/698699627.ext.00013052.0000000000000000.20200131.043452665.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_SMNE_GEN_RES-31-JAN-20.csv",
+          "reader": "np3-965-er/60_sced_smne_gen_res"
+        },
+        {
+          "sample": "work/history-middle-2020/NP3-965-ER.zip/698699627.ext.00013052.0000000000000000.20200131.043452665.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_DSR_Load_Data-31-JAN-20.csv",
+          "reader": "np3-965-er/60_sced_dsr_load_data"
+        },
+        {
+          "sample": "work/history-middle-2020/NP3-965-ER.zip/698699627.ext.00013052.0000000000000000.20200131.043452665.60_Day_SCED_Disclosure.zip",
+          "member": "60d_SCED_QSE_Self_Arranged_AS-31-JAN-20.csv",
+          "reader": "np3-965-er/60_sced_qse_self_arranged_as"
+        },
+        {
+          "sample": "work/history-middle-2020/NP3-965-ER.zip/698699627.ext.00013052.0000000000000000.20200131.043452665.60_Day_SCED_Disclosure.zip",
+          "member": "60d_HDL_LDL_ManOverride-31-JAN-20.csv",
+          "reader": "np3-965-er/60_hdl_ldl_man_override"
+        },
+        {
+          "sample": "work/history-middle-2020/NP4-732-CD.zip/698824711.cdr.00013028.0000000000000000.20200131.235518045.WPPHRLYAVGACTNP4732_csv.zip",
+          "member": "cdr.00013028.0000000000000000.20200131.235517.WPPHRLYAVGACTNP4732.csv",
+          "reader": "np4-732-cd/wpp_hrly_avrg_actl_fcast"
+        }
+      ],
+      "listings": [
+        {
+          "year": 2015,
+          "product": "NP3-965-ER",
+          "listing": {
+            "meta": {
+              "totalRecords": 31,
+              "pageSize": 1,
+              "totalPages": 31,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2015-01-01T00:00:00",
+                  "postDatetimeTo": "2015-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP3-965-ER",
+              "name": "60-Day SCED Disclosure Reports",
+              "reportTypeId": 13052
+            },
+            "archives": [
+              {
+                "docId": 471251518,
+                "friendlyName": "60_Day_SCED_Disclosure",
+                "postDatetime": "2015-01-31T04:22:52",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er?download=471251518",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 3818136
+        },
+        {
+          "year": 2015,
+          "product": "NP4-732-CD",
+          "listing": {
+            "meta": {
+              "totalRecords": 744,
+              "pageSize": 1,
+              "totalPages": 744,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2015-01-01T00:00:00",
+                  "postDatetimeTo": "2015-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP4-732-CD",
+              "name": "Wind Power Production - Hourly Averaged Actual and Forecasted Values",
+              "reportTypeId": 13028
+            },
+            "archives": [
+              {
+                "docId": 471323977,
+                "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+                "postDatetime": "2015-01-31T23:30:42.645000",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd?download=471323977",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 4274
+        },
+        {
+          "year": 2016,
+          "product": "NP3-965-ER",
+          "listing": {
+            "meta": {
+              "totalRecords": 31,
+              "pageSize": 1,
+              "totalPages": 31,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2016-01-01T00:00:00",
+                  "postDatetimeTo": "2016-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP3-965-ER",
+              "name": "60-Day SCED Disclosure Reports",
+              "reportTypeId": 13052
+            },
+            "archives": [
+              {
+                "docId": 508459546,
+                "friendlyName": "60_Day_SCED_Disclosure",
+                "postDatetime": "2016-01-31T04:28:53",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er?download=508459546",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 4175346
+        },
+        {
+          "year": 2016,
+          "product": "NP4-732-CD",
+          "listing": {
+            "meta": {
+              "totalRecords": 744,
+              "pageSize": 1,
+              "totalPages": 744,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2016-01-01T00:00:00",
+                  "postDatetimeTo": "2016-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP4-732-CD",
+              "name": "Wind Power Production - Hourly Averaged Actual and Forecasted Values",
+              "reportTypeId": 13028
+            },
+            "archives": [
+              {
+                "docId": 508541149,
+                "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+                "postDatetime": "2016-01-31T23:31:08.482000",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd?download=508541149",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 8224
+        },
+        {
+          "year": 2017,
+          "product": "NP3-965-ER",
+          "listing": {
+            "meta": {
+              "totalRecords": 31,
+              "pageSize": 1,
+              "totalPages": 31,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2017-01-01T00:00:00",
+                  "postDatetimeTo": "2017-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP3-965-ER",
+              "name": "60-Day SCED Disclosure Reports",
+              "reportTypeId": 13052
+            },
+            "archives": [
+              {
+                "docId": 550576150,
+                "friendlyName": "60_Day_SCED_Disclosure",
+                "postDatetime": "2017-01-31T04:20:06",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er?download=550576150",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 4746331
+        },
+        {
+          "year": 2017,
+          "product": "NP4-732-CD",
+          "listing": {
+            "meta": {
+              "totalRecords": 720,
+              "pageSize": 1,
+              "totalPages": 720,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2017-01-01T00:00:00",
+                  "postDatetimeTo": "2017-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP4-732-CD",
+              "name": "Wind Power Production - Hourly Averaged Actual and Forecasted Values",
+              "reportTypeId": 13028
+            },
+            "archives": [
+              {
+                "docId": 550677301,
+                "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+                "postDatetime": "2017-01-31T23:31:29.026000",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd?download=550677301",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 8255
+        },
+        {
+          "year": 2018,
+          "product": "NP3-965-ER",
+          "listing": {
+            "meta": {
+              "totalRecords": 32,
+              "pageSize": 1,
+              "totalPages": 32,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2018-01-01T00:00:00",
+                  "postDatetimeTo": "2018-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP3-965-ER",
+              "name": "60-Day SCED Disclosure Reports",
+              "reportTypeId": 13052
+            },
+            "archives": [
+              {
+                "docId": 596928044,
+                "friendlyName": "60_Day_SCED_Disclosure",
+                "postDatetime": "2018-01-31T04:17:44",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er?download=596928044",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 4793786
+        },
+        {
+          "year": 2018,
+          "product": "NP4-732-CD",
+          "listing": {
+            "meta": {
+              "totalRecords": 744,
+              "pageSize": 1,
+              "totalPages": 744,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2018-01-01T00:00:00",
+                  "postDatetimeTo": "2018-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP4-732-CD",
+              "name": "Wind Power Production - Hourly Averaged Actual and Forecasted Values",
+              "reportTypeId": 13028
+            },
+            "archives": [
+              {
+                "docId": 597033993,
+                "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+                "postDatetime": "2018-01-31T23:42:55.015000",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd?download=597033993",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 10234
+        },
+        {
+          "year": 2019,
+          "product": "NP3-965-ER",
+          "listing": {
+            "meta": {
+              "totalRecords": 31,
+              "pageSize": 1,
+              "totalPages": 31,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2019-01-01T00:00:00",
+                  "postDatetimeTo": "2019-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP3-965-ER",
+              "name": "60-Day SCED Disclosure Reports",
+              "reportTypeId": 13052
+            },
+            "archives": [
+              {
+                "docId": 646664212,
+                "friendlyName": "60_Day_SCED_Disclosure",
+                "postDatetime": "2019-01-31T04:24:29",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er?download=646664212",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 4943677
+        },
+        {
+          "year": 2019,
+          "product": "NP4-732-CD",
+          "listing": {
+            "meta": {
+              "totalRecords": 742,
+              "pageSize": 1,
+              "totalPages": 742,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2019-01-01T00:00:00",
+                  "postDatetimeTo": "2019-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP4-732-CD",
+              "name": "Wind Power Production - Hourly Averaged Actual and Forecasted Values",
+              "reportTypeId": 13028
+            },
+            "archives": [
+              {
+                "docId": 646777019,
+                "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+                "postDatetime": "2019-01-31T23:43:11.712000",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd?download=646777019",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 9999
+        },
+        {
+          "year": 2020,
+          "product": "NP3-965-ER",
+          "existingSource": "work/history-middle-2020/NP3-965-ER.zip"
+        },
+        {
+          "year": 2020,
+          "product": "NP4-732-CD",
+          "existingSource": "work/history-middle-2020/NP4-732-CD.zip"
+        },
+        {
+          "year": 2021,
+          "product": "NP3-965-ER",
+          "listing": {
+            "meta": {
+              "totalRecords": 31,
+              "pageSize": 1,
+              "totalPages": 31,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2021-01-01T00:00:00",
+                  "postDatetimeTo": "2021-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP3-965-ER",
+              "name": "60-Day SCED Disclosure Reports",
+              "reportTypeId": 13052
+            },
+            "archives": [
+              {
+                "docId": 756226707,
+                "friendlyName": "60_Day_SCED_Disclosure",
+                "postDatetime": "2021-01-31T04:32:20",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er?download=756226707",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 6894600
+        },
+        {
+          "year": 2021,
+          "product": "NP4-732-CD",
+          "listing": {
+            "meta": {
+              "totalRecords": 743,
+              "pageSize": 1,
+              "totalPages": 743,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2021-01-01T00:00:00",
+                  "postDatetimeTo": "2021-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP4-732-CD",
+              "name": "Wind Power Production - Hourly Averaged Actual and Forecasted Values",
+              "reportTypeId": 13028
+            },
+            "archives": [
+              {
+                "docId": 756356582,
+                "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+                "postDatetime": "2021-01-31T23:55:21.704000",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd?download=756356582",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 10356
+        },
+        {
+          "year": 2022,
+          "product": "NP3-965-ER",
+          "listing": {
+            "meta": {
+              "totalRecords": 31,
+              "pageSize": 1,
+              "totalPages": 31,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2022-01-01T00:00:00",
+                  "postDatetimeTo": "2022-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP3-965-ER",
+              "name": "60-Day SCED Disclosure Reports",
+              "reportTypeId": 13052
+            },
+            "archives": [
+              {
+                "docId": 820409727,
+                "friendlyName": "60_Day_SCED_Disclosure",
+                "postDatetime": "2022-01-31T08:27:50",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er?download=820409727",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 7747261
+        },
+        {
+          "year": 2022,
+          "product": "NP4-732-CD",
+          "listing": {
+            "meta": {
+              "totalRecords": 744,
+              "pageSize": 1,
+              "totalPages": 744,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2022-01-01T00:00:00",
+                  "postDatetimeTo": "2022-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP4-732-CD",
+              "name": "Wind Power Production - Hourly Averaged Actual and Forecasted Values",
+              "reportTypeId": 13028
+            },
+            "archives": [
+              {
+                "docId": 820534787,
+                "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+                "postDatetime": "2022-01-31T23:55:33.819000",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd?download=820534787",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 10225
+        },
+        {
+          "year": 2023,
+          "product": "NP3-965-ER",
+          "listing": {
+            "meta": {
+              "totalRecords": 31,
+              "pageSize": 1,
+              "totalPages": 31,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2023-01-01T00:00:00",
+                  "postDatetimeTo": "2023-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP3-965-ER",
+              "name": "60-Day SCED Disclosure Reports",
+              "reportTypeId": 13052
+            },
+            "archives": [
+              {
+                "docId": 892946917,
+                "friendlyName": "60_Day_SCED_Disclosure",
+                "postDatetime": "2023-01-31T06:10:04.604000",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er?download=892946917",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 8356399
+        },
+        {
+          "year": 2023,
+          "product": "NP4-732-CD",
+          "listing": {
+            "meta": {
+              "totalRecords": 744,
+              "pageSize": 1,
+              "totalPages": 744,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2023-01-01T00:00:00",
+                  "postDatetimeTo": "2023-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP4-732-CD",
+              "name": "Wind Power Production - Hourly Averaged Actual and Forecasted Values",
+              "reportTypeId": 13028
+            },
+            "archives": [
+              {
+                "docId": 893111283,
+                "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+                "postDatetime": "2023-01-31T23:55:29",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd?download=893111283",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 9712
+        },
+        {
+          "year": 2024,
+          "product": "NP3-965-ER",
+          "listing": {
+            "meta": {
+              "totalRecords": 31,
+              "pageSize": 1,
+              "totalPages": 31,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2024-01-01T00:00:00",
+                  "postDatetimeTo": "2024-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP3-965-ER",
+              "name": "60-Day SCED Disclosure Reports",
+              "reportTypeId": 13052
+            },
+            "archives": [
+              {
+                "docId": 977282759,
+                "friendlyName": "60_Day_SCED_Disclosure",
+                "postDatetime": "2024-01-31T04:26:05.057000",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er?download=977282759",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 9241451
+        },
+        {
+          "year": 2024,
+          "product": "NP4-732-CD",
+          "listing": {
+            "meta": {
+              "totalRecords": 744,
+              "pageSize": 1,
+              "totalPages": 744,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2024-01-01T00:00:00",
+                  "postDatetimeTo": "2024-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP4-732-CD",
+              "name": "Wind Power Production - Hourly Averaged Actual and Forecasted Values",
+              "reportTypeId": 13028
+            },
+            "archives": [
+              {
+                "docId": 977491391,
+                "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+                "postDatetime": "2024-01-31T23:55:25",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd?download=977491391",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 10255
+        },
+        {
+          "year": 2025,
+          "product": "NP3-965-ER",
+          "listing": {
+            "meta": {
+              "totalRecords": 31,
+              "pageSize": 1,
+              "totalPages": 31,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2025-01-01T00:00:00",
+                  "postDatetimeTo": "2025-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP3-965-ER",
+              "name": "60-Day SCED Disclosure Reports",
+              "reportTypeId": 13052
+            },
+            "archives": [
+              {
+                "docId": 1073739299,
+                "friendlyName": "60_Day_SCED_Disclosure",
+                "postDatetime": "2025-01-31T04:34:58",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er?download=1073739299",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np3-965-er",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 9288524
+        },
+        {
+          "year": 2025,
+          "product": "NP4-732-CD",
+          "listing": {
+            "meta": {
+              "totalRecords": 744,
+              "pageSize": 1,
+              "totalPages": 744,
+              "currentPage": 1,
+              "query": {
+                "parameterCount": 2,
+                "parameters": {
+                  "postDatetimeFrom": "2025-01-01T00:00:00",
+                  "postDatetimeTo": "2025-02-01T00:00:00"
+                },
+                "sortedBy": "postDatetime: DESC"
+              }
+            },
+            "product": {
+              "emilId": "NP4-732-CD",
+              "name": "Wind Power Production - Hourly Averaged Actual and Forecasted Values",
+              "reportTypeId": 13028
+            },
+            "archives": [
+              {
+                "docId": 1073971845,
+                "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+                "postDatetime": "2025-01-31T23:55:10",
+                "links": {
+                  "endpoint": {
+                    "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd?download=1073971845",
+                    "rel": null,
+                    "title": null,
+                    "type": null,
+                    "hreflang": null,
+                    "media": null,
+                    "deprecation": null,
+                    "profile": null,
+                    "name": null
+                  }
+                }
+              }
+            ],
+            "bundles": [],
+            "links": {
+              "self": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np4-732-cd",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              },
+              "parent": {
+                "href": "https://api.ercot.com/api/public-reports",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          },
+          "bytes": 10876
+        }
+      ]
     }
   ],
   "intermediateListings": [

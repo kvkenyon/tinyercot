@@ -236,7 +236,8 @@
       "WGRPPWestNorth": null,
       "actualLoadZoneSouthHouston": null,
       "actualLoadZoneWest": null,
-      "actualLoadZoneNorth": null
+      "actualLoadZoneNorth": null,
+      "hourBeginningTimestamp": null
     },
     "rows_decoded": 216
   },
@@ -279,7 +280,8 @@
       "WGRPPWestNorth": "3407.5",
       "actualLoadZoneSouthHouston": null,
       "actualLoadZoneWest": null,
-      "actualLoadZoneNorth": null
+      "actualLoadZoneNorth": null,
+      "hourBeginningTimestamp": null
     },
     "rows_decoded": 96
   }

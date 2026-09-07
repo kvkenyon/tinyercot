@@ -1902,7 +1902,8 @@
     },
     "datetimes": {
       "postedDatetime": "%m/%d/%Y %H:%M:%S",
-      "hourEndingTimestamp": "%m/%d/%Y %H:%M"
+      "hourEndingTimestamp": "%m/%d/%Y %H:%M",
+      "hourBeginningTimestamp": "%m/%d/%Y %H:%M"
     },
     "variants": [
       {
@@ -1941,6 +1942,39 @@
         "STWPF_LZ_NORTH": "STWPFLoadZoneNorth",
         "WGRPP_LZ_NORTH": "WGRPPLoadZoneNorth",
         "DSTFlag": "DSTFlag"
+      },
+      {
+        "HOUR_BEGINNING": "hourBeginningTimestamp",
+        "ACTUAL_SYSTEM_WIDE": "actualSystemWide",
+        "COP_HSL_SYSTEM_WIDE": "COPHSLSystemWide",
+        "STWPF_SYSTEM_WIDE": "STWPFSystemWide",
+        "WGRPP_SYSTEM_WIDE": "WGRPPSystemWide",
+        "ACTUAL_SOUTH_HOUSTON": "actualSouthHouston",
+        "COP_HSL_SOUTH_HOUSTON": "COPHSLSouthHouston",
+        "STWPF_SOUTH_HOUSTON": "STWPFSouthHouston",
+        "WGRPP_SOUTH_HOUSTON": "WGRPPSouthHouston",
+        "ACTUAL_WEST_NORTH": "actualWestNorth",
+        "COP_HSL_WEST_NORTH": "COPHSLWestNorth",
+        "STWPF_WEST_NORTH": "STWPFWestNorth",
+        "WGRPP_WEST_NORTH": "WGRPPWestNorth",
+        "DSTFlag": "DSTFlag"
+      },
+      {
+        "DELIVERY_DATE": "deliveryDate",
+        "HOUR_ENDING": "hourEnding",
+        "ACTUAL_SYSTEM_WIDE": "actualSystemWide",
+        "COP_HSL_SYSTEM_WIDE": "COPHSLSystemWide",
+        "STWPF_SYSTEM_WIDE": "STWPFSystemWide",
+        "WGRPP_SYSTEM_WIDE": "WGRPPSystemWide",
+        "ACTUAL_SOUTH_HOUSTON": "actualSouthHouston",
+        "COP_HSL_SOUTH_HOUSTON": "COPHSLSouthHouston",
+        "STWPF_SOUTH_HOUSTON": "STWPFSouthHouston",
+        "WGRPP_SOUTH_HOUSTON": "WGRPPSouthHouston",
+        "ACTUAL_WEST_NORTH": "actualWestNorth",
+        "COP_HSL_WEST_NORTH": "COPHSLWestNorth",
+        "STWPF_WEST_NORTH": "STWPFWestNorth",
+        "WGRPP_WEST_NORTH": "WGRPPWestNorth",
+        "DSTFlag": "DSTFlag"
       }
     ],
     "fields": {
@@ -1977,7 +2011,8 @@
       "WGRPPWestNorth": "Decimal",
       "actualLoadZoneSouthHouston": "Decimal",
       "actualLoadZoneWest": "Decimal",
-      "actualLoadZoneNorth": "Decimal"
+      "actualLoadZoneNorth": "Decimal",
+      "hourBeginningTimestamp": "datetime"
     }
   },
   "np1-346-er/outages": {

@@ -191,7 +191,8 @@
       "WGRPPWestNorth": null,
       "actualLoadZoneSouthHouston": "3156.38",
       "actualLoadZoneWest": "4921.15",
-      "actualLoadZoneNorth": "302.68"
+      "actualLoadZoneNorth": "302.68",
+      "hourBeginningTimestamp": null
     },
     "decodedRows": 216,
     "zipSha256": "10b99691ba1e4b9ed2e3af14d0b60541aa43fc090608b0a4580512fe80cff005"
@@ -604,7 +605,8 @@
       "WGRPPWestNorth": null,
       "actualLoadZoneSouthHouston": "702.54",
       "actualLoadZoneWest": "4966.96",
-      "actualLoadZoneNorth": "635.22"
+      "actualLoadZoneNorth": "635.22",
+      "hourBeginningTimestamp": null
     },
     "decodedRows": 216,
     "zipSha256": "0a1b675dbdaf3bc30073138fb041b60c80b4ddc9d32b0946791ae5fc4b10659a"

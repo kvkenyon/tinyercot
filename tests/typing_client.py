@@ -286,3 +286,4 @@ with Client() as client:
     for legacy_wind in client.np4_732_cd.wpp_hrly_avrg_actl_fcast_history.rows():
         assert_type(legacy_wind.actualLoadZoneWest, Decimal | None)
         assert_type(legacy_wind.actualLoadZoneNorth, Decimal | None)
+        assert_type(legacy_wind.hourBeginningTimestamp, datetime | None)

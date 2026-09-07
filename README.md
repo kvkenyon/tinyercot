@@ -488,6 +488,14 @@ unfiltered attempts timed out, while the latest check succeeded. The oldest
 file in that listing was posted April 30, 2026, despite the product's earlier
 catalog start date. This is observed availability, not a retention guarantee.
 
+Annual SCED and wind samples from 2015–2025 were checked against the generated
+readers (CSV headers and up to three rows, not every retained file). The 2016
+wind layout preserves `HOUR_BEGINNING` as `hourBeginningTimestamp`; the 2017
+layout retains its delivery date and hour number. Both retain combined
+West/North values without assigning them to separate regions. All 431 rows
+in those two wind files decoded successfully. Source evidence is in
+`tools/inputs/history/annual-evidence.json`.
+
 The latest checks for NP6-569, NP6-655 and NP6-913 returned no archives or bundles.
 Their typed catalog/document operations remain usable, but no historical row
 schema is inferred from absent files. Point-in-time listing evidence is recorded
