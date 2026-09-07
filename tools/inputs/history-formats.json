@@ -3376,5 +3376,107 @@
       "sink": "str",
       "repeatedHourFlag": "bool"
     }
+  },
+  "np4-442-cd/hrly_sys_reg_wind_fcast_model": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "Region": "region",
+      "Value": "value",
+      "Model": "model",
+      "InUseFlag": "inUseFlag",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "region": "str",
+      "value": "Decimal",
+      "model": "str",
+      "inUseFlag": "bool",
+      "DSTFlag": "bool"
+    }
+  },
+  "np4-443-cd/hrly_sys_reg_solar_fcast_model": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "Region": "region",
+      "Value": "value",
+      "Model": "model",
+      "InUseFlag": "inUseFlag",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "region": "str",
+      "value": "Decimal",
+      "model": "str",
+      "inUseFlag": "bool",
+      "DSTFlag": "bool"
+    }
+  },
+  "np4-751-cd/ih_wind_fcast_geo": {
+    "columns": {
+      "IntervalEnding": "intervalEnding",
+      "Region": "region",
+      "Value": "value",
+      "Model": "model",
+      "InUseFlag": "inUseFlag",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M",
+      "intervalEnding": "%m/%d/%Y %H:%M"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "intervalEnding": "datetime",
+      "region": "str",
+      "value": "Decimal",
+      "model": "str",
+      "inUseFlag": "bool",
+      "DSTFlag": "bool"
+    }
+  },
+  "np4-752-cd/ih_solar_fcast_geo": {
+    "columns": {
+      "IntervalEnding": "intervalEnding",
+      "Region": "region",
+      "Value": "value",
+      "Model": "model",
+      "InUseFlag": "inUseFlag",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M",
+      "intervalEnding": "%m/%d/%Y %H:%M"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "intervalEnding": "datetime",
+      "region": "str",
+      "value": "Decimal",
+      "model": "str",
+      "inUseFlag": "bool",
+      "DSTFlag": "bool"
+    }
   }
 }

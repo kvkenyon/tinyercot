@@ -82,3 +82,11 @@ with Client() as client:
         assert_type(offers.RRSPFR, Decimal | None)
     for cap in client.np4_791_cd.da_sw_offer_caps_history.rows():
         assert_type(cap.SWCAP, Decimal | None)
+
+    for renewable in client.np4_442_cd.hrly_sys_reg_wind_fcast_model_history.rows():
+        assert_type(renewable.region, str | None)
+        assert_type(renewable.model, str | None)
+        assert_type(renewable.inUseFlag, bool | None)
+    for solar_interval in client.np4_752_cd.ih_solar_fcast_geo_history.rows():
+        assert_type(solar_interval.intervalEnding, datetime | None)
+        assert_type(solar_interval.value, Decimal | None)

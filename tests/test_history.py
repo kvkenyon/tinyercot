@@ -722,3 +722,41 @@ def test_nonempty_extra_csv_cell_is_not_discarded():
         list(
             client.np4_791_cd.da_sw_offer_caps_history.read(zipped("caps.csv", source))
         )
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "regional-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_regional_forecast_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_intra_hour_forecasts_keep_model_alternatives():
+    with Client() as client:
+        forecasts = list(
+            client.np4_752_cd.ih_solar_fcast_geo_history.read(
+                zipped(
+                    "solar.csv",
+                    (INPUTS / "np4-752-cd-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+    assert [row.model for row in forecasts] == ["A", "B", "C"]
+    assert [row.inUseFlag for row in forecasts] == [False, True, False]
+    assert len({(row.region, row.intervalEnding) for row in forecasts}) == 1
+    assert forecasts[1].value == Decimal("4665.2")
+    assert all(row.postedDatetime is None for row in forecasts)
