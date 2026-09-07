@@ -257,3 +257,7 @@ with Client() as client:
         assert_type(path_adder.source, str | None)
         assert_type(path_adder.startDate, date | None)
         assert_type(path_adder.ACI99, Decimal | None)
+
+    for eia_hourly in client.eia_930_cd.hourly_operations_history.rows():
+        assert_type(eia_hourly.dataDate, date | None)
+        assert_type(eia_hourly.HR1, Decimal | datetime | None)
