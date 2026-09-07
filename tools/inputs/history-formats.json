@@ -3652,5 +3652,85 @@
       "price": "Decimal",
       "repeatHourFlag": "bool"
     }
+  },
+  "np6-328-cd/tot_as_res_cap": {
+    "columns": {
+      "SCEDTimestamp": "SCEDTimestamp",
+      "RepeatedHourFlag": "repeatHourFlag",
+      "CapREGUPTotal": "capREGUP",
+      "CapREGDNTotal": "capREGDN",
+      "CapRRSTotal": "capRRS",
+      "CapECRSTotal": "capECRS",
+      "CapNSPINTotal": "capNSPIN",
+      "CapREGUP_RRSTotal": "capREGUPRRS",
+      "CapREGUP_RRS_ECRSTotal": "capREGUPRRSECRS",
+      "CapREGUP_RRS_ECRS_NSPINTotal": "capREGUPRRSECRSNSPIN"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np6-329-cd/rtd_ind_mcpc": {
+    "columns": {
+      "RTDTimestamp": "RTDTimestamp",
+      "RepeatedHourFlag": "repeatHourFlag",
+      "IntervalID": "intervalId",
+      "IntervalEnding": "intervalEnding",
+      "IntervalEndingRepeatedHourFlag": "intervalRepeatHourFlag",
+      "REGUP": "REGUP",
+      "REGDN": "REGDN",
+      "RRS": "RRS",
+      "ECRS": "ECRS",
+      "NSPIN": "NSPIN"
+    },
+    "dates": {},
+    "datetimes": {
+      "RTDTimestamp": "%m/%d/%Y %H:%M:%S",
+      "intervalEnding": "%m/%d/%Y %H:%M"
+    }
+  },
+  "np6-331-cd/rt_clear_price_cap": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "DeliveryInterval": "deliveryInt",
+      "RepeatedHourFlag": "repeatHourFlag",
+      "ASType": "ASType",
+      "MCPC": "MCPC"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np6-332-cd/rt_clear_price_cap_sced": {
+    "columns": {
+      "SCEDTimestamp": "SCEDTimestamp",
+      "RepeatedHourFlag": "repeatedHourFlag",
+      "ASType": "ASType",
+      "CappedMCPC": "cappedMCPC",
+      "UncappedMCPC": "uncappedMCPC"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "variants": [
+      {
+        "SCEDTimestamp": "SCEDTimestamp",
+        "RepeatedHourFlag": "repeatedHourFlag",
+        "ASType": "ASType",
+        "MCPC": "MCPC"
+      }
+    ],
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatedHourFlag": "bool",
+      "ASType": "str",
+      "cappedMCPC": "Decimal",
+      "uncappedMCPC": "Decimal",
+      "MCPC": "Decimal"
+    }
   }
 }

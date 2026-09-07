@@ -8578,6 +8578,11 @@ class np6_328_cd:
         capRRS: Decimal | None
         repeatHourFlag: bool | None
 
+    @property
+    def tot_as_res_cap_history(self) -> Archive[np6_328_cd.TotAsResCapRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-328-cd', np6_328_cd.TotAsResCapRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'CapREGUPTotal': 'capREGUP', 'CapREGDNTotal': 'capREGDN', 'CapRRSTotal': 'capRRS', 'CapECRSTotal': 'capECRS', 'CapNSPINTotal': 'capNSPIN', 'CapREGUP_RRSTotal': 'capREGUPRRS', 'CapREGUP_RRS_ECRSTotal': 'capREGUPRRSECRS', 'CapREGUP_RRS_ECRS_NSPINTotal': 'capREGUPRRSECRSNSPIN'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def tot_as_res_cap(self, *, capREGDNFrom: Decimal | None = None, capREGDNTo: Decimal | None = None, capRRSFrom: Decimal | None = None, capRRSTo: Decimal | None = None, capECRSFrom: Decimal | None = None, capECRSTo: Decimal | None = None, capNSPINFrom: Decimal | None = None, capNSPINTo: Decimal | None = None, capREGUPRRSFrom: Decimal | None = None, capREGUPRRSTo: Decimal | None = None, capREGUPRRSECRSFrom: Decimal | None = None, capREGUPRRSECRSTo: Decimal | None = None, capREGUPRRSECRSNSPINFrom: Decimal | None = None, capREGUPRRSECRSNSPINTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, capREGUPFrom: Decimal | None = None, capREGUPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_328_cd.TotAsResCapRow]:
         'Total Capability of Resources Available to Provide Ancillary Service'
         return self._client._page('/np6-328-cd/tot_as_res_cap', np6_328_cd.TotAsResCapRow, {'capREGDNFrom': capREGDNFrom, 'capREGDNTo': capREGDNTo, 'capRRSFrom': capRRSFrom, 'capRRSTo': capRRSTo, 'capECRSFrom': capECRSFrom, 'capECRSTo': capECRSTo, 'capNSPINFrom': capNSPINFrom, 'capNSPINTo': capNSPINTo, 'capREGUPRRSFrom': capREGUPRRSFrom, 'capREGUPRRSTo': capREGUPRRSTo, 'capREGUPRRSECRSFrom': capREGUPRRSECRSFrom, 'capREGUPRRSECRSTo': capREGUPRRSECRSTo, 'capREGUPRRSECRSNSPINFrom': capREGUPRRSECRSNSPINFrom, 'capREGUPRRSECRSNSPINTo': capREGUPRRSECRSNSPINTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'capREGUPFrom': capREGUPFrom, 'capREGUPTo': capREGUPTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -8610,6 +8615,11 @@ class np6_329_cd:
         intervalRepeatHourFlag: bool | None
         repeatHourFlag: bool | None
 
+    @property
+    def rtd_ind_mcpc_history(self) -> Archive[np6_329_cd.RtdIndMcpcRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-329-cd', np6_329_cd.RtdIndMcpcRow, {'RTDTimestamp': 'RTDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'IntervalID': 'intervalId', 'IntervalEnding': 'intervalEnding', 'IntervalEndingRepeatedHourFlag': 'intervalRepeatHourFlag', 'REGUP': 'REGUP', 'REGDN': 'REGDN', 'RRS': 'RRS', 'ECRS': 'ECRS', 'NSPIN': 'NSPIN'}, {}, member='*.csv', datetimes={'RTDTimestamp': '%m/%d/%Y %H:%M:%S', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=())
+
     def rtd_ind_mcpc(self, *, RRSFrom: Decimal | None = None, RRSTo: Decimal | None = None, ECRSFrom: Decimal | None = None, ECRSTo: Decimal | None = None, NSPINFrom: Decimal | None = None, NSPINTo: Decimal | None = None, RTDTimestampFrom: datetime | None = None, RTDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, intervalIdFrom: int | None = None, intervalIdTo: int | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, intervalRepeatHourFlag: bool | None = None, REGUPFrom: Decimal | None = None, REGUPTo: Decimal | None = None, REGDNFrom: Decimal | None = None, REGDNTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_329_cd.RtdIndMcpcRow]:
         'RTD Indicative Real-Time MCPC'
         return self._client._page('/np6-329-cd/rtd_ind_mcpc', np6_329_cd.RtdIndMcpcRow, {'RRSFrom': RRSFrom, 'RRSTo': RRSTo, 'ECRSFrom': ECRSFrom, 'ECRSTo': ECRSTo, 'NSPINFrom': NSPINFrom, 'NSPINTo': NSPINTo, 'RTDTimestampFrom': RTDTimestampFrom, 'RTDTimestampTo': RTDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'intervalIdFrom': intervalIdFrom, 'intervalIdTo': intervalIdTo, 'intervalEndingFrom': intervalEndingFrom, 'intervalEndingTo': intervalEndingTo, 'intervalRepeatHourFlag': intervalRepeatHourFlag, 'REGUPFrom': REGUPFrom, 'REGUPTo': REGUPTo, 'REGDNFrom': REGDNFrom, 'REGDNTo': REGDNTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -8638,6 +8648,11 @@ class np6_331_cd:
         deliveryInt: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def rt_clear_price_cap_history(self) -> Archive[np6_331_cd.RtClearPriceCapRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-331-cd', np6_331_cd.RtClearPriceCapRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInt', 'RepeatedHourFlag': 'repeatHourFlag', 'ASType': 'ASType', 'MCPC': 'MCPC'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
+
     def rt_clear_price_cap(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntFrom: int | None = None, deliveryIntTo: int | None = None, repeatHourFlag: bool | None = None, ASType: str | None = None, MCPCFrom: Decimal | None = None, MCPCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_331_cd.RtClearPriceCapRow]:
         'Real-Time Clearing Prices for Capacity for 15-Minute Settlement Interval'
         return self._client._page('/np6-331-cd/rt_clear_price_cap', np6_331_cd.RtClearPriceCapRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'deliveryIntFrom': deliveryIntFrom, 'deliveryIntTo': deliveryIntTo, 'repeatHourFlag': repeatHourFlag, 'ASType': ASType, 'MCPCFrom': MCPCFrom, 'MCPCTo': MCPCTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -8664,6 +8679,19 @@ class np6_332_cd:
         cappedMCPC: Decimal | None
         repeatedHourFlag: bool | None
         uncappedMCPC: Decimal | None
+
+    class RtClearPriceCapScedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatedHourFlag: bool | None
+        ASType: str | None
+        cappedMCPC: Decimal | None = None
+        uncappedMCPC: Decimal | None = None
+        MCPC: Decimal | None = None
+
+    @property
+    def rt_clear_price_cap_sced_history(self) -> Archive[np6_332_cd.RtClearPriceCapScedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-332-cd', np6_332_cd.RtClearPriceCapScedHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'ASType': 'ASType', 'CappedMCPC': 'cappedMCPC', 'UncappedMCPC': 'uncappedMCPC'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'ASType': 'ASType', 'MCPC': 'MCPC'},))
 
     def rt_clear_price_cap_sced(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatedHourFlag: bool | None = None, ASType: str | None = None, cappedMCPCFrom: Decimal | None = None, cappedMCPCTo: Decimal | None = None, uncappedMCPCFrom: Decimal | None = None, uncappedMCPCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_332_cd.RtClearPriceCapScedRow]:
         'Real-Time Clearing Prices for Capacity by SCED Interval'

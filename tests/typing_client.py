@@ -102,3 +102,11 @@ with Client() as client:
         assert_type(point.demandCurvePoint, Decimal | None)
         assert_type(point.quantity, Decimal | None)
         assert_type(point.price, Decimal | None)
+
+    for indicative in client.np6_329_cd.rtd_ind_mcpc_history.rows():
+        assert_type(indicative.RTDTimestamp, datetime | None)
+        assert_type(indicative.intervalEnding, datetime | None)
+        assert_type(indicative.intervalRepeatHourFlag, bool | None)
+    for clearing in client.np6_332_cd.rt_clear_price_cap_sced_history.rows():
+        assert_type(clearing.cappedMCPC, Decimal | None)
+        assert_type(clearing.uncappedMCPC, Decimal | None)

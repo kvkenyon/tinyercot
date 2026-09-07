@@ -849,3 +849,49 @@ def test_demand_curve_points_keep_quantities_and_execution_time():
     assert points[0].ASType == "ECRS"
     assert points[0].RUCTimestamp.isoformat() == "2026-02-27T14:33:01"
     assert points[0].deliveryDate == date(2026, 2, 28)
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "clearing-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_clearing_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_legacy_mcpc_and_indicative_timestamps_are_preserved():
+    with Client() as client:
+        price = next(
+            client.np6_332_cd.rt_clear_price_cap_sced_history.read(
+                zipped(
+                    "prices.csv",
+                    (INPUTS / "np6-332-cd-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+        assert price.MCPC == Decimal("0.47")
+        assert price.cappedMCPC is None and price.uncappedMCPC is None
+        indicative = next(
+            client.np6_329_cd.rtd_ind_mcpc_history.read(
+                zipped(
+                    "indicative.csv",
+                    (INPUTS / "np6-329-cd-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+        assert indicative.RTDTimestamp.isoformat() == "2025-12-05T00:00:03"
+        assert indicative.intervalEnding.isoformat() == "2025-12-05T00:05:00"
+        assert indicative.REGUP == Decimal("2.96")

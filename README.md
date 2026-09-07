@@ -280,3 +280,11 @@ RUC curves also retain execution timestamps. For example,
 including adjacent points with equal prices. Large curve publications are read
 one downloaded file at a time by default; increasing batch size increases memory
 use. Preserve document metadata when comparing separate publications.
+
+Real-time ancillary-service history includes total available capability
+(NP6-328), RTD indicative MCPCs (NP6-329), 15-minute clearing prices (NP6-331), and
+SCED clearing prices (NP6-332). Use each product's `_history` reader. Indicative
+prices retain the RTD execution time and forecast interval separately, with both
+repeated-hour flags. SCED history retains legacy `MCPC` separately from newer
+`cappedMCPC` and `uncappedMCPC`; missing source fields remain `None`. The products
+remain distinct so indicative prices are not confused with clearing prices.
