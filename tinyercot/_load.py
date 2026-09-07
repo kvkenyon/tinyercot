@@ -1,4 +1,4 @@
-"""Public hourly load workbooks, independent of the Public Reports API."""
+"""Public hourly load files, independent of the Public Reports API."""
 
 from __future__ import annotations
 
@@ -15,6 +15,8 @@ from zipfile import ZipFile
 
 import httpx
 from pydantic import BaseModel, ConfigDict
+
+from ._legacy_load import LegacyHourlyLoad, read_legacy
 
 INDEX_URL = "https://www.ercot.com/gridinfo/load/load_hist"
 _COLUMNS = (
@@ -135,7 +137,7 @@ class _Links(HTMLParser):
 
 
 class HourlyLoad:
-    """Discover all linked files; decode weather-zone workbooks from 2002 onward."""
+    """Public hourly loads across system, control-area and weather-zone formats."""
 
     def __init__(self, client: httpx.Client) -> None:
         self._http = client
@@ -153,6 +155,35 @@ class HourlyLoad:
         response = self._http.get(archive.url, follow_redirects=True)
         response.raise_for_status()
         return response.content
+
+    def legacy(
+        self, *, date_from: date | None = None, date_to: date | None = None
+    ) -> Iterator[LegacyHourlyLoad]:
+        """Read pre-2002 system, control-area and LSE hourly files.
+
+        Date bounds apply to file contents. All older files are considered because
+        index year labels disagree with their contents. Overlaps remain visible.
+        Companion forecast tables are not included in this hourly reader.
+        """
+        if date_from is not None and date_to is not None and date_from > date_to:
+            raise ValueError("date_from must not be after date_to")
+        for archive in self.archives():
+            if archive.year >= 2002:
+                continue
+            for row in self.read_legacy(
+                self.download(archive),
+                filename=urlsplit(archive.url).path.rsplit("/", 1)[-1],
+            ):
+                if (date_from is None or row.operatingDay >= date_from) and (
+                    date_to is None or row.operatingDay <= date_to
+                ):
+                    yield row
+
+    def read_legacy(
+        self, data: bytes, *, filename: str = "download"
+    ) -> Iterator[LegacyHourlyLoad]:
+        """Read saved legacy files; EEI text needs its original filename."""
+        yield from read_legacy(data, filename=filename)
 
     def weather_zones(
         self, *, date_from: date | None = None, date_to: date | None = None

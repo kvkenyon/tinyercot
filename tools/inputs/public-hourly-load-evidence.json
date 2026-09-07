@@ -1,6 +1,6 @@
 {
   "checkedAt": "2026-09-07T22:33:14.543626+00:00",
-  "scope": "All 25 directly linked 2002-2026 weather-zone archives downloaded. All load cells compared for each successfully decoded workbook. The 2026 ZIP fails CRC; two downloads were identical. Earlier control-area/system formats and companion forecast tables remain to be implemented.",
+  "scope": "All 25 directly linked 2002-2026 weather-zone archives downloaded. All load cells compared for each successfully decoded workbook. The 2026 ZIP fails CRC; two downloads were identical. Earlier hourly formats are checked separately in public-legacy-hourly-load-evidence.json; companion forecasts remain outside these hourly readers.",
   "archives": [
     {
       "url": "https://www.ercot.com/files/docs/2026/02/10/Native_Load_2026.zip",
@@ -781,5 +781,6 @@
       "sha256": "a90335ab621a5ad719bc885b27d7fd7ed0c90de0ad3f72736c30c26ada89a2ce",
       "note": "Original source bytes; the directly published XLS for 2002 is wrapped in a ZIP for storage."
     }
-  ]
+  ],
+  "legacyReaderEvidence": "public-legacy-hourly-load-evidence.json"
 }

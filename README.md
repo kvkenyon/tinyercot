@@ -173,10 +173,41 @@ All 24 workbooks for 2002–2025 decoded: 210,384 hourly rows, with every one of
 The 2016 workbook has an hour with all nine values missing. In the September 2026
 check, the linked **2026 ZIP failed its CRC check on two identical downloads**;
 that integrity error propagates. Bound queries through 2025 to read the verified
-completed years. The earlier 1995–2000 files are downloadable, but their distinct
-control-area, system-total and load-serving-entity row formats are not decoded by
-this weather-zone reader. The index has no 2001 file. See
+completed years. The index has no 2001 file. See
 `tools/inputs/public-hourly-load-evidence.json` for the inventory and source issues.
+
+For the older system, control-area and load-serving-entity records, use the typed
+`legacy()` reader. It emits one entity/hour measurement, with the source entity
+and control-area relationship retained:
+
+```python
+with Client(timeout=120) as ercot:
+    for load in ercot.hourly_load.legacy(
+        date_from=date(1995, 1, 1), date_to=date(1995, 1, 2)
+    ):
+        print(load.operatingDay, load.hourEnding, load.entity, load.demand, load.unit)
+
+    archive = next(a for a in ercot.hourly_load.archives() if a.year == 1995)
+    data = ercot.hourly_load.download(archive)
+    saved_rows = ercot.hourly_load.read_legacy(data, filename="erceei95.txt")
+```
+
+All eight linked pre-2002 files decoded: 562,115 entity/hour measurements, each
+compared with its source. EEI files retain their MW values; the 1998 workbook
+explicitly reports kW. The 1996, 1999 and 2000 text files do not state their units,
+so `unit` remains `None` and numeric magnitudes are unchanged. Four published
+`#VALUE!` cells retain `sourceError` and have `demand=None`. Repeated hour labels
+and overlapping publications remain separate. The 1997 raw text and workbook
+versions match for every hour, including the workbook's annual energy and peak.
+
+Legacy date bounds are applied to file contents after considering all older
+files: the file labelled 1996 continues into February 1997, and the ZIP labelled
+1997 contains 1996 records. System totals, individual control areas and
+load-serving entities are not added together or mapped to modern weather zones.
+These readers decode hourly measurements; companion forecasts and separate
+workbook summary tables remain outside their scope. See
+`tools/inputs/public-legacy-hourly-load-evidence.json` for the source checks and
+EEI format reference.
 
 ### Direct public wind archives
 
