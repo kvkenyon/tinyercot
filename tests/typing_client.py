@@ -127,3 +127,10 @@ with Client() as client:
     for bus in client.np4_231_cd.electrical_bus_map_heur_price_history.rows():
         assert_type(bus.fromEBName, str | None)
         assert_type(bus.toEBName, str | None)
+
+    for correction in client.np4_197_m.rtm_price_corrections_soglmp_history.rows():
+        assert_type(correction.RTORDPAOriginal, Decimal | None)
+        assert_type(correction.RTRDPAOriginal, Decimal | None)
+    for bus_correction in client.np4_196_m.dam_price_corrections_eblmp_history.rows():
+        assert_type(bus_correction.electricalBus, str | None)
+        assert_type(bus_correction.LMPCorrected, Decimal | None)

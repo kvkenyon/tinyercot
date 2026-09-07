@@ -121,6 +121,8 @@ def generate(*, allow_incomplete: bool = False) -> None:
                     if "sheets" in contract
                     else f"member={contract.get('member', '*.csv')!r}, datetimes={contract.get('datetimes')!r}, variants={tuple(contract.get('variants', []))!r}"
                 )
+                if "document" in contract:
+                    options += f", document={contract['document']!r}"
                 lines += [
                     "",
                     "    @property",

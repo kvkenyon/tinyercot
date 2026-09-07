@@ -1,0 +1,4 @@
+DeliveryDate,DeliveryHour,DeliveryInterval,SettlementPointName,SettlementPointType,SPPOriginal,SPPCorrected,PriceCorrectionTime,DSTFlag
+05/29/2014,19,1,CCEC_CC1,LCCRN,-225.33,-47.36,05/30/2014 16:00:00,N
+05/29/2014,19,1,CCEC_GT1,PCCRN,-225.33,-47.36,05/30/2014 16:00:00,N
+05/29/2014,19,1,CCEC_GT2,PCCRN,-225.33,-47.36,05/30/2014 16:00:00,N

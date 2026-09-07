@@ -969,3 +969,77 @@ def test_load_distribution_ids_and_decimal_precision_are_preserved():
     assert rows[0].MVARDistributionFactor == Decimal("0.603000342845917")
     assert rows[2].distributionFactor == Decimal("0.820144251")
     assert rows[0].postedDatetime is None
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "corrections-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_correction_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_correction_rows_select_documents_across_mixed_pages():
+    source = (INPUTS / "np4-196-m-eblmp-current.csv").read_bytes()
+    downloads = []
+    pages = []
+
+    def handler(request):
+        if "b2clogin" in request.url.host:
+            return httpx.Response(200, json={"id_token": "test", "expires_in": 3600})
+        if request.method == "POST":
+            downloads.extend(json.loads(request.content)["docIds"])
+            return httpx.Response(
+                200, content=zipped("pricecorrection_DAM_EBLMP_example.csv", source)
+            )
+        page = int(request.url.params["page"])
+        pages.append(page)
+        names = [
+            "pricecorrection_DAM_SPP_other",
+            "pricecorrection_DAM_EBLMP_first",
+            "PRICECORRECTION_DAM_EBLMP_SECOND",
+        ]
+        return httpx.Response(
+            200,
+            json={
+                "_meta": {"currentPage": page, "totalPages": 3},
+                "product": {
+                    "emilId": "NP4-196-M",
+                    "name": "Corrections",
+                    "reportTypeId": 13044,
+                },
+                "archives": [
+                    {
+                        "docId": page,
+                        "friendlyName": names[page - 1],
+                        "postDatetime": "2025-12-08T22:41:53",
+                    }
+                ],
+            },
+        )
+
+    with (
+        httpx.Client(transport=httpx.MockTransport(handler)) as http,
+        Client("u", "p", "k", client=http) as client,
+    ):
+        rows = list(client.np4_196_m.dam_price_corrections_eblmp_history.rows())
+    assert pages == [1, 2, 3]
+    assert downloads == [2, 3]
+    assert len(rows) == 6
+    assert rows[0].electricalBus == "0022"
+    assert rows[0].LMPOriginal == Decimal("45.3")
+    assert rows[0].LMPCorrected == Decimal("45.31")
+    assert rows[0].priceCorrectionTime.isoformat() == "2025-12-09T10:00:00"

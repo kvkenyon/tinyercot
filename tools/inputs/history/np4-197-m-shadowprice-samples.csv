@@ -1,0 +1,4 @@
+SCEDTimestamp,ConstrID,ConstrName,ContingencyName,ShadowPriceOrig,ShadowPriceCorrected,LimitOrig,LimitCorrected,ValueOriginal,ValueCorrected,PriceCorrectionTime,DSTFlag
+09/24/2014 19:15:08,2,ABNW_ELYT1_1,SMCEABS8,2800,0,36.2,36.2,37.9,32.5,09/26/2014 15:00:00,N
+09/24/2014 19:10:07,2,ABNW_ELYT1_1,SMCEABS8,2800,0,36.2,36.2,39.6,34.1,09/26/2014 15:00:00,N
+09/24/2014 19:05:08,2,ABNW_ELYT1_1,SMCEABS8,2800,0,36.2,36.2,40.9,35.5,09/26/2014 15:00:00,N
