@@ -6889,6 +6889,76 @@ class np3_987_ex:
         quantityMW5: Decimal | None
         resourceName: str | None
 
+    class _7dTrigMcpc50xfipHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None
+        dmeName: str | None
+        resourceName: str | None
+        FIPx50: Decimal | None
+        MCPC: Decimal | None
+        multiHourBlockFlag: bool | None
+        blockIndicator1: str | None
+        price1RRSPFR: Decimal | None
+        price1RRSFFR: Decimal | None
+        price1RRSUFR: Decimal | None
+        price1ECRS: Decimal | None
+        price1OFFEC: Decimal | None
+        price1OnlineNONSPIN: Decimal | None
+        price1REGUP: Decimal | None
+        price1REGDOWN: Decimal | None
+        price1OfflineNONSPIN: Decimal | None
+        quantityMW1: Decimal | None
+        blockIndicator2: str | None
+        price2RRSPFR: Decimal | None
+        price2RRSFFR: Decimal | None
+        price2RRSUFR: Decimal | None
+        price2ECRS: Decimal | None
+        price2OFFEC: Decimal | None
+        price2OnlineNONSPIN: Decimal | None
+        price2REGUP: Decimal | None
+        price2REGDOWN: Decimal | None
+        price2OfflineNONSPIN: Decimal | None
+        quantityMW2: Decimal | None
+        blockIndicator3: str | None
+        price3RRSPFR: Decimal | None
+        price3RRSFFR: Decimal | None
+        price3RRSUFR: Decimal | None
+        price3ECRS: Decimal | None
+        price3OFFEC: Decimal | None
+        price3OnlineNONSPIN: Decimal | None
+        price3REGUP: Decimal | None
+        price3REGDOWN: Decimal | None
+        price3OfflineNONSPIN: Decimal | None
+        quantityMW3: Decimal | None
+        blockIndicator4: str | None
+        price4RRSPFR: Decimal | None
+        price4RRSFFR: Decimal | None
+        price4RRSUFR: Decimal | None
+        price4ECRS: Decimal | None
+        price4OFFEC: Decimal | None
+        price4OnlineNONSPIN: Decimal | None
+        price4REGUP: Decimal | None
+        price4REGDOWN: Decimal | None
+        price4OfflineNONSPIN: Decimal | None
+        quantityMW4: Decimal | None
+        blockIndicator5: str | None
+        price5RRSPFR: Decimal | None
+        price5RRSFFR: Decimal | None
+        price5RRSUFR: Decimal | None
+        price5ECRS: Decimal | None
+        price5OFFEC: Decimal | None
+        price5OnlineNONSPIN: Decimal | None
+        price5REGUP: Decimal | None
+        price5REGDOWN: Decimal | None
+        price5OfflineNONSPIN: Decimal | None
+        quantityMW5: Decimal | None
+
+    @property
+    def _7d_trig_mcpc_50xfip_history(self) -> Archive[np3_987_ex._7dTrigMcpc50xfipHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-987-ex', np3_987_ex._7dTrigMcpc50xfipHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', '50xFIP': 'FIPx50', 'MCPC': 'MCPC', 'Multi-Hour Block Flag': 'multiHourBlockFlag', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRSPFR': 'price1RRSPFR', 'PRICE1 RRSFFR': 'price1RRSFFR', 'PRICE1 RRSUFR': 'price1RRSUFR', 'PRICE1 ECRS': 'price1ECRS', 'PRICE1 OFFEC': 'price1OFFEC', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNONSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDOWN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNONSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRSPFR': 'price2RRSPFR', 'PRICE2 RRSFFR': 'price2RRSFFR', 'PRICE2 RRSUFR': 'price2RRSUFR', 'PRICE2 ECRS': 'price2ECRS', 'PRICE2 OFFEC': 'price2OFFEC', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNONSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDOWN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNONSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRSPFR': 'price3RRSPFR', 'PRICE3 RRSFFR': 'price3RRSFFR', 'PRICE3 RRSUFR': 'price3RRSUFR', 'PRICE3 ECRS': 'price3ECRS', 'PRICE3 OFFEC': 'price3OFFEC', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNONSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDOWN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNONSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRSPFR': 'price4RRSPFR', 'PRICE4 RRSFFR': 'price4RRSFFR', 'PRICE4 RRSUFR': 'price4RRSUFR', 'PRICE4 ECRS': 'price4ECRS', 'PRICE4 OFFEC': 'price4OFFEC', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNONSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDOWN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNONSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRSPFR': 'price5RRSPFR', 'PRICE5 RRSFFR': 'price5RRSFFR', 'PRICE5 RRSUFR': 'price5RRSUFR', 'PRICE5 ECRS': 'price5ECRS', 'PRICE5 OFFEC': 'price5OFFEC', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNONSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDOWN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNONSPIN', 'QUANTITY MW5': 'quantityMW5'}, {'deliveryDate': '%m/%d/%Y'}, member='7day_Event_Trigger_DAM_MCPC_Exceeds_50XFIP-[0-9]*.csv', datetimes={}, variants=())
+
     def _7d_trig_mcpc_50xfip(self, *, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDOWNFrom: Decimal | None = None, price5REGDOWNTo: Decimal | None = None, price5OfflineNONSPINFrom: Decimal | None = None, price5OfflineNONSPINTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, FIPx50From: Decimal | None = None, FIPx50To: Decimal | None = None, MCPCFrom: Decimal | None = None, MCPCTo: Decimal | None = None, multiHourBlockFlag: bool | None = None, blockIndicator1: str | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, price1OFFECFrom: Decimal | None = None, price1OFFECTo: Decimal | None = None, price1OnlineNONSPINFrom: Decimal | None = None, price1OnlineNONSPINTo: Decimal | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDOWNFrom: Decimal | None = None, price1REGDOWNTo: Decimal | None = None, price1OfflineNONSPINFrom: Decimal | None = None, price1OfflineNONSPINTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, blockIndicator2: str | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, price2OFFECFrom: Decimal | None = None, price2OFFECTo: Decimal | None = None, price2OnlineNONSPINFrom: Decimal | None = None, price2OnlineNONSPINTo: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDOWNFrom: Decimal | None = None, price2REGDOWNTo: Decimal | None = None, price2OfflineNONSPINFrom: Decimal | None = None, price2OfflineNONSPINTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, blockIndicator3: str | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, price3OFFECFrom: Decimal | None = None, price3OFFECTo: Decimal | None = None, price3OnlineNONSPINFrom: Decimal | None = None, price3OnlineNONSPINTo: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDOWNFrom: Decimal | None = None, price3REGDOWNTo: Decimal | None = None, price3OfflineNONSPINFrom: Decimal | None = None, price3OfflineNONSPINTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, blockIndicator4: str | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, price4OFFECFrom: Decimal | None = None, price4OFFECTo: Decimal | None = None, price4OnlineNONSPINFrom: Decimal | None = None, price4OnlineNONSPINTo: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDOWNFrom: Decimal | None = None, price4REGDOWNTo: Decimal | None = None, price4OfflineNONSPINFrom: Decimal | None = None, price4OfflineNONSPINTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, blockIndicator5: str | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, price5OFFECFrom: Decimal | None = None, price5OFFECTo: Decimal | None = None, price5OnlineNONSPINFrom: Decimal | None = None, price5OnlineNONSPINTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_987_ex._7dTrigMcpc50xfipRow]:
         '7-Day Event Trigger Posting When DAM MCPC Exceeds 50xFIP'
         return self._client._page('/np3-987-ex/7d_trig_mcpc_50xfip', np3_987_ex._7dTrigMcpc50xfipRow, {'price5REGUPFrom': price5REGUPFrom, 'price5REGUPTo': price5REGUPTo, 'price5REGDOWNFrom': price5REGDOWNFrom, 'price5REGDOWNTo': price5REGDOWNTo, 'price5OfflineNONSPINFrom': price5OfflineNONSPINFrom, 'price5OfflineNONSPINTo': price5OfflineNONSPINTo, 'quantityMW5From': quantityMW5From, 'quantityMW5To': quantityMW5To, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'qseName': qseName, 'dmeName': dmeName, 'resourceName': resourceName, 'FIPx50From': FIPx50From, 'FIPx50To': FIPx50To, 'MCPCFrom': MCPCFrom, 'MCPCTo': MCPCTo, 'multiHourBlockFlag': multiHourBlockFlag, 'blockIndicator1': blockIndicator1, 'price1RRSPFRFrom': price1RRSPFRFrom, 'price1RRSPFRTo': price1RRSPFRTo, 'price1RRSFFRFrom': price1RRSFFRFrom, 'price1RRSFFRTo': price1RRSFFRTo, 'price1RRSUFRFrom': price1RRSUFRFrom, 'price1RRSUFRTo': price1RRSUFRTo, 'price1ECRSFrom': price1ECRSFrom, 'price1ECRSTo': price1ECRSTo, 'price1OFFECFrom': price1OFFECFrom, 'price1OFFECTo': price1OFFECTo, 'price1OnlineNONSPINFrom': price1OnlineNONSPINFrom, 'price1OnlineNONSPINTo': price1OnlineNONSPINTo, 'price1REGUPFrom': price1REGUPFrom, 'price1REGUPTo': price1REGUPTo, 'price1REGDOWNFrom': price1REGDOWNFrom, 'price1REGDOWNTo': price1REGDOWNTo, 'price1OfflineNONSPINFrom': price1OfflineNONSPINFrom, 'price1OfflineNONSPINTo': price1OfflineNONSPINTo, 'quantityMW1From': quantityMW1From, 'quantityMW1To': quantityMW1To, 'blockIndicator2': blockIndicator2, 'price2RRSPFRFrom': price2RRSPFRFrom, 'price2RRSPFRTo': price2RRSPFRTo, 'price2RRSFFRFrom': price2RRSFFRFrom, 'price2RRSFFRTo': price2RRSFFRTo, 'price2RRSUFRFrom': price2RRSUFRFrom, 'price2RRSUFRTo': price2RRSUFRTo, 'price2ECRSFrom': price2ECRSFrom, 'price2ECRSTo': price2ECRSTo, 'price2OFFECFrom': price2OFFECFrom, 'price2OFFECTo': price2OFFECTo, 'price2OnlineNONSPINFrom': price2OnlineNONSPINFrom, 'price2OnlineNONSPINTo': price2OnlineNONSPINTo, 'price2REGUPFrom': price2REGUPFrom, 'price2REGUPTo': price2REGUPTo, 'price2REGDOWNFrom': price2REGDOWNFrom, 'price2REGDOWNTo': price2REGDOWNTo, 'price2OfflineNONSPINFrom': price2OfflineNONSPINFrom, 'price2OfflineNONSPINTo': price2OfflineNONSPINTo, 'quantityMW2From': quantityMW2From, 'quantityMW2To': quantityMW2To, 'blockIndicator3': blockIndicator3, 'price3RRSPFRFrom': price3RRSPFRFrom, 'price3RRSPFRTo': price3RRSPFRTo, 'price3RRSFFRFrom': price3RRSFFRFrom, 'price3RRSFFRTo': price3RRSFFRTo, 'price3RRSUFRFrom': price3RRSUFRFrom, 'price3RRSUFRTo': price3RRSUFRTo, 'price3ECRSFrom': price3ECRSFrom, 'price3ECRSTo': price3ECRSTo, 'price3OFFECFrom': price3OFFECFrom, 'price3OFFECTo': price3OFFECTo, 'price3OnlineNONSPINFrom': price3OnlineNONSPINFrom, 'price3OnlineNONSPINTo': price3OnlineNONSPINTo, 'price3REGUPFrom': price3REGUPFrom, 'price3REGUPTo': price3REGUPTo, 'price3REGDOWNFrom': price3REGDOWNFrom, 'price3REGDOWNTo': price3REGDOWNTo, 'price3OfflineNONSPINFrom': price3OfflineNONSPINFrom, 'price3OfflineNONSPINTo': price3OfflineNONSPINTo, 'quantityMW3From': quantityMW3From, 'quantityMW3To': quantityMW3To, 'blockIndicator4': blockIndicator4, 'price4RRSPFRFrom': price4RRSPFRFrom, 'price4RRSPFRTo': price4RRSPFRTo, 'price4RRSFFRFrom': price4RRSFFRFrom, 'price4RRSFFRTo': price4RRSFFRTo, 'price4RRSUFRFrom': price4RRSUFRFrom, 'price4RRSUFRTo': price4RRSUFRTo, 'price4ECRSFrom': price4ECRSFrom, 'price4ECRSTo': price4ECRSTo, 'price4OFFECFrom': price4OFFECFrom, 'price4OFFECTo': price4OFFECTo, 'price4OnlineNONSPINFrom': price4OnlineNONSPINFrom, 'price4OnlineNONSPINTo': price4OnlineNONSPINTo, 'price4REGUPFrom': price4REGUPFrom, 'price4REGUPTo': price4REGUPTo, 'price4REGDOWNFrom': price4REGDOWNFrom, 'price4REGDOWNTo': price4REGDOWNTo, 'price4OfflineNONSPINFrom': price4OfflineNONSPINFrom, 'price4OfflineNONSPINTo': price4OfflineNONSPINTo, 'quantityMW4From': quantityMW4From, 'quantityMW4To': quantityMW4To, 'blockIndicator5': blockIndicator5, 'price5RRSPFRFrom': price5RRSPFRFrom, 'price5RRSPFRTo': price5RRSPFRTo, 'price5RRSFFRFrom': price5RRSFFRFrom, 'price5RRSFFRTo': price5RRSFFRTo, 'price5RRSUFRFrom': price5RRSUFRFrom, 'price5RRSUFRTo': price5RRSUFRTo, 'price5ECRSFrom': price5ECRSFrom, 'price5ECRSTo': price5ECRSTo, 'price5OFFECFrom': price5OFFECFrom, 'price5OFFECTo': price5OFFECTo, 'price5OnlineNONSPINFrom': price5OnlineNONSPINFrom, 'price5OnlineNONSPINTo': price5OnlineNONSPINTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7003,6 +7073,110 @@ class np3_987_ex:
         submittedTPOPrice8: Decimal | None
         submittedTPOPrice9: Decimal | None
 
+    class _7dTrigLmp50xfipHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        resourceName: str | None
+        LMP: Decimal | None
+        FIPx50: Decimal | None
+        SCED2CurveMW1: Decimal | None
+        SCED2CurvePrice1: Decimal | None
+        SCED2CurveMW2: Decimal | None
+        SCED2CurvePrice2: Decimal | None
+        SCED2CurveMW3: Decimal | None
+        SCED2CurvePrice3: Decimal | None
+        SCED2CurveMW4: Decimal | None
+        SCED2CurvePrice4: Decimal | None
+        SCED2CurveMW5: Decimal | None
+        SCED2CurvePrice5: Decimal | None
+        SCED2CurveMW6: Decimal | None
+        SCED2CurvePrice6: Decimal | None
+        SCED2CurveMW7: Decimal | None
+        SCED2CurvePrice7: Decimal | None
+        SCED2CurveMW8: Decimal | None
+        SCED2CurvePrice8: Decimal | None
+        SCED2CurveMW9: Decimal | None
+        SCED2CurvePrice9: Decimal | None
+        SCED2CurveMW10: Decimal | None
+        SCED2CurvePrice10: Decimal | None
+        SCED2CurveMW11: Decimal | None
+        SCED2CurvePrice11: Decimal | None
+        SCED2CurveMW12: Decimal | None
+        SCED2CurvePrice12: Decimal | None
+        SCED2CurveMW13: Decimal | None
+        SCED2CurvePrice13: Decimal | None
+        SCED2CurveMW14: Decimal | None
+        SCED2CurvePrice14: Decimal | None
+        SCED2CurveMW15: Decimal | None
+        SCED2CurvePrice15: Decimal | None
+        SCED2CurveMW16: Decimal | None
+        SCED2CurvePrice16: Decimal | None
+        SCED2CurveMW17: Decimal | None
+        SCED2CurvePrice17: Decimal | None
+        SCED2CurveMW18: Decimal | None
+        SCED2CurvePrice18: Decimal | None
+        SCED2CurveMW19: Decimal | None
+        SCED2CurvePrice19: Decimal | None
+        SCED2CurveMW20: Decimal | None
+        SCED2CurvePrice20: Decimal | None
+        SCED2CurveMW21: Decimal | None
+        SCED2CurvePrice21: Decimal | None
+        SCED2CurveMW22: Decimal | None
+        SCED2CurvePrice22: Decimal | None
+        SCED2CurveMW23: Decimal | None
+        SCED2CurvePrice23: Decimal | None
+        SCED2CurveMW24: Decimal | None
+        SCED2CurvePrice24: Decimal | None
+        SCED2CurveMW25: Decimal | None
+        SCED2CurvePrice25: Decimal | None
+        SCED2CurveMW26: Decimal | None
+        SCED2CurvePrice26: Decimal | None
+        SCED2CurveMW27: Decimal | None
+        SCED2CurvePrice27: Decimal | None
+        SCED2CurveMW28: Decimal | None
+        SCED2CurvePrice28: Decimal | None
+        SCED2CurveMW29: Decimal | None
+        SCED2CurvePrice29: Decimal | None
+        SCED2CurveMW30: Decimal | None
+        SCED2CurvePrice30: Decimal | None
+        SCED2CurveMW31: Decimal | None
+        SCED2CurvePrice31: Decimal | None
+        SCED2CurveMW32: Decimal | None
+        SCED2CurvePrice32: Decimal | None
+        SCED2CurveMW33: Decimal | None
+        SCED2CurvePrice33: Decimal | None
+        SCED2CurveMW34: Decimal | None
+        SCED2CurvePrice34: Decimal | None
+        SCED2CurveMW35: Decimal | None
+        SCED2CurvePrice35: Decimal | None
+        bidType: str | None
+        submittedTPOMW1: Decimal | None
+        submittedTPOPrice1: Decimal | None
+        submittedTPOMW2: Decimal | None
+        submittedTPOPrice2: Decimal | None
+        submittedTPOMW3: Decimal | None
+        submittedTPOPrice3: Decimal | None
+        submittedTPOMW4: Decimal | None
+        submittedTPOPrice4: Decimal | None
+        submittedTPOMW5: Decimal | None
+        submittedTPOPrice5: Decimal | None
+        submittedTPOMW6: Decimal | None
+        submittedTPOPrice6: Decimal | None
+        submittedTPOMW7: Decimal | None
+        submittedTPOPrice7: Decimal | None
+        submittedTPOMW8: Decimal | None
+        submittedTPOPrice8: Decimal | None
+        submittedTPOMW9: Decimal | None
+        submittedTPOPrice9: Decimal | None
+        submittedTPOMW10: Decimal | None
+        submittedTPOPrice10: Decimal | None
+        proxyExtension: str | None
+
+    @property
+    def _7d_trig_lmp_50xfip_history(self) -> Archive[np3_987_ex._7dTrigLmp50xfipHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-987-ex', np3_987_ex._7dTrigLmp50xfipHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Resource Name': 'resourceName', 'LMP': 'LMP', '50xFIP': 'FIPx50', 'SCED2 Curve-MW1': 'SCED2CurveMW1', 'SCED2 Curve-Price1': 'SCED2CurvePrice1', 'SCED2 Curve-MW2': 'SCED2CurveMW2', 'SCED2 Curve-Price2': 'SCED2CurvePrice2', 'SCED2 Curve-MW3': 'SCED2CurveMW3', 'SCED2 Curve-Price3': 'SCED2CurvePrice3', 'SCED2 Curve-MW4': 'SCED2CurveMW4', 'SCED2 Curve-Price4': 'SCED2CurvePrice4', 'SCED2 Curve-MW5': 'SCED2CurveMW5', 'SCED2 Curve-Price5': 'SCED2CurvePrice5', 'SCED2 Curve-MW6': 'SCED2CurveMW6', 'SCED2 Curve-Price6': 'SCED2CurvePrice6', 'SCED2 Curve-MW7': 'SCED2CurveMW7', 'SCED2 Curve-Price7': 'SCED2CurvePrice7', 'SCED2 Curve-MW8': 'SCED2CurveMW8', 'SCED2 Curve-Price8': 'SCED2CurvePrice8', 'SCED2 Curve-MW9': 'SCED2CurveMW9', 'SCED2 Curve-Price9': 'SCED2CurvePrice9', 'SCED2 Curve-MW10': 'SCED2CurveMW10', 'SCED2 Curve-Price10': 'SCED2CurvePrice10', 'SCED2 Curve-MW11': 'SCED2CurveMW11', 'SCED2 Curve-Price11': 'SCED2CurvePrice11', 'SCED2 Curve-MW12': 'SCED2CurveMW12', 'SCED2 Curve-Price12': 'SCED2CurvePrice12', 'SCED2 Curve-MW13': 'SCED2CurveMW13', 'SCED2 Curve-Price13': 'SCED2CurvePrice13', 'SCED2 Curve-MW14': 'SCED2CurveMW14', 'SCED2 Curve-Price14': 'SCED2CurvePrice14', 'SCED2 Curve-MW15': 'SCED2CurveMW15', 'SCED2 Curve-Price15': 'SCED2CurvePrice15', 'SCED2 Curve-MW16': 'SCED2CurveMW16', 'SCED2 Curve-Price16': 'SCED2CurvePrice16', 'SCED2 Curve-MW17': 'SCED2CurveMW17', 'SCED2 Curve-Price17': 'SCED2CurvePrice17', 'SCED2 Curve-MW18': 'SCED2CurveMW18', 'SCED2 Curve-Price18': 'SCED2CurvePrice18', 'SCED2 Curve-MW19': 'SCED2CurveMW19', 'SCED2 Curve-Price19': 'SCED2CurvePrice19', 'SCED2 Curve-MW20': 'SCED2CurveMW20', 'SCED2 Curve-Price20': 'SCED2CurvePrice20', 'SCED2 Curve-MW21': 'SCED2CurveMW21', 'SCED2 Curve-Price21': 'SCED2CurvePrice21', 'SCED2 Curve-MW22': 'SCED2CurveMW22', 'SCED2 Curve-Price22': 'SCED2CurvePrice22', 'SCED2 Curve-MW23': 'SCED2CurveMW23', 'SCED2 Curve-Price23': 'SCED2CurvePrice23', 'SCED2 Curve-MW24': 'SCED2CurveMW24', 'SCED2 Curve-Price24': 'SCED2CurvePrice24', 'SCED2 Curve-MW25': 'SCED2CurveMW25', 'SCED2 Curve-Price25': 'SCED2CurvePrice25', 'SCED2 Curve-MW26': 'SCED2CurveMW26', 'SCED2 Curve-Price26': 'SCED2CurvePrice26', 'SCED2 Curve-MW27': 'SCED2CurveMW27', 'SCED2 Curve-Price27': 'SCED2CurvePrice27', 'SCED2 Curve-MW28': 'SCED2CurveMW28', 'SCED2 Curve-Price28': 'SCED2CurvePrice28', 'SCED2 Curve-MW29': 'SCED2CurveMW29', 'SCED2 Curve-Price29': 'SCED2CurvePrice29', 'SCED2 Curve-MW30': 'SCED2CurveMW30', 'SCED2 Curve-Price30': 'SCED2CurvePrice30', 'SCED2 Curve-MW31': 'SCED2CurveMW31', 'SCED2 Curve-Price31': 'SCED2CurvePrice31', 'SCED2 Curve-MW32': 'SCED2CurveMW32', 'SCED2 Curve-Price32': 'SCED2CurvePrice32', 'SCED2 Curve-MW33': 'SCED2CurveMW33', 'SCED2 Curve-Price33': 'SCED2CurvePrice33', 'SCED2 Curve-MW34': 'SCED2CurveMW34', 'SCED2 Curve-Price34': 'SCED2CurvePrice34', 'SCED2 Curve-MW35': 'SCED2CurveMW35', 'SCED2 Curve-Price35': 'SCED2CurvePrice35', 'Bid Type': 'bidType', 'Submitted TPO-MW1': 'submittedTPOMW1', 'Submitted TPO-Price1': 'submittedTPOPrice1', 'Submitted TPO-MW2': 'submittedTPOMW2', 'Submitted TPO-Price2': 'submittedTPOPrice2', 'Submitted TPO-MW3': 'submittedTPOMW3', 'Submitted TPO-Price3': 'submittedTPOPrice3', 'Submitted TPO-MW4': 'submittedTPOMW4', 'Submitted TPO-Price4': 'submittedTPOPrice4', 'Submitted TPO-MW5': 'submittedTPOMW5', 'Submitted TPO-Price5': 'submittedTPOPrice5', 'Submitted TPO-MW6': 'submittedTPOMW6', 'Submitted TPO-Price6': 'submittedTPOPrice6', 'Submitted TPO-MW7': 'submittedTPOMW7', 'Submitted TPO-Price7': 'submittedTPOPrice7', 'Submitted TPO-MW8': 'submittedTPOMW8', 'Submitted TPO-Price8': 'submittedTPOPrice8', 'Submitted TPO-MW9': 'submittedTPOMW9', 'Submitted TPO-Price9': 'submittedTPOPrice9', 'Submitted TPO-MW10': 'submittedTPOMW10', 'Submitted TPO-Price10': 'submittedTPOPrice10', 'Proxy Extension': 'proxyExtension'}, {}, member='7day_Event_Trigger_LMP_Exceeds_50XFIP-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _7d_trig_lmp_50xfip(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, resourceName: str | None = None, LMPFrom: Decimal | None = None, LMPTo: Decimal | None = None, FIPx50From: Decimal | None = None, FIPx50To: Decimal | None = None, SCED2CurveMW1From: Decimal | None = None, SCED2CurveMW1To: Decimal | None = None, SCED2CurvePrice1From: Decimal | None = None, SCED2CurvePrice1To: Decimal | None = None, SCED2CurveMW2From: Decimal | None = None, SCED2CurveMW2To: Decimal | None = None, SCED2CurvePrice2From: Decimal | None = None, SCED2CurvePrice2To: Decimal | None = None, SCED2CurveMW3From: Decimal | None = None, SCED2CurveMW3To: Decimal | None = None, SCED2CurvePrice3From: Decimal | None = None, SCED2CurvePrice3To: Decimal | None = None, SCED2CurveMW4From: Decimal | None = None, SCED2CurveMW4To: Decimal | None = None, SCED2CurvePrice4From: Decimal | None = None, SCED2CurvePrice4To: Decimal | None = None, SCED2CurveMW5From: Decimal | None = None, SCED2CurveMW5To: Decimal | None = None, SCED2CurvePrice5From: Decimal | None = None, SCED2CurvePrice5To: Decimal | None = None, SCED2CurveMW6From: Decimal | None = None, SCED2CurveMW6To: Decimal | None = None, SCED2CurvePrice6From: Decimal | None = None, SCED2CurvePrice6To: Decimal | None = None, SCED2CurveMW7From: Decimal | None = None, SCED2CurveMW7To: Decimal | None = None, SCED2CurvePrice7From: Decimal | None = None, SCED2CurvePrice7To: Decimal | None = None, SCED2CurveMW8From: Decimal | None = None, SCED2CurveMW8To: Decimal | None = None, SCED2CurvePrice8From: Decimal | None = None, SCED2CurvePrice8To: Decimal | None = None, SCED2CurveMW9From: Decimal | None = None, SCED2CurveMW9To: Decimal | None = None, SCED2CurvePrice9From: Decimal | None = None, SCED2CurvePrice9To: Decimal | None = None, SCED2CurveMW10From: Decimal | None = None, SCED2CurveMW10To: Decimal | None = None, SCED2CurvePrice10From: Decimal | None = None, SCED2CurvePrice10To: Decimal | None = None, SCED2CurveMW11From: Decimal | None = None, SCED2CurveMW11To: Decimal | None = None, SCED2CurvePrice11From: Decimal | None = None, SCED2CurvePrice11To: Decimal | None = None, SCED2CurveMW12From: Decimal | None = None, SCED2CurveMW12To: Decimal | None = None, SCED2CurvePrice12From: Decimal | None = None, SCED2CurvePrice12To: Decimal | None = None, SCED2CurveMW13From: Decimal | None = None, SCED2CurveMW13To: Decimal | None = None, SCED2CurvePrice13From: Decimal | None = None, SCED2CurvePrice13To: Decimal | None = None, SCED2CurveMW14From: Decimal | None = None, SCED2CurveMW14To: Decimal | None = None, SCED2CurvePrice14From: Decimal | None = None, SCED2CurvePrice14To: Decimal | None = None, SCED2CurveMW15From: Decimal | None = None, SCED2CurveMW15To: Decimal | None = None, SCED2CurvePrice15From: Decimal | None = None, SCED2CurvePrice15To: Decimal | None = None, SCED2CurveMW16From: Decimal | None = None, SCED2CurveMW16To: Decimal | None = None, SCED2CurvePrice16From: Decimal | None = None, SCED2CurvePrice16To: Decimal | None = None, SCED2CurveMW17From: Decimal | None = None, SCED2CurveMW17To: Decimal | None = None, SCED2CurvePrice17From: Decimal | None = None, SCED2CurvePrice17To: Decimal | None = None, SCED2CurveMW18From: Decimal | None = None, SCED2CurveMW18To: Decimal | None = None, SCED2CurvePrice18From: Decimal | None = None, SCED2CurvePrice18To: Decimal | None = None, SCED2CurveMW19From: Decimal | None = None, SCED2CurveMW19To: Decimal | None = None, SCED2CurvePrice19From: Decimal | None = None, SCED2CurvePrice19To: Decimal | None = None, SCED2CurveMW20From: Decimal | None = None, SCED2CurveMW20To: Decimal | None = None, SCED2CurvePrice20From: Decimal | None = None, SCED2CurvePrice20To: Decimal | None = None, SCED2CurveMW21From: Decimal | None = None, SCED2CurveMW21To: Decimal | None = None, SCED2CurvePrice21From: Decimal | None = None, SCED2CurvePrice21To: Decimal | None = None, SCED2CurveMW22From: Decimal | None = None, SCED2CurveMW22To: Decimal | None = None, SCED2CurvePrice22From: Decimal | None = None, SCED2CurvePrice22To: Decimal | None = None, SCED2CurveMW23From: Decimal | None = None, SCED2CurveMW23To: Decimal | None = None, SCED2CurvePrice23From: Decimal | None = None, SCED2CurvePrice23To: Decimal | None = None, SCED2CurveMW24From: Decimal | None = None, SCED2CurveMW24To: Decimal | None = None, SCED2CurvePrice24From: Decimal | None = None, SCED2CurvePrice24To: Decimal | None = None, SCED2CurveMW25From: Decimal | None = None, SCED2CurveMW25To: Decimal | None = None, SCED2CurvePrice25From: Decimal | None = None, SCED2CurvePrice25To: Decimal | None = None, SCED2CurveMW26From: Decimal | None = None, SCED2CurveMW26To: Decimal | None = None, SCED2CurvePrice26From: Decimal | None = None, SCED2CurvePrice26To: Decimal | None = None, SCED2CurveMW27From: Decimal | None = None, SCED2CurveMW27To: Decimal | None = None, SCED2CurvePrice27From: Decimal | None = None, SCED2CurvePrice27To: Decimal | None = None, SCED2CurveMW28From: Decimal | None = None, SCED2CurveMW28To: Decimal | None = None, SCED2CurvePrice28From: Decimal | None = None, SCED2CurvePrice28To: Decimal | None = None, SCED2CurveMW29From: Decimal | None = None, SCED2CurveMW29To: Decimal | None = None, SCED2CurvePrice29From: Decimal | None = None, SCED2CurvePrice29To: Decimal | None = None, SCED2CurveMW30From: Decimal | None = None, SCED2CurveMW30To: Decimal | None = None, SCED2CurvePrice30From: Decimal | None = None, SCED2CurvePrice30To: Decimal | None = None, SCED2CurveMW31From: Decimal | None = None, SCED2CurveMW31To: Decimal | None = None, SCED2CurvePrice31From: Decimal | None = None, SCED2CurvePrice31To: Decimal | None = None, SCED2CurveMW32From: Decimal | None = None, SCED2CurveMW32To: Decimal | None = None, SCED2CurvePrice32From: Decimal | None = None, SCED2CurvePrice32To: Decimal | None = None, SCED2CurveMW33From: Decimal | None = None, SCED2CurveMW33To: Decimal | None = None, SCED2CurvePrice33From: Decimal | None = None, SCED2CurvePrice33To: Decimal | None = None, SCED2CurveMW34From: Decimal | None = None, SCED2CurveMW34To: Decimal | None = None, SCED2CurvePrice34From: Decimal | None = None, SCED2CurvePrice34To: Decimal | None = None, SCED2CurveMW35From: Decimal | None = None, SCED2CurveMW35To: Decimal | None = None, SCED2CurvePrice35From: Decimal | None = None, SCED2CurvePrice35To: Decimal | None = None, bidType: str | None = None, submittedTPOMW1From: Decimal | None = None, submittedTPOMW1To: Decimal | None = None, submittedTPOPrice1From: Decimal | None = None, submittedTPOPrice1To: Decimal | None = None, submittedTPOMW2From: Decimal | None = None, submittedTPOMW2To: Decimal | None = None, submittedTPOPrice2From: Decimal | None = None, submittedTPOPrice2To: Decimal | None = None, submittedTPOMW3From: Decimal | None = None, submittedTPOMW3To: Decimal | None = None, submittedTPOPrice3From: Decimal | None = None, submittedTPOPrice3To: Decimal | None = None, submittedTPOMW4From: Decimal | None = None, submittedTPOMW4To: Decimal | None = None, submittedTPOPrice4From: Decimal | None = None, submittedTPOPrice4To: Decimal | None = None, submittedTPOMW5From: Decimal | None = None, submittedTPOMW5To: Decimal | None = None, submittedTPOPrice5From: Decimal | None = None, submittedTPOPrice5To: Decimal | None = None, submittedTPOMW6From: Decimal | None = None, submittedTPOMW6To: Decimal | None = None, submittedTPOPrice6From: Decimal | None = None, submittedTPOPrice6To: Decimal | None = None, submittedTPOMW7From: Decimal | None = None, submittedTPOMW7To: Decimal | None = None, submittedTPOPrice7From: Decimal | None = None, submittedTPOPrice7To: Decimal | None = None, submittedTPOMW8From: Decimal | None = None, submittedTPOMW8To: Decimal | None = None, submittedTPOPrice8From: Decimal | None = None, submittedTPOPrice8To: Decimal | None = None, submittedTPOMW9From: Decimal | None = None, submittedTPOMW9To: Decimal | None = None, submittedTPOPrice9From: Decimal | None = None, submittedTPOPrice9To: Decimal | None = None, submittedTPOMW10From: Decimal | None = None, submittedTPOMW10To: Decimal | None = None, submittedTPOPrice10From: Decimal | None = None, submittedTPOPrice10To: Decimal | None = None, proxyExtension: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_987_ex._7dTrigLmp50xfipRow]:
         '7-Day Event Trigger Posting when LMP exceeds 50xFIP'
         return self._client._page('/np3-987-ex/7d_trig_lmp_50xfip', np3_987_ex._7dTrigLmp50xfipRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'resourceName': resourceName, 'LMPFrom': LMPFrom, 'LMPTo': LMPTo, 'FIPx50From': FIPx50From, 'FIPx50To': FIPx50To, 'SCED2CurveMW1From': SCED2CurveMW1From, 'SCED2CurveMW1To': SCED2CurveMW1To, 'SCED2CurvePrice1From': SCED2CurvePrice1From, 'SCED2CurvePrice1To': SCED2CurvePrice1To, 'SCED2CurveMW2From': SCED2CurveMW2From, 'SCED2CurveMW2To': SCED2CurveMW2To, 'SCED2CurvePrice2From': SCED2CurvePrice2From, 'SCED2CurvePrice2To': SCED2CurvePrice2To, 'SCED2CurveMW3From': SCED2CurveMW3From, 'SCED2CurveMW3To': SCED2CurveMW3To, 'SCED2CurvePrice3From': SCED2CurvePrice3From, 'SCED2CurvePrice3To': SCED2CurvePrice3To, 'SCED2CurveMW4From': SCED2CurveMW4From, 'SCED2CurveMW4To': SCED2CurveMW4To, 'SCED2CurvePrice4From': SCED2CurvePrice4From, 'SCED2CurvePrice4To': SCED2CurvePrice4To, 'SCED2CurveMW5From': SCED2CurveMW5From, 'SCED2CurveMW5To': SCED2CurveMW5To, 'SCED2CurvePrice5From': SCED2CurvePrice5From, 'SCED2CurvePrice5To': SCED2CurvePrice5To, 'SCED2CurveMW6From': SCED2CurveMW6From, 'SCED2CurveMW6To': SCED2CurveMW6To, 'SCED2CurvePrice6From': SCED2CurvePrice6From, 'SCED2CurvePrice6To': SCED2CurvePrice6To, 'SCED2CurveMW7From': SCED2CurveMW7From, 'SCED2CurveMW7To': SCED2CurveMW7To, 'SCED2CurvePrice7From': SCED2CurvePrice7From, 'SCED2CurvePrice7To': SCED2CurvePrice7To, 'SCED2CurveMW8From': SCED2CurveMW8From, 'SCED2CurveMW8To': SCED2CurveMW8To, 'SCED2CurvePrice8From': SCED2CurvePrice8From, 'SCED2CurvePrice8To': SCED2CurvePrice8To, 'SCED2CurveMW9From': SCED2CurveMW9From, 'SCED2CurveMW9To': SCED2CurveMW9To, 'SCED2CurvePrice9From': SCED2CurvePrice9From, 'SCED2CurvePrice9To': SCED2CurvePrice9To, 'SCED2CurveMW10From': SCED2CurveMW10From, 'SCED2CurveMW10To': SCED2CurveMW10To, 'SCED2CurvePrice10From': SCED2CurvePrice10From, 'SCED2CurvePrice10To': SCED2CurvePrice10To, 'SCED2CurveMW11From': SCED2CurveMW11From, 'SCED2CurveMW11To': SCED2CurveMW11To, 'SCED2CurvePrice11From': SCED2CurvePrice11From, 'SCED2CurvePrice11To': SCED2CurvePrice11To, 'SCED2CurveMW12From': SCED2CurveMW12From, 'SCED2CurveMW12To': SCED2CurveMW12To, 'SCED2CurvePrice12From': SCED2CurvePrice12From, 'SCED2CurvePrice12To': SCED2CurvePrice12To, 'SCED2CurveMW13From': SCED2CurveMW13From, 'SCED2CurveMW13To': SCED2CurveMW13To, 'SCED2CurvePrice13From': SCED2CurvePrice13From, 'SCED2CurvePrice13To': SCED2CurvePrice13To, 'SCED2CurveMW14From': SCED2CurveMW14From, 'SCED2CurveMW14To': SCED2CurveMW14To, 'SCED2CurvePrice14From': SCED2CurvePrice14From, 'SCED2CurvePrice14To': SCED2CurvePrice14To, 'SCED2CurveMW15From': SCED2CurveMW15From, 'SCED2CurveMW15To': SCED2CurveMW15To, 'SCED2CurvePrice15From': SCED2CurvePrice15From, 'SCED2CurvePrice15To': SCED2CurvePrice15To, 'SCED2CurveMW16From': SCED2CurveMW16From, 'SCED2CurveMW16To': SCED2CurveMW16To, 'SCED2CurvePrice16From': SCED2CurvePrice16From, 'SCED2CurvePrice16To': SCED2CurvePrice16To, 'SCED2CurveMW17From': SCED2CurveMW17From, 'SCED2CurveMW17To': SCED2CurveMW17To, 'SCED2CurvePrice17From': SCED2CurvePrice17From, 'SCED2CurvePrice17To': SCED2CurvePrice17To, 'SCED2CurveMW18From': SCED2CurveMW18From, 'SCED2CurveMW18To': SCED2CurveMW18To, 'SCED2CurvePrice18From': SCED2CurvePrice18From, 'SCED2CurvePrice18To': SCED2CurvePrice18To, 'SCED2CurveMW19From': SCED2CurveMW19From, 'SCED2CurveMW19To': SCED2CurveMW19To, 'SCED2CurvePrice19From': SCED2CurvePrice19From, 'SCED2CurvePrice19To': SCED2CurvePrice19To, 'SCED2CurveMW20From': SCED2CurveMW20From, 'SCED2CurveMW20To': SCED2CurveMW20To, 'SCED2CurvePrice20From': SCED2CurvePrice20From, 'SCED2CurvePrice20To': SCED2CurvePrice20To, 'SCED2CurveMW21From': SCED2CurveMW21From, 'SCED2CurveMW21To': SCED2CurveMW21To, 'SCED2CurvePrice21From': SCED2CurvePrice21From, 'SCED2CurvePrice21To': SCED2CurvePrice21To, 'SCED2CurveMW22From': SCED2CurveMW22From, 'SCED2CurveMW22To': SCED2CurveMW22To, 'SCED2CurvePrice22From': SCED2CurvePrice22From, 'SCED2CurvePrice22To': SCED2CurvePrice22To, 'SCED2CurveMW23From': SCED2CurveMW23From, 'SCED2CurveMW23To': SCED2CurveMW23To, 'SCED2CurvePrice23From': SCED2CurvePrice23From, 'SCED2CurvePrice23To': SCED2CurvePrice23To, 'SCED2CurveMW24From': SCED2CurveMW24From, 'SCED2CurveMW24To': SCED2CurveMW24To, 'SCED2CurvePrice24From': SCED2CurvePrice24From, 'SCED2CurvePrice24To': SCED2CurvePrice24To, 'SCED2CurveMW25From': SCED2CurveMW25From, 'SCED2CurveMW25To': SCED2CurveMW25To, 'SCED2CurvePrice25From': SCED2CurvePrice25From, 'SCED2CurvePrice25To': SCED2CurvePrice25To, 'SCED2CurveMW26From': SCED2CurveMW26From, 'SCED2CurveMW26To': SCED2CurveMW26To, 'SCED2CurvePrice26From': SCED2CurvePrice26From, 'SCED2CurvePrice26To': SCED2CurvePrice26To, 'SCED2CurveMW27From': SCED2CurveMW27From, 'SCED2CurveMW27To': SCED2CurveMW27To, 'SCED2CurvePrice27From': SCED2CurvePrice27From, 'SCED2CurvePrice27To': SCED2CurvePrice27To, 'SCED2CurveMW28From': SCED2CurveMW28From, 'SCED2CurveMW28To': SCED2CurveMW28To, 'SCED2CurvePrice28From': SCED2CurvePrice28From, 'SCED2CurvePrice28To': SCED2CurvePrice28To, 'SCED2CurveMW29From': SCED2CurveMW29From, 'SCED2CurveMW29To': SCED2CurveMW29To, 'SCED2CurvePrice29From': SCED2CurvePrice29From, 'SCED2CurvePrice29To': SCED2CurvePrice29To, 'SCED2CurveMW30From': SCED2CurveMW30From, 'SCED2CurveMW30To': SCED2CurveMW30To, 'SCED2CurvePrice30From': SCED2CurvePrice30From, 'SCED2CurvePrice30To': SCED2CurvePrice30To, 'SCED2CurveMW31From': SCED2CurveMW31From, 'SCED2CurveMW31To': SCED2CurveMW31To, 'SCED2CurvePrice31From': SCED2CurvePrice31From, 'SCED2CurvePrice31To': SCED2CurvePrice31To, 'SCED2CurveMW32From': SCED2CurveMW32From, 'SCED2CurveMW32To': SCED2CurveMW32To, 'SCED2CurvePrice32From': SCED2CurvePrice32From, 'SCED2CurvePrice32To': SCED2CurvePrice32To, 'SCED2CurveMW33From': SCED2CurveMW33From, 'SCED2CurveMW33To': SCED2CurveMW33To, 'SCED2CurvePrice33From': SCED2CurvePrice33From, 'SCED2CurvePrice33To': SCED2CurvePrice33To, 'SCED2CurveMW34From': SCED2CurveMW34From, 'SCED2CurveMW34To': SCED2CurveMW34To, 'SCED2CurvePrice34From': SCED2CurvePrice34From, 'SCED2CurvePrice34To': SCED2CurvePrice34To, 'SCED2CurveMW35From': SCED2CurveMW35From, 'SCED2CurveMW35To': SCED2CurveMW35To, 'SCED2CurvePrice35From': SCED2CurvePrice35From, 'SCED2CurvePrice35To': SCED2CurvePrice35To, 'bidType': bidType, 'submittedTPOMW1From': submittedTPOMW1From, 'submittedTPOMW1To': submittedTPOMW1To, 'submittedTPOPrice1From': submittedTPOPrice1From, 'submittedTPOPrice1To': submittedTPOPrice1To, 'submittedTPOMW2From': submittedTPOMW2From, 'submittedTPOMW2To': submittedTPOMW2To, 'submittedTPOPrice2From': submittedTPOPrice2From, 'submittedTPOPrice2To': submittedTPOPrice2To, 'submittedTPOMW3From': submittedTPOMW3From, 'submittedTPOMW3To': submittedTPOMW3To, 'submittedTPOPrice3From': submittedTPOPrice3From, 'submittedTPOPrice3To': submittedTPOPrice3To, 'submittedTPOMW4From': submittedTPOMW4From, 'submittedTPOMW4To': submittedTPOMW4To, 'submittedTPOPrice4From': submittedTPOPrice4From, 'submittedTPOPrice4To': submittedTPOPrice4To, 'submittedTPOMW5From': submittedTPOMW5From, 'submittedTPOMW5To': submittedTPOMW5To, 'submittedTPOPrice5From': submittedTPOPrice5From, 'submittedTPOPrice5To': submittedTPOPrice5To, 'submittedTPOMW6From': submittedTPOMW6From, 'submittedTPOMW6To': submittedTPOMW6To, 'submittedTPOPrice6From': submittedTPOPrice6From, 'submittedTPOPrice6To': submittedTPOPrice6To, 'submittedTPOMW7From': submittedTPOMW7From, 'submittedTPOMW7To': submittedTPOMW7To, 'submittedTPOPrice7From': submittedTPOPrice7From, 'submittedTPOPrice7To': submittedTPOPrice7To, 'submittedTPOMW8From': submittedTPOMW8From, 'submittedTPOMW8To': submittedTPOMW8To, 'submittedTPOPrice8From': submittedTPOPrice8From, 'submittedTPOPrice8To': submittedTPOPrice8To, 'submittedTPOMW9From': submittedTPOMW9From, 'submittedTPOMW9To': submittedTPOMW9To, 'submittedTPOPrice9From': submittedTPOPrice9From, 'submittedTPOPrice9To': submittedTPOPrice9To, 'submittedTPOMW10From': submittedTPOMW10From, 'submittedTPOMW10To': submittedTPOMW10To, 'submittedTPOPrice10From': submittedTPOPrice10From, 'submittedTPOPrice10To': submittedTPOPrice10To, 'proxyExtension': proxyExtension, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7065,6 +7239,58 @@ class np3_987_ex:
         repeatHourFlag: bool | None
         resourceName: str | None
 
+    class _7dTrigRtmMcpc50xfipHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        resourceName: str | None
+        FIPx50: Decimal | None
+        RTMCPC: Decimal | None
+        price1REGUP: Decimal | None
+        price1REGDOWN: Decimal | None
+        price1RRSPFR: Decimal | None
+        price1RRSUFR: Decimal | None
+        price1RRSFFR: Decimal | None
+        price1NONSPIN: Decimal | None
+        price1ECRS: Decimal | None
+        quantityMW1: Decimal | None
+        price2REGUP: Decimal | None
+        price2REGDOWN: Decimal | None
+        price2RRSPFR: Decimal | None
+        price2RRSUFR: Decimal | None
+        price2RRSFFR: Decimal | None
+        price2NONSPIN: Decimal | None
+        price2ECRS: Decimal | None
+        quantityMW2: Decimal | None
+        price3REGUP: Decimal | None
+        price3REGDOWN: Decimal | None
+        price3RRSPFR: Decimal | None
+        price3RRSUFR: Decimal | None
+        price3RRSFFR: Decimal | None
+        price3NONSPIN: Decimal | None
+        price3ECRS: Decimal | None
+        quantityMW3: Decimal | None
+        price4REGUP: Decimal | None
+        price4REGDOWN: Decimal | None
+        price4RRSPFR: Decimal | None
+        price4RRSUFR: Decimal | None
+        price4RRSFFR: Decimal | None
+        price4NONSPIN: Decimal | None
+        price4ECRS: Decimal | None
+        quantityMW4: Decimal | None
+        price5REGUP: Decimal | None
+        price5REGDOWN: Decimal | None
+        price5RRSPFR: Decimal | None
+        price5RRSUFR: Decimal | None
+        price5RRSFFR: Decimal | None
+        price5NONSPIN: Decimal | None
+        price5ECRS: Decimal | None
+        quantityMW5: Decimal | None
+
+    @property
+    def _7d_trig_rtm_mcpc_50xfip_history(self) -> Archive[np3_987_ex._7dTrigRtmMcpc50xfipHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-987-ex', np3_987_ex._7dTrigRtmMcpc50xfipHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Resource Name': 'resourceName', '50xFIP': 'FIPx50', 'RTMCPC': 'RTMCPC', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDOWN', 'PRICE1 RRSPFR': 'price1RRSPFR', 'PRICE1 RRSUFR': 'price1RRSUFR', 'PRICE1 RRSFFR': 'price1RRSFFR', 'PRICE1 NONSPIN': 'price1NONSPIN', 'PRICE1 ECRS': 'price1ECRS', 'QUANTITY MW1': 'quantityMW1', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDOWN', 'PRICE2 RRSPFR': 'price2RRSPFR', 'PRICE2 RRSUFR': 'price2RRSUFR', 'PRICE2 RRSFFR': 'price2RRSFFR', 'PRICE2 NONSPIN': 'price2NONSPIN', 'PRICE2 ECRS': 'price2ECRS', 'QUANTITY MW2': 'quantityMW2', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDOWN', 'PRICE3 RRSPFR': 'price3RRSPFR', 'PRICE3 RRSUFR': 'price3RRSUFR', 'PRICE3 RRSFFR': 'price3RRSFFR', 'PRICE3 NONSPIN': 'price3NONSPIN', 'PRICE3 ECRS': 'price3ECRS', 'QUANTITY MW3': 'quantityMW3', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDOWN', 'PRICE4 RRSPFR': 'price4RRSPFR', 'PRICE4 RRSUFR': 'price4RRSUFR', 'PRICE4 RRSFFR': 'price4RRSFFR', 'PRICE4 NONSPIN': 'price4NONSPIN', 'PRICE4 ECRS': 'price4ECRS', 'QUANTITY MW4': 'quantityMW4', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDOWN', 'PRICE5 RRSPFR': 'price5RRSPFR', 'PRICE5 RRSUFR': 'price5RRSUFR', 'PRICE5 RRSFFR': 'price5RRSFFR', 'PRICE5 NONSPIN': 'price5NONSPIN', 'PRICE5 ECRS': 'price5ECRS', 'QUANTITY MW5': 'quantityMW5'}, {}, member='7day_Event_Trigger_RTM_MCPC_Exceeds_50XFIP-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _7d_trig_rtm_mcpc_50xfip(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, resourceName: str | None = None, FIPx50From: Decimal | None = None, FIPx50To: Decimal | None = None, RTMCPCFrom: Decimal | None = None, RTMCPCTo: Decimal | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDOWNFrom: Decimal | None = None, price1REGDOWNTo: Decimal | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price1NONSPINFrom: Decimal | None = None, price1NONSPINTo: Decimal | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDOWNFrom: Decimal | None = None, price2REGDOWNTo: Decimal | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2NONSPINFrom: Decimal | None = None, price2NONSPINTo: Decimal | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDOWNFrom: Decimal | None = None, price3REGDOWNTo: Decimal | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3NONSPINFrom: Decimal | None = None, price3NONSPINTo: Decimal | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDOWNFrom: Decimal | None = None, price4REGDOWNTo: Decimal | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4NONSPINFrom: Decimal | None = None, price4NONSPINTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDOWNFrom: Decimal | None = None, price5REGDOWNTo: Decimal | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5NONSPINFrom: Decimal | None = None, price5NONSPINTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_987_ex._7dTrigRtmMcpc50xfipRow]:
         '7-Day Event Trigger Posting when RTM MCPC exceeds 50xFIP'
         return self._client._page('/np3-987-ex/7d_trig_rtm_mcpc_50xfip', np3_987_ex._7dTrigRtmMcpc50xfipRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'resourceName': resourceName, 'FIPx50From': FIPx50From, 'FIPx50To': FIPx50To, 'RTMCPCFrom': RTMCPCFrom, 'RTMCPCTo': RTMCPCTo, 'price1REGUPFrom': price1REGUPFrom, 'price1REGUPTo': price1REGUPTo, 'price1REGDOWNFrom': price1REGDOWNFrom, 'price1REGDOWNTo': price1REGDOWNTo, 'price1RRSPFRFrom': price1RRSPFRFrom, 'price1RRSPFRTo': price1RRSPFRTo, 'price1RRSUFRFrom': price1RRSUFRFrom, 'price1RRSUFRTo': price1RRSUFRTo, 'price1RRSFFRFrom': price1RRSFFRFrom, 'price1RRSFFRTo': price1RRSFFRTo, 'price1NONSPINFrom': price1NONSPINFrom, 'price1NONSPINTo': price1NONSPINTo, 'price1ECRSFrom': price1ECRSFrom, 'price1ECRSTo': price1ECRSTo, 'quantityMW1From': quantityMW1From, 'quantityMW1To': quantityMW1To, 'price2REGUPFrom': price2REGUPFrom, 'price2REGUPTo': price2REGUPTo, 'price2REGDOWNFrom': price2REGDOWNFrom, 'price2REGDOWNTo': price2REGDOWNTo, 'price2RRSPFRFrom': price2RRSPFRFrom, 'price2RRSPFRTo': price2RRSPFRTo, 'price2RRSUFRFrom': price2RRSUFRFrom, 'price2RRSUFRTo': price2RRSUFRTo, 'price2RRSFFRFrom': price2RRSFFRFrom, 'price2RRSFFRTo': price2RRSFFRTo, 'price2NONSPINFrom': price2NONSPINFrom, 'price2NONSPINTo': price2NONSPINTo, 'price2ECRSFrom': price2ECRSFrom, 'price2ECRSTo': price2ECRSTo, 'quantityMW2From': quantityMW2From, 'quantityMW2To': quantityMW2To, 'price3REGUPFrom': price3REGUPFrom, 'price3REGUPTo': price3REGUPTo, 'price3REGDOWNFrom': price3REGDOWNFrom, 'price3REGDOWNTo': price3REGDOWNTo, 'price3RRSPFRFrom': price3RRSPFRFrom, 'price3RRSPFRTo': price3RRSPFRTo, 'price3RRSUFRFrom': price3RRSUFRFrom, 'price3RRSUFRTo': price3RRSUFRTo, 'price3RRSFFRFrom': price3RRSFFRFrom, 'price3RRSFFRTo': price3RRSFFRTo, 'price3NONSPINFrom': price3NONSPINFrom, 'price3NONSPINTo': price3NONSPINTo, 'price3ECRSFrom': price3ECRSFrom, 'price3ECRSTo': price3ECRSTo, 'quantityMW3From': quantityMW3From, 'quantityMW3To': quantityMW3To, 'price4REGUPFrom': price4REGUPFrom, 'price4REGUPTo': price4REGUPTo, 'price4REGDOWNFrom': price4REGDOWNFrom, 'price4REGDOWNTo': price4REGDOWNTo, 'price4RRSPFRFrom': price4RRSPFRFrom, 'price4RRSPFRTo': price4RRSPFRTo, 'price4RRSUFRFrom': price4RRSUFRFrom, 'price4RRSUFRTo': price4RRSUFRTo, 'price4RRSFFRFrom': price4RRSFFRFrom, 'price4RRSFFRTo': price4RRSFFRTo, 'price4NONSPINFrom': price4NONSPINFrom, 'price4NONSPINTo': price4NONSPINTo, 'price4ECRSFrom': price4ECRSFrom, 'price4ECRSTo': price4ECRSTo, 'quantityMW4From': quantityMW4From, 'quantityMW4To': quantityMW4To, 'price5REGUPFrom': price5REGUPFrom, 'price5REGUPTo': price5REGUPTo, 'price5REGDOWNFrom': price5REGDOWNFrom, 'price5REGDOWNTo': price5REGDOWNTo, 'price5RRSPFRFrom': price5RRSPFRFrom, 'price5RRSPFRTo': price5RRSPFRTo, 'price5RRSUFRFrom': price5RRSUFRFrom, 'price5RRSUFRTo': price5RRSUFRTo, 'price5RRSFFRFrom': price5RRSFFRFrom, 'price5RRSFFRTo': price5RRSFFRTo, 'price5NONSPINFrom': price5NONSPINFrom, 'price5NONSPINTo': price5NONSPINTo, 'price5ECRSFrom': price5ECRSFrom, 'price5ECRSTo': price5ECRSTo, 'quantityMW5From': quantityMW5From, 'quantityMW5To': quantityMW5To, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7123,6 +7349,32 @@ class np3_990_ex:
         hourEnding: int | None
         resourceName: str | None
         resourceType: str | None
+
+    class _60SasmGenResAsOfferAwardsHistoryRow(Row):
+        SASMId: datetime | None
+        deliveryDate: date | None
+        hourEnding: int | None
+        resourceName: str | None
+        resourceType: str | None
+        REGUPAawarded: Decimal | None
+        REGUPMCPC: Decimal | None
+        REGDNAwarded: Decimal | None
+        REGDNMCPC: Decimal | None
+        RRSPFRAwarded: Decimal | None = None
+        RRSFFRAwarded: Decimal | None = None
+        RRSUFRAwarded: Decimal | None = None
+        RRSMCPC: Decimal | None
+        ECRSSAwarded: Decimal | None = None
+        OFFECAwarded: Decimal | None = None
+        ECRSMCPC: Decimal | None = None
+        NSPINAwarded: Decimal | None
+        NSPINMCPC: Decimal | None
+        RRSAwarded: Decimal | None = None
+
+    @property
+    def _60_sasm_gen_res_as_offer_awards_history(self) -> Archive[np3_990_ex._60SasmGenResAsOfferAwardsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-990-ex', np3_990_ex._60SasmGenResAsOfferAwardsHistoryRow, {'SASM ID': 'SASMId', 'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'REGUP Awarded': 'REGUPAawarded', 'REGUP MCPC': 'REGUPMCPC', 'REGDN Awarded': 'REGDNAwarded', 'REGDN MCPC': 'REGDNMCPC', 'RRSPFR Awarded': 'RRSPFRAwarded', 'RRSFFR Awarded': 'RRSFFRAwarded', 'RRSUFR Awarded': 'RRSUFRAwarded', 'RRS MCPC': 'RRSMCPC', 'ECRSS Awarded': 'ECRSSAwarded', 'OFFEC Awarded': 'OFFECAwarded', 'ECRS MCPC': 'ECRSMCPC', 'NSPIN Awarded': 'NSPINAwarded', 'NSPIN MCPC': 'NSPINMCPC'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_SASM_Generation_Resource_AS_Offer_Awards-[0-9]*.csv', datetimes={'SASMId': '%m/%d/%Y %I:%M:%S %p'}, variants=({'SASM ID': 'SASMId', 'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'REGUP Awarded': 'REGUPAawarded', 'REGUP MCPC': 'REGUPMCPC', 'REGDN Awarded': 'REGDNAwarded', 'REGDN MCPC': 'REGDNMCPC', 'RRS Awarded': 'RRSAwarded', 'RRS MCPC': 'RRSMCPC', 'NSPIN Awarded': 'NSPINAwarded', 'NSPIN MCPC': 'NSPINMCPC'},))
 
     def _60_sasm_gen_res_as_offer_awards(self, *, SASMIdFrom: datetime | None = None, SASMIdTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, resourceName: str | None = None, resourceType: str | None = None, REGUPAawardedFrom: Decimal | None = None, REGUPAawardedTo: Decimal | None = None, REGUPMCPCFrom: Decimal | None = None, REGUPMCPCTo: Decimal | None = None, REGDNAwardedFrom: Decimal | None = None, REGDNAwardedTo: Decimal | None = None, REGDNMCPCFrom: Decimal | None = None, REGDNMCPCTo: Decimal | None = None, RRSPFRAwardedFrom: Decimal | None = None, RRSPFRAwardedTo: Decimal | None = None, RRSFFRAwardedFrom: Decimal | None = None, RRSFFRAwardedTo: Decimal | None = None, ECRSSAwardedFrom: Decimal | None = None, ECRSSAwardedTo: Decimal | None = None, RRSUFRAwardedFrom: Decimal | None = None, RRSUFRAwardedTo: Decimal | None = None, OFFECAwardedFrom: Decimal | None = None, OFFECAwardedTo: Decimal | None = None, RRSMCPCFrom: Decimal | None = None, RRSMCPCTo: Decimal | None = None, ECRSMCPCFrom: Decimal | None = None, ECRSMCPCTo: Decimal | None = None, NSPINAwardedFrom: Decimal | None = None, NSPINAwardedTo: Decimal | None = None, NSPINMCPCFrom: Decimal | None = None, NSPINMCPCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_990_ex._60SasmGenResAsOfferAwardsRow]:
         '60-Day SASM Generation Resource AS Offer Awards'
@@ -7203,6 +7455,80 @@ class np3_990_ex:
         quantityMW5: Decimal | None
         resourceName: str | None
 
+    class _60SasmGenResAsOffersHistoryRow(Row):
+        deliveryDate: date | None
+        SASMId: datetime | None
+        hourEnding: int | None
+        qseName: str | None
+        dmeName: str | None = None
+        resourceName: str | None
+        multiHourBlockFlag: bool | None
+        blockIndicator1: str | None
+        price1RRSPFR: Decimal | None = None
+        price1RRSFFR: Decimal | None = None
+        price1RRSUFR: Decimal | None = None
+        price1ECRS: Decimal | None = None
+        price1OFFEC: Decimal | None = None
+        price1OnlineNONSPIN: Decimal | None
+        price1REGUP: Decimal | None
+        price1REGDOWN: Decimal | None
+        price1OfflineNONSPIN: Decimal | None
+        quantityMW1: Decimal | None
+        blockIndicator2: str | None
+        price2RRSPFR: Decimal | None = None
+        price2RRSFFR: Decimal | None = None
+        price2RRSUFR: Decimal | None = None
+        price2ECRS: Decimal | None = None
+        price2OFFEC: Decimal | None = None
+        price2OnlineNONSPIN: Decimal | None
+        price2REGUP: Decimal | None
+        price2REGDOWN: Decimal | None
+        price2OfflineNONSPIN: Decimal | None
+        quantityMW2: Decimal | None
+        blockIndicator3: str | None
+        price3RRSPFR: Decimal | None = None
+        price3RRSFFR: Decimal | None = None
+        price3RRSUFR: Decimal | None = None
+        price3ECRS: Decimal | None = None
+        price3OFFEC: Decimal | None = None
+        price3OnlineNONSPIN: Decimal | None
+        price3REGUP: Decimal | None
+        price3REGDOWN: Decimal | None
+        price3OfflineNONSPIN: Decimal | None
+        quantityMW3: Decimal | None
+        blockIndicator4: str | None
+        price4RRSPFR: Decimal | None = None
+        price4RRSFFR: Decimal | None = None
+        price4RRSUFR: Decimal | None = None
+        price4ECRS: Decimal | None = None
+        price4OFFEC: Decimal | None = None
+        price4OnlineNONSPIN: Decimal | None
+        price4REGUP: Decimal | None
+        price4REGDOWN: Decimal | None
+        price4OfflineNONSPIN: Decimal | None
+        quantityMW4: Decimal | None
+        blockIndicator5: str | None
+        price5RRSPFR: Decimal | None = None
+        price5RRSFFR: Decimal | None = None
+        price5RRSUFR: Decimal | None = None
+        price5ECRS: Decimal | None = None
+        price5OFFEC: Decimal | None = None
+        price5OnlineNONSPIN: Decimal | None
+        price5REGUP: Decimal | None
+        price5REGDOWN: Decimal | None
+        price5OfflineNONSPIN: Decimal | None
+        quantityMW5: Decimal | None
+        price1RRS: Decimal | None = None
+        price2RRS: Decimal | None = None
+        price3RRS: Decimal | None = None
+        price4RRS: Decimal | None = None
+        price5RRS: Decimal | None = None
+
+    @property
+    def _60_sasm_gen_res_as_offers_history(self) -> Archive[np3_990_ex._60SasmGenResAsOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-990-ex', np3_990_ex._60SasmGenResAsOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'SASM ID': 'SASMId', 'Hour Ending': 'hourEnding', 'QSE NAME': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', 'Multi-Hour Block Flag': 'multiHourBlockFlag', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRSPFR': 'price1RRSPFR', 'PRICE1 RRSFFR': 'price1RRSFFR', 'PRICE1 RRSUFR': 'price1RRSUFR', 'PRICE1 ECRS': 'price1ECRS', 'PRICE1 OFFEC': 'price1OFFEC', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNONSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDOWN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNONSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRSPFR': 'price2RRSPFR', 'PRICE2 RRSFFR': 'price2RRSFFR', 'PRICE2 RRSUFR': 'price2RRSUFR', 'PRICE2 ECRS': 'price2ECRS', 'PRICE2 OFFEC': 'price2OFFEC', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNONSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDOWN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNONSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRSPFR': 'price3RRSPFR', 'PRICE3 RRSFFR': 'price3RRSFFR', 'PRICE3 RRSUFR': 'price3RRSUFR', 'PRICE3 ECRS': 'price3ECRS', 'PRICE3 OFFEC': 'price3OFFEC', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNONSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDOWN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNONSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRSPFR': 'price4RRSPFR', 'PRICE4 RRSFFR': 'price4RRSFFR', 'PRICE4 RRSUFR': 'price4RRSUFR', 'PRICE4 ECRS': 'price4ECRS', 'PRICE4 OFFEC': 'price4OFFEC', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNONSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDOWN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNONSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRSPFR': 'price5RRSPFR', 'PRICE5 RRSFFR': 'price5RRSFFR', 'PRICE5 RRSUFR': 'price5RRSUFR', 'PRICE5 ECRS': 'price5ECRS', 'PRICE5 OFFEC': 'price5OFFEC', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNONSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDOWN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNONSPIN', 'QUANTITY MW5': 'quantityMW5'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_SASM_Generation_Resource_AS_Offers-[0-9]*.csv', datetimes={'SASMId': '%m/%d/%Y %H:%M:%S'}, variants=({'Delivery Date': 'deliveryDate', 'SASM ID': 'SASMId', 'Hour Ending': 'hourEnding', 'QSE NAME': 'qseName', 'Resource Name': 'resourceName', 'Multi-Hour Block Flag': 'multiHourBlockFlag', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRS': 'price1RRS', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNONSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDOWN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNONSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRS': 'price2RRS', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNONSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDOWN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNONSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRS': 'price3RRS', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNONSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDOWN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNONSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRS': 'price4RRS', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNONSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDOWN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNONSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRS': 'price5RRS', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNONSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDOWN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNONSPIN', 'QUANTITY MW5': 'quantityMW5'},))
+
     def _60_sasm_gen_res_as_offers(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, SASMIdFrom: datetime | None = None, SASMIdTo: datetime | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, multiHourBlockFlag: bool | None = None, blockIndicator1: str | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price1OnlineNONSPINFrom: Decimal | None = None, price1OnlineNONSPINTo: Decimal | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDOWNFrom: Decimal | None = None, price1REGDOWNTo: Decimal | None = None, price1OfflineNONSPINFrom: Decimal | None = None, price1OfflineNONSPINTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, blockIndicator2: str | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2OnlineNONSPINFrom: Decimal | None = None, price2OnlineNONSPINTo: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDOWNFrom: Decimal | None = None, price2REGDOWNTo: Decimal | None = None, price2OfflineNONSPINFrom: Decimal | None = None, price2OfflineNONSPINTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, blockIndicator3: str | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3OnlineNONSPINFrom: Decimal | None = None, price3OnlineNONSPINTo: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDOWNFrom: Decimal | None = None, price3REGDOWNTo: Decimal | None = None, price3OfflineNONSPINFrom: Decimal | None = None, price3OfflineNONSPINTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, blockIndicator4: str | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, price4OnlineNONSPINFrom: Decimal | None = None, price4OnlineNONSPINTo: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDOWNFrom: Decimal | None = None, price4REGDOWNTo: Decimal | None = None, price4OfflineNONSPINFrom: Decimal | None = None, price4OfflineNONSPINTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, blockIndicator5: str | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5OnlineNONSPINFrom: Decimal | None = None, price5OnlineNONSPINTo: Decimal | None = None, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDOWNFrom: Decimal | None = None, price5REGDOWNTo: Decimal | None = None, price5OfflineNONSPINFrom: Decimal | None = None, price5OfflineNONSPINTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, price1OFFECFrom: Decimal | None = None, price1OFFECTo: Decimal | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, price2OFFECFrom: Decimal | None = None, price2OFFECTo: Decimal | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, price3OFFECFrom: Decimal | None = None, price3OFFECTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, price4OFFECFrom: Decimal | None = None, price4OFFECTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, price5OFFECFrom: Decimal | None = None, price5OFFECTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_990_ex._60SasmGenResAsOffersRow]:
         '60-Day SASM Generation Resource AS Offers'
         return self._client._page('/np3-990-ex/60_sasm_gen_res_as_offers', np3_990_ex._60SasmGenResAsOffersRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'SASMIdFrom': SASMIdFrom, 'SASMIdTo': SASMIdTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'qseName': qseName, 'dmeName': dmeName, 'resourceName': resourceName, 'multiHourBlockFlag': multiHourBlockFlag, 'blockIndicator1': blockIndicator1, 'price1RRSPFRFrom': price1RRSPFRFrom, 'price1RRSPFRTo': price1RRSPFRTo, 'price1RRSFFRFrom': price1RRSFFRFrom, 'price1RRSFFRTo': price1RRSFFRTo, 'price1RRSUFRFrom': price1RRSUFRFrom, 'price1RRSUFRTo': price1RRSUFRTo, 'price1OnlineNONSPINFrom': price1OnlineNONSPINFrom, 'price1OnlineNONSPINTo': price1OnlineNONSPINTo, 'price1REGUPFrom': price1REGUPFrom, 'price1REGUPTo': price1REGUPTo, 'price1REGDOWNFrom': price1REGDOWNFrom, 'price1REGDOWNTo': price1REGDOWNTo, 'price1OfflineNONSPINFrom': price1OfflineNONSPINFrom, 'price1OfflineNONSPINTo': price1OfflineNONSPINTo, 'quantityMW1From': quantityMW1From, 'quantityMW1To': quantityMW1To, 'blockIndicator2': blockIndicator2, 'price2RRSPFRFrom': price2RRSPFRFrom, 'price2RRSPFRTo': price2RRSPFRTo, 'price2RRSFFRFrom': price2RRSFFRFrom, 'price2RRSFFRTo': price2RRSFFRTo, 'price2RRSUFRFrom': price2RRSUFRFrom, 'price2RRSUFRTo': price2RRSUFRTo, 'price2OnlineNONSPINFrom': price2OnlineNONSPINFrom, 'price2OnlineNONSPINTo': price2OnlineNONSPINTo, 'price2REGUPFrom': price2REGUPFrom, 'price2REGUPTo': price2REGUPTo, 'price2REGDOWNFrom': price2REGDOWNFrom, 'price2REGDOWNTo': price2REGDOWNTo, 'price2OfflineNONSPINFrom': price2OfflineNONSPINFrom, 'price2OfflineNONSPINTo': price2OfflineNONSPINTo, 'quantityMW2From': quantityMW2From, 'quantityMW2To': quantityMW2To, 'blockIndicator3': blockIndicator3, 'price3RRSPFRFrom': price3RRSPFRFrom, 'price3RRSPFRTo': price3RRSPFRTo, 'price3RRSFFRFrom': price3RRSFFRFrom, 'price3RRSFFRTo': price3RRSFFRTo, 'price3RRSUFRFrom': price3RRSUFRFrom, 'price3RRSUFRTo': price3RRSUFRTo, 'price3OnlineNONSPINFrom': price3OnlineNONSPINFrom, 'price3OnlineNONSPINTo': price3OnlineNONSPINTo, 'price3REGUPFrom': price3REGUPFrom, 'price3REGUPTo': price3REGUPTo, 'price3REGDOWNFrom': price3REGDOWNFrom, 'price3REGDOWNTo': price3REGDOWNTo, 'price3OfflineNONSPINFrom': price3OfflineNONSPINFrom, 'price3OfflineNONSPINTo': price3OfflineNONSPINTo, 'quantityMW3From': quantityMW3From, 'quantityMW3To': quantityMW3To, 'blockIndicator4': blockIndicator4, 'price4RRSPFRFrom': price4RRSPFRFrom, 'price4RRSPFRTo': price4RRSPFRTo, 'price4RRSFFRFrom': price4RRSFFRFrom, 'price4RRSFFRTo': price4RRSFFRTo, 'price4RRSUFRFrom': price4RRSUFRFrom, 'price4RRSUFRTo': price4RRSUFRTo, 'price4OnlineNONSPINFrom': price4OnlineNONSPINFrom, 'price4OnlineNONSPINTo': price4OnlineNONSPINTo, 'price4REGUPFrom': price4REGUPFrom, 'price4REGUPTo': price4REGUPTo, 'price4REGDOWNFrom': price4REGDOWNFrom, 'price4REGDOWNTo': price4REGDOWNTo, 'price4OfflineNONSPINFrom': price4OfflineNONSPINFrom, 'price4OfflineNONSPINTo': price4OfflineNONSPINTo, 'quantityMW4From': quantityMW4From, 'quantityMW4To': quantityMW4To, 'blockIndicator5': blockIndicator5, 'price5RRSPFRFrom': price5RRSPFRFrom, 'price5RRSPFRTo': price5RRSPFRTo, 'price5RRSFFRFrom': price5RRSFFRFrom, 'price5RRSFFRTo': price5RRSFFRTo, 'price5RRSUFRFrom': price5RRSUFRFrom, 'price5RRSUFRTo': price5RRSUFRTo, 'price5OnlineNONSPINFrom': price5OnlineNONSPINFrom, 'price5OnlineNONSPINTo': price5OnlineNONSPINTo, 'price5REGUPFrom': price5REGUPFrom, 'price5REGUPTo': price5REGUPTo, 'price5REGDOWNFrom': price5REGDOWNFrom, 'price5REGDOWNTo': price5REGDOWNTo, 'price5OfflineNONSPINFrom': price5OfflineNONSPINFrom, 'price5OfflineNONSPINTo': price5OfflineNONSPINTo, 'quantityMW5From': quantityMW5From, 'quantityMW5To': quantityMW5To, 'price1ECRSFrom': price1ECRSFrom, 'price1ECRSTo': price1ECRSTo, 'price1OFFECFrom': price1OFFECFrom, 'price1OFFECTo': price1OFFECTo, 'price2ECRSFrom': price2ECRSFrom, 'price2ECRSTo': price2ECRSTo, 'price2OFFECFrom': price2OFFECFrom, 'price2OFFECTo': price2OFFECTo, 'price3ECRSFrom': price3ECRSFrom, 'price3ECRSTo': price3ECRSTo, 'price3OFFECFrom': price3OFFECFrom, 'price3OFFECTo': price3OFFECTo, 'price4ECRSFrom': price4ECRSFrom, 'price4ECRSTo': price4ECRSTo, 'price4OFFECFrom': price4OFFECFrom, 'price4OFFECTo': price4OFFECTo, 'price5ECRSFrom': price5ECRSFrom, 'price5ECRSTo': price5ECRSTo, 'price5OFFECFrom': price5OFFECFrom, 'price5OFFECTo': price5OFFECTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7237,6 +7563,32 @@ class np3_990_ex:
         hourEnding: int | None
         resourceName: str | None
         resourceType: str | None
+
+    class _60SasmLoadResAsOfferAwardsHistoryRow(Row):
+        SASMId: datetime | None
+        deliveryDate: date | None
+        hourEnding: int | None
+        resourceName: str | None
+        resourceType: str | None
+        REGUPAawarded: Decimal | None
+        REGUPMCPC: Decimal | None
+        REGDNAwarded: Decimal | None
+        REGDNMCPC: Decimal | None
+        RRSPFRAwarded: Decimal | None = None
+        RRSFFRAwarded: Decimal | None = None
+        RRSUFRAwarded: Decimal | None = None
+        RRSMCPC: Decimal | None
+        ECRSMAwarded: Decimal | None = None
+        ECRSSAwarded: Decimal | None = None
+        ECRSMCPC: Decimal | None = None
+        NSPINAwarded: Decimal | None
+        NSPINMCPC: Decimal | None
+        RRSAwarded: Decimal | None = None
+
+    @property
+    def _60_sasm_load_res_as_offer_awards_history(self) -> Archive[np3_990_ex._60SasmLoadResAsOfferAwardsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-990-ex', np3_990_ex._60SasmLoadResAsOfferAwardsHistoryRow, {'SASM ID': 'SASMId', 'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'REGUP Awarded': 'REGUPAawarded', 'REGUP MCPC': 'REGUPMCPC', 'REGDN Awarded': 'REGDNAwarded', 'REGDN MCPC': 'REGDNMCPC', 'RRSPFR Awarded': 'RRSPFRAwarded', 'RRSFFR Awarded': 'RRSFFRAwarded', 'RRSUFR Awarded': 'RRSUFRAwarded', 'RRS MCPC': 'RRSMCPC', 'ECRSM Awarded': 'ECRSMAwarded', 'ECRSS Awarded': 'ECRSSAwarded', 'ECRS MCPC': 'ECRSMCPC', 'NSPIN Awarded': 'NSPINAwarded', 'NSPIN MCPC': 'NSPINMCPC'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_SASM_Load_Resource_AS_Offer_Awards-[0-9]*.csv', datetimes={'SASMId': '%m/%d/%Y %I:%M:%S %p'}, variants=({'SASM ID': 'SASMId', 'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'REGUP Awarded': 'REGUPAawarded', 'REGUP MCPC': 'REGUPMCPC', 'REGDN Awarded': 'REGDNAwarded', 'REGDN MCPC': 'REGDNMCPC', 'RRS Awarded': 'RRSAwarded', 'RRS MCPC': 'RRSMCPC', 'NSPIN Awarded': 'NSPINAwarded', 'NSPIN MCPC': 'NSPINMCPC'},))
 
     def _60_sasm_load_res_as_offer_awards(self, *, SASMIdFrom: datetime | None = None, SASMIdTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, resourceName: str | None = None, resourceType: str | None = None, REGUPAawardedFrom: Decimal | None = None, REGUPAawardedTo: Decimal | None = None, REGUPMCPCFrom: Decimal | None = None, REGUPMCPCTo: Decimal | None = None, REGDNAwardedFrom: Decimal | None = None, REGDNAwardedTo: Decimal | None = None, REGDNMCPCFrom: Decimal | None = None, REGDNMCPCTo: Decimal | None = None, RRSPFRAwardedFrom: Decimal | None = None, RRSPFRAwardedTo: Decimal | None = None, RRSFFRAwardedFrom: Decimal | None = None, RRSFFRAwardedTo: Decimal | None = None, RRSUFRAwardedFrom: Decimal | None = None, RRSUFRAwardedTo: Decimal | None = None, RRSMCPCFrom: Decimal | None = None, RRSMCPCTo: Decimal | None = None, NSPINAwardedFrom: Decimal | None = None, NSPINAwardedTo: Decimal | None = None, NSPINMCPCFrom: Decimal | None = None, NSPINMCPCTo: Decimal | None = None, ECRSMAwardedFrom: Decimal | None = None, ECRSMAwardedTo: Decimal | None = None, ECRSSAwardedFrom: Decimal | None = None, ECRSSAwardedTo: Decimal | None = None, ECRSMCPCFrom: Decimal | None = None, ECRSMCPCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_990_ex._60SasmLoadResAsOfferAwardsRow]:
         '60-Day SASM Load Resource AS Offer Awards'
@@ -7316,6 +7668,80 @@ class np3_990_ex:
         quantityMW4: Decimal | None
         quantityMW5: Decimal | None
         resourceName: str | None
+
+    class _60SasmLoadResAsOffersHistoryRow(Row):
+        deliveryDate: date | None
+        SASMId: datetime | None
+        hourEnding: int | None
+        qseName: str | None
+        dmeName: str | None = None
+        resourceName: str | None
+        multiHourBlockFlag: bool | None
+        blockIndicator1: str | None
+        price1RRSPFR: Decimal | None = None
+        price1RRSFFR: Decimal | None = None
+        price1RRSUFR: Decimal | None = None
+        price1ECRS: Decimal | None = None
+        price1OFFEC: Decimal | None = None
+        price1OnlineNONSPIN: Decimal | None
+        price1REGUP: Decimal | None
+        price1REGDOWN: Decimal | None
+        price1OfflineNONSPIN: Decimal | None
+        quantityMW1: Decimal | None
+        blockIndicator2: str | None
+        price2RRSPFR: Decimal | None = None
+        price2RRSFFR: Decimal | None = None
+        price2RRSUFR: Decimal | None = None
+        price2ECRS: Decimal | None = None
+        price2OFFEC: Decimal | None = None
+        price2OnlineNONSPIN: Decimal | None
+        price2REGUP: Decimal | None
+        price2REGDOWN: Decimal | None
+        price2OfflineNONSPIN: Decimal | None
+        quantityMW2: Decimal | None
+        blockIndicator3: str | None
+        price3RRSPFR: Decimal | None = None
+        price3RRSFFR: Decimal | None = None
+        price3RRSUFR: Decimal | None = None
+        price3ECRS: Decimal | None = None
+        price3OFFEC: Decimal | None = None
+        price3OnlineNONSPIN: Decimal | None
+        price3REGUP: Decimal | None
+        price3REGDOWN: Decimal | None
+        price3OfflineNONSPIN: Decimal | None
+        quantityMW3: Decimal | None
+        blockIndicator4: str | None
+        price4RRSPFR: Decimal | None = None
+        price4RRSFFR: Decimal | None = None
+        price4RRSUFR: Decimal | None = None
+        price4ECRS: Decimal | None = None
+        price4OFFEC: Decimal | None = None
+        price4OnlineNONSPIN: Decimal | None
+        price4REGUP: Decimal | None
+        price4REGDOWN: Decimal | None
+        price4OfflineNONSPIN: Decimal | None
+        quantityMW4: Decimal | None
+        blockIndicator5: str | None
+        price5RRSPFR: Decimal | None = None
+        price5RRSFFR: Decimal | None = None
+        price5RRSUFR: Decimal | None = None
+        price5ECRS: Decimal | None = None
+        price5OFFEC: Decimal | None = None
+        price5OnlineNONSPIN: Decimal | None
+        price5REGUP: Decimal | None
+        price5REGDOWN: Decimal | None
+        price5OfflineNONSPIN: Decimal | None
+        quantityMW5: Decimal | None
+        price1RRS: Decimal | None = None
+        price2RRS: Decimal | None = None
+        price3RRS: Decimal | None = None
+        price4RRS: Decimal | None = None
+        price5RRS: Decimal | None = None
+
+    @property
+    def _60_sasm_load_res_as_offers_history(self) -> Archive[np3_990_ex._60SasmLoadResAsOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-990-ex', np3_990_ex._60SasmLoadResAsOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'SASM ID': 'SASMId', 'Hour Ending': 'hourEnding', 'QSE NAME': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', 'Multi-Hour Block Flag': 'multiHourBlockFlag', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRSPFR': 'price1RRSPFR', 'PRICE1 RRSFFR': 'price1RRSFFR', 'PRICE1 RRSUFR': 'price1RRSUFR', 'PRICE1 ECRS': 'price1ECRS', 'PRICE1 OFFEC': 'price1OFFEC', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNONSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDOWN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNONSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRSPFR': 'price2RRSPFR', 'PRICE2 RRSFFR': 'price2RRSFFR', 'PRICE2 RRSUFR': 'price2RRSUFR', 'PRICE2 ECRS': 'price2ECRS', 'PRICE2 OFFEC': 'price2OFFEC', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNONSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDOWN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNONSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRSPFR': 'price3RRSPFR', 'PRICE3 RRSFFR': 'price3RRSFFR', 'PRICE3 RRSUFR': 'price3RRSUFR', 'PRICE3 ECRS': 'price3ECRS', 'PRICE3 OFFEC': 'price3OFFEC', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNONSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDOWN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNONSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRSPFR': 'price4RRSPFR', 'PRICE4 RRSFFR': 'price4RRSFFR', 'PRICE4 RRSUFR': 'price4RRSUFR', 'PRICE4 ECRS': 'price4ECRS', 'PRICE4 OFFEC': 'price4OFFEC', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNONSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDOWN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNONSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRSPFR': 'price5RRSPFR', 'PRICE5 RRSFFR': 'price5RRSFFR', 'PRICE5 RRSUFR': 'price5RRSUFR', 'PRICE5 ECRS': 'price5ECRS', 'PRICE5 OFFEC': 'price5OFFEC', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNONSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDOWN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNONSPIN', 'QUANTITY MW5': 'quantityMW5'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_SASM_Load_Resource_AS_Offers-[0-9]*.csv', datetimes={'SASMId': '%m/%d/%Y %H:%M:%S'}, variants=({'Delivery Date': 'deliveryDate', 'SASM ID': 'SASMId', 'Hour Ending': 'hourEnding', 'QSE NAME': 'qseName', 'Resource Name': 'resourceName', 'Multi-Hour Block Flag': 'multiHourBlockFlag', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRS': 'price1RRS', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNONSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDOWN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNONSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRS': 'price2RRS', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNONSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDOWN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNONSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRS': 'price3RRS', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNONSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDOWN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNONSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRS': 'price4RRS', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNONSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDOWN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNONSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRS': 'price5RRS', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNONSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDOWN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNONSPIN', 'QUANTITY MW5': 'quantityMW5'},))
 
     def _60_sasm_load_res_as_offers(self, *, resourceName: str | None = None, price2OFFECFrom: Decimal | None = None, price2OFFECTo: Decimal | None = None, multiHourBlockFlag: bool | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, blockIndicator1: str | None = None, price3OFFECFrom: Decimal | None = None, price3OFFECTo: Decimal | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price4OFFECFrom: Decimal | None = None, price4OFFECTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, price1OnlineNONSPINFrom: Decimal | None = None, price1OnlineNONSPINTo: Decimal | None = None, price5OFFECFrom: Decimal | None = None, price5OFFECTo: Decimal | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDOWNFrom: Decimal | None = None, price1REGDOWNTo: Decimal | None = None, price1OfflineNONSPINFrom: Decimal | None = None, price1OfflineNONSPINTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, blockIndicator2: str | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2OnlineNONSPINFrom: Decimal | None = None, price2OnlineNONSPINTo: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDOWNFrom: Decimal | None = None, price2REGDOWNTo: Decimal | None = None, price2OfflineNONSPINFrom: Decimal | None = None, price2OfflineNONSPINTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, blockIndicator3: str | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3OnlineNONSPINFrom: Decimal | None = None, price3OnlineNONSPINTo: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDOWNFrom: Decimal | None = None, price3REGDOWNTo: Decimal | None = None, price3OfflineNONSPINFrom: Decimal | None = None, price3OfflineNONSPINTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, blockIndicator4: str | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, price4OnlineNONSPINFrom: Decimal | None = None, price4OnlineNONSPINTo: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDOWNFrom: Decimal | None = None, price4REGDOWNTo: Decimal | None = None, price4OfflineNONSPINFrom: Decimal | None = None, price4OfflineNONSPINTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, blockIndicator5: str | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5OnlineNONSPINFrom: Decimal | None = None, price5OnlineNONSPINTo: Decimal | None = None, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDOWNFrom: Decimal | None = None, price5REGDOWNTo: Decimal | None = None, price5OfflineNONSPINFrom: Decimal | None = None, price5OfflineNONSPINTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, SASMIdFrom: datetime | None = None, SASMIdTo: datetime | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, qseName: str | None = None, price1OFFECFrom: Decimal | None = None, price1OFFECTo: Decimal | None = None, dmeName: str | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_990_ex._60SasmLoadResAsOffersRow]:
         '60-Day SASM Load Resource AS Offers'

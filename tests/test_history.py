@@ -1447,3 +1447,60 @@ def test_cop_and_obligation_history_preserves_source_meanings():
     assert current.REGUPOblAdvisory == Decimal(".07869")
     assert current.REGUPResponsibility is None
     assert current.deliveryDate == date(2026, 3, 11)
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "event-sasm-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_event_sasm_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    if rows:
+        assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_sasm_history_preserves_timestamp_formats_and_offer_blocks():
+    with Client() as client:
+        award = next(
+            client.np3_990_ex._60_sasm_gen_res_as_offer_awards_history.read(
+                zipped(
+                    "60d_SASM_Generation_Resource_AS_Offer_Awards-26-JAN-26.csv",
+                    (
+                        INPUTS
+                        / "np3-990-ex--60_sasm_gen_res_as_offer_awards-history-sasm-nonempty.csv"
+                    ).read_bytes(),
+                )
+            )
+        )
+        offer = next(
+            client.np3_990_ex._60_sasm_gen_res_as_offers_history.read(
+                zipped(
+                    "60d_SASM_Generation_Resource_AS_Offers-26-JAN-26.csv",
+                    (
+                        INPUTS
+                        / "np3-990-ex--60_sasm_gen_res_as_offers-history-sasm-nonempty.csv"
+                    ).read_bytes(),
+                )
+            )
+        )
+    assert award.SASMId is not None
+    assert award.SASMId.isoformat() == "2025-11-27T02:45:05"
+    assert offer.SASMId == award.SASMId
+    assert award.RRSPFRAwarded == Decimal("1.2")
+    assert award.RRSAwarded is None
+    assert offer.price1RRSPFR == Decimal(5000)
+    assert offer.price1RRS is None
+    assert offer.quantityMW1 == Decimal(20)
+    assert offer.quantityMW5 == Decimal(60)
