@@ -478,8 +478,9 @@ def test_wind_layout_keeps_old_timestamp_and_combined_region():
 
 
 def test_ambiguous_header_mapping_is_rejected():
-    source = (INPUTS / "np4-732-cd-history-samples.csv").read_bytes()
-    source = source.replace(b"HOUR_ENDING,", b"HOUR_ENDING,DELIVERY_DATE,", 1)
+    # Both timestamp and numeric-hour layouts use HOUR_ENDING.
+    # A partial header cannot establish which meaning applies.
+    source = b"HOUR_ENDING,ACTUAL_SYSTEM_WIDE\n"
     with Client() as client, pytest.raises(ValueError, match="ambiguous"):
         list(
             client.np4_732_cd.wpp_hrly_avrg_actl_fcast_history.read(
@@ -1812,3 +1813,33 @@ def test_intermediate_sced_and_wind_layouts(sample):
         assert rows[0].ASRRSFFR == Decimal(0)
         assert rows[0].ASECRS == Decimal(0)
         assert rows[0].ASAwardsECRS is None
+
+
+@pytest.mark.parametrize(
+    "year, timestamp, total, west_north",
+    [
+        (2016, datetime(2016, 1, 30), "6986.24", "4835"),  # noqa: DTZ001 - source clock
+        (2017, None, "7172.73", "6421.04"),
+    ],
+)
+def test_wind_preserves_hour_beginning_and_combined_regions(
+    year, timestamp, total, west_north
+):
+    fixture = INPUTS / f"np4-732-cd-wpp_hrly_avrg_actl_fcast-{year}.csv"
+    with Client() as client:
+        rows = list(
+            client.np4_732_cd.wpp_hrly_avrg_actl_fcast_history.read(
+                zipped("wind.csv", fixture.read_bytes())
+            )
+        )
+    assert len(rows) == 3
+    row = rows[0]
+    assert row.hourBeginningTimestamp == timestamp
+    assert row.hourEndingTimestamp is None
+    assert row.deliveryDate == (date(2017, 1, 29) if year == 2017 else None)
+    assert row.hourEnding == (24 if year == 2017 else None)
+    assert row.actualSystemWide == Decimal(total)
+    assert row.actualWestNorth == Decimal(west_north)
+    assert row.actualLoadZoneWest is None
+    assert row.actualLoadZoneNorth is None
+    assert row.genSystemWide is None
