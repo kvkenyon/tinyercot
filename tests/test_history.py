@@ -669,3 +669,56 @@ def test_legacy_outage_and_ruc_totals_are_not_assigned_to_regions():
         assert ruc.sumSCEDTotal == Decimal(0)
         assert ruc.sumSCEDSouth is None
         assert ruc.RUCTimestamp.isoformat() == "2018-10-25T17:03:01"
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "summaries-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_summary_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_legacy_rrs_and_offer_cap_fields_are_preserved():
+    with Client() as client:
+        offers = next(
+            client.np4_179_cd.total_as_service_offers_history.read(
+                zipped(
+                    "offers.csv",
+                    (INPUTS / "np4-179-cd-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+        assert offers.RRS == Decimal(4378)
+        assert offers.RRSPFR is None
+        cap = next(
+            client.np4_791_cd.da_sw_offer_caps_history.read(
+                zipped(
+                    "caps.csv", (INPUTS / "np4-791-cd-history-samples.csv").read_bytes()
+                )
+            )
+        )
+        assert cap.SWCAP == Decimal(5000)
+        assert cap.DASWCAP is None and cap.RTSWCAP is None
+
+
+def test_nonempty_extra_csv_cell_is_not_discarded():
+    source = (INPUTS / "np4-791-cd-history-samples.csv").read_bytes()
+    source = source.replace(b"AS,5000,", b"AS,5000,unexpected")
+    with Client() as client, pytest.raises(ValueError, match="wrong number of cells"):
+        list(
+            client.np4_791_cd.da_sw_offer_caps_history.read(zipped("caps.csv", source))
+        )

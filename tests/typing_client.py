@@ -76,3 +76,9 @@ with Client() as client:
         assert_type(adequacy.hourEnding, str | None)
     for ruc in client.np3_764_cd.hrly_ruc_online_sced_offline_cop_history.rows():
         assert_type(ruc.sumSCEDTotal, Decimal | None)
+
+    for offers in client.np4_179_cd.total_as_service_offers_history.rows():
+        assert_type(offers.RRS, Decimal | None)
+        assert_type(offers.RRSPFR, Decimal | None)
+    for cap in client.np4_791_cd.da_sw_offer_caps_history.rows():
+        assert_type(cap.SWCAP, Decimal | None)
