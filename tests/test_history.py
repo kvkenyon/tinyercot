@@ -932,3 +932,40 @@ def test_rtd_history_keeps_forecast_time_and_legacy_point_types():
     assert prices[0].settlementPoint == "AMISTAD_ALL"
     assert prices[0].LMP == Decimal("28.71")
     assert prices[1].settlementPointType == "LCCRN"
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "mappings-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_mapping_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_load_distribution_ids_and_decimal_precision_are_preserved():
+    with Client() as client:
+        rows = list(
+            client.np4_159_cd.load_distribution_factors_history.read(
+                zipped(
+                    "ldf.csv", (INPUTS / "np4-159-cd-history-samples.csv").read_bytes()
+                )
+            )
+        )
+    assert rows[0].loadId == "050"
+    assert rows[0].MRIDLoad == "{356A1C81-051D-432E-A1E7-2B63E50840C3}"
+    assert rows[0].MVARDistributionFactor == Decimal("0.603000342845917")
+    assert rows[2].distributionFactor == Decimal("0.820144251")
+    assert rows[0].postedDatetime is None

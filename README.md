@@ -297,3 +297,11 @@ settlement-point type codes. For example,
 `ercot.np6_970_cd.rtd_lmp_node_zone_hub_history.rows(...)` reads indicative prices;
 it does not replace the SCED LMP or settlement-price products. The oldest sampled
 RTD archive in the September 2026 probe was from May 2014.
+
+Mapping-report history covers electrically similar settlement points (NP4-158),
+load distribution factors (NP4-159), de-energized settlement points (NP4-200), and
+heuristic-pricing electrical bus mappings (NP4-231). Each exposes its generated
+`_history` property. Load IDs and MRIDs remain strings, preserving leading zeros,
+braces, and case. Older `LoadDistributionFactor` headers map to the same typed
+`distributionFactor` field as newer files. Keep document publication metadata
+when comparing mapping versions; source row dates describe the report's data.

@@ -1,0 +1,126 @@
+[
+  {
+    "endpoint": "np4-158-sg/dam_essps",
+    "fixture": "np4-158-sg-history-current.csv",
+    "file": "cdr.00013058.0000000000000000.20260907.123434.DAMELECTRICALLYSIMILARSTLPNTNP4158CD.csv",
+    "csv_rows": 11700,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-08",
+      "hourEnding": "01:00",
+      "settlementPoint": "CHAMON_UN1",
+      "groupIndex": 1,
+      "updateTime": "2026-09-07T12:30:32",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 11700
+  },
+  {
+    "endpoint": "np4-158-sg/dam_essps",
+    "fixture": "np4-158-sg-history-samples.csv",
+    "file": "cdr.00013058.0000000000000000.20260528.123515.DAMELECTRICALLYSIMILARSTLPNTNP4158CD.csv",
+    "csv_rows": 11296,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-05-29",
+      "hourEnding": "01:00",
+      "settlementPoint": "CHAMON_UN1",
+      "groupIndex": 1,
+      "updateTime": "2026-05-28T12:30:15",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 11296
+  },
+  {
+    "endpoint": "np4-159-cd/load_distribution_factors",
+    "fixture": "np4-159-cd-history-current.csv",
+    "file": "cdr.00012324.0000000000000000.20260814.153148.LDFNP4159.csv",
+    "csv_rows": 1494864,
+    "first_row": {
+      "postedDatetime": null,
+      "LDFDate": "2026-08-15",
+      "LDFHour": "01:00",
+      "substation": "MIRAGE",
+      "distributionFactor": "0",
+      "loadId": "01NPS-XFM-0001",
+      "MVARDistributionFactor": "0",
+      "MRIDLoad": "6f09b475-c893-40f6-bcc8-3427ca4c9ed4",
+      "DSTFlag": false
+    },
+    "rows_decoded": 1494864
+  },
+  {
+    "endpoint": "np4-159-cd/load_distribution_factors",
+    "fixture": "np4-159-cd-history-samples.csv",
+    "file": "cdr.00012324.0000000000000000.20140501.000020.LFDFNP4159.csv",
+    "csv_rows": 913920,
+    "first_row": {
+      "postedDatetime": null,
+      "LDFDate": "2014-05-02",
+      "LDFHour": "01:00",
+      "substation": "SNOOK",
+      "distributionFactor": "0",
+      "loadId": "050",
+      "MVARDistributionFactor": "0.603000342845917",
+      "MRIDLoad": "{356A1C81-051D-432E-A1E7-2B63E50840C3}",
+      "DSTFlag": false
+    },
+    "rows_decoded": 913920
+  },
+  {
+    "endpoint": "np4-200-cd/dam_de_energized_spbc",
+    "fixture": "np4-200-cd-history-current.csv",
+    "file": "cdr.00013063.0000000000000000.20260907.123434.DAMDEENERGUZEDSTLPNTNP4200.csv",
+    "csv_rows": 802,
+    "first_row": {
+      "deliveryDate": "2026-09-08",
+      "hourEnding": "01:00",
+      "repeatedHourFlag": false,
+      "settlementPoint": "APCH_BES_RN"
+    },
+    "rows_decoded": 802
+  },
+  {
+    "endpoint": "np4-200-cd/dam_de_energized_spbc",
+    "fixture": "np4-200-cd-history-samples.csv",
+    "file": "cdr.00013063.0000000000000000.20260731.123726.DAMDEENERGUZEDSTLPNTNP4200.csv",
+    "csv_rows": 726,
+    "first_row": {
+      "deliveryDate": "2026-08-01",
+      "hourEnding": "01:00",
+      "repeatedHourFlag": false,
+      "settlementPoint": "ARMD_SLR_RN"
+    },
+    "rows_decoded": 726
+  },
+  {
+    "endpoint": "np4-231-cd/electrical_bus_map_heur_price",
+    "fixture": "np4-231-cd-history-current.csv",
+    "file": "cdr.00013098.0000000000000000.20260907.055000.DAMSCEDEBUSMAPPINGNP4231.csv",
+    "csv_rows": 8022,
+    "first_row": {
+      "postedDatetime": null,
+      "marketType": "DAM",
+      "fromEBName": "0014_EB",
+      "toEBName": "DOWGEN_040",
+      "type": "Equal",
+      "priority": "1"
+    },
+    "rows_decoded": 8022
+  },
+  {
+    "endpoint": "np4-231-cd/electrical_bus_map_heur_price",
+    "fixture": "np4-231-cd-history-samples.csv",
+    "file": "cdr.00013098.0000000000000000.20260731.055000.DAMSCEDEBUSMAPPINGNP4231.csv",
+    "csv_rows": 7942,
+    "first_row": {
+      "postedDatetime": null,
+      "marketType": "DAM",
+      "fromEBName": "0014_EB",
+      "toEBName": "DOWGEN_040",
+      "type": "Equal",
+      "priority": "1"
+    },
+    "rows_decoded": 7942
+  }
+]

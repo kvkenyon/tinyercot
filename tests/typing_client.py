@@ -119,3 +119,11 @@ with Client() as client:
         assert_type(lmp.RTDTimestamp, datetime | None)
         assert_type(lmp.intervalEnding, datetime | None)
         assert_type(lmp.LMP, Decimal | None)
+
+    for distribution in client.np4_159_cd.load_distribution_factors_history.rows():
+        assert_type(distribution.loadId, str | None)
+        assert_type(distribution.MRIDLoad, str | None)
+        assert_type(distribution.distributionFactor, Decimal | None)
+    for bus in client.np4_231_cd.electrical_bus_map_heur_price_history.rows():
+        assert_type(bus.fromEBName, str | None)
+        assert_type(bus.toEBName, str | None)
