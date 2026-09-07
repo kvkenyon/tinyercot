@@ -1,5 +1,5 @@
 from collections.abc import AsyncIterator, Iterator
-from datetime import date
+from datetime import date, datetime
 from decimal import Decimal
 from typing import assert_type
 
@@ -38,3 +38,6 @@ with Client() as client:
         client.np3_988_er.resources_history,
         Archive[np3_988_er.ResourcesHistoryRow],
     )
+
+    for row in client.eia_930_er.daily_operations_history.read(b""):
+        assert_type(row.HR1, Decimal | datetime | None)

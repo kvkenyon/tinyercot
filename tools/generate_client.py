@@ -66,7 +66,7 @@ def generate(*, allow_incomplete: bool = False) -> None:
         "from decimal import Decimal",
         "from typing import ClassVar",
         "from ._client import Transport, Page, Row",
-        "from ._history import Archive",
+        "from ._history import Archive, EiaHour",
         "",
     ]
     lines.append(f"__all__ = {['Client', *[name(p) for p in sorted(groups)]]!r}")

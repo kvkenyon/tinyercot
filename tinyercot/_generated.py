@@ -5,9 +5,9 @@ from datetime import date, datetime, time
 from decimal import Decimal
 from typing import ClassVar
 from ._client import Transport, Page, Row
-from ._history import Archive
+from ._history import Archive, EiaHour
 
-__all__ = ['Client', 'copg_316', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd']
+__all__ = ['Client', 'copg_316', 'eia_930_er', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd']
 class copg_316:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -31,6 +31,52 @@ class copg_316:
     def load_estimation_counts_history(self) -> Archive[copg_316.LoadEstimationCountsHistoryRow]:
         """Historical CSV rows, including files predating the API."""
         return Archive(self._client, 'copg-316', copg_316.LoadEstimationCountsHistoryRow, {'TYPE': 'type', 'Region': 'region', 'TDSP': 'TDSP', 'Operating Day': 'operatingDay', 'Channel': 'channel', 'Actual Count': 'actualCount', 'Historical Estimated Count': 'historicalEstimatedCount', 'Default Profile Count': 'defaultProfileCount', 'Total Count': 'totalCount', 'Percent Actual Count': 'percentActualCount', 'Percent Hist Estimated Count': 'percentHistoricalEstimatedCount', 'Percent Default Profile Count': 'percentDefaultProfileCount'}, {'operatingDay': '%d-%b-%y'}, member='*.csv', datetimes={}, variants=())
+
+class eia_930_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class DailyOperationsHistoryRow(Row):
+        productName: str | None
+        postingType: str | None
+        balancingAuthorityCode: str | None
+        interconnectedBalancingAuthorityCode: str | None = None
+        dataType: str | None
+        dataCode: str | None = None
+        dataDate: date | None = None
+        postedDate: date | None = None
+        UTCOffset: int | None
+        HR1: EiaHour | None
+        HR2: EiaHour | None
+        HR3: EiaHour | None
+        HR4: EiaHour | None
+        HR5: EiaHour | None
+        HR6: EiaHour | None
+        HR7: EiaHour | None
+        HR8: EiaHour | None
+        HR9: EiaHour | None
+        HR10: EiaHour | None
+        HR11: EiaHour | None
+        HR12: EiaHour | None
+        HR13: EiaHour | None
+        HR14: EiaHour | None
+        HR15: EiaHour | None
+        HR16: EiaHour | None
+        HR17: EiaHour | None
+        HR18: EiaHour | None
+        HR19: EiaHour | None
+        HR20: EiaHour | None
+        HR21: EiaHour | None
+        HR22: EiaHour | None
+        HR23: EiaHour | None
+        HR24: EiaHour | None
+        HR25: EiaHour | None
+
+    @property
+    def daily_operations_history(self) -> Archive[eia_930_er.DailyOperationsHistoryRow]:
+        """Historical CSV rows, including files predating the API."""
+        return Archive(self._client, 'eia-930-er', eia_930_er.DailyOperationsHistoryRow, {'Product_Name': 'productName', 'Posting_Type': 'postingType', 'Balancing_Authority_Code': 'balancingAuthorityCode', 'Data_Type': 'dataType', 'Data_Code': 'dataCode', 'Data_Date': 'dataDate', 'UTC Offset': 'UTCOffset', 'HR1': 'HR1', 'HR2': 'HR2', 'HR3': 'HR3', 'HR4': 'HR4', 'HR5': 'HR5', 'HR6': 'HR6', 'HR7': 'HR7', 'HR8': 'HR8', 'HR9': 'HR9', 'HR10': 'HR10', 'HR11': 'HR11', 'HR12': 'HR12', 'HR13': 'HR13', 'HR14': 'HR14', 'HR15': 'HR15', 'HR16': 'HR16', 'HR17': 'HR17', 'HR18': 'HR18', 'HR19': 'HR19', 'HR20': 'HR20', 'HR21': 'HR21', 'HR22': 'HR22', 'HR23': 'HR23', 'HR24': 'HR24', 'HR25': 'HR25'}, {'dataDate': '%j%Y', 'postedDate': '%j%Y'}, member='*.csv', datetimes=None, variants=({'Survey Name': 'productName', 'Posting Type': 'postingType', 'Balancing Authority Code': 'balancingAuthorityCode', 'Interconnected Balancing Authority Code': 'interconnectedBalancingAuthorityCode', 'Type': 'dataType', 'Posted Date': 'postedDate', 'UTCOffset': 'UTCOffset', 'HR1': 'HR1', 'HR2': 'HR2', 'HR3': 'HR3', 'HR4': 'HR4', 'HR5': 'HR5', 'HR6': 'HR6', 'HR7': 'HR7', 'HR8': 'HR8', 'HR9': 'HR9', 'HR10': 'HR10', 'HR11': 'HR11', 'HR12': 'HR12', 'HR13': 'HR13', 'HR14': 'HR14', 'HR15': 'HR15', 'HR16': 'HR16', 'HR17': 'HR17', 'HR18': 'HR18', 'HR19': 'HR19', 'HR20': 'HR20', 'HR21': 'HR21', 'HR22': 'HR22', 'HR23': 'HR23', 'HR24': 'HR24', 'HR25': 'HR25'},))
 
 class gen_55_cd:
     def __init__(self, client: Transport) -> None:
@@ -8188,6 +8234,10 @@ class Client(Transport):
     @property
     def copg_316(self) -> copg_316:
         return copg_316(self)
+
+    @property
+    def eia_930_er(self) -> eia_930_er:
+        return eia_930_er(self)
 
     @property
     def gen_55_cd(self) -> gen_55_cd:

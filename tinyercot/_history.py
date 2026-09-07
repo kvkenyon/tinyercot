@@ -3,15 +3,17 @@
 from __future__ import annotations
 
 import csv
+import re
 from collections.abc import Callable, Iterator, Sequence
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
+from decimal import Decimal
 from fnmatch import fnmatchcase
 from io import BytesIO, TextIOWrapper
 from time import strptime
-from typing import TYPE_CHECKING, Generic, Literal, TypeVar
+from typing import TYPE_CHECKING, Annotated, Generic, Literal, TypeVar
 from zipfile import ZipFile
 
-from pydantic import BaseModel
+from pydantic import BaseModel, BeforeValidator
 
 if TYPE_CHECKING:
     from ._client import Transport
@@ -32,8 +34,26 @@ def _csv_files(data: bytes, pattern: str = "*.csv") -> Iterator[tuple[str, bytes
                 yield member.filename, archive.read(member)
 
 
+def _eia_hour(value: object) -> object:
+    if not isinstance(value, str):
+        return value
+    if "T" not in value:
+        return value
+    midnight = re.fullmatch(
+        r"(\d{4}-\d{2}-\d{2})T24:00:00(?:\.0+)?(Z|[+-]\d{2}:\d{2})?", value
+    )
+    if midnight:
+        return datetime.fromisoformat(
+            midnight[1] + "T00:00:00" + (midnight[2] or "")
+        ) + timedelta(days=1)
+    return datetime.fromisoformat(value)
+
+
+EiaHour = Annotated[Decimal | datetime, BeforeValidator(_eia_hour)]
+
+
 class Archive(Generic[T]):
-    """Historical files decoded into the same row type as a report's API.
+    """Historical files decoded into a generated row model.
 
     Publication bounds select documents, not delivery dates. A typed predicate
     can further select rows. Files are processed one document at a time.
