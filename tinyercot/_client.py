@@ -16,6 +16,7 @@ from httpx_retries import Retry, RetryTransport
 from pydantic import BaseModel, ConfigDict, Field
 
 from ._dashboards import Dashboards
+from ._wind import WindIntegration
 
 T = TypeVar("T", bound=BaseModel)
 Parameter = str | int | float | bool | Decimal | date | datetime | None
@@ -325,6 +326,10 @@ class Transport:
             if page >= result.meta.totalPages:
                 return
             page += 1
+
+    @property
+    def wind_integration(self) -> WindIntegration:
+        return WindIntegration(self._http)
 
     @property
     def dashboards(self) -> Dashboards:

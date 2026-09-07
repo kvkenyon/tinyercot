@@ -11,11 +11,13 @@ expected named parameters and types. The live catalog lists the same 242 report
 paths. See `tools/inputs/live-inventory-evidence.json` for the check date and
 scope; endpoint coverage does not establish every historical file layout.
 
-Public website files extend beyond that API inventory. ERCOT also directly links
-wind-integration ZIPs for 2010–2015 and January 2016. The inspected 2010 and
-January 2016 archives contain 176 daily PDFs; typed support for these older
-report layouts is not implemented yet. See
-`tools/inputs/public-website-archives-evidence.json` for the source URLs and scope.
+Public website files extend beyond that API inventory. `client.wind_integration`
+provides typed daily summaries from ERCOT's directly linked wind ZIPs for
+2010–2015 and January 2016, without credentials or MIS access. All 2,000 PDFs in
+those seven ZIPs decoded successfully. This reader is separate from the 289
+generated API-history readers. Other website archives and unlabelled chart values
+remain outside this coverage. See `tools/inputs/public-website-archives-evidence.json`
+for source URLs, missing dates, date conflicts and verification scope.
 
 ```python
 from datetime import date
@@ -135,6 +137,43 @@ bundles and individual archives is not implemented yet. Unsupported CSV layouts
 raise with the member name instead of silently dropping data.
 
 Listing metadata includes the server's total and page counts; `iter_documents()` streams all listing pages.
+
+### Direct public wind archives
+
+Install `tinyercot[pdf]`. These public website files need no API credentials.
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client(timeout=120) as ercot:
+    for wind in ercot.wind_integration.rows(
+        date_from=date(2010, 8, 9), date_to=date(2010, 8, 10)
+    ):
+        print(wind.reportDate, wind.peakLoadMW, wind.maxWindMW)
+
+    archives = ercot.wind_integration.archives()
+    data = ercot.wind_integration.download(archives[0])
+    saved_rows = list(ercot.wind_integration.read(data))
+```
+
+`archives()` discovers actual links on ERCOT's wind integration index. `rows()`
+downloads overlapping annual or monthly ZIPs and applies inclusive **report-date**
+bounds. `read()` also accepts a saved PDF. It exposes the printed summary tables,
+including peak load, wind output and generation/penetration records as `Decimal`,
+`date`, `time` and `datetime` values. Older missing fields remain `None`. Original
+labels distinguish a previous record from a newly established one and preserve
+“Wind Integration %” separately from newer penetration metrics. Source clocks
+remain local and timezone-naive; older date-only records do not gain a time.
+
+The inspected files span August 9, 2010 through January 31, 2016, with gaps and
+revisions. ERCOT explicitly lists five missing 2014 reports. Two 2011 files have
+headings that disagree with their filenames; report-date filters follow those
+headings and `sourceMember` retains each filename. One malformed heading prints
+`05/14/12013`; its chart and filename identify May 14, 2013, which is used for
+`reportDate` while `reportDateText` preserves the typo. Reports are not deduplicated.
+No hourly values are estimated from chart positions. This is coverage of these
+seven linked ZIPs, not a promise of uninterrupted history or all website data.
 
 ## Development
 
