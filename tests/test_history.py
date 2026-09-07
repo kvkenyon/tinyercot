@@ -85,6 +85,8 @@ def test_history_query_paginates_and_filters_publications_and_rows():
         if request.method == "POST":
             assert request.content == b'{"docIds":[2]}'
             return httpx.Response(200, content=zipped("report.csv", csv))
+        assert request.url.params["postDatetimeFrom"] == "2014-05-02T00:00:00"
+        assert request.url.params["postDatetimeTo"] == "2014-05-02T23:59:59"
         page = int(request.url.params["page"])
         calls.append(page)
         return httpx.Response(
@@ -199,3 +201,23 @@ def test_legacy_rrs_is_preserved_separately_from_new_categories():
         )
     assert rows[2].RRSAwarded == Decimal("1.5")
     assert rows[2].RRSPFRAwarded is None
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "additional-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_additional_price_and_load_archives(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")), method + "_history"
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]

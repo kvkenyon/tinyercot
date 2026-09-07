@@ -342,10 +342,25 @@ class Transport:
     def product(self, emil_id: str) -> Product:
         return Product.model_validate(self._request("GET", emil_id.lower()).json())
 
-    def archives(self, emil_id: str, *, page: int = 1, size: int = 1000) -> History:
+    def archives(
+        self,
+        emil_id: str,
+        *,
+        page: int = 1,
+        size: int = 1000,
+        posted_from: datetime | None = None,
+        posted_to: datetime | None = None,
+    ) -> History:
         return History.model_validate(
             self._request(
-                "GET", f"archive/{emil_id.lower()}", params={"page": page, "size": size}
+                "GET",
+                f"archive/{emil_id.lower()}",
+                params={
+                    "page": page,
+                    "size": size,
+                    "postDatetimeFrom": posted_from,
+                    "postDatetimeTo": posted_to,
+                },
             ).json()
         )
 
@@ -362,16 +377,29 @@ class Transport:
         *,
         kind: Literal["archive", "bundle"] = "archive",
         size: int = 1000,
+        posted_from: datetime | None = None,
+        posted_to: datetime | None = None,
     ) -> Iterator[Document]:
         """Iterate every page of an archive or bundle listing."""
         page = 1
         while True:
             history = (
-                self.archives(emil_id, page=page, size=size)
+                self.archives(
+                    emil_id,
+                    page=page,
+                    size=size,
+                    posted_from=posted_from,
+                    posted_to=posted_to,
+                )
                 if kind == "archive"
                 else self.bundles(emil_id, page=page, size=size)
             )
-            yield from history.archives if kind == "archive" else history.bundles
+            for document in history.archives if kind == "archive" else history.bundles:
+                if posted_from is not None and document.postDatetime < posted_from:
+                    continue
+                if posted_to is not None and document.postDatetime > posted_to:
+                    continue
+                yield document
             if page >= history.meta.totalPages:
                 return
             page += 1

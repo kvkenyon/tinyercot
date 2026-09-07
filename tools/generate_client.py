@@ -112,7 +112,7 @@ def generate(*, allow_incomplete: bool = False) -> None:
                     "    @property",
                     f"    def {method}_history(self) -> Archive[{cls}.{archive_row}]:",
                     '        """Historical CSV rows, including files predating the API."""',
-                    f"        return Archive(self._client, {product!r}, {cls}.{archive_row}, {contract['columns']!r}, {contract['dates']!r}, member={contract.get('member', '*.csv')!r}, variants={tuple(contract.get('variants', []))!r})",
+                    f"        return Archive(self._client, {product!r}, {cls}.{archive_row}, {contract['columns']!r}, {contract['dates']!r}, member={contract.get('member', '*.csv')!r}, datetimes={contract.get('datetimes')!r}, variants={tuple(contract.get('variants', []))!r})",
                 ]
             params = (op.get("request") or {}).get("queryParameters", [])
             for mode, prefix, result, helper in [

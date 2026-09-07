@@ -48,9 +48,10 @@ with Client() as ercot:
 Archive and bundle listings expose typed metadata. Downloads return the original
 ZIP bytes. Typed historical readers currently cover: DAM
 settlement prices, real-time settlement prices, DAM ancillary-service clearing
-prices, actual load by weather zone, and all 17 tables in the 60-day DAM
-disclosure ZIP. The four single-table reports and 13 disclosure tables have 2014
-and recent samples; four newer disclosure tables have recent samples. Their
+prices, DAM bus LMPs and shadow prices, actual load by weather zone, forecast zone,
+and study area, and all 17 tables in the 60-day DAM disclosure ZIP. The eight
+single-table reports have oldest-listed and recent samples; 13 disclosure tables
+have 2014 and recent samples, and four newer tables have recent samples only. Their
 files have been downloaded and decoded; other archive schemas are still being
 mapped.
 
@@ -70,8 +71,8 @@ with Client() as ercot:
 Publication timestamps are ERCOT local timestamps, and both bounds are inclusive.
 They select files by **publication date**, which can differ from the dates inside
 them. The predicate filters typed rows after download. With no publication bounds,
-`rows()` reads all listed archive documents. It scans listing pages and downloads
-matching documents individually; large backfills can take considerable time.
+`rows()` reads all listed archive documents. Publication bounds are sent to ERCOT to limit listing pages at the source.
+Matching documents are downloaded individually; large backfills can take considerable time.
 Corrections are preserved as published; rows are not deduplicated.
 
 `history.read(zip_bytes)` reads an existing download, including nested ZIPs.

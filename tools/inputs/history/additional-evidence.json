@@ -1,0 +1,138 @@
+[
+  {
+    "endpoint": "np4-183-cd/dam_hourly_lmp",
+    "file": "cdr.00012328.0000000000000000.20140501.125925.DAMHRLMPNP4183.csv",
+    "fixture": "np4-183-cd-history-samples.csv",
+    "csv_rows": 264072,
+    "first_row": {
+      "DSTFlag": false,
+      "LMP": "30.39",
+      "busName": "EB_K",
+      "deliveryDate": "2014-05-02",
+      "hourEnding": "01:00"
+    },
+    "rows_decoded": 264072
+  },
+  {
+    "endpoint": "np4-183-cd/dam_hourly_lmp",
+    "file": "cdr.00012328.0000000000000000.20260906.123242.DAMHRLMPNP4183.csv",
+    "fixture": "np4-183-cd-history-current.csv",
+    "csv_rows": 465096,
+    "first_row": {
+      "DSTFlag": false,
+      "LMP": "44.77",
+      "busName": "CADICKS_804V",
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "01:00"
+    },
+    "rows_decoded": 465096
+  },
+  {
+    "endpoint": "np4-191-cd/dam_shadow_prices",
+    "file": "cdr.00012332.0000000000000000.20140501.125911.DASPBCNP4191.csv",
+    "fixture": "np4-191-cd-history-samples.csv",
+    "csv_rows": 548,
+    "first_row": {
+      "DSTFlag": false,
+      "constraintId": 1,
+      "constraintLimit": 45,
+      "constraintName": "MARSFO_SUT1",
+      "constraintValue": 45,
+      "contingencyName": "BASE CASE",
+      "deliveryDate": "2014-05-02",
+      "deliveryTime": "2014-05-02T00:00:00",
+      "fromStation": "MARSFO",
+      "fromStationkV": "1",
+      "hourEnding": "01:00",
+      "shadowPrice": "0.045",
+      "toStation": "MARSFO",
+      "toStationkV": "138",
+      "violationAmount": 0
+    },
+    "rows_decoded": 548
+  },
+  {
+    "endpoint": "np4-191-cd/dam_shadow_prices",
+    "file": "cdr.00012332.0000000000000000.20260906.123432.DASPBCNP4191.csv",
+    "fixture": "np4-191-cd-history-current.csv",
+    "csv_rows": 951,
+    "first_row": {
+      "DSTFlag": false,
+      "constraintId": 4,
+      "constraintLimit": 38,
+      "constraintName": "LAKENA_SAMATH1_1",
+      "constraintValue": 38,
+      "contingencyName": "DBAKCED5",
+      "deliveryDate": "2026-09-07",
+      "deliveryTime": "2026-09-07T00:00:00",
+      "fromStation": "LAKENASW",
+      "fromStationkV": "69",
+      "hourEnding": "01:00",
+      "shadowPrice": "13.014",
+      "toStation": "SAMATHIS",
+      "toStationkV": "69",
+      "violationAmount": 0
+    },
+    "rows_decoded": 951
+  },
+  {
+    "endpoint": "np6-344-cd/act_sys_load_by_study_area",
+    "file": "cdr.00015954.0000000000000000.20260828.055000.ACTUALSYSLOADSTUDYAREA6344.csv",
+    "fixture": "np6-344-cd-history-samples.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "hourEnding": "01:00",
+      "operatingDay": "2026-08-27",
+      "repeatedHourFlag": false,
+      "valley": "1757.77"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np6-344-cd/act_sys_load_by_study_area",
+    "file": "cdr.00015954.0000000000000000.20260907.055000.ACTUALSYSLOADSTUDYAREA6344.csv",
+    "fixture": "np6-344-cd-history-current.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "hourEnding": "01:00",
+      "operatingDay": "2026-09-06",
+      "repeatedHourFlag": false,
+      "valley": "1665.88"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np6-346-cd/act_sys_load_by_fzn",
+    "file": "cdr.00014836.0000000000000000.20170630.055000.ACTUALSYSLOADFZNP6346.csv",
+    "fixture": "np6-346-cd-history-samples.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "DSTFlag": false,
+      "hourEnding": "01:00",
+      "houston": "11614.47",
+      "north": "15306.84",
+      "operatingDay": "2017-06-29",
+      "south": "11509.76",
+      "total": "42251.85",
+      "west": "3820.78"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np6-346-cd/act_sys_load_by_fzn",
+    "file": "cdr.00014836.0000000000000000.20260907.055000.ACTUALSYSLOADFZNP6346.csv",
+    "fixture": "np6-346-cd-history-current.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "DSTFlag": false,
+      "hourEnding": "01:00",
+      "houston": "14828.90",
+      "north": "21917.89",
+      "operatingDay": "2026-09-06",
+      "south": "17508.48",
+      "total": "64360.71",
+      "west": "10105.44"
+    },
+    "rows_decoded": 24
+  }
+]

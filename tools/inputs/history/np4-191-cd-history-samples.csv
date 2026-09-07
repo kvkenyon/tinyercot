@@ -1,0 +1,4 @@
+DeliveryDate,HourEnding,ConstraintID,ConstraintName,ContingencyName,ConstraintLimit,ConstraintValue,ViolationAmount,ShadowPrice,FromStation,ToStation,FromStationkV,ToStationkV,DeliveryTime,DSTFlag
+05/02/2014,01:00,1, MARSFO_SUT1,  BASE CASE, 45, 45, 0, 0.045, MARSFO, MARSFO, 1, 138, 05/02/2014 00:00:00,N
+05/02/2014,01:00,15, 100027_D_1, SGRBBNK9, 52, 52, 0, 1.5, WHTNY, WND, 69, 69, 05/02/2014 00:00:00,N
+05/02/2014,01:00,3, MUNDAY_MUNDAY1_1, SASPPAI8, 27, 27, 0, 19.307, MUNDAYST, MUNDAYR2, 69, 69, 05/02/2014 00:00:00,N
