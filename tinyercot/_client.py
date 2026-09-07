@@ -19,6 +19,7 @@ from ._dashboards import Dashboards
 from ._fuel_mix import FuelMix
 from ._load import HourlyLoad
 from ._wind import WindIntegration
+from ._zonal_generation import ZonalGeneration
 
 T = TypeVar("T", bound=BaseModel)
 Parameter = str | int | float | bool | Decimal | date | datetime | None
@@ -328,6 +329,10 @@ class Transport:
             if page >= result.meta.totalPages:
                 return
             page += 1
+
+    @property
+    def zonal_generation(self) -> ZonalGeneration:
+        return ZonalGeneration(self._http)
 
     @property
     def fuel_mix(self) -> FuelMix:

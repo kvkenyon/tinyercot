@@ -265,6 +265,32 @@ daily fuel rows, 5,984,876 interval cells and 2,386 published totals. Every nume
 value, blank cell and preserved error matched an independent source read. The
 2026 file currently ends July 31. See `tools/inputs/public-fuel-mix-evidence.json`.
 
+### Historical generation schedules by zone
+
+The public `zonal_generation` archive contains 889,140 scheduled MW records from
+July 31, 2001 through April 11, 2007. It is a fixed historical snapshot, with seven
+nested yearly ZIPs. It needs no credentials or optional dependencies.
+
+```python
+with Client() as ercot:
+    for schedule in ercot.zonal_generation.rows(
+        date_from=date(2001, 7, 31), date_to=date(2001, 7, 31)
+    ):
+        print(schedule.periodEnding, schedule.zoneId, schedule.scheduledMW)
+
+    saved_zip = ercot.zonal_generation.download()
+    saved_rows = ercot.zonal_generation.read(saved_zip)
+```
+
+`read()` also accepts a yearly ZIP or raw tab-delimited text. Each row retains the
+local CPT period-ending timestamp without a UTC offset. Historical zone IDs change
+between years and are preserved without assigning modern zone names. Date bounds
+refer to `operatingDay`, the date of the 15-minute interval; midnight belongs to
+the preceding operating day. August 9, 2001 is missing from the published data.
+No intervals are synthesized. These schedules are distinct from actual generation
+in the fuel-mix reports. All source timestamps, zone IDs and MW quantities were
+compared directly; see `tools/inputs/public-zonal-generation-evidence.json`.
+
 ### Direct public wind archives
 
 Install `tinyercot[pdf]`. These public website files need no API credentials.

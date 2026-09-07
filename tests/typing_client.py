@@ -13,6 +13,7 @@ from tinyercot import (
     LoadArchive,
     LoadOutlook,
     Page,
+    ScheduledGeneration,
     WeatherZoneLoad,
     WindArchive,
     WindDailyValues,
@@ -20,6 +21,14 @@ from tinyercot import (
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    assert_type(
+        client.zonal_generation.rows(date_from=date(2001, 7, 31)),
+        Iterator[ScheduledGeneration],
+    )
+    assert_type(client.zonal_generation.read(b""), Iterator[ScheduledGeneration])
+    assert_type(client.zonal_generation.download(), bytes)
 
 with Client() as client:
     assert_type(client.fuel_mix.archives(), list[FuelMixArchive])
