@@ -3117,5 +3117,513 @@
         "sha256": "8086d0a53c450601a1af80ab41fb8c863fd6ad6536336df32e22c220a783b1af"
       }
     ]
-  }
+  },
+  "archiveOverlapChecks": [
+    {
+      "product": "np4-190-cd",
+      "checkedAt": "2026-09-07T20:19:14.292699+00:00",
+      "publicationBounds": [
+        "2018-01-01T00:00:00",
+        "2018-01-31T23:59:59"
+      ],
+      "archiveMeta": {
+        "totalRecords": 31,
+        "pageSize": 1000,
+        "totalPages": 1,
+        "currentPage": 1,
+        "query": {
+          "parameterCount": 2,
+          "parameters": {
+            "postDatetimeFrom": "2018-01-01T00:00:00",
+            "postDatetimeTo": "2018-01-31T23:59:59"
+          },
+          "sortedBy": "postDatetime: DESC"
+        }
+      },
+      "archiveDocuments": [
+        {
+          "docId": 596980574,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-31T12:34:38"
+        },
+        {
+          "docId": 596849986,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-30T12:34:45"
+        },
+        {
+          "docId": 596717785,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-29T12:56:06"
+        },
+        {
+          "docId": 596581954,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-28T12:29:11"
+        },
+        {
+          "docId": 596460407,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-27T12:27:11"
+        },
+        {
+          "docId": 596334632,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-26T12:28:03"
+        },
+        {
+          "docId": 596204356,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-25T12:36:30"
+        },
+        {
+          "docId": 596073611,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-24T12:48:35"
+        },
+        {
+          "docId": 595940090,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-23T12:49:10"
+        },
+        {
+          "docId": 595830910,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-22T17:39:22"
+        },
+        {
+          "docId": 595669650,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-21T12:22:59"
+        },
+        {
+          "docId": 595547176,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-20T12:29:45"
+        },
+        {
+          "docId": 595420681,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-19T12:27:37"
+        },
+        {
+          "docId": 595287760,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-18T12:48:18"
+        },
+        {
+          "docId": 595149386,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-17T12:39:05"
+        },
+        {
+          "docId": 595014349,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-16T13:28:12"
+        },
+        {
+          "docId": 594869025,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-15T12:37:48"
+        },
+        {
+          "docId": 594734822,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-14T12:26:31"
+        },
+        {
+          "docId": 594608286,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-13T12:26:55"
+        },
+        {
+          "docId": 594479664,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-12T12:37:17"
+        },
+        {
+          "docId": 594346190,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-11T12:36:53"
+        },
+        {
+          "docId": 594215170,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-10T12:27:55"
+        },
+        {
+          "docId": 594085534,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-09T12:31:44"
+        },
+        {
+          "docId": 593948498,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-08T12:29:38"
+        },
+        {
+          "docId": 593816307,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-07T12:22:58"
+        },
+        {
+          "docId": 593693158,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-06T12:24:55"
+        },
+        {
+          "docId": 593567432,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-05T12:25:58"
+        },
+        {
+          "docId": 593434284,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-04T12:28:09"
+        },
+        {
+          "docId": 593295228,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-03T12:31:52"
+        },
+        {
+          "docId": 593156958,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-02T12:51:50"
+        },
+        {
+          "docId": 593019152,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-01T12:33:44"
+        }
+      ],
+      "archiveZipSha256": "52a19e7e30ebc99202837c385bd02f2a6fd5bf5f186129bc302d727218d407bc",
+      "archiveCsvFiles": 31,
+      "bundleCsvFiles": 31,
+      "identicalNameAndContentPairs": 31,
+      "archiveOnlyFiles": [],
+      "bundleOnlyFiles": [],
+      "fileTimestampSetMatchesApiToSecond": false,
+      "matchingTimestampsToSecond": 7,
+      "fileTimestamps": [
+        "20180101123343",
+        "20180102125150",
+        "20180103123151",
+        "20180104122808",
+        "20180105122557",
+        "20180106122455",
+        "20180107122257",
+        "20180108122938",
+        "20180109123143",
+        "20180110122754",
+        "20180111123653",
+        "20180112123717",
+        "20180113122654",
+        "20180114122630",
+        "20180115123747",
+        "20180116132811",
+        "20180117123905",
+        "20180118124817",
+        "20180119122736",
+        "20180120122945",
+        "20180121122258",
+        "20180122173921",
+        "20180123124909",
+        "20180124124834",
+        "20180125123629",
+        "20180126122802",
+        "20180127122710",
+        "20180128122910",
+        "20180129125605",
+        "20180130123444",
+        "20180131123437"
+      ],
+      "apiPublicationTimestampsToSecond": [
+        "20180101123344",
+        "20180102125150",
+        "20180103123152",
+        "20180104122809",
+        "20180105122558",
+        "20180106122455",
+        "20180107122258",
+        "20180108122938",
+        "20180109123144",
+        "20180110122755",
+        "20180111123653",
+        "20180112123717",
+        "20180113122655",
+        "20180114122631",
+        "20180115123748",
+        "20180116132812",
+        "20180117123905",
+        "20180118124818",
+        "20180119122737",
+        "20180120122945",
+        "20180121122259",
+        "20180122173922",
+        "20180123124910",
+        "20180124124835",
+        "20180125123630",
+        "20180126122803",
+        "20180127122711",
+        "20180128122911",
+        "20180129125606",
+        "20180130123445",
+        "20180131123438"
+      ]
+    },
+    {
+      "product": "np6-345-cd",
+      "checkedAt": "2026-09-07T20:19:24.960550+00:00",
+      "publicationBounds": [
+        "2018-01-01T00:00:00",
+        "2018-01-31T23:59:59"
+      ],
+      "archiveMeta": {
+        "totalRecords": 31,
+        "pageSize": 1000,
+        "totalPages": 1,
+        "currentPage": 1,
+        "query": {
+          "parameterCount": 2,
+          "parameters": {
+            "postDatetimeFrom": "2018-01-01T00:00:00",
+            "postDatetimeTo": "2018-01-31T23:59:59"
+          },
+          "sortedBy": "postDatetime: DESC"
+        }
+      },
+      "archiveDocuments": [
+        {
+          "docId": 596936905,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-31T05:50:00"
+        },
+        {
+          "docId": 596804259,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-30T05:50:00"
+        },
+        {
+          "docId": 596668014,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-29T05:50:00"
+        },
+        {
+          "docId": 596543614,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-28T05:50:00"
+        },
+        {
+          "docId": 596421539,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-27T05:50:00"
+        },
+        {
+          "docId": 596291164,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-26T05:50:00"
+        },
+        {
+          "docId": 596159111,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-25T05:50:01"
+        },
+        {
+          "docId": 596026800,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-24T05:50:00"
+        },
+        {
+          "docId": 595892033,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-23T05:50:00"
+        },
+        {
+          "docId": 595755570,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-22T05:50:00"
+        },
+        {
+          "docId": 595631236,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-21T05:50:00"
+        },
+        {
+          "docId": 595507696,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-20T05:50:00"
+        },
+        {
+          "docId": 595376321,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-19T05:50:00"
+        },
+        {
+          "docId": 595240247,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-18T05:50:00"
+        },
+        {
+          "docId": 595102314,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-17T05:50:00"
+        },
+        {
+          "docId": 594961829,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-16T05:50:00"
+        },
+        {
+          "docId": 594821924,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-15T05:50:01"
+        },
+        {
+          "docId": 594694910,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-14T05:50:01"
+        },
+        {
+          "docId": 594567567,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-13T05:50:00"
+        },
+        {
+          "docId": 594433261,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-12T05:50:01"
+        },
+        {
+          "docId": 594301440,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-11T05:50:00"
+        },
+        {
+          "docId": 594171312,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-10T05:50:01"
+        },
+        {
+          "docId": 594039647,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-09T05:50:00"
+        },
+        {
+          "docId": 593901749,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-08T05:50:00"
+        },
+        {
+          "docId": 593778129,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-07T05:50:00"
+        },
+        {
+          "docId": 593654338,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-06T05:50:00"
+        },
+        {
+          "docId": 593522617,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-05T05:50:00"
+        },
+        {
+          "docId": 593388176,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-04T05:50:01"
+        },
+        {
+          "docId": 593250406,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-03T05:50:00"
+        },
+        {
+          "docId": 593106759,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-02T05:50:00"
+        },
+        {
+          "docId": 592978227,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-01T05:50:01"
+        }
+      ],
+      "archiveZipSha256": "9e69d1a0cc530f667eae86334b0a375f44ee343c8f0c7c4c6144d929ca84a317",
+      "archiveCsvFiles": 31,
+      "bundleCsvFiles": 31,
+      "identicalNameAndContentPairs": 31,
+      "archiveOnlyFiles": [],
+      "bundleOnlyFiles": [],
+      "fileTimestampSetMatchesApiToSecond": false,
+      "matchingTimestampsToSecond": 27,
+      "fileTimestamps": [
+        "20180101055001",
+        "20180102055000",
+        "20180103055000",
+        "20180104055000",
+        "20180105055000",
+        "20180106055000",
+        "20180107055000",
+        "20180108055000",
+        "20180109055000",
+        "20180110055000",
+        "20180111055000",
+        "20180112055000",
+        "20180113055000",
+        "20180114055001",
+        "20180115055001",
+        "20180116055000",
+        "20180117055000",
+        "20180118055000",
+        "20180119055000",
+        "20180120055000",
+        "20180121055000",
+        "20180122055000",
+        "20180123055000",
+        "20180124055000",
+        "20180125055000",
+        "20180126055000",
+        "20180127055000",
+        "20180128055000",
+        "20180129055000",
+        "20180130055000",
+        "20180131055000"
+      ],
+      "apiPublicationTimestampsToSecond": [
+        "20180101055001",
+        "20180102055000",
+        "20180103055000",
+        "20180104055001",
+        "20180105055000",
+        "20180106055000",
+        "20180107055000",
+        "20180108055000",
+        "20180109055000",
+        "20180110055001",
+        "20180111055000",
+        "20180112055001",
+        "20180113055000",
+        "20180114055001",
+        "20180115055001",
+        "20180116055000",
+        "20180117055000",
+        "20180118055000",
+        "20180119055000",
+        "20180120055000",
+        "20180121055000",
+        "20180122055000",
+        "20180123055000",
+        "20180124055000",
+        "20180125055001",
+        "20180126055000",
+        "20180127055000",
+        "20180128055000",
+        "20180129055000",
+        "20180130055000",
+        "20180131055000"
+      ]
+    }
+  ]
 }

@@ -110,7 +110,13 @@ The December 2023 ESR Integration bundle decoded 26 daily PDF summaries.
 These point-in-time observations are recorded in
 `tools/inputs/history/bundle-evidence.json`. Use both listings when assessing maximum
 available history; neither listing alone proves continuous coverage. Reading both
-sources can repeat publications, which the client preserves. If both bundle
+sources can repeat publications, which the client preserves. All 62 CSV files in
+sampled January 2018 price/load bundles matched their individual archive copies
+by filename and content. File-name timestamps are not reliable publication keys:
+24 of 31 price files and four of 31 load files had timestamps differing from the
+API publication timestamp even at whole-second precision. Automatic source
+selection therefore needs stronger evidence than matching counts or timestamps.
+If both bundle
 download routes fail, the error propagates. Automatic selection between monthly
 bundles and individual archives is not implemented yet. Unsupported CSV layouts
 raise with the member name instead of silently dropping data.
