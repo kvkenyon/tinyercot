@@ -269,3 +269,8 @@ with Client() as client:
     for record_power in client.np4_765_er.power_records_history.rows():
         assert_type(record_power.recordTime, datetime | None)
         assert_type(record_power.recordMW, Decimal | None)
+
+    assert_type(
+        client.np4_190_cd.dam_stlmnt_pnt_prices_history.rows(kind="bundle"),
+        Iterator[np4_190_cd.DamStlmntPntPricesRow],
+    )
