@@ -3,7 +3,16 @@ from datetime import date, datetime
 from decimal import Decimal
 from typing import assert_type
 
-from tinyercot import Archive, Client, Page, np3_966_er, np3_988_er, np4_190_cd
+from tinyercot import (
+    Archive,
+    Client,
+    Page,
+    WindArchive,
+    WindDailyValues,
+    np3_966_er,
+    np3_988_er,
+    np4_190_cd,
+)
 
 with Client() as client:
     result = client.np4_190_cd.dam_stlmnt_pnt_prices(deliveryDateFrom=date(2026, 1, 1))
@@ -289,3 +298,11 @@ with Client() as client:
         assert_type(legacy_wind.actualLoadZoneWest, Decimal | None)
         assert_type(legacy_wind.actualLoadZoneNorth, Decimal | None)
         assert_type(legacy_wind.hourBeginningTimestamp, datetime | None)
+
+with Client() as client:
+    assert_type(client.wind_integration.archives(), list[WindArchive])
+    assert_type(
+        client.wind_integration.rows(date_from=date(2010, 8, 9)),
+        Iterator[WindDailyValues],
+    )
+    assert_type(client.wind_integration.read(b""), Iterator[WindDailyValues])

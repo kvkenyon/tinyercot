@@ -1,18 +1,18 @@
 {
-  "checkedAt": "2026-09-07T22:03:34.125008+00:00",
-  "scope": "Direct public website files; no MIS or separate ESR API calls. Two of the seven linked ZIPs were downloaded and every PDF first page inspected for its report title/date and embedded files. This identifies an unsupported public-data source, not completed typed support. The 2011\u20132015 ZIP contents have not been checked.",
+  "checkedAt": "2026-09-07T22:19:05.314696+00:00",
+  "scope": "All seven directly linked wind ZIPs downloaded; every PDF first-page summary decoded by Client.wind_integration.read. Seven original PDF fixtures have independently transcribed table expectations. Charts on other pages are not decoded. Report dates, revisions and missing dates are preserved; the exact 05/14/12013 header typo is resolved using its 05-14-2013 chart and filename, retaining reportDateText. This does not establish coverage of all other public website archives.",
   "indexUrl": "https://www.ercot.com/gridinfo/generation/ibr-integration-reports",
   "indexSha256": "ce19d259217185a07b7a31720fdde7e9518e79f0ccf0a7ab712ca63a34b9cd0f",
   "archiveUrls": [
-    "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_Jan2016.zip",
-    "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2015.zip",
-    "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2014.zip",
-    "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2013.zip",
-    "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2012.zip",
+    "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2010.zip",
     "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2011.zip",
-    "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2010.zip"
+    "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2012.zip",
+    "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2013.zip",
+    "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2014.zip",
+    "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2015.zip",
+    "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_Jan2016.zip"
   ],
-  "typedReaderAvailable": false,
+  "typedReaderAvailable": true,
   "samples": [
     {
       "period": "2010",
@@ -20,888 +20,106 @@
       "bytes": 42048945,
       "zipSha256": "6f3cc8ceb429919256fe9989549ae49caaabd0b0b05bf0e85f713aeda78e7126",
       "reportCount": 145,
+      "distinctReportDates": 145,
       "firstReportDate": "2010-08-09",
       "lastReportDate": "2010-12-31",
-      "reportTitles": {
-        "Wind Integration Report": 92,
-        "Wind Penetration Report": 53
+      "missingReportDatesBetweenBounds": [],
+      "repeatedReportDates": {},
+      "modernTableCount": 0,
+      "sourceTextFiles": {},
+      "decodedRowsSha256": "7e71b9b435cc764436cda91d99b784841b69cd52f17053078d9951df614abdc2"
+    },
+    {
+      "period": "2011",
+      "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2011.zip",
+      "bytes": 56073622,
+      "zipSha256": "a00128892f5bb9bcaae1a0288f902510b4ca39cb46f849d476d6ff9177a73d32",
+      "reportCount": 368,
+      "distinctReportDates": 363,
+      "firstReportDate": "2011-01-01",
+      "lastReportDate": "2011-12-31",
+      "missingReportDatesBetweenBounds": [
+        "2011-01-06",
+        "2011-09-26"
+      ],
+      "repeatedReportDates": {
+        "2011-02-03": 2,
+        "2011-09-25": 2,
+        "2011-10-07": 2,
+        "2011-10-08": 2,
+        "2011-10-09": 2
       },
-      "fileExtensions": {
-        ".pdf": 145
+      "modernTableCount": 0,
+      "sourceTextFiles": {},
+      "decodedRowsSha256": "0d8252e4aa70b35491944dec71010800a1f6685b6c8fcc9f7498943b19ec0599"
+    },
+    {
+      "period": "2012",
+      "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2012.zip",
+      "bytes": 54495228,
+      "zipSha256": "e108d9e82d8be8a9cf7d61fef1f6539dcb748cacaf10361d19bb3e670a7a706f",
+      "reportCount": 366,
+      "distinctReportDates": 366,
+      "firstReportDate": "2012-01-01",
+      "lastReportDate": "2012-12-31",
+      "missingReportDatesBetweenBounds": [],
+      "repeatedReportDates": {},
+      "modernTableCount": 0,
+      "sourceTextFiles": {},
+      "decodedRowsSha256": "8b04d6c844463fd2f96c1cfa0a95f351b6ba6c1a679cf08ef021cebc7d90fd9b"
+    },
+    {
+      "period": "2013",
+      "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2013.zip",
+      "bytes": 55274705,
+      "zipSha256": "5806ba87a4e6abfd8fbbb5414e21bf54c12c0ebed76e0612fe79fcef1d2b04fe",
+      "reportCount": 365,
+      "distinctReportDates": 365,
+      "firstReportDate": "2013-01-01",
+      "lastReportDate": "2013-12-31",
+      "missingReportDatesBetweenBounds": [],
+      "repeatedReportDates": {},
+      "modernTableCount": 0,
+      "sourceTextFiles": {},
+      "decodedRowsSha256": "ca5c58d137598232d69e6e69548b45d8209e38a7f0a7576686bfea74c85c6944"
+    },
+    {
+      "period": "2014",
+      "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2014.zip",
+      "bytes": 52661728,
+      "zipSha256": "dc6fb83d60b48be58ddd929fa26cadbd82cabfc93b2cf96b65e43fb1c296195c",
+      "reportCount": 360,
+      "distinctReportDates": 360,
+      "firstReportDate": "2014-01-01",
+      "lastReportDate": "2014-12-31",
+      "missingReportDatesBetweenBounds": [
+        "2014-11-07",
+        "2014-11-08",
+        "2014-11-09",
+        "2014-11-13",
+        "2014-12-05"
+      ],
+      "repeatedReportDates": {},
+      "modernTableCount": 0,
+      "sourceTextFiles": {
+        "2014/2014_Missing Wind Integration Reports.txt": "Wind Integration Reports are missing for the following dates:\r\n\r\n11/07/2014\r\n11/08/2014\r\n11/09/2014\r\n11/13/2014\r\n12/05/2014"
       },
-      "embeddedFileCount": 0,
-      "reports": [
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-01-10.pdf",
-          "pdfSha256": "a288005da8f50d014e8dd02d8185d774919f881d245f7e7b79d3bfc00f893fb2",
-          "reportDateText": "10/01/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-02-10.pdf",
-          "pdfSha256": "1fa7fde748eda72cce1665f475495cc85640acdc7bba33f549b7f5056ce1b057",
-          "reportDateText": "10/02/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-03-10.pdf",
-          "pdfSha256": "feb105f1693850add73baa43a5ff1b060be8302befbb9a601ab045ceab05c564",
-          "reportDateText": "10/03/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-04-10.pdf",
-          "pdfSha256": "634ef7e5cfd05a8dde8f4bb7d0ea3ffbb06a7957a303d3adfef2905cebdc3621",
-          "reportDateText": "10/04/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-05-10.pdf",
-          "pdfSha256": "3c7f1dec9396733420be13cb01de82a4952aebc9248a628d94df7542d56898ef",
-          "reportDateText": "10/05/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-06-10.pdf",
-          "pdfSha256": "a39d455244351776a4e630fb274ef555b25e577555c21768046965baf19d3b18",
-          "reportDateText": "10/06/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-07-10.pdf",
-          "pdfSha256": "73fd66e52ae9ae45a851f61d6bde140ddfacf8ba829a2c754b79789e834680f1",
-          "reportDateText": "10/07/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-08-10.pdf",
-          "pdfSha256": "746ede2189c25a70edd015e365ad0660bd2dfd1faa5c0d83a6def8e81b4b56d1",
-          "reportDateText": "10/08/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-09-10.pdf",
-          "pdfSha256": "a08a74166b39c4c1a8153d5ca3dce1eeef3f5d36bab4da70b3463e815e519f88",
-          "reportDateText": "10/09/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-10-10.pdf",
-          "pdfSha256": "55d91a3147f143349246b93ff4d8709895d263f6aedb0a85ea78132d4fbb147d",
-          "reportDateText": "10/10/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-11-10.pdf",
-          "pdfSha256": "4df345b3de2ff847ed989e04eac36e8b3b6c9acba3efe2162b8b02b4169a8102",
-          "reportDateText": "10/11/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-12-10.pdf",
-          "pdfSha256": "0b71ab29dc1767ccffd149035644a0fd35f8317b0b5bd68742611c60070b4767",
-          "reportDateText": "10/12/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-13-10.pdf",
-          "pdfSha256": "ccef48186490239205932847088374d1512adfca80169de7b6f0b5c09a4a6e9b",
-          "reportDateText": "10/13/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-14-10.pdf",
-          "pdfSha256": "fb3e4fefd343f7f79f60a7f396c518eab1cdae2346b04cf8e119704e89c35508",
-          "reportDateText": "10/14/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-15-10.pdf",
-          "pdfSha256": "81fd175bd492865c58f3ae5d3856e94693ffd2bb7d441354ec3956be34056d86",
-          "reportDateText": "10/15/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-16-10.pdf",
-          "pdfSha256": "9d78796cb0060581f274a1c43a170fa3bc8d6429f01bb6735d3a59fd28fbbe74",
-          "reportDateText": "10/16/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-17-10.pdf",
-          "pdfSha256": "09d0b83dbf274c610c22cf6966df066610ce3cb708c218e2dfe434f784edbf1f",
-          "reportDateText": "10/17/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-18-10.pdf",
-          "pdfSha256": "fddfc795798e54465af779b634920fba7d3a5ad2f521a6fc9a4a087ac27e25b7",
-          "reportDateText": "10/18/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-19-10.pdf",
-          "pdfSha256": "52684069e058b92d8ed9692b09cc5f7d5e837384ae469879cc5be5bbf5a4975d",
-          "reportDateText": "10/19/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-20-10.pdf",
-          "pdfSha256": "3c3b3e60fc9b4b358e7c7d0f2ca3dfbf5665c4713e07610673752e9b0ede6654",
-          "reportDateText": "10/20/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-21-10.pdf",
-          "pdfSha256": "a5982e31d0e4b6a7a691b077a2111029a1312c30107f52b5e22c391cfbaf6ca0",
-          "reportDateText": "10/21/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-22-10.pdf",
-          "pdfSha256": "dbfe0630f6297beeec6598bbe6460296f8e6ceb4dcc2e35994c72ae8c891fd07",
-          "reportDateText": "10/22/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-23-10.pdf",
-          "pdfSha256": "5000f1e6a717fdd0c67c2b5727c722ab88d71d0daeab16498b1389d05bf39c95",
-          "reportDateText": "10/23/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-24-10.pdf",
-          "pdfSha256": "8ad8b323a02c0d1b82bd65fa4997de8ce1299f3ac49b858386feb3a95c93dfa7",
-          "reportDateText": "10/24/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-25-10.pdf",
-          "pdfSha256": "793fb26a9e2a371205d67e4383f383b2e820f950152db9928bafb20a5dbc2089",
-          "reportDateText": "10/25/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-26-10.pdf",
-          "pdfSha256": "67d3edc820b3bcd92b9fe31d4615b1ec40c7bb34688ea4b53c815cb1908888ea",
-          "reportDateText": "10/26/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-27-10.pdf",
-          "pdfSha256": "b14bb065064b31fa254c348f6eba5407b0755276aa5eefab7c68c182e4eebafb",
-          "reportDateText": "10/27/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-28-10.pdf",
-          "pdfSha256": "48deb1f0d727ae6e2cbcf5ec72519a9c0938538578926758cdb7cbdfb66cbb70",
-          "reportDateText": "10/28/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-29-10.pdf",
-          "pdfSha256": "dede4b89d44ffb8a14d1dcf2ef879cc98f26316b2748bb8dc549f8bc4b64b00d",
-          "reportDateText": "10/29/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-30-10.pdf",
-          "pdfSha256": "a670b0378b991d1c569abd0e946307b46ddf01cac44c9dd9afa9f21deff728e2",
-          "reportDateText": "10/30/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 10-31-10.pdf",
-          "pdfSha256": "0ca1a05489325e6129a8cf6deca5f64d8dd02dce97c7410991dce02441a266fc",
-          "reportDateText": "10/31/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-01-10.pdf",
-          "pdfSha256": "a1055fdc1fd708dcd87c40c25168eb99f97fcd7673c786171573cd80b0dea5d0",
-          "reportDateText": "11/01/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-02-10.pdf",
-          "pdfSha256": "93e9a1912f10bcba6225520919f730d38b42a4549d84130e5c4f51e1978bb406",
-          "reportDateText": "11/02/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-03-10.pdf",
-          "pdfSha256": "c992b8308c6128b4114a0f13b58a0e6296d0b316d7826e329e4a4ff8713ee052",
-          "reportDateText": "11/03/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-04-10.pdf",
-          "pdfSha256": "21218c61082e9807b400677eac35678d8beac01f3c98a2a1f2aff78be66a23b3",
-          "reportDateText": "11/04/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-05-10.pdf",
-          "pdfSha256": "1df138be2bfbf40ac48fd0ee4092c22883dbac0ad3ab69270b4224c8f0d50d28",
-          "reportDateText": "11/05/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-06-10.pdf",
-          "pdfSha256": "2072d7beb54fb73b4355f4ee45e241849cf5d41f9db6ec0055474fad17c93c14",
-          "reportDateText": "11/06/10",
-          "pages": 4
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-07-10.pdf",
-          "pdfSha256": "2f312219883803667f55f3fd6f9ff9c4d7a847ffd2b9c4efe4b230b2b9c96d8a",
-          "reportDateText": "11/07/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-08-10.pdf",
-          "pdfSha256": "e325f665d0c2c3dd06523ebba3189e3f40dafa0fbf8a9cf9cfd43c583520d2e3",
-          "reportDateText": "11/08/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-09-10.pdf",
-          "pdfSha256": "929fb96a814a738741dae638eb1f498845164397723134f89c3ca6ac1ed2b894",
-          "reportDateText": "11/09/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-10-10.pdf",
-          "pdfSha256": "8d3a3844b307f31a2d1ccc884162764749f4aaa71c368cbf70f53b49813efd07",
-          "reportDateText": "11/10/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-11-10.pdf",
-          "pdfSha256": "69fdf17aa7262144460744fedb309493d2cbb7e8d69624b188c063a3ed8800e7",
-          "reportDateText": "11/11/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-12-10.pdf",
-          "pdfSha256": "d491a938b60203a293597fe59e42842e4e12f044cf75e3fc99981bf7800b32ff",
-          "reportDateText": "11/12/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-13-10.pdf",
-          "pdfSha256": "5b595635687c984f8254a50500d13c9ef185002d2188d6ad46eed081a34f145f",
-          "reportDateText": "11/13/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-14-10.pdf",
-          "pdfSha256": "ab461efd89554aab0095bf8269e5cb560838342f8a5a2a629dc5c5c500dc2856",
-          "reportDateText": "11/14/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-15-10.pdf",
-          "pdfSha256": "33e650c6bf815e7da3f791ba1d5e699953bd01f8614b33544cf203e0cce2a196",
-          "reportDateText": "11/15/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-16-10.pdf",
-          "pdfSha256": "eea271af6a713b4dce8b4fbeb1a163e93847ebc1c5014dc6e74655e07207f339",
-          "reportDateText": "11/16/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-17-10.pdf",
-          "pdfSha256": "dda15ea3c8158fdf329fb3474e8b37909321103db3318c88b095cc0756523e16",
-          "reportDateText": "11/17/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-18-10.pdf",
-          "pdfSha256": "85768e9c97b63d08123b347f857e12da30ffe45dfd95a6ab2b9fae0a5382d875",
-          "reportDateText": "11/18/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-19-10.pdf",
-          "pdfSha256": "5199988921e9246971cfbc18691b552d5d83bb08936f7296fd4b71f24b935a7d",
-          "reportDateText": "11/19/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-20-10.pdf",
-          "pdfSha256": "ee246ec1008525fb1c94ba4fb920c0668fa9b253393cf41b24514e2900a2f878",
-          "reportDateText": "11/20/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-21-10.pdf",
-          "pdfSha256": "981236fd2aa902271e84d0c1de26d39e961a9e926ec7f2d2f53d386daec9b13b",
-          "reportDateText": "11/21/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-22-10.pdf",
-          "pdfSha256": "91827ce2e6a84d6d8cdf2acd65424cb425039ab8772054f1deb421670bbda163",
-          "reportDateText": "11/22/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-23-10.pdf",
-          "pdfSha256": "23186507c41de8b0dd2a1023b1a6e5734d215970a0f060ae2a5bf0d233aa081b",
-          "reportDateText": "11/23/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-24-10.pdf",
-          "pdfSha256": "2d15b06d973d9e8624e1dfdb97fab3d8aa211b97e7b04f7d039b85e9a54bc1fa",
-          "reportDateText": "11/24/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-25-10.pdf",
-          "pdfSha256": "0f829e0190edcab8bb2f57a3381ac8e403ed3a9b49f706b21afd1458c256a4d5",
-          "reportDateText": "11/25/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-26-10.pdf",
-          "pdfSha256": "73afe465fd0ab938c5ac73164cf30a7d178610bbc1eb72b74bba5ce1f9101ab4",
-          "reportDateText": "11/26/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-27-10.pdf",
-          "pdfSha256": "f8d446e67a8e015110c78de3f52e274824ddb1175a1560d574d18a0b07232732",
-          "reportDateText": "11/27/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-28-10.pdf",
-          "pdfSha256": "eef6acae243509581c6d2d8484af2a01de43975aa678ca7f949c94ddd28e4f28",
-          "reportDateText": "11/28/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-29-10.pdf",
-          "pdfSha256": "7867ec50936a8a52f6f458ca930533b5dbad4a986e06cd198acf68bdb339e0d8",
-          "reportDateText": "11/29/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 11-30-10.pdf",
-          "pdfSha256": "31b0d064a8ee72ae9ee274bff590f96e9f2ba3e06b17fd7b23cf0785c261ccb1",
-          "reportDateText": "11/30/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-01-10.pdf",
-          "pdfSha256": "5f8038247411b0c343a7aedf2d8eb9f6adc2c52d714e4d839e487e57e386f5fa",
-          "reportDateText": "12/01/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-02-10.pdf",
-          "pdfSha256": "24327fa8a57e4316ab3cd935d2f2c88b0bfeeac36351fadf41427a3a94810f95",
-          "reportDateText": "12/02/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-03-10.pdf",
-          "pdfSha256": "2692fe841277c842b36b86cc853286400d0154b0ed90e22d39b3e94964559c37",
-          "reportDateText": "12/03/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-04-10.pdf",
-          "pdfSha256": "308330fd9b11f144a4255d41844b841a134d1be3e8a1649e13822ef754620707",
-          "reportDateText": "12/04/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-05-10.pdf",
-          "pdfSha256": "f9c4d41ce7160d9e1d5bc32d5a6a5c1ffd09658219ef400cb31aff3411d4c222",
-          "reportDateText": "12/05/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-06-10.pdf",
-          "pdfSha256": "42e1d68b3f43e04b155f8f7b814e5ab8b086fa6693cfbacdc22c7d8f029d59e8",
-          "reportDateText": "12/06/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-07-10.pdf",
-          "pdfSha256": "85c2c0a1d8598d9e829a3c6750ba7e78e110ae5d96162975ce0307477540c0da",
-          "reportDateText": "12/07/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-08-10.pdf",
-          "pdfSha256": "17626bd736a606168dbdbb8d5b2caa6dd8ade264861a57d01a40ab62769566a5",
-          "reportDateText": "12/08/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-09-10.pdf",
-          "pdfSha256": "d04098a6be38387e4d3304b82d58f53f05b6a656e95d7a66551284d536d7112e",
-          "reportDateText": "12/09/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-10-10.pdf",
-          "pdfSha256": "3e3e4877e07f30eae107d1be5a03f833b4beab15e937b399caed34b248eb30ae",
-          "reportDateText": "12/10/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-11-10.pdf",
-          "pdfSha256": "f9cc0d7a6d91d805aafb33c8e6e7f75e49a5b34c883146d628f1844762db2fd5",
-          "reportDateText": "12/11/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-12-10.pdf",
-          "pdfSha256": "9fabf6d61269133b4ac03bac15da365e3dbf7749347e1a3d1b3765bad3240d6a",
-          "reportDateText": "12/12/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-13-10.pdf",
-          "pdfSha256": "a06b881ccf5c6e270fa217d87b5a8f4e7c898c106574357e9569c7ed29c84dd5",
-          "reportDateText": "12/13/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-14-10.pdf",
-          "pdfSha256": "3dbf5a858521a5ddb8a061eff6e17fd732a44cf76dcee1a64b349dfba84ae6f9",
-          "reportDateText": "12/14/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-15-10.pdf",
-          "pdfSha256": "23e5b977f7fd431448e1eedb7fc7fba1b76c3b38d531c1766317253d6a8743cb",
-          "reportDateText": "12/15/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-16-10.pdf",
-          "pdfSha256": "bda051f3fffe074f6f74304f25a9db71b10b235af9f1eef97513f36087362ce4",
-          "reportDateText": "12/16/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-17-10.pdf",
-          "pdfSha256": "290283b66f34a841835aef7457a236f65173731999be45c67195432b190ece2b",
-          "reportDateText": "12/17/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-18-10.pdf",
-          "pdfSha256": "dee6f88a386c79de2116fa825d52a6c428d948e610cd9862115515c6db3a53a7",
-          "reportDateText": "12/18/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-19-10.pdf",
-          "pdfSha256": "9edca600df046787748e77ee8c8ab41a67cb55b1457dab6441c87d4159487504",
-          "reportDateText": "12/19/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-20-10.pdf",
-          "pdfSha256": "4d3069d62ee6700394cc625c57b721ac02dd549e0eb46ef460ff7433b9e48b61",
-          "reportDateText": "12/20/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-21-10.pdf",
-          "pdfSha256": "fe865775f7421ebba896c9b5632f00762a339011a00bdeaafd4f76234d3c5449",
-          "reportDateText": "12/21/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-22-10.pdf",
-          "pdfSha256": "ea7b5c048f44de12bb9c3247e0d582ee7ecdf3d039b121a3376dee62b139cbbb",
-          "reportDateText": "12/22/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-23-10.pdf",
-          "pdfSha256": "6ffa57e33854acf2b7dc7af369e6153027dfcc43d6dd635b54ac530bec851565",
-          "reportDateText": "12/23/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-24-10.pdf",
-          "pdfSha256": "ae288224a83fa4966a9450e158c9b86c122ea7aca951d26d1fbbb9a9d800d7a1",
-          "reportDateText": "12/24/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-25-10.pdf",
-          "pdfSha256": "2005626508f39a55ac1f661bc50eade68e82c6ba54c28103867a16d94d79b615",
-          "reportDateText": "12/25/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-26-10.pdf",
-          "pdfSha256": "c64fad3096471fb082469f433f4fa6e8db486ddf0053dca686799e2aa3a8b027",
-          "reportDateText": "12/26/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-27-10.pdf",
-          "pdfSha256": "44f1d962ddf9bf51d7718e22ceda4fd8d9c10a2302235797e31cca252225e574",
-          "reportDateText": "12/27/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-28-10.pdf",
-          "pdfSha256": "22f1816c09d8c1e4f29e419a0929e22775064e4127e0bc719ea0a4dfba9da883",
-          "reportDateText": "12/28/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-29-10.pdf",
-          "pdfSha256": "52895fc9a2d0fae68956b52f684db0183913172026515b32ba9114bb7c4c60f1",
-          "reportDateText": "12/29/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-30-10.pdf",
-          "pdfSha256": "e74530967838d1da310b49e4e3e1b7111c4d35c454fae635f83be69f1249347b",
-          "reportDateText": "12/30/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Integration Report 12-31-10.pdf",
-          "pdfSha256": "96b82515e7d9f72c934a503ab3c04514441aebb4db4d54b3e7e2467a0d90e6b2",
-          "reportDateText": "12/31/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-09-10.pdf",
-          "pdfSha256": "cff05db1280f5497af41c72fd6aa0fb0a02cfe1192db3b4fa2c1e677dd120f12",
-          "reportDateText": "08/09/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-10-10.pdf",
-          "pdfSha256": "b828f382489f64d245d97c5e423832e08417b71f75535d3820184254b6611cb6",
-          "reportDateText": "08/10/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-11-10.pdf",
-          "pdfSha256": "c3865c33569115f5dc51427ed2f342ba700cf186c909a5c27bf00568ab68f4fe",
-          "reportDateText": "08/11/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-12-10.pdf",
-          "pdfSha256": "b5715f20ebb69f22864a11c7ada0ff694498ffc63dcc085be4b8656ce6069b59",
-          "reportDateText": "08/12/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-13-10.pdf",
-          "pdfSha256": "3c49034a8d8bd588d6bc7d97f98d07eee1dbb8783a5dc8a03979e0b4124a6679",
-          "reportDateText": "08/13/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-14-10.pdf",
-          "pdfSha256": "cf4e3759d71074b5fa87892fa5aaedadd44b5c5df4b738bf20306976ad3b7c70",
-          "reportDateText": "08/14/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-15-10.pdf",
-          "pdfSha256": "54790b2dbd69764608aad1f3b7af1d8ada4e8d3ce875f4ba3eb1dc20fd2e34e6",
-          "reportDateText": "08/15/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-16-10.pdf",
-          "pdfSha256": "71b182aed6adf5dd55c01a9734b154e03ef43b2e024b92b5629dc2138e273a9c",
-          "reportDateText": "08/16/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-17-10.pdf",
-          "pdfSha256": "fca67e66e7f8023a592392db1b84b0541efa51fbefdbba39d7a2497d3ca24978",
-          "reportDateText": "08/17/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-18-10.pdf",
-          "pdfSha256": "dd539739ab0d068ff3bdfce64a0686f14ff4b7a7e851fc30309b2b460af702ba",
-          "reportDateText": "08/18/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-19-10.pdf",
-          "pdfSha256": "f46de8ea5f3756d0f5b2deea291a93480805d93f016528f911d413650fd4fa2b",
-          "reportDateText": "08/19/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-20-10.pdf",
-          "pdfSha256": "c5d98632da8d2dfb85e84478932e82a88428a9389020ced145c8ec88789f7c7b",
-          "reportDateText": "08/20/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-21-10.pdf",
-          "pdfSha256": "4ea39dbd1c50482eb609c7aaca29afacb4b8efe4347a3177c12da017d2d21250",
-          "reportDateText": "08/21/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-22-10.pdf",
-          "pdfSha256": "e29958998e7fc4b354dfe5b759b0a2eeefb5149ecf45b344f8b7a4ae50f2508f",
-          "reportDateText": "08/22/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-23-10.pdf",
-          "pdfSha256": "9381e0238e329c286aa8c22e4e7dee2c8812aebe1d4f727d97f77a52c7bbe8cf",
-          "reportDateText": "08/23/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-24-10.pdf",
-          "pdfSha256": "619125eca13ee5d1fbd580436c13d7091c4157a9430d57d74e013cb6ce9ab1d4",
-          "reportDateText": "08/24/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-25-10.pdf",
-          "pdfSha256": "e76218962363c4f557f1ad80fcbbce0ea3a5c14b91c323cf7308fced8258bd38",
-          "reportDateText": "08/25/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-26-10.pdf",
-          "pdfSha256": "39bed7d1f9d2e351529ed21cba1a096c6cec9874147c4503658e38fde120e541",
-          "reportDateText": "08/26/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-27-10.pdf",
-          "pdfSha256": "1f08dea9bedc62ac4923d09b86e9839906846d639fc0d656cb1d8f94ad438216",
-          "reportDateText": "08/27/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-28-10.pdf",
-          "pdfSha256": "2ed1ea72a10637829ccf5e611e9eaa85bb376370c7a4eefb356406a79be6d0b3",
-          "reportDateText": "08/28/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-29-10.pdf",
-          "pdfSha256": "97478a6ed4a4321d373d3c39de61e5496a88ebff232df7a0fd66e52e554f9d7d",
-          "reportDateText": "08/29/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-30-10.pdf",
-          "pdfSha256": "e46a8d837966f529c45f7162d570f5787f36f18513126f46a1cd2be4c3c90cb7",
-          "reportDateText": "08/30/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 08-31-10.pdf",
-          "pdfSha256": "0210895801933c774b29a2ee2d817b0eedd3156ea9a288f078c53c0e6d9d53d6",
-          "reportDateText": "08/31/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-01-10.pdf",
-          "pdfSha256": "1441cca5518cada798bd2a4465d3604ccf0536646a9b89d413e8a2902d4b7b03",
-          "reportDateText": "09/01/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-02-10.pdf",
-          "pdfSha256": "a91faa2068a27817c7751d34cf445259d0a48b7784091e3221b318154f57cc49",
-          "reportDateText": "09/02/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-03-10.pdf",
-          "pdfSha256": "d280d027ac1fd3f49296e5e34539fb1e00b4dcf0d833e05328c50e16f8d4ba7a",
-          "reportDateText": "09/03/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-04-10.pdf",
-          "pdfSha256": "4a18a75058dc5fe9e1626018c66b451ef845896e215d765cb3a53a4bebcffa1a",
-          "reportDateText": "09/04/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-05-10.pdf",
-          "pdfSha256": "e47ec03605de064628ad6f8e305f53eee953c8b2d4c754f16f65175899a4381c",
-          "reportDateText": "09/05/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-06-10.pdf",
-          "pdfSha256": "d611b9de898458dab77349ba53eb5f13acf3c9d62cc5976567874cfbd26efdbc",
-          "reportDateText": "09/06/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-07-10.pdf",
-          "pdfSha256": "adf3e051439d27f2d8815ec8119edb25ae4ea304f1662701ecbeab605c564d1a",
-          "reportDateText": "09/07/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-08-10.pdf",
-          "pdfSha256": "2cad654f3015d4f8accb6a6d1e44177ce3d61a21f6e1f7bc3edd437af3a81c93",
-          "reportDateText": "09/08/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-09-10.pdf",
-          "pdfSha256": "303bed1ea7bbbb5263478e6481ef4f865c938ada11e46f5f072101373ea4f3d9",
-          "reportDateText": "09/09/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-10-10.pdf",
-          "pdfSha256": "659c3b8e0f54763a9bed678f02f5b7ae92d34d7abd1c9e9c119d77a0bcaa05ae",
-          "reportDateText": "09/10/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-11-10.pdf",
-          "pdfSha256": "df3a9686bcf0f7eaa7ee28041be106adadf23e543e9c7efd0ffb388eed4a8f1e",
-          "reportDateText": "09/11/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-12-10.pdf",
-          "pdfSha256": "0516e142af4be6d09294a12f6438274ff9e99005700f4efdbf8d4533191f7146",
-          "reportDateText": "09/12/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-13-10.pdf",
-          "pdfSha256": "32e1e9e4960ba6b1502eb5142731552dacd35ea63bd30598b7604dd0a34a418e",
-          "reportDateText": "09/13/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-14-10.pdf",
-          "pdfSha256": "4b425839a624261448ce524602d54560c321a96f1db2e7d1a83ed60448ff5b88",
-          "reportDateText": "09/14/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-15-10.pdf",
-          "pdfSha256": "3dcb37a3b5515b4009073224e0dd1627dbb4620097d36e736fb5ebecb55173d8",
-          "reportDateText": "09/15/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-16-10.pdf",
-          "pdfSha256": "cc509e762ee33de1dfc91300eb53d0c5b0749bef06dea9b185931a3292169e3a",
-          "reportDateText": "09/16/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-17-10.pdf",
-          "pdfSha256": "38825f7cd8cb73110a9dbab68a22d312fa3fa10249bc8c955b282e455522e9e7",
-          "reportDateText": "09/17/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-18-10.pdf",
-          "pdfSha256": "13dbd565d2a0ada811f5ada1aa54c31e44855ce3c21cbb7b7bd8d962daa67456",
-          "reportDateText": "09/18/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-19-10.pdf",
-          "pdfSha256": "55cdb5a74b965ca371679e5f349098721b94458734bc06ba40ef4113d36a743c",
-          "reportDateText": "09/19/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-20-10.pdf",
-          "pdfSha256": "7f9cf2acccbe5e63ad8ef184abb9b50a70421ca14e30a57b1b92d331f3b80376",
-          "reportDateText": "09/20/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-21-10.pdf",
-          "pdfSha256": "ef8feb8c7099a1d978ed85ac0f30f904856e5010c7d576f82feb54d21ee9bf89",
-          "reportDateText": "09/21/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-22-10.pdf",
-          "pdfSha256": "e0bc3600f22bb5ab1d8d0af9158b63bcb5264a8e7aeea64bea8b1b1a2a79bd8b",
-          "reportDateText": "09/22/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-23-10.pdf",
-          "pdfSha256": "e64c40a623385a6c2683a970e5cb9e10f5388b21f6c13112c0326f05f8f60654",
-          "reportDateText": "09/23/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-24-10.pdf",
-          "pdfSha256": "dd6b77df0d2bebf51f757382bb93c4d9b82bf4191ce371470021a3aec7e075b3",
-          "reportDateText": "09/24/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-25-10.pdf",
-          "pdfSha256": "24849631062704faf34e65121700b4095c39717a305b9953bf5056d236a484b3",
-          "reportDateText": "09/25/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-26-10.pdf",
-          "pdfSha256": "b14eb7ef02be5f10ea47dfa6882c1060928bb5165a0dc9fd6ac7b2e87fd585e7",
-          "reportDateText": "09/26/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-27-10.pdf",
-          "pdfSha256": "0358b40372aa9196084fddd825b13692ec6764974ddf49b9e8fa72f05e9e9349",
-          "reportDateText": "09/27/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-28-10.pdf",
-          "pdfSha256": "638d670dc571a4e72a9fce9972498e61cc977e6334dcc4c74ebec7a142c589ec",
-          "reportDateText": "09/28/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-29-10.pdf",
-          "pdfSha256": "c6b0eed802b09a40c254fcf2a21a477a9e45f5fe7a8b1192b602ff91fbb1d36b",
-          "reportDateText": "09/29/10",
-          "pages": 3
-        },
-        {
-          "member": "2010/ERCOT Wind Penetration Report 09-30-10.pdf",
-          "pdfSha256": "8b72803a8b39498b788e0f07fc22edae4f4755d810618d731c1dd877a488ee63",
-          "reportDateText": "09/30/10",
-          "pages": 3
-        }
-      ]
+      "decodedRowsSha256": "5bc37f05bc19629326b70a34c0cd1a36ca540012d0c2dd937b3f67432ec44afa"
+    },
+    {
+      "period": "2015",
+      "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2015.zip",
+      "bytes": 53544365,
+      "zipSha256": "17dbbac86cf93b79a891b0bd93170415eff9818b29098a19fad4915472a9c60a",
+      "reportCount": 365,
+      "distinctReportDates": 365,
+      "firstReportDate": "2015-01-01",
+      "lastReportDate": "2015-12-31",
+      "missingReportDatesBetweenBounds": [],
+      "repeatedReportDates": {},
+      "modernTableCount": 24,
+      "sourceTextFiles": {},
+      "decodedRowsSha256": "eb7832e94746460c7f80e8245bcb104a932300f281aa6f6ab9c75b7bce1205c6"
     },
     {
       "period": "Jan2016",
@@ -909,215 +127,161 @@
       "bytes": 4561487,
       "zipSha256": "f0c6c6b0ad73d52d4514b65e56fb75d6d326353ec42c47cb481d10fee294ed21",
       "reportCount": 31,
+      "distinctReportDates": 31,
       "firstReportDate": "2016-01-01",
       "lastReportDate": "2016-01-31",
-      "reportTitles": {
-        "Wind Integration Report": 31
-      },
-      "fileExtensions": {
-        ".PDF": 31
-      },
-      "embeddedFileCount": 0,
-      "reports": [
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-01-16.PDF",
-          "pdfSha256": "d1387519b45d942322f9cc310dc295b4eba8ab271414ad893fd2ae3439b2060e",
-          "reportDateText": "01/01/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-02-16.PDF",
-          "pdfSha256": "ceb935338749b998f7b728c88e1d5738cbed2432a645b4aaddd8a434dceb98c8",
-          "reportDateText": "01/02/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-03-16.PDF",
-          "pdfSha256": "b4d55c213cdc1d0e8dbe9e9f5cec4011766bb5290ccd65275e0d47ab49bcf33d",
-          "reportDateText": "01/03/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-04-16.PDF",
-          "pdfSha256": "5ee266351f7cd5a94df2d4ee2171728d11ce480c8a1532188bafc190858f5b13",
-          "reportDateText": "01/04/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-05-16.PDF",
-          "pdfSha256": "059389e08d9a0ec58412064b5e6ba7b185fa0f656816f6a61413be05ddce0e39",
-          "reportDateText": "01/05/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-06-16.PDF",
-          "pdfSha256": "80a3c2231899db6308adb05cabdcc563941bab24db044aa277c437d69d74176a",
-          "reportDateText": "01/06/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-07-16.PDF",
-          "pdfSha256": "ca7b34d75f3ef4509b64a33ec89cf86db9379a95b5a2dc05f337e000afa4f8e6",
-          "reportDateText": "01/07/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-08-16.PDF",
-          "pdfSha256": "ef7702f4ebbe33a00cbc6267d79c469a5ade6198b94cc0c4cdcdcc364750c9e0",
-          "reportDateText": "01/08/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-09-16.PDF",
-          "pdfSha256": "e22a2f89587357f821dccd5e71ce9f18eca1b7acf79610a30ede39e81d0b8e36",
-          "reportDateText": "01/09/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-10-16.PDF",
-          "pdfSha256": "6b1ebc3e9f6ed23e6ce086cc68c87072f2112b77bd01a00d3d0ce8bd74ab95bc",
-          "reportDateText": "01/10/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-11-16.PDF",
-          "pdfSha256": "44451fef4764b35f94a3d5849c1a9d81b56ce79113bfa51f1a077eb57758a475",
-          "reportDateText": "01/11/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-12-16.PDF",
-          "pdfSha256": "2fae9d933e6e4fb161e98dcc95a868dea23555d51bfda773367cbb46f1cf3566",
-          "reportDateText": "01/12/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-13-16.PDF",
-          "pdfSha256": "2e8e02678390abeffdccd15d524d550efc1332d89c6ae02d33796c5b3722a004",
-          "reportDateText": "01/13/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-14-16.PDF",
-          "pdfSha256": "8fd9d6b6938be6d031732406dcd1f2e37a420c853daeef16e2bc6455806b0dd4",
-          "reportDateText": "01/14/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-15-16.PDF",
-          "pdfSha256": "562e30aff511ccd510b95f2e196808d4ff9031000dc40b8d07a18bcfe2ed1780",
-          "reportDateText": "01/15/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-16-16.PDF",
-          "pdfSha256": "2cfb8930c784a79158c3368be93a50cfb7090f113d66a35865d301275f7ee5ea",
-          "reportDateText": "01/16/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-17-16.PDF",
-          "pdfSha256": "e07765e89986b0099bb544d6668a99f8d24524220afddd2e6178236a78e5178b",
-          "reportDateText": "01/17/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-18-16.PDF",
-          "pdfSha256": "57b79286d798484332049bb80f0ccf0923c2dbfc5f1da30ba3b3b42f8f5ef859",
-          "reportDateText": "01/18/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-19-16.PDF",
-          "pdfSha256": "3f1df9991613adc895af6cb422d597aa2271c61ef6c1479fc835eb9172782b8c",
-          "reportDateText": "01/19/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-20-16.PDF",
-          "pdfSha256": "1153b01021adaad6fe7102eede0e28d28234191cbb0df5732ba73a069ab8a9e1",
-          "reportDateText": "01/20/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-21-16.PDF",
-          "pdfSha256": "db2a4b73282ad64784ad0e21fa263772f125214d0c4722b79b418f9e027784a0",
-          "reportDateText": "01/21/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-22-16.PDF",
-          "pdfSha256": "ba9daf0182fd73a799e009e8545068db2988f4326d0210d49fe6e674e4085443",
-          "reportDateText": "01/22/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-23-16.PDF",
-          "pdfSha256": "2d09e6025b205586479f5c90191b5ec1a4d212d19d19b86cc7b21509cf342964",
-          "reportDateText": "01/23/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-24-16.PDF",
-          "pdfSha256": "6453ae0b3aefec3f21a000fac69a7d9ccd1fc742c9af17f447fa1242efd25028",
-          "reportDateText": "01/24/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-25-16.PDF",
-          "pdfSha256": "4834a4ce359b0b36172dd867b5c5d8ac32b1f7d061e669c6367d3249cc8dacd7",
-          "reportDateText": "01/25/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-26-16.PDF",
-          "pdfSha256": "682328dc42a10aed8c18bdf636905375502752cede6fe31d9cb3fda5f984306b",
-          "reportDateText": "01/26/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-27-16.PDF",
-          "pdfSha256": "cd89d27eb4fe14e1f629b36e7f3c6d69da23b29c1b017ae85492041fdf6ca89f",
-          "reportDateText": "01/27/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-28-16.PDF",
-          "pdfSha256": "8aa8072a61427bf50389b0b7101f4d572d7499efa3b82b909f3822edd6e7789e",
-          "reportDateText": "01/28/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-29-16.PDF",
-          "pdfSha256": "900ce067aa031649caff03cea5c417f7641f58c7da51ee5574bb08e347a0f845",
-          "reportDateText": "01/29/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-30-16.PDF",
-          "pdfSha256": "868cd3cc69d98c382e7f42a161dc2a9300d0d700a81a38b2462710021251f0a6",
-          "reportDateText": "01/30/2016",
-          "pages": 4
-        },
-        {
-          "member": "2016/ERCOT Wind Integration Report 01-31-16.PDF",
-          "pdfSha256": "a8792b925a20aab7c5a191a00f103ac47d0f29ad0344dfa32101cd7a1c6fd1b2",
-          "reportDateText": "01/31/2016",
-          "pages": 4
-        }
-      ]
+      "missingReportDatesBetweenBounds": [],
+      "repeatedReportDates": {},
+      "modernTableCount": 31,
+      "sourceTextFiles": {},
+      "decodedRowsSha256": "c4eeed057a663b755adfa1c5b70c9aefb13b7fa1be1c232cfd86d19912ed1aac"
     }
   ],
-  "esrSourceFindings": {
-    "product": "NP4-765-ER",
-    "publicCatalogFormat": ".pdf",
-    "publicCatalogArtifacts": 0,
-    "dashboardWindow": "current and previous day",
-    "dashboardInterval": "5-minute averages",
-    "exactHistoricalLineChartSourceFound": false,
-    "sources": [
-      "https://www.ercot.com/services/comm/mkt_notices/M-B112223-01",
-      "https://www.ercot.com/gridmktinfo/dashboards/energystorageresources"
-    ]
-  }
+  "liveWorkflow": {
+    "checkedAt": "2026-09-07T22:18:33.247046+00:00",
+    "archives": [
+      {
+        "year": 2010,
+        "month": null,
+        "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2010.zip"
+      },
+      {
+        "year": 2011,
+        "month": null,
+        "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2011.zip"
+      },
+      {
+        "year": 2012,
+        "month": null,
+        "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2012.zip"
+      },
+      {
+        "year": 2013,
+        "month": null,
+        "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2013.zip"
+      },
+      {
+        "year": 2014,
+        "month": null,
+        "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2014.zip"
+      },
+      {
+        "year": 2015,
+        "month": null,
+        "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2015.zip"
+      },
+      {
+        "year": 2016,
+        "month": 1,
+        "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_Jan2016.zip"
+      }
+    ],
+    "requests": [
+      {
+        "url": "https://www.ercot.com/gridinfo/generation/ibr-integration-reports",
+        "status": 200
+      },
+      {
+        "url": "https://www.ercot.com/gridinfo/generation/ibr-integration-reports",
+        "status": 200
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_Jan2016.zip",
+        "status": 200
+      }
+    ],
+    "row": {
+      "reportDate": "2016-01-01",
+      "reportDateText": "01/01/2016",
+      "reportType": "Integration",
+      "sourceMember": "2016/ERCOT Wind Integration Report 01-01-16.PDF",
+      "peakLoadLabel": "Peak Load",
+      "peakLoadMW": "41153",
+      "peakLoadHour": 19,
+      "windAtPeakLoadMW": "2181",
+      "maxWindLabel": "Max Wind",
+      "maxWindMW": "4807",
+      "maxWindTime": "04:29:00",
+      "windIntegrationPercent": null,
+      "windPenetrationPercent": null,
+      "penetrationAtMaxWindPercent": "14.40",
+      "maxWindPenetrationPercent": "14.40",
+      "maxWindPenetrationTime": "04:29:00",
+      "windAtMaxPenetrationMW": "4807",
+      "recordWindLabel": "Record Wind Generation",
+      "recordWindMW": "13883",
+      "recordWindDate": "2015-12-20",
+      "recordWindTime": "11:07:00",
+      "penetrationAtRecordWindPercent": "41.27",
+      "recordWindPenetrationPercent": "44.71",
+      "recordWindPenetrationTime": "2015-12-20T03:05:00",
+      "windAtRecordPenetrationMW": "13057",
+      "sourceNotes": null
+    },
+    "authenticationHeadersSent": false
+  },
+  "sourceDateConflicts": [
+    {
+      "member": "2011/ERCOT Wind Integration Report 01-06-11.pdf",
+      "heading": "02/03/11",
+      "chart": "02-03-2011",
+      "action": "Preserve report heading; do not infer January 6 from the filename."
+    },
+    {
+      "member": "2011/ERCOT Wind Integration Report 09-26-11.pdf",
+      "heading": "09/25/11",
+      "chart": "09-26-2011",
+      "action": "Preserve report heading and sourceMember; the source date conflict remains unresolved."
+    },
+    {
+      "member": "2013/ERCOT Wind Integration Report 05-14-13.pdf",
+      "heading": "05/14/12013",
+      "chart": "05-14-2013",
+      "action": "Resolve malformed year to 2013, retaining reportDateText."
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "tools/inputs/history/wind-penetration.pdf",
+      "sha256": "cff05db1280f5497af41c72fd6aa0fb0a02cfe1192db3b4fa2c1e677dd120f12",
+      "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2010.zip",
+      "member": "2010/ERCOT Wind Penetration Report 08-09-10.pdf"
+    },
+    {
+      "path": "tools/inputs/history/wind-2012.pdf",
+      "sha256": "9b1311145493e4f543ae6e4066e3cca29a2acb6deca4047a7d4bc61b66de457a",
+      "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2012.zip",
+      "member": "2012/ERCOT Wind Integration Report 01-01-12.pdf"
+    },
+    {
+      "path": "tools/inputs/history/wind-Jan2016.pdf",
+      "sha256": "d1387519b45d942322f9cc310dc295b4eba8ab271414ad893fd2ae3439b2060e",
+      "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_Jan2016.zip",
+      "member": "2016/ERCOT Wind Integration Report 01-01-16.PDF"
+    },
+    {
+      "path": "tools/inputs/history/wind-record.pdf",
+      "sha256": "f9cc0d7a6d91d805aafb33c8e6e7f75e49a5b34c883146d628f1844762db2fd5",
+      "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2010.zip",
+      "member": "2010/ERCOT Wind Integration Report 12-11-10.pdf"
+    },
+    {
+      "path": "tools/inputs/history/wind-typo.pdf",
+      "sha256": "e6a4cc6333c7bcd8301d6786cae5d741934bf6557c2535996188c00a629248ea",
+      "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2013.zip",
+      "member": "2013/ERCOT Wind Integration Report 05-14-13.pdf"
+    },
+    {
+      "path": "tools/inputs/history/wind-2015.pdf",
+      "sha256": "92d4c3efd220e8e1c7fe5504f886b4180265f7b464896471a3b52d0f18ea2041",
+      "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2015.zip",
+      "member": "2015/ERCOT Wind Integration Report 01-01-15.PDF"
+    },
+    {
+      "path": "tools/inputs/history/wind-winter.pdf",
+      "sha256": "c745ff470ce9afd9d7e0d7ea9c6fc52d0dc11ac48c3e1567a3138658a2eff1a6",
+      "url": "https://www.ercot.com/files/docs/2020/05/05/ERCOTWindIntegrationReport_2011.zip",
+      "member": "2011/ERCOT Wind Integration Report 02-10-11.pdf"
+    }
+  ]
 }
