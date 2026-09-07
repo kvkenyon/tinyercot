@@ -4769,5 +4769,869 @@
       "deliveryDate": "%m/%d/%Y"
     },
     "datetimes": {}
+  },
+  "np3-909-er/2d_total_cleared_energy_bids_offers": {
+    "member": "*_Tot_*Offers-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Sum DAM EN Only Bids cleared": "sumDamENOnlyBidsCleared",
+      "Sum 3PO cleared": "sum3POCleared",
+      "Sum DAM EN Only Offers cleared": "sumDamENOnlyOffersCleared",
+      "Sum ESR Bids cleared": "sumESRBidsCleared",
+      "Sum ESR Offers cleared": "sumESROffersCleared"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "sumDamENOnlyBidsCleared": "Decimal",
+      "sum3POCleared": "Decimal",
+      "sumDamENOnlyOffersCleared": "Decimal",
+      "sumESRBidsCleared": "Decimal",
+      "sumESROffersCleared": "Decimal"
+    },
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "Hour Ending": "hourEnding",
+        "Sum Cleared DAM Bids": "sumDamENOnlyBidsCleared",
+        "Sum Cleared 3PO": "sum3POCleared",
+        "Sum Cleared Energy Only Offers": "sumDamENOnlyOffersCleared"
+      }
+    ]
+  },
+  "np3-909-er/2d_total_cleared_energy_bids_offers_houston": {
+    "member": "*_Tot_*Offers_Houston-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Sum DAM EN Only Bids cleared": "sumDamENOnlyBidsCleared",
+      "Sum 3PO cleared": "sum3POCleared",
+      "Sum DAM EN Only Offers cleared": "sumDamENOnlyOffersCleared",
+      "Sum ESR Bids cleared": "sumESRBidsCleared",
+      "Sum ESR Offers cleared": "sumESROffersCleared"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "sumDamENOnlyBidsCleared": "Decimal",
+      "sum3POCleared": "Decimal",
+      "sumDamENOnlyOffersCleared": "Decimal",
+      "sumESRBidsCleared": "Decimal",
+      "sumESROffersCleared": "Decimal"
+    },
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "Hour Ending": "hourEnding",
+        "Sum Cleared DAM Bids": "sumDamENOnlyBidsCleared",
+        "Sum Cleared 3PO": "sum3POCleared",
+        "Sum Cleared Energy Only Offers": "sumDamENOnlyOffersCleared"
+      }
+    ]
+  },
+  "np3-909-er/2d_total_cleared_energy_bids_offers_north": {
+    "member": "*_Tot_*Offers_North-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Sum DAM EN Only Bids cleared": "sumDamENOnlyBidsCleared",
+      "Sum 3PO cleared": "sum3POCleared",
+      "Sum DAM EN Only Offers cleared": "sumDamENOnlyOffersCleared",
+      "Sum ESR Bids cleared": "sumESRBidsCleared",
+      "Sum ESR Offers cleared": "sumESROffersCleared"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "sumDamENOnlyBidsCleared": "Decimal",
+      "sum3POCleared": "Decimal",
+      "sumDamENOnlyOffersCleared": "Decimal",
+      "sumESRBidsCleared": "Decimal",
+      "sumESROffersCleared": "Decimal"
+    },
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "Hour Ending": "hourEnding",
+        "Sum Cleared DAM Bids": "sumDamENOnlyBidsCleared",
+        "Sum Cleared 3PO": "sum3POCleared",
+        "Sum Cleared Energy Only Offers": "sumDamENOnlyOffersCleared"
+      }
+    ]
+  },
+  "np3-909-er/2d_total_cleared_energy_bids_offers_south": {
+    "member": "*_Tot_*Offers_South-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Sum DAM EN Only Bids cleared": "sumDamENOnlyBidsCleared",
+      "Sum 3PO cleared": "sum3POCleared",
+      "Sum DAM EN Only Offers cleared": "sumDamENOnlyOffersCleared",
+      "Sum ESR Bids cleared": "sumESRBidsCleared",
+      "Sum ESR Offers cleared": "sumESROffersCleared"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "sumDamENOnlyBidsCleared": "Decimal",
+      "sum3POCleared": "Decimal",
+      "sumDamENOnlyOffersCleared": "Decimal",
+      "sumESRBidsCleared": "Decimal",
+      "sumESROffersCleared": "Decimal"
+    },
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "Hour Ending": "hourEnding",
+        "Sum Cleared DAM Bids": "sumDamENOnlyBidsCleared",
+        "Sum Cleared 3PO": "sum3POCleared",
+        "Sum Cleared Energy Only Offers": "sumDamENOnlyOffersCleared"
+      }
+    ]
+  },
+  "np3-909-er/2d_total_cleared_energy_bids_offers_west": {
+    "member": "*_Tot_*Offers_West-[0-9]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Sum DAM EN Only Bids cleared": "sumDamENOnlyBidsCleared",
+      "Sum 3PO cleared": "sum3POCleared",
+      "Sum DAM EN Only Offers cleared": "sumDamENOnlyOffersCleared",
+      "Sum ESR Bids cleared": "sumESRBidsCleared",
+      "Sum ESR Offers cleared": "sumESROffersCleared"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "sumDamENOnlyBidsCleared": "Decimal",
+      "sum3POCleared": "Decimal",
+      "sumDamENOnlyOffersCleared": "Decimal",
+      "sumESRBidsCleared": "Decimal",
+      "sumESROffersCleared": "Decimal"
+    },
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "Hour Ending": "hourEnding",
+        "Sum Cleared DAM Bids": "sumDamENOnlyBidsCleared",
+        "Sum Cleared 3PO": "sum3POCleared",
+        "Sum Cleared Energy Only Offers": "sumDamENOnlyOffersCleared"
+      }
+    ]
+  },
+  "np3-909-er/2d_ptp_obl_bids": {
+    "member": "*_PTP_Obligation_Bids[ -]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Settlement Point Source Location for PtP Bid": "settlementPointSource",
+      "Settlement Point Sink Location for PtP Bid": "settlementPointSink",
+      "PtP Bid Price": "PTPBidPrice",
+      "PtP Bid MW": "PTPBidAwardMW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "settlementPointSource": "str",
+      "settlementPointSink": "str",
+      "PTPBidPrice": "Decimal",
+      "PTPBidAwardMW": "Decimal",
+      "bidId": "str"
+    },
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "Hour Ending": "hourEnding",
+        "Settlement Point Source location for PtP Bid": "settlementPointSource",
+        "Settlement Point Sink location for PtP Bid": "settlementPointSink",
+        "PtP Bid  MW": "PTPBidAwardMW",
+        "PtP Bid  Price": "PTPBidPrice",
+        "Bid ID": "bidId"
+      }
+    ]
+  },
+  "np3-909-er/2d_ptp_obl_bids_houston": {
+    "member": "*_PTP_Obligation_Bids_Houston[ -]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Settlement Point Source Location for PtP Bid": "settlementPointSource",
+      "Settlement Point Sink Location for PtP Bid": "settlementPointSink",
+      "PtP Bid Price": "PTPBidPrice",
+      "PtP Bid MW": "PTPBidAwardMW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "settlementPointSource": "str",
+      "settlementPointSink": "str",
+      "PTPBidPrice": "Decimal",
+      "PTPBidAwardMW": "Decimal",
+      "bidId": "str"
+    },
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "Hour Ending": "hourEnding",
+        "Settlement Point Source location for PtP Bid": "settlementPointSource",
+        "Settlement Point Sink location for PtP Bid": "settlementPointSink",
+        "PtP Bid  MW": "PTPBidAwardMW",
+        "PtP Bid  Price": "PTPBidPrice",
+        "Bid ID": "bidId"
+      }
+    ]
+  },
+  "np3-909-er/2d_ptp_obl_bids_north": {
+    "member": "*_PTP_Obligation_Bids_North[ -]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Settlement Point Source Location for PtP Bid": "settlementPointSource",
+      "Settlement Point Sink Location for PtP Bid": "settlementPointSink",
+      "PtP Bid Price": "PTPBidPrice",
+      "PtP Bid MW": "PTPBidAwardMW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "settlementPointSource": "str",
+      "settlementPointSink": "str",
+      "PTPBidPrice": "Decimal",
+      "PTPBidAwardMW": "Decimal",
+      "bidId": "str"
+    },
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "Hour Ending": "hourEnding",
+        "Settlement Point Source location for PtP Bid": "settlementPointSource",
+        "Settlement Point Sink location for PtP Bid": "settlementPointSink",
+        "PtP Bid  MW": "PTPBidAwardMW",
+        "PtP Bid  Price": "PTPBidPrice",
+        "Bid ID": "bidId"
+      }
+    ]
+  },
+  "np3-909-er/2d_ptp_obl_bids_south": {
+    "member": "*_PTP_Obligation_Bids_South[ -]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Settlement Point Source Location for PtP Bid": "settlementPointSource",
+      "Settlement Point Sink Location for PtP Bid": "settlementPointSink",
+      "PtP Bid Price": "PTPBidPrice",
+      "PtP Bid MW": "PTPBidAwardMW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "settlementPointSource": "str",
+      "settlementPointSink": "str",
+      "PTPBidPrice": "Decimal",
+      "PTPBidAwardMW": "Decimal",
+      "bidId": "str"
+    },
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "Hour Ending": "hourEnding",
+        "Settlement Point Source location for PtP Bid": "settlementPointSource",
+        "Settlement Point Sink location for PtP Bid": "settlementPointSink",
+        "PtP Bid  MW": "PTPBidAwardMW",
+        "PtP Bid  Price": "PTPBidPrice",
+        "Bid ID": "bidId"
+      }
+    ]
+  },
+  "np3-909-er/2d_ptp_obl_bids_west": {
+    "member": "*_PTP_Obligation_Bids_West[ -]*.csv",
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "Settlement Point Source Location for PtP Bid": "settlementPointSource",
+      "Settlement Point Sink Location for PtP Bid": "settlementPointSink",
+      "PtP Bid Price": "PTPBidPrice",
+      "PtP Bid MW": "PTPBidAwardMW"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "settlementPointSource": "str",
+      "settlementPointSink": "str",
+      "PTPBidPrice": "Decimal",
+      "PTPBidAwardMW": "Decimal",
+      "bidId": "str"
+    },
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "Hour Ending": "hourEnding",
+        "Settlement Point Source location for PtP Bid": "settlementPointSource",
+        "Settlement Point Sink location for PtP Bid": "settlementPointSink",
+        "PtP Bid  MW": "PTPBidAwardMW",
+        "PtP Bid  Price": "PTPBidPrice",
+        "Bid ID": "bidId"
+      }
+    ]
+  },
+  "np3-910-er/2d_agg_out_sched": {
+    "member": "*_Agg_Output_Sched[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM LSL OUTPUT SCHEDULE": "sumLSLOutputSched",
+      "SUM HSL OUTPUT SCHEDULE": "sumHSLOutputSched",
+      "SUM OUTPUTSCHEDULE": "sumOutputSched"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumLSLOutputSched": "Decimal",
+      "sumHSLOutputSched": "Decimal",
+      "sumOutputSched": "Decimal"
+    }
+  },
+  "np3-910-er/2d_agg_out_sched_houston": {
+    "member": "*_Agg_Output_Sched_Houston[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM LSL OUTPUT SCHEDULE": "sumLSLOutputSched",
+      "SUM HSL OUTPUT SCHEDULE": "sumHSLOutputSched",
+      "SUM OUTPUTSCHEDULE": "sumOutputSched"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumLSLOutputSched": "Decimal",
+      "sumHSLOutputSched": "Decimal",
+      "sumOutputSched": "Decimal"
+    }
+  },
+  "np3-910-er/2d_agg_out_sched_north": {
+    "member": "*_Agg_Output_Sched_North[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM LSL OUTPUT SCHEDULE": "sumLSLOutputSched",
+      "SUM HSL OUTPUT SCHEDULE": "sumHSLOutputSched",
+      "SUM OUTPUTSCHEDULE": "sumOutputSched"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumLSLOutputSched": "Decimal",
+      "sumHSLOutputSched": "Decimal",
+      "sumOutputSched": "Decimal"
+    }
+  },
+  "np3-910-er/2d_agg_out_sched_south": {
+    "member": "*_Agg_Output_Sched_South[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM LSL OUTPUT SCHEDULE": "sumLSLOutputSched",
+      "SUM HSL OUTPUT SCHEDULE": "sumHSLOutputSched",
+      "SUM OUTPUTSCHEDULE": "sumOutputSched"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumLSLOutputSched": "Decimal",
+      "sumHSLOutputSched": "Decimal",
+      "sumOutputSched": "Decimal"
+    }
+  },
+  "np3-910-er/2d_agg_out_sched_west": {
+    "member": "*_Agg_Output_Sched_West[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM LSL OUTPUT SCHEDULE": "sumLSLOutputSched",
+      "SUM HSL OUTPUT SCHEDULE": "sumHSLOutputSched",
+      "SUM OUTPUTSCHEDULE": "sumOutputSched"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumLSLOutputSched": "Decimal",
+      "sumHSLOutputSched": "Decimal",
+      "sumOutputSched": "Decimal"
+    }
+  },
+  "np3-910-er/2d_agg_gen_summary": {
+    "member": "*_Agg_Gen_Summary[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM BASE POINT NON IRR": "sumBasePointNonIRR",
+      "SUM BASE POINT WGR": "sumBasePointWGR",
+      "SUM BASE POINT PVGR": "sumBasePointPVGR",
+      "SUM BASE POINT Remaining Res": "sumBasePointREMRES",
+      "SUM GEN TELEM MW": "sumGenTelemMW",
+      "SUM BASE POINT ESR": "sumBasePointESR",
+      "SUM BASE POINT ESR CHARGING": "sumBasePointESRCharge",
+      "SUM BASE POINT ESR DISCHARGING": "sumBasePointESRDischarge"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumBasePointNonIRR": "Decimal",
+      "sumBasePointWGR": "Decimal",
+      "sumBasePointPVGR": "Decimal",
+      "sumBasePointREMRES": "Decimal",
+      "sumGenTelemMW": "Decimal",
+      "sumBasePointESR": "Decimal",
+      "sumBasePointESRCharge": "Decimal",
+      "sumBasePointESRDischarge": "Decimal",
+      "sumHASLNonIRR": "Decimal",
+      "sumLASLNonIRR": "Decimal",
+      "sumHASLWGR": "Decimal",
+      "sumLASLWGR": "Decimal",
+      "sumHASLPVGR": "Decimal",
+      "sumLASLPVGR": "Decimal",
+      "sumHASLREMRES": "Decimal",
+      "sumLASLREMRES": "Decimal",
+      "sumBasePointNonWGR": "Decimal",
+      "sumHASLNonWGR": "Decimal",
+      "sumLASLNonWGR": "Decimal"
+    },
+    "variants": [
+      {
+        "SCED Time  Stamp": "SCEDTimestamp",
+        "Repeated Hour  Flag": "repeatHourFlag",
+        "SUM  BASE POINT NON-WGR": "sumBasePointNonWGR",
+        "SUM  HASL NON-WGR": "sumHASLNonWGR",
+        "SUM  LASL NON-WGR": "sumLASLNonWGR",
+        "SUM  BASE POINT WGR": "sumBasePointWGR",
+        "SUM   HASL  WGR": "sumHASLWGR",
+        "SUM  LASL WGR": "sumLASLWGR",
+        "SUM  BASE POINT REMAINING RESOURCES": "sumBasePointREMRES",
+        "SUM  HASL REMAINING RESOURCES": "sumHASLREMRES",
+        "SUM  LASL REMAINING RESOURCES": "sumLASLREMRES",
+        "SUM  GEN  TELEM  MW": "sumGenTelemMW"
+      }
+    ]
+  },
+  "np3-910-er/2d_agg_gen_summary_houston": {
+    "member": "*_Agg_Gen_Summary_Houston[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM BASE POINT NON IRR": "sumBasePointNonIRR",
+      "SUM BASE POINT WGR": "sumBasePointWGR",
+      "SUM BASE POINT PVGR": "sumBasePointPVGR",
+      "SUM BASE POINT Remaining Res": "sumBasePointREMRES",
+      "SUM GEN TELEM MW": "sumGenTelemMW",
+      "SUM BASE POINT ESR": "sumBasePointESR",
+      "SUM BASE POINT ESR CHARGING": "sumBasePointESRCharge",
+      "SUM BASE POINT ESR DISCHARGING": "sumBasePointESRDischarge"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumBasePointNonIRR": "Decimal",
+      "sumBasePointWGR": "Decimal",
+      "sumBasePointPVGR": "Decimal",
+      "sumBasePointREMRES": "Decimal",
+      "sumGenTelemMW": "Decimal",
+      "sumBasePointESR": "Decimal",
+      "sumBasePointESRCharge": "Decimal",
+      "sumBasePointESRDischarge": "Decimal",
+      "sumBasePointNonWGR": "Decimal",
+      "sumHaslNonWGR": "Decimal",
+      "sumLaslNonWGR": "Decimal",
+      "sumHaslWGR": "Decimal",
+      "sumLaslWGR": "Decimal",
+      "sumHaslRemRes": "Decimal",
+      "sumLaslRemRes": "Decimal",
+      "sumHASLNonWGR": "Decimal",
+      "sumLASLNonWGR": "Decimal",
+      "sumHASLREMRES": "Decimal",
+      "sumLASLREMRES": "Decimal"
+    },
+    "variants": [
+      {
+        "SCED Time  Stamp": "SCEDTimestamp",
+        "Repeated Hour  Flag": "repeatHourFlag",
+        "SUM  BASE POINT NON-WGR": "sumBasePointNonWGR",
+        "SUM  HASL NON-WGR": "sumHASLNonWGR",
+        "SUM  LASL NON-WGR": "sumLASLNonWGR",
+        "SUM  BASE POINT WGR": "sumBasePointWGR",
+        "SUM   HASL  WGR": "sumHaslWGR",
+        "SUM  LASL WGR": "sumLaslWGR",
+        "SUM  BASE POINT REMAINING RESOURCES": "sumBasePointREMRES",
+        "SUM  HASL REMAINING RESOURCES": "sumHASLREMRES",
+        "SUM  LASL REMAINING RESOURCES": "sumLASLREMRES",
+        "SUM  GEN  TELEM  MW": "sumGenTelemMW"
+      }
+    ]
+  },
+  "np3-910-er/2d_agg_gen_summary_north": {
+    "member": "*_Agg_Gen_Summary_North[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM BASE POINT NON IRR": "sumBasePointNonIRR",
+      "SUM BASE POINT WGR": "sumBasePointWGR",
+      "SUM BASE POINT PVGR": "sumBasePointPVGR",
+      "SUM BASE POINT Remaining Res": "sumBasePointREMRES",
+      "SUM GEN TELEM MW": "sumGenTelemMW",
+      "SUM BASE POINT ESR": "sumBasePointESR",
+      "SUM BASE POINT ESR CHARGING": "sumBasePointESRCharge",
+      "SUM BASE POINT ESR DISCHARGING": "sumBasePointESRDischarge"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumBasePointNonIRR": "Decimal",
+      "sumBasePointWGR": "Decimal",
+      "sumBasePointPVGR": "Decimal",
+      "sumBasePointREMRES": "Decimal",
+      "sumGenTelemMW": "Decimal",
+      "sumBasePointESR": "Decimal",
+      "sumBasePointESRCharge": "Decimal",
+      "sumBasePointESRDischarge": "Decimal",
+      "sumBasePointNonWGR": "Decimal",
+      "sumHaslNonWGR": "Decimal",
+      "sumLaslNonWGR": "Decimal",
+      "sumHaslWGR": "Decimal",
+      "sumLaslWGR": "Decimal",
+      "sumHaslRemRes": "Decimal",
+      "sumLaslRemRes": "Decimal",
+      "sumHASLNonWGR": "Decimal",
+      "sumLASLNonWGR": "Decimal",
+      "sumHASLREMRES": "Decimal",
+      "sumLASLREMRES": "Decimal"
+    },
+    "variants": [
+      {
+        "SCED Time  Stamp": "SCEDTimestamp",
+        "Repeated Hour  Flag": "repeatHourFlag",
+        "SUM  BASE POINT NON-WGR": "sumBasePointNonWGR",
+        "SUM  HASL NON-WGR": "sumHASLNonWGR",
+        "SUM  LASL NON-WGR": "sumLASLNonWGR",
+        "SUM  BASE POINT WGR": "sumBasePointWGR",
+        "SUM   HASL  WGR": "sumHaslWGR",
+        "SUM  LASL WGR": "sumLaslWGR",
+        "SUM  BASE POINT REMAINING RESOURCES": "sumBasePointREMRES",
+        "SUM  HASL REMAINING RESOURCES": "sumHASLREMRES",
+        "SUM  LASL REMAINING RESOURCES": "sumLASLREMRES",
+        "SUM  GEN  TELEM  MW": "sumGenTelemMW"
+      }
+    ]
+  },
+  "np3-910-er/2d_agg_gen_summary_south": {
+    "member": "*_Agg_Gen_Summary_South[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM BASE POINT NON IRR": "sumBasePointNonIRR",
+      "SUM BASE POINT WGR": "sumBasePointWGR",
+      "SUM BASE POINT PVGR": "sumBasePointPVGR",
+      "SUM BASE POINT Remaining Res": "sumBasePointREMRES",
+      "SUM GEN TELEM MW": "sumGenTelemMW",
+      "SUM BASE POINT ESR": "sumBasePointESR",
+      "SUM BASE POINT ESR CHARGING": "sumBasePointESRCharge",
+      "SUM BASE POINT ESR DISCHARGING": "sumBasePointESRDischarge"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumBasePointNonIRR": "Decimal",
+      "sumBasePointWGR": "Decimal",
+      "sumBasePointPVGR": "Decimal",
+      "sumBasePointREMRES": "Decimal",
+      "sumGenTelemMW": "Decimal",
+      "sumBasePointESR": "Decimal",
+      "sumBasePointESRCharge": "Decimal",
+      "sumBasePointESRDischarge": "Decimal",
+      "sumBasePointNonWGR": "Decimal",
+      "sumHaslNonWGR": "Decimal",
+      "sumLaslNonWGR": "Decimal",
+      "sumHaslWGR": "Decimal",
+      "sumLaslWGR": "Decimal",
+      "sumHaslRemRes": "Decimal",
+      "sumLaslRemRes": "Decimal",
+      "sumHASLNonWGR": "Decimal",
+      "sumLASLNonWGR": "Decimal",
+      "sumHASLREMRES": "Decimal",
+      "sumLASLREMRES": "Decimal"
+    },
+    "variants": [
+      {
+        "SCED Time  Stamp": "SCEDTimestamp",
+        "Repeated Hour  Flag": "repeatHourFlag",
+        "SUM  BASE POINT NON-WGR": "sumBasePointNonWGR",
+        "SUM  HASL NON-WGR": "sumHASLNonWGR",
+        "SUM  LASL NON-WGR": "sumLASLNonWGR",
+        "SUM  BASE POINT WGR": "sumBasePointWGR",
+        "SUM   HASL  WGR": "sumHaslWGR",
+        "SUM  LASL WGR": "sumLaslWGR",
+        "SUM  BASE POINT REMAINING RESOURCES": "sumBasePointREMRES",
+        "SUM  HASL REMAINING RESOURCES": "sumHASLREMRES",
+        "SUM  LASL REMAINING RESOURCES": "sumLASLREMRES",
+        "SUM  GEN  TELEM  MW": "sumGenTelemMW"
+      }
+    ]
+  },
+  "np3-910-er/2d_agg_gen_summary_west": {
+    "member": "*_Agg_Gen_Summary_West[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM BASE POINT NON IRR": "sumBasePointNonIRR",
+      "SUM BASE POINT WGR": "sumBasePointWGR",
+      "SUM BASE POINT PVGR": "sumBasePointPVGR",
+      "SUM BASE POINT Remaining Res": "sumBasePointREMRES",
+      "SUM GEN TELEM MW": "sumGenTelemMW",
+      "SUM BASE POINT ESR": "sumBasePointESR",
+      "SUM BASE POINT ESR CHARGING": "sumBasePointESRCharge",
+      "SUM BASE POINT ESR DISCHARGING": "sumBasePointESRDischarge"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumBasePointNonIRR": "Decimal",
+      "sumBasePointWGR": "Decimal",
+      "sumBasePointPVGR": "Decimal",
+      "sumBasePointREMRES": "Decimal",
+      "sumGenTelemMW": "Decimal",
+      "sumBasePointESR": "Decimal",
+      "sumBasePointESRCharge": "Decimal",
+      "sumBasePointESRDischarge": "Decimal",
+      "sumBasePointNonWGR": "Decimal",
+      "sumHaslNonWGR": "Decimal",
+      "sumLaslNonWGR": "Decimal",
+      "sumHaslWGR": "Decimal",
+      "sumLaslWGR": "Decimal",
+      "sumHaslRemRes": "Decimal",
+      "sumLaslRemRes": "Decimal",
+      "sumHASLNonWGR": "Decimal",
+      "sumLASLNonWGR": "Decimal",
+      "sumHASLREMRES": "Decimal",
+      "sumLASLREMRES": "Decimal"
+    },
+    "variants": [
+      {
+        "SCED Time  Stamp": "SCEDTimestamp",
+        "Repeated Hour  Flag": "repeatHourFlag",
+        "SUM  BASE POINT NON-WGR": "sumBasePointNonWGR",
+        "SUM  HASL NON-WGR": "sumHASLNonWGR",
+        "SUM  LASL NON-WGR": "sumLASLNonWGR",
+        "SUM  BASE POINT WGR": "sumBasePointWGR",
+        "SUM   HASL  WGR": "sumHaslWGR",
+        "SUM  LASL WGR": "sumLaslWGR",
+        "SUM  BASE POINT REMAINING RESOURCES": "sumBasePointREMRES",
+        "SUM  HASL REMAINING RESOURCES": "sumHASLREMRES",
+        "SUM  LASL REMAINING RESOURCES": "sumLASLREMRES",
+        "SUM  GEN  TELEM  MW": "sumGenTelemMW"
+      }
+    ]
+  },
+  "np3-910-er/2d_agg_load_summary": {
+    "member": "*_Agg_Load_Summary[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM TELEM GEN MW": "sumTelemGenMW",
+      "SUM TELEM DCTIE MW": "sumTelemDCtieMW",
+      "AGG LOAD SUMMARY": "aggLoadSummary"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumTelemGenMW": "Decimal",
+      "sumTelemDCtieMW": "Decimal",
+      "aggLoadSummary": "Decimal"
+    }
+  },
+  "np3-910-er/2d_agg_load_summary_houston": {
+    "member": "*_Agg_Load_Summary_Houston[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM TELEM GEN MW": "sumTelemGenMW",
+      "SUM TELEM DCTIE MW": "sumTelemDCtieMW",
+      "AGG LOAD SUMMARY": "aggLoadSummary"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumTelemGenMW": "Decimal",
+      "sumTelemDCtieMW": "Decimal",
+      "aggLoadSummary": "Decimal"
+    }
+  },
+  "np3-910-er/2d_agg_load_summary_north": {
+    "member": "*_Agg_Load_Summary_North[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM TELEM GEN MW": "sumTelemGenMW",
+      "SUM TELEM DCTIE MW": "sumTelemDCtieMW",
+      "AGG LOAD SUMMARY": "aggLoadSummary"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumTelemGenMW": "Decimal",
+      "sumTelemDCtieMW": "Decimal",
+      "aggLoadSummary": "Decimal"
+    }
+  },
+  "np3-910-er/2d_agg_load_summary_south": {
+    "member": "*_Agg_Load_Summary_South[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM TELEM GEN MW": "sumTelemGenMW",
+      "SUM TELEM DCTIE MW": "sumTelemDCtieMW",
+      "AGG LOAD SUMMARY": "aggLoadSummary"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumTelemGenMW": "Decimal",
+      "sumTelemDCtieMW": "Decimal",
+      "aggLoadSummary": "Decimal"
+    }
+  },
+  "np3-910-er/2d_agg_load_summary_west": {
+    "member": "*_Agg_Load_Summary_West[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM TELEM GEN MW": "sumTelemGenMW",
+      "SUM TELEM DCTIE MW": "sumTelemDCtieMW",
+      "AGG LOAD SUMMARY": "aggLoadSummary"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumTelemGenMW": "Decimal",
+      "sumTelemDCtieMW": "Decimal",
+      "aggLoadSummary": "Decimal"
+    }
+  },
+  "np3-910-er/2d_agg_dsr_loads": {
+    "member": "*_Agg_DSR_Loads[ -]*.csv",
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatHourFlag",
+      "SUM TELEM DSR LOAD": "sumTelemDSRLoad",
+      "SUM TELEM DSR GEN": "sumTelemDSRGen"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "sumTelemDSRLoad": "Decimal",
+      "sumTelemDSRGen": "Decimal"
+    }
   }
 }
