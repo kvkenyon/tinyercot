@@ -6,6 +6,7 @@ from ._client import Page as Page
 from ._client import Product as Product
 from ._generated import *
 from ._history import Archive as Archive
+from ._legacy_load import LegacyHourlyLoad as LegacyHourlyLoad
 from ._load import LoadArchive as LoadArchive
 from ._load import WeatherZoneLoad as WeatherZoneLoad
 from ._pdf import PdfArchive as PdfArchive

@@ -1,0 +1,283 @@
+{
+  "checkedAt": "2026-09-07T22:49:00.979596+00:00",
+  "scope": "Every hourly measurement in all eight linked pre-2002 source files decoded and compared with an independent direct source read. The 1997 raw EEI and XLS files match at every one of 8760 hour/value pairs. Forecast companions and workbook summary/forecast tables are outside the hourly reader.",
+  "archives": [
+    {
+      "file": "erceei95.txt",
+      "sha256": "e388c19653b9cfd36c64fbd826e5255b7ce071944322250a456d250031ef7703",
+      "rows": 8760,
+      "firstOperatingDay": "1995-01-01",
+      "lastOperatingDay": "1995-12-31",
+      "entities": {
+        "ERCOT": 8760
+      },
+      "units": {
+        "MW": 8760
+      },
+      "sourceErrors": 0,
+      "decodedRowsSha256": "be9db60b6a8c3aad33833f69aa34cf6864e7f145f5bce070ecf7ca17d8259a79",
+      "url": "https://www.ercot.com/files/docs/2004/07/26/erceei95.txt",
+      "indexTitle": "1995 ERCOT Hourly Load Data"
+    },
+    {
+      "file": "96load.txt",
+      "sha256": "4eb15e58662c8b94ac8d402ee4b378524ad1ef62eb65af70dc1be979bd6554ae",
+      "rows": 9685,
+      "firstOperatingDay": "1996-01-01",
+      "lastOperatingDay": "1997-02-07",
+      "entities": {
+        "ERCOT": 9685
+      },
+      "units": {
+        "None": 9685
+      },
+      "sourceErrors": 0,
+      "decodedRowsSha256": "0f5d269f7424d3ee573167eaf935249150ba07c3d802a032b8ae39f7dd5a5c4a",
+      "url": "https://www.ercot.com/files/docs/2004/07/26/96load.txt",
+      "indexTitle": "1996 ERCOT Hourly Load Data"
+    },
+    {
+      "file": "erceei97.txt",
+      "sha256": "268fe421e99cf55a3551dc2f63cca12791f5201baa8f18a6af9c5918a7ab9b8d",
+      "rows": 8760,
+      "firstOperatingDay": "1997-01-01",
+      "lastOperatingDay": "1997-12-31",
+      "entities": {
+        "ERCOT": 8760
+      },
+      "units": {
+        "MW": 8760
+      },
+      "sourceErrors": 0,
+      "decodedRowsSha256": "2324feb570336e14649760f3c93293aef9f24fa693ba9194eb96a251416b9926",
+      "url": "https://www.ercot.com/files/docs/2004/07/26/erceei97.txt",
+      "indexTitle": "1997 ERCOT Hourly Load Data (Raw)"
+    },
+    {
+      "file": "erceei97.xls",
+      "sha256": "4c163bfc487661e9c7041c19be5f0fb6607114612bfab469799342479ff359c0",
+      "rows": 8760,
+      "firstOperatingDay": "1997-01-01",
+      "lastOperatingDay": "1997-12-31",
+      "entities": {
+        "ERCOT": 8760
+      },
+      "units": {
+        "MW": 8760
+      },
+      "sourceErrors": 0,
+      "decodedRowsSha256": "6d716e4043dcf1678e4cecf06636b56686acaea7e2d1484132bebcb5e8595900",
+      "url": "https://www.ercot.com/files/docs/2004/07/26/erceei97.xls",
+      "indexTitle": "1997 ERCOT Hourly Load Data"
+    },
+    {
+      "file": "97frc714.zip",
+      "sha256": "0ccbbfea1c52b25156e071a28b96e63631fe7e94c677885698e4901fd8a15f7a",
+      "rows": 96624,
+      "firstOperatingDay": "1996-01-01",
+      "lastOperatingDay": "1996-12-31",
+      "entities": {
+        "COA": 8784,
+        "CPL": 8784,
+        "CPS": 8784,
+        "HLP": 8784,
+        "LCRA": 8784,
+        "PUB": 8784,
+        "STM": 8784,
+        "TMPA": 8784,
+        "TNP": 8784,
+        "TUE": 8784,
+        "WTU": 8784
+      },
+      "units": {
+        "MW": 96624
+      },
+      "sourceErrors": 0,
+      "decodedRowsSha256": "d062eec84b409690e3d088de60cb6100cdc272c7fa947e2c6937740190a7c5ed",
+      "url": "https://www.ercot.com/files/docs/2002/12/11/97frc714.zip",
+      "indexTitle": "1997 ERCOT Hourly Load Data"
+    },
+    {
+      "file": "ferc714.zip",
+      "sha256": "54cb33600a6f46fafbc9992afe74efb22394ecc85d733b41859b182acc8a5b79",
+      "rows": 236520,
+      "firstOperatingDay": "1998-01-01",
+      "lastOperatingDay": "1998-12-31",
+      "entities": {
+        "AENX": 8760,
+        "BEPC": 8760,
+        "BOWX": 8760,
+        "BPMX": 8760,
+        "BRDX": 8760,
+        "BRYN": 8760,
+        "CODX": 8760,
+        "COGX": 8760,
+        "CPLC": 8760,
+        "CPSB": 8760,
+        "GEUS": 8760,
+        "GRBX": 8760,
+        "HERN": 8760,
+        "HLPC": 8760,
+        "HUCO & COFV": 8760,
+        "LCRA": 8760,
+        "MECX": 8760,
+        "PUBX": 8760,
+        "RCEC": 8760,
+        "SESC": 8760,
+        "STEC": 8760,
+        "TNMP": 8760,
+        "TUEC": 8760,
+        "TXLA": 8760,
+        "WEAT": 8760,
+        "WTUC": 8760,
+        "TOTAL": 8760
+      },
+      "units": {
+        "kW": 236520
+      },
+      "sourceErrors": 0,
+      "decodedRowsSha256": "2918cc07be398fd542bc072cef7474520b5d2f0a65f9bdd55730fc30a7332e97",
+      "url": "https://www.ercot.com/files/docs/2002/12/11/ferc714.zip",
+      "indexTitle": "1998 ERCOT Hourly Load Data"
+    },
+    {
+      "file": "1999ferc714.zip",
+      "sha256": "33462ad69c7c85298f67cf248024285f86c2776cd9c5c711f70bc6d3c2dfdfa5",
+      "rows": 96371,
+      "firstOperatingDay": "1999-01-01",
+      "lastOperatingDay": "1999-12-31",
+      "entities": {
+        "AENX": 8761,
+        "CPST": 8761,
+        "CSWS": 8761,
+        "LCRA": 8761,
+        "PUBX": 8761,
+        "REIT": 8761,
+        "STEC": 8761,
+        "TMPP": 8761,
+        "TNMP": 8761,
+        "TUET": 8761,
+        "ERCOT TOTAL": 8761
+      },
+      "units": {
+        "None": 96371
+      },
+      "sourceErrors": 4,
+      "decodedRowsSha256": "b1eb2539e5287ca3284345ee386093ce187628ed07be7548355dd0d53b230a0d",
+      "url": "https://www.ercot.com/files/docs/2002/12/11/1999ferc714.zip",
+      "indexTitle": "1999 ERCOT Hourly Load Data"
+    },
+    {
+      "file": "2000ferc714.zip",
+      "sha256": "52ab74e4f82b630c05152f781088eaca1a60f111dae2bf674a7380f62b6fb8b7",
+      "rows": 96635,
+      "firstOperatingDay": "2000-01-01",
+      "lastOperatingDay": "2000-12-31",
+      "entities": {
+        "AENX": 8785,
+        "AEPX": 8785,
+        "CPST": 8785,
+        "LCRA": 8785,
+        "BPUB": 8785,
+        "REIT": 8785,
+        "STEC": 8785,
+        "TMPP": 8785,
+        "TNMP": 8785,
+        "TUET": 8785,
+        "ERCOT TOTAL": 8785
+      },
+      "units": {
+        "None": 96635
+      },
+      "sourceErrors": 0,
+      "decodedRowsSha256": "f3c244ab82d734c786c68c3200efce4086764ad864ddbff0ba9d0f6c347c17db",
+      "url": "https://www.ercot.com/files/docs/2005/11/10/2000ferc714.zip",
+      "indexTitle": "2000 ERCOT Hourly Load Data"
+    }
+  ],
+  "eeiFormatSource": "https://www.canr.msu.edu/ipu/uploads/migration/2016/12/Profozich-Czamanski-Electric-Time-Use-Colorado-81-4-Aug-81.pdf",
+  "unitHandling": "EEI loads use MWh/hr, equivalent to MW; 1997 XLS explicitly states mw; 1998 XLS explicitly states kW. Unlabelled 1996/1999/2000 text retains unit=None with original numeric magnitude.",
+  "liveWorkflow": {
+    "checkedAt": "2026-09-07T22:52:05.611260+00:00",
+    "requests": [
+      {
+        "url": "https://www.ercot.com/gridinfo/load/load_hist",
+        "status": 200
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2004/07/26/erceei95.txt",
+        "status": 200
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2004/07/26/96load.txt",
+        "status": 200
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2002/12/11/97frc714.zip",
+        "status": 200
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2004/07/26/erceei97.txt",
+        "status": 200
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2004/07/26/erceei97.xls",
+        "status": 200
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2002/12/11/ferc714.zip",
+        "status": 200
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2002/12/11/1999ferc714.zip",
+        "status": 200
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2005/11/10/2000ferc714.zip",
+        "status": 200
+      }
+    ],
+    "rowCount": 24,
+    "firstRow": {
+      "operatingDay": "1995-01-01",
+      "hourEnding": 1,
+      "entity": "ERCOT",
+      "entityType": "system",
+      "controlArea": null,
+      "demand": "19732",
+      "unit": "MW",
+      "sourceMember": "erceei95.txt",
+      "sourceError": null,
+      "sourceSheet": null,
+      "sourceCardHeader": " 1 195196505386     "
+    },
+    "lastRow": {
+      "operatingDay": "1995-01-01",
+      "hourEnding": 24,
+      "entity": "ERCOT",
+      "entityType": "system",
+      "controlArea": null,
+      "demand": "24101",
+      "unit": "MW",
+      "sourceMember": "erceei95.txt",
+      "sourceError": null,
+      "sourceSheet": null,
+      "sourceCardHeader": " 1 1952965          "
+    },
+    "authenticationHeadersSent": false
+  },
+  "indexUrl": "https://www.ercot.com/gridinfo/load/load_hist",
+  "fixture": {
+    "path": "tools/inputs/history/legacy-hourly-load.zip",
+    "sha256": "9d7bf99b2e47ef8752c719dc0ff56667be35ef898c31b1f49aef5707ef1158ba",
+    "scope": "Unmodified bytes of all eight original pre-2002 linked files, wrapped together in a ZIP."
+  },
+  "sourceCaveats": [
+    "96load.txt runs from January 1,1996 through February7,1997 hour13. The index label does not bound its contents.",
+    "97frc714.zip is labelled1997 but contains 1996 EEI measurements.",
+    "1999 has four #VALUE! cells. Their demand is None and sourceError retains the published error.",
+    "1999 repeats hour2 on October31; 2000 repeats hour3 on October29, yielding8761 and8785 source hour rows respectively. No UTC offsets or deduplication are inferred.",
+    "1996,1999 and2000 text files do not state their unit. Values retain their published magnitude and unit=None.",
+    "Companion forecasts, workbook peak/energy summaries and miscellaneous EEI header metadata are not decoded as separate data products; original card header text is retained."
+  ]
+}
