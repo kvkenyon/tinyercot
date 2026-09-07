@@ -1285,5 +1285,68 @@
       "totalAward": "Decimal",
       "MCPC": "Decimal"
     }
+  },
+  "np4-183-cd/dam_hourly_lmp": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "BusName": "busName",
+      "LMP": "LMP",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    }
+  },
+  "np4-191-cd/dam_shadow_prices": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "ConstraintID": "constraintId",
+      "ConstraintName": "constraintName",
+      "ContingencyName": "contingencyName",
+      "ConstraintLimit": "constraintLimit",
+      "ConstraintValue": "constraintValue",
+      "ViolationAmount": "violationAmount",
+      "ShadowPrice": "shadowPrice",
+      "FromStation": "fromStation",
+      "ToStation": "toStation",
+      "FromStationkV": "fromStationkV",
+      "ToStationkV": "toStationkV",
+      "DeliveryTime": "deliveryTime",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "deliveryTime": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np6-344-cd/act_sys_load_by_study_area": {
+    "columns": {
+      "OperatingDay": "operatingDay",
+      "HourEnding": "hourEnding",
+      "Valley": "valley",
+      "DSTFlag": "repeatedHourFlag"
+    },
+    "dates": {
+      "operatingDay": "%m/%d/%Y"
+    }
+  },
+  "np6-346-cd/act_sys_load_by_fzn": {
+    "columns": {
+      "OperDay": "operatingDay",
+      "HourEnding": "hourEnding",
+      "NORTH": "north",
+      "SOUTH": "south",
+      "WEST": "west",
+      "HOUSTON": "houston",
+      "TOTAL": "total",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "operatingDay": "%m/%d/%Y"
+    }
   }
 }

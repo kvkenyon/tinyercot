@@ -48,6 +48,7 @@ class Archive(Generic[T]):
         dates: dict[str, str],
         *,
         member: str = "*.csv",
+        datetimes: dict[str, str] | None = None,
         variants: tuple[dict[str, str], ...] = (),
     ) -> None:
         self._client = client
@@ -56,6 +57,7 @@ class Archive(Generic[T]):
         self._layouts = (columns, *variants)
         self._member = member
         self._dates = dates
+        self._datetimes = datetimes or {}
 
     def read(self, data: bytes) -> Iterator[T]:
         """Read CSV members in a downloaded ZIP, including nested ZIPs.
@@ -87,6 +89,11 @@ class Archive(Generic[T]):
                             if value and target in self._dates
                             else value or None
                         )
+                    for target, format in self._datetimes.items():
+                        value = converted.get(target)
+                        if isinstance(value, str):
+                            # Preserve the local timestamp and separate repeated-hour flag.
+                            converted[target] = datetime.strptime(value, format)  # noqa: DTZ007
                     yield self._row.model_validate(converted)
                 except ValueError as error:
                     raise ValueError(f"{filename}:{line}: {error}") from error
@@ -125,11 +132,9 @@ class Archive(Generic[T]):
             and posted_from > posted_to
         ):
             raise ValueError("posted_from must not be after posted_to")
-        for document in self._client.iter_documents(self._product):
-            if posted_from is not None and document.postDatetime < posted_from:
-                continue
-            if posted_to is not None and document.postDatetime > posted_to:
-                continue
+        for document in self._client.iter_documents(
+            self._product, posted_from=posted_from, posted_to=posted_to
+        ):
             for row in self.download([document.docId]):
                 if where is None or where(row):
                     yield row
