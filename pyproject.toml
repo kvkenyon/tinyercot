@@ -17,6 +17,7 @@ dependencies = [
 
 [project.optional-dependencies]
 files = ["openpyxl>=3.1.5"]
+pdf = ["pypdf>=6.12.0"]
 
 [project.urls]
 Homepage = "https://github.com/kvkenyon/tinyercot"
@@ -25,6 +26,7 @@ Issues = "https://github.com/kvkenyon/tinyercot/issues"
 
 [dependency-groups]
 dev = [
+    "pypdf>=6.12.0",
     "openpyxl>=3.1.5",
     "mypy>=2.3.1",
     "types-openpyxl>=3.1.5",

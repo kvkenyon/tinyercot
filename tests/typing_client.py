@@ -261,3 +261,11 @@ with Client() as client:
     for eia_hourly in client.eia_930_cd.hourly_operations_history.rows():
         assert_type(eia_hourly.dataDate, date | None)
         assert_type(eia_hourly.HR1, Decimal | datetime | None)
+
+    for integration in client.np4_765_er.daily_values_history.rows():
+        assert_type(integration.reportDate, date | None)
+        assert_type(integration.installedDischargeCapacityMW, Decimal | None)
+        assert_type(integration.sourceNotes, str | None)
+    for record_power in client.np4_765_er.power_records_history.rows():
+        assert_type(record_power.recordTime, datetime | None)
+        assert_type(record_power.recordMW, Decimal | None)
