@@ -6,6 +6,9 @@ from typing import assert_type
 from tinyercot import (
     Archive,
     Client,
+    FuelMixArchive,
+    FuelMixDay,
+    FuelMixTotal,
     LegacyHourlyLoad,
     LoadArchive,
     LoadOutlook,
@@ -17,6 +20,12 @@ from tinyercot import (
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    assert_type(client.fuel_mix.archives(), list[FuelMixArchive])
+    assert_type(client.fuel_mix.rows(date_from=date(2007, 1, 1)), Iterator[FuelMixDay])
+    assert_type(client.fuel_mix.summaries(year_from=2007), Iterator[FuelMixTotal])
+    assert_type(client.fuel_mix.read(b""), Iterator[FuelMixDay])
 
 with Client() as client:
     result = client.np4_190_cd.dam_stlmnt_pnt_prices(deliveryDateFrom=date(2026, 1, 1))

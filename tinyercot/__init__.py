@@ -4,6 +4,10 @@ from ._client import Document as Document
 from ._client import History as History
 from ._client import Page as Page
 from ._client import Product as Product
+from ._fuel_mix import FuelMixArchive as FuelMixArchive
+from ._fuel_mix import FuelMixDay as FuelMixDay
+from ._fuel_mix import FuelMixInterval as FuelMixInterval
+from ._fuel_mix import FuelMixTotal as FuelMixTotal
 from ._generated import *
 from ._history import Archive as Archive
 from ._legacy_load import LegacyHourlyLoad as LegacyHourlyLoad

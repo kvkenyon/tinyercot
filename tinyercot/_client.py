@@ -16,6 +16,7 @@ from httpx_retries import Retry, RetryTransport
 from pydantic import BaseModel, ConfigDict, Field
 
 from ._dashboards import Dashboards
+from ._fuel_mix import FuelMix
 from ._load import HourlyLoad
 from ._wind import WindIntegration
 
@@ -327,6 +328,10 @@ class Transport:
             if page >= result.meta.totalPages:
                 return
             page += 1
+
+    @property
+    def fuel_mix(self) -> FuelMix:
+        return FuelMix(self._http)
 
     @property
     def hourly_load(self) -> HourlyLoad:

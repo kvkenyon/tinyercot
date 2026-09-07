@@ -226,6 +226,45 @@ retain both years. Printed MW, MWh and GWh units are preserved without rescaling
 unlabelled units and measures remain explicit. See
 `tools/inputs/public-load-outlook-evidence.json` for source comparisons.
 
+### Historical generation by fuel
+
+`fuel_mix` reads the public annual settlement workbooks, independently of the
+live `dashboards.fuel_mix()` feed. Install `tinyercot[files]` for XLS/XLSX support.
+
+```python
+with Client(timeout=180) as ercot:
+    for day in ercot.fuel_mix.rows(
+        date_from=date(2007, 1, 1), date_to=date(2007, 1, 1)
+    ):
+        print(day.operatingDay, day.fuel, day.settlementType, day.totalMWh)
+        for interval in day.intervals:
+            print(interval.ending, interval.dst, interval.energyMWh)
+
+    for total in ercot.fuel_mix.summaries(year_from=2026, year_to=2026):
+        print(total.month, total.fuel, total.energy, total.unit)
+```
+
+`archives()` discovers the current index links; `download()` returns the original
+file. `read(data, filename=...)` and `read_summaries(data, filename=...)` decode
+saved XLS/XLSX files or their ZIP archive. Standalone modern summary workbooks
+need the original filename to identify the year. Older years share a roughly
+51 MB ZIP download; bounded queries skip workbooks for other years after download.
+
+Each daily row retains its original fuel name, settlement status, published total
+and ordered interval cells. Midnight ends the operating day. Blank cells remain
+`None`, WSL values can be negative, and DST columns retain their labels and
+positions. Older `DST1`–`DST4` columns and unlabelled columns have no inferred clock
+time. Malformed source values retain `sourceError`. Monthly/annual summaries retain
+their own MWh/GWh units and precision, including source month markers such as
+`Jan*`; they are not recomputed from daily rows. These settlement values are distinct
+from instantaneous dashboard generation in MW. The workbook's chart-support sheets
+are not included in these daily and summary table readers.
+
+The September 2026 source check decoded all 20 linked annual workbooks: 62,071
+daily fuel rows, 5,984,876 interval cells and 2,386 published totals. Every numeric
+value, blank cell and preserved error matched an independent source read. The
+2026 file currently ends July 31. See `tools/inputs/public-fuel-mix-evidence.json`.
+
 ### Direct public wind archives
 
 Install `tinyercot[pdf]`. These public website files need no API credentials.
