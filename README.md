@@ -288,3 +288,12 @@ prices retain the RTD execution time and forecast interval separately, with both
 repeated-hour flags. SCED history retains legacy `MCPC` separately from newer
 `cappedMCPC` and `uncappedMCPC`; missing source fields remain `None`. The products
 remain distinct so indicative prices are not confused with clearing prices.
+
+Daily and hourly RUC transmission constraints (NP5-754/755) and RTD indicative
+LMPs (NP6-970) also expose typed `_history` readers. Constraint rows retain IDs,
+station names, decimal voltage values, and execution timestamps. RTD price rows
+retain the run timestamp separately from the forecast interval and preserve old
+settlement-point type codes. For example,
+`ercot.np6_970_cd.rtd_lmp_node_zone_hub_history.rows(...)` reads indicative prices;
+it does not replace the SCED LMP or settlement-price products. The oldest sampled
+RTD archive in the September 2026 probe was from May 2014.

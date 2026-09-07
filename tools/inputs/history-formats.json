@@ -3732,5 +3732,88 @@
       "uncappedMCPC": "Decimal",
       "MCPC": "Decimal"
     }
+  },
+  "np5-754-cd/daily_ruc_act_and_bind_tran_const": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "RUCTimeStamp": "RUCTimestamp",
+      "ConstraintID": "constraintID",
+      "ConstraintName": "constraintName",
+      "ContingencyName": "contingencyName",
+      "Limit": "limit",
+      "Value": "value",
+      "ViolationAmount": "violationAmount",
+      "FromStation": "fromStation",
+      "ToStation": "toStation",
+      "FromStationkV": "fromStationkV",
+      "ToStationkV": "toStationkV",
+      "DSTFlag": "repeatedHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "RUCTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np5-755-cd/hrly_ruc_act_and_bind_tran_const": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "RUCTimeStamp": "RUCTimestamp",
+      "ConstraintID": "constraintID",
+      "ConstraintName": "constraintName",
+      "ContingencyName": "contingencyName",
+      "Limit": "limit",
+      "Value": "value",
+      "ViolationAmount": "violationAmount",
+      "FromStation": "fromStation",
+      "ToStation": "toStation",
+      "FromStationkV": "fromStationkV",
+      "ToStationkV": "toStationkV",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S",
+      "RUCTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "RUCTimestamp": "datetime",
+      "constraintID": "int",
+      "constraintName": "str",
+      "contingencyName": "str",
+      "limit": "Decimal",
+      "value": "Decimal",
+      "violationAmount": "Decimal",
+      "fromStation": "str",
+      "toStation": "str",
+      "fromStationkV": "Decimal",
+      "toStationkV": "Decimal",
+      "DSTFlag": "bool"
+    }
+  },
+  "np6-970-cd/rtd_lmp_node_zone_hub": {
+    "columns": {
+      "RTDTimestamp": "RTDTimestamp",
+      "RepeatedHourFlag": "repeatHourFlag",
+      "IntervalId": "intervalId",
+      "IntervalEnding": "intervalEnding",
+      "IntervalRepeatedHourFlag": "intervalRepeatHourFlag",
+      "SettlementPoint": "settlementPoint",
+      "SettlementPointType": "settlementPointType",
+      "LMP": "LMP"
+    },
+    "dates": {},
+    "datetimes": {
+      "RTDTimestamp": "%m/%d/%Y %H:%M:%S",
+      "intervalEnding": "%m/%d/%Y %H:%M:%S"
+    }
   }
 }
