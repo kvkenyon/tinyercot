@@ -127,3 +127,11 @@ Archive-only CSV products also have generated namespaces: resource ownership
 adjusted meter load (`ercot.np1_300.adjusted_meter_load_history`). These expose the same typed
 `read`, `download`, and `rows` methods without inventing row-query API endpoints.
 DUNS identifiers remain strings, counts are integers, and percentages are decimals.
+
+`ercot.eia_930_er.daily_operations_history` reads both captured EIA daily layouts.
+Its `HR1` through `HR25` cells are `Decimal | datetime | None`: demand, generation,
+and flow values stay numeric, while UTC rows carry timezone-aware timestamps.
+A published `24:00:00Z` becomes midnight on the following date. The older
+`postedDate` and `interconnectedBalancingAuthorityCode` fields are preserved
+separately from the newer `dataDate` and `dataCode` fields. This reader preserves
+wide source rows; it does not join timing rows to measurement rows.

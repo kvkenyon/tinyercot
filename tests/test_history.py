@@ -1,5 +1,5 @@
 import json
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 from decimal import Decimal
 from io import BytesIO
 from pathlib import Path
@@ -268,3 +268,48 @@ def test_meter_load_keeps_decimal_precision_and_unused_intervals():
     assert rows[0].INT100 is None
     assert rows[0].startTime == date(2025, 11, 30)
     assert rows[0].LSTime == date(2026, 5, 26)
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "eia-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_eia_daily_mixed_hour_types(sample):
+    with Client() as client:
+        rows = list(
+            client.eia_930_er.daily_operations_history.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == sample["csv_rows"]
+    for row in rows:
+        for hour in range(1, 26):
+            value = getattr(row, f"HR{hour}")
+            if value is not None:
+                assert isinstance(
+                    value, datetime if row.dataType.startswith("UTC") else Decimal
+                )
+                if isinstance(value, datetime):
+                    assert value.tzinfo is not None
+    if "samples" in sample["fixture"]:
+        assert rows[0].HR18 == datetime(2015, 2, 9, tzinfo=UTC)
+        assert rows[0].postedDate == date(2015, 2, 8)
+        assert rows[0].dataDate is None
+        assert rows[1].HR1 == Decimal(28241)
+    else:
+        assert rows[0].HR19 == datetime(2026, 9, 7, tzinfo=UTC)
+        assert rows[0].dataDate == date(2026, 9, 6)
+        assert rows[0].postedDate is None
+        assert rows[1].HR1 == Decimal(64271)
+    assert rows[0].HR25 is None
+
+
+@pytest.mark.parametrize("invalid", [b"2026-09-06T24:01:00.000Z", b"not-a-number"])
+def test_eia_invalid_hour_reports_the_csv_member(invalid):
+    source = (INPUTS / "eia-930-er-history-current.csv").read_bytes()
+    content = source.replace(b"2026-09-06T06:00:00.000Z", invalid)
+    with Client() as client, pytest.raises(ValueError, match="eia.csv:2"):
+        list(
+            client.eia_930_er.daily_operations_history.read(zipped("eia.csv", content))
+        )
