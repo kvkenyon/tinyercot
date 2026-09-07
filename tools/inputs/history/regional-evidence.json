@@ -1,0 +1,134 @@
+[
+  {
+    "endpoint": "np4-442-cd/hrly_sys_reg_wind_fcast_model",
+    "fixture": "np4-442-cd-history-current.csv",
+    "file": "cdr.00019385.0000000000000000.20260907.115500.HrlySysWideRegWindForecastsModelNP4442.csv",
+    "csv_rows": 11016,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 12,
+      "region": "SYSTEM_TOTAL",
+      "value": "2661.1",
+      "model": "S",
+      "inUseFlag": true,
+      "DSTFlag": false
+    },
+    "rows_decoded": 11016
+  },
+  {
+    "endpoint": "np4-442-cd/hrly_sys_reg_wind_fcast_model",
+    "fixture": "np4-442-cd-history-samples.csv",
+    "file": "cdr.00019385.0000000000000000.20200806.165536.HRLYSTWPFWGRPPFCSTMODLNP4442.csv",
+    "csv_rows": 8856,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2020-08-04",
+      "hourEnding": 17,
+      "region": "SYSTEM_TOTAL",
+      "value": "3642.6999969482422",
+      "model": "S",
+      "inUseFlag": true,
+      "DSTFlag": false
+    },
+    "rows_decoded": 8856
+  },
+  {
+    "endpoint": "np4-443-cd/hrly_sys_reg_solar_fcast_model",
+    "fixture": "np4-443-cd-history-current.csv",
+    "file": "cdr.00021811.0000000000000000.20260907.115500.HRLYSTPPFPVGRPPFCSTMODLNP4443.csv",
+    "csv_rows": 13176,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 12,
+      "region": "CENTEREAST",
+      "value": "3940.5",
+      "model": "PVGRPP1",
+      "inUseFlag": false,
+      "DSTFlag": false
+    },
+    "rows_decoded": 13176
+  },
+  {
+    "endpoint": "np4-443-cd/hrly_sys_reg_solar_fcast_model",
+    "fixture": "np4-443-cd-history-samples.csv",
+    "file": "cdr.00021811.0000000000000000.20260326.115500.HRLYSTPPFPVGRPPFCSTMODLNP4443.csv",
+    "csv_rows": 13176,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-03-24",
+      "hourEnding": 12,
+      "region": "CENTEREAST",
+      "value": "3378.1",
+      "model": "PVGRPP1",
+      "inUseFlag": false,
+      "DSTFlag": false
+    },
+    "rows_decoded": 13176
+  },
+  {
+    "endpoint": "np4-751-cd/ih_wind_fcast_geo",
+    "fixture": "np4-751-cd-history-current.csv",
+    "file": "cdr.00016554.0000000000000000.20260907.124200.INTRAHRWINDFCASTNP4751.csv",
+    "csv_rows": 384,
+    "first_row": {
+      "postedDatetime": null,
+      "intervalEnding": "2026-09-07T12:45:00",
+      "region": "COASTAL",
+      "value": "536.7",
+      "model": "A",
+      "inUseFlag": true,
+      "DSTFlag": false
+    },
+    "rows_decoded": 384
+  },
+  {
+    "endpoint": "np4-751-cd/ih_wind_fcast_geo",
+    "fixture": "np4-751-cd-history-samples.csv",
+    "file": "cdr.00016554.0000000000000000.20260326.114200.INTRAHRWINDFCASTNP4751.csv",
+    "csv_rows": 384,
+    "first_row": {
+      "postedDatetime": null,
+      "intervalEnding": "2026-03-26T11:45:00",
+      "region": "COASTAL",
+      "value": "2615.1",
+      "model": "A",
+      "inUseFlag": true,
+      "DSTFlag": false
+    },
+    "rows_decoded": 384
+  },
+  {
+    "endpoint": "np4-752-cd/ih_solar_fcast_geo",
+    "fixture": "np4-752-cd-history-current.csv",
+    "file": "cdr.00021812.0000000000000000.20260907.124200.INTRAHRSOLARFCASTNP4752.csv",
+    "csv_rows": 456,
+    "first_row": {
+      "postedDatetime": null,
+      "intervalEnding": "2026-09-07T12:45:00",
+      "region": "CENTEREAST",
+      "value": "4616.9",
+      "model": "A",
+      "inUseFlag": false,
+      "DSTFlag": false
+    },
+    "rows_decoded": 456
+  },
+  {
+    "endpoint": "np4-752-cd/ih_solar_fcast_geo",
+    "fixture": "np4-752-cd-history-samples.csv",
+    "file": "cdr.00021812.0000000000000000.20260326.114200.INTRAHRSOLARFCASTNP4752.csv",
+    "csv_rows": 456,
+    "first_row": {
+      "postedDatetime": null,
+      "intervalEnding": "2026-03-26T11:45:00",
+      "region": "CENTEREAST",
+      "value": "4494.1",
+      "model": "A",
+      "inUseFlag": false,
+      "DSTFlag": false
+    },
+    "rows_decoded": 456
+  }
+]

@@ -7070,6 +7070,21 @@ class np4_442_cd:
         region: str | None
         value: Decimal | None
 
+    class HrlySysRegWindFcastModelHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: int | None
+        region: str | None
+        value: Decimal | None
+        model: str | None
+        inUseFlag: bool | None
+        DSTFlag: bool | None
+
+    @property
+    def hrly_sys_reg_wind_fcast_model_history(self) -> Archive[np4_442_cd.HrlySysRegWindFcastModelHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-442-cd', np4_442_cd.HrlySysRegWindFcastModelHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Region': 'region', 'Value': 'value', 'Model': 'model', 'InUseFlag': 'inUseFlag', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
+
     def hrly_sys_reg_wind_fcast_model(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, region: str | None = None, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, model: str | None = None, inUseFlag: bool | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_442_cd.HrlySysRegWindFcastModelRow]:
         'Hourly System-wide and Regional Wind Forecasts by Model'
         return self._client._page('/np4-442-cd/hrly_sys_reg_wind_fcast_model', np4_442_cd.HrlySysRegWindFcastModelRow, {'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'region': region, 'valueFrom': valueFrom, 'valueTo': valueTo, 'model': model, 'inUseFlag': inUseFlag, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7099,6 +7114,21 @@ class np4_443_cd:
         postedDatetime: datetime | None
         region: str | None
         value: Decimal | None
+
+    class HrlySysRegSolarFcastModelHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: int | None
+        region: str | None
+        value: Decimal | None
+        model: str | None
+        inUseFlag: bool | None
+        DSTFlag: bool | None
+
+    @property
+    def hrly_sys_reg_solar_fcast_model_history(self) -> Archive[np4_443_cd.HrlySysRegSolarFcastModelHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-443-cd', np4_443_cd.HrlySysRegSolarFcastModelHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Region': 'region', 'Value': 'value', 'Model': 'model', 'InUseFlag': 'inUseFlag', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
 
     def hrly_sys_reg_solar_fcast_model(self, *, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, model: str | None = None, inUseFlag: bool | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, region: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_443_cd.HrlySysRegSolarFcastModelRow]:
         'Hourly System-Wide and Regional Solar Forecasts by Model'
@@ -7721,6 +7751,20 @@ class np4_751_cd:
         region: str | None
         value: Decimal | None
 
+    class IhWindFcastGeoHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        region: str | None
+        value: Decimal | None
+        model: str | None
+        inUseFlag: bool | None
+        DSTFlag: bool | None
+
+    @property
+    def ih_wind_fcast_geo_history(self) -> Archive[np4_751_cd.IhWindFcastGeoHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-751-cd', np4_751_cd.IhWindFcastGeoHistoryRow, {'IntervalEnding': 'intervalEnding', 'Region': 'region', 'Value': 'value', 'Model': 'model', 'InUseFlag': 'inUseFlag', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=())
+
     def ih_wind_fcast_geo(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, region: str | None = None, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, model: str | None = None, inUseFlag: bool | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_751_cd.IhWindFcastGeoRow]:
         'Intra-Hour Wind Power Forecast By Geographical Region'
         return self._client._page('/np4-751-cd/ih_wind_fcast_geo', np4_751_cd.IhWindFcastGeoRow, {'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'intervalEndingFrom': intervalEndingFrom, 'intervalEndingTo': intervalEndingTo, 'region': region, 'valueFrom': valueFrom, 'valueTo': valueTo, 'model': model, 'inUseFlag': inUseFlag, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7749,6 +7793,20 @@ class np4_752_cd:
         postedDatetime: datetime | None
         region: str | None
         value: Decimal | None
+
+    class IhSolarFcastGeoHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        region: str | None
+        value: Decimal | None
+        model: str | None
+        inUseFlag: bool | None
+        DSTFlag: bool | None
+
+    @property
+    def ih_solar_fcast_geo_history(self) -> Archive[np4_752_cd.IhSolarFcastGeoHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-752-cd', np4_752_cd.IhSolarFcastGeoHistoryRow, {'IntervalEnding': 'intervalEnding', 'Region': 'region', 'Value': 'value', 'Model': 'model', 'InUseFlag': 'inUseFlag', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=())
 
     def ih_solar_fcast_geo(self, *, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, region: str | None = None, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, model: str | None = None, inUseFlag: bool | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_752_cd.IhSolarFcastGeoRow]:
         'Intra-Hour Solar Power Forecast by Geographical Region'

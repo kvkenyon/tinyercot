@@ -244,3 +244,22 @@ categories; legacy offer-cap files retain `SWCAP` separately from `DASWCAP` and
 `RTSWCAP`. Missing later columns remain `None`. The latest listed total-offers
 archive in the September 2026 probe was from December 2025; an archive listing
 must be checked before assuming a product has current historical publications.
+
+Renewable forecast archives include hourly forecasts by model (NP4-442/443) and
+intra-hour regional forecasts (NP4-751/752). Each row keeps its `region`, `model`,
+and `inUseFlag`; forecasts from alternative models are not merged. To select
+ERCOT's in-use forecast for one region:
+
+```python
+with Client() as ercot:
+    for forecast in ercot.np4_752_cd.ih_solar_fcast_geo_history.rows(
+        posted_from=datetime(2026, 8, 1),
+        posted_to=datetime(2026, 8, 2),
+        where=lambda row: row.region == "CENTEREAST" and row.inUseFlag is True,
+    ):
+        print(forecast.intervalEnding, forecast.model, forecast.value)
+```
+
+`SYSTEM_TOTAL` rows remain separate from regional rows; summing both would count
+both the total and its components. As with load forecasts, preserve document
+metadata when publication time matters because these CSVs omit `postedDatetime`.
