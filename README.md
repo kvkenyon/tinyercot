@@ -522,6 +522,10 @@ demand-response workbooks from 2018–2025 also decoded all 816 rows, with all
 seven data values per row matching their source cells. Their January 2024/2025
 samples have 120 rows, compared with 96 in earlier samples. The separate
 monthly deployment-factor product returned no January archives for 2015–2025.
+The related 15-minute price-adder workbooks from 2018–2025 decoded 20,832
+rows with all seven source values matching, including interval labels and
+legacy price components. Newer components absent from those files remain
+`None`. Each sampled workbook contains only the January worksheet.
 Queries, document IDs, hashes and worksheet counts are recorded in
 `tools/inputs/history/annual-workbooks-evidence.json`.
 

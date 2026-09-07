@@ -1,5 +1,5 @@
 {
-  "scope": "One January publication per year where available. Demand-response selected sheets were compared with all seven source data cells for every row. Price-adder selected sheets were decoded in full, and SCEDTimestamp, repeatHourFlag, systemLambda, RTRUCCST30HSL and RTNCLRNSCAP were compared with source cells for every row. Empty future month sheets and empty January listings are retained in the evidence. This does not establish continuous retention or every historical layout.",
+  "scope": "One January publication per year where available. Demand-response selected sheets were compared with all seven source data cells for every row. Price-adder selected sheets were decoded in full, and SCEDTimestamp, repeatHourFlag, systemLambda, RTRUCCST30HSL and RTNCLRNSCAP were compared with source cells for every row. Empty future month sheets and empty January listings are retained in the evidence. This does not establish continuous retention or every historical layout. For 15-minute price-adders, all seven source values were compared for every row, and the absent newer price components remain None. These eight annual samples contain only the Jan worksheet.",
   "demandResponse": {
     "files": 8,
     "rows": 816,
@@ -986,6 +986,260 @@
           ]
         }
       ]
+    },
+    {
+      "year": 2018,
+      "product": "NP6-793-ER",
+      "totalJanuaryPublications": 5,
+      "publicationQuery": {
+        "postDatetimeFrom": "2018-01-01T00:00:00",
+        "postDatetimeTo": "2018-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 596568513,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_15MINT_2018",
+        "postDatetime": "2018-01-28T10:04:58"
+      },
+      "source": "work/history-annual-interval-workbooks-2018/NP6-793-ER.zip",
+      "zipSha256": "be7efbdda8f7a891a7c5e36a130688ea0196682726dd19d2d9141a92376acccd",
+      "files": [
+        {
+          "member": "rpt.00013240.0000000000000000.20180128.100002.RTM_ORDC_REL_DPLY_PRC_15MINT_2018.xlsx",
+          "xlsxSha256": "3d7570276b70d1291cc9eb42fcc1dfb88d4cc6b854d88024060e52a13b7ed79d",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 2592,
+              "decodedRows": 2592
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "product": "NP6-793-ER",
+      "totalJanuaryPublications": 5,
+      "publicationQuery": {
+        "postDatetimeFrom": "2019-01-01T00:00:00",
+        "postDatetimeTo": "2019-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 646146980,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_15MINT_2019",
+        "postDatetime": "2019-01-27T10:10:42"
+      },
+      "source": "work/history-annual-interval-workbooks-2019/NP6-793-ER.zip",
+      "zipSha256": "5eb5a6f7f8e3be57878c4646fe9e4ffbafde28bd3211143a9811f97a52449035",
+      "files": [
+        {
+          "member": "rpt.00013240.0000000000000000.20190127.100002.RTM_ORDC_REL_DPLY_PRC_15MINT_2019.xlsx",
+          "xlsxSha256": "c61b5160ae68c1606ecea04a544feca1dd16e194e6236ec702c8cae0ca30bb23",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 2496,
+              "decodedRows": 2496
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "product": "NP6-793-ER",
+      "totalJanuaryPublications": 5,
+      "publicationQuery": {
+        "postDatetimeFrom": "2020-01-01T00:00:00",
+        "postDatetimeTo": "2020-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 697984658,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_15MINT_2020",
+        "postDatetime": "2020-01-26T10:14:02"
+      },
+      "source": "work/history-annual-interval-workbooks-2020/NP6-793-ER.zip",
+      "zipSha256": "cbd1e8b94adb2debd441e3f81a06c0cfeb3730de095c4bf35abb2e87fb09740d",
+      "files": [
+        {
+          "member": "rpt.00013240.0000000000000000.20200126.100003.RTM_ORDC_REL_DPLY_PRC_15MINT_2020.xlsx",
+          "xlsxSha256": "feec6b1ddd11d83cb01c10ec91be62ea76a92b9f4aa8e48a906a7d18b1aa2650",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 2400,
+              "decodedRows": 2400
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "product": "NP6-793-ER",
+      "totalJanuaryPublications": 6,
+      "publicationQuery": {
+        "postDatetimeFrom": "2021-01-01T00:00:00",
+        "postDatetimeTo": "2021-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 756275177,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_15MINT_2021",
+        "postDatetime": "2021-01-31T10:46:56"
+      },
+      "source": "work/history-annual-interval-workbooks-2021/NP6-793-ER.zip",
+      "zipSha256": "6c2a508d5d107a2e36ca22a443d5c3b63f43c4c669ac88fc0f99d5aeb1929d32",
+      "files": [
+        {
+          "member": "rpt.00013240.0000000000000000.20210131.100003.RTM_ORDC_REL_DPLY_PRC_15MINT_2021.xlsx",
+          "xlsxSha256": "3eccb70ffcefadc13198160f17b1a54e6ff59cb02130e72f5a0b68ca9735287f",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 2880,
+              "decodedRows": 2880
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "product": "NP6-793-ER",
+      "totalJanuaryPublications": 6,
+      "publicationQuery": {
+        "postDatetimeFrom": "2022-01-01T00:00:00",
+        "postDatetimeTo": "2022-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 820253100,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_15MINT_2022",
+        "postDatetime": "2022-01-30T10:51:52"
+      },
+      "source": "work/history-annual-interval-workbooks-2022/NP6-793-ER.zip",
+      "zipSha256": "71c48af58179463f116c063688ead39f62f570ef4c6676789bcda320d74c30e2",
+      "files": [
+        {
+          "member": "rpt.00013240.0000000000000000.20220130.100008.RTM_ORDC_REL_DPLY_PRC_15MINT_2022.xlsx",
+          "xlsxSha256": "24ac244f18383eadce1e6ebf9545e8e43f45645b573df91cd6382c79b9f951da",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 2784,
+              "decodedRows": 2784
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "product": "NP6-793-ER",
+      "totalJanuaryPublications": 5,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-01-01T00:00:00",
+        "postDatetimeTo": "2023-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 892560706,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_15MINT_2023",
+        "postDatetime": "2023-01-29T11:02:25"
+      },
+      "source": "work/history-annual-interval-workbooks-2023/NP6-793-ER.zip",
+      "zipSha256": "ea05f64070ed4f23936747dbc98a7924890e6038cb3735db7088bda281e30b39",
+      "files": [
+        {
+          "member": "rpt.00013240.0000000000000000.20230129.100006.RTM_ORDC_REL_DPLY_PRC_15MINT_2023.xlsx",
+          "xlsxSha256": "16d1697c8f6a6b188cb6d866131af1ada4cd7eb87c226fcd4199479b24dc7e48",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 2688,
+              "decodedRows": 2688
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "product": "NP6-793-ER",
+      "totalJanuaryPublications": 5,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-01-01T00:00:00",
+        "postDatetimeTo": "2024-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 976698157,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_15MINT_2024",
+        "postDatetime": "2024-01-28T21:26:55"
+      },
+      "source": "work/history-annual-interval-workbooks-2024/NP6-793-ER.zip",
+      "zipSha256": "fb696b5b07f27328644b56ed838f175613d6c980c32f27462e202bd0fc86baed",
+      "files": [
+        {
+          "member": "rpt.00013240.0000000000000000.20240128.100005.RTM_ORDC_REL_DPLY_PRC_15MINT_2024.xlsx",
+          "xlsxSha256": "35182cbdc7b8717c33bfe1f19945a95c40c0623f53d8f1203e6cddf6f6a67fbc",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 2592,
+              "decodedRows": 2592
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "product": "NP6-793-ER",
+      "totalJanuaryPublications": 5,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-01-01T00:00:00",
+        "postDatetimeTo": "2025-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 1072411752,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_15MINT_2025",
+        "postDatetime": "2025-01-26T10:06:03"
+      },
+      "source": "work/history-annual-interval-workbooks-2025/NP6-793-ER.zip",
+      "zipSha256": "34aa684c3389116a45352fc85d71611c2a3b3f51979b3dccffdfe283c4baa3c2",
+      "files": [
+        {
+          "member": "rpt.00013240.0000000000000000.20250126.100011.RTM_ORDC_REL_DPLY_PRC_15MINT_2025.xlsx",
+          "xlsxSha256": "197fc1f1222895d051b47315eb6310562c5ead44153a61f9ba77d0979b4788fd",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 2400,
+              "decodedRows": 2400
+            }
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "intervalPriceAdders": {
+    "files": 8,
+    "rows": 20832,
+    "allSourceValuesMatch": true,
+    "checkedFields": [
+      "deliveryDate",
+      "deliveryHour",
+      "deliveryInterval",
+      "repeatHourFlag",
+      "RTRSVPOR",
+      "RTRSVPOFF",
+      "RTRDP"
+    ],
+    "unreportedFieldsCheckedNull": [
+      "RTRDPA",
+      "RTRDPRU",
+      "RTRDPRD",
+      "RTRDPRRS",
+      "RTRDPECRS",
+      "RTRDPNS"
+    ]
+  }
 }
