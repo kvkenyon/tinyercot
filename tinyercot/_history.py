@@ -4,11 +4,12 @@ from __future__ import annotations
 
 import csv
 import re
-from collections.abc import Callable, Iterator, Sequence
+from collections.abc import Callable, Iterable, Iterator
 from datetime import date, datetime, timedelta
 from decimal import Decimal
 from fnmatch import fnmatchcase
 from io import BytesIO, TextIOWrapper
+from itertools import chain, islice
 from time import strptime
 from typing import TYPE_CHECKING, Annotated, Generic, Literal, TypeVar
 from zipfile import ZipFile
@@ -124,15 +125,31 @@ class Archive(Generic[T]):
 
     def download(
         self,
-        doc_ids: Sequence[int],
+        doc_ids: Iterable[int],
         *,
         kind: Literal["archive", "bundle"] = "archive",
+        batch_size: int = 1,
     ) -> Iterator[T]:
-        """Download selected documents or bundles and yield typed rows."""
-        for doc_id in doc_ids:
-            yield from self.read(
-                self._client.download(self._product, [doc_id], kind=kind)
+        """Download selected documents or bundles and yield typed rows.
+
+        Archive batches respect the product's advertised limit. The default of
+        one file limits memory use; bundles are always requested individually.
+        """
+        if batch_size < 1:
+            raise ValueError("batch_size must be positive")
+        ids = iter(doc_ids)
+        first = next(ids, None)
+        if first is None:
+            return
+        limit = 1
+        if kind == "archive" and batch_size > 1:
+            limit = min(
+                batch_size, self._client.product(self._product).downloadLimit or 1, 1000
             )
+            limit = max(1, limit)
+        selected = chain((first,), ids)
+        while batch := list(islice(selected, limit)):
+            yield from self.read(self._client.download(self._product, batch, kind=kind))
 
     def rows(
         self,
@@ -140,6 +157,7 @@ class Archive(Generic[T]):
         posted_from: datetime | None = None,
         posted_to: datetime | None = None,
         where: Callable[[T], bool] | None = None,
+        batch_size: int = 1,
     ) -> Iterator[T]:
         """Read every matching archive document, without a history cutoff.
 
@@ -152,9 +170,11 @@ class Archive(Generic[T]):
             and posted_from > posted_to
         ):
             raise ValueError("posted_from must not be after posted_to")
-        for document in self._client.iter_documents(
+        documents = self._client.iter_documents(
             self._product, posted_from=posted_from, posted_to=posted_to
+        )
+        for row in self.download(
+            (document.docId for document in documents), batch_size=batch_size
         ):
-            for row in self.download([document.docId]):
-                if where is None or where(row):
-                    yield row
+            if where is None or where(row):
+                yield row

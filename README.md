@@ -72,7 +72,10 @@ Publication timestamps are ERCOT local timestamps, and both bounds are inclusive
 They select files by **publication date**, which can differ from the dates inside
 them. The predicate filters typed rows after download. With no publication bounds,
 `rows()` reads all listed archive documents. Publication bounds are sent to ERCOT to limit listing pages at the source.
-Matching documents are downloaded individually; large backfills can take considerable time.
+Matching documents are downloaded individually by default. Pass `batch_size=25`
+to `rows()` or `download()` to group requests. Batches are capped by the product
+metadata and the API ceiling of 1,000 files; larger batches use more memory.
+Monthly bundles are still retrieved individually. Large backfills can take considerable time.
 Corrections are preserved as published; rows are not deduplicated.
 
 `history.read(zip_bytes)` reads an existing download, including nested ZIPs.
