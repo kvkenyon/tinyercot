@@ -2779,5 +2779,201 @@
     "datetimes": {
       "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
     }
+  },
+  "gen-55-cd/hrly_rt_load_fcast_actual": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "CurrentDayForecast": "currentDayFcast",
+      "DayAheadForecast": "dayAheadFcast",
+      "ActualLoad": "actualLoad",
+      "DayAheadHSL": "dayAheadHSL",
+      "CurrentDayHSL": "currentDayHSL",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np3-560-cd/7d_load_fcast_by_fzn": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "North": "north",
+      "South": "south",
+      "West": "west",
+      "Houston": "houston",
+      "SystemTotal": "systemTotal",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M"
+    },
+    "variants": [
+      {
+        "DeliveryDate": "deliveryDate",
+        "HourEnding": "hourEnding",
+        "North": "north",
+        "South": "south",
+        "West": "west",
+        "Houston": "houston",
+        "SystemTotal": "systemTotal",
+        "DSTFlag    ": "DSTFlag"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "north": "Decimal",
+      "south": "Decimal",
+      "west": "Decimal",
+      "houston": "Decimal",
+      "systemTotal": "Decimal",
+      "DSTFlag": "bool"
+    }
+  },
+  "np3-561-cd/7d_load_fcast_by_wzn": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "Coast": "coast",
+      "East": "east",
+      "FarWest": "farWest",
+      "North": "north",
+      "NorthCentral": "northCentral",
+      "SouthCentral": "southCentral",
+      "Southern": "southern",
+      "West": "west",
+      "SystemTotal": "systemTotal",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "coast": "Decimal",
+      "east": "Decimal",
+      "farWest": "Decimal",
+      "north": "Decimal",
+      "northCentral": "Decimal",
+      "southCentral": "Decimal",
+      "southern": "Decimal",
+      "west": "Decimal",
+      "systemTotal": "Decimal",
+      "DSTFlag": "bool"
+    }
+  },
+  "np3-562-cd/ih_load_fcast_by_wzn": {
+    "columns": {
+      "IntervalEnding": "intervalEnding",
+      "Coast": "coast",
+      "East": "east",
+      "FarWest": "farWest",
+      "North": "north",
+      "NorthCentral": "northCentral",
+      "SouthCentral": "southCentral",
+      "Southern": "southern",
+      "West": "west",
+      "SystemTotal": "systemTotal",
+      "Model": "model",
+      "InUseFlag": "inUseFlag",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M",
+      "intervalEnding": "%m/%d/%Y %H:%M"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "intervalEnding": "datetime",
+      "coast": "Decimal",
+      "east": "Decimal",
+      "farWest": "Decimal",
+      "north": "Decimal",
+      "northCentral": "Decimal",
+      "southCentral": "Decimal",
+      "southern": "Decimal",
+      "west": "Decimal",
+      "systemTotal": "Decimal",
+      "model": "str",
+      "inUseFlag": "bool",
+      "DSTFlag": "bool"
+    }
+  },
+  "np3-565-cd/lf_by_model_weather_zone": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "Coast": "coast",
+      "East": "east",
+      "FarWest": "farWest",
+      "North": "north",
+      "NorthCentral": "northCentral",
+      "SouthCentral": "southCentral",
+      "Southern": "southern",
+      "West": "west",
+      "SystemTotal": "systemTotal",
+      "Model": "model",
+      "InUseFlag": "inUseFlag",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "coast": "Decimal",
+      "east": "Decimal",
+      "farWest": "Decimal",
+      "north": "Decimal",
+      "northCentral": "Decimal",
+      "southCentral": "Decimal",
+      "southern": "Decimal",
+      "west": "Decimal",
+      "systemTotal": "Decimal",
+      "model": "str",
+      "inUseFlag": "bool",
+      "DSTFlag": "bool"
+    }
+  },
+  "np3-566-cd/lf_by_model_study_area": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "Valley": "valley",
+      "Model": "model",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "valley": "Decimal",
+      "model": "str",
+      "DSTFlag": "bool"
+    }
   }
 }

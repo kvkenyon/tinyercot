@@ -576,3 +576,50 @@ def test_legacy_lambda_and_ordc_fields_remain_distinct():
         assert adder.RTORPA == Decimal("0.0033")
         assert adder.RTOFFPA == Decimal("0.0005")
         assert adder.RTRDPA is None
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "forecasts-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_forecast_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_forecast_publication_time_is_not_inferred_from_delivery():
+    with Client() as client:
+        forecast = next(
+            client.np3_560_cd._7d_load_fcast_by_fzn_history.read(
+                zipped(
+                    "forecast.csv",
+                    (INPUTS / "np3-560-cd-history-current.csv").read_bytes(),
+                )
+            )
+        )
+        assert forecast.postedDatetime is None
+        assert forecast.hourEnding == "1:00"
+        assert forecast.north == Decimal("22122.619443518067837")
+        interval = next(
+            client.np3_562_cd.ih_load_fcast_by_wzn_history.read(
+                zipped(
+                    "interval.csv",
+                    (INPUTS / "np3-562-cd-history-current.csv").read_bytes(),
+                )
+            )
+        )
+        assert interval.model == "A6"
+        assert interval.inUseFlag is False
+        assert interval.postedDatetime is None

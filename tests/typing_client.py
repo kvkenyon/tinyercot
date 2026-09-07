@@ -61,3 +61,11 @@ with Client() as client:
     for adder in client.np6_323_cd.rt_price_adder_sced_history.rows():
         assert_type(adder.RTORPA, Decimal | None)
         assert_type(adder.RTRDPA, Decimal | None)
+
+    for forecast in client.np3_561_cd._7d_load_fcast_by_wzn_history.rows():
+        assert_type(forecast.hourEnding, str | None)
+        assert_type(forecast.coast, Decimal | None)
+        assert_type(forecast.postedDatetime, datetime | None)
+    for interval in client.np3_562_cd.ih_load_fcast_by_wzn_history.rows():
+        assert_type(interval.intervalEnding, datetime | None)
+        assert_type(interval.inUseFlag, bool | None)
