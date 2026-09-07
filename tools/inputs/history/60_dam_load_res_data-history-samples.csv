@@ -1,0 +1,4 @@
+"Delivery Date","Hour Ending","Load Resource Name","Max Power Consumption for Load Resource","Low Power Consumption for Load Resource","RegUp Awarded","RegUp MCPC","RegDown Awarded","RegDown MCPC","RRS Awarded","RRS MCPC","NonSpin Awarded","NonSpin MCPC"
+"03/02/2014","1","ACRLY_LD1","2","0","","","","","","","",""
+"03/02/2014","1","ADMDS_LD1","9","0","","","","","","","",""
+"03/02/2014","1","AI_LD2","4","0","0","5","0","33.75","1.5","3","0","1"

@@ -4,6 +4,7 @@ Keep the SDK small and fully typed. Product methods and row models are generated
 handwritten code handles shared transport, typed metadata, and public dashboards.
 
 - `tinyercot/_client.py`: authentication, sync/async retrieval, pagination, metadata, ZIP downloads.
+- `tinyercot/_history.py`: shared typed CSV and nested ZIP readers. Verified mappings live in `tools/inputs/history-formats.json`.
 - `tinyercot/_generated.py`: generated typed product namespaces; never edit manually.
 - `tinyercot/_dashboards.py`: typed public dashboard payloads and retrieval.
 - `tools/generate_client.py`: offline generation from `tools/inputs/operations.json`

@@ -1,0 +1,4 @@
+Delivery Date,Hour Ending,Settlement Point,QSE Name,Energy Only Offer MW1,Energy Only Offer Price1,Energy Only Offer MW2,Energy Only Offer Price2,Energy Only Offer MW3,Energy Only Offer Price3,Energy Only Offer MW4,Energy Only Offer Price4,Energy Only Offer MW5,Energy Only Offer Price5,Energy Only Offer MW6,Energy Only Offer Price6,Energy Only Offer MW7,Energy Only Offer Price7,Energy Only Offer MW8,Energy Only Offer Price8,Energy Only Offer MW9,Energy Only Offer Price9,Energy Only Offer MW10,Energy Only Offer Price10,Energy Only Offer ID,Multi-Hour Block Indicator,Block/Curve indicator
+07/09/2026,1,HB_HOUSTON,QALTRE,5.1,2,,,,,,,,,,,,,,,,,,,uploader,N,C
+07/09/2026,1,HB_WEST,QAMA,2,23.7,5,26.3,,,,,,,,,,,,,,,,,260709HBWESB,N,C
+07/09/2026,1,HB_BUSAVG,QAMPLI,77.7,0,,,,,,,,,,,,,,,,,,,jvNMYLDreA5p,N,V

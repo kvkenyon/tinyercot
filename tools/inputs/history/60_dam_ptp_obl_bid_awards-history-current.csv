@@ -1,0 +1,4 @@
+Delivery Date,Hour Ending,QSE Name,Settlement Point Source,Settlement Point Sink,PtP Bid Award - MW,PtP Bid - Price,Bid ID
+07/09/2026,1,QAEN,EXGNWTL_1,LZ_AEN,2,-.35,PTP2
+07/09/2026,1,QAEN,HB_NORTH,LZ_AEN,150,.34,PTP51
+07/09/2026,1,QAEN,HRFDWIND_ALL,LZ_AEN,11,1.89,PTP6

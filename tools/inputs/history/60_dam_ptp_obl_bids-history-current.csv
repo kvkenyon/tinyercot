@@ -1,0 +1,4 @@
+Delivery Date,Hour Ending,QSE Name,Settlement Point Source,Settlement Point Sink,PtP Bid - MW,PtP Bid - Price,Bid ID,Multi-Hour Block Indicator
+07/09/2026,1,QAEN,EXGNWTL_1,LZ_AEN,2,50,PTP2,N
+07/09/2026,1,QAEN,HB_NORTH,LZ_AEN,150,200,PTP51,N
+07/09/2026,1,QAEN,HRFDWIND_ALL,LZ_AEN,11,53,PTP6,N
