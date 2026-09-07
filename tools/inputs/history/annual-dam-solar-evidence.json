@@ -1,0 +1,1360 @@
+{
+  "scope": "One January publication per product/year from 2015 through 2025, where listed. All CSV rows in each downloaded publication were decoded and compared with independent CSV row counts. Empty January listings and reused January 2020 observations are recorded. This does not establish continuous retention, every historical layout, or numerical correctness for every field.",
+  "products": {
+    "np3-966-er": 143,
+    "np4-745-cd": 3
+  },
+  "downloadedPublications": 14,
+  "csvFiles": 146,
+  "decodedRows": 3639815,
+  "samples": [
+    {
+      "year": 2015,
+      "product": "NP3-966-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2015-01-01T00:00:00",
+        "postDatetimeTo": "2015-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 471251519,
+        "friendlyName": "60_Day_DAM_Disclosure",
+        "postDatetime": "2015-01-31T04:22:53"
+      },
+      "source": "work/history-annual-dam-solar-2015/NP3-966-ER.zip",
+      "zipSha256": "77a772b0611b3f91117a4ef1c7214eba078c4d41cbad59b7cdf75167c32845f5",
+      "files": [
+        {
+          "member": "60d_DAM_PTP_Obligation_Option-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt",
+          "csvSha256": "c4040c893fe73c37830d93a98c8da729f37499a57f18f7975c0ef1375d7ec590",
+          "sourceRows": 5810,
+          "decodedRows": 5810
+        },
+        {
+          "member": "60d_DAM_EnergyBidAwards-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_energy_bid_awards",
+          "csvSha256": "5db8737d79b6c600377ad0e462ac71437846a42c4864314a1dc85ae3af3baa4a",
+          "sourceRows": 4861,
+          "decodedRows": 4861
+        },
+        {
+          "member": "60d_DAM_EnergyBids-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_energy_bids",
+          "csvSha256": "c7a4cc2546b986e885a24334e1d31b2b979f0962f0e901ae584631159d33e451",
+          "sourceRows": 4861,
+          "decodedRows": 4861
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOfferAwards-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offer_awards",
+          "csvSha256": "15171f81d0382a26b94a5b55ca84a9752bff9434b9c23a8fa28d40593bd73fc4",
+          "sourceRows": 4921,
+          "decodedRows": 4921
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOffers-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offers",
+          "csvSha256": "f7b72357a64ac0f92a6d141d56ab59ed4df70e2a3ec3f2ab47ace963d7dcfa00",
+          "sourceRows": 4921,
+          "decodedRows": 4921
+        },
+        {
+          "member": "60d_DAM_Load_Resource_ASOffers-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_load_res_as_offers",
+          "csvSha256": "b21a9a96c0efd0453db1406d7d6a843330592f6309286f95c0d2bfbd6442c345",
+          "sourceRows": 2420,
+          "decodedRows": 2420
+        },
+        {
+          "member": "60d_DAM_Load_Resource_Data-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_load_res_data",
+          "csvSha256": "5b3230c365f4a65a8306e7cff5903ba6cf72cca346af38682a6f21f2ea13f1f3",
+          "sourceRows": 5520,
+          "decodedRows": 5520
+        },
+        {
+          "member": "60d_DAM_Generation_Resource_ASOffers-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_gen_res_as_offers",
+          "csvSha256": "6a6d2ffcdae524a65b77b7e7c2d330d5951448f74d585001e12c229fe27aff50",
+          "sourceRows": 3664,
+          "decodedRows": 3664
+        },
+        {
+          "member": "60d_DAM_Gen_Resource_Data-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_gen_res_data",
+          "csvSha256": "7032ec0f770b4bdf1c0d7fd7fb4fe4513ebb328777be57460eca52142011afa9",
+          "sourceRows": 15984,
+          "decodedRows": 15984
+        },
+        {
+          "member": "60d_DAM_QSE_Self_Arranged_AS-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_qse_self_as",
+          "csvSha256": "6eb0401e92acf340aa0986a4ad4ea867f204c4f70e65b062e080b780d5ab111f",
+          "sourceRows": 742,
+          "decodedRows": 742
+        },
+        {
+          "member": "60d_DAM_PTPObligationBidAwards-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bid_awards",
+          "csvSha256": "d03a5f6075ee76bb237d7757db115ebd59e46594d5f5446f03527ed75fea27ec",
+          "sourceRows": 62733,
+          "decodedRows": 62733
+        },
+        {
+          "member": "60d_DAM_PTPObligationBids-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bids",
+          "csvSha256": "935d9742f6b98d220ed70872f075e694d70f7f214f947139cd9f5f87477f946c",
+          "sourceRows": 62733,
+          "decodedRows": 62733
+        },
+        {
+          "member": "60d_DAM_PTP_Obligation_OptionAwards-31-JAN-15.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt_awards",
+          "csvSha256": "fe0da50d1e4b01680a98ba9f7d1f0310ec4d0fbf7006992db7a5db3aa7f60443",
+          "sourceRows": 5810,
+          "decodedRows": 5810
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "product": "NP4-745-CD",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2015-01-01T00:00:00",
+        "postDatetimeTo": "2015-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2016,
+      "product": "NP3-966-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2016-01-01T00:00:00",
+        "postDatetimeTo": "2016-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 508458570,
+        "friendlyName": "60_Day_DAM_Disclosure",
+        "postDatetime": "2016-01-31T04:14:01"
+      },
+      "source": "work/history-annual-dam-solar-2016/NP3-966-ER.zip",
+      "zipSha256": "3f0afa536ed599273211bc9f4daae7a60be06ffa34d79fb3ed88b3c6c924a28b",
+      "files": [
+        {
+          "member": "60d_DAM_PTP_Obligation_Option-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt",
+          "csvSha256": "24b031e98b45ca4d134469208ac8917b754c667cbc05b3b1a6b3223721243b4a",
+          "sourceRows": 4244,
+          "decodedRows": 4244
+        },
+        {
+          "member": "60d_DAM_EnergyBidAwards-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_energy_bid_awards",
+          "csvSha256": "be5f8aa9c1699a9b21022534e8aca53d9df426a5e3544ad7e74678d8c5adabdc",
+          "sourceRows": 5987,
+          "decodedRows": 5987
+        },
+        {
+          "member": "60d_DAM_EnergyBids-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_energy_bids",
+          "csvSha256": "5f28f55ee9f937a3e4251454a6b0dbdd268e23aa8ebf3f78ca3d395aba0ad46e",
+          "sourceRows": 5987,
+          "decodedRows": 5987
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOfferAwards-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offer_awards",
+          "csvSha256": "dfb971bab88f704f9a628c17e2d19a8c01d0a94e18cbad0164e55c7f357d8765",
+          "sourceRows": 4917,
+          "decodedRows": 4917
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOffers-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offers",
+          "csvSha256": "3f6ea0f0b8ac48da70eeca5988684d7985968c8ffcdb7ab4edaa483fe31dd4be",
+          "sourceRows": 4917,
+          "decodedRows": 4917
+        },
+        {
+          "member": "60d_DAM_Load_Resource_ASOffers-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_load_res_as_offers",
+          "csvSha256": "c65c438f2646c58ebf1f63a31c7fc0f87ade2826c3e2fa2e6d0c962922eed7b3",
+          "sourceRows": 3480,
+          "decodedRows": 3480
+        },
+        {
+          "member": "60d_DAM_Load_Resource_Data-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_load_res_data",
+          "csvSha256": "5ff2551277ab431c63c1b42332174d1257ad477467421a6878e30457db07a2ae",
+          "sourceRows": 5664,
+          "decodedRows": 5664
+        },
+        {
+          "member": "60d_DAM_Generation_Resource_ASOffers-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_gen_res_as_offers",
+          "csvSha256": "b3d1d31283155aec4630ce86d6f4ff596eea1b3188860af2b550c0e77b48de7c",
+          "sourceRows": 4314,
+          "decodedRows": 4314
+        },
+        {
+          "member": "60d_DAM_Gen_Resource_Data-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_gen_res_data",
+          "csvSha256": "30cc6c9b6bd2d1f3b85175d85364957ff61eeacf1097a40481b6fecbc8dc3d80",
+          "sourceRows": 16776,
+          "decodedRows": 16776
+        },
+        {
+          "member": "60d_DAM_QSE_Self_Arranged_AS-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_qse_self_as",
+          "csvSha256": "178c58772772c932a17d1226d4d2a1cbbd7fd4c70f5a01af7d6ea16b0cc9ad80",
+          "sourceRows": 797,
+          "decodedRows": 797
+        },
+        {
+          "member": "60d_DAM_PTPObligationBidAwards-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bid_awards",
+          "csvSha256": "b3647c7134226485b5113fb5ee852b4d49101a3d42eda54788fadb7e67cd5fa9",
+          "sourceRows": 46423,
+          "decodedRows": 46423
+        },
+        {
+          "member": "60d_DAM_PTPObligationBids-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bids",
+          "csvSha256": "cbfdd2f04fd5f139147f9ae0f673790de427b9acecc4bafc0b0cfa55f68eee3e",
+          "sourceRows": 46423,
+          "decodedRows": 46423
+        },
+        {
+          "member": "60d_DAM_PTP_Obligation_OptionAwards-31-JAN-16.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt_awards",
+          "csvSha256": "f38f5d0474b68a26af12d4d0caa2e2305342ccb5a75e81e50de94d97c6328140",
+          "sourceRows": 4244,
+          "decodedRows": 4244
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "product": "NP4-745-CD",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2016-01-01T00:00:00",
+        "postDatetimeTo": "2016-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2017,
+      "product": "NP3-966-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2017-01-01T00:00:00",
+        "postDatetimeTo": "2017-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 550576165,
+        "friendlyName": "60_Day_DAM_Disclosure",
+        "postDatetime": "2017-01-31T04:20:07"
+      },
+      "source": "work/history-annual-dam-solar-2017/NP3-966-ER.zip",
+      "zipSha256": "2a102c2373ef11cf43f6e83d3f5ceef4a19340b27a4477416572045d1642a84a",
+      "files": [
+        {
+          "member": "60d_DAM_PTP_Obligation_Option-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt",
+          "csvSha256": "4d5909a9a464ac1d79ea0c55a86224d427d4c8fe5c0c73f3a2f6ce5605b4d791",
+          "sourceRows": 5462,
+          "decodedRows": 5462
+        },
+        {
+          "member": "60d_DAM_EnergyBidAwards-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_energy_bid_awards",
+          "csvSha256": "32f73ae04f5c0b4b0d1008e78b0c56226a12034c567d569d104582c33a6d34f6",
+          "sourceRows": 5426,
+          "decodedRows": 5426
+        },
+        {
+          "member": "60d_DAM_EnergyBids-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_energy_bids",
+          "csvSha256": "e2fa051eba61bc75bd0b98b3e36cebc1d674edd931af47b49b3d19d389a2c828",
+          "sourceRows": 5426,
+          "decodedRows": 5426
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOfferAwards-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offer_awards",
+          "csvSha256": "ac8d38ba1dd3c5dd0384379a73d4521964288efb7c26e8a96289d48d4b6185df",
+          "sourceRows": 6815,
+          "decodedRows": 6815
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOffers-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offers",
+          "csvSha256": "16f4aeacb57c963a220f03fe587b3221c84db3f4558211302be201e7afc95834",
+          "sourceRows": 6815,
+          "decodedRows": 6815
+        },
+        {
+          "member": "60d_DAM_Load_Resource_ASOffers-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_load_res_as_offers",
+          "csvSha256": "51d61e2c401af0da380f9fd0c4e444c2151941200e022891dd634389d56cc58f",
+          "sourceRows": 4298,
+          "decodedRows": 4298
+        },
+        {
+          "member": "60d_DAM_Load_Resource_Data-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_load_res_data",
+          "csvSha256": "e974c3dcbc7c5b18e4d1d60af2f079d1982cc0e01e1ae1ee9771150bbcd679f0",
+          "sourceRows": 6744,
+          "decodedRows": 6744
+        },
+        {
+          "member": "60d_DAM_Generation_Resource_ASOffers-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_gen_res_as_offers",
+          "csvSha256": "4a4e4e5b2df63bd6739f7331ce5a6a848ae621668937e80f2bd42abb1bdc5655",
+          "sourceRows": 4802,
+          "decodedRows": 4802
+        },
+        {
+          "member": "60d_DAM_Gen_Resource_Data-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_gen_res_data",
+          "csvSha256": "c01739aae67ad9fe66a3d81ea0cd8c4a5db97fb987b72ae078c21fdab73ca24d",
+          "sourceRows": 18096,
+          "decodedRows": 18096
+        },
+        {
+          "member": "60d_DAM_QSE_Self_Arranged_AS-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_qse_self_as",
+          "csvSha256": "fcde0c8bcab62a16e2a2552d68aa23093f41712cde73c6b4e244a66b38ed0713",
+          "sourceRows": 816,
+          "decodedRows": 816
+        },
+        {
+          "member": "60d_DAM_PTPObligationBidAwards-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bid_awards",
+          "csvSha256": "7f8608e64fb13fa62b3b820c39cd23bc75fc4a79ea94e47882c8b782fa5031a8",
+          "sourceRows": 50880,
+          "decodedRows": 50880
+        },
+        {
+          "member": "60d_DAM_PTPObligationBids-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bids",
+          "csvSha256": "d34a1f0b3af6aa7b6cdce945e263493ca4de9c0908d7783fc5858429e052b92a",
+          "sourceRows": 50880,
+          "decodedRows": 50880
+        },
+        {
+          "member": "60d_DAM_PTP_Obligation_OptionAwards-31-JAN-17.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt_awards",
+          "csvSha256": "8b15ff92453e79ae550e5e06c99bf78176f4b3c31f11e8991408e057c095fd9f",
+          "sourceRows": 5462,
+          "decodedRows": 5462
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "product": "NP4-745-CD",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2017-01-01T00:00:00",
+        "postDatetimeTo": "2017-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2018,
+      "product": "NP3-966-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2018-01-01T00:00:00",
+        "postDatetimeTo": "2018-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 596928045,
+        "friendlyName": "60_Day_DAM_Disclosure",
+        "postDatetime": "2018-01-31T04:17:45"
+      },
+      "source": "work/history-annual-dam-solar-2018/NP3-966-ER.zip",
+      "zipSha256": "398deed00de69f6a17396b17770fc244d8a30a843aa5c2d30362e38a8ecc90c3",
+      "files": [
+        {
+          "member": "60d_DAM_PTP_Obligation_Option-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt",
+          "csvSha256": "fc63eed6814a344485c0e5cfd35a5ce04c5fa3ea67d4c52764a0e9681b8c883a",
+          "sourceRows": 7909,
+          "decodedRows": 7909
+        },
+        {
+          "member": "60d_DAM_EnergyBidAwards-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_energy_bid_awards",
+          "csvSha256": "c54d8a18387b9da35f8ef3ea811f2a819d871f8c2e64746906110b0c5211e1bc",
+          "sourceRows": 6621,
+          "decodedRows": 6621
+        },
+        {
+          "member": "60d_DAM_EnergyBids-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_energy_bids",
+          "csvSha256": "01ee91e06872dbefbbcae077b08f0c9e9849d7938098ca5ba5e5d17f6ae6d5fb",
+          "sourceRows": 6621,
+          "decodedRows": 6621
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOfferAwards-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offer_awards",
+          "csvSha256": "f51e55437217442fc262a95d69d5718938ed040fe93e127bb7f96894782edd6c",
+          "sourceRows": 6527,
+          "decodedRows": 6527
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOffers-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offers",
+          "csvSha256": "00e75183ca941a38f685ca0eca1d7664bdff373108c34cfdf36424cb066b52df",
+          "sourceRows": 6527,
+          "decodedRows": 6527
+        },
+        {
+          "member": "60d_DAM_Load_Resource_ASOffers-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_load_res_as_offers",
+          "csvSha256": "c63007a4a8eb727f6720ed50c7a887a7c2eee24966aeec782fe1043e360a9580",
+          "sourceRows": 5500,
+          "decodedRows": 5500
+        },
+        {
+          "member": "60d_DAM_Load_Resource_Data-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_load_res_data",
+          "csvSha256": "23d0b32396318c3862c25202cfe7f5db416f0fd15ad686a26b935cb943962d36",
+          "sourceRows": 8064,
+          "decodedRows": 8064
+        },
+        {
+          "member": "60d_DAM_Generation_Resource_ASOffers-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_gen_res_as_offers",
+          "csvSha256": "0cb4aba9595af69fc16e59db2ef2859190259f6b5e81ee6e0bbabac089cd3c75",
+          "sourceRows": 4807,
+          "decodedRows": 4807
+        },
+        {
+          "member": "60d_DAM_Gen_Resource_Data-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_gen_res_data",
+          "csvSha256": "962b27ebaa5d24afc079e93c00b57ea8d96c8cb20e8512ed621878938c34dfae",
+          "sourceRows": 18360,
+          "decodedRows": 18360
+        },
+        {
+          "member": "60d_DAM_QSE_Self_Arranged_AS-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_qse_self_as",
+          "csvSha256": "cfdc972fa40fb429350e81b254620fd83dc2025c670ac4ddab38f54af4b26639",
+          "sourceRows": 714,
+          "decodedRows": 714
+        },
+        {
+          "member": "60d_DAM_PTPObligationBidAwards-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bid_awards",
+          "csvSha256": "ae23106f17dfbd336f8a612e136cf5a6438803f082c43a4eebaff28cf1e91df6",
+          "sourceRows": 78353,
+          "decodedRows": 78353
+        },
+        {
+          "member": "60d_DAM_PTPObligationBids-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bids",
+          "csvSha256": "35365bb5d9bcc6713ecac801af225bc1bc6172e4487b4eb7b508b4e35b3ec7da",
+          "sourceRows": 78353,
+          "decodedRows": 78353
+        },
+        {
+          "member": "60d_DAM_PTP_Obligation_OptionAwards-31-JAN-18.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt_awards",
+          "csvSha256": "0258146905eedd081b6384427859b272102ebf6904f43741768eea47154da4aa",
+          "sourceRows": 7909,
+          "decodedRows": 7909
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "product": "NP4-745-CD",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2018-01-01T00:00:00",
+        "postDatetimeTo": "2018-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2019,
+      "product": "NP3-966-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2019-01-01T00:00:00",
+        "postDatetimeTo": "2019-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 646664213,
+        "friendlyName": "60_Day_DAM_Disclosure",
+        "postDatetime": "2019-01-31T04:24:30"
+      },
+      "source": "work/history-annual-dam-solar-2019/NP3-966-ER.zip",
+      "zipSha256": "3c8b3da7d3af145ea2fe43ba931d57ad02bf7b3d8c2330ae753a91a3a3e327b1",
+      "files": [
+        {
+          "member": "60d_DAM_PTP_Obligation_Option-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt",
+          "csvSha256": "1aee4bb1c04ee1770f8e387e6d219a39c9e77788bc46d84965b4f8b55a7ed96e",
+          "sourceRows": 5606,
+          "decodedRows": 5606
+        },
+        {
+          "member": "60d_DAM_EnergyBidAwards-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_energy_bid_awards",
+          "csvSha256": "fcbf781c215e3dba3388a0868d2a49b96490d2268b2fc29101aa1943dc038efa",
+          "sourceRows": 6163,
+          "decodedRows": 6163
+        },
+        {
+          "member": "60d_DAM_EnergyBids-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_energy_bids",
+          "csvSha256": "81e87ea5939893e917c8cbf4ab8d38b24c210f71c4f8838681b61ef4e653c095",
+          "sourceRows": 6163,
+          "decodedRows": 6163
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOfferAwards-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offer_awards",
+          "csvSha256": "386f845c98ca4a1a26e92e3bc01eefeee660c42a3730c19b67406f7e1c7e6d1a",
+          "sourceRows": 6097,
+          "decodedRows": 6097
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOffers-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offers",
+          "csvSha256": "658525f204804ccd5846018acf9566111b3d4d2167542ca2f73c146d50d5421a",
+          "sourceRows": 6097,
+          "decodedRows": 6097
+        },
+        {
+          "member": "60d_DAM_Load_Resource_ASOffers-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_load_res_as_offers",
+          "csvSha256": "091d9c71c8cd4cbee5a94efc8a89781a5c900611d1a1f87a2ebd6d9139839130",
+          "sourceRows": 5559,
+          "decodedRows": 5559
+        },
+        {
+          "member": "60d_DAM_Load_Resource_Data-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_load_res_data",
+          "csvSha256": "f2cc216fc4dab598651ac4bc781b0135db34404c50e1e529de6ef3f3e5f4e568",
+          "sourceRows": 9552,
+          "decodedRows": 9552
+        },
+        {
+          "member": "60d_DAM_Generation_Resource_ASOffers-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_gen_res_as_offers",
+          "csvSha256": "e0873d8699d90cbcfb6ac8f12d2e2601f323c973c7cf0aac0b8491f7a9dbe4e8",
+          "sourceRows": 5070,
+          "decodedRows": 5070
+        },
+        {
+          "member": "60d_DAM_Gen_Resource_Data-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_gen_res_data",
+          "csvSha256": "5e95b24a01edd37c40347512a71ec0d4420ac6e79948ac9ebe2d206d34e6adb3",
+          "sourceRows": 18960,
+          "decodedRows": 18960
+        },
+        {
+          "member": "60d_DAM_QSE_Self_Arranged_AS-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_qse_self_as",
+          "csvSha256": "d9caaffa8702f2a31af51f8e26566e8f94beac49ab0935b8f96fafb03917277f",
+          "sourceRows": 768,
+          "decodedRows": 768
+        },
+        {
+          "member": "60d_DAM_PTPObligationBidAwards-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bid_awards",
+          "csvSha256": "91bc2e2401c7f29bbaf24bcfc756a226f3dae54d9858873a50f6aeea96d04db4",
+          "sourceRows": 82631,
+          "decodedRows": 82631
+        },
+        {
+          "member": "60d_DAM_PTPObligationBids-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bids",
+          "csvSha256": "4af549f2ac06afe08401f464745b7955fdf7a276f76ab1d8473b6d6d99eb07b8",
+          "sourceRows": 82631,
+          "decodedRows": 82631
+        },
+        {
+          "member": "60d_DAM_PTP_Obligation_OptionAwards-31-JAN-19.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt_awards",
+          "csvSha256": "f17ffc8775dd68261eb8264b3d20768729e7bd984d66fb56977ab155d28caf3f",
+          "sourceRows": 5502,
+          "decodedRows": 5502
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "product": "NP4-745-CD",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2019-01-01T00:00:00",
+        "postDatetimeTo": "2019-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2020,
+      "product": "NP3-966-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2020-01-01T00:00:00",
+        "postDatetimeTo": "2020-02-01T00:00:00"
+      },
+      "listingReusedFrom": "history-middle-listings.json",
+      "document": {
+        "docId": 698698411,
+        "friendlyName": "60_Day_DAM_Disclosure",
+        "postDatetime": "2020-01-31T04:19:53"
+      },
+      "source": "work/history-middle-2020/NP3-966-ER.zip",
+      "zipSha256": "c07e6bc0dbf055adf82037a153bf50de017ca9f86e6be202529fa238bcfe75c5",
+      "files": [
+        {
+          "member": "60d_DAM_PTP_Obligation_Option-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt",
+          "csvSha256": "2ee0517462c6b6a7c813500b7a2dc37023f310d94a46aa31c0c25fec8ecf0972",
+          "sourceRows": 8855,
+          "decodedRows": 8855
+        },
+        {
+          "member": "60d_DAM_EnergyBidAwards-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_energy_bid_awards",
+          "csvSha256": "27ecdb91e7c174a8ca62fa60fedf2915c1b48a498cd3620679fe29a146b77a22",
+          "sourceRows": 10081,
+          "decodedRows": 10081
+        },
+        {
+          "member": "60d_DAM_EnergyBids-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_energy_bids",
+          "csvSha256": "b999a4e91ef6217598b8746edf62aebf20190581010d390ac328c7924f3987e8",
+          "sourceRows": 10081,
+          "decodedRows": 10081
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOfferAwards-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offer_awards",
+          "csvSha256": "7f86a641ebf352b53d75da4d2a55be9132e8ebfccdcea89ae22791200a596ab4",
+          "sourceRows": 8287,
+          "decodedRows": 8287
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOffers-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offers",
+          "csvSha256": "b5f71746e2f7327df91adebecbbaa81104bac6c7158b36d5e9154fc70631d522",
+          "sourceRows": 8287,
+          "decodedRows": 8287
+        },
+        {
+          "member": "60d_DAM_Load_Resource_ASOffers-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_load_res_as_offers",
+          "csvSha256": "30230b917bc02bdcaa561ce15f2614aaafae168b0250687381e7dce31c78b57e",
+          "sourceRows": 7231,
+          "decodedRows": 7231
+        },
+        {
+          "member": "60d_DAM_Load_Resource_Data-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_load_res_data",
+          "csvSha256": "7532bfa0f950f25e6b4f02d3117b2b18ca110ccafe95d3509379ab1e4732458e",
+          "sourceRows": 10560,
+          "decodedRows": 10560
+        },
+        {
+          "member": "60d_DAM_Generation_Resource_ASOffers-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_gen_res_as_offers",
+          "csvSha256": "d7ed8001fc73227db12cf582b8a18ec0939f57707556f3bbad51582b4a6a4bb0",
+          "sourceRows": 4618,
+          "decodedRows": 4618
+        },
+        {
+          "member": "60d_DAM_Gen_Resource_Data-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_gen_res_data",
+          "csvSha256": "2098d34ffb5b2a2d537eb9731b83146e549efa98068e5f8a07548b4af17d6042",
+          "sourceRows": 20136,
+          "decodedRows": 20136
+        },
+        {
+          "member": "60d_DAM_QSE_Self_Arranged_AS-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_qse_self_as",
+          "csvSha256": "589eff7667f8e4d5e248dd9c066f8c90f3495272c4fd08b14ba0adce20e1051c",
+          "sourceRows": 936,
+          "decodedRows": 936
+        },
+        {
+          "member": "60d_DAM_PTPObligationBidAwards-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bid_awards",
+          "csvSha256": "606d74e37e6603ec2adb95f0782fa3687c5da5f18bbb1ed1cf4bf2f506dfeabb",
+          "sourceRows": 104414,
+          "decodedRows": 104414
+        },
+        {
+          "member": "60d_DAM_PTPObligationBids-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bids",
+          "csvSha256": "b2e4e63a406b2637f94a7a210d2e7be6558ed65f43669212d5651bf69d251771",
+          "sourceRows": 104414,
+          "decodedRows": 104414
+        },
+        {
+          "member": "60d_DAM_PTP_Obligation_OptionAwards-31-JAN-20.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt_awards",
+          "csvSha256": "ccc1b87dafdaea28148d6bf2a516c8ab23001bcdc669ebd8520bfeeec112d746",
+          "sourceRows": 8855,
+          "decodedRows": 8855
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "product": "NP4-745-CD",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2020-01-01T00:00:00",
+        "postDatetimeTo": "2020-02-01T00:00:00"
+      },
+      "listingReusedFrom": "history-middle-listings.json"
+    },
+    {
+      "year": 2021,
+      "product": "NP3-966-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2021-01-01T00:00:00",
+        "postDatetimeTo": "2021-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 756238389,
+        "friendlyName": "60_Day_DAM_Disclosure",
+        "postDatetime": "2021-01-31T05:47:22"
+      },
+      "source": "work/history-annual-dam-solar-2021/NP3-966-ER.zip",
+      "zipSha256": "b3eef89fb938852b24453f9236d6db9dca462897f2f6e4617a86d1f5b1915948",
+      "files": [
+        {
+          "member": "60d_DAM_PTP_Obligation_OptionAwards-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt_awards",
+          "csvSha256": "6e93fe5d65e40a4fdb0391615038432edc81897fc7144152099c1968562c0fec",
+          "sourceRows": 6688,
+          "decodedRows": 6688
+        },
+        {
+          "member": "60d_DAM_PTPObligationBids-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bids",
+          "csvSha256": "0a3197cc10dd89f9d11aa4baa6a4a6256fa3355b9063ae836f247afb3cf2a1d8",
+          "sourceRows": 167681,
+          "decodedRows": 167681
+        },
+        {
+          "member": "60d_DAM_PTPObligationBidAwards-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bid_awards",
+          "csvSha256": "01edf65aa52cc3a6d8c910b83c4abe81291d594e95e2d547752d9908bda635a7",
+          "sourceRows": 167681,
+          "decodedRows": 167681
+        },
+        {
+          "member": "60d_DAM_QSE_Self_Arranged_AS-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_qse_self_as",
+          "csvSha256": "c4ec5b6709699f430aeec35b8efb984dcc879f86118de08922737f640ddce6fa",
+          "sourceRows": 1114,
+          "decodedRows": 1114
+        },
+        {
+          "member": "60d_DAM_Gen_Resource_Data-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_gen_res_data",
+          "csvSha256": "0d5ab69b828b5fa5bc609a1438779dbdf349989b3a2a751a67d4aaed2f5ddf5d",
+          "sourceRows": 21936,
+          "decodedRows": 21936
+        },
+        {
+          "member": "60d_DAM_Generation_Resource_ASOffers-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_gen_res_as_offers",
+          "csvSha256": "5ae9fe61bc77d415ae82e91039ef940d5cb0c8b1bd2a66246d40d3f3eeb1e8f4",
+          "sourceRows": 5436,
+          "decodedRows": 5436
+        },
+        {
+          "member": "60d_DAM_Load_Resource_Data-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_load_res_data",
+          "csvSha256": "a43bcab51665a25e33e27e46b264029c5576489306aff4fad8bc813d9208a741",
+          "sourceRows": 14688,
+          "decodedRows": 14688
+        },
+        {
+          "member": "60d_DAM_Load_Resource_ASOffers-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_load_res_as_offers",
+          "csvSha256": "0c313b7c0cf750b8ba834b8c4d91f63341934f557dbc02c1cd1f5722bb050784",
+          "sourceRows": 8253,
+          "decodedRows": 8253
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOffers-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offers",
+          "csvSha256": "4f3e0094d4fe00379ec8f4ef2aa6eea4813a70f0b785d64fa8829455556ce1d7",
+          "sourceRows": 16661,
+          "decodedRows": 16661
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOfferAwards-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offer_awards",
+          "csvSha256": "68b6e939465f2cb1615f89278cb5d630a58122a48144b502dcb020b76a5796e6",
+          "sourceRows": 16661,
+          "decodedRows": 16661
+        },
+        {
+          "member": "60d_DAM_EnergyBids-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_energy_bids",
+          "csvSha256": "0320cf44fb195288abb647cc08006542def30789b278d521af10b7f6a82bd39b",
+          "sourceRows": 10146,
+          "decodedRows": 10146
+        },
+        {
+          "member": "60d_DAM_EnergyBidAwards-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_energy_bid_awards",
+          "csvSha256": "211a6e58034ed0bcb558b1f4810d0630a223483740311c04edf3ab40ed5755c3",
+          "sourceRows": 10119,
+          "decodedRows": 10119
+        },
+        {
+          "member": "60d_DAM_PTP_Obligation_Option-31-JAN-21.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt",
+          "csvSha256": "81b9a30c3e07f115c00a47c16f322af13970977e37a8aac93cf2221f4f7b873f",
+          "sourceRows": 6688,
+          "decodedRows": 6688
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "product": "NP4-745-CD",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2021-01-01T00:00:00",
+        "postDatetimeTo": "2021-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2022,
+      "product": "NP3-966-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2022-01-01T00:00:00",
+        "postDatetimeTo": "2022-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 820393235,
+        "friendlyName": "60_Day_DAM_Disclosure",
+        "postDatetime": "2022-01-31T06:24:04"
+      },
+      "source": "work/history-annual-dam-solar-2022/NP3-966-ER.zip",
+      "zipSha256": "c8ac3b76abb346e1b4050628da3bf1b6782ebd3c230fbab4d7038d82f59eb956",
+      "files": [
+        {
+          "member": "60d_DAM_PTP_Obligation_OptionAwards-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt_awards",
+          "csvSha256": "523b66149171e7d1c238c2c43c15a21bd77203955914a47944c2129a248b4feb",
+          "sourceRows": 6823,
+          "decodedRows": 6823
+        },
+        {
+          "member": "60d_DAM_PTPObligationBids-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bids",
+          "csvSha256": "2ffee038b36290c002e5e8b4998e12cede278d47ec3324bcb335da5a31fd65bd",
+          "sourceRows": 112635,
+          "decodedRows": 112635
+        },
+        {
+          "member": "60d_DAM_PTPObligationBidAwards-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bid_awards",
+          "csvSha256": "0b730296cdf307a2dc6310a62e4ce4139cd87fa56cdde231651d5a6764c4f34f",
+          "sourceRows": 112635,
+          "decodedRows": 112635
+        },
+        {
+          "member": "60d_DAM_QSE_Self_Arranged_AS-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_qse_self_as",
+          "csvSha256": "e8c664c4c2ef7d3975e344981fa6214391276afc541ff6523cbfdd12fdeb49c9",
+          "sourceRows": 1081,
+          "decodedRows": 1081
+        },
+        {
+          "member": "60d_DAM_Gen_Resource_Data-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_gen_res_data",
+          "csvSha256": "a1aaa652a6fd2e3580bb59c0671ea61bfbc39cc015a9e49b7aed8bb221c837f0",
+          "sourceRows": 25608,
+          "decodedRows": 25608
+        },
+        {
+          "member": "60d_DAM_Generation_Resource_ASOffers-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_gen_res_as_offers",
+          "csvSha256": "4aaf85d54439d1ed80c11ddffd1f4542e257536549792d47daeab2a3b0e777d8",
+          "sourceRows": 6594,
+          "decodedRows": 6594
+        },
+        {
+          "member": "60d_DAM_Load_Resource_Data-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_load_res_data",
+          "csvSha256": "1dcb11d1cac5fa69c590d4f41cdf4fe05debce56d25836bedf0b5493f4e5c9cc",
+          "sourceRows": 16392,
+          "decodedRows": 16392
+        },
+        {
+          "member": "60d_DAM_Load_Resource_ASOffers-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_load_res_as_offers",
+          "csvSha256": "7d82c155dd4a9127ea6a226fe82fc0d21967c4ace57ab4477be10ed297187b5f",
+          "sourceRows": 9965,
+          "decodedRows": 9965
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOffers-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offers",
+          "csvSha256": "2f0c5d3d8e55bf4be01b2e8b898d45f291cc39d7a38082b57a3731f563a88a45",
+          "sourceRows": 9200,
+          "decodedRows": 9200
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOfferAwards-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offer_awards",
+          "csvSha256": "7c374ae7f4570512f8ed9687b71ed96d7fbcd2c32ecc80d0a415fabda53158fc",
+          "sourceRows": 9200,
+          "decodedRows": 9200
+        },
+        {
+          "member": "60d_DAM_EnergyBids-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_energy_bids",
+          "csvSha256": "6adeff3b4be2258e846b87abe2a5a5de32445d7fe085c5fe6b467a0798c43d89",
+          "sourceRows": 21095,
+          "decodedRows": 21095
+        },
+        {
+          "member": "60d_DAM_EnergyBidAwards-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_energy_bid_awards",
+          "csvSha256": "e27f01ece5a3e423d4942c180ea62ccaa8e8e4828043287f6eb92ecf2d94c08d",
+          "sourceRows": 21071,
+          "decodedRows": 21071
+        },
+        {
+          "member": "60d_DAM_PTP_Obligation_Option-31-JAN-22.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt",
+          "csvSha256": "cfa453055a481c4d5e6d26723fcf4a18fa9da1ab53e1fbb1868f472c2ff942b3",
+          "sourceRows": 6823,
+          "decodedRows": 6823
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "product": "NP4-745-CD",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2022-01-01T00:00:00",
+        "postDatetimeTo": "2022-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2023,
+      "product": "NP3-966-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-01-01T00:00:00",
+        "postDatetimeTo": "2023-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 892930036,
+        "friendlyName": "60_Day_DAM_Disclosure",
+        "postDatetime": "2023-01-31T04:40:02.331000"
+      },
+      "source": "work/history-annual-dam-solar-2023/NP3-966-ER.zip",
+      "zipSha256": "323bd692e5ec9780e2ce5ddc384ddebdb435e0e32a317a4cd39e9893ab98bfac",
+      "files": [
+        {
+          "member": "60d_DAM_PTP_Obligation_OptionAwards-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt_awards",
+          "csvSha256": "3d2154440b9d2e8e7bca2850f7c90696dfde2986722f938faba6a86ddc7e2d98",
+          "sourceRows": 8350,
+          "decodedRows": 8350
+        },
+        {
+          "member": "60d_DAM_PTPObligationBids-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bids",
+          "csvSha256": "e4c99c5b401b1de96c4cc083555ee402a8a67b99f294007c812a96fb26c58ad1",
+          "sourceRows": 169771,
+          "decodedRows": 169771
+        },
+        {
+          "member": "60d_DAM_PTPObligationBidAwards-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bid_awards",
+          "csvSha256": "725c44b0d9c2d5753c7ae7fdcf94842bd42492b847a51b326c331d6c9198b04a",
+          "sourceRows": 169771,
+          "decodedRows": 169771
+        },
+        {
+          "member": "60d_DAM_QSE_Self_Arranged_AS-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_qse_self_as",
+          "csvSha256": "6687c4fb4c57cf2d7b712273d071a767ac0268a1b8dcea40980b3a49b1946221",
+          "sourceRows": 1010,
+          "decodedRows": 1010
+        },
+        {
+          "member": "60d_DAM_Gen_Resource_Data-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_gen_res_data",
+          "csvSha256": "2897b76ef51f5f488f36d75ef8caaefa383d34f05fa454f639b8a053d42d3c22",
+          "sourceRows": 27624,
+          "decodedRows": 27624
+        },
+        {
+          "member": "60d_DAM_Generation_Resource_ASOffers-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_gen_res_as_offers",
+          "csvSha256": "5bb3980d7f5aebbec94961ffb2de23433ba6fca0329f312a12d19f1b543c00bf",
+          "sourceRows": 6852,
+          "decodedRows": 6852
+        },
+        {
+          "member": "60d_DAM_Load_Resource_Data-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_load_res_data",
+          "csvSha256": "f2b4b99ec3f8fce532c5e2b25b939e2360b5b3a6d3ab4f7c14b896d8440ee9ad",
+          "sourceRows": 15408,
+          "decodedRows": 15408
+        },
+        {
+          "member": "60d_DAM_Load_Resource_ASOffers-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_load_res_as_offers",
+          "csvSha256": "c585a83adbf407e3881b8abf6cd7135f1b5c726d6d1cb78cbd2d366dde1f1b9b",
+          "sourceRows": 7411,
+          "decodedRows": 7411
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOffers-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offers",
+          "csvSha256": "8e818313efde2809dd45f6d163333d3f02a8849a60af16bef3546e3aea1ccb33",
+          "sourceRows": 16637,
+          "decodedRows": 16637
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOfferAwards-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offer_awards",
+          "csvSha256": "4989af12dee3135b9ebf3e87c2c58beded8bb2c6983febd3f6ba7a21bfc0b4e1",
+          "sourceRows": 16637,
+          "decodedRows": 16637
+        },
+        {
+          "member": "60d_DAM_EnergyBids-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_energy_bids",
+          "csvSha256": "45d67027c03d0738b91729295bd43438df0dcc7b04ba58387a13512f779aa125",
+          "sourceRows": 13439,
+          "decodedRows": 13439
+        },
+        {
+          "member": "60d_DAM_EnergyBidAwards-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_energy_bid_awards",
+          "csvSha256": "20748f5aed9386101e28a165071bd16ea92960ac1ec8305134f03cbe24abf2ba",
+          "sourceRows": 13438,
+          "decodedRows": 13438
+        },
+        {
+          "member": "60d_DAM_PTP_Obligation_Option-31-JAN-23.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt",
+          "csvSha256": "61e206a6ef4dfffe6df5b2f19cc01abc56faeb1831cece04e16194c57e1ee6a8",
+          "sourceRows": 8350,
+          "decodedRows": 8350
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "product": "NP4-745-CD",
+      "totalJanuaryPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-01-01T00:00:00",
+        "postDatetimeTo": "2023-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 893111071,
+        "friendlyName": "PVGRHRLYAVGACTGEONP4745_csv",
+        "postDatetime": "2023-01-31T23:55:22.910000"
+      },
+      "source": "work/history-annual-dam-solar-2023/NP4-745-CD.zip",
+      "zipSha256": "291811b0d2ceb260a5a31afea733e473fad008b4986d9eabfda7216038edca34",
+      "files": [
+        {
+          "member": "cdr.00021809.0000000000000000.20230131.235522.PVGRHRLYAVGACTGEONP4745.csv",
+          "reader": "np4-745-cd/spp_hrly_actual_fcast_geo",
+          "csvSha256": "02bd8dd306ac4852c4a9750945476c6fc7ac5d037ab31cde6ce5611bfcf3672a",
+          "sourceRows": 216,
+          "decodedRows": 216
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "product": "NP3-966-ER",
+      "totalJanuaryPublications": 32,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-01-01T00:00:00",
+        "postDatetimeTo": "2024-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 977282760,
+        "friendlyName": "60_Day_DAM_Disclosure",
+        "postDatetime": "2024-01-31T04:26:06.946000"
+      },
+      "source": "work/history-annual-dam-solar-2024/NP3-966-ER.zip",
+      "zipSha256": "1f527ef62c834d82337fe89873e698f745e731819358f1085b62ccd7a2ae944c",
+      "files": [
+        {
+          "member": "60d_DAM_PTP_Obligation_OptionAwards-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt_awards",
+          "csvSha256": "e0101b3239b058db59eb297c229a37bc85175ad6ebd0fb3afc35dcb4639e0c8b",
+          "sourceRows": 9092,
+          "decodedRows": 9092
+        },
+        {
+          "member": "60d_DAM_PTPObligationBids-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bids",
+          "csvSha256": "5c445ee553be82f1b3f6f0bb8f01b085d87c07ac66b195079509d2b6eb3477ad",
+          "sourceRows": 181400,
+          "decodedRows": 181400
+        },
+        {
+          "member": "60d_DAM_PTPObligationBidAwards-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bid_awards",
+          "csvSha256": "33351dd7a7c9373696b6d61faaea58428a9b69261f9771a5f86d77fa9dbb968e",
+          "sourceRows": 181400,
+          "decodedRows": 181400
+        },
+        {
+          "member": "60d_DAM_QSE_Self_Arranged_AS-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_qse_self_as",
+          "csvSha256": "f053283a819e0abe308d14c05d19beae996a47bdf5318ad6d58c747d7d74806d",
+          "sourceRows": 1053,
+          "decodedRows": 1053
+        },
+        {
+          "member": "60d_DAM_Gen_Resource_Data-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_gen_res_data",
+          "csvSha256": "f2875e4ae53df10305c58ac65faa7dc758034704840941b883145533c3235d66",
+          "sourceRows": 30888,
+          "decodedRows": 30888
+        },
+        {
+          "member": "60d_DAM_Generation_Resource_ASOffers-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_gen_res_as_offers",
+          "csvSha256": "ad69605572f9c9ad134732f5e2828a9441d413dae6f5d349e005e2ad8127e651",
+          "sourceRows": 8189,
+          "decodedRows": 8189
+        },
+        {
+          "member": "60d_DAM_Load_Resource_Data-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_load_res_data",
+          "csvSha256": "7b733f12ef2b809c5e26eee016486cf8ed0586d089d3f8571b6aefaa6d7f2306",
+          "sourceRows": 15264,
+          "decodedRows": 15264
+        },
+        {
+          "member": "60d_DAM_Load_Resource_ASOffers-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_load_res_as_offers",
+          "csvSha256": "5b4935043e2184a37a68d415a855b6e8cbe047ec74ce6a06d3915ec58d0006ae",
+          "sourceRows": 7959,
+          "decodedRows": 7959
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOffers-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offers",
+          "csvSha256": "59398520acdbd4b194eaa0080697a5b6e38946adfc058b33b9327b71f7355ca6",
+          "sourceRows": 18401,
+          "decodedRows": 18401
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOfferAwards-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offer_awards",
+          "csvSha256": "9f02365dbe0db715f4ce90f20c84d43b9a11ff472d649b6728153b3515c0418a",
+          "sourceRows": 18401,
+          "decodedRows": 18401
+        },
+        {
+          "member": "60d_DAM_EnergyBids-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_energy_bids",
+          "csvSha256": "c5e5ee0f5a0d7a409fb46a2a19a12b10ecb1b7570ef51748f333d1264a858140",
+          "sourceRows": 22145,
+          "decodedRows": 22145
+        },
+        {
+          "member": "60d_DAM_EnergyBidAwards-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_energy_bid_awards",
+          "csvSha256": "f29d564873edcf80e1cc9bb0d71d0a5c79ac9218b2e215a4243a8560aba670b8",
+          "sourceRows": 22138,
+          "decodedRows": 22138
+        },
+        {
+          "member": "60d_DAM_PTP_Obligation_Option-31-JAN-24.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt",
+          "csvSha256": "fd2debfd77cfba1cbcdf3ad8b9798e5e1dd911a50e802022e6a833f5d5f112a8",
+          "sourceRows": 9092,
+          "decodedRows": 9092
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "product": "NP4-745-CD",
+      "totalJanuaryPublications": 742,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-01-01T00:00:00",
+        "postDatetimeTo": "2024-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 977491495,
+        "friendlyName": "PVGRHRLYAVGACTGEONP4745_csv",
+        "postDatetime": "2024-01-31T23:55:34"
+      },
+      "source": "work/history-annual-dam-solar-2024/NP4-745-CD.zip",
+      "zipSha256": "c477ecb319f2787382dc86f03c65da5f877cc4a41ad70c33974ecb9054b0b7c1",
+      "files": [
+        {
+          "member": "cdr.00021809.0000000000000000.20240131.235534.PVGRHRLYAVGACTGEONP4745.csv",
+          "reader": "np4-745-cd/spp_hrly_actual_fcast_geo",
+          "csvSha256": "b11e8e04caa66b9ab0f2fed8e77499792e92f0feb8b5cee58e02d36fc85ffd9d",
+          "sourceRows": 216,
+          "decodedRows": 216
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "product": "NP3-966-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-01-01T00:00:00",
+        "postDatetimeTo": "2025-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 1073757827,
+        "friendlyName": "60_Day_DAM_Disclosure",
+        "postDatetime": "2025-01-31T05:49:58"
+      },
+      "source": "work/history-annual-dam-solar-2025/NP3-966-ER.zip",
+      "zipSha256": "a4a29cd5f0bc07167694b54190745f3ca22d1aff58f4902cb37c2f3f1d750645",
+      "files": [
+        {
+          "member": "60d_DAM_PTP_Obligation_OptionAwards-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt_awards",
+          "csvSha256": "25e63c0be48da853f23adda0c5cfe318ff392711a77c4db48b5c97cc4f0b5c09",
+          "sourceRows": 8343,
+          "decodedRows": 8343
+        },
+        {
+          "member": "60d_DAM_PTPObligationBids-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bids",
+          "csvSha256": "17888dd189643a893f6dfc81777c7363d1563268a353b614b0df228b16986577",
+          "sourceRows": 173135,
+          "decodedRows": 173135
+        },
+        {
+          "member": "60d_DAM_PTPObligationBidAwards-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_bid_awards",
+          "csvSha256": "716e593eca330cbf35900f7b7a3617bdca70c08a2dbc138850a8f3bdbbbf1e5f",
+          "sourceRows": 173135,
+          "decodedRows": 173135
+        },
+        {
+          "member": "60d_DAM_QSE_Self_Arranged_AS-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_qse_self_as",
+          "csvSha256": "0cb72f588dd88cb576c59c6898b25d5b53cb9329f0555029f51aee45dfc258e8",
+          "sourceRows": 792,
+          "decodedRows": 792
+        },
+        {
+          "member": "60d_DAM_Gen_Resource_Data-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_gen_res_data",
+          "csvSha256": "38ac41ddf872b65689231fc539a722b91b8b18948a81e16522e44eefeba246e7",
+          "sourceRows": 34176,
+          "decodedRows": 34176
+        },
+        {
+          "member": "60d_DAM_Generation_Resource_ASOffers-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_gen_res_as_offers",
+          "csvSha256": "9f2ee4bb5eda9aa1a3c7b2ce1577387ba20ee7798603b2f6a7a639b9403d0c34",
+          "sourceRows": 8798,
+          "decodedRows": 8798
+        },
+        {
+          "member": "60d_DAM_Load_Resource_Data-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_load_res_data",
+          "csvSha256": "a3e104433a8a116f9f60ba7e0aaba1bba0cc54ea6e81c097999a739ae539fcc7",
+          "sourceRows": 17256,
+          "decodedRows": 17256
+        },
+        {
+          "member": "60d_DAM_Load_Resource_ASOffers-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_load_res_as_offers",
+          "csvSha256": "0989bccd6fe7c9360f3359ed8aa9674a47879d13fdc285548d555eedb32b2d88",
+          "sourceRows": 6429,
+          "decodedRows": 6429
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOffers-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offers",
+          "csvSha256": "658d51e2e338592214ec3338ab651fac1bb6fd96b8c2373a459823082f69b2a4",
+          "sourceRows": 16785,
+          "decodedRows": 16785
+        },
+        {
+          "member": "60d_DAM_EnergyOnlyOfferAwards-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_energy_only_offer_awards",
+          "csvSha256": "55eb4e927d72e2ac22c29e36ded0df993a1177fc04fc24fa0ffa9e9e26db5e0d",
+          "sourceRows": 16785,
+          "decodedRows": 16785
+        },
+        {
+          "member": "60d_DAM_EnergyBids-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_energy_bids",
+          "csvSha256": "cb50b4045d971d3de2f67e637890227f403ecd7c6c46e26f28381f2fbe6fcabd",
+          "sourceRows": 33651,
+          "decodedRows": 33651
+        },
+        {
+          "member": "60d_DAM_EnergyBidAwards-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_energy_bid_awards",
+          "csvSha256": "dc1282905b02f53834826918239ee9eee220b6e95c5d5bc84127d64c15291583",
+          "sourceRows": 33651,
+          "decodedRows": 33651
+        },
+        {
+          "member": "60d_DAM_PTP_Obligation_Option-31-JAN-25.csv",
+          "reader": "np3-966-er/60_dam_ptp_obl_opt",
+          "csvSha256": "3139dadf94bd638b77819257679fecbf931bca7b248ef5b2343b3f829fde7e2f",
+          "sourceRows": 8343,
+          "decodedRows": 8343
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "product": "NP4-745-CD",
+      "totalJanuaryPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-01-01T00:00:00",
+        "postDatetimeTo": "2025-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 1073971825,
+        "friendlyName": "PVGRHRLYAVGACTGEONP4745_csv",
+        "postDatetime": "2025-01-31T23:55:07"
+      },
+      "source": "work/history-annual-dam-solar-2025/NP4-745-CD.zip",
+      "zipSha256": "2f3067019392d28871c050bb6237559fae6b919228bebc83953c2f4403ca4c4d",
+      "files": [
+        {
+          "member": "cdr.00021809.0000000000000000.20250131.235507.PVGRHRLYAVGACTGEONP4745.csv",
+          "reader": "np4-745-cd/spp_hrly_actual_fcast_geo",
+          "csvSha256": "9e27977037838f5bb03f7d079d2a4d62f7d34925ed17ff46cc34c5f6cd29f868",
+          "sourceRows": 216,
+          "decodedRows": 216
+        }
+      ]
+    }
+  ]
+}
