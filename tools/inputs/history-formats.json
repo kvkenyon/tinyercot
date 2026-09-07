@@ -3915,5 +3915,323 @@
       "type": "str",
       "priority": "Decimal"
     }
+  },
+  "np4-196-m/dam_price_corrections_eblmp": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "ElectricBusName": "electricalBus",
+      "LMPOriginal": "LMPOriginal",
+      "LMPCorrected": "LMPCorrected",
+      "PriceCorrectionTime": "priceCorrectionTime",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "priceCorrectionTime": "%m/%d/%Y %H:%M:%S"
+    },
+    "member": "*pricecorrection_DAM_EBLMP_*.csv",
+    "document": "*pricecorrection_DAM_EBLMP_*"
+  },
+  "np4-196-m/dam_price_corrections_spp": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "SettlementPoint": "settlementPoint",
+      "SPPOriginal": "SPPOriginal",
+      "SPPCorrected": "SPPCorrected",
+      "PriceCorrectionTime": "priceCorrectionTime",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "priceCorrectionTime": "%m/%d/%Y %H:%M:%S"
+    },
+    "member": "*pricecorrection_DAM_SPP_*.csv",
+    "document": "*pricecorrection_DAM_SPP_*"
+  },
+  "np4-196-m/dam_price_corrections_mcpc": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "ASType": "ASType",
+      "MCPCOriginal": "MCPCOriginal",
+      "MCPCCorrected": "MCPCCorrected",
+      "PriceCorrectionTime": "priceCorrectionTime",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "priceCorrectionTime": "%m/%d/%Y %H:%M:%S"
+    },
+    "member": "*pricecorrection_DAM_MCPC_*.csv",
+    "document": "*pricecorrection_DAM_MCPC_*"
+  },
+  "np4-197-m/rtm_price_corrections_soglmp": {
+    "columns": {
+      "ScedTimestamp": "SCEDTimestamp",
+      "ResourceType": "resourceType",
+      "ResourceName": "resourceName",
+      "MeterName": "meterName",
+      "MeterLMPOriginal": "meterLMPOriginal",
+      "MeterLMPCorrected": "meterLMPCorrected",
+      "RTRDPAOriginal": "RTRDPAOriginal",
+      "RTRDPACorrected": "RTRDPACorrected",
+      "FinalLMPOriginal": "finalLMPOriginal",
+      "FinalLMPCorrected": "finalLMPCorrected",
+      "PriceCorrectionTime": "priceCorrectionTime",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S",
+      "priceCorrectionTime": "%m/%d/%Y %H:%M:%S"
+    },
+    "member": "*pricecorrection_RTM_SOGLMP_*.csv",
+    "document": "*pricecorrection_RTM_SOGLMP_*",
+    "variants": [
+      {
+        "ScedTimestamp": "SCEDTimestamp",
+        "ResourceType": "resourceType",
+        "ResourceName": "resourceName",
+        "MeterName": "meterName",
+        "MeterLMPOriginal": "meterLMPOriginal",
+        "MeterLMPCorrected": "meterLMPCorrected",
+        "RTORPAOriginal": "RTORPAOriginal",
+        "RTORPACorrected": "RTORPACorrected",
+        "RTORDPAOriginal": "RTORDPAOriginal",
+        "RTORDPACorrected": "RTORDPACorrected",
+        "FinalLMPOriginal": "finalLMPOriginal",
+        "FinalLMPCorrected": "finalLMPCorrected",
+        "PriceCorrectionTime": "priceCorrectionTime",
+        "DSTFlag": "repeatHourFlag"
+      }
+    ],
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "resourceType": "str",
+      "resourceName": "str",
+      "meterName": "str",
+      "meterLMPOriginal": "Decimal",
+      "meterLMPCorrected": "Decimal",
+      "RTRDPAOriginal": "Decimal",
+      "RTRDPACorrected": "Decimal",
+      "finalLMPOriginal": "Decimal",
+      "finalLMPCorrected": "Decimal",
+      "priceCorrectionTime": "datetime",
+      "repeatHourFlag": "bool",
+      "RTORPAOriginal": "Decimal",
+      "RTORPACorrected": "Decimal",
+      "RTORDPAOriginal": "Decimal",
+      "RTORDPACorrected": "Decimal"
+    }
+  },
+  "np4-197-m/rtm_price_corrections_spp": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "DeliveryInterval": "deliveryInterval",
+      "SettlementPointName": "settlementPointName",
+      "SettlementPointType": "settlementPointType",
+      "SPPOriginal": "SPPOriginal",
+      "SPPCorrected": "SPPCorrected",
+      "PriceCorrectionTime": "priceCorrectionTime",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "priceCorrectionTime": "%m/%d/%Y %H:%M:%S"
+    },
+    "member": "*pricecorrection_RTM_SPP_*.csv",
+    "document": "*pricecorrection_RTM_SPP_*"
+  },
+  "np4-197-m/rtm_price_corrections_sogprice": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "DeliveryInterval": "deliveryInterval",
+      "ResourceType": "resourceType",
+      "ResourceName": "resourceName",
+      "MeterName": "meterName",
+      "PriceOriginal": "priceOriginal",
+      "PriceCorrected": "priceCorrected",
+      "PriceCorrectionTime": "priceCorrectionTime",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "priceCorrectionTime": "%m/%d/%Y %H:%M:%S"
+    },
+    "member": "*pricecorrection_RTM_SOGPRICE_*.csv",
+    "document": "*pricecorrection_RTM_SOGPRICE_*"
+  },
+  "np4-197-m/rtm_price_corrections_splmp": {
+    "columns": {
+      "SCEDTimestamp": "SCEDTimestamp",
+      "SettlementPoint": "settlementPointName",
+      "LMPOriginal": "LMPOriginal",
+      "LMPCorrected": "LMPCorrected",
+      "PriceCorrectionTime": "priceCorrectionTime",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S",
+      "priceCorrectionTime": "%m/%d/%Y %H:%M:%S"
+    },
+    "member": "*pricecorrection_RTM_SPLMP_*.csv",
+    "document": "*pricecorrection_RTM_SPLMP_*"
+  },
+  "np4-197-m/rtm_price_corrections_mcpc_spp": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "DeliveryInterval": "deliveryInterval",
+      "ASType": "ASType",
+      "MCPCOriginal": "MCPCOriginal",
+      "MCPCCorrected": "MCPCCorrected",
+      "PriceCorrectionTime": "priceCorrectionTime",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "priceCorrectionTime": "%m/%d/%Y %H:%M:%S"
+    },
+    "member": "*pricecorrection_RTM_MCPC_SPP_*.csv",
+    "document": "*pricecorrection_RTM_MCPC_SPP_*"
+  },
+  "np4-197-m/rtm_price_corrections_eblmp": {
+    "columns": {
+      "SCEDTimestamp": "SCEDTimestamp",
+      "ElectricalBus": "electricalBus",
+      "CappedLMPOriginal": "cappedLMPOriginal",
+      "UncappedLMPOriginal": "uncappedLMPOriginal",
+      "CappedLMPCorrected": "cappedLMPCorrected",
+      "UncappedLMPCorrected": "uncappedLMPCorrected",
+      "PriceCorrectionTime": "priceCorrectionTime",
+      "RepeatedHourFlag": "repeatedHourFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S",
+      "priceCorrectionTime": "%m/%d/%Y %H:%M:%S"
+    },
+    "member": "*pricecorrection_RTM_EBLMP_*.csv",
+    "document": "*pricecorrection_RTM_EBLMP_*",
+    "variants": [
+      {
+        "SCEDTimestamp": "SCEDTimestamp",
+        "ElectricBusName": "electricalBus",
+        "LMPOriginal": "LMPOriginal",
+        "LMPCorrected": "LMPCorrected",
+        "PriceCorrectionTime": "priceCorrectionTime",
+        "DSTFlag": "repeatedHourFlag"
+      }
+    ],
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "electricalBus": "str",
+      "cappedLMPOriginal": "Decimal",
+      "uncappedLMPOriginal": "Decimal",
+      "cappedLMPCorrected": "Decimal",
+      "uncappedLMPCorrected": "Decimal",
+      "priceCorrectionTime": "datetime",
+      "repeatedHourFlag": "bool",
+      "LMPOriginal": "Decimal",
+      "LMPCorrected": "Decimal"
+    }
+  },
+  "np4-197-m/rtm_price_corrections_shadow": {
+    "columns": {
+      "SCEDTimestamp": "SCEDTimestamp",
+      "ConstrID": "constraintId",
+      "ConstrName": "constraintName",
+      "ContingencyName": "contingencyName",
+      "ShadowPriceOrig": "shadowPriceOriginal",
+      "ShadowPriceCorrected": "shadowPriceCorrected",
+      "LimitOrig": "limitOriginal",
+      "LimitCorrected": "limitCorrected",
+      "ValueOriginal": "valueOriginal",
+      "ValueCorrected": "valueCorrected",
+      "PriceCorrectionTime": "priceCorrectionTime",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S",
+      "priceCorrectionTime": "%m/%d/%Y %H:%M:%S"
+    },
+    "member": "*pricecorrection_RTM_ShadowPrice_*.csv",
+    "document": "*pricecorrection_RTM_ShadowPrice_*"
+  },
+  "np4-197-m/rtm_price_corrections_mcpc_sced": {
+    "columns": {
+      "SCEDTimestamp": "SCEDTimestamp",
+      "ASType": "ASType",
+      "CappedMCPCOriginal": "cappedMCPCOriginal",
+      "UncappedMCPCOriginal": "uncappedMCPCOriginal",
+      "CappedMCPCCorrected": "cappedMCPCCorrected",
+      "UncappedMCPCCorrected": "uncappedMCPCCorrected",
+      "PriceCorrectionTime": "priceCorrectionTime",
+      "RepeatedHourFlag": "repeatedHourFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S",
+      "priceCorrectionTime": "%m/%d/%Y %H:%M:%S"
+    },
+    "member": "*pricecorrection_RTM_MCPC_SCED_*.csv",
+    "document": "*pricecorrection_RTM_MCPC_SCED_*",
+    "variants": [
+      {
+        "SCEDTimestamp": "SCEDTimestamp",
+        "ASType": "ASType",
+        "MCPCOriginal": "MCPCOriginal",
+        "MCPCCorrected": "MCPCCorrected",
+        "PriceCorrectionTime": "priceCorrectionTime",
+        "RepeatedHourFlag": "repeatedHourFlag"
+      }
+    ],
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "ASType": "str",
+      "cappedMCPCOriginal": "Decimal",
+      "uncappedMCPCOriginal": "Decimal",
+      "cappedMCPCCorrected": "Decimal",
+      "uncappedMCPCCorrected": "Decimal",
+      "priceCorrectionTime": "datetime",
+      "repeatedHourFlag": "bool",
+      "MCPCOriginal": "Decimal",
+      "MCPCCorrected": "Decimal"
+    }
+  },
+  "np4-412-cd/epp_cumulative_hours": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "DeliveryInterval": "deliveryInterval",
+      "AvgRTSystemLambda": "RTSystemLambda",
+      "AvgRTRDPA": "RTRDPA",
+      "SumRTSysLambdaRTRDPA": "RTSystemLambdaRTDPA",
+      "HCAPforDAM": "HCAPDAM",
+      "CumHrsHCAPDAM24Hrs": "hoursHCAPDAM",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
   }
 }

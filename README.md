@@ -305,3 +305,25 @@ heuristic-pricing electrical bus mappings (NP4-231). Each exposes its generated
 braces, and case. Older `LoadDistributionFactor` headers map to the same typed
 `distributionFactor` field as newer files. Keep document publication metadata
 when comparing mapping versions; source row dates describe the report's data.
+
+DAM and RTM price-correction archives expose a history reader for each correction
+subtype. These archives mix document types, so generated readers select matching
+document names before downloading and the matching CSV member before decoding:
+
+```python
+with Client() as ercot:
+    for correction in ercot.np4_196_m.dam_price_corrections_eblmp_history.rows(
+        posted_from=datetime(2025, 12, 8),
+        posted_to=datetime(2025, 12, 10),
+    ):
+        print(correction.electricalBus, correction.LMPOriginal, correction.LMPCorrected)
+```
+
+All eleven DAM/RTM correction subtypes found in the catalog have generated
+readers, including SOG, shadow-price, settlement-point and ancillary-service
+corrections. Original and corrected values remain separate. Older
+LMP fields and legacy SOG `RTORDPA` fields are preserved rather than assigned to
+newer fields. Publication, delivery/SCED, and correction timestamps keep their
+source meanings; correction records are not automatically applied to other
+reports. `ercot.np4_412_cd.epp_cumulative_hours_history` also reads emergency-pricing
+cumulative-hour reports.

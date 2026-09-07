@@ -6559,6 +6559,11 @@ class np4_196_m:
         electricalBus: str | None
         priceCorrectionTime: datetime | None
 
+    @property
+    def dam_price_corrections_eblmp_history(self) -> Archive[np4_196_m.DamPriceCorrectionsEblmpRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-196-m', np4_196_m.DamPriceCorrectionsEblmpRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'ElectricBusName': 'electricalBus', 'LMPOriginal': 'LMPOriginal', 'LMPCorrected': 'LMPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*pricecorrection_DAM_EBLMP_*.csv', datetimes={'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_DAM_EBLMP_*')
+
     def dam_price_corrections_eblmp(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, electricalBus: str | None = None, LMPOriginalFrom: Decimal | None = None, LMPOriginalTo: Decimal | None = None, LMPCorrectedFrom: Decimal | None = None, LMPCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_196_m.DamPriceCorrectionsEblmpRow]:
         'DAM Price Corrections for EBLMP'
         return self._client._page('/np4-196-m/dam_price_corrections_eblmp', np4_196_m.DamPriceCorrectionsEblmpRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'electricalBus': electricalBus, 'LMPOriginalFrom': LMPOriginalFrom, 'LMPOriginalTo': LMPOriginalTo, 'LMPCorrectedFrom': LMPCorrectedFrom, 'LMPCorrectedTo': LMPCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6583,6 +6588,11 @@ class np4_196_m:
         deliveryHour: int | None
         priceCorrectionTime: datetime | None
 
+    @property
+    def dam_price_corrections_mcpc_history(self) -> Archive[np4_196_m.DamPriceCorrectionsMcpcRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-196-m', np4_196_m.DamPriceCorrectionsMcpcRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'ASType': 'ASType', 'MCPCOriginal': 'MCPCOriginal', 'MCPCCorrected': 'MCPCCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*pricecorrection_DAM_MCPC_*.csv', datetimes={'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_DAM_MCPC_*')
+
     def dam_price_corrections_mcpc(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, ASType: str | None = None, MCPCOriginalFrom: Decimal | None = None, MCPCOriginalTo: Decimal | None = None, MCPCCorrectedFrom: Decimal | None = None, MCPCCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_196_m.DamPriceCorrectionsMcpcRow]:
         'DAM Price Corrections for MCPC'
         return self._client._page('/np4-196-m/dam_price_corrections_mcpc', np4_196_m.DamPriceCorrectionsMcpcRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'ASType': ASType, 'MCPCOriginalFrom': MCPCOriginalFrom, 'MCPCOriginalTo': MCPCOriginalTo, 'MCPCCorrectedFrom': MCPCCorrectedFrom, 'MCPCCorrectedTo': MCPCCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6606,6 +6616,11 @@ class np4_196_m:
         deliveryHour: int | None
         priceCorrectionTime: datetime | None
         settlementPoint: str | None
+
+    @property
+    def dam_price_corrections_spp_history(self) -> Archive[np4_196_m.DamPriceCorrectionsSppRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-196-m', np4_196_m.DamPriceCorrectionsSppRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'SettlementPoint': 'settlementPoint', 'SPPOriginal': 'SPPOriginal', 'SPPCorrected': 'SPPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*pricecorrection_DAM_SPP_*.csv', datetimes={'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_DAM_SPP_*')
 
     def dam_price_corrections_spp(self, *, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, settlementPoint: str | None = None, SPPOriginalFrom: Decimal | None = None, SPPOriginalTo: Decimal | None = None, SPPCorrectedFrom: Decimal | None = None, SPPCorrectedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_196_m.DamPriceCorrectionsSppRow]:
         'DAM Price Corrections for SPP'
@@ -6637,6 +6652,23 @@ class np4_197_m:
         uncappedLMPCorrected: Decimal | None
         uncappedLMPOriginal: Decimal | None
 
+    class RtmPriceCorrectionsEblmpHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        electricalBus: str | None
+        cappedLMPOriginal: Decimal | None = None
+        uncappedLMPOriginal: Decimal | None = None
+        cappedLMPCorrected: Decimal | None = None
+        uncappedLMPCorrected: Decimal | None = None
+        priceCorrectionTime: datetime | None
+        repeatedHourFlag: bool | None
+        LMPOriginal: Decimal | None = None
+        LMPCorrected: Decimal | None = None
+
+    @property
+    def rtm_price_corrections_eblmp_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsEblmpHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsEblmpHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'ElectricalBus': 'electricalBus', 'CappedLMPOriginal': 'cappedLMPOriginal', 'UncappedLMPOriginal': 'uncappedLMPOriginal', 'CappedLMPCorrected': 'cappedLMPCorrected', 'UncappedLMPCorrected': 'uncappedLMPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'RepeatedHourFlag': 'repeatedHourFlag'}, {}, member='*pricecorrection_RTM_EBLMP_*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S', 'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=({'SCEDTimestamp': 'SCEDTimestamp', 'ElectricBusName': 'electricalBus', 'LMPOriginal': 'LMPOriginal', 'LMPCorrected': 'LMPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'repeatedHourFlag'},), document='*pricecorrection_RTM_EBLMP_*')
+
     def rtm_price_corrections_eblmp(self, *, cappedLMPOriginalFrom: Decimal | None = None, cappedLMPOriginalTo: Decimal | None = None, uncappedLMPOriginalFrom: Decimal | None = None, uncappedLMPOriginalTo: Decimal | None = None, cappedLMPCorrectedFrom: Decimal | None = None, cappedLMPCorrectedTo: Decimal | None = None, uncappedLMPCorrectedFrom: Decimal | None = None, uncappedLMPCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, repeatedHourFlag: bool | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, electricalBus: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsEblmpRow]:
         'RTM Price Corrections for EB LMP'
         return self._client._page('/np4-197-m/rtm_price_corrections_eblmp', np4_197_m.RtmPriceCorrectionsEblmpRow, {'cappedLMPOriginalFrom': cappedLMPOriginalFrom, 'cappedLMPOriginalTo': cappedLMPOriginalTo, 'uncappedLMPOriginalFrom': uncappedLMPOriginalFrom, 'uncappedLMPOriginalTo': uncappedLMPOriginalTo, 'cappedLMPCorrectedFrom': cappedLMPCorrectedFrom, 'cappedLMPCorrectedTo': cappedLMPCorrectedTo, 'uncappedLMPCorrectedFrom': uncappedLMPCorrectedFrom, 'uncappedLMPCorrectedTo': uncappedLMPCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'repeatedHourFlag': repeatedHourFlag, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'electricalBus': electricalBus, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6662,6 +6694,11 @@ class np4_197_m:
         priceCorrectionTime: datetime | None
         repeatHourFlag: bool | None
 
+    @property
+    def rtm_price_corrections_mcpc_spp_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsMcpcSppRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsMcpcSppRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'ASType': 'ASType', 'MCPCOriginal': 'MCPCOriginal', 'MCPCCorrected': 'MCPCCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*pricecorrection_RTM_MCPC_SPP_*.csv', datetimes={'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_RTM_MCPC_SPP_*')
+
     def rtm_price_corrections_mcpc_spp(self, *, ASType: str | None = None, MCPCOriginalFrom: Decimal | None = None, MCPCOriginalTo: Decimal | None = None, MCPCCorrectedFrom: Decimal | None = None, MCPCCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, repeatHourFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsMcpcSppRow]:
         'RTM Price Corrections for MCPC by 15-Min Settlement Interval'
         return self._client._page('/np4-197-m/rtm_price_corrections_mcpc_spp', np4_197_m.RtmPriceCorrectionsMcpcSppRow, {'ASType': ASType, 'MCPCOriginalFrom': MCPCOriginalFrom, 'MCPCOriginalTo': MCPCOriginalTo, 'MCPCCorrectedFrom': MCPCCorrectedFrom, 'MCPCCorrectedTo': MCPCCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'repeatHourFlag': repeatHourFlag, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'deliveryIntervalFrom': deliveryIntervalFrom, 'deliveryIntervalTo': deliveryIntervalTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6686,6 +6723,23 @@ class np4_197_m:
         repeatedHourFlag: bool | None
         uncappedMCPCCorrected: Decimal | None
         uncappedMCPCOriginal: Decimal | None
+
+    class RtmPriceCorrectionsMcpcScedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        ASType: str | None
+        cappedMCPCOriginal: Decimal | None = None
+        uncappedMCPCOriginal: Decimal | None = None
+        cappedMCPCCorrected: Decimal | None = None
+        uncappedMCPCCorrected: Decimal | None = None
+        priceCorrectionTime: datetime | None
+        repeatedHourFlag: bool | None
+        MCPCOriginal: Decimal | None = None
+        MCPCCorrected: Decimal | None = None
+
+    @property
+    def rtm_price_corrections_mcpc_sced_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsMcpcScedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsMcpcScedHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'ASType': 'ASType', 'CappedMCPCOriginal': 'cappedMCPCOriginal', 'UncappedMCPCOriginal': 'uncappedMCPCOriginal', 'CappedMCPCCorrected': 'cappedMCPCCorrected', 'UncappedMCPCCorrected': 'uncappedMCPCCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'RepeatedHourFlag': 'repeatedHourFlag'}, {}, member='*pricecorrection_RTM_MCPC_SCED_*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S', 'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=({'SCEDTimestamp': 'SCEDTimestamp', 'ASType': 'ASType', 'MCPCOriginal': 'MCPCOriginal', 'MCPCCorrected': 'MCPCCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'RepeatedHourFlag': 'repeatedHourFlag'},), document='*pricecorrection_RTM_MCPC_SCED_*')
 
     def rtm_price_corrections_mcpc_sced(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, ASType: str | None = None, cappedMCPCOriginalFrom: Decimal | None = None, cappedMCPCOriginalTo: Decimal | None = None, uncappedMCPCOriginalFrom: Decimal | None = None, uncappedMCPCOriginalTo: Decimal | None = None, cappedMCPCCorrectedFrom: Decimal | None = None, cappedMCPCCorrectedTo: Decimal | None = None, uncappedMCPCCorrectedFrom: Decimal | None = None, uncappedMCPCCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, repeatedHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsMcpcScedRow]:
         'RTM Price Corrections for MCPCs by SCED Interval'
@@ -6715,6 +6769,11 @@ class np4_197_m:
         shadowPriceOriginal: Decimal | None
         valueCorrected: Decimal | None
         valueOriginal: Decimal | None
+
+    @property
+    def rtm_price_corrections_shadow_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsShadowRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsShadowRow, {'SCEDTimestamp': 'SCEDTimestamp', 'ConstrID': 'constraintId', 'ConstrName': 'constraintName', 'ContingencyName': 'contingencyName', 'ShadowPriceOrig': 'shadowPriceOriginal', 'ShadowPriceCorrected': 'shadowPriceCorrected', 'LimitOrig': 'limitOriginal', 'LimitCorrected': 'limitCorrected', 'ValueOriginal': 'valueOriginal', 'ValueCorrected': 'valueCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {}, member='*pricecorrection_RTM_ShadowPrice_*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S', 'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_RTM_ShadowPrice_*')
 
     def rtm_price_corrections_shadow(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, constraintIdFrom: int | None = None, constraintIdTo: int | None = None, constraintName: str | None = None, contingencyName: str | None = None, shadowPriceOriginalFrom: Decimal | None = None, shadowPriceOriginalTo: Decimal | None = None, shadowPriceCorrectedFrom: Decimal | None = None, shadowPriceCorrectedTo: Decimal | None = None, limitOriginalFrom: Decimal | None = None, limitOriginalTo: Decimal | None = None, limitCorrectedFrom: Decimal | None = None, limitCorrectedTo: Decimal | None = None, valueOriginalFrom: Decimal | None = None, valueOriginalTo: Decimal | None = None, valueCorrectedFrom: Decimal | None = None, valueCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsShadowRow]:
         'RTM Price Corrections for Shadow Prices'
@@ -6747,6 +6806,29 @@ class np4_197_m:
         resourceName: str | None
         resourceType: str | None
 
+    class RtmPriceCorrectionsSoglmpHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        resourceType: str | None
+        resourceName: str | None
+        meterName: str | None
+        meterLMPOriginal: Decimal | None
+        meterLMPCorrected: Decimal | None
+        RTRDPAOriginal: Decimal | None = None
+        RTRDPACorrected: Decimal | None = None
+        finalLMPOriginal: Decimal | None
+        finalLMPCorrected: Decimal | None
+        priceCorrectionTime: datetime | None
+        repeatHourFlag: bool | None
+        RTORPAOriginal: Decimal | None = None
+        RTORPACorrected: Decimal | None = None
+        RTORDPAOriginal: Decimal | None = None
+        RTORDPACorrected: Decimal | None = None
+
+    @property
+    def rtm_price_corrections_soglmp_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsSoglmpHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsSoglmpHistoryRow, {'ScedTimestamp': 'SCEDTimestamp', 'ResourceType': 'resourceType', 'ResourceName': 'resourceName', 'MeterName': 'meterName', 'MeterLMPOriginal': 'meterLMPOriginal', 'MeterLMPCorrected': 'meterLMPCorrected', 'RTRDPAOriginal': 'RTRDPAOriginal', 'RTRDPACorrected': 'RTRDPACorrected', 'FinalLMPOriginal': 'finalLMPOriginal', 'FinalLMPCorrected': 'finalLMPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'RepeatedHourFlag': 'repeatHourFlag'}, {}, member='*pricecorrection_RTM_SOGLMP_*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S', 'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=({'ScedTimestamp': 'SCEDTimestamp', 'ResourceType': 'resourceType', 'ResourceName': 'resourceName', 'MeterName': 'meterName', 'MeterLMPOriginal': 'meterLMPOriginal', 'MeterLMPCorrected': 'meterLMPCorrected', 'RTORPAOriginal': 'RTORPAOriginal', 'RTORPACorrected': 'RTORPACorrected', 'RTORDPAOriginal': 'RTORDPAOriginal', 'RTORDPACorrected': 'RTORDPACorrected', 'FinalLMPOriginal': 'finalLMPOriginal', 'FinalLMPCorrected': 'finalLMPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'repeatHourFlag'},), document='*pricecorrection_RTM_SOGLMP_*')
+
     def rtm_price_corrections_soglmp(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, resourceType: str | None = None, resourceName: str | None = None, meterName: str | None = None, meterLMPOriginalFrom: Decimal | None = None, meterLMPOriginalTo: Decimal | None = None, meterLMPCorrectedFrom: Decimal | None = None, meterLMPCorrectedTo: Decimal | None = None, RTRDPAOriginalFrom: Decimal | None = None, RTRDPAOriginalTo: Decimal | None = None, RTRDPACorrectedFrom: Decimal | None = None, RTRDPACorrectedTo: Decimal | None = None, finalLMPOriginalFrom: Decimal | None = None, finalLMPOriginalTo: Decimal | None = None, finalLMPCorrectedFrom: Decimal | None = None, finalLMPCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsSoglmpRow]:
         'RTM Price Corrections for SOG LMP'
         return self._client._page('/np4-197-m/rtm_price_corrections_soglmp', np4_197_m.RtmPriceCorrectionsSoglmpRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'resourceType': resourceType, 'resourceName': resourceName, 'meterName': meterName, 'meterLMPOriginalFrom': meterLMPOriginalFrom, 'meterLMPOriginalTo': meterLMPOriginalTo, 'meterLMPCorrectedFrom': meterLMPCorrectedFrom, 'meterLMPCorrectedTo': meterLMPCorrectedTo, 'RTRDPAOriginalFrom': RTRDPAOriginalFrom, 'RTRDPAOriginalTo': RTRDPAOriginalTo, 'RTRDPACorrectedFrom': RTRDPACorrectedFrom, 'RTRDPACorrectedTo': RTRDPACorrectedTo, 'finalLMPOriginalFrom': finalLMPOriginalFrom, 'finalLMPOriginalTo': finalLMPOriginalTo, 'finalLMPCorrectedFrom': finalLMPCorrectedFrom, 'finalLMPCorrectedTo': finalLMPCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6774,6 +6856,11 @@ class np4_197_m:
         resourceName: str | None
         resourceType: str | None
 
+    @property
+    def rtm_price_corrections_sogprice_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsSogpriceRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsSogpriceRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'ResourceType': 'resourceType', 'ResourceName': 'resourceName', 'MeterName': 'meterName', 'PriceOriginal': 'priceOriginal', 'PriceCorrected': 'priceCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*pricecorrection_RTM_SOGPRICE_*.csv', datetimes={'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_RTM_SOGPRICE_*')
+
     def rtm_price_corrections_sogprice(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, resourceType: str | None = None, resourceName: str | None = None, meterName: str | None = None, priceOriginalFrom: Decimal | None = None, priceOriginalTo: Decimal | None = None, priceCorrectedFrom: Decimal | None = None, priceCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsSogpriceRow]:
         'RTM Price Corrections for SOG Price'
         return self._client._page('/np4-197-m/rtm_price_corrections_sogprice', np4_197_m.RtmPriceCorrectionsSogpriceRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'deliveryIntervalFrom': deliveryIntervalFrom, 'deliveryIntervalTo': deliveryIntervalTo, 'resourceType': resourceType, 'resourceName': resourceName, 'meterName': meterName, 'priceOriginalFrom': priceOriginalFrom, 'priceOriginalTo': priceOriginalTo, 'priceCorrectedFrom': priceCorrectedFrom, 'priceCorrectedTo': priceCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6800,6 +6887,11 @@ class np4_197_m:
         settlementPointName: str | None
         settlementPointType: str | None
 
+    @property
+    def rtm_price_corrections_spp_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsSppRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsSppRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'SettlementPointName': 'settlementPointName', 'SettlementPointType': 'settlementPointType', 'SPPOriginal': 'SPPOriginal', 'SPPCorrected': 'SPPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*pricecorrection_RTM_SPP_*.csv', datetimes={'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_RTM_SPP_*')
+
     def rtm_price_corrections_spp(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, settlementPointName: str | None = None, settlementPointType: str | None = None, SPPOriginalFrom: Decimal | None = None, SPPOriginalTo: Decimal | None = None, SPPCorrectedFrom: Decimal | None = None, SPPCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsSppRow]:
         'RTM Price Corrections for SPP'
         return self._client._page('/np4-197-m/rtm_price_corrections_spp', np4_197_m.RtmPriceCorrectionsSppRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'deliveryIntervalFrom': deliveryIntervalFrom, 'deliveryIntervalTo': deliveryIntervalTo, 'settlementPointName': settlementPointName, 'settlementPointType': settlementPointType, 'SPPOriginalFrom': SPPOriginalFrom, 'SPPOriginalTo': SPPOriginalTo, 'SPPCorrectedFrom': SPPCorrectedFrom, 'SPPCorrectedTo': SPPCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6822,6 +6914,11 @@ class np4_197_m:
         SCEDTimestamp: datetime | None
         priceCorrectionTime: datetime | None
         settlementPointName: str | None
+
+    @property
+    def rtm_price_corrections_splmp_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsSplmpRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsSplmpRow, {'SCEDTimestamp': 'SCEDTimestamp', 'SettlementPoint': 'settlementPointName', 'LMPOriginal': 'LMPOriginal', 'LMPCorrected': 'LMPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {}, member='*pricecorrection_RTM_SPLMP_*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S', 'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_RTM_SPLMP_*')
 
     def rtm_price_corrections_splmp(self, *, settlementPointName: str | None = None, LMPOriginalFrom: Decimal | None = None, LMPOriginalTo: Decimal | None = None, LMPCorrectedFrom: Decimal | None = None, LMPCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsSplmpRow]:
         'RTM Price Corrections SP LMP'
@@ -7128,6 +7225,11 @@ class np4_412_cd:
         deliveryInterval: int | None
         hoursHCAPDAM: Decimal | None
         repeatHourFlag: bool | None
+
+    @property
+    def epp_cumulative_hours_history(self) -> Archive[np4_412_cd.EppCumulativeHoursRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-412-cd', np4_412_cd.EppCumulativeHoursRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'AvgRTSystemLambda': 'RTSystemLambda', 'AvgRTRDPA': 'RTRDPA', 'SumRTSysLambdaRTRDPA': 'RTSystemLambdaRTDPA', 'HCAPforDAM': 'HCAPDAM', 'CumHrsHCAPDAM24Hrs': 'hoursHCAPDAM', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
 
     def epp_cumulative_hours(self, *, HCAPDAMFrom: Decimal | None = None, HCAPDAMTo: Decimal | None = None, hoursHCAPDAMFrom: Decimal | None = None, hoursHCAPDAMTo: Decimal | None = None, repeatHourFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, RTSystemLambdaFrom: Decimal | None = None, RTSystemLambdaTo: Decimal | None = None, RTRDPAFrom: Decimal | None = None, RTRDPATo: Decimal | None = None, RTSystemLambdaRTDPAFrom: Decimal | None = None, RTSystemLambdaRTDPATo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_412_cd.EppCumulativeHoursRow]:
         'Emergency Pricing Program Cumulative Hours Tracking'

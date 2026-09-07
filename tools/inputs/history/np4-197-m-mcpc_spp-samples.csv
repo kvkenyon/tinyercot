@@ -1,0 +1,4 @@
+DeliveryDate,DeliveryHour,DeliveryInterval,ASType,MCPCOriginal,MCPCCorrected,PriceCorrectionTime,RepeatedHourFlag
+01/10/2026,3,2,REGDN,0.15,0.16,07/10/2026 16:00:00,N
+01/10/2026,7,3,REGUP,0.1,0.08,07/10/2026 16:00:00,N
+01/10/2026,7,4,REGUP,0.13,0.11,07/10/2026 16:00:00,N

@@ -1,0 +1,601 @@
+[
+  {
+    "endpoint": "np4-196-m/dam_price_corrections_eblmp",
+    "fixture": "np4-196-m-eblmp-current.csv",
+    "file": "cdr.00013044.0000000000000000.20251208.224153.pricecorrection_DAM_EBLMP_20251206_to_20251206_NP4196.csv",
+    "csv_rows": 63763,
+    "download": "work/correction-samples/NP4-196-M-EBLMP-current.zip",
+    "document": {
+      "docId": 1169262090,
+      "friendlyName": "pricecorrection_DAM_EBLMP_20251206_to_20251206_NP4196_csv",
+      "postDatetime": "2025-12-08T22:41:53"
+    },
+    "first_row": {
+      "DSTFlag": false,
+      "LMPCorrected": "45.31",
+      "LMPOriginal": "45.3",
+      "deliveryDate": "2025-12-06",
+      "deliveryHour": 1,
+      "electricalBus": "0022",
+      "priceCorrectionTime": "2025-12-09T10:00:00"
+    },
+    "rows_decoded": 63763
+  },
+  {
+    "endpoint": "np4-196-m/dam_price_corrections_eblmp",
+    "fixture": "np4-196-m-eblmp-samples.csv",
+    "file": "cdr.00013044.0000000000000000.20150803.144726.pricecorrection_DAM_EBLMP_20150731_to_20150731_NP4196.csv",
+    "csv_rows": 14,
+    "download": "work/correction-samples/NP4-196-M-EBLMP-samples.zip",
+    "document": {
+      "docId": 489329315,
+      "friendlyName": "pricecorrection_DAM_EBLMP_20150731_to_20150731_NP4196_csv",
+      "postDatetime": "2015-08-03T14:47:26.954000"
+    },
+    "first_row": {
+      "DSTFlag": false,
+      "LMPCorrected": "23.07",
+      "LMPOriginal": "22.83",
+      "deliveryDate": "2015-07-31",
+      "deliveryHour": 1,
+      "electricalBus": "EB_PENA3_ZBR",
+      "priceCorrectionTime": "2015-08-03T15:00:00"
+    },
+    "rows_decoded": 14
+  },
+  {
+    "endpoint": "np4-196-m/dam_price_corrections_spp",
+    "fixture": "np4-196-m-spp-current.csv",
+    "file": "cdr.00013044.0000000000000000.20251208.224152.pricecorrection_DAM_SPP_20251206_to_20251206_NP4196.csv",
+    "csv_rows": 3564,
+    "download": "work/correction-samples/NP4-196-M-SPP-current.zip",
+    "document": {
+      "docId": 1169262089,
+      "friendlyName": "pricecorrection_DAM_SPP_20251206_to_20251206_NP4196_csv",
+      "postDatetime": "2025-12-08T22:41:52"
+    },
+    "first_row": {
+      "DSTFlag": false,
+      "SPPCorrected": "46.62",
+      "SPPOriginal": "46.61",
+      "deliveryDate": "2025-12-06",
+      "deliveryHour": 1,
+      "priceCorrectionTime": "2025-12-09T10:00:00",
+      "settlementPoint": "ASTRA_RN"
+    },
+    "rows_decoded": 3564
+  },
+  {
+    "endpoint": "np4-196-m/dam_price_corrections_spp",
+    "fixture": "np4-196-m-spp-samples.csv",
+    "file": "cdr.00013044.0000000000000000.20150803.144726.pricecorrection_DAM_SPP_20150731_to_20150731_NP4196.csv",
+    "csv_rows": 14,
+    "download": "work/correction-samples/NP4-196-M-SPP-samples.zip",
+    "document": {
+      "docId": 489329316,
+      "friendlyName": "pricecorrection_DAM_SPP_20150731_to_20150731_NP4196_csv",
+      "postDatetime": "2015-08-03T14:47:26.988000"
+    },
+    "first_row": {
+      "DSTFlag": false,
+      "SPPCorrected": "23.07",
+      "SPPOriginal": "22.83",
+      "deliveryDate": "2015-07-31",
+      "deliveryHour": 1,
+      "priceCorrectionTime": "2015-08-03T15:00:00",
+      "settlementPoint": "PENA_ALL"
+    },
+    "rows_decoded": 14
+  },
+  {
+    "endpoint": "np4-196-m/dam_price_corrections_mcpc",
+    "fixture": "np4-196-m-mcpc-current.csv",
+    "file": "cdr.00013044.0000000000000000.20250930.104252.pricecorrection_DAM_MCPC_20250627_to_20250627_NP4196.csv",
+    "csv_rows": 22,
+    "download": "work/correction-samples/NP4-196-M-MCPC-current.zip",
+    "document": {
+      "docId": 1145629594,
+      "friendlyName": "pricecorrection_DAM_MCPC_20250627_to_20250627_NP4196_csv",
+      "postDatetime": "2025-09-30T10:42:52"
+    },
+    "first_row": {
+      "ASType": "REGUP",
+      "DSTFlag": false,
+      "MCPCCorrected": "1.3",
+      "MCPCOriginal": "1.21",
+      "deliveryDate": "2025-06-27",
+      "deliveryHour": 2,
+      "priceCorrectionTime": "2025-09-26T16:00:00"
+    },
+    "rows_decoded": 22
+  },
+  {
+    "endpoint": "np4-196-m/dam_price_corrections_mcpc",
+    "fixture": "np4-196-m-mcpc-samples.csv",
+    "file": "cdr.00013044.0000000000000000.20180723.150557.pricecorrection_DAM_MCPC_20180720_to_20180720_NP4196.csv",
+    "csv_rows": 11,
+    "download": "work/correction-samples/NP4-196-M-MCPC-samples.zip",
+    "document": {
+      "docId": 620423342,
+      "friendlyName": "pricecorrection_DAM_MCPC_20180720_to_20180720_NP4196_csv",
+      "postDatetime": "2018-07-23T15:05:57.782000"
+    },
+    "first_row": {
+      "ASType": "NSPIN",
+      "DSTFlag": false,
+      "MCPCCorrected": "140.06",
+      "MCPCOriginal": "139.79",
+      "deliveryDate": "2018-07-20",
+      "deliveryHour": 15,
+      "priceCorrectionTime": "2018-07-23T15:00:00"
+    },
+    "rows_decoded": 11
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_soglmp",
+    "fixture": "np4-197-m-soglmp-current.csv",
+    "file": "cdr.00013045.0000000000000000.20260901.152555.pricecorrection_RTM_SOGLMP_20260901_to_20260901_NP4197.csv",
+    "csv_rows": 1327,
+    "download": "work/correction-samples/NP4-197-M-SOGLMP-current.zip",
+    "document": {
+      "docId": 1269376011,
+      "friendlyName": "pricecorrection_RTM_SOGLMP_20260901_to_20260901_NP4197_csv",
+      "postDatetime": "2026-09-01T15:25:55"
+    },
+    "first_row": {
+      "SCEDTimestamp": "2026-08-30T09:10:19",
+      "resourceType": "SODG",
+      "resourceName": "19599_1_PV_A1",
+      "meterName": "10443720004133031",
+      "meterLMPOriginal": "15.74",
+      "meterLMPCorrected": "15.81",
+      "RTRDPAOriginal": "0",
+      "RTRDPACorrected": "0",
+      "finalLMPOriginal": "15.74",
+      "finalLMPCorrected": "15.81",
+      "priceCorrectionTime": "2026-09-01T16:00:00",
+      "repeatHourFlag": false,
+      "RTORPAOriginal": null,
+      "RTORPACorrected": null,
+      "RTORDPAOriginal": null,
+      "RTORDPACorrected": null
+    },
+    "rows_decoded": 1327
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_soglmp",
+    "fixture": "np4-197-m-soglmp-samples.csv",
+    "file": "cdr.00013045.0000000000000000.20220712.142103.pricecorrection_RTM_SOGLMP_20220708_to_20220708_NP4197.csv",
+    "csv_rows": 5220,
+    "download": "work/correction-samples/NP4-197-M-SOGLMP-samples.zip",
+    "document": {
+      "docId": 851334207,
+      "friendlyName": "pricecorrection_RTM_SOGLMP_20220708_to_20220708_NP4197_csv",
+      "postDatetime": "2022-07-12T14:21:03.947000"
+    },
+    "first_row": {
+      "SCEDTimestamp": "2022-07-08T13:40:12",
+      "resourceType": "SODG",
+      "resourceName": "ALEXIS_ALEXIS",
+      "meterName": "CPLALXSGP0100",
+      "meterLMPOriginal": "112.12",
+      "meterLMPCorrected": "112.12",
+      "RTRDPAOriginal": null,
+      "RTRDPACorrected": null,
+      "finalLMPOriginal": "291.37",
+      "finalLMPCorrected": "291.07",
+      "priceCorrectionTime": "2022-07-12T15:00:00",
+      "repeatHourFlag": false,
+      "RTORPAOriginal": "178.95",
+      "RTORPACorrected": "178.95",
+      "RTORDPAOriginal": "0.3",
+      "RTORDPACorrected": "0"
+    },
+    "rows_decoded": 5220
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_spp",
+    "fixture": "np4-197-m-spp-current.csv",
+    "file": "cdr.00013045.0000000000000000.20260901.152040.pricecorrection_RTM_SPP_20260901_to_20260901_NP4197.csv",
+    "csv_rows": 2424,
+    "download": "work/correction-samples/NP4-197-M-SPP-current.zip",
+    "document": {
+      "docId": 1269374426,
+      "friendlyName": "pricecorrection_RTM_SPP_20260901_to_20260901_NP4197_csv",
+      "postDatetime": "2026-09-01T15:20:40"
+    },
+    "first_row": {
+      "DSTFlag": false,
+      "SPPCorrected": "15.68",
+      "SPPOriginal": "15.64",
+      "deliveryDate": "2026-08-30",
+      "deliveryHour": 10,
+      "deliveryInterval": 1,
+      "priceCorrectionTime": "2026-09-01T16:00:00",
+      "settlementPointName": "7RNCHSLR_ALL",
+      "settlementPointType": "RN"
+    },
+    "rows_decoded": 2424
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_spp",
+    "fixture": "np4-197-m-spp-samples.csv",
+    "file": "cdr.00013045.0000000000000000.20140602.091835.pricecorrection_RTM_SPP_20140529_to_20140529_NP4197.csv",
+    "csv_rows": 7,
+    "download": "work/correction-samples/NP4-197-M-SPP-samples.zip",
+    "document": {
+      "docId": 449144186,
+      "friendlyName": "pricecorrection_RTM_SPP_20140529_to_20140529_NP4197_csv",
+      "postDatetime": "2014-06-02T09:18:35.995000"
+    },
+    "first_row": {
+      "DSTFlag": false,
+      "SPPCorrected": "-47.36",
+      "SPPOriginal": "-225.33",
+      "deliveryDate": "2014-05-29",
+      "deliveryHour": 19,
+      "deliveryInterval": 1,
+      "priceCorrectionTime": "2014-05-30T16:00:00",
+      "settlementPointName": "CCEC_CC1",
+      "settlementPointType": "LCCRN"
+    },
+    "rows_decoded": 7
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_sogprice",
+    "fixture": "np4-197-m-sogprice-current.csv",
+    "file": "cdr.00013045.0000000000000000.20260901.152040.pricecorrection_RTM_SOGPRICE_20260901_to_20260901_NP4197.csv",
+    "csv_rows": 908,
+    "download": "work/correction-samples/NP4-197-M-SOGPRICE-current.zip",
+    "document": {
+      "docId": 1269374422,
+      "friendlyName": "pricecorrection_RTM_SOGPRICE_20260901_to_20260901_NP4197_csv",
+      "postDatetime": "2026-09-01T15:20:40"
+    },
+    "first_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2026-08-30",
+      "deliveryHour": 10,
+      "deliveryInterval": 1,
+      "meterName": "10443720004133031",
+      "priceCorrected": "15.68",
+      "priceCorrectionTime": "2026-09-01T16:00:00",
+      "priceOriginal": "15.66",
+      "resourceName": "19599_1_PV_A1",
+      "resourceType": "SODG"
+    },
+    "rows_decoded": 908
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_sogprice",
+    "fixture": "np4-197-m-sogprice-samples.csv",
+    "file": "cdr.00013045.0000000000000000.20220712.142316.pricecorrection_RTM_SOGPRICE_20220708_to_20220708_NP4197.csv",
+    "csv_rows": 2262,
+    "download": "work/correction-samples/NP4-197-M-SOGPRICE-samples.zip",
+    "document": {
+      "docId": 851334252,
+      "friendlyName": "pricecorrection_RTM_SOGPRICE_20220708_to_20220708_NP4197_csv",
+      "postDatetime": "2022-07-12T14:23:16.233000"
+    },
+    "first_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2022-07-08",
+      "deliveryHour": 14,
+      "deliveryInterval": 4,
+      "meterName": "CPLALXSGP0100",
+      "priceCorrected": "378.69",
+      "priceCorrectionTime": "2022-07-12T16:00:00",
+      "priceOriginal": "417.28",
+      "resourceName": "ALEXIS_ALEXIS",
+      "resourceType": "SODG"
+    },
+    "rows_decoded": 2262
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_splmp",
+    "fixture": "np4-197-m-splmp-current.csv",
+    "file": "cdr.00013045.0000000000000000.20260901.150028.pricecorrection_RTM_SPLMP_20260901_to_20260901_NP4197.csv",
+    "csv_rows": 3296,
+    "download": "work/correction-samples/NP4-197-M-SPLMP-current.zip",
+    "document": {
+      "docId": 1269369459,
+      "friendlyName": "pricecorrection_RTM_SPLMP_20260901_to_20260901_NP4197_csv",
+      "postDatetime": "2026-09-01T15:00:28"
+    },
+    "first_row": {
+      "DSTFlag": false,
+      "LMPCorrected": "15.66",
+      "LMPOriginal": "16.13",
+      "SCEDTimestamp": "2026-08-30T09:25:18",
+      "priceCorrectionTime": "2026-09-01T16:00:00",
+      "settlementPointName": "7RNCHSLR_ALL"
+    },
+    "rows_decoded": 3296
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_splmp",
+    "fixture": "np4-197-m-splmp-samples.csv",
+    "file": "cdr.00013045.0000000000000000.20140602.091835.pricecorrection_RTM_SPLMP_20140529_to_20140529_NP4197.csv",
+    "csv_rows": 7,
+    "download": "work/correction-samples/NP4-197-M-SPLMP-samples.zip",
+    "document": {
+      "docId": 449144187,
+      "friendlyName": "pricecorrection_RTM_SPLMP_20140529_to_20140529_NP4197_csv",
+      "postDatetime": "2014-06-02T09:18:36.144000"
+    },
+    "first_row": {
+      "DSTFlag": false,
+      "LMPCorrected": "-251",
+      "LMPOriginal": "-784.91",
+      "SCEDTimestamp": "2014-05-29T18:05:09",
+      "priceCorrectionTime": "2014-05-30T16:00:00",
+      "settlementPointName": "CCEC_CC1"
+    },
+    "rows_decoded": 7
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_mcpc_spp",
+    "fixture": "np4-197-m-mcpc_spp-current.csv",
+    "file": "cdr.00013045.0000000000000000.20260901.144413.pricecorrection_RTM_MCPC_SPP_20260901_to_20260901_NP4197.csv",
+    "csv_rows": 1,
+    "download": "work/correction-samples/NP4-197-M-MCPC_SPP-current.zip",
+    "document": {
+      "docId": 1269364484,
+      "friendlyName": "pricecorrection_RTM_MCPC_SPP_20260901_to_20260901_NP4197_csv",
+      "postDatetime": "2026-09-01T14:44:13"
+    },
+    "first_row": {
+      "ASType": "REGDN",
+      "MCPCCorrected": "0.04",
+      "MCPCOriginal": "0.05",
+      "deliveryDate": "2026-08-30",
+      "deliveryHour": 10,
+      "deliveryInterval": 2,
+      "priceCorrectionTime": "2026-09-01T16:00:00",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 1
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_mcpc_spp",
+    "fixture": "np4-197-m-mcpc_spp-samples.csv",
+    "file": "cdr.00013045.0000000000000000.20260710.104739.pricecorrection_RTM_MCPC_SPP_20260710_to_20260710_NP4197.csv",
+    "csv_rows": 278,
+    "download": "work/correction-samples/NP4-197-M-MCPC_SPP-samples.zip",
+    "document": {
+      "docId": 1248594191,
+      "friendlyName": "pricecorrection_RTM_MCPC_SPP_20260710_to_20260710_NP4197_csv",
+      "postDatetime": "2026-07-10T10:47:39"
+    },
+    "first_row": {
+      "ASType": "REGDN",
+      "MCPCCorrected": "0.16",
+      "MCPCOriginal": "0.15",
+      "deliveryDate": "2026-01-10",
+      "deliveryHour": 3,
+      "deliveryInterval": 2,
+      "priceCorrectionTime": "2026-07-10T16:00:00",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 278
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_eblmp",
+    "fixture": "np4-197-m-eblmp-current.csv",
+    "file": "cdr.00013045.0000000000000000.20260901.143905.pricecorrection_RTM_EBLMP_20260901_to_20260901_NP4197.csv",
+    "csv_rows": 57082,
+    "download": "work/correction-samples/NP4-197-M-EBLMP-current.zip",
+    "document": {
+      "docId": 1269363637,
+      "friendlyName": "pricecorrection_RTM_EBLMP_20260901_to_20260901_NP4197_csv",
+      "postDatetime": "2026-09-01T14:39:05"
+    },
+    "first_row": {
+      "SCEDTimestamp": "2026-08-30T09:25:18",
+      "electricalBus": "0001",
+      "cappedLMPOriginal": "15.9",
+      "uncappedLMPOriginal": "15.9",
+      "cappedLMPCorrected": "15.66",
+      "uncappedLMPCorrected": "16",
+      "priceCorrectionTime": "2026-09-01T16:00:00",
+      "repeatedHourFlag": false,
+      "LMPOriginal": null,
+      "LMPCorrected": null
+    },
+    "rows_decoded": 57082
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_eblmp",
+    "fixture": "np4-197-m-eblmp-samples.csv",
+    "file": "cdr.00013045.0000000000000000.20140928.173956.pricecorrection_RTM_EBLMP_20140925_to_20140925_NP4197.csv",
+    "csv_rows": 166727,
+    "download": "work/correction-samples/NP4-197-M-EBLMP-samples.zip",
+    "document": {
+      "docId": 459796629,
+      "friendlyName": "pricecorrection_RTM_EBLMP_20140925_to_20140925_NP4197_csv",
+      "postDatetime": "2014-09-28T17:40:06.751000"
+    },
+    "first_row": {
+      "SCEDTimestamp": "2014-09-25T13:50:09",
+      "electricalBus": "0001",
+      "cappedLMPOriginal": null,
+      "uncappedLMPOriginal": null,
+      "cappedLMPCorrected": null,
+      "uncappedLMPCorrected": null,
+      "priceCorrectionTime": "2014-09-28T15:00:00",
+      "repeatedHourFlag": false,
+      "LMPOriginal": "34.36",
+      "LMPCorrected": "33.4"
+    },
+    "rows_decoded": 166727
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_eblmp",
+    "fixture": "np4-197-m-eblmp_np4197_retry-current.csv",
+    "file": "cdr.00013045.0000000000000000.20160708.191926.pricecorrection_RTM_EBLMP_NP4197_retry_20160708_191842.csv",
+    "csv_rows": 299221,
+    "download": "work/correction-samples/NP4-197-M-EBLMP_NP4197_RETRY-current.zip",
+    "document": {
+      "docId": 526162657,
+      "friendlyName": "pricecorrection_RTM_EBLMP_NP4197_retry_20160708_191842_csv",
+      "postDatetime": "2016-07-08T19:19:49.885000"
+    },
+    "first_row": {
+      "SCEDTimestamp": "2016-07-07T13:20:25",
+      "electricalBus": "0001",
+      "cappedLMPOriginal": null,
+      "uncappedLMPOriginal": null,
+      "cappedLMPCorrected": null,
+      "uncappedLMPCorrected": null,
+      "priceCorrectionTime": "2016-07-08T17:00:00",
+      "repeatedHourFlag": false,
+      "LMPOriginal": "25.91",
+      "LMPCorrected": "18.12"
+    },
+    "rows_decoded": 299221
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_shadow",
+    "fixture": "np4-197-m-shadowprice-current.csv",
+    "file": "cdr.00013045.0000000000000000.20260901.143052.pricecorrection_RTM_ShadowPrice_20260901_to_20260901_NP4197.csv",
+    "csv_rows": 7,
+    "download": "work/correction-samples/NP4-197-M-SHADOWPRICE-current.zip",
+    "document": {
+      "docId": 1269360583,
+      "friendlyName": "pricecorrection_RTM_ShadowPrice_20260901_to_20260901_NP4197_csv",
+      "postDatetime": "2026-09-01T14:30:52"
+    },
+    "first_row": {
+      "DSTFlag": false,
+      "SCEDTimestamp": "2026-08-30T09:25:00",
+      "constraintId": 1,
+      "constraintName": "138_ALV_NAL_1",
+      "contingencyName": "SMDOPHR5",
+      "limitCorrected": "392.3",
+      "limitOriginal": "392.9",
+      "priceCorrectionTime": "2026-09-01T16:00:00",
+      "shadowPriceCorrected": "2.62",
+      "shadowPriceOriginal": "0",
+      "valueCorrected": "392.3",
+      "valueOriginal": "373.3"
+    },
+    "rows_decoded": 7
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_shadow",
+    "fixture": "np4-197-m-shadowprice-samples.csv",
+    "file": "cdr.00013045.0000000000000000.20140926.173535.pricecorrection_RTM_ShadowPrice_20140924_to_20140924_NP4197.csv",
+    "csv_rows": 96,
+    "download": "work/correction-samples/NP4-197-M-SHADOWPRICE-samples.zip",
+    "document": {
+      "docId": 459621702,
+      "friendlyName": "pricecorrection_RTM_ShadowPrice_20140924_to_20140924_NP4197_csv",
+      "postDatetime": "2014-09-26T17:35:35.648000"
+    },
+    "first_row": {
+      "DSTFlag": false,
+      "SCEDTimestamp": "2014-09-24T19:15:08",
+      "constraintId": 2,
+      "constraintName": "ABNW_ELYT1_1",
+      "contingencyName": "SMCEABS8",
+      "limitCorrected": "36.2",
+      "limitOriginal": "36.2",
+      "priceCorrectionTime": "2014-09-26T15:00:00",
+      "shadowPriceCorrected": "0",
+      "shadowPriceOriginal": "2800",
+      "valueCorrected": "32.5",
+      "valueOriginal": "37.9"
+    },
+    "rows_decoded": 96
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_mcpc_sced",
+    "fixture": "np4-197-m-mcpc_sced-current.csv",
+    "file": "cdr.00013045.0000000000000000.20260901.143052.pricecorrection_RTM_MCPC_SCED_20260901_to_20260901_NP4197.csv",
+    "csv_rows": 1,
+    "download": "work/correction-samples/NP4-197-M-MCPC_SCED-current.zip",
+    "document": {
+      "docId": 1269360734,
+      "friendlyName": "pricecorrection_RTM_MCPC_SCED_20260901_to_20260901_NP4197_csv",
+      "postDatetime": "2026-09-01T14:30:52"
+    },
+    "first_row": {
+      "SCEDTimestamp": "2026-08-30T09:15:19",
+      "ASType": "REGDN",
+      "cappedMCPCOriginal": "0.05",
+      "uncappedMCPCOriginal": "0.05",
+      "cappedMCPCCorrected": "0.03",
+      "uncappedMCPCCorrected": "0.03",
+      "priceCorrectionTime": "2026-09-01T16:00:00",
+      "repeatedHourFlag": false,
+      "MCPCOriginal": null,
+      "MCPCCorrected": null
+    },
+    "rows_decoded": 1
+  },
+  {
+    "endpoint": "np4-197-m/rtm_price_corrections_mcpc_sced",
+    "fixture": "np4-197-m-mcpc_sced-samples.csv",
+    "file": "cdr.00013045.0000000000000000.20260713.105052.pricecorrection_RTM_MCPC_SCED_20260713_to_20260713_NP4197.csv",
+    "csv_rows": 751,
+    "download": "work/correction-samples/NP4-197-M-MCPC_SCED-samples.zip",
+    "document": {
+      "docId": 1249736950,
+      "friendlyName": "pricecorrection_RTM_MCPC_SCED_20260713_to_20260713_NP4197_csv",
+      "postDatetime": "2026-07-13T10:50:52"
+    },
+    "first_row": {
+      "SCEDTimestamp": "2026-01-10T00:45:16",
+      "ASType": "REGDN",
+      "cappedMCPCOriginal": null,
+      "uncappedMCPCOriginal": null,
+      "cappedMCPCCorrected": null,
+      "uncappedMCPCCorrected": null,
+      "priceCorrectionTime": "2026-07-13T16:00:00",
+      "repeatedHourFlag": false,
+      "MCPCOriginal": "0.06",
+      "MCPCCorrected": "0.07"
+    },
+    "rows_decoded": 751
+  },
+  {
+    "endpoint": "np4-412-cd/epp_cumulative_hours",
+    "fixture": "np4-412-cd-epp-current.csv",
+    "file": "cdr.00024885.0000000000000000.20260907.130200.EPPCumulativeHrsNP4412_20260907_1300.csv",
+    "csv_rows": 1,
+    "download": "work/history-current/NP4-412-CD.zip",
+    "document": null,
+    "first_row": {
+      "HCAPDAM": "5000",
+      "RTRDPA": "0",
+      "RTSystemLambda": "34.12",
+      "RTSystemLambdaRTDPA": "34.12",
+      "deliveryDate": "2026-09-07",
+      "deliveryHour": 13,
+      "deliveryInterval": 4,
+      "hoursHCAPDAM": "0",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 1
+  },
+  {
+    "endpoint": "np4-412-cd/epp_cumulative_hours",
+    "fixture": "np4-412-cd-epp-samples.csv",
+    "file": "cdr.00024885.0000000000000000.20251205.000200.EPPCumulativeHrsNP4412_20251205_0000.csv",
+    "csv_rows": 1,
+    "download": "work/history-samples/NP4-412-CD.zip",
+    "document": null,
+    "first_row": {
+      "HCAPDAM": "5000",
+      "RTRDPA": "0",
+      "RTSystemLambda": "44.32",
+      "RTSystemLambdaRTDPA": "44.32",
+      "deliveryDate": "2025-12-04",
+      "deliveryHour": 24,
+      "deliveryInterval": 4,
+      "hoursHCAPDAM": "0",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 1
+  }
+]

@@ -1,0 +1,4 @@
+DeliveryDate,DeliveryHour,DeliveryInterval,SettlementPointName,SettlementPointType,SPPOriginal,SPPCorrected,PriceCorrectionTime,DSTFlag
+08/30/2026,10,1,7RNCHSLR_ALL,RN,15.64,15.68,09/01/2026 16:00:00,N
+08/30/2026,10,3,7RNCHSLR_ALL,RN,16.85,16.84,09/01/2026 16:00:00,N
+08/30/2026,10,2,7RNCHSLR_ALL,RN,15.87,15.91,09/01/2026 16:00:00,N

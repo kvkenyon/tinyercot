@@ -1,0 +1,4 @@
+DeliveryDate,DeliveryHour,ElectricBusName,LMPOriginal,LMPCorrected,PriceCorrectionTime,DSTFlag
+12/06/2025,1,0022,45.3,45.31,12/09/2025 10:00:00,N
+12/06/2025,1,1000,46.18,46.19,12/09/2025 10:00:00,N
+12/06/2025,1,1309_1,49.26,49.27,12/09/2025 10:00:00,N

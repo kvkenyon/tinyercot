@@ -71,6 +71,7 @@ class Archive(Generic[T]):
         dates: dict[str, str],
         *,
         member: str = "*.csv",
+        document: str | None = None,
         datetimes: dict[str, str] | None = None,
         variants: tuple[dict[str, str], ...] = (),
     ) -> None:
@@ -88,6 +89,7 @@ class Archive(Generic[T]):
             )
             self._columns.update(variant)
         self._member = member
+        self._document = document
         self._dates = dates
         self._datetimes = datetimes or {}
 
@@ -202,7 +204,13 @@ class Archive(Generic[T]):
             self._product, posted_from=posted_from, posted_to=posted_to
         )
         for row in self.download(
-            (document.docId for document in documents), batch_size=batch_size
+            (
+                document.docId
+                for document in documents
+                if self._document is None
+                or fnmatchcase(document.friendlyName.lower(), self._document.lower())
+            ),
+            batch_size=batch_size,
         ):
             if where is None or where(row):
                 yield row
