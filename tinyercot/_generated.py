@@ -8160,6 +8160,11 @@ class np5_754_cd:
         value: Decimal | None
         violationAmount: Decimal | None
 
+    @property
+    def daily_ruc_act_and_bind_tran_const_history(self) -> Archive[np5_754_cd.DailyRucActAndBindTranConstRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-754-cd', np5_754_cd.DailyRucActAndBindTranConstRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimeStamp': 'RUCTimestamp', 'ConstraintID': 'constraintID', 'ConstraintName': 'constraintName', 'ContingencyName': 'contingencyName', 'Limit': 'limit', 'Value': 'value', 'ViolationAmount': 'violationAmount', 'FromStation': 'fromStation', 'ToStation': 'toStation', 'FromStationkV': 'fromStationkV', 'ToStationkV': 'toStationkV', 'DSTFlag': 'repeatedHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def daily_ruc_act_and_bind_tran_const(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, constraintIDFrom: int | None = None, constraintIDTo: int | None = None, constraintName: str | None = None, contingencyName: str | None = None, limitFrom: Decimal | None = None, limitTo: Decimal | None = None, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, violationAmountFrom: Decimal | None = None, violationAmountTo: Decimal | None = None, fromStation: str | None = None, toStation: str | None = None, fromStationkVFrom: Decimal | None = None, fromStationkVTo: Decimal | None = None, toStationkVFrom: Decimal | None = None, toStationkVTo: Decimal | None = None, repeatedHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_754_cd.DailyRucActAndBindTranConstRow]:
         'Daily RUC Active and Binding Transmission Constraints'
         return self._client._page('/np5-754-cd/daily_ruc_act_and_bind_tran_const', np5_754_cd.DailyRucActAndBindTranConstRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'RUCTimestampFrom': RUCTimestampFrom, 'RUCTimestampTo': RUCTimestampTo, 'constraintIDFrom': constraintIDFrom, 'constraintIDTo': constraintIDTo, 'constraintName': constraintName, 'contingencyName': contingencyName, 'limitFrom': limitFrom, 'limitTo': limitTo, 'valueFrom': valueFrom, 'valueTo': valueTo, 'violationAmountFrom': violationAmountFrom, 'violationAmountTo': violationAmountTo, 'fromStation': fromStation, 'toStation': toStation, 'fromStationkVFrom': fromStationkVFrom, 'fromStationkVTo': fromStationkVTo, 'toStationkVFrom': toStationkVFrom, 'toStationkVTo': toStationkVTo, 'repeatedHourFlag': repeatedHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -8196,6 +8201,28 @@ class np5_755_cd:
         toStationkV: Decimal | None
         value: Decimal | None
         violationAmount: Decimal | None
+
+    class HrlyRucActAndBindTranConstHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        RUCTimestamp: datetime | None
+        constraintID: int | None
+        constraintName: str | None
+        contingencyName: str | None
+        limit: Decimal | None
+        value: Decimal | None
+        violationAmount: Decimal | None
+        fromStation: str | None
+        toStation: str | None
+        fromStationkV: Decimal | None
+        toStationkV: Decimal | None
+        DSTFlag: bool | None
+
+    @property
+    def hrly_ruc_act_and_bind_tran_const_history(self) -> Archive[np5_755_cd.HrlyRucActAndBindTranConstHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-755-cd', np5_755_cd.HrlyRucActAndBindTranConstHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimeStamp': 'RUCTimestamp', 'ConstraintID': 'constraintID', 'ConstraintName': 'constraintName', 'ContingencyName': 'contingencyName', 'Limit': 'limit', 'Value': 'value', 'ViolationAmount': 'violationAmount', 'FromStation': 'fromStation', 'ToStation': 'toStation', 'FromStationkV': 'fromStationkV', 'ToStationkV': 'toStationkV', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S', 'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def hrly_ruc_act_and_bind_tran_const(self, *, fromStation: str | None = None, toStation: str | None = None, fromStationkVFrom: Decimal | None = None, fromStationkVTo: Decimal | None = None, toStationkVFrom: Decimal | None = None, toStationkVTo: Decimal | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, constraintIDFrom: int | None = None, constraintIDTo: int | None = None, constraintName: str | None = None, contingencyName: str | None = None, limitFrom: Decimal | None = None, limitTo: Decimal | None = None, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, violationAmountFrom: Decimal | None = None, violationAmountTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_755_cd.HrlyRucActAndBindTranConstRow]:
         'Hourly RUC Active and Binding Transmission Constraints'
@@ -9071,6 +9098,11 @@ class np6_970_cd:
         repeatHourFlag: bool | None
         settlementPoint: str | None
         settlementPointType: str | None
+
+    @property
+    def rtd_lmp_node_zone_hub_history(self) -> Archive[np6_970_cd.RtdLmpNodeZoneHubRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-970-cd', np6_970_cd.RtdLmpNodeZoneHubRow, {'RTDTimestamp': 'RTDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'IntervalId': 'intervalId', 'IntervalEnding': 'intervalEnding', 'IntervalRepeatedHourFlag': 'intervalRepeatHourFlag', 'SettlementPoint': 'settlementPoint', 'SettlementPointType': 'settlementPointType', 'LMP': 'LMP'}, {}, member='*.csv', datetimes={'RTDTimestamp': '%m/%d/%Y %H:%M:%S', 'intervalEnding': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def rtd_lmp_node_zone_hub(self, *, RTDTimestampFrom: datetime | None = None, RTDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, intervalIdFrom: int | None = None, intervalIdTo: int | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, intervalRepeatHourFlag: bool | None = None, settlementPoint: str | None = None, settlementPointType: str | None = None, LMPFrom: Decimal | None = None, LMPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_970_cd.RtdLmpNodeZoneHubRow]:
         'RTD Indicative LMPs by Resource Nodes, Load Zones and Hubs'

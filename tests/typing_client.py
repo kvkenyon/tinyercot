@@ -110,3 +110,12 @@ with Client() as client:
     for clearing in client.np6_332_cd.rt_clear_price_cap_sced_history.rows():
         assert_type(clearing.cappedMCPC, Decimal | None)
         assert_type(clearing.uncappedMCPC, Decimal | None)
+
+    for constraint in client.np5_755_cd.hrly_ruc_act_and_bind_tran_const_history.rows():
+        assert_type(constraint.RUCTimestamp, datetime | None)
+        assert_type(constraint.constraintID, int | None)
+        assert_type(constraint.fromStationkV, Decimal | None)
+    for lmp in client.np6_970_cd.rtd_lmp_node_zone_hub_history.rows():
+        assert_type(lmp.RTDTimestamp, datetime | None)
+        assert_type(lmp.intervalEnding, datetime | None)
+        assert_type(lmp.LMP, Decimal | None)

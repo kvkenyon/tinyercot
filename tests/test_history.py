@@ -895,3 +895,40 @@ def test_legacy_mcpc_and_indicative_timestamps_are_preserved():
         assert indicative.RTDTimestamp.isoformat() == "2025-12-05T00:00:03"
         assert indicative.intervalEnding.isoformat() == "2025-12-05T00:05:00"
         assert indicative.REGUP == Decimal("2.96")
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "transmission-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_transmission_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_rtd_history_keeps_forecast_time_and_legacy_point_types():
+    with Client() as client:
+        prices = list(
+            client.np6_970_cd.rtd_lmp_node_zone_hub_history.read(
+                zipped(
+                    "rtd.csv", (INPUTS / "np6-970-cd-history-samples.csv").read_bytes()
+                )
+            )
+        )
+    assert prices[0].RTDTimestamp.isoformat() == "2014-05-01T00:00:01"
+    assert prices[0].intervalEnding.isoformat() == "2014-05-01T00:05:00"
+    assert prices[0].settlementPoint == "AMISTAD_ALL"
+    assert prices[0].LMP == Decimal("28.71")
+    assert prices[1].settlementPointType == "LCCRN"
