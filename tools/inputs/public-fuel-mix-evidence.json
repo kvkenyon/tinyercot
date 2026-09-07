@@ -1,0 +1,527 @@
+{
+  "checkedAt": "2026-09-07T23:39:44.801362+00:00",
+  "sources": [
+    {
+      "file": "IntGenByFuel2007.xls",
+      "sha256": "c03342fd3870ef5c79945d3c7ad0d69d6c0d5a1b5519848e488001124f709fdc",
+      "dailyRows": 2190,
+      "intervalCells": 210240,
+      "nullIntervalCells": 0,
+      "populatedDstCells": 0,
+      "fuels": {
+        "Coal": 365,
+        "Gas": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Oth": 365,
+        "Wnd": 365
+      },
+      "firstDate": "2007-01-01",
+      "lastDate": "2007-12-31",
+      "publishedTotals": 6,
+      "dailyRowsSha256": "7bbaad204512729e6efa571fc72a64b0e00faf1c5aa94650dacf50e72d49e2db"
+    },
+    {
+      "file": "IntGenByFuel2008.xls",
+      "sha256": "a411e0e8a611807321620dbb8be3848857f23823f88f6ecf1fea4fb8602cf7db",
+      "dailyRows": 2227,
+      "intervalCells": 213792,
+      "nullIntervalCells": 0,
+      "populatedDstCells": 0,
+      "fuels": {
+        "Coal": 366,
+        "Gas_CC": 31,
+        "Gas_GT": 31,
+        "Hydro": 366,
+        "Nuclear": 366,
+        "Oth": 366,
+        "Wnd": 366,
+        "Gas": 335
+      },
+      "firstDate": "2008-01-01",
+      "lastDate": "2008-12-31",
+      "publishedTotals": 92,
+      "dailyRowsSha256": "80fa09d8bc7cea77926b4841e4781505a9ab1150fc8e0d9332a8129d10ff933d"
+    },
+    {
+      "file": "IntGenByFuel2009.xls",
+      "sha256": "cf3d87bfa369462cc1fc9a155f74b6251356d128ab90ad6af3901f0daa28863a",
+      "dailyRows": 2555,
+      "intervalCells": 246120,
+      "nullIntervalCells": 840,
+      "populatedDstCells": 0,
+      "fuels": {
+        "Coal": 365,
+        "Gas_CC": 365,
+        "Gas_GT": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Oth": 365,
+        "Wnd": 365
+      },
+      "firstDate": "2009-01-01",
+      "lastDate": "2009-12-31",
+      "publishedTotals": 91,
+      "dailyRowsSha256": "14e31578d0e6a131d9cc9b2965fed200f28f275f01c5c92635633a76e7bcca0f"
+    },
+    {
+      "file": "IntGenByFuel2010.xls",
+      "sha256": "1166e111cd0bdbe3eaeb3591516cd035837b35937a25daf1f6f8453b21e008ae",
+      "dailyRows": 2555,
+      "intervalCells": 246120,
+      "nullIntervalCells": 210,
+      "populatedDstCells": 637,
+      "fuels": {
+        "Coal": 365,
+        "Gas_CC": 365,
+        "Gas_GT": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Oth": 365,
+        "Wnd": 365
+      },
+      "firstDate": "2010-01-01",
+      "lastDate": "2010-12-31",
+      "publishedTotals": 91,
+      "dailyRowsSha256": "3e81f7c3f82aeb038840ee46061d39b7d008ae6c8b1ea8b440ed3f8429258d5e"
+    },
+    {
+      "file": "IntGenByFuel2011.xls",
+      "sha256": "2735e58daaf8006e8642319d88702fa988b7eb7ee82d341406827687c6bd3c42",
+      "dailyRows": 2931,
+      "intervalCells": 283604,
+      "nullIntervalCells": 2,
+      "populatedDstCells": 1112,
+      "fuels": {
+        "Biomass": 184,
+        "Coal": 365,
+        "Gas": 365,
+        "Gas_CC": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Other": 365,
+        "Sun": 184,
+        "Wind": 365,
+        "Solar": 8
+      },
+      "firstDate": "2011-01-01",
+      "lastDate": "2011-12-31",
+      "publishedTotals": 91,
+      "dailyRowsSha256": "d99b1cb74ac60d4a20533f05c85cd48a067ac3c05833cd207084a9fd712c7d7f"
+    },
+    {
+      "file": "IntGenByFuel2012.xls",
+      "sha256": "218a7e1121e5f87694c35fc8230e62480569057ef3892c72d8eaca801a4a91ef",
+      "dailyRows": 3300,
+      "intervalCells": 320112,
+      "nullIntervalCells": 0,
+      "populatedDstCells": 2196,
+      "fuels": {
+        "Biomass": 366,
+        "Coal": 366,
+        "Gas": 366,
+        "Gas-CC": 215,
+        "Hydro": 366,
+        "Nuclear": 366,
+        "Other": 366,
+        "Solar": 281,
+        "Wind": 366,
+        "Gas_CC": 151,
+        "Sun": 91
+      },
+      "firstDate": "2012-01-01",
+      "lastDate": "2012-12-31",
+      "publishedTotals": 130,
+      "dailyRowsSha256": "3d2b168e196b7afb62873aa0082fbb45c3e718647a2a40dc70bf470e71d73ebe"
+    },
+    {
+      "file": "IntGenByFuel2013.xls",
+      "sha256": "0727c90f3297a100f187bd9542996b463d3cc80a195eef4d1cfc469115108f09",
+      "dailyRows": 3285,
+      "intervalCells": 317520,
+      "nullIntervalCells": 2160,
+      "populatedDstCells": 0,
+      "fuels": {
+        "Biomass": 365,
+        "Coal": 365,
+        "Gas": 365,
+        "Gas-CC": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Other": 365,
+        "Solar": 365,
+        "Wind": 365
+      },
+      "firstDate": "2013-01-01",
+      "lastDate": "2013-12-31",
+      "publishedTotals": 130,
+      "dailyRowsSha256": "f6a13e24c4820562f9a9304ca3a3baf3b2a710a2bb128e61ca3c0191305a52f9"
+    },
+    {
+      "file": "IntGenByFuel2014.xls",
+      "sha256": "356f5824f8460a35ec2af442f0174c4b3d6fce0906de67cc05938e6f14e90f8f",
+      "dailyRows": 3285,
+      "intervalCells": 317520,
+      "nullIntervalCells": 2196,
+      "populatedDstCells": 0,
+      "fuels": {
+        "Biomass": 365,
+        "Coal": 365,
+        "Gas": 365,
+        "Gas-CC": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Other": 365,
+        "Solar": 365,
+        "Wind": 365
+      },
+      "firstDate": "2014-01-01",
+      "lastDate": "2014-12-31",
+      "publishedTotals": 130,
+      "dailyRowsSha256": "1041f72b71edd579c2bf5b5dd92af1e09cde965ecfb92d7ead2ec69fdb5d8ac0"
+    },
+    {
+      "file": "IntGenByFuel2015.xls",
+      "sha256": "463e4a1bf85bfe982477e940f357514379b715b8eb307563dc7ea40ccad3d0bb",
+      "dailyRows": 3285,
+      "intervalCells": 317520,
+      "nullIntervalCells": 2160,
+      "populatedDstCells": 36,
+      "fuels": {
+        "Biomass": 365,
+        "Coal": 365,
+        "Gas": 365,
+        "Gas-CC": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Other": 365,
+        "Solar": 365,
+        "Wind": 365
+      },
+      "firstDate": "2015-01-01",
+      "lastDate": "2015-12-31",
+      "publishedTotals": 130,
+      "dailyRowsSha256": "bcaaf6adb5ac224d78dd139ba5eda2a81f60551d1e111c89303e23579c37464f"
+    },
+    {
+      "file": "IntGenByFuel2016.xlsx",
+      "sha256": "dc0e50ccb62044e881d695ec7a22d4e831dcf240c7a8644d2b53046db1a9aca0",
+      "dailyRows": 3294,
+      "intervalCells": 318384,
+      "nullIntervalCells": 2160,
+      "populatedDstCells": 36,
+      "fuels": {
+        "Biomass": 366,
+        "Coal": 366,
+        "Gas": 366,
+        "Gas-CC": 366,
+        "Hydro": 366,
+        "Nuclear": 366,
+        "Other": 366,
+        "Solar": 366,
+        "Wind": 366
+      },
+      "firstDate": "2016-01-01",
+      "lastDate": "2016-12-31",
+      "publishedTotals": 130,
+      "dailyRowsSha256": "5fbe59548f70848368bf0a0328d383067add26a7cb97510f6b04289ea59feb6f"
+    },
+    {
+      "file": "IntGenbyFuel2017.xlsx",
+      "sha256": "2321911cc04c64eadcdc7d0ef33f3424f682b957bed9de7165e77090314fca78",
+      "dailyRows": 3285,
+      "intervalCells": 316440,
+      "nullIntervalCells": 1080,
+      "populatedDstCells": 36,
+      "fuels": {
+        "Biomass": 365,
+        "Coal": 365,
+        "Gas": 365,
+        "Gas-CC": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Other": 365,
+        "Solar": 365,
+        "Wind": 365
+      },
+      "firstDate": "2017-01-01",
+      "lastDate": "2017-12-31",
+      "publishedTotals": 130,
+      "dailyRowsSha256": "259da6faac9dbcf7a459f2cacf4c8e90dcb90f490cb0c5767a87b82714e1a1fe"
+    },
+    {
+      "file": "IntGenbyFuel2018.xlsx",
+      "sha256": "5e92f54bd893d9317091a3f75dc13b4d15330ee33035c9569b59c5378f41c6a0",
+      "dailyRows": 3285,
+      "intervalCells": 316440,
+      "nullIntervalCells": 1080,
+      "populatedDstCells": 36,
+      "fuels": {
+        "Biomass": 365,
+        "Coal": 365,
+        "Gas": 365,
+        "Gas-CC": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Other": 365,
+        "Solar": 365,
+        "Wind": 365
+      },
+      "firstDate": "2018-01-01",
+      "lastDate": "2018-12-31",
+      "publishedTotals": 130,
+      "dailyRowsSha256": "45f64f98353f450fb314e0e6bb54b9555e359b31ebb9b86b1ed280f8484ab044"
+    },
+    {
+      "file": "IntGenbyFuel2019.xlsx",
+      "sha256": "40b319543fecfe3ef412173f3db00b9794829802e3acc23d9018ac3f39c32c62",
+      "dailyRows": 3285,
+      "intervalCells": 316440,
+      "nullIntervalCells": 1080,
+      "populatedDstCells": 36,
+      "fuels": {
+        "Biomass": 365,
+        "Coal": 365,
+        "Gas": 365,
+        "Gas-CC": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Other": 365,
+        "Solar": 365,
+        "Wind": 365
+      },
+      "firstDate": "2019-01-01",
+      "lastDate": "2019-12-31",
+      "publishedTotals": 130,
+      "dailyRowsSha256": "8ffbf7802dc0c264255602a4517512ab4b61d9a7a198cdfa42a59e9c9e767c08"
+    },
+    {
+      "file": "IntGenbyFuel2020.xlsx",
+      "sha256": "9091acf360c60cc38573e3d33d64239facdd778a335ec6386ad909a46e3192de",
+      "dailyRows": 3294,
+      "intervalCells": 317304,
+      "nullIntervalCells": 1080,
+      "populatedDstCells": 36,
+      "fuels": {
+        "Biomass": 366,
+        "Coal": 366,
+        "Gas": 366,
+        "Gas-CC": 366,
+        "Hydro": 366,
+        "Nuclear": 366,
+        "Other": 366,
+        "Solar": 366,
+        "Wind": 366
+      },
+      "firstDate": "2020-01-01",
+      "lastDate": "2020-12-31",
+      "publishedTotals": 130,
+      "dailyRowsSha256": "e20a8349080dd35cd581b0a9bf0ef7e6c48458a924832b4afe10a8fcc41c83a6"
+    },
+    {
+      "file": "IntGenbyFuel2021.xlsx",
+      "sha256": "4490666a3f8bd94867f5f66e681acb3ebfbe9f61f770ae36ee05c22fdaf4a5c1",
+      "dailyRows": 3285,
+      "intervalCells": 316440,
+      "nullIntervalCells": 1080,
+      "populatedDstCells": 36,
+      "fuels": {
+        "Biomass": 365,
+        "Coal": 365,
+        "Gas": 365,
+        "Gas-CC": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Other": 365,
+        "Solar": 365,
+        "Wind": 365
+      },
+      "firstDate": "2021-01-01",
+      "lastDate": "2021-12-31",
+      "publishedTotals": 130,
+      "dailyRowsSha256": "8759af83691093a6311dbe3f15440e5471e2fbf2881d8a7a78e424d8768dac0b"
+    },
+    {
+      "file": "IntGenbyFuel2022.xlsx",
+      "sha256": "63f1faccafa855ae90be0f4a2a6f3aa5f657eac1e745b83ec221c591e1159bd8",
+      "dailyRows": 3650,
+      "intervalCells": 351600,
+      "nullIntervalCells": 1200,
+      "populatedDstCells": 40,
+      "fuels": {
+        "Biomass": 365,
+        "Coal": 365,
+        "Gas": 365,
+        "Gas-CC": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Other": 365,
+        "Solar": 365,
+        "WSL": 365,
+        "Wind": 365
+      },
+      "firstDate": "2022-01-01",
+      "lastDate": "2022-12-31",
+      "publishedTotals": 143,
+      "dailyRowsSha256": "430df7b48aa701dc5f028fb78c3533d6ce97338b6d933cbb6661f3068ff252e1"
+    },
+    {
+      "file": "IntGenbyFuel2023.xlsx",
+      "sha256": "29d00f5445eca8952085bc817a3c45583e1fff3b9ce62f83f300108a10e279a7",
+      "dailyRows": 3650,
+      "intervalCells": 351600,
+      "nullIntervalCells": 1200,
+      "populatedDstCells": 40,
+      "fuels": {
+        "Biomass": 365,
+        "Coal": 365,
+        "Gas": 365,
+        "Gas-CC": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Other": 365,
+        "Solar": 365,
+        "WSL": 365,
+        "Wind": 365
+      },
+      "firstDate": "2023-01-01",
+      "lastDate": "2023-12-31",
+      "publishedTotals": 143,
+      "dailyRowsSha256": "c0f7f0d0bc5fdc05be9deafbe7cb6af967d0d62694d4a69a9add67344b3f38db"
+    },
+    {
+      "file": "IntGenbyFuel2024.xlsx",
+      "sha256": "a133270fe2ae7f72513b20feec7dd32646fa1c5f44653aaddef37e5ed6c71af9",
+      "dailyRows": 3660,
+      "intervalCells": 352560,
+      "nullIntervalCells": 1200,
+      "populatedDstCells": 40,
+      "fuels": {
+        "Biomass": 366,
+        "Coal": 366,
+        "Gas": 366,
+        "Gas-CC": 366,
+        "Hydro": 366,
+        "Nuclear": 366,
+        "Other": 366,
+        "Solar": 366,
+        "WSL": 366,
+        "Wind": 366
+      },
+      "firstDate": "2024-01-01",
+      "lastDate": "2024-12-31",
+      "publishedTotals": 143,
+      "dailyRowsSha256": "296c4bd149fd68a325f2d5df03a8141f8869ae65abb4522e3c8ef5911662e812"
+    },
+    {
+      "file": "IntGenbyFuel2025.xlsx",
+      "sha256": "bb534618700ff3500eee36b62fa2a9ab07b0923ed536f6d049868101189cfc54",
+      "dailyRows": 3650,
+      "intervalCells": 351600,
+      "nullIntervalCells": 1200,
+      "populatedDstCells": 40,
+      "fuels": {
+        "Biomass": 365,
+        "Coal": 365,
+        "Gas": 365,
+        "Gas-CC": 365,
+        "Hydro": 365,
+        "Nuclear": 365,
+        "Other": 365,
+        "Solar": 365,
+        "WSL": 365,
+        "Wind": 365
+      },
+      "firstDate": "2025-01-01",
+      "lastDate": "2025-12-31",
+      "publishedTotals": 143,
+      "dailyRowsSha256": "c4f44e603e9da2a2ea5b4d5ead4316ccd2b6737e2e461273781bf69cef1de9eb"
+    },
+    {
+      "file": "IntGenbyFuel2026.xlsx",
+      "sha256": "289c15b4a1c761195b71bc188a12544239edd66b1adb20e8f7c4306648462742",
+      "dailyRows": 2120,
+      "intervalCells": 203520,
+      "nullIntervalCells": 40,
+      "populatedDstCells": 0,
+      "fuels": {
+        "Biomass": 212,
+        "Coal": 212,
+        "Gas": 212,
+        "Gas-CC": 212,
+        "Hydro": 212,
+        "Nuclear": 212,
+        "Other": 212,
+        "Solar": 212,
+        "WSL": 212,
+        "Wind": 212
+      },
+      "firstDate": "2026-01-01",
+      "lastDate": "2026-07-31",
+      "publishedTotals": 143,
+      "dailyRowsSha256": "bdf88253df33e41a0a16ac96eb7d8d5015d41b8caf28dee2a828242079ee0604"
+    }
+  ],
+  "scope": "Every daily total, interval cell (including blanks and source errors), and published monthly/annual summary value matched an independent direct workbook read across all 20 annual files. Includes the unlabelled April 2008 subtotal and unlabelled August 2011 columns. Chart-support worksheets are outside this reader.",
+  "indexUrl": "https://www.ercot.com/gridinfo/generation",
+  "downloads": [
+    {
+      "title": "Fuel Mix Report: 2026",
+      "url": "https://www.ercot.com/files/docs/2026/02/09/IntGenbyFuel2026.xlsx",
+      "file": "IntGenbyFuel2026.xlsx",
+      "bytes": 1789222,
+      "sha256": "289c15b4a1c761195b71bc188a12544239edd66b1adb20e8f7c4306648462742"
+    },
+    {
+      "title": "Fuel Mix Report: 2025",
+      "url": "https://www.ercot.com/files/docs/2025/02/07/IntGenbyFuel2025.xlsx",
+      "file": "IntGenbyFuel2025.xlsx",
+      "bytes": 3048958,
+      "sha256": "bb534618700ff3500eee36b62fa2a9ab07b0923ed536f6d049868101189cfc54"
+    },
+    {
+      "title": "Fuel Mix Report: 2007 - 2024",
+      "url": "https://www.ercot.com/files/docs/2021/03/10/FuelMixReport_PreviousYears.zip",
+      "file": "FuelMixReport_PreviousYears.zip",
+      "bytes": 50971482,
+      "sha256": "51a933f745d1a8a8e87cc74f8807adf193f349127fa86715671880e0705aeb30"
+    }
+  ],
+  "anonymousWorkflow": {
+    "checkedAt": "2026-09-07T23:37:31.218065+00:00",
+    "method": "Client().fuel_mix.rows(date_from=date(2007,1,1), date_to=date(2007,1,1))",
+    "credentials": "none",
+    "archives": [
+      {
+        "yearFrom": 2007,
+        "yearTo": 2024,
+        "title": "Fuel Mix Report: 2007 - 2024",
+        "url": "https://www.ercot.com/files/docs/2021/03/10/FuelMixReport_PreviousYears.zip"
+      },
+      {
+        "yearFrom": 2025,
+        "yearTo": 2025,
+        "title": "Fuel Mix Report: 2025",
+        "url": "https://www.ercot.com/files/docs/2025/02/07/IntGenbyFuel2025.xlsx"
+      },
+      {
+        "yearFrom": 2026,
+        "yearTo": 2026,
+        "title": "Fuel Mix Report: 2026",
+        "url": "https://www.ercot.com/files/docs/2026/02/09/IntGenbyFuel2026.xlsx"
+      }
+    ],
+    "dailyRows": 6,
+    "intervalCells": 576,
+    "firstCoalIntervalMWh": "3376.329577"
+  },
+  "notes": [
+    "Fuel labels are preserved verbatim. In older years, some annual-summary categories group fuels that the daily worksheets separate; summaries are returned as published, without reaggregation.",
+    "Daily and interval quantities remain in MWh. Early daily headings explicitly label MWH; modern monthly sums divided by 1000 reconcile to the published GWh summaries. Summary quantities retain their source MWh or GWh scale.",
+    "2010 contains literal 1/0/1900 0:00 strings; 2011 contains 1.00E and 6.00E. These yield energyMWh=None with sourceError preserving the text. Numeric zero and absent source cells remain distinct.",
+    "2011 August includes four unlabelled zero columns per daily fuel row. They retain their one-based sourceColumn, blank sourceHeader and ending=None. DST1/dst1-style headers also have no inferred clock time.",
+    "2017-2019 workbook dimensions understate their data. The shared workbook loader resets XLSX dimensions before streaming cells.",
+    "The 2026 workbook currently has data through July 31. Future-month headers and blank summary cells do not establish future generation data.",
+    "Nine original regression workbooks are retained unmodified inside fuel-mix-originals.zip. This fixture is included only in source distributions, not the installed wheel."
+  ]
+}
