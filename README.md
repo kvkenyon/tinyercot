@@ -44,14 +44,14 @@ with Client() as ercot:
 ```
 
 Archive and bundle listings expose typed metadata. Downloads return the original
-ZIP bytes. Typed historical readers currently cover: DAM
-settlement prices, real-time settlement prices, DAM ancillary-service clearing
-prices, DAM bus LMPs and shadow prices, actual load by weather zone, forecast zone,
-and study area, and all 17 tables in the 60-day DAM disclosure ZIP. The eight
-single-table reports have oldest-listed and recent samples; 13 disclosure tables
-have 2014 and recent samples, and four newer tables have recent samples only. Their
-files have been downloaded and decoded; other archive schemas are still being
-mapped.
+ZIP bytes. For decoded data, generated `_history` readers cover 289 tables across
+113 catalog products: all 242 report-query tables, 33 additional CSV tables,
+nine workbook products and five PDF readers. The same readers support individual
+archives and monthly bundles.
+
+The other three captured catalog products returned empty archive and bundle
+listings. Historical layouts are still being checked; the examples and source
+evidence below describe the formats and periods verified so far.
 
 ```python
 from datetime import datetime
@@ -151,7 +151,11 @@ two metadata-only columns absent from its rows and has an invalid default sort;
 its generated method uses `SCEDTimestamp` by default. Captured responses support
 these small corrections. Large forecasts may need a date filter or a longer
 client timeout. Specify `sort` when supplying `dir`. Tests use saved public responses and mocked
-HTTP; credentials are not part of the test suite.
+HTTP; credentials are not part of the test suite. A separate live check used fresh
+clients with the default transports to authenticate, query typed prices, read
+May 2014 archives, recover a January 2018 bundle through its published GET link,
+and make an async query. See `tools/inputs/history/sdk-workflow-evidence.json`
+for the bounded queries and public response metadata.
 
 Disclosure readers select their own CSV member from the shared ZIP. For example,
 `ercot.np3_966_er._60_dam_load_res_data_history` returns generated historical rows
