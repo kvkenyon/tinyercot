@@ -1,0 +1,4 @@
+DeliveryDate,HourEnding,Settlement_Point,Total_DAM_Energy_Bought,RepeatedHourFlag
+09/07/2026,01:00,TGS_GT01,0,N
+09/07/2026,01:00,FAGUSSLR_RN,0,N
+09/07/2026,01:00,ALP_BESS_RN,5,N

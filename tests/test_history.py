@@ -1,7 +1,8 @@
+import csv
 import json
 from datetime import UTC, date, datetime
 from decimal import Decimal
-from io import BytesIO
+from io import BytesIO, StringIO
 from pathlib import Path
 from zipfile import ZipFile
 
@@ -371,3 +372,117 @@ def test_empty_batch_needs_no_credentials():
 def test_invalid_batch_size_fails_before_retrieval(size):
     with Client() as client, pytest.raises(ValueError, match="batch_size"):
         list(client.np4_190_cd.dam_stlmnt_pnt_prices_history.rows(batch_size=size))
+
+
+def test_intermediate_disclosure_layout_accepts_known_optional_columns():
+    source = list(
+        csv.DictReader(
+            StringIO((INPUTS / "60_dam_load_res_data-history-samples.csv").read_text())
+        )
+    )
+    output = StringIO()
+    writer = csv.DictWriter(output, fieldnames=[*source[0], "ECRSSD Awarded"])
+    writer.writeheader()
+    writer.writerow({**source[2], "ECRSSD Awarded": "2.5"})
+    with Client() as client:
+        rows = list(
+            client.np3_966_er._60_dam_load_res_data_history.read(
+                zipped(
+                    "60d_DAM_Load_Resource_Data-intermediate.csv",
+                    output.getvalue().encode(),
+                )
+            )
+        )
+    assert rows[0].RRSAwarded == Decimal("1.5")
+    assert rows[0].ECRSSDAwarded == Decimal("2.5")
+    assert rows[0].RRSPFRAwarded is None
+
+
+def test_missing_shared_column_still_fails():
+    content = (INPUTS / "np4-190-cd.csv").read_bytes()
+    lines = content.decode().splitlines()
+    content = "\n".join(line.split(",", 1)[1] for line in lines).encode()
+    with Client() as client, pytest.raises(ValueError, match="deliveryDate"):
+        list(
+            client.np4_190_cd.dam_stlmnt_pnt_prices_history.read(
+                zipped("missing.csv", content)
+            )
+        )
+
+
+def test_duplicate_aliases_do_not_overwrite_a_source_cell():
+    content = (INPUTS / "eia-930-er-history-current.csv").read_bytes()
+    content = content.replace(b'"Product_Name"', b'"Product_Name","Survey Name"', 1)
+    with Client() as client, pytest.raises(ValueError, match="duplicate"):
+        list(
+            client.eia_930_er.daily_operations_history.read(
+                zipped("duplicate.csv", content)
+            )
+        )
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "next-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_next_historical_report_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")), method + "_history"
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_whitespace_trailer_is_not_a_data_row():
+    source = (INPUTS / "np4-192-cd-history-samples.csv").read_bytes()
+    with Client() as client:
+        rows = list(
+            client.np4_192_cd.dam_total_energy_purchased_history.read(
+                zipped("energy.csv", source + b"  \n")
+            )
+        )
+    assert len(rows) == 3
+
+
+def test_wind_layout_keeps_old_timestamp_and_combined_region():
+    with Client() as client:
+        old = next(
+            client.np4_732_cd.wpp_hrly_avrg_actl_fcast_history.read(
+                zipped(
+                    "wind.csv", (INPUTS / "np4-732-cd-history-samples.csv").read_bytes()
+                )
+            )
+        )
+        recent = next(
+            client.np4_732_cd.wpp_hrly_avrg_actl_fcast_history.read(
+                zipped(
+                    "wind.csv", (INPUTS / "np4-732-cd-history-current.csv").read_bytes()
+                )
+            )
+        )
+    assert old.hourEndingTimestamp.isoformat() == "2014-04-29T01:00:00"
+    assert old.hourEnding is None
+    assert old.actualWestNorth == Decimal("3262.13")
+    assert old.genLoadZoneWest is None
+    assert recent.hourEnding == 11
+    assert recent.hourEndingTimestamp is None
+    assert recent.postedDatetime is None
+
+
+def test_ambiguous_header_mapping_is_rejected():
+    source = (INPUTS / "np4-732-cd-history-samples.csv").read_bytes()
+    source = source.replace(b"HOUR_ENDING,", b"HOUR_ENDING,DELIVERY_DATE,", 1)
+    with Client() as client, pytest.raises(ValueError, match="ambiguous"):
+        list(
+            client.np4_732_cd.wpp_hrly_avrg_actl_fcast_history.read(
+                zipped("wind.csv", source)
+            )
+        )

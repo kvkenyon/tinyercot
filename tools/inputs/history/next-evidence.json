@@ -1,0 +1,280 @@
+[
+  {
+    "endpoint": "np4-192-cd/dam_total_energy_purchased",
+    "fixture": "np4-192-cd-history-current.csv",
+    "file": "cdr.00012333.0000000000000000.20260906.123241.DAMTOTQTYENGYBUYNP4192.csv",
+    "csv_rows": 22978,
+    "first_row": {
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "01:00",
+      "repeatHourFlag": false,
+      "settlementPoint": "TGS_GT01",
+      "totalDamEnergyBought": "0"
+    },
+    "rows_decoded": 22978
+  },
+  {
+    "endpoint": "np4-192-cd/dam_total_energy_purchased",
+    "fixture": "np4-192-cd-history-samples.csv",
+    "file": "cdr.00012333.0000000000000000.20140312.131027.DAMTOTQTYENGYBUYNP4192.csv",
+    "csv_rows": 431,
+    "first_row": {
+      "deliveryDate": "2014-03-13",
+      "hourEnding": "01:00",
+      "repeatHourFlag": false,
+      "settlementPoint": "MWEC_G1",
+      "totalDamEnergyBought": "28"
+    },
+    "rows_decoded": 431
+  },
+  {
+    "endpoint": "np4-193-cd/total_dam_energy_sold",
+    "fixture": "np4-193-cd-history-current.csv",
+    "file": "cdr.00012334.0000000000000000.20260906.123241.DAMTOTQTYENGYSOLDNP4193.csv",
+    "csv_rows": 13978,
+    "first_row": {
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "01:00",
+      "repeatHourFlag": false,
+      "settlementPoint": "ABINDUST_RN",
+      "totalDAMEnergySold": "1.1"
+    },
+    "rows_decoded": 13978
+  },
+  {
+    "endpoint": "np4-193-cd/total_dam_energy_sold",
+    "fixture": "np4-193-cd-history-samples.csv",
+    "file": "cdr.00012334.0000000000000000.20140312.131028.DAMTOTQTYENGYSOLDNP4193.csv",
+    "csv_rows": 3631,
+    "first_row": {
+      "deliveryDate": "2014-03-13",
+      "hourEnding": "01:00",
+      "repeatHourFlag": false,
+      "settlementPoint": "AUSTPL_ALL",
+      "totalDAMEnergySold": "0"
+    },
+    "rows_decoded": 3631
+  },
+  {
+    "endpoint": "np4-194-cd/dam_ptp_obligation_sp_results",
+    "fixture": "np4-194-cd-history-current.csv",
+    "file": "cdr.00013042.0000000000000000.20260906.123246.DAMPTPOBLSPNP4194.csv",
+    "csv_rows": 20674,
+    "first_row": {
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "01:00",
+      "repeatedHourFlag": false,
+      "stlPnt": "7RNCHSLR_ALL",
+      "totalPtpOblAwardedSink": "23.4",
+      "totalPtpOblAwardedSource": "20"
+    },
+    "rows_decoded": 20674
+  },
+  {
+    "endpoint": "np4-194-cd/dam_ptp_obligation_sp_results",
+    "fixture": "np4-194-cd-history-samples.csv",
+    "file": "cdr.00013042.0000000000000000.20260625.125059.DAMPTPOBLSPNP4194.csv",
+    "csv_rows": 20855,
+    "first_row": {
+      "deliveryDate": "2026-06-26",
+      "hourEnding": "01:00",
+      "repeatedHourFlag": false,
+      "stlPnt": "7RNCHSLR_ALL",
+      "totalPtpOblAwardedSink": "40.7",
+      "totalPtpOblAwardedSource": "0"
+    },
+    "rows_decoded": 20855
+  },
+  {
+    "endpoint": "np4-523-cd/dam_system_lambda",
+    "fixture": "np4-523-cd-history-current.csv",
+    "file": "cdr.00013113.0000000000000000.20260906.123241.DAMSYSLAMBDANP4523.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "1:00",
+      "systemLambda": "44.2834"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np4-523-cd/dam_system_lambda",
+    "fixture": "np4-523-cd-history-samples.csv",
+    "file": "cdr.00013113.0000000000000000.20140501.125923.DAMSYSLAMBDANP4523.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "DSTFlag": false,
+      "deliveryDate": "2014-05-02",
+      "hourEnding": "1:00",
+      "systemLambda": "30.0995"
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np6-787-cd/lmp_electrical_bus",
+    "fixture": "np6-787-cd-history-current.csv",
+    "file": "cdr.00011485.0000000000000000.20260907.114020.LMPSELECTBUSNP6787_20260907_114017.csv",
+    "csv_rows": 19379,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-07T11:40:17",
+      "repeatedHourFlag": false,
+      "electricalBus": "0001",
+      "cappedLMP": "22.87",
+      "uncappedLMP": "22.87",
+      "LMP": null
+    },
+    "rows_decoded": 19379
+  },
+  {
+    "endpoint": "np6-787-cd/lmp_electrical_bus",
+    "fixture": "np6-787-cd-history-samples.csv",
+    "file": "cdr.00011485.0000000000000000.20140501.000017.LMPSELECTBUSNP6787_20140501_000014.csv",
+    "csv_rows": 10964,
+    "first_row": {
+      "SCEDTimestamp": "2014-05-01T00:00:14",
+      "repeatedHourFlag": false,
+      "electricalBus": "0001",
+      "cappedLMP": null,
+      "uncappedLMP": null,
+      "LMP": "28.88"
+    },
+    "rows_decoded": 10964
+  },
+  {
+    "endpoint": "np6-788-cd/lmp_node_zone_hub",
+    "fixture": "np6-788-cd-history-current.csv",
+    "file": "cdr.00012300.0000000000000000.20260907.114020.LMPSROSNODENP6788_20260907_114017.csv",
+    "csv_rows": 1123,
+    "first_row": {
+      "LMP": "23.53",
+      "SCEDTimestamp": "2026-09-07T11:40:17",
+      "repeatHourFlag": false,
+      "settlementPoint": "7RNCHSLR_ALL"
+    },
+    "rows_decoded": 1123
+  },
+  {
+    "endpoint": "np6-788-cd/lmp_node_zone_hub",
+    "fixture": "np6-788-cd-history-samples.csv",
+    "file": "cdr.00012300.0000000000000000.20140501.000531.LMPSROSNODENP6788_20140501_000519.csv",
+    "csv_rows": 571,
+    "first_row": {
+      "LMP": "30.95",
+      "SCEDTimestamp": "2014-05-01T00:05:19",
+      "repeatHourFlag": false,
+      "settlementPoint": "AMISTAD_ALL"
+    },
+    "rows_decoded": 571
+  },
+  {
+    "endpoint": "np4-33-cd/dam_as_plan",
+    "fixture": "np4-33-cd-history-current.csv",
+    "file": "cdr.00012316.0000000000000000.20260907.050000.ASPLANNP433.csv",
+    "csv_rows": 840,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "01:00",
+      "ancillaryType": "ECRS",
+      "quantity": 1150,
+      "DSTFlag": false
+    },
+    "rows_decoded": 840
+  },
+  {
+    "endpoint": "np4-33-cd/dam_as_plan",
+    "fixture": "np4-33-cd-history-samples.csv",
+    "file": "cdr.00012316.0000000000000000.20140501.050000.ASPLANNP433.csv",
+    "csv_rows": 192,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2014-05-01",
+      "hourEnding": "01:00",
+      "ancillaryType": "NSPIN",
+      "quantity": 1500,
+      "DSTFlag": false
+    },
+    "rows_decoded": 192
+  },
+  {
+    "endpoint": "np4-732-cd/wpp_hrly_avrg_actl_fcast",
+    "fixture": "np4-732-cd-history-current.csv",
+    "file": "cdr.00013028.0000000000000000.20260907.105512.WPPHRLYAVGACTNP4732.csv",
+    "csv_rows": 216,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-05",
+      "hourEnding": 11,
+      "genSystemWide": "4230.6",
+      "COPHSLSystemWide": "3756.3",
+      "STWPFSystemWide": "4089",
+      "WGRPPSystemWide": "4089",
+      "genLoadZoneSouthHouston": "1665.85",
+      "COPHSLLoadZoneSouthHouston": "988.9",
+      "STWPFLoadZoneSouthHouston": "1579.2",
+      "WGRPPLoadZoneSouthHouston": "1579.2",
+      "genLoadZoneWest": "2435.26",
+      "COPHSLLoadZoneWest": "2662.6",
+      "STWPFLoadZoneWest": "2413",
+      "WGRPPLoadZoneWest": "2413",
+      "genLoadZoneNorth": "129.49",
+      "COPHSLLoadZoneNorth": "104.8",
+      "STWPFLoadZoneNorth": "96.8",
+      "WGRPPLoadZoneNorth": "96.8",
+      "HSLSystemWide": "4843.28",
+      "DSTFlag": false,
+      "hourEndingTimestamp": null,
+      "actualSystemWide": null,
+      "actualSouthHouston": null,
+      "COPHSLSouthHouston": null,
+      "STWPFSouthHouston": null,
+      "WGRPPSouthHouston": null,
+      "actualWestNorth": null,
+      "COPHSLWestNorth": null,
+      "STWPFWestNorth": null,
+      "WGRPPWestNorth": null
+    },
+    "rows_decoded": 216
+  },
+  {
+    "endpoint": "np4-732-cd/wpp_hrly_avrg_actl_fcast",
+    "fixture": "np4-732-cd-history-samples.csv",
+    "file": "cdr.00013028.0000000000000000.20140501.003231.WPPHRLYAVGACTNP4732.csv",
+    "csv_rows": 96,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": null,
+      "hourEnding": null,
+      "genSystemWide": null,
+      "COPHSLSystemWide": "5540.7",
+      "STWPFSystemWide": "5410.8",
+      "WGRPPSystemWide": "4510.1",
+      "genLoadZoneSouthHouston": null,
+      "COPHSLLoadZoneSouthHouston": null,
+      "STWPFLoadZoneSouthHouston": null,
+      "WGRPPLoadZoneSouthHouston": null,
+      "genLoadZoneWest": null,
+      "COPHSLLoadZoneWest": null,
+      "STWPFLoadZoneWest": null,
+      "WGRPPLoadZoneWest": null,
+      "genLoadZoneNorth": null,
+      "COPHSLLoadZoneNorth": null,
+      "STWPFLoadZoneNorth": null,
+      "WGRPPLoadZoneNorth": null,
+      "HSLSystemWide": null,
+      "DSTFlag": false,
+      "hourEndingTimestamp": "2014-04-29T01:00:00",
+      "actualSystemWide": "4222.85",
+      "actualSouthHouston": "960.72",
+      "COPHSLSouthHouston": "1238.5",
+      "STWPFSouthHouston": "1333.8",
+      "WGRPPSouthHouston": "1102.6",
+      "actualWestNorth": "3262.13",
+      "COPHSLWestNorth": "4302.2",
+      "STWPFWestNorth": "4077",
+      "WGRPPWestNorth": "3407.5"
+    },
+    "rows_decoded": 96
+  }
+]

@@ -1,0 +1,4 @@
+DeliveryDate,HourEnding,Settlement_Point,TotalDAMEnergySold,DSTFlag
+03/13/2014,01:00,AUSTPL_ALL,0,N
+03/13/2014,01:00,BBSES_UNIT1,22.5,N
+03/13/2014,01:00,BBSES_UNIT2,137.5,N

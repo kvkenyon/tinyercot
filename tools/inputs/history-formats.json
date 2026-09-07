@@ -1739,5 +1739,221 @@
       "dataDate": "%j%Y",
       "postedDate": "%j%Y"
     }
+  },
+  "np4-192-cd/dam_total_energy_purchased": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "Settlement_Point": "settlementPoint",
+      "Total_DAM_Energy_Bought": "totalDamEnergyBought",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "variants": [
+      {
+        "DeliveryDate": "deliveryDate",
+        "HourEnding": "hourEnding",
+        "Settlement_Point": "settlementPoint",
+        "Total_DAM_Energy_Bought": "totalDamEnergyBought",
+        "DSTFlag": "repeatHourFlag"
+      }
+    ]
+  },
+  "np4-193-cd/total_dam_energy_sold": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "Settlement_Point": "settlementPoint",
+      "TotalDAMEnergySold": "totalDAMEnergySold",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "variants": [
+      {
+        "DeliveryDate": "deliveryDate",
+        "HourEnding": "hourEnding",
+        "Settlement_Point": "settlementPoint",
+        "TotalDAMEnergySold": "totalDAMEnergySold",
+        "DSTFlag": "repeatHourFlag"
+      }
+    ]
+  },
+  "np4-194-cd/dam_ptp_obligation_sp_results": {
+    "columns": {
+      "DELIVERYDATE": "deliveryDate",
+      "HOURENDING": "hourEnding",
+      "STL_PNT": "stlPnt",
+      "TOTAL_PTP_OBL_AWARDED_SOURCE": "totalPtpOblAwardedSource",
+      "TOTAL_PTP_OBL_AWARDED_SINK": "totalPtpOblAwardedSink",
+      "DSTFlag": "repeatedHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np4-523-cd/dam_system_lambda": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "SystemLambda": "systemLambda",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {}
+  },
+  "np6-787-cd/lmp_electrical_bus": {
+    "columns": {
+      "SCEDTimestamp": "SCEDTimestamp",
+      "RepeatedHourFlag": "repeatedHourFlag",
+      "ElectricalBus": "electricalBus",
+      "CappedLMP": "cappedLMP",
+      "UncappedLMP": "uncappedLMP"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "variants": [
+      {
+        "SCEDTimestamp": "SCEDTimestamp",
+        "RepeatedHourFlag": "repeatedHourFlag",
+        "ElectricalBus": "electricalBus",
+        "LMP": "LMP"
+      }
+    ],
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatedHourFlag": "bool",
+      "electricalBus": "str",
+      "cappedLMP": "Decimal",
+      "uncappedLMP": "Decimal",
+      "LMP": "Decimal"
+    }
+  },
+  "np6-788-cd/lmp_node_zone_hub": {
+    "columns": {
+      "SCEDTimestamp": "SCEDTimestamp",
+      "RepeatedHourFlag": "repeatHourFlag",
+      "SettlementPoint": "settlementPoint",
+      "LMP": "LMP"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np4-33-cd/dam_as_plan": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "AncillaryType": "ancillaryType",
+      "Quantity": "quantity",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "ancillaryType": "str",
+      "quantity": "int",
+      "DSTFlag": "bool"
+    }
+  },
+  "np4-732-cd/wpp_hrly_avrg_actl_fcast": {
+    "columns": {
+      "DELIVERY_DATE": "deliveryDate",
+      "HOUR_ENDING": "hourEnding",
+      "SYSTEM_WIDE_GEN": "genSystemWide",
+      "COP_HSL_SYSTEM_WIDE": "COPHSLSystemWide",
+      "STWPF_SYSTEM_WIDE": "STWPFSystemWide",
+      "WGRPP_SYSTEM_WIDE": "WGRPPSystemWide",
+      "GEN_LZ_SOUTH_HOUSTON": "genLoadZoneSouthHouston",
+      "COP_HSL_LZ_SOUTH_HOUSTON": "COPHSLLoadZoneSouthHouston",
+      "STWPF_LZ_SOUTH_HOUSTON": "STWPFLoadZoneSouthHouston",
+      "WGRPP_LZ_SOUTH_HOUSTON": "WGRPPLoadZoneSouthHouston",
+      "GEN_LZ_WEST": "genLoadZoneWest",
+      "COP_HSL_LZ_WEST": "COPHSLLoadZoneWest",
+      "STWPF_LZ_WEST": "STWPFLoadZoneWest",
+      "WGRPP_LZ_WEST": "WGRPPLoadZoneWest",
+      "GEN_LZ_NORTH": "genLoadZoneNorth",
+      "COP_HSL_LZ_NORTH": "COPHSLLoadZoneNorth",
+      "STWPF_LZ_NORTH": "STWPFLoadZoneNorth",
+      "WGRPP_LZ_NORTH": "WGRPPLoadZoneNorth",
+      "SYSTEM_WIDE_HSL": "HSLSystemWide",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S",
+      "hourEndingTimestamp": "%m/%d/%Y %H:%M"
+    },
+    "variants": [
+      {
+        "HOUR_ENDING": "hourEndingTimestamp",
+        "ACTUAL_SYSTEM_WIDE": "actualSystemWide",
+        "COP_HSL_SYSTEM_WIDE": "COPHSLSystemWide",
+        "STWPF_SYSTEM_WIDE": "STWPFSystemWide",
+        "WGRPP_SYSTEM_WIDE": "WGRPPSystemWide",
+        "ACTUAL_SOUTH_HOUSTON": "actualSouthHouston",
+        "COP_HSL_SOUTH_HOUSTON": "COPHSLSouthHouston",
+        "STWPF_SOUTH_HOUSTON": "STWPFSouthHouston",
+        "WGRPP_SOUTH_HOUSTON": "WGRPPSouthHouston",
+        "ACTUAL_WEST_NORTH": "actualWestNorth",
+        "COP_HSL_WEST_NORTH": "COPHSLWestNorth",
+        "STWPF_WEST_NORTH": "STWPFWestNorth",
+        "WGRPP_WEST_NORTH": "WGRPPWestNorth",
+        "DSTFlag": "DSTFlag"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "genSystemWide": "Decimal",
+      "COPHSLSystemWide": "Decimal",
+      "STWPFSystemWide": "Decimal",
+      "WGRPPSystemWide": "Decimal",
+      "genLoadZoneSouthHouston": "Decimal",
+      "COPHSLLoadZoneSouthHouston": "Decimal",
+      "STWPFLoadZoneSouthHouston": "Decimal",
+      "WGRPPLoadZoneSouthHouston": "Decimal",
+      "genLoadZoneWest": "Decimal",
+      "COPHSLLoadZoneWest": "Decimal",
+      "STWPFLoadZoneWest": "Decimal",
+      "WGRPPLoadZoneWest": "Decimal",
+      "genLoadZoneNorth": "Decimal",
+      "COPHSLLoadZoneNorth": "Decimal",
+      "STWPFLoadZoneNorth": "Decimal",
+      "WGRPPLoadZoneNorth": "Decimal",
+      "HSLSystemWide": "Decimal",
+      "DSTFlag": "bool",
+      "hourEndingTimestamp": "datetime",
+      "actualSystemWide": "Decimal",
+      "actualSouthHouston": "Decimal",
+      "COPHSLSouthHouston": "Decimal",
+      "STWPFSouthHouston": "Decimal",
+      "WGRPPSouthHouston": "Decimal",
+      "actualWestNorth": "Decimal",
+      "COPHSLWestNorth": "Decimal",
+      "STWPFWestNorth": "Decimal",
+      "WGRPPWestNorth": "Decimal"
+    }
   }
 }

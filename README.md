@@ -138,3 +138,15 @@ A published `24:00:00Z` becomes midnight on the following date. The older
 `postedDate` and `interconnectedBalancingAuthorityCode` fields are preserved
 separately from the newer `dataDate` and `dataCode` fields. This reader preserves
 wide source rows; it does not join timing rows to measurement rows.
+
+Additional historical readers cover DAM energy bought/sold, PTP obligation
+results, system lambda, real-time bus and settlement-point LMPs, ancillary-service
+plans, and wind actuals/forecasts. Legacy bus `LMP` is separate from newer capped
+and uncapped prices. The wind history model preserves the old combined west/north
+region and full `hourEndingTimestamp` separately from newer region fields and
+integer `hourEnding`. API posting timestamps absent from a CSV remain `None`.
+
+Known optional columns can appear in intermediate combinations. Required model
+fields still apply, and unknown columns, duplicate aliases, or ambiguous reused
+headers raise an error. This supports compatible schema evolution without
+silently discarding source columns or assuming changed fields mean the same thing.
