@@ -7,8 +7,9 @@ from typing import ClassVar
 from ._client import Transport, Page, Row
 from ._history import Archive, EiaHour
 from ._xlsx import WorkbookArchive
+from ._pdf import PdfArchive
 
-__all__ = ['Client', 'copg_316', 'eia_930_cd', 'eia_930_er', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np1_346_er', 'np3_108', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_494_er', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_520_er', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_792_er', 'np6_793_er', 'np6_794_er', 'np6_795_er', 'np6_796_er', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd', 'np7_535_sg']
+__all__ = ['Client', 'copg_316', 'eia_930_cd', 'eia_930_er', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np1_346_er', 'np3_108', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_494_er', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_765_er', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_520_er', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_792_er', 'np6_793_er', 'np6_794_er', 'np6_795_er', 'np6_796_er', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd', 'np7_535_sg']
 class copg_316:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -10420,6 +10421,80 @@ class np4_752_cd:
         'Intra-Hour Solar Power Forecast by Geographical Region'
         return self._client._aiter('/np4-752-cd/ih_solar_fcast_geo', np4_752_cd.IhSolarFcastGeoRow, {'intervalEndingFrom': intervalEndingFrom, 'intervalEndingTo': intervalEndingTo, 'region': region, 'valueFrom': valueFrom, 'valueTo': valueTo, 'model': model, 'inUseFlag': inUseFlag, 'DSTFlag': DSTFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'size': size, 'sort': sort, 'dir': dir})
 
+class np4_765_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class DailyValuesHistoryRow(Row):
+        reportDate: date | None
+        installedDischargeCapacityMW: Decimal | None
+        totalDischargeCapacityMW: Decimal | None
+        installedChargeCapacityMW: Decimal | None
+        totalChargeCapacityMW: Decimal | None
+        peakLoadMW: Decimal | None
+        peakLoadHourEnding: int | None
+        dischargeAtPeakLoadMW: Decimal | None
+        chargeAtPeakLoadMW: Decimal | None
+        netOutputAtPeakLoadMW: Decimal | None
+        maxDischargeMW: Decimal | None
+        maxDischargeTime: time | None
+        penetrationAtMaxDischargePercent: Decimal | None
+        maxChargeMW: Decimal | None
+        maxChargeTime: time | None
+        penetrationAtMaxChargePercent: Decimal | None
+        maxDischargePenetrationPercent: Decimal | None
+        maxDischargePenetrationTime: time | None
+        dischargeAtMaxPenetrationMW: Decimal | None
+        maxChargePenetrationPercent: Decimal | None
+        maxChargePenetrationTime: time | None
+        chargeAtMaxPenetrationMW: Decimal | None
+        sourceNotes: str | None
+
+    @property
+    def daily_values_history(self) -> PdfArchive[np4_765_er.DailyValuesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return PdfArchive(self._client, 'np4-765-er', np4_765_er.DailyValuesHistoryRow, {'reportDate': 'reportDate', 'installedDischargeCapacityMW': 'installedDischargeCapacityMW', 'totalDischargeCapacityMW': 'totalDischargeCapacityMW', 'installedChargeCapacityMW': 'installedChargeCapacityMW', 'totalChargeCapacityMW': 'totalChargeCapacityMW', 'peakLoadMW': 'peakLoadMW', 'peakLoadHourEnding': 'peakLoadHourEnding', 'dischargeAtPeakLoadMW': 'dischargeAtPeakLoadMW', 'chargeAtPeakLoadMW': 'chargeAtPeakLoadMW', 'netOutputAtPeakLoadMW': 'netOutputAtPeakLoadMW', 'maxDischargeMW': 'maxDischargeMW', 'maxDischargeTime': 'maxDischargeTime', 'penetrationAtMaxDischargePercent': 'penetrationAtMaxDischargePercent', 'maxChargeMW': 'maxChargeMW', 'maxChargeTime': 'maxChargeTime', 'penetrationAtMaxChargePercent': 'penetrationAtMaxChargePercent', 'maxDischargePenetrationPercent': 'maxDischargePenetrationPercent', 'maxDischargePenetrationTime': 'maxDischargePenetrationTime', 'dischargeAtMaxPenetrationMW': 'dischargeAtMaxPenetrationMW', 'maxChargePenetrationPercent': 'maxChargePenetrationPercent', 'maxChargePenetrationTime': 'maxChargePenetrationTime', 'chargeAtMaxPenetrationMW': 'chargeAtMaxPenetrationMW', 'sourceNotes': 'sourceNotes'}, {}, start='Current\\s*Daily\\s*Values:', end='All\\s*Time\\s*Record\\s*Values:|\\*\\s*Sum', pattern='Installed\\s*ESR\\s*Discharge\\s*Capacity\\*\\s*(?P<installedDischargeCapacityMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Total\\s*ESR\\s*Discharge\\s*Capacity\\*\\*\\s*(?P<totalDischargeCapacityMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Installed\\s*ESR\\s*Charge\\s*Capacity\\+\\s*(?P<installedChargeCapacityMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Total\\s*ESR\\s*Charge\\s*Capacity\\+\\+\\s*(?P<totalChargeCapacityMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Peak\\s*Load\\s*(?P<peakLoadMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Peak\\s*Load\\s*Hour\\s*\\(HE\\)\\s*(?P<peakLoadHourEnding>\\d+)\\s*\\s*ESR\\s*Discharge\\s*at\\s*Peak\\s*Load\\s*Hour\\s*(?P<dischargeAtPeakLoadMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*ESR\\s*Charge\\s*at\\s*Peak\\s*Load\\s*Hour\\s*(?P<chargeAtPeakLoadMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*ESR\\s*Net\\s*Charge/Discharge\\s*at\\s*Peak\\s*Load\\s*Hour\\^\\s*(?P<netOutputAtPeakLoadMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Max\\s*ESR\\s*Discharge\\s*Generation\\s*(?P<maxDischargeMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Max\\s*ESR\\s*Discharge\\s*Time\\s*(?P<maxDischargeTime>\\d{2}:\\d{2})\\s*\\s*Penetration\\s*at\\s*Max\\s*ESR\\s*Discharge\\s*Time\\s*(?P<penetrationAtMaxDischargePercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*Max\\s*ESR\\s*Charge\\s*Load\\s*(?P<maxChargeMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Max\\s*ESR\\s*Charge\\s*Time\\s*(?P<maxChargeTime>\\d{2}:\\d{2})\\s*\\s*Penetration\\s*at\\s*Max\\s*ESR\\s*Charge\\s*Time\\s*(?P<penetrationAtMaxChargePercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*Max\\s*ESR\\s*Discharge\\s*Penetration\\s*(?P<maxDischargePenetrationPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*Max\\s*ESR\\s*Discharge\\s*Penetration\\s*Time\\s*(?P<maxDischargePenetrationTime>\\d{2}:\\d{2})\\s*\\s*ESR\\s*Discharge\\s*Generation\\s*at\\s*Max\\s*ESR\\s*Discharge\\s*Penetration\\s*Time\\s*(?P<dischargeAtMaxPenetrationMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Max\\s*ESR\\s*Charge\\s*Penetration\\s*(?P<maxChargePenetrationPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*Max\\s*ESR\\s*Charge\\s*Penetration\\s*Time\\s*(?P<maxChargePenetrationTime>\\d{2}:\\d{2})\\s*\\s*ESR\\s*Charge\\s*Load\\s*at\\s*Max\\s*ESR\\s*Charge\\s*Penetration\\s*Time\\s*(?P<chargeAtMaxPenetrationMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW', records=False, notes=True, numbers=('installedDischargeCapacityMW', 'totalDischargeCapacityMW', 'installedChargeCapacityMW', 'totalChargeCapacityMW', 'peakLoadMW', 'peakLoadHourEnding', 'dischargeAtPeakLoadMW', 'chargeAtPeakLoadMW', 'netOutputAtPeakLoadMW', 'maxDischargeMW', 'penetrationAtMaxDischargePercent', 'maxChargeMW', 'penetrationAtMaxChargePercent', 'maxDischargePenetrationPercent', 'dischargeAtMaxPenetrationMW', 'maxChargePenetrationPercent', 'chargeAtMaxPenetrationMW'), datetimes={})
+
+    class PowerRecordsHistoryRow(Row):
+        reportDate: date | None
+        category: str | None
+        recordMW: Decimal | None
+        recordTime: datetime | None
+        penetrationPercent: Decimal | None
+        maxSocPercent: Decimal | None
+        minSocPercent: Decimal | None
+
+    @property
+    def power_records_history(self) -> PdfArchive[np4_765_er.PowerRecordsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return PdfArchive(self._client, 'np4-765-er', np4_765_er.PowerRecordsHistoryRow, {'reportDate': 'reportDate', 'category': 'category', 'recordMW': 'recordMW', 'recordTime': 'recordTime', 'penetrationPercent': 'penetrationPercent', 'maxSocPercent': 'maxSocPercent', 'minSocPercent': 'minSocPercent'}, {}, start='Record\\s*Max\\s*MW\\s*Record\\s*Max\\s*MW\\s*Time\\s*Penetration\\s*at\\s*Record\\s*Max\\s*MW\\s*Max\\s*SOC\\s*in\\s*Record\\s*Hour\\s*Min\\s*SOC\\s*in\\s*Record\\s*Hour', end='Record\\s*Penetration\\s*Record\\s*Penetration\\s*Time\\s*MW\\s*at\\s*Record\\s*Penetration\\s*Time\\s*Max\\s*SOC\\s*in\\s*Record\\s*Hour\\s*Min\\s*SOC\\s*in\\s*Record\\s*Hour', pattern='(?P<category>ESR Discharge Generation|ESR Charge Load|ESR Injection)\\s*(?P<recordMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*(?P<recordTime>\\d{2}/\\d{2}/\\d{4}\\s+\\d{2}:\\d{2})\\s*(?P<penetrationPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*(?P<maxSocPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*(?P<minSocPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%', records=True, notes=False, numbers=('recordMW', 'penetrationPercent', 'maxSocPercent', 'minSocPercent'), datetimes={'recordTime': '%m/%d/%Y %H:%M'})
+
+    class PenetrationRecordsHistoryRow(Row):
+        reportDate: date | None
+        category: str | None
+        penetrationPercent: Decimal | None
+        recordTime: datetime | None
+        recordMW: Decimal | None
+        maxSocPercent: Decimal | None
+        minSocPercent: Decimal | None
+
+    @property
+    def penetration_records_history(self) -> PdfArchive[np4_765_er.PenetrationRecordsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return PdfArchive(self._client, 'np4-765-er', np4_765_er.PenetrationRecordsHistoryRow, {'reportDate': 'reportDate', 'category': 'category', 'penetrationPercent': 'penetrationPercent', 'recordTime': 'recordTime', 'recordMW': 'recordMW', 'maxSocPercent': 'maxSocPercent', 'minSocPercent': 'minSocPercent'}, {}, start='Record\\s*Penetration\\s*Record\\s*Penetration\\s*Time\\s*MW\\s*at\\s*Record\\s*Penetration\\s*Time\\s*Max\\s*SOC\\s*in\\s*Record\\s*Hour\\s*Min\\s*SOC\\s*in\\s*Record\\s*Hour', end='Record\\s*SOC\\s*Delta\\s*Record\\s*SOC\\s*Delta\\s*Time', pattern='(?P<category>ESR Discharge Generation|ESR Charge Load)\\s*(?P<penetrationPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*(?P<recordTime>\\d{2}/\\d{2}/\\d{4}\\s+\\d{2}:\\d{2})\\s*(?P<recordMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*(?P<maxSocPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*(?P<minSocPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%', records=True, notes=False, numbers=('penetrationPercent', 'recordMW', 'maxSocPercent', 'minSocPercent'), datetimes={'recordTime': '%m/%d/%Y %H:%M'})
+
+    class SocRecordsHistoryRow(Row):
+        reportDate: date | None
+        category: str | None
+        recordMWh: Decimal | None
+        recordTime: datetime | None
+
+    @property
+    def soc_records_history(self) -> PdfArchive[np4_765_er.SocRecordsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return PdfArchive(self._client, 'np4-765-er', np4_765_er.SocRecordsHistoryRow, {'reportDate': 'reportDate', 'category': 'category', 'recordMWh': 'recordMWh', 'recordTime': 'recordTime'}, {}, start='Record\\s*SOC\\s*Delta\\s*Record\\s*SOC\\s*Delta\\s*Time', end='\\*\\s*Sum', pattern='(?P<category>ESR SOC Hourly Increase|ESR SOC Hourly Decrease)\\s*(?P<recordMWh>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MWh\\s*(?P<recordTime>\\d{2}/\\d{2}/\\d{4}\\s+\\d{2}:\\d{2})', records=True, notes=False, numbers=('recordMWh',), datetimes={'recordTime': '%m/%d/%Y %H:%M'})
+
 class np4_790_cd:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -12196,6 +12271,10 @@ class Client(Transport):
     @property
     def np4_752_cd(self) -> np4_752_cd:
         return np4_752_cd(self)
+
+    @property
+    def np4_765_er(self) -> np4_765_er:
+        return np4_765_er(self)
 
     @property
     def np4_790_cd(self) -> np4_790_cd:

@@ -1,0 +1,230 @@
+[
+  {
+    "sample": "history-samples",
+    "zipSha256": "4d1b1538548ee923145057965cfc59724a78e2e876e1a87d1c45ded88f20ec8e",
+    "pdfMembers": [
+      {
+        "name": "963449156.rpt.00023794.0000000000000000.20231206.080221290.ESRIntegrationReport 12-05-23.pdf",
+        "sha256": "0ef80712cb83a13d67285a58d7154139c70cec390ade961f9f5532fd5005203c"
+      }
+    ],
+    "tables": {
+      "daily_values": [
+        {
+          "reportDate": "2023-12-05",
+          "installedDischargeCapacityMW": "5038",
+          "totalDischargeCapacityMW": "7046",
+          "installedChargeCapacityMW": "7024",
+          "totalChargeCapacityMW": "7024",
+          "peakLoadMW": "49649",
+          "peakLoadHourEnding": 8,
+          "dischargeAtPeakLoadMW": "430",
+          "chargeAtPeakLoadMW": "131",
+          "netOutputAtPeakLoadMW": "299",
+          "maxDischargeMW": "884",
+          "maxDischargeTime": "06:36:00",
+          "penetrationAtMaxDischargePercent": "1.80",
+          "maxChargeMW": "616",
+          "maxChargeTime": "11:45:00",
+          "penetrationAtMaxChargePercent": "1.36",
+          "maxDischargePenetrationPercent": "1.80",
+          "maxDischargePenetrationTime": "06:36:00",
+          "dischargeAtMaxPenetrationMW": "884",
+          "maxChargePenetrationPercent": "1.36",
+          "maxChargePenetrationTime": "11:45:00",
+          "chargeAtMaxPenetrationMW": "616",
+          "sourceNotes": "* Sum of maximum capacity (i.e. seasonal max. reasonability limit in RIOO) of all ESR generators modeled in ERCOT\u2019s network operations model and are commercially operable (estimated based on commercial operations date in RIOO). ** Sum of maximum capacity (i.e. seasonal max. reasonability limit in RIOO) of all ESR generators modeled in ERCOT\u2019s network operations model. + Sum of maximum capacity (i.e. max. power consumption in RIOO) of all ESR CLRs that are modeled in ERCOT's network operations model and are commercially operable (estimated based on commercial operations date in RIOO). ++ Sum of maximum capacity (i.e. max. power consumption in RIOO) of all ESR CLRs that are modeled in ERCOT's network operations model. ^ ESR Net Charge/Discharge = Total Discharging from ESR generators - Total Charging from ESR CLRs. Positive represents Net Discharge; negative represents Net Charge. Note that generation, generation record, and generator capacity values in following pages of this report are based on units modeled in ERCOT\u2019s network operations model."
+        }
+      ],
+      "power_records": [],
+      "penetration_records": [],
+      "soc_records": []
+    }
+  },
+  {
+    "sample": "history-current",
+    "zipSha256": "b27740746d092aa3fa78014913f48a3ba92ab9f35aeb81be0f84e8a694ff9d97",
+    "pdfMembers": [
+      {
+        "name": "1271634350.rpt.00023794.0000000000000000.20260907.091110.ESRIntegrationReport 09-06-26.pdf",
+        "sha256": "cc487e168177681f6fa35d67e1db2e76b98f38cf39eb7099ef4354d25b099c53"
+      }
+    ],
+    "tables": {
+      "daily_values": [
+        {
+          "reportDate": "2026-09-06",
+          "installedDischargeCapacityMW": "22024",
+          "totalDischargeCapacityMW": "22536",
+          "installedChargeCapacityMW": "21866",
+          "totalChargeCapacityMW": "22376",
+          "peakLoadMW": "82270",
+          "peakLoadHourEnding": 18,
+          "dischargeAtPeakLoadMW": "283",
+          "chargeAtPeakLoadMW": "210",
+          "netOutputAtPeakLoadMW": "73",
+          "maxDischargeMW": "10838",
+          "maxDischargeTime": "19:54:00",
+          "penetrationAtMaxDischargePercent": "13.98",
+          "maxChargeMW": "10241",
+          "maxChargeTime": "09:24:00",
+          "penetrationAtMaxChargePercent": "16.35",
+          "maxDischargePenetrationPercent": "13.98",
+          "maxDischargePenetrationTime": "19:54:00",
+          "dischargeAtMaxPenetrationMW": "10838",
+          "maxChargePenetrationPercent": "16.35",
+          "maxChargePenetrationTime": "09:24:00",
+          "chargeAtMaxPenetrationMW": "10241",
+          "sourceNotes": "* Sum of maximum discharge capacity (i.e. seasonal net max. sustainable rating in RIOO) of all ESRs modeled in ERCOT\u2019s network operations model and are commercially operable (estimated based on Commercial Operations Date in RIOO). ** Sum of maximum discharge capacity (i.e. seasonal net max. sustainable rating in RIOO) of all ESRs modeled in ERCOT\u2019s network operations model. + Sum of maximum charge capacity (i.e. maximum point of delivery total load in RIOO) of all ESRs that are modeled in ERCOT's network operations model and are commercially operable (estimated based on Commercial Operations Date in RIOO). ++ Sum of maximum charge capacity (i.e. maximum point of delivery total load in RIOO) of all ESRs that are modeled in ERCOT's network operations model. ^ ESR Net Charge/Discharge = ESR Net output (positive represents Net Discharge; negative represents Net Charge). Note that generation, generation record, and generator capacity values in following pages of this report are based on units modeled in ERCOT\u2019s network operations model."
+        }
+      ],
+      "power_records": [
+        {
+          "reportDate": "2026-09-06",
+          "category": "ESR Discharge Generation",
+          "recordMW": "13300",
+          "recordTime": "2026-08-23T19:45:00",
+          "penetrationPercent": "15.35",
+          "maxSocPercent": "79.61",
+          "minSocPercent": "45.49"
+        },
+        {
+          "reportDate": "2026-09-06",
+          "category": "ESR Charge Load",
+          "recordMW": "11576",
+          "recordTime": "2026-08-30T09:29:00",
+          "penetrationPercent": "18.15",
+          "maxSocPercent": "54.66",
+          "minSocPercent": "26.59"
+        },
+        {
+          "reportDate": "2026-09-06",
+          "category": "ESR Injection",
+          "recordMW": "13268",
+          "recordTime": "2026-08-23T19:45:00",
+          "penetrationPercent": "15.31",
+          "maxSocPercent": "79.61",
+          "minSocPercent": "45.49"
+        }
+      ],
+      "penetration_records": [
+        {
+          "reportDate": "2026-09-06",
+          "category": "ESR Discharge Generation",
+          "penetrationPercent": "20.61",
+          "recordTime": "2026-03-13T19:31:00",
+          "recordMW": "10514",
+          "maxSocPercent": "75.87",
+          "minSocPercent": "41.76"
+        },
+        {
+          "reportDate": "2026-09-06",
+          "category": "ESR Charge Load",
+          "penetrationPercent": "18.15",
+          "recordTime": "2026-08-30T09:29:00",
+          "recordMW": "11564",
+          "maxSocPercent": "54.66",
+          "minSocPercent": "26.59"
+        }
+      ],
+      "soc_records": [
+        {
+          "reportDate": "2026-09-06",
+          "category": "ESR SOC Hourly Increase",
+          "recordMWh": "9946",
+          "recordTime": "2026-08-30T10:04:00"
+        },
+        {
+          "reportDate": "2026-09-06",
+          "category": "ESR SOC Hourly Decrease",
+          "recordMWh": "12934",
+          "recordTime": "2026-08-23T20:17:00"
+        }
+      ]
+    }
+  },
+  {
+    "sample": "integration-pdf-2024-09-07",
+    "zipSha256": "6f0c3a0333b2c5bea5d7c0a6a2de77367220a5924fc9bac21c9e176d39cb1e25",
+    "pdfMembers": [
+      {
+        "name": "1034094117.rpt.00023794.0000000000000000.20240907.080202413.ESRIntegrationReport 09-06-24.pdf",
+        "sha256": "080fe5aa9be73f0612a4ab92a2c0587ed9962c7bee084add5f457833a6a06bf6"
+      }
+    ],
+    "tables": {
+      "daily_values": [
+        {
+          "reportDate": "2024-09-06",
+          "installedDischargeCapacityMW": "8589",
+          "totalDischargeCapacityMW": "10044",
+          "installedChargeCapacityMW": "9971",
+          "totalChargeCapacityMW": "9971",
+          "peakLoadMW": "65780",
+          "peakLoadHourEnding": 15,
+          "dischargeAtPeakLoadMW": "169",
+          "chargeAtPeakLoadMW": "354",
+          "netOutputAtPeakLoadMW": "-185",
+          "maxDischargeMW": "2190",
+          "maxDischargeTime": "19:29:00",
+          "penetrationAtMaxDischargePercent": "3.54",
+          "maxChargeMW": "1520",
+          "maxChargeTime": "09:10:00",
+          "penetrationAtMaxChargePercent": "2.76",
+          "maxDischargePenetrationPercent": "3.55",
+          "maxDischargePenetrationTime": "19:29:00",
+          "dischargeAtMaxPenetrationMW": "2190",
+          "maxChargePenetrationPercent": "2.76",
+          "maxChargePenetrationTime": "09:10:00",
+          "chargeAtMaxPenetrationMW": "1520",
+          "sourceNotes": "* Sum of maximum capacity (i.e. seasonal net max. sustainable rating in RIOO) of all ESR generators modeled in ERCOT\u2019s network operations model and are commercially operable (estimated based on Commercial Operations Date in RIOO). ** Sum of maximum capacity (i.e. seasonal net max. sustainable rating in RIOO) of all ESR generators modeled in ERCOT\u2019s network operations model. + Sum of maximum capacity (i.e. maximum point of delivery total load in RIOO) of all ESR CLRs that are modeled in ERCOT's network operations model and are commercially operable (estimated based on Commercial Operations Date in RIOO). ++ Sum of maximum capacity (i.e. maximum point of delivery total load in RIOO) of all ESR CLRs that are modeled in ERCOT's network operations model. ^ ESR Net Charge/Discharge = Total Discharging from ESR generators - Total Charging from ESR CLRs. Positive represents Net Discharge; negative represents Net Charge. Note that generation, generation record, and generator capacity values in following pages of this report are based on units modeled in ERCOT\u2019s network operations model."
+        }
+      ],
+      "power_records": [],
+      "penetration_records": [],
+      "soc_records": []
+    }
+  },
+  {
+    "sample": "integration-pdf-2025-09-07",
+    "zipSha256": "2e6a19cdb0dfed1b41c76d54120bbb7cd078ffcc4628cb6000784d74d3c9bdb2",
+    "pdfMembers": [
+      {
+        "name": "1137977183.rpt.00023794.0000000000000000.20250907.080147.ESRIntegrationReport 09-06-25.pdf",
+        "sha256": "34dbb5358185d7aae2b10f081be392719e0a3aeddb19518d80c2d162ccde2132"
+      }
+    ],
+    "tables": {
+      "daily_values": [
+        {
+          "reportDate": "2025-09-06",
+          "installedDischargeCapacityMW": "15008",
+          "totalDischargeCapacityMW": "17298",
+          "installedChargeCapacityMW": "15061",
+          "totalChargeCapacityMW": "17187",
+          "peakLoadMW": "65848",
+          "peakLoadHourEnding": 17,
+          "dischargeAtPeakLoadMW": "604",
+          "chargeAtPeakLoadMW": "209",
+          "netOutputAtPeakLoadMW": "396",
+          "maxDischargeMW": "4915",
+          "maxDischargeTime": "19:45:00",
+          "penetrationAtMaxDischargePercent": "7.89",
+          "maxChargeMW": "2940",
+          "maxChargeTime": "11:19:00",
+          "penetrationAtMaxChargePercent": "4.70",
+          "maxDischargePenetrationPercent": "7.90",
+          "maxDischargePenetrationTime": "19:45:00",
+          "dischargeAtMaxPenetrationMW": "4915",
+          "maxChargePenetrationPercent": "4.70",
+          "maxChargePenetrationTime": "11:18:00",
+          "chargeAtMaxPenetrationMW": "2940",
+          "sourceNotes": "* Sum of maximum capacity (i.e. seasonal net max. sustainable rating in RIOO) of all ESR generators modeled in ERCOT\u2019s network operations model and are commercially operable (estimated based on Commercial Operations Date in RIOO). ** Sum of maximum capacity (i.e. seasonal net max. sustainable rating in RIOO) of all ESR generators modeled in ERCOT\u2019s network operations model. + Sum of maximum capacity (i.e. maximum point of delivery total load in RIOO) of all ESR CLRs that are modeled in ERCOT's network operations model and are commercially operable (estimated based on Commercial Operations Date in RIOO). ++ Sum of maximum capacity (i.e. maximum point of delivery total load in RIOO) of all ESR CLRs that are modeled in ERCOT's network operations model. ^ ESR Net Charge/Discharge = Total Discharging from ESR generators - Total Charging from ESR CLRs. Positive represents Net Discharge; negative represents Net Charge. Note that generation, generation record, and generator capacity values in following pages of this report are based on units modeled in ERCOT\u2019s network operations model."
+        }
+      ],
+      "power_records": [],
+      "penetration_records": [],
+      "soc_records": []
+    }
+  }
+]

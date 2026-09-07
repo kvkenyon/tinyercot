@@ -453,3 +453,36 @@ The latest checks for NP6-569, NP6-655 and NP6-913 returned no archives or bundl
 Their typed catalog/document operations remain usable, but no historical row
 schema is inferred from absent files. Point-in-time listing evidence is recorded
 in `tools/inputs/history/availability-observations.json`.
+
+Public ESR Integration Report PDFs (NP4-765-ER) expose four generated readers:
+`daily_values_history`, `power_records_history`, `penetration_records_history`
+and `soc_records_history`. Install `tinyercot[pdf]` for this optional support.
+This report belongs to Public Reports and uses the same credentials.
+
+```python
+from datetime import datetime
+from tinyercot import Client
+
+with Client() as ercot:
+    for row in ercot.np4_765_er.daily_values_history.rows(
+        posted_from=datetime(2026, 9, 1),
+        where=lambda row: row.peakLoadMW is not None and row.peakLoadMW > 80_000,
+    ):
+        print(row.reportDate, row.peakLoadMW, row.maxDischargeMW)
+```
+
+The PDF readers extract the first page's published tables. `reportDate` is the
+operating date printed in the report; publication bounds select documents.
+Power and energy fields name their MW/MWh units, percentage fields preserve
+published percentages, and clocks retain the source's unspecified timezone.
+`sourceNotes` preserves the daily table's definitions, including changes in
+capacity terminology between older and newer reports. Record tables retain
+separate power and penetration records, even when their MW values differ.
+Older reports without a record section yield no record rows. Unsupported table
+layouts raise. Graphs on subsequent pages are not converted to exact time series;
+their numeric-label and source-data coverage remains to be audited.
+
+Verified PDF table samples span December 2023, September 2024, September 2025
+and September 2026. The first three omit the all-time record section; the 2026
+sample contains seven record rows. These samples do not establish the exact
+record-table introduction date or continuous historical completeness.

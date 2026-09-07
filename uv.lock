@@ -533,6 +533,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pypdf"
+version = "6.18.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c2/c3/9fa0666f280552bd3833562d985b785fce1ddb3804937edd2fd6a3f2bdb3/pypdf-6.18.0.tar.gz", hash = "sha256:ae58b7d93c22c169ffb02c3b06321c45c4f223b4916536568adb57d789d95d01", size = 7024871, upload-time = "2026-09-07T16:48:16.444Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c7/a5/d5922a078c9a612327681d4793404f82998f4d66213add6fdc0659245856/pypdf-6.18.0-py3-none-any.whl", hash = "sha256:05b762b77bcb9dcb4a7c91fcf5dded585b25bee7269ab3d3001d7c55fa1b324b", size = 393848, upload-time = "2026-09-07T16:48:14.254Z" },
+]
+
+[[package]]
 name = "pytest"
 version = "9.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -587,11 +596,15 @@ dependencies = [
 files = [
     { name = "openpyxl" },
 ]
+pdf = [
+    { name = "pypdf" },
+]
 
 [package.dev-dependencies]
 dev = [
     { name = "mypy" },
     { name = "openpyxl" },
+    { name = "pypdf" },
     { name = "pytest" },
     { name = "ruff" },
     { name = "types-openpyxl" },
@@ -603,13 +616,15 @@ requires-dist = [
     { name = "httpx-retries", specifier = ">=0.4.5" },
     { name = "openpyxl", marker = "extra == 'files'", specifier = ">=3.1.5" },
     { name = "pydantic", specifier = ">=2.10.0" },
+    { name = "pypdf", marker = "extra == 'pdf'", specifier = ">=6.12.0" },
 ]
-provides-extras = ["files"]
+provides-extras = ["files", "pdf"]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "mypy", specifier = ">=2.3.1" },
     { name = "openpyxl", specifier = ">=3.1.5" },
+    { name = "pypdf", specifier = ">=6.12.0" },
     { name = "pytest", specifier = ">=9.1.1" },
     { name = "ruff", specifier = ">=0.16.6" },
     { name = "types-openpyxl", specifier = ">=3.1.5" },

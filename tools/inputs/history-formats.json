@@ -9993,5 +9993,157 @@
     "dates": {
       "dataDate": "%j%Y"
     }
+  },
+  "np4-765-er/daily_values": {
+    "archive_only": true,
+    "fields": {
+      "reportDate": "date",
+      "installedDischargeCapacityMW": "Decimal",
+      "totalDischargeCapacityMW": "Decimal",
+      "installedChargeCapacityMW": "Decimal",
+      "totalChargeCapacityMW": "Decimal",
+      "peakLoadMW": "Decimal",
+      "peakLoadHourEnding": "int",
+      "dischargeAtPeakLoadMW": "Decimal",
+      "chargeAtPeakLoadMW": "Decimal",
+      "netOutputAtPeakLoadMW": "Decimal",
+      "maxDischargeMW": "Decimal",
+      "maxDischargeTime": "time",
+      "penetrationAtMaxDischargePercent": "Decimal",
+      "maxChargeMW": "Decimal",
+      "maxChargeTime": "time",
+      "penetrationAtMaxChargePercent": "Decimal",
+      "maxDischargePenetrationPercent": "Decimal",
+      "maxDischargePenetrationTime": "time",
+      "dischargeAtMaxPenetrationMW": "Decimal",
+      "maxChargePenetrationPercent": "Decimal",
+      "maxChargePenetrationTime": "time",
+      "chargeAtMaxPenetrationMW": "Decimal",
+      "sourceNotes": "str"
+    },
+    "columns": {
+      "reportDate": "reportDate",
+      "installedDischargeCapacityMW": "installedDischargeCapacityMW",
+      "totalDischargeCapacityMW": "totalDischargeCapacityMW",
+      "installedChargeCapacityMW": "installedChargeCapacityMW",
+      "totalChargeCapacityMW": "totalChargeCapacityMW",
+      "peakLoadMW": "peakLoadMW",
+      "peakLoadHourEnding": "peakLoadHourEnding",
+      "dischargeAtPeakLoadMW": "dischargeAtPeakLoadMW",
+      "chargeAtPeakLoadMW": "chargeAtPeakLoadMW",
+      "netOutputAtPeakLoadMW": "netOutputAtPeakLoadMW",
+      "maxDischargeMW": "maxDischargeMW",
+      "maxDischargeTime": "maxDischargeTime",
+      "penetrationAtMaxDischargePercent": "penetrationAtMaxDischargePercent",
+      "maxChargeMW": "maxChargeMW",
+      "maxChargeTime": "maxChargeTime",
+      "penetrationAtMaxChargePercent": "penetrationAtMaxChargePercent",
+      "maxDischargePenetrationPercent": "maxDischargePenetrationPercent",
+      "maxDischargePenetrationTime": "maxDischargePenetrationTime",
+      "dischargeAtMaxPenetrationMW": "dischargeAtMaxPenetrationMW",
+      "maxChargePenetrationPercent": "maxChargePenetrationPercent",
+      "maxChargePenetrationTime": "maxChargePenetrationTime",
+      "chargeAtMaxPenetrationMW": "chargeAtMaxPenetrationMW",
+      "sourceNotes": "sourceNotes"
+    },
+    "dates": {},
+    "pdf": {
+      "start": "Current\\s*Daily\\s*Values:",
+      "end": "All\\s*Time\\s*Record\\s*Values:|\\*\\s*Sum",
+      "pattern": "Installed\\s*ESR\\s*Discharge\\s*Capacity\\*\\s*(?P<installedDischargeCapacityMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Total\\s*ESR\\s*Discharge\\s*Capacity\\*\\*\\s*(?P<totalDischargeCapacityMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Installed\\s*ESR\\s*Charge\\s*Capacity\\+\\s*(?P<installedChargeCapacityMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Total\\s*ESR\\s*Charge\\s*Capacity\\+\\+\\s*(?P<totalChargeCapacityMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Peak\\s*Load\\s*(?P<peakLoadMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Peak\\s*Load\\s*Hour\\s*\\(HE\\)\\s*(?P<peakLoadHourEnding>\\d+)\\s*\\s*ESR\\s*Discharge\\s*at\\s*Peak\\s*Load\\s*Hour\\s*(?P<dischargeAtPeakLoadMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*ESR\\s*Charge\\s*at\\s*Peak\\s*Load\\s*Hour\\s*(?P<chargeAtPeakLoadMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*ESR\\s*Net\\s*Charge/Discharge\\s*at\\s*Peak\\s*Load\\s*Hour\\^\\s*(?P<netOutputAtPeakLoadMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Max\\s*ESR\\s*Discharge\\s*Generation\\s*(?P<maxDischargeMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Max\\s*ESR\\s*Discharge\\s*Time\\s*(?P<maxDischargeTime>\\d{2}:\\d{2})\\s*\\s*Penetration\\s*at\\s*Max\\s*ESR\\s*Discharge\\s*Time\\s*(?P<penetrationAtMaxDischargePercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*Max\\s*ESR\\s*Charge\\s*Load\\s*(?P<maxChargeMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Max\\s*ESR\\s*Charge\\s*Time\\s*(?P<maxChargeTime>\\d{2}:\\d{2})\\s*\\s*Penetration\\s*at\\s*Max\\s*ESR\\s*Charge\\s*Time\\s*(?P<penetrationAtMaxChargePercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*Max\\s*ESR\\s*Discharge\\s*Penetration\\s*(?P<maxDischargePenetrationPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*Max\\s*ESR\\s*Discharge\\s*Penetration\\s*Time\\s*(?P<maxDischargePenetrationTime>\\d{2}:\\d{2})\\s*\\s*ESR\\s*Discharge\\s*Generation\\s*at\\s*Max\\s*ESR\\s*Discharge\\s*Penetration\\s*Time\\s*(?P<dischargeAtMaxPenetrationMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Max\\s*ESR\\s*Charge\\s*Penetration\\s*(?P<maxChargePenetrationPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*Max\\s*ESR\\s*Charge\\s*Penetration\\s*Time\\s*(?P<maxChargePenetrationTime>\\d{2}:\\d{2})\\s*\\s*ESR\\s*Charge\\s*Load\\s*at\\s*Max\\s*ESR\\s*Charge\\s*Penetration\\s*Time\\s*(?P<chargeAtMaxPenetrationMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW",
+      "records": false,
+      "notes": true
+    },
+    "datetimes": {}
+  },
+  "np4-765-er/power_records": {
+    "archive_only": true,
+    "fields": {
+      "reportDate": "date",
+      "category": "str",
+      "recordMW": "Decimal",
+      "recordTime": "datetime",
+      "penetrationPercent": "Decimal",
+      "maxSocPercent": "Decimal",
+      "minSocPercent": "Decimal"
+    },
+    "columns": {
+      "reportDate": "reportDate",
+      "category": "category",
+      "recordMW": "recordMW",
+      "recordTime": "recordTime",
+      "penetrationPercent": "penetrationPercent",
+      "maxSocPercent": "maxSocPercent",
+      "minSocPercent": "minSocPercent"
+    },
+    "dates": {},
+    "pdf": {
+      "start": "Record\\s*Max\\s*MW\\s*Record\\s*Max\\s*MW\\s*Time\\s*Penetration\\s*at\\s*Record\\s*Max\\s*MW\\s*Max\\s*SOC\\s*in\\s*Record\\s*Hour\\s*Min\\s*SOC\\s*in\\s*Record\\s*Hour",
+      "end": "Record\\s*Penetration\\s*Record\\s*Penetration\\s*Time\\s*MW\\s*at\\s*Record\\s*Penetration\\s*Time\\s*Max\\s*SOC\\s*in\\s*Record\\s*Hour\\s*Min\\s*SOC\\s*in\\s*Record\\s*Hour",
+      "pattern": "(?P<category>ESR Discharge Generation|ESR Charge Load|ESR Injection)\\s*(?P<recordMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*(?P<recordTime>\\d{2}/\\d{2}/\\d{4}\\s+\\d{2}:\\d{2})\\s*(?P<penetrationPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*(?P<maxSocPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*(?P<minSocPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%",
+      "records": true,
+      "notes": false
+    },
+    "datetimes": {
+      "recordTime": "%m/%d/%Y %H:%M"
+    }
+  },
+  "np4-765-er/penetration_records": {
+    "archive_only": true,
+    "fields": {
+      "reportDate": "date",
+      "category": "str",
+      "penetrationPercent": "Decimal",
+      "recordTime": "datetime",
+      "recordMW": "Decimal",
+      "maxSocPercent": "Decimal",
+      "minSocPercent": "Decimal"
+    },
+    "columns": {
+      "reportDate": "reportDate",
+      "category": "category",
+      "penetrationPercent": "penetrationPercent",
+      "recordTime": "recordTime",
+      "recordMW": "recordMW",
+      "maxSocPercent": "maxSocPercent",
+      "minSocPercent": "minSocPercent"
+    },
+    "dates": {},
+    "pdf": {
+      "start": "Record\\s*Penetration\\s*Record\\s*Penetration\\s*Time\\s*MW\\s*at\\s*Record\\s*Penetration\\s*Time\\s*Max\\s*SOC\\s*in\\s*Record\\s*Hour\\s*Min\\s*SOC\\s*in\\s*Record\\s*Hour",
+      "end": "Record\\s*SOC\\s*Delta\\s*Record\\s*SOC\\s*Delta\\s*Time",
+      "pattern": "(?P<category>ESR Discharge Generation|ESR Charge Load)\\s*(?P<penetrationPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*(?P<recordTime>\\d{2}/\\d{2}/\\d{4}\\s+\\d{2}:\\d{2})\\s*(?P<recordMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*(?P<maxSocPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*(?P<minSocPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%",
+      "records": true,
+      "notes": false
+    },
+    "datetimes": {
+      "recordTime": "%m/%d/%Y %H:%M"
+    }
+  },
+  "np4-765-er/soc_records": {
+    "archive_only": true,
+    "fields": {
+      "reportDate": "date",
+      "category": "str",
+      "recordMWh": "Decimal",
+      "recordTime": "datetime"
+    },
+    "columns": {
+      "reportDate": "reportDate",
+      "category": "category",
+      "recordMWh": "recordMWh",
+      "recordTime": "recordTime"
+    },
+    "dates": {},
+    "pdf": {
+      "start": "Record\\s*SOC\\s*Delta\\s*Record\\s*SOC\\s*Delta\\s*Time",
+      "end": "\\*\\s*Sum",
+      "pattern": "(?P<category>ESR SOC Hourly Increase|ESR SOC Hourly Decrease)\\s*(?P<recordMWh>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MWh\\s*(?P<recordTime>\\d{2}/\\d{2}/\\d{4}\\s+\\d{2}:\\d{2})",
+      "records": true,
+      "notes": false
+    },
+    "datetimes": {
+      "recordTime": "%m/%d/%Y %H:%M"
+    }
   }
 }
