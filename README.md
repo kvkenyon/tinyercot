@@ -401,3 +401,10 @@ awards stay separate from newer response categories. Header-only files are
 valid and yield no rows. A sampled populated SASM archive was published in
 January 2026 for November 2025 activity, while the latest listed February file
 was empty; latest publication does not imply recent activity.
+
+`ercot.np3_991_ex._60_cop_all_updates_history` reads complete COP update history,
+including the sampled 2018 layout. Update and submission timestamps remain
+separate; the reader accepts the explicitly mapped minute and second formats.
+Cancellation flags and all revisions remain as published. Legacy combined `RRS`
+remains separate from newer response categories. Applications must select the
+appropriate revision themselves; the reader does not collapse updates.

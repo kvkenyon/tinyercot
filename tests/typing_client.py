@@ -216,3 +216,9 @@ with Client() as client:
     for sasm_offer in client.np3_990_ex._60_sasm_load_res_as_offers_history.rows():
         assert_type(sasm_offer.price1RRS, Decimal | None)
         assert_type(sasm_offer.price1RRSPFR, Decimal | None)
+
+    for cop_update in client.np3_991_ex._60_cop_all_updates_history.rows():
+        assert_type(cop_update.updateTime, datetime | None)
+        assert_type(cop_update.submitTime, datetime | None)
+        assert_type(cop_update.RRS, Decimal | None)
+        assert_type(cop_update.cancelFlag, bool | None)

@@ -8016,5 +8016,89 @@
         "QUANTITY MW5": "quantityMW5"
       }
     ]
+  },
+  "np3-991-ex/60_cop_all_updates": {
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "QSE Name": "qseName",
+      "Resource Name": "resourceName",
+      "Hour Ending": "hourEnding",
+      "Status": "status",
+      "High Sustained Limit": "highSustainedLimit",
+      "Low Sustained Limit": "lowSustainedLimit",
+      "High Emergency Limit": "highEmergencyLimit",
+      "Low Emergency Limit": "lowEmergencyLimit",
+      "Reg Up": "REGUP",
+      "Reg Down": "REGDN",
+      "RRSPFR": "RRSPFR",
+      "RRSFFR": "RRSFFR",
+      "RRSUFR": "RRSUFR",
+      "NSPIN": "NSPIN",
+      "ECRS": "ECRS",
+      "Minimum SOC": "minSOC",
+      "Maximum SOC": "maxSOC",
+      "Hour Beginning Planned SOC": "hourBeginningPlannedSOC",
+      "Cancel Flag": "cancelFlag",
+      "Update Time": "updateTime",
+      "Submit Time": "submitTime"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "updateTime": [
+        "%m/%d/%Y %H:%M:%S",
+        "%m/%d/%Y %H:%M"
+      ],
+      "submitTime": [
+        "%m/%d/%Y %H:%M:%S",
+        "%m/%d/%Y %H:%M"
+      ]
+    },
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "QSE Name": "qseName",
+        "Resource Name": "resourceName",
+        "Hour Ending": "hourEnding",
+        "Status": "status",
+        "High Sustained Limit": "highSustainedLimit",
+        "Low Sustained Limit": "lowSustainedLimit",
+        "High Emergency Limit": "highEmergencyLimit",
+        "Low Emergency Limit": "lowEmergencyLimit",
+        "Reg Up": "REGUP",
+        "Reg Down": "REGDN",
+        "RRS": "RRS",
+        "NSPIN": "NSPIN",
+        "Cancel Flag": "cancelFlag",
+        "Update Time": "updateTime",
+        "Submit Time": "submitTime"
+      }
+    ],
+    "fields": {
+      "deliveryDate": "date",
+      "qseName": "str",
+      "resourceName": "str",
+      "hourEnding": "str",
+      "status": "str",
+      "highSustainedLimit": "Decimal",
+      "lowSustainedLimit": "Decimal",
+      "highEmergencyLimit": "Decimal",
+      "lowEmergencyLimit": "Decimal",
+      "REGUP": "Decimal",
+      "REGDN": "Decimal",
+      "RRSPFR": "Decimal",
+      "RRSFFR": "Decimal",
+      "RRSUFR": "Decimal",
+      "NSPIN": "Decimal",
+      "ECRS": "Decimal",
+      "minSOC": "Decimal",
+      "maxSOC": "Decimal",
+      "hourBeginningPlannedSOC": "Decimal",
+      "cancelFlag": "bool",
+      "updateTime": "datetime",
+      "submitTime": "datetime",
+      "RRS": "Decimal"
+    }
   }
 }

@@ -7787,6 +7787,36 @@ class np3_991_ex:
         submitTime: datetime | None
         updateTime: datetime | None
 
+    class _60CopAllUpdatesHistoryRow(Row):
+        deliveryDate: date | None
+        qseName: str | None
+        resourceName: str | None
+        hourEnding: str | None
+        status: str | None
+        highSustainedLimit: Decimal | None
+        lowSustainedLimit: Decimal | None
+        highEmergencyLimit: Decimal | None
+        lowEmergencyLimit: Decimal | None
+        REGUP: Decimal | None
+        REGDN: Decimal | None
+        RRSPFR: Decimal | None = None
+        RRSFFR: Decimal | None = None
+        RRSUFR: Decimal | None = None
+        NSPIN: Decimal | None
+        ECRS: Decimal | None = None
+        minSOC: Decimal | None = None
+        maxSOC: Decimal | None = None
+        hourBeginningPlannedSOC: Decimal | None = None
+        cancelFlag: bool | None
+        updateTime: datetime | None
+        submitTime: datetime | None
+        RRS: Decimal | None = None
+
+    @property
+    def _60_cop_all_updates_history(self) -> Archive[np3_991_ex._60CopAllUpdatesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-991-ex', np3_991_ex._60CopAllUpdatesHistoryRow, {'Delivery Date': 'deliveryDate', 'QSE Name': 'qseName', 'Resource Name': 'resourceName', 'Hour Ending': 'hourEnding', 'Status': 'status', 'High Sustained Limit': 'highSustainedLimit', 'Low Sustained Limit': 'lowSustainedLimit', 'High Emergency Limit': 'highEmergencyLimit', 'Low Emergency Limit': 'lowEmergencyLimit', 'Reg Up': 'REGUP', 'Reg Down': 'REGDN', 'RRSPFR': 'RRSPFR', 'RRSFFR': 'RRSFFR', 'RRSUFR': 'RRSUFR', 'NSPIN': 'NSPIN', 'ECRS': 'ECRS', 'Minimum SOC': 'minSOC', 'Maximum SOC': 'maxSOC', 'Hour Beginning Planned SOC': 'hourBeginningPlannedSOC', 'Cancel Flag': 'cancelFlag', 'Update Time': 'updateTime', 'Submit Time': 'submitTime'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'updateTime': ['%m/%d/%Y %H:%M:%S', '%m/%d/%Y %H:%M'], 'submitTime': ['%m/%d/%Y %H:%M:%S', '%m/%d/%Y %H:%M']}, variants=({'Delivery Date': 'deliveryDate', 'QSE Name': 'qseName', 'Resource Name': 'resourceName', 'Hour Ending': 'hourEnding', 'Status': 'status', 'High Sustained Limit': 'highSustainedLimit', 'Low Sustained Limit': 'lowSustainedLimit', 'High Emergency Limit': 'highEmergencyLimit', 'Low Emergency Limit': 'lowEmergencyLimit', 'Reg Up': 'REGUP', 'Reg Down': 'REGDN', 'RRS': 'RRS', 'NSPIN': 'NSPIN', 'Cancel Flag': 'cancelFlag', 'Update Time': 'updateTime', 'Submit Time': 'submitTime'},))
+
     def _60_cop_all_updates(self, *, cancelFlag: bool | None = None, updateTimeFrom: datetime | None = None, updateTimeTo: datetime | None = None, submitTimeFrom: datetime | None = None, submitTimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, qseName: str | None = None, resourceName: str | None = None, hourEnding: str | None = None, status: str | None = None, highSustainedLimitFrom: Decimal | None = None, highSustainedLimitTo: Decimal | None = None, lowSustainedLimitFrom: Decimal | None = None, lowSustainedLimitTo: Decimal | None = None, highEmergencyLimitFrom: Decimal | None = None, highEmergencyLimitTo: Decimal | None = None, lowEmergencyLimitFrom: Decimal | None = None, lowEmergencyLimitTo: Decimal | None = None, REGUPFrom: Decimal | None = None, REGUPTo: Decimal | None = None, REGDNFrom: Decimal | None = None, REGDNTo: Decimal | None = None, RRSPFRFrom: Decimal | None = None, RRSPFRTo: Decimal | None = None, ECRSFrom: Decimal | None = None, ECRSTo: Decimal | None = None, RRSFFRFrom: Decimal | None = None, RRSFFRTo: Decimal | None = None, minSOCFrom: Decimal | None = None, minSOCTo: Decimal | None = None, RRSUFRFrom: Decimal | None = None, RRSUFRTo: Decimal | None = None, maxSOCFrom: Decimal | None = None, maxSOCTo: Decimal | None = None, NSPINFrom: Decimal | None = None, NSPINTo: Decimal | None = None, hourBeginningPlannedSOCFrom: Decimal | None = None, hourBeginningPlannedSOCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_991_ex._60CopAllUpdatesRow]:
         '60-Day COP All Updates'
         return self._client._page('/np3-991-ex/60_cop_all_updates', np3_991_ex._60CopAllUpdatesRow, {'cancelFlag': cancelFlag, 'updateTimeFrom': updateTimeFrom, 'updateTimeTo': updateTimeTo, 'submitTimeFrom': submitTimeFrom, 'submitTimeTo': submitTimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'qseName': qseName, 'resourceName': resourceName, 'hourEnding': hourEnding, 'status': status, 'highSustainedLimitFrom': highSustainedLimitFrom, 'highSustainedLimitTo': highSustainedLimitTo, 'lowSustainedLimitFrom': lowSustainedLimitFrom, 'lowSustainedLimitTo': lowSustainedLimitTo, 'highEmergencyLimitFrom': highEmergencyLimitFrom, 'highEmergencyLimitTo': highEmergencyLimitTo, 'lowEmergencyLimitFrom': lowEmergencyLimitFrom, 'lowEmergencyLimitTo': lowEmergencyLimitTo, 'REGUPFrom': REGUPFrom, 'REGUPTo': REGUPTo, 'REGDNFrom': REGDNFrom, 'REGDNTo': REGDNTo, 'RRSPFRFrom': RRSPFRFrom, 'RRSPFRTo': RRSPFRTo, 'ECRSFrom': ECRSFrom, 'ECRSTo': ECRSTo, 'RRSFFRFrom': RRSFFRFrom, 'RRSFFRTo': RRSFFRTo, 'minSOCFrom': minSOCFrom, 'minSOCTo': minSOCTo, 'RRSUFRFrom': RRSUFRFrom, 'RRSUFRTo': RRSUFRTo, 'maxSOCFrom': maxSOCFrom, 'maxSOCTo': maxSOCTo, 'NSPINFrom': NSPINFrom, 'NSPINTo': NSPINTo, 'hourBeginningPlannedSOCFrom': hourBeginningPlannedSOCFrom, 'hourBeginningPlannedSOCTo': hourBeginningPlannedSOCTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})

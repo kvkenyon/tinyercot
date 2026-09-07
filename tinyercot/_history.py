@@ -72,7 +72,7 @@ class Archive(Generic[T]):
         *,
         member: str = "*.csv",
         document: str | None = None,
-        datetimes: dict[str, str] | None = None,
+        datetimes: dict[str, str | list[str]] | None = None,
         variants: tuple[dict[str, str], ...] = (),
     ) -> None:
         self._client = client
@@ -144,7 +144,19 @@ class Archive(Generic[T]):
                         value = converted.get(target)
                         if isinstance(value, str):
                             # Preserve the local timestamp and separate repeated-hour flag.
-                            converted[target] = datetime.strptime(value, format)  # noqa: DTZ007
+                            formats = [format] if isinstance(format, str) else format
+                            for candidate in formats:
+                                try:
+                                    converted[target] = datetime.strptime(  # noqa: DTZ007
+                                        value, candidate
+                                    )
+                                    break
+                                except ValueError:
+                                    continue
+                            else:
+                                raise ValueError(
+                                    f"{value!r} does not match {formats!r}"
+                                )
                     yield self._row.model_validate(converted)
                 except ValueError as error:
                     raise ValueError(f"{filename}:{line}: {error}") from error

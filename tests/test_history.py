@@ -1504,3 +1504,50 @@ def test_sasm_history_preserves_timestamp_formats_and_offer_blocks():
     assert offer.price1RRS is None
     assert offer.quantityMW1 == Decimal(20)
     assert offer.quantityMW5 == Decimal(60)
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "cop-updates-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_cop_update_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    if rows:
+        assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_cop_update_timestamps_and_revisions_are_preserved():
+    old = (INPUTS / "np3-991-ex-history-samples.csv").read_bytes()
+    current = (INPUTS / "np3-991-ex-history-current.csv").read_bytes()
+    with Client() as client:
+        reader = client.np3_991_ex._60_cop_all_updates_history
+        revisions = list(reader.read(zipped("old.csv", old)))
+        latest = next(reader.read(zipped("new.csv", current)))
+        with pytest.raises(ValueError, match="does not match"):
+            list(
+                reader.read(
+                    zipped("bad.csv", old.replace(b"12/3/2018 11:41", b"not-a-time"))
+                )
+            )
+    assert len(revisions) == 3
+    assert revisions[0].updateTime is not None
+    assert revisions[0].updateTime.isoformat() == "2018-12-03T11:41:00"
+    assert latest.updateTime is not None
+    assert latest.submitTime is not None
+    assert latest.updateTime.isoformat() == "2026-06-30T09:01:26"
+    assert latest.submitTime.isoformat() == "2026-06-30T08:01:25"
+    assert revisions[0].RRS == Decimal(0)
+    assert revisions[0].RRSPFR is None
+    assert latest.cancelFlag is False
