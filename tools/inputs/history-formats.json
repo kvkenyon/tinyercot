@@ -4329,5 +4329,133 @@
       "deliveryDate": "%m/%d/%Y"
     },
     "datetimes": {}
+  },
+  "np3-257-ex/3d_high_price_bids_sel_disp_sced": {
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatedHourFlag",
+      "QSE": "qseName",
+      "DME": "dmeName",
+      "Load Resource": "loadResource",
+      "Highest Price Dispatched by SCED": "highestPriceDispatched",
+      "Proxy Extension": "proxyExtension"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "variants": [
+      {
+        "SCED Time Stamp": "SCEDTimestamp",
+        "Batch ID": "batchId",
+        "Repeated Hour Flag": "repeatedHourFlag",
+        "QSE": "qseName",
+        "Load Resource": "loadResource",
+        "Highest Price Dispatched by SCED": "highestPriceDispatched",
+        "Proxy Extension": "proxyExtension"
+      }
+    ],
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatedHourFlag": "bool",
+      "qseName": "str",
+      "dmeName": "str",
+      "loadResource": "str",
+      "highestPriceDispatched": "Decimal",
+      "proxyExtension": "str",
+      "batchId": "str"
+    }
+  },
+  "np3-914-ex/3d_sced_high_as_offers": {
+    "columns": {
+      "SCED Timestamp": "SCEDTimestamp",
+      "QSE": "qseName",
+      "DME": "dmeName",
+      "Resource Name with Highest - Priced AS Offer Selected in SCED": "resourceName",
+      "AS Type": "ASType",
+      "Offered Quantity": "quantity",
+      "Offered Price": "price"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np3-915-ex/3d_dam_high_as_offers": {
+    "columns": {
+      "Delivery Date": "deliveryDate",
+      "Hour Ending": "hourEnding",
+      "QSE": "qseName",
+      "DME": "dmeName",
+      "Resource Name with Highest-Priced AS Offer Selected in DAM": "resourceName",
+      "AS Type": "ASType",
+      "Block Indicator": "blockIndicator",
+      "Offered Quantity": "quantity",
+      "Offered Price": "price"
+    },
+    "dates": {
+      "deliveryDate": "%d-%b-%y"
+    },
+    "datetimes": {},
+    "variants": [
+      {
+        "Delivery Date": "deliveryDate",
+        "Hour Ending": "hourEnding",
+        "Resource Name with Highest-Priced Offer Selected in DAM": "resourceName",
+        "AS Type": "ASType",
+        "Block Indicator": "blockIndicator",
+        "Offered Quantity": "quantity",
+        "Offered Price": "price"
+      }
+    ],
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "int",
+      "qseName": "str",
+      "dmeName": "str",
+      "resourceName": "str",
+      "ASType": "str",
+      "blockIndicator": "str",
+      "quantity": "Decimal",
+      "price": "Decimal"
+    }
+  },
+  "np3-916-ex/3d_highest_price_offer_sced": {
+    "columns": {
+      "SCED Time Stamp": "SCEDTimestamp",
+      "Repeated Hour Flag": "repeatedHourFlag",
+      "LMP": "LMP",
+      "QSE": "qseName",
+      "DME": "dmeName",
+      "Generation Resource": "resourceName",
+      "Proxy Extension": "proxyExtension",
+      "Power Balance Penalty Flag": "penaltyFlag"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "variants": [
+      {
+        "SCED Time Stamp": "SCEDTimestamp",
+        "Repeated Hour Flag": "repeatedHourFlag",
+        "Batch ID": "batchId",
+        "LMP": "LMP",
+        "Generation Resource": "resourceName",
+        "Proxy Extension": "proxyExtension",
+        "Power Balance Penalty Flag": "penaltyFlag"
+      }
+    ],
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatedHourFlag": "bool",
+      "LMP": "Decimal",
+      "qseName": "str",
+      "dmeName": "str",
+      "resourceName": "str",
+      "proxyExtension": "str",
+      "penaltyFlag": "str",
+      "batchId": "str"
+    }
   }
 }

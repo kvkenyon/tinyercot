@@ -531,6 +531,21 @@ class np3_257_ex:
         qseName: str | None
         repeatedHourFlag: bool | None
 
+    class _3dHighPriceBidsSelDispScedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatedHourFlag: bool | None
+        qseName: str | None
+        dmeName: str | None = None
+        loadResource: str | None
+        highestPriceDispatched: Decimal | None
+        proxyExtension: str | None
+        batchId: str | None = None
+
+    @property
+    def _3d_high_price_bids_sel_disp_sced_history(self) -> Archive[np3_257_ex._3dHighPriceBidsSelDispScedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-257-ex', np3_257_ex._3dHighPriceBidsSelDispScedHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatedHourFlag', 'QSE': 'qseName', 'DME': 'dmeName', 'Load Resource': 'loadResource', 'Highest Price Dispatched by SCED': 'highestPriceDispatched', 'Proxy Extension': 'proxyExtension'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time Stamp': 'SCEDTimestamp', 'Batch ID': 'batchId', 'Repeated Hour Flag': 'repeatedHourFlag', 'QSE': 'qseName', 'Load Resource': 'loadResource', 'Highest Price Dispatched by SCED': 'highestPriceDispatched', 'Proxy Extension': 'proxyExtension'},))
+
     def _3d_high_price_bids_sel_disp_sced(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatedHourFlag: bool | None = None, qseName: str | None = None, dmeName: str | None = None, loadResource: str | None = None, highestPriceDispatchedFrom: Decimal | None = None, highestPriceDispatchedTo: Decimal | None = None, proxyExtension: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_257_ex._3dHighPriceBidsSelDispScedRow]:
         '3-Day Highest Price Bids Selected or Dispatched in SCED'
         return self._client._page('/np3-257-ex/3d_high_price_bids_sel_disp_sced', np3_257_ex._3dHighPriceBidsSelDispScedRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatedHourFlag': repeatedHourFlag, 'qseName': qseName, 'dmeName': dmeName, 'loadResource': loadResource, 'highestPriceDispatchedFrom': highestPriceDispatchedFrom, 'highestPriceDispatchedTo': highestPriceDispatchedTo, 'proxyExtension': proxyExtension, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3442,6 +3457,11 @@ class np3_914_ex:
         quantity: Decimal | None
         resourceName: str | None
 
+    @property
+    def _3d_sced_high_as_offers_history(self) -> Archive[np3_914_ex._3dScedHighAsOffersRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-914-ex', np3_914_ex._3dScedHighAsOffersRow, {'SCED Timestamp': 'SCEDTimestamp', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name with Highest - Priced AS Offer Selected in SCED': 'resourceName', 'AS Type': 'ASType', 'Offered Quantity': 'quantity', 'Offered Price': 'price'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _3d_sced_high_as_offers(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, ASType: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_914_ex._3dScedHighAsOffersRow]:
         '3-Day SCED Highest Price AS Offer Selected'
         return self._client._page('/np3-914-ex/3d_sced_high_as_offers', np3_914_ex._3dScedHighAsOffersRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'qseName': qseName, 'dmeName': dmeName, 'resourceName': resourceName, 'ASType': ASType, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3473,6 +3493,22 @@ class np3_915_ex:
         quantity: Decimal | None
         resourceName: str | None
 
+    class _3dDamHighAsOffersHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None = None
+        dmeName: str | None = None
+        resourceName: str | None
+        ASType: str | None
+        blockIndicator: str | None
+        quantity: Decimal | None
+        price: Decimal | None
+
+    @property
+    def _3d_dam_high_as_offers_history(self) -> Archive[np3_915_ex._3dDamHighAsOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-915-ex', np3_915_ex._3dDamHighAsOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name with Highest-Priced AS Offer Selected in DAM': 'resourceName', 'AS Type': 'ASType', 'Block Indicator': 'blockIndicator', 'Offered Quantity': 'quantity', 'Offered Price': 'price'}, {'deliveryDate': '%d-%b-%y'}, member='*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Resource Name with Highest-Priced Offer Selected in DAM': 'resourceName', 'AS Type': 'ASType', 'Block Indicator': 'blockIndicator', 'Offered Quantity': 'quantity', 'Offered Price': 'price'},))
+
     def _3d_dam_high_as_offers(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, ASType: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_915_ex._3dDamHighAsOffersRow]:
         '3-Day DAM Highest Price AS Offer Selected'
         return self._client._page('/np3-915-ex/3d_dam_high_as_offers', np3_915_ex._3dDamHighAsOffersRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'qseName': qseName, 'dmeName': dmeName, 'resourceName': resourceName, 'ASType': ASType, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3502,6 +3538,22 @@ class np3_916_ex:
         qseName: str | None
         repeatedHourFlag: bool | None
         resourceName: str | None
+
+    class _3dHighestPriceOfferScedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatedHourFlag: bool | None
+        LMP: Decimal | None
+        qseName: str | None = None
+        dmeName: str | None = None
+        resourceName: str | None
+        proxyExtension: str | None
+        penaltyFlag: str | None
+        batchId: str | None = None
+
+    @property
+    def _3d_highest_price_offer_sced_history(self) -> Archive[np3_916_ex._3dHighestPriceOfferScedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-916-ex', np3_916_ex._3dHighestPriceOfferScedHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatedHourFlag', 'LMP': 'LMP', 'QSE': 'qseName', 'DME': 'dmeName', 'Generation Resource': 'resourceName', 'Proxy Extension': 'proxyExtension', 'Power Balance Penalty Flag': 'penaltyFlag'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatedHourFlag', 'Batch ID': 'batchId', 'LMP': 'LMP', 'Generation Resource': 'resourceName', 'Proxy Extension': 'proxyExtension', 'Power Balance Penalty Flag': 'penaltyFlag'},))
 
     def _3d_highest_price_offer_sced(self, *, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, proxyExtension: str | None = None, penaltyFlag: str | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatedHourFlag: bool | None = None, LMPFrom: Decimal | None = None, LMPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_916_ex._3dHighestPriceOfferScedRow]:
         '3-Day Highest Price Offered in SCED'

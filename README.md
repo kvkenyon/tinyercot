@@ -341,3 +341,11 @@ legacy `OFFNS` and newer `ECRSM` remain as published. Prices and quantities reta
 decimal precision and source order; sort explicitly if an application requires
 ascending prices. Offer curves remain distinct from ancillary-service demand
 curves.
+
+Highest-price SCED bids (NP3-257), SCED ancillary-service offers (NP3-914), DAM
+ancillary-service offers (NP3-915), and SCED energy offers (NP3-916) expose typed
+`_history` readers. For example,
+`ercot.np3_915_ex._3d_dam_high_as_offers_history.rows()` includes the sampled
+March 2014 DAM layout. Older SCED batch identifiers remain strings; QSE and DME
+values absent from historical files remain `None`. Published duplicate rows,
+proxy-extension and penalty flags, and full decimal prices are preserved.

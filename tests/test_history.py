@@ -1126,3 +1126,63 @@ def test_aggregated_offers_keep_legacy_service_codes_and_source_order():
         Decimal(193),
     ]
     assert offers[0].deliveryDate == date(2014, 3, 13)
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "highest-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_highest_price_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    if rows:
+        assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_highest_price_history_preserves_legacy_fields():
+    with Client() as client:
+        old = next(
+            client.np3_916_ex._3d_highest_price_offer_sced_history.read(
+                zipped(
+                    "old.csv", (INPUTS / "np3-916-ex-history-samples.csv").read_bytes()
+                )
+            )
+        )
+        dam = next(
+            client.np3_915_ex._3d_dam_high_as_offers_history.read(
+                zipped(
+                    "dam.csv", (INPUTS / "np3-915-ex-history-samples.csv").read_bytes()
+                )
+            )
+        )
+        current = list(
+            client.np3_914_ex._3d_sced_high_as_offers_history.read(
+                zipped(
+                    "current.csv",
+                    (INPUTS / "np3-914-ex-history-current.csv").read_bytes(),
+                )
+            )
+        )
+    assert old.batchId == "5379175"
+    assert old.LMP == Decimal("238.545806884766")
+    assert old.proxyExtension == "Yes"
+    assert old.penaltyFlag == "No"
+    assert old.qseName is None
+    assert old.dmeName is None
+    assert dam.deliveryDate == date(2014, 3, 9)
+    assert dam.quantity == Decimal(8)
+    assert dam.resourceName == "HENNE_LD1"
+    assert dam.qseName is None
+    assert len(current) == 3
+    assert current[0] == current[1] == current[2]

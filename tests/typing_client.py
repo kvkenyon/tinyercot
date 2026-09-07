@@ -148,3 +148,18 @@ with Client() as client:
         assert_type(offer_point.ancillaryType, str | None)
         assert_type(offer_point.price, Decimal | None)
         assert_type(offer_point.quantity, Decimal | None)
+
+    for (
+        highest_bid
+    ) in client.np3_257_ex._3d_high_price_bids_sel_disp_sced_history.rows():
+        assert_type(highest_bid.batchId, str | None)
+        assert_type(highest_bid.highestPriceDispatched, Decimal | None)
+    for highest_as in client.np3_914_ex._3d_sced_high_as_offers_history.rows():
+        assert_type(highest_as.resourceName, str | None)
+        assert_type(highest_as.price, Decimal | None)
+    for highest_dam in client.np3_915_ex._3d_dam_high_as_offers_history.rows():
+        assert_type(highest_dam.deliveryDate, date | None)
+        assert_type(highest_dam.qseName, str | None)
+    for highest_sced in client.np3_916_ex._3d_highest_price_offer_sced_history.rows():
+        assert_type(highest_sced.batchId, str | None)
+        assert_type(highest_sced.LMP, Decimal | None)
