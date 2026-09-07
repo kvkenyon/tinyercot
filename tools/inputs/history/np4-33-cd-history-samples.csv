@@ -1,0 +1,4 @@
+DeliveryDate,HourEnding,AncillaryType,Quantity,DSTFlag
+05/01/2014,01:00,NSPIN,1500,N
+05/01/2014,01:00,REGDN,505,N
+05/01/2014,01:00,REGUP,515,N

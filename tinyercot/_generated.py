@@ -6139,6 +6139,11 @@ class np4_192_cd:
         settlementPoint: str | None
         totalDamEnergyBought: Decimal | None
 
+    @property
+    def dam_total_energy_purchased_history(self) -> Archive[np4_192_cd.DamTotalEnergyPurchasedRow]:
+        """Historical CSV rows, including files predating the API."""
+        return Archive(self._client, 'np4-192-cd', np4_192_cd.DamTotalEnergyPurchasedRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Settlement_Point': 'settlementPoint', 'Total_DAM_Energy_Bought': 'totalDamEnergyBought', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=({'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Settlement_Point': 'settlementPoint', 'Total_DAM_Energy_Bought': 'totalDamEnergyBought', 'DSTFlag': 'repeatHourFlag'},))
+
     def dam_total_energy_purchased(self, *, hourEnding: str | None = None, settlementPoint: str | None = None, totalDamEnergyBoughtFrom: Decimal | None = None, totalDamEnergyBoughtTo: Decimal | None = None, repeatHourFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_192_cd.DamTotalEnergyPurchasedRow]:
         'DAM Total Energy Purchased'
         return self._client._page('/np4-192-cd/dam_total_energy_purchased', np4_192_cd.DamTotalEnergyPurchasedRow, {'hourEnding': hourEnding, 'settlementPoint': settlementPoint, 'totalDamEnergyBoughtFrom': totalDamEnergyBoughtFrom, 'totalDamEnergyBoughtTo': totalDamEnergyBoughtTo, 'repeatHourFlag': repeatHourFlag, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6165,6 +6170,11 @@ class np4_193_cd:
         repeatHourFlag: bool | None
         settlementPoint: str | None
         totalDAMEnergySold: Decimal | None
+
+    @property
+    def total_dam_energy_sold_history(self) -> Archive[np4_193_cd.TotalDamEnergySoldRow]:
+        """Historical CSV rows, including files predating the API."""
+        return Archive(self._client, 'np4-193-cd', np4_193_cd.TotalDamEnergySoldRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Settlement_Point': 'settlementPoint', 'TotalDAMEnergySold': 'totalDAMEnergySold', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=({'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Settlement_Point': 'settlementPoint', 'TotalDAMEnergySold': 'totalDAMEnergySold', 'DSTFlag': 'repeatHourFlag'},))
 
     def total_dam_energy_sold(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, settlementPoint: str | None = None, totalDAMEnergySoldFrom: Decimal | None = None, totalDAMEnergySoldTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_193_cd.TotalDamEnergySoldRow]:
         'DAM Total Energy Sold'
@@ -6193,6 +6203,11 @@ class np4_194_cd:
         stlPnt: str | None
         totalPtpOblAwardedSink: Decimal | None
         totalPtpOblAwardedSource: Decimal | None
+
+    @property
+    def dam_ptp_obligation_sp_results_history(self) -> Archive[np4_194_cd.DamPtpObligationSpResultsRow]:
+        """Historical CSV rows, including files predating the API."""
+        return Archive(self._client, 'np4-194-cd', np4_194_cd.DamPtpObligationSpResultsRow, {'DELIVERYDATE': 'deliveryDate', 'HOURENDING': 'hourEnding', 'STL_PNT': 'stlPnt', 'TOTAL_PTP_OBL_AWARDED_SOURCE': 'totalPtpOblAwardedSource', 'TOTAL_PTP_OBL_AWARDED_SINK': 'totalPtpOblAwardedSink', 'DSTFlag': 'repeatedHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
 
     def dam_ptp_obligation_sp_results(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, stlPnt: str | None = None, totalPtpOblAwardedSourceFrom: Decimal | None = None, totalPtpOblAwardedSourceTo: Decimal | None = None, totalPtpOblAwardedSinkFrom: Decimal | None = None, totalPtpOblAwardedSinkTo: Decimal | None = None, repeatedHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_194_cd.DamPtpObligationSpResultsRow]:
         'DAM PTP Obligation Results by Settlement Point'
@@ -6690,6 +6705,19 @@ class np4_33_cd:
         postedDatetime: datetime | None
         quantity: int | None
 
+    class DamAsPlanHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        ancillaryType: str | None
+        quantity: int | None
+        DSTFlag: bool | None
+
+    @property
+    def dam_as_plan_history(self) -> Archive[np4_33_cd.DamAsPlanHistoryRow]:
+        """Historical CSV rows, including files predating the API."""
+        return Archive(self._client, 'np4-33-cd', np4_33_cd.DamAsPlanHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'AncillaryType': 'ancillaryType', 'Quantity': 'quantity', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def dam_as_plan(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, ancillaryType: str | None = None, quantityFrom: int | None = None, quantityTo: int | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_33_cd.DamAsPlanRow]:
         'DAM Ancillary Service Plan'
         return self._client._page('/np4-33-cd/dam_as_plan', np4_33_cd.DamAsPlanRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'ancillaryType': ancillaryType, 'quantityFrom': quantityFrom, 'quantityTo': quantityTo, 'DSTFlag': DSTFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6807,6 +6835,11 @@ class np4_523_cd:
         hourEnding: str | None
         systemLambda: Decimal | None
 
+    @property
+    def dam_system_lambda_history(self) -> Archive[np4_523_cd.DamSystemLambdaRow]:
+        """Historical CSV rows, including files predating the API."""
+        return Archive(self._client, 'np4-523-cd', np4_523_cd.DamSystemLambdaRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'SystemLambda': 'systemLambda', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
+
     def dam_system_lambda(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, systemLambdaFrom: Decimal | None = None, systemLambdaTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_523_cd.DamSystemLambdaRow]:
         'DAM System Lambda'
         return self._client._page('/np4-523-cd/dam_system_lambda', np4_523_cd.DamSystemLambdaRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'systemLambdaFrom': systemLambdaFrom, 'systemLambdaTo': systemLambdaTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6909,6 +6942,44 @@ class np4_732_cd:
         genSystemWide: Decimal | None
         hourEnding: int | None
         postedDatetime: datetime | None
+
+    class WppHrlyAvrgActlFcastHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None = None
+        hourEnding: int | None = None
+        genSystemWide: Decimal | None = None
+        COPHSLSystemWide: Decimal | None
+        STWPFSystemWide: Decimal | None
+        WGRPPSystemWide: Decimal | None
+        genLoadZoneSouthHouston: Decimal | None = None
+        COPHSLLoadZoneSouthHouston: Decimal | None = None
+        STWPFLoadZoneSouthHouston: Decimal | None = None
+        WGRPPLoadZoneSouthHouston: Decimal | None = None
+        genLoadZoneWest: Decimal | None = None
+        COPHSLLoadZoneWest: Decimal | None = None
+        STWPFLoadZoneWest: Decimal | None = None
+        WGRPPLoadZoneWest: Decimal | None = None
+        genLoadZoneNorth: Decimal | None = None
+        COPHSLLoadZoneNorth: Decimal | None = None
+        STWPFLoadZoneNorth: Decimal | None = None
+        WGRPPLoadZoneNorth: Decimal | None = None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+        hourEndingTimestamp: datetime | None = None
+        actualSystemWide: Decimal | None = None
+        actualSouthHouston: Decimal | None = None
+        COPHSLSouthHouston: Decimal | None = None
+        STWPFSouthHouston: Decimal | None = None
+        WGRPPSouthHouston: Decimal | None = None
+        actualWestNorth: Decimal | None = None
+        COPHSLWestNorth: Decimal | None = None
+        STWPFWestNorth: Decimal | None = None
+        WGRPPWestNorth: Decimal | None = None
+
+    @property
+    def wpp_hrly_avrg_actl_fcast_history(self) -> Archive[np4_732_cd.WppHrlyAvrgActlFcastHistoryRow]:
+        """Historical CSV rows, including files predating the API."""
+        return Archive(self._client, 'np4-732-cd', np4_732_cd.WppHrlyAvrgActlFcastHistoryRow, {'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STWPF_SYSTEM_WIDE': 'STWPFSystemWide', 'WGRPP_SYSTEM_WIDE': 'WGRPPSystemWide', 'GEN_LZ_SOUTH_HOUSTON': 'genLoadZoneSouthHouston', 'COP_HSL_LZ_SOUTH_HOUSTON': 'COPHSLLoadZoneSouthHouston', 'STWPF_LZ_SOUTH_HOUSTON': 'STWPFLoadZoneSouthHouston', 'WGRPP_LZ_SOUTH_HOUSTON': 'WGRPPLoadZoneSouthHouston', 'GEN_LZ_WEST': 'genLoadZoneWest', 'COP_HSL_LZ_WEST': 'COPHSLLoadZoneWest', 'STWPF_LZ_WEST': 'STWPFLoadZoneWest', 'WGRPP_LZ_WEST': 'WGRPPLoadZoneWest', 'GEN_LZ_NORTH': 'genLoadZoneNorth', 'COP_HSL_LZ_NORTH': 'COPHSLLoadZoneNorth', 'STWPF_LZ_NORTH': 'STWPFLoadZoneNorth', 'WGRPP_LZ_NORTH': 'WGRPPLoadZoneNorth', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S', 'hourEndingTimestamp': '%m/%d/%Y %H:%M'}, variants=({'HOUR_ENDING': 'hourEndingTimestamp', 'ACTUAL_SYSTEM_WIDE': 'actualSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STWPF_SYSTEM_WIDE': 'STWPFSystemWide', 'WGRPP_SYSTEM_WIDE': 'WGRPPSystemWide', 'ACTUAL_SOUTH_HOUSTON': 'actualSouthHouston', 'COP_HSL_SOUTH_HOUSTON': 'COPHSLSouthHouston', 'STWPF_SOUTH_HOUSTON': 'STWPFSouthHouston', 'WGRPP_SOUTH_HOUSTON': 'WGRPPSouthHouston', 'ACTUAL_WEST_NORTH': 'actualWestNorth', 'COP_HSL_WEST_NORTH': 'COPHSLWestNorth', 'STWPF_WEST_NORTH': 'STWPFWestNorth', 'WGRPP_WEST_NORTH': 'WGRPPWestNorth', 'DSTFlag': 'DSTFlag'},))
 
     def wpp_hrly_avrg_actl_fcast(self, *, WGRPPLoadZoneNorthFrom: Decimal | None = None, WGRPPLoadZoneNorthTo: Decimal | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, COPHSLSystemWideFrom: Decimal | None = None, COPHSLSystemWideTo: Decimal | None = None, STWPFSystemWideFrom: Decimal | None = None, STWPFSystemWideTo: Decimal | None = None, WGRPPSystemWideFrom: Decimal | None = None, WGRPPSystemWideTo: Decimal | None = None, genLoadZoneSouthHoustonFrom: Decimal | None = None, genLoadZoneSouthHoustonTo: Decimal | None = None, COPHSLLoadZoneSouthHoustonFrom: Decimal | None = None, COPHSLLoadZoneSouthHoustonTo: Decimal | None = None, STWPFLoadZoneSouthHoustonFrom: Decimal | None = None, STWPFLoadZoneSouthHoustonTo: Decimal | None = None, WGRPPLoadZoneSouthHoustonFrom: Decimal | None = None, WGRPPLoadZoneSouthHoustonTo: Decimal | None = None, genLoadZoneWestFrom: Decimal | None = None, genLoadZoneWestTo: Decimal | None = None, COPHSLLoadZoneWestFrom: Decimal | None = None, COPHSLLoadZoneWestTo: Decimal | None = None, STWPFLoadZoneWestFrom: Decimal | None = None, STWPFLoadZoneWestTo: Decimal | None = None, WGRPPLoadZoneWestFrom: Decimal | None = None, WGRPPLoadZoneWestTo: Decimal | None = None, genLoadZoneNorthFrom: Decimal | None = None, genLoadZoneNorthTo: Decimal | None = None, COPHSLLoadZoneNorthFrom: Decimal | None = None, COPHSLLoadZoneNorthTo: Decimal | None = None, STWPFLoadZoneNorthFrom: Decimal | None = None, STWPFLoadZoneNorthTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_732_cd.WppHrlyAvrgActlFcastRow]:
         'Wind Power Production - Hourly Averaged Actual and Forecasted Values'
@@ -8029,6 +8100,19 @@ class np6_787_cd:
         repeatedHourFlag: bool | None
         uncappedLMP: Decimal | None
 
+    class LmpElectricalBusHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatedHourFlag: bool | None
+        electricalBus: str | None
+        cappedLMP: Decimal | None = None
+        uncappedLMP: Decimal | None = None
+        LMP: Decimal | None = None
+
+    @property
+    def lmp_electrical_bus_history(self) -> Archive[np6_787_cd.LmpElectricalBusHistoryRow]:
+        """Historical CSV rows, including files predating the API."""
+        return Archive(self._client, 'np6-787-cd', np6_787_cd.LmpElectricalBusHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'ElectricalBus': 'electricalBus', 'CappedLMP': 'cappedLMP', 'UncappedLMP': 'uncappedLMP'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'ElectricalBus': 'electricalBus', 'LMP': 'LMP'},))
+
     def lmp_electrical_bus(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatedHourFlag: bool | None = None, electricalBus: str | None = None, cappedLMPFrom: Decimal | None = None, cappedLMPTo: Decimal | None = None, uncappedLMPFrom: Decimal | None = None, uncappedLMPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_787_cd.LmpElectricalBusRow]:
         'LMP by Electrical Bus'
         return self._client._page('/np6-787-cd/lmp_electrical_bus', np6_787_cd.LmpElectricalBusRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatedHourFlag': repeatedHourFlag, 'electricalBus': electricalBus, 'cappedLMPFrom': cappedLMPFrom, 'cappedLMPTo': cappedLMPTo, 'uncappedLMPFrom': uncappedLMPFrom, 'uncappedLMPTo': uncappedLMPTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -8054,6 +8138,11 @@ class np6_788_cd:
         SCEDTimestamp: datetime | None
         repeatHourFlag: bool | None
         settlementPoint: str | None
+
+    @property
+    def lmp_node_zone_hub_history(self) -> Archive[np6_788_cd.LmpNodeZoneHubRow]:
+        """Historical CSV rows, including files predating the API."""
+        return Archive(self._client, 'np6-788-cd', np6_788_cd.LmpNodeZoneHubRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'SettlementPoint': 'settlementPoint', 'LMP': 'LMP'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def lmp_node_zone_hub(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, settlementPoint: str | None = None, LMPFrom: Decimal | None = None, LMPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_788_cd.LmpNodeZoneHubRow]:
         'LMPs by Resource Nodes, Load Zones and Trading Hubs'

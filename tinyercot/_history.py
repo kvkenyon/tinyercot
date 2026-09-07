@@ -76,6 +76,15 @@ class Archive(Generic[T]):
         self._product = product
         self._row = row
         self._layouts = (columns, *variants)
+        self._columns = dict(columns)
+        self._ambiguous: set[str] = set()
+        for variant in variants:
+            self._ambiguous.update(
+                key
+                for key, value in variant.items()
+                if key in self._columns and self._columns[key] != value
+            )
+            self._columns.update(variant)
         self._member = member
         self._dates = dates
         self._datetimes = datetimes or {}
@@ -96,11 +105,25 @@ class Archive(Generic[T]):
                 (layout for layout in self._layouts if set(fields) == set(layout)), None
             )
             if columns is None:
+                if self._ambiguous.intersection(fields):
+                    raise ValueError(f"{filename}: ambiguous historical layout")
+                columns = self._columns
+            if not set(fields) <= columns.keys():
                 raise ValueError(f"{filename}: unexpected CSV columns {fields!r}")
+            if len({columns[field] for field in fields}) != len(fields):
+                raise ValueError(f"{filename}: duplicate columns for a row field")
             for line, values in enumerate(reader, 2):
+                # DictReader treats a whitespace-only line as one empty cell.
+                if (
+                    fields
+                    and not (values[fields[0]] or "").strip()
+                    and all(values[field] is None for field in fields[1:])
+                ):
+                    continue
                 try:
                     converted: dict[str, object] = {}
-                    for source, target in columns.items():
+                    for source in fields:
+                        target = columns[source]
                         value = values[source]
                         if value is None or None in values:
                             raise ValueError("CSV row has the wrong number of cells")
