@@ -368,6 +368,24 @@ class np3_161_cd:
         operatingDate: date | None
         postedDatetime: datetime | None
 
+    class _7dPlusAvailResPocMarginHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        operatingDate: date | None
+        nonIRRNonPUN: Decimal | None
+        ESR: Decimal | None
+        aggApprvdNonIRRNonPUN: Decimal | None
+        aggRcvdNonIRRNonPUN: Decimal | None
+        IRR: Decimal | None
+        aggApprvdIRR: Decimal | None
+        aggRcvdIRR: Decimal | None
+        aggApprvdESR: Decimal | None
+        aggRcvdESR: Decimal | None
+
+    @property
+    def _7d_plus_avail_res_poc_margin_history(self) -> Archive[np3_161_cd._7dPlusAvailResPocMarginHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-161-cd', np3_161_cd._7dPlusAvailResPocMarginHistoryRow, {'OperatingDate': 'operatingDate', 'ResourcePOLnonIRRnonPUN': 'nonIRRNonPUN', 'ResourcePOLESR': 'ESR', 'AggApprovedResourcePOLnonIRRnonPUN': 'aggApprvdNonIRRNonPUN', 'AggReceivedResourcePOLnonIRRnonPUN': 'aggRcvdNonIRRNonPUN', 'ResourcePOLIRR': 'IRR', 'AggApprovedResourcePOLIRR': 'aggApprvdIRR', 'AggReceivedResourcePOLIRR': 'aggRcvdIRR', 'AggApprovedResourcePOLESR': 'aggApprvdESR', 'AggReceivedResourcePOLESR': 'aggRcvdESR'}, {'operatingDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
+
     def _7d_plus_avail_res_poc_margin(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, operatingDateFrom: date | None = None, operatingDateTo: date | None = None, nonIRRNonPUNFrom: Decimal | None = None, nonIRRNonPUNTo: Decimal | None = None, ESRFrom: Decimal | None = None, ESRTo: Decimal | None = None, aggApprvdNonIRRNonPUNFrom: Decimal | None = None, aggApprvdNonIRRNonPUNTo: Decimal | None = None, aggRcvdNonIRRNonPUNFrom: Decimal | None = None, aggRcvdNonIRRNonPUNTo: Decimal | None = None, IRRFrom: Decimal | None = None, IRRTo: Decimal | None = None, aggApprvdIRRFrom: Decimal | None = None, aggApprvdIRRTo: Decimal | None = None, aggRcvdIRRFrom: Decimal | None = None, aggRcvdIRRTo: Decimal | None = None, aggApprvdESRFrom: Decimal | None = None, aggApprvdESRTo: Decimal | None = None, aggRcvdESRFrom: Decimal | None = None, aggRcvdESRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_161_cd._7dPlusAvailResPocMarginRow]:
         'Available Resource Planned Outage Capacity Margin_7 Day Plus'
         return self._client._page('/np3-161-cd/7d_plus_avail_res_poc_margin', np3_161_cd._7dPlusAvailResPocMarginRow, {'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'operatingDateFrom': operatingDateFrom, 'operatingDateTo': operatingDateTo, 'nonIRRNonPUNFrom': nonIRRNonPUNFrom, 'nonIRRNonPUNTo': nonIRRNonPUNTo, 'ESRFrom': ESRFrom, 'ESRTo': ESRTo, 'aggApprvdNonIRRNonPUNFrom': aggApprvdNonIRRNonPUNFrom, 'aggApprvdNonIRRNonPUNTo': aggApprvdNonIRRNonPUNTo, 'aggRcvdNonIRRNonPUNFrom': aggRcvdNonIRRNonPUNFrom, 'aggRcvdNonIRRNonPUNTo': aggRcvdNonIRRNonPUNTo, 'IRRFrom': IRRFrom, 'IRRTo': IRRTo, 'aggApprvdIRRFrom': aggApprvdIRRFrom, 'aggApprvdIRRTo': aggApprvdIRRTo, 'aggRcvdIRRFrom': aggRcvdIRRFrom, 'aggRcvdIRRTo': aggRcvdIRRTo, 'aggApprvdESRFrom': aggApprvdESRFrom, 'aggApprvdESRTo': aggApprvdESRTo, 'aggRcvdESRFrom': aggRcvdESRFrom, 'aggRcvdESRTo': aggRcvdESRTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -402,6 +420,26 @@ class np3_162_cd:
         operatingDate: date | None
         postedDatetime: datetime | None
         repeatedHourFlag: bool | None
+
+    class _7dAvailResPocMarginHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        operatingDate: date | None
+        hourEnding: int | None
+        nonIrrNonPun: Decimal | None
+        aggApprvdNonIRRNonPUN: Decimal | None
+        aggRcvdNonIRRNonPUN: Decimal | None
+        IRR: Decimal | None
+        aggApprvdIRR: Decimal | None
+        aggRcvdIRR: Decimal | None
+        ESR: Decimal | None
+        aggApprvdESR: Decimal | None
+        aggRcvdESR: Decimal | None
+        repeatedHourFlag: bool | None
+
+    @property
+    def _7d_avail_res_poc_margin_history(self) -> Archive[np3_162_cd._7dAvailResPocMarginHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-162-cd', np3_162_cd._7dAvailResPocMarginHistoryRow, {'OperatingDate': 'operatingDate', 'HourEnding': 'hourEnding', 'ResourcePOLnonIRRnonPUN': 'nonIrrNonPun', 'AggApprovedResourcePOLnonIRRnonPUN': 'aggApprvdNonIRRNonPUN', 'AggReceivedResourcePOLnonIRRnonPUN': 'aggRcvdNonIRRNonPUN', 'ResourcePOLIRR': 'IRR', 'AggApprovedResourcePOLIRR': 'aggApprvdIRR', 'AggReceivedResourcePOLIRR': 'aggRcvdIRR', 'ResourcePOLESR': 'ESR', 'AggApprovedResourcePOLESR': 'aggApprvdESR', 'AggReceivedResourcePOLESR': 'aggRcvdESR', 'RepeatedHourFlag': 'repeatedHourFlag'}, {'operatingDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
 
     def _7d_avail_res_poc_margin(self, *, aggRcvdESRFrom: Decimal | None = None, aggRcvdESRTo: Decimal | None = None, repeatedHourFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, operatingDateFrom: date | None = None, operatingDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, nonIrrNonPunFrom: Decimal | None = None, nonIrrNonPunTo: Decimal | None = None, aggApprvdNonIRRNonPUNFrom: Decimal | None = None, aggApprvdNonIRRNonPUNTo: Decimal | None = None, aggRcvdNonIRRNonPUNFrom: Decimal | None = None, aggRcvdNonIRRNonPUNTo: Decimal | None = None, IRRFrom: Decimal | None = None, IRRTo: Decimal | None = None, aggApprvdIRRFrom: Decimal | None = None, aggApprvdIRRTo: Decimal | None = None, aggRcvdIRRFrom: Decimal | None = None, aggRcvdIRRTo: Decimal | None = None, ESRFrom: Decimal | None = None, ESRTo: Decimal | None = None, aggApprvdESRFrom: Decimal | None = None, aggApprvdESRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_162_cd._7dAvailResPocMarginRow]:
         'Available Resource Planned Outage Capacity Margin_7 Day'
@@ -439,6 +477,30 @@ class np3_233_cd:
         totalResourceMWZoneNorth: int | None
         totalResourceMWZoneSouth: int | None
         totalResourceMWZoneWest: int | None
+
+    class HourlyResOutageCapHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        operatingDate: date | None
+        hourEnding: int | None
+        totalResourceMWZoneSouth: int | None = None
+        totalResourceMWZoneNorth: int | None = None
+        totalResourceMWZoneWest: int | None = None
+        totalResourceMWZoneHouston: int | None = None
+        totalIRRMWZoneSouth: int | None = None
+        totalIRRMWZoneNorth: int | None = None
+        totalIRRMWZoneWest: int | None = None
+        totalIRRMWZoneHouston: int | None = None
+        totalNewEquipResourceMWZoneSouth: int | None = None
+        totalNewEquipResourceMWZoneNorth: int | None = None
+        totalNewEquipResourceMWZoneWest: int | None = None
+        totalNewEquipResourceMWZoneHouston: int | None = None
+        totalResourceMW: int | None = None
+        totalIRRMW: int | None = None
+
+    @property
+    def hourly_res_outage_cap_history(self) -> Archive[np3_233_cd.HourlyResOutageCapHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-233-cd', np3_233_cd.HourlyResOutageCapHistoryRow, {'Date': 'operatingDate', 'HourEnding': 'hourEnding', 'TotalResourceMWZoneSouth': 'totalResourceMWZoneSouth', 'TotalResourceMWZoneNorth': 'totalResourceMWZoneNorth', 'TotalResourceMWZoneWest': 'totalResourceMWZoneWest', 'TotalResourceMWZoneHouston': 'totalResourceMWZoneHouston', 'TotalIRRMWZoneSouth': 'totalIRRMWZoneSouth', 'TotalIRRMWZoneNorth': 'totalIRRMWZoneNorth', 'TotalIRRMWZoneWest': 'totalIRRMWZoneWest', 'TotalIRRMWZoneHouston': 'totalIRRMWZoneHouston', 'TotalNewEquipResourceMWZoneSouth': 'totalNewEquipResourceMWZoneSouth', 'TotalNewEquipResourceMWZoneNorth': 'totalNewEquipResourceMWZoneNorth', 'TotalNewEquipResourceMWZoneWest': 'totalNewEquipResourceMWZoneWest', 'TotalNewEquipResourceMWZoneHouston': 'totalNewEquipResourceMWZoneHouston'}, {'operatingDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=({'Date': 'operatingDate', 'HourEnding': 'hourEnding', 'TotalResourceMW': 'totalResourceMW', 'TotalIRRMW': 'totalIRRMW'},))
 
     def hourly_res_outage_cap(self, *, operatingDateFrom: date | None = None, operatingDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalResourceMWZoneSouthFrom: int | None = None, totalResourceMWZoneSouthTo: int | None = None, totalResourceMWZoneNorthFrom: int | None = None, totalResourceMWZoneNorthTo: int | None = None, totalResourceMWZoneWestFrom: int | None = None, totalResourceMWZoneWestTo: int | None = None, totalResourceMWZoneHoustonFrom: int | None = None, totalResourceMWZoneHoustonTo: int | None = None, totalIRRMWZoneSouthFrom: int | None = None, totalIRRMWZoneSouthTo: int | None = None, totalIRRMWZoneNorthFrom: int | None = None, totalIRRMWZoneNorthTo: int | None = None, totalIRRMWZoneWestFrom: int | None = None, totalIRRMWZoneWestTo: int | None = None, totalIRRMWZoneHoustonFrom: int | None = None, totalIRRMWZoneHoustonTo: int | None = None, totalNewEquipResourceMWZoneSouthFrom: int | None = None, totalNewEquipResourceMWZoneSouthTo: int | None = None, totalNewEquipResourceMWZoneNorthFrom: int | None = None, totalNewEquipResourceMWZoneNorthTo: int | None = None, totalNewEquipResourceMWZoneWestFrom: int | None = None, totalNewEquipResourceMWZoneWestTo: int | None = None, totalNewEquipResourceMWZoneHoustonFrom: int | None = None, totalNewEquipResourceMWZoneHoustonTo: int | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_233_cd.HourlyResOutageCapRow]:
         'Hourly Resource Outage Capacity'
@@ -779,6 +841,42 @@ class np3_763_cd:
         postedDatetime: datetime | None
         repeatHourFlag: bool | None
 
+    class StSysAdequacyHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        capGenResSouth: Decimal | None = None
+        capGenResNorth: Decimal | None = None
+        capGenResWest: Decimal | None = None
+        capGenResHouston: Decimal | None = None
+        capLoadResSouth: Decimal | None = None
+        capLoadResNorth: Decimal | None = None
+        capLoadResWest: Decimal | None = None
+        capLoadResHouston: Decimal | None = None
+        offAvailMWSouth: Decimal | None = None
+        offAvailMWNorth: Decimal | None = None
+        offAvailMWWest: Decimal | None = None
+        offAvailMWHouston: Decimal | None = None
+        availCapGen: Decimal | None = None
+        availCapRes: Decimal | None = None
+        capGenRes: Decimal | None
+        capLoadRes: Decimal | None
+        offAvailMW: Decimal | None = None
+        capREGUP: Decimal | None = None
+        capREGDN: Decimal | None = None
+        capRRS: Decimal | None = None
+        capECRS: Decimal | None = None
+        capNSPIN: Decimal | None = None
+        capREGUPRRS: Decimal | None = None
+        capREGUPRRSECRS: Decimal | None = None
+        capREGUPRRSECRSNSPIN: Decimal | None = None
+        repeatHourFlag: bool | None
+
+    @property
+    def st_sys_adequacy_history(self) -> Archive[np3_763_cd.StSysAdequacyHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-763-cd', np3_763_cd.StSysAdequacyHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'CapGenResSouth': 'capGenResSouth', 'CapGenResNorth': 'capGenResNorth', 'CapGenResWest': 'capGenResWest', 'CapGenResHouston': 'capGenResHouston', 'CapLoadResSouth': 'capLoadResSouth', 'CapLoadResNorth': 'capLoadResNorth', 'CapLoadResWest': 'capLoadResWest', 'CapLoadResHouston': 'capLoadResHouston', 'OfflineAvailableMWSouth': 'offAvailMWSouth', 'OfflineAvailableMWNorth': 'offAvailMWNorth', 'OfflineAvailableMWWest': 'offAvailMWWest', 'OfflineAvailableMWHouston': 'offAvailMWHouston', 'AvailCapGen': 'availCapGen', 'AvailCapReserve': 'availCapRes', 'CapGenResTotal': 'capGenRes', 'CapLoadResTotal': 'capLoadRes', 'OfflineAvailableMWTotal': 'offAvailMW', 'CapREGUPTotal': 'capREGUP', 'CapREGDNTotal': 'capREGDN', 'CapRRSTotal': 'capRRS', 'CapECRSTotal': 'capECRS', 'CapNSPINTotal': 'capNSPIN', 'CapREGUP_RRSTotal': 'capREGUPRRS', 'CapREGUP_RRS_ECRSTotal': 'capREGUPRRSECRS', 'CapREGUP_RRS_ECRS_NSPINTotal': 'capREGUPRRSECRSNSPIN', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=({'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'TotalCapGenRes': 'capGenRes', 'TotalCapLoadRes': 'capLoadRes', 'DSTFlag': 'repeatHourFlag'},))
+
     def st_sys_adequacy(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: Decimal | None = None, hourEndingTo: Decimal | None = None, capGenResSouthFrom: Decimal | None = None, capGenResSouthTo: Decimal | None = None, capGenResNorthFrom: Decimal | None = None, capGenResNorthTo: Decimal | None = None, capGenResWestFrom: Decimal | None = None, capGenResWestTo: Decimal | None = None, capGenResHoustonFrom: Decimal | None = None, capGenResHoustonTo: Decimal | None = None, capLoadResSouthFrom: Decimal | None = None, capLoadResSouthTo: Decimal | None = None, capLoadResNorthFrom: Decimal | None = None, capLoadResNorthTo: Decimal | None = None, capLoadResWestFrom: Decimal | None = None, capLoadResWestTo: Decimal | None = None, capLoadResHoustonFrom: Decimal | None = None, capLoadResHoustonTo: Decimal | None = None, offAvailMWSouthFrom: Decimal | None = None, offAvailMWSouthTo: Decimal | None = None, offAvailMWNorthFrom: Decimal | None = None, offAvailMWNorthTo: Decimal | None = None, offAvailMWWestFrom: Decimal | None = None, offAvailMWWestTo: Decimal | None = None, offAvailMWHoustonFrom: Decimal | None = None, offAvailMWHoustonTo: Decimal | None = None, availCapGenFrom: Decimal | None = None, availCapGenTo: Decimal | None = None, availCapResFrom: Decimal | None = None, availCapResTo: Decimal | None = None, capGenResFrom: Decimal | None = None, capGenResTo: Decimal | None = None, capLoadResFrom: Decimal | None = None, capLoadResTo: Decimal | None = None, offAvailMWFrom: Decimal | None = None, offAvailMWTo: Decimal | None = None, capREGUPFrom: Decimal | None = None, capREGUPTo: Decimal | None = None, capREGDNFrom: Decimal | None = None, capREGDNTo: Decimal | None = None, capRRSFrom: Decimal | None = None, capRRSTo: Decimal | None = None, capECRSFrom: Decimal | None = None, capECRSTo: Decimal | None = None, capNSPINFrom: Decimal | None = None, capNSPINTo: Decimal | None = None, capREGUPRRSFrom: Decimal | None = None, capREGUPRRSTo: Decimal | None = None, capREGUPRRSECRSFrom: Decimal | None = None, capREGUPRRSECRSTo: Decimal | None = None, capREGUPRRSECRSNSPINFrom: Decimal | None = None, capREGUPRRSECRSNSPINTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_763_cd.StSysAdequacyRow]:
         'Short-Term System Adequacy'
         return self._client._page('/np3-763-cd/st_sys_adequacy', np3_763_cd.StSysAdequacyRow, {'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'capGenResSouthFrom': capGenResSouthFrom, 'capGenResSouthTo': capGenResSouthTo, 'capGenResNorthFrom': capGenResNorthFrom, 'capGenResNorthTo': capGenResNorthTo, 'capGenResWestFrom': capGenResWestFrom, 'capGenResWestTo': capGenResWestTo, 'capGenResHoustonFrom': capGenResHoustonFrom, 'capGenResHoustonTo': capGenResHoustonTo, 'capLoadResSouthFrom': capLoadResSouthFrom, 'capLoadResSouthTo': capLoadResSouthTo, 'capLoadResNorthFrom': capLoadResNorthFrom, 'capLoadResNorthTo': capLoadResNorthTo, 'capLoadResWestFrom': capLoadResWestFrom, 'capLoadResWestTo': capLoadResWestTo, 'capLoadResHoustonFrom': capLoadResHoustonFrom, 'capLoadResHoustonTo': capLoadResHoustonTo, 'offAvailMWSouthFrom': offAvailMWSouthFrom, 'offAvailMWSouthTo': offAvailMWSouthTo, 'offAvailMWNorthFrom': offAvailMWNorthFrom, 'offAvailMWNorthTo': offAvailMWNorthTo, 'offAvailMWWestFrom': offAvailMWWestFrom, 'offAvailMWWestTo': offAvailMWWestTo, 'offAvailMWHoustonFrom': offAvailMWHoustonFrom, 'offAvailMWHoustonTo': offAvailMWHoustonTo, 'availCapGenFrom': availCapGenFrom, 'availCapGenTo': availCapGenTo, 'availCapResFrom': availCapResFrom, 'availCapResTo': availCapResTo, 'capGenResFrom': capGenResFrom, 'capGenResTo': capGenResTo, 'capLoadResFrom': capLoadResFrom, 'capLoadResTo': capLoadResTo, 'offAvailMWFrom': offAvailMWFrom, 'offAvailMWTo': offAvailMWTo, 'capREGUPFrom': capREGUPFrom, 'capREGUPTo': capREGUPTo, 'capREGDNFrom': capREGDNFrom, 'capREGDNTo': capREGDNTo, 'capRRSFrom': capRRSFrom, 'capRRSTo': capRRSTo, 'capECRSFrom': capECRSFrom, 'capECRSTo': capECRSTo, 'capNSPINFrom': capNSPINFrom, 'capNSPINTo': capNSPINTo, 'capREGUPRRSFrom': capREGUPRRSFrom, 'capREGUPRRSTo': capREGUPRRSTo, 'capREGUPRRSECRSFrom': capREGUPRRSECRSFrom, 'capREGUPRRSECRSTo': capREGUPRRSECRSTo, 'capREGUPRRSECRSNSPINFrom': capREGUPRRSECRSNSPINFrom, 'capREGUPRRSECRSNSPINTo': capREGUPRRSECRSNSPINTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -810,6 +908,23 @@ class np3_764_cd:
         sumSCEDSouth: Decimal | None
         sumSCEDWest: Decimal | None
 
+    class HrlyRucOnlineScedOfflineCopHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: str | None
+        RUCTimestamp: datetime | None
+        SCEDTimestamp: datetime | None
+        sumSCEDSouth: Decimal | None = None
+        sumSCEDNorth: Decimal | None = None
+        sumSCEDWest: Decimal | None = None
+        sumSCEDHouston: Decimal | None = None
+        DSTFlag: bool | None
+        sumSCEDTotal: Decimal | None = None
+
+    @property
+    def hrly_ruc_online_sced_offline_cop_history(self) -> Archive[np3_764_cd.HrlyRucOnlineScedOfflineCopHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-764-cd', np3_764_cd.HrlyRucOnlineScedOfflineCopHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimestamp': 'RUCTimestamp', 'SCEDTimestamp': 'SCEDTimestamp', 'SumSCEDHSLsOnlineSCEDOfflineCOPSouth': 'sumSCEDSouth', 'SumSCEDHSLsOnlineSCEDOfflineCOPNorth': 'sumSCEDNorth', 'SumSCEDHSLsOnlineSCEDOfflineCOPWest': 'sumSCEDWest', 'SumSCEDHSLsOnlineSCEDOfflineCOPHouston': 'sumSCEDHouston', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'RUCTimestamp': '%m/%d/%Y %H:%M:%S', 'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimestamp': 'RUCTimestamp', 'SCEDTimestamp': 'SCEDTimestamp', 'SumSCEDHSLsOnlineSCEDOfflineCOP': 'sumSCEDTotal', 'DSTFlag': 'DSTFlag'},))
+
     def hrly_ruc_online_sced_offline_cop(self, *, sumSCEDWestFrom: Decimal | None = None, sumSCEDWestTo: Decimal | None = None, sumSCEDHoustonFrom: Decimal | None = None, sumSCEDHoustonTo: Decimal | None = None, DSTFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, sumSCEDSouthFrom: Decimal | None = None, sumSCEDSouthTo: Decimal | None = None, sumSCEDNorthFrom: Decimal | None = None, sumSCEDNorthTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_764_cd.HrlyRucOnlineScedOfflineCopRow]:
         'Hourly RUC Online in SCED Offline in COP Report'
         return self._client._page('/np3-764-cd/hrly_ruc_online_sced_offline_cop', np3_764_cd.HrlyRucOnlineScedOfflineCopRow, {'sumSCEDWestFrom': sumSCEDWestFrom, 'sumSCEDWestTo': sumSCEDWestTo, 'sumSCEDHoustonFrom': sumSCEDHoustonFrom, 'sumSCEDHoustonTo': sumSCEDHoustonTo, 'DSTFlag': DSTFlag, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'RUCTimestampFrom': RUCTimestampFrom, 'RUCTimestampTo': RUCTimestampTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'sumSCEDSouthFrom': sumSCEDSouthFrom, 'sumSCEDSouthTo': sumSCEDSouthTo, 'sumSCEDNorthFrom': sumSCEDNorthFrom, 'sumSCEDNorthTo': sumSCEDNorthTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -838,6 +953,20 @@ class np3_765_cd:
         intervalEnding: datetime | None
         postedDatetime: datetime | None
         repeatHourFlag: bool | None
+
+    class ApprovedDctieSchedulesHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        DCTie: str | None
+        GMTIntervalEnding: datetime | None
+        intervalEnding: datetime | None
+        repeatHourFlag: bool | None
+        MW: Decimal | None
+        importExport: str | None
+
+    @property
+    def approved_dctie_schedules_history(self) -> Archive[np3_765_cd.ApprovedDctieSchedulesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-765-cd', np3_765_cd.ApprovedDctieSchedulesHistoryRow, {'DC_Tie': 'DCTie', 'GMT_Interval_Ending': 'GMTIntervalEnding', 'Interval_Ending': 'intervalEnding', 'Repeated_Hour': 'repeatHourFlag', 'MW': 'MW', 'Import_Export': 'importExport'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'GMTIntervalEnding': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=())
 
     def approved_dctie_schedules(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, DCTie: str | None = None, GMTIntervalEndingFrom: datetime | None = None, GMTIntervalEndingTo: datetime | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, repeatHourFlag: bool | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, importExport: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_765_cd.ApprovedDctieSchedulesRow]:
         'Approved DC Tie Schedules'

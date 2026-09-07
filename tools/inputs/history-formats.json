@@ -2975,5 +2975,271 @@
       "model": "str",
       "DSTFlag": "bool"
     }
+  },
+  "np3-161-cd/7d_plus_avail_res_poc_margin": {
+    "columns": {
+      "OperatingDate": "operatingDate",
+      "ResourcePOLnonIRRnonPUN": "nonIRRNonPUN",
+      "ResourcePOLESR": "ESR",
+      "AggApprovedResourcePOLnonIRRnonPUN": "aggApprvdNonIRRNonPUN",
+      "AggReceivedResourcePOLnonIRRnonPUN": "aggRcvdNonIRRNonPUN",
+      "ResourcePOLIRR": "IRR",
+      "AggApprovedResourcePOLIRR": "aggApprvdIRR",
+      "AggReceivedResourcePOLIRR": "aggRcvdIRR",
+      "AggApprovedResourcePOLESR": "aggApprvdESR",
+      "AggReceivedResourcePOLESR": "aggRcvdESR"
+    },
+    "dates": {
+      "operatingDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "operatingDate": "date",
+      "nonIRRNonPUN": "Decimal",
+      "ESR": "Decimal",
+      "aggApprvdNonIRRNonPUN": "Decimal",
+      "aggRcvdNonIRRNonPUN": "Decimal",
+      "IRR": "Decimal",
+      "aggApprvdIRR": "Decimal",
+      "aggRcvdIRR": "Decimal",
+      "aggApprvdESR": "Decimal",
+      "aggRcvdESR": "Decimal"
+    }
+  },
+  "np3-162-cd/7d_avail_res_poc_margin": {
+    "columns": {
+      "OperatingDate": "operatingDate",
+      "HourEnding": "hourEnding",
+      "ResourcePOLnonIRRnonPUN": "nonIrrNonPun",
+      "AggApprovedResourcePOLnonIRRnonPUN": "aggApprvdNonIRRNonPUN",
+      "AggReceivedResourcePOLnonIRRnonPUN": "aggRcvdNonIRRNonPUN",
+      "ResourcePOLIRR": "IRR",
+      "AggApprovedResourcePOLIRR": "aggApprvdIRR",
+      "AggReceivedResourcePOLIRR": "aggRcvdIRR",
+      "ResourcePOLESR": "ESR",
+      "AggApprovedResourcePOLESR": "aggApprvdESR",
+      "AggReceivedResourcePOLESR": "aggRcvdESR",
+      "RepeatedHourFlag": "repeatedHourFlag"
+    },
+    "dates": {
+      "operatingDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "operatingDate": "date",
+      "hourEnding": "int",
+      "nonIrrNonPun": "Decimal",
+      "aggApprvdNonIRRNonPUN": "Decimal",
+      "aggRcvdNonIRRNonPUN": "Decimal",
+      "IRR": "Decimal",
+      "aggApprvdIRR": "Decimal",
+      "aggRcvdIRR": "Decimal",
+      "ESR": "Decimal",
+      "aggApprvdESR": "Decimal",
+      "aggRcvdESR": "Decimal",
+      "repeatedHourFlag": "bool"
+    }
+  },
+  "np3-233-cd/hourly_res_outage_cap": {
+    "columns": {
+      "Date": "operatingDate",
+      "HourEnding": "hourEnding",
+      "TotalResourceMWZoneSouth": "totalResourceMWZoneSouth",
+      "TotalResourceMWZoneNorth": "totalResourceMWZoneNorth",
+      "TotalResourceMWZoneWest": "totalResourceMWZoneWest",
+      "TotalResourceMWZoneHouston": "totalResourceMWZoneHouston",
+      "TotalIRRMWZoneSouth": "totalIRRMWZoneSouth",
+      "TotalIRRMWZoneNorth": "totalIRRMWZoneNorth",
+      "TotalIRRMWZoneWest": "totalIRRMWZoneWest",
+      "TotalIRRMWZoneHouston": "totalIRRMWZoneHouston",
+      "TotalNewEquipResourceMWZoneSouth": "totalNewEquipResourceMWZoneSouth",
+      "TotalNewEquipResourceMWZoneNorth": "totalNewEquipResourceMWZoneNorth",
+      "TotalNewEquipResourceMWZoneWest": "totalNewEquipResourceMWZoneWest",
+      "TotalNewEquipResourceMWZoneHouston": "totalNewEquipResourceMWZoneHouston"
+    },
+    "dates": {
+      "operatingDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M"
+    },
+    "variants": [
+      {
+        "Date": "operatingDate",
+        "HourEnding": "hourEnding",
+        "TotalResourceMW": "totalResourceMW",
+        "TotalIRRMW": "totalIRRMW"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "operatingDate": "date",
+      "hourEnding": "int",
+      "totalResourceMWZoneSouth": "int",
+      "totalResourceMWZoneNorth": "int",
+      "totalResourceMWZoneWest": "int",
+      "totalResourceMWZoneHouston": "int",
+      "totalIRRMWZoneSouth": "int",
+      "totalIRRMWZoneNorth": "int",
+      "totalIRRMWZoneWest": "int",
+      "totalIRRMWZoneHouston": "int",
+      "totalNewEquipResourceMWZoneSouth": "int",
+      "totalNewEquipResourceMWZoneNorth": "int",
+      "totalNewEquipResourceMWZoneWest": "int",
+      "totalNewEquipResourceMWZoneHouston": "int",
+      "totalResourceMW": "int",
+      "totalIRRMW": "int"
+    }
+  },
+  "np3-763-cd/st_sys_adequacy": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "CapGenResSouth": "capGenResSouth",
+      "CapGenResNorth": "capGenResNorth",
+      "CapGenResWest": "capGenResWest",
+      "CapGenResHouston": "capGenResHouston",
+      "CapLoadResSouth": "capLoadResSouth",
+      "CapLoadResNorth": "capLoadResNorth",
+      "CapLoadResWest": "capLoadResWest",
+      "CapLoadResHouston": "capLoadResHouston",
+      "OfflineAvailableMWSouth": "offAvailMWSouth",
+      "OfflineAvailableMWNorth": "offAvailMWNorth",
+      "OfflineAvailableMWWest": "offAvailMWWest",
+      "OfflineAvailableMWHouston": "offAvailMWHouston",
+      "AvailCapGen": "availCapGen",
+      "AvailCapReserve": "availCapRes",
+      "CapGenResTotal": "capGenRes",
+      "CapLoadResTotal": "capLoadRes",
+      "OfflineAvailableMWTotal": "offAvailMW",
+      "CapREGUPTotal": "capREGUP",
+      "CapREGDNTotal": "capREGDN",
+      "CapRRSTotal": "capRRS",
+      "CapECRSTotal": "capECRS",
+      "CapNSPINTotal": "capNSPIN",
+      "CapREGUP_RRSTotal": "capREGUPRRS",
+      "CapREGUP_RRS_ECRSTotal": "capREGUPRRSECRS",
+      "CapREGUP_RRS_ECRS_NSPINTotal": "capREGUPRRSECRSNSPIN",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M"
+    },
+    "variants": [
+      {
+        "DeliveryDate": "deliveryDate",
+        "HourEnding": "hourEnding",
+        "TotalCapGenRes": "capGenRes",
+        "TotalCapLoadRes": "capLoadRes",
+        "DSTFlag": "repeatHourFlag"
+      }
+    ],
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "capGenResSouth": "Decimal",
+      "capGenResNorth": "Decimal",
+      "capGenResWest": "Decimal",
+      "capGenResHouston": "Decimal",
+      "capLoadResSouth": "Decimal",
+      "capLoadResNorth": "Decimal",
+      "capLoadResWest": "Decimal",
+      "capLoadResHouston": "Decimal",
+      "offAvailMWSouth": "Decimal",
+      "offAvailMWNorth": "Decimal",
+      "offAvailMWWest": "Decimal",
+      "offAvailMWHouston": "Decimal",
+      "availCapGen": "Decimal",
+      "availCapRes": "Decimal",
+      "capGenRes": "Decimal",
+      "capLoadRes": "Decimal",
+      "offAvailMW": "Decimal",
+      "capREGUP": "Decimal",
+      "capREGDN": "Decimal",
+      "capRRS": "Decimal",
+      "capECRS": "Decimal",
+      "capNSPIN": "Decimal",
+      "capREGUPRRS": "Decimal",
+      "capREGUPRRSECRS": "Decimal",
+      "capREGUPRRSECRSNSPIN": "Decimal",
+      "repeatHourFlag": "bool"
+    }
+  },
+  "np3-764-cd/hrly_ruc_online_sced_offline_cop": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "RUCTimestamp": "RUCTimestamp",
+      "SCEDTimestamp": "SCEDTimestamp",
+      "SumSCEDHSLsOnlineSCEDOfflineCOPSouth": "sumSCEDSouth",
+      "SumSCEDHSLsOnlineSCEDOfflineCOPNorth": "sumSCEDNorth",
+      "SumSCEDHSLsOnlineSCEDOfflineCOPWest": "sumSCEDWest",
+      "SumSCEDHSLsOnlineSCEDOfflineCOPHouston": "sumSCEDHouston",
+      "DSTFlag": "DSTFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "RUCTimestamp": "%m/%d/%Y %H:%M:%S",
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "variants": [
+      {
+        "DeliveryDate": "deliveryDate",
+        "HourEnding": "hourEnding",
+        "RUCTimestamp": "RUCTimestamp",
+        "SCEDTimestamp": "SCEDTimestamp",
+        "SumSCEDHSLsOnlineSCEDOfflineCOP": "sumSCEDTotal",
+        "DSTFlag": "DSTFlag"
+      }
+    ],
+    "fields": {
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "RUCTimestamp": "datetime",
+      "SCEDTimestamp": "datetime",
+      "sumSCEDSouth": "Decimal",
+      "sumSCEDNorth": "Decimal",
+      "sumSCEDWest": "Decimal",
+      "sumSCEDHouston": "Decimal",
+      "DSTFlag": "bool",
+      "sumSCEDTotal": "Decimal"
+    }
+  },
+  "np3-765-cd/approved_dctie_schedules": {
+    "columns": {
+      "DC_Tie": "DCTie",
+      "GMT_Interval_Ending": "GMTIntervalEnding",
+      "Interval_Ending": "intervalEnding",
+      "Repeated_Hour": "repeatHourFlag",
+      "MW": "MW",
+      "Import_Export": "importExport"
+    },
+    "dates": {},
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M",
+      "GMTIntervalEnding": "%m/%d/%Y %H:%M",
+      "intervalEnding": "%m/%d/%Y %H:%M"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "DCTie": "str",
+      "GMTIntervalEnding": "datetime",
+      "intervalEnding": "datetime",
+      "repeatHourFlag": "bool",
+      "MW": "Decimal",
+      "importExport": "str"
+    }
   }
 }
