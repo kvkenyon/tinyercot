@@ -1,0 +1,130 @@
+[
+  {
+    "endpoint": "np3-257-ex/3d_high_price_bids_sel_disp_sced",
+    "fixture": "np3-257-ex-history-current.csv",
+    "file": "3d_Highest_Price_Bids_Selected_Dispatched_in_SCED-07-SEP-26.csv",
+    "csv_rows": 300,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-04T00:00:19",
+      "repeatedHourFlag": false,
+      "qseName": "QBASTX",
+      "dmeName": "YBASTX",
+      "loadResource": "MIDNT_ALD1",
+      "highestPriceDispatched": "23.75",
+      "proxyExtension": "No",
+      "batchId": null
+    },
+    "rows_decoded": 300
+  },
+  {
+    "endpoint": "np3-257-ex/3d_high_price_bids_sel_disp_sced",
+    "fixture": "np3-257-ex-history-samples.csv",
+    "file": "48h_Highest_Price_Bids_Selected_Dispatched_in_SCED-01-JAN-19.csv",
+    "csv_rows": 0,
+    "rows_decoded": 0
+  },
+  {
+    "endpoint": "np3-914-ex/3d_sced_high_as_offers",
+    "fixture": "np3-914-ex-history-current.csv",
+    "file": "3d_SCED_Highest_Price_AS_Offer_Selected-07-SEP-26.csv",
+    "csv_rows": 68547,
+    "first_row": {
+      "ASType": "ECRS",
+      "SCEDTimestamp": "2026-09-04T00:00:19",
+      "dmeName": "YSUEZ",
+      "price": "0.02",
+      "qseName": "QSUE74",
+      "quantity": "0.7",
+      "resourceName": "ALVIN_ESR1"
+    },
+    "rows_decoded": 68547
+  },
+  {
+    "endpoint": "np3-914-ex/3d_sced_high_as_offers",
+    "fixture": "np3-914-ex-history-samples.csv",
+    "file": "3d_SCED_Highest_Price_AS_Offer_Selected-08-DEC-25.csv",
+    "csv_rows": 17293,
+    "first_row": {
+      "ASType": "ECRS",
+      "SCEDTimestamp": "2025-12-05T00:00:19",
+      "dmeName": "YCPS",
+      "price": "0.13",
+      "qseName": "QCPSE",
+      "quantity": "30",
+      "resourceName": "CALAVERS_JKS2"
+    },
+    "rows_decoded": 17293
+  },
+  {
+    "endpoint": "np3-915-ex/3d_dam_high_as_offers",
+    "fixture": "np3-915-ex-history-current.csv",
+    "file": "3d_DAM_Highest_Price_AS_Offer_Selected-07-SEP-26.csv",
+    "csv_rows": 1338,
+    "first_row": {
+      "deliveryDate": "2026-09-04",
+      "hourEnding": 1,
+      "qseName": "QHABIT",
+      "dmeName": "YGLIDE",
+      "resourceName": "WCOLLOCL_ESR1",
+      "ASType": "ECRS",
+      "blockIndicator": "V",
+      "quantity": "2.2",
+      "price": "0.25"
+    },
+    "rows_decoded": 1338
+  },
+  {
+    "endpoint": "np3-915-ex/3d_dam_high_as_offers",
+    "fixture": "np3-915-ex-history-samples.csv",
+    "file": "2day_Highest_Price_AS_Offer_Selected-12-MAR-14.csv",
+    "csv_rows": 205,
+    "first_row": {
+      "deliveryDate": "2014-03-09",
+      "hourEnding": 1,
+      "qseName": null,
+      "dmeName": null,
+      "resourceName": "HENNE_LD1",
+      "ASType": "RRS",
+      "blockIndicator": "V",
+      "quantity": "8",
+      "price": "24.7"
+    },
+    "rows_decoded": 205
+  },
+  {
+    "endpoint": "np3-916-ex/3d_highest_price_offer_sced",
+    "fixture": "np3-916-ex-history-current.csv",
+    "file": "3d_Highest_Price_Offered_SCED-07-SEP-26.csv",
+    "csv_rows": 41197,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-04T00:00:19",
+      "repeatedHourFlag": false,
+      "LMP": "26.6393718719482",
+      "qseName": "QBEEP1",
+      "dmeName": "YBEEPR",
+      "resourceName": "HOLCOMB_ESR1",
+      "proxyExtension": "No",
+      "penaltyFlag": "No",
+      "batchId": null
+    },
+    "rows_decoded": 41197
+  },
+  {
+    "endpoint": "np3-916-ex/3d_highest_price_offer_sced",
+    "fixture": "np3-916-ex-history-samples.csv",
+    "file": "48h_Highest_Price_Offered_SCED-01-JAN-19.csv",
+    "csv_rows": 845,
+    "first_row": {
+      "SCEDTimestamp": "2018-12-29T00:00:19",
+      "repeatedHourFlag": false,
+      "LMP": "238.545806884766",
+      "qseName": null,
+      "dmeName": null,
+      "resourceName": "PB2SES_CT5",
+      "proxyExtension": "Yes",
+      "penaltyFlag": "No",
+      "batchId": "5379175"
+    },
+    "rows_decoded": 845
+  }
+]
