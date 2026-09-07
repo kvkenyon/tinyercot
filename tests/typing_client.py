@@ -179,3 +179,13 @@ with Client() as client:
     for gen_summary in client.np3_910_er._2d_agg_gen_summary_history.rows():
         assert_type(gen_summary.sumBasePointNonWGR, Decimal | None)
         assert_type(gen_summary.sumBasePointNonIRR, Decimal | None)
+
+    for legacy_curve in client.np3_908_er._2d_agg_esc_non_wind_history.rows():
+        assert_type(legacy_curve.MW, Decimal | None)
+        assert_type(legacy_curve.price, Decimal | None)
+    for demand_curve in client.np3_908_er._2d_agg_edc_clr_history.rows():
+        assert_type(demand_curve.price, int | None)
+        assert_type(demand_curve.SCEDTimestamp, datetime | None)
+    for old_dam_curve in client.np3_908_er._2d_agg_dam_min_esc_history.rows():
+        assert_type(old_dam_curve.deliveryDate, date | None)
+        assert_type(old_dam_curve.MW, Decimal | None)

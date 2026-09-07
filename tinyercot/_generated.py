@@ -1643,6 +1643,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_esr_history(self) -> Archive[np3_908_er._2dAggEscEsrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscEsrRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_ESR-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_esr(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscEsrRow]:
         '2-Day Aggregate Supply Curve for ESR Resources'
         return self._client._page('/np3-908-er/2d_agg_esc_esr', np3_908_er._2dAggEscEsrRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1663,6 +1668,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_esr_houston_history(self) -> Archive[np3_908_er._2dAggEscEsrHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscEsrHoustonRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_ESR_Houston-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_esr_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscEsrHoustonRow]:
         '2-Day Aggregate Supply Curve for ESR Resources Houston'
@@ -1685,6 +1695,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_esr_north_history(self) -> Archive[np3_908_er._2dAggEscEsrNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscEsrNorthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_ESR_North-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_esr_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscEsrNorthRow]:
         '2-Day Aggregate Supply Curve for ESR Resources North'
         return self._client._page('/np3-908-er/2d_agg_esc_esr_north', np3_908_er._2dAggEscEsrNorthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1705,6 +1720,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_esr_south_history(self) -> Archive[np3_908_er._2dAggEscEsrSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscEsrSouthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_ESR_South-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_esr_south(self, *, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscEsrSouthRow]:
         '2-Day Aggregate Supply Curve for ESR Resources South'
@@ -1728,6 +1748,11 @@ class np3_908_er:
         price: int | None
         MW: Decimal | None
 
+    @property
+    def _2d_agg_esc_esr_west_history(self) -> Archive[np3_908_er._2dAggEscEsrWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscEsrWestRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_ESR_West-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_esr_west(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = 'SCEDTimestamp', dir: str | None = None) -> Page[np3_908_er._2dAggEscEsrWestRow]:
         '2-Day Aggregate Supply Curve for ESR Resources West'
         return self._client._page('/np3-908-er/2d_agg_esc_esr_west', np3_908_er._2dAggEscEsrWestRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1748,6 +1773,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_nonirr_houston_history(self) -> Archive[np3_908_er._2dAggEscNonirrHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonirrHoustonRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_IRR_Houston-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_nonirr_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscNonirrHoustonRow]:
         '2-Day Aggregate Supply Curve for Non-Intermittent Renewable Resources Houston'
@@ -1770,6 +1800,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_nonirr_north_history(self) -> Archive[np3_908_er._2dAggEscNonirrNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonirrNorthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_IRR_North-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_nonirr_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscNonirrNorthRow]:
         '2-Day Aggregate Supply Curve for Non-Intermittent Renewable Resources North'
         return self._client._page('/np3-908-er/2d_agg_esc_nonirr_north', np3_908_er._2dAggEscNonirrNorthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1790,6 +1825,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_nonirr_south_history(self) -> Archive[np3_908_er._2dAggEscNonirrSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonirrSouthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_IRR_South-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_nonirr_south(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscNonirrSouthRow]:
         '2-Day Aggregate Supply Curve for Non-Intermittent Renewable Resources South'
@@ -1812,6 +1852,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_nonirr_west_history(self) -> Archive[np3_908_er._2dAggEscNonirrWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonirrWestRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_IRR_West-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_nonirr_west(self, *, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscNonirrWestRow]:
         '2-Day Aggregate Supply Curve for Non-Intermittent Renewable Resources West'
         return self._client._page('/np3-908-er/2d_agg_esc_nonirr_west', np3_908_er._2dAggEscNonirrWestRow, {'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1832,6 +1877,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_pvgr_history(self) -> Archive[np3_908_er._2dAggEscPvgrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscPvgrRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_PVGR-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_pvgr(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscPvgrRow]:
         '2-Day Aggregate Supply Curve for Photovoltaic Resources'
@@ -1854,6 +1904,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_pvgr_houston_history(self) -> Archive[np3_908_er._2dAggEscPvgrHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscPvgrHoustonRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_PVGR_Houston-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_pvgr_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscPvgrHoustonRow]:
         '2-Day Aggregate Supply Curve for Photovoltaic Resources Houston'
         return self._client._page('/np3-908-er/2d_agg_esc_pvgr_houston', np3_908_er._2dAggEscPvgrHoustonRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1874,6 +1929,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_pvgr_north_history(self) -> Archive[np3_908_er._2dAggEscPvgrNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscPvgrNorthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_PVGR_North-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_pvgr_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscPvgrNorthRow]:
         '2-Day Aggregate Supply Curve for Photovoltaic Resources North'
@@ -1896,6 +1956,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_pvgr_south_history(self) -> Archive[np3_908_er._2dAggEscPvgrSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscPvgrSouthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_PVGR_South-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_pvgr_south(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscPvgrSouthRow]:
         '2-Day Aggregate Supply Curve for Photovoltaic Resources South'
         return self._client._page('/np3-908-er/2d_agg_esc_pvgr_south', np3_908_er._2dAggEscPvgrSouthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1916,6 +1981,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_pvgr_west_history(self) -> Archive[np3_908_er._2dAggEscPvgrWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscPvgrWestRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_PVGR_West-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_pvgr_west(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscPvgrWestRow]:
         '2-Day Aggregate Supply Curve for Photovoltaic Resources West'
@@ -1938,6 +2008,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_wind_history(self) -> Archive[np3_908_er._2dAggEscWindRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscWindRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Wind-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_wind(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscWindRow]:
         '2-Day Aggregate Supply Curve for Wind Resources'
         return self._client._page('/np3-908-er/2d_agg_esc_wind', np3_908_er._2dAggEscWindRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1958,6 +2033,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_wind_houston_history(self) -> Archive[np3_908_er._2dAggEscWindHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscWindHoustonRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Wind_Houston-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_wind_houston(self, *, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscWindHoustonRow]:
         '2-Day Aggregate Supply Curve for Wind Resources Houston'
@@ -1980,6 +2060,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_wind_north_history(self) -> Archive[np3_908_er._2dAggEscWindNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscWindNorthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Wind_North-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_wind_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscWindNorthRow]:
         '2-Day Aggregate Supply Curve for Wind Resources North'
         return self._client._page('/np3-908-er/2d_agg_esc_wind_north', np3_908_er._2dAggEscWindNorthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2000,6 +2085,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_wind_south_history(self) -> Archive[np3_908_er._2dAggEscWindSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscWindSouthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Wind_South-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_wind_south(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscWindSouthRow]:
         '2-Day Aggregate Supply Curve for Wind Resources South'
@@ -2022,6 +2112,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_wind_west_history(self) -> Archive[np3_908_er._2dAggEscWindWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscWindWestRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Wind_West-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_wind_west(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscWindWestRow]:
         '2-Day Aggregate Supply Curve for Wind Resources West'
         return self._client._page('/np3-908-er/2d_agg_esc_wind_west', np3_908_er._2dAggEscWindWestRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2042,6 +2137,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_nonirr_history(self) -> Archive[np3_908_er._2dAggEscNonirrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonirrRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_IRR-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_nonirr(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscNonirrRow]:
         '2-Day Aggregate Supply Curves for Non-Intermittent Renewable Resources'
@@ -2064,6 +2164,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_edc_clr_history(self) -> Archive[np3_908_er._2dAggEdcClrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEdcClrRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'PRICE': 'price', 'MW': 'MW'}, {}, member='*_Agg_Energy_Demand_Curves_CLR-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_edc_clr(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEdcClrRow]:
         '2-Day Aggregated Energy Demand Curves CLR'
         return self._client._page('/np3-908-er/2d_agg_edc_clr', np3_908_er._2dAggEdcClrRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2084,6 +2189,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_edc_clr_houston_history(self) -> Archive[np3_908_er._2dAggEdcClrHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEdcClrHoustonRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'PRICE': 'price', 'MW': 'MW'}, {}, member='*_Agg_Energy_Demand_Curves_CLR_Houston-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_edc_clr_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEdcClrHoustonRow]:
         '2-Day Aggregated Energy Demand Curves CLR Houston'
@@ -2106,6 +2216,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_edc_clr_north_history(self) -> Archive[np3_908_er._2dAggEdcClrNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEdcClrNorthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'PRICE': 'price', 'MW': 'MW'}, {}, member='*_Agg_Energy_Demand_Curves_CLR_North-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_edc_clr_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEdcClrNorthRow]:
         '2-Day Aggregated Energy Demand Curves CLR North'
         return self._client._page('/np3-908-er/2d_agg_edc_clr_north', np3_908_er._2dAggEdcClrNorthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2126,6 +2241,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_edc_clr_south_history(self) -> Archive[np3_908_er._2dAggEdcClrSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEdcClrSouthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'PRICE': 'price', 'MW': 'MW'}, {}, member='*_Agg_Energy_Demand_Curves_CLR_South-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_edc_clr_south(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEdcClrSouthRow]:
         '2-Day Aggregated Energy Demand Curves CLR South'
@@ -2148,6 +2268,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_edc_clr_west_history(self) -> Archive[np3_908_er._2dAggEdcClrWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEdcClrWestRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'PRICE': 'price', 'MW': 'MW'}, {}, member='*_Agg_Energy_Demand_Curves_CLR_West-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_edc_clr_west(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEdcClrWestRow]:
         '2-Day Aggregated Energy Demand Curves CLR West'
         return self._client._page('/np3-908-er/2d_agg_edc_clr_west', np3_908_er._2dAggEdcClrWestRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2163,6 +2288,226 @@ class np3_908_er:
     def _2d_agg_edc_clr_west_iter_async(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> AsyncIterator[np3_908_er._2dAggEdcClrWestRow]:
         '2-Day Aggregated Energy Demand Curves CLR West'
         return self._client._aiter('/np3-908-er/2d_agg_edc_clr_west', np3_908_er._2dAggEdcClrWestRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'size': size, 'sort': sort, 'dir': dir})
+
+    class _2dAggDamMinEscWestHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_min_esc_west_history(self) -> Archive[np3_908_er._2dAggDamMinEscWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamMinEscWestHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW Offered': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Min_Energy_Supply_Curves_West-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamMinEscSouthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_min_esc_south_history(self) -> Archive[np3_908_er._2dAggDamMinEscSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamMinEscSouthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW Offered': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Min_Energy_Supply_Curves_South-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamMinEscNorthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_min_esc_north_history(self) -> Archive[np3_908_er._2dAggDamMinEscNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamMinEscNorthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW Offered': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Min_Energy_Supply_Curves_North-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamMinEscHoustonHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_min_esc_houston_history(self) -> Archive[np3_908_er._2dAggDamMinEscHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamMinEscHoustonHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW Offered': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Min_Energy_Supply_Curves_Houston-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamMinEscHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_min_esc_history(self) -> Archive[np3_908_er._2dAggDamMinEscHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamMinEscHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW Offered': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Min_Energy_Supply_Curves-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggEscNonWindHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_esc_non_wind_history(self) -> Archive[np3_908_er._2dAggEscNonWindHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonWindHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_Wind-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
+    class _2dAggDamEscHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_esc_history(self) -> Archive[np3_908_er._2dAggDamEscHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEscHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Supply_Curves-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggEscNonWindWestHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_esc_non_wind_west_history(self) -> Archive[np3_908_er._2dAggEscNonWindWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonWindWestHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_Wind_West-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
+    class _2dAggEscNonWindSouthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_esc_non_wind_south_history(self) -> Archive[np3_908_er._2dAggEscNonWindSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonWindSouthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_Wind_South-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
+    class _2dAggEscNonWindNorthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_esc_non_wind_north_history(self) -> Archive[np3_908_er._2dAggEscNonWindNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonWindNorthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_Wind_North-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
+    class _2dAggEscNonWindHoustonHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_esc_non_wind_houston_history(self) -> Archive[np3_908_er._2dAggEscNonWindHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonWindHoustonHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_Wind_Houston-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
+    class _2dAggDamEscWestHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_esc_west_history(self) -> Archive[np3_908_er._2dAggDamEscWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEscWestHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Supply_Curves_West-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEscSouthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_esc_south_history(self) -> Archive[np3_908_er._2dAggDamEscSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEscSouthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Supply_Curves_South-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEscNorthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_esc_north_history(self) -> Archive[np3_908_er._2dAggDamEscNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEscNorthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Supply_Curves_North-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEscHoustonHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_esc_houston_history(self) -> Archive[np3_908_er._2dAggDamEscHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEscHoustonHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Supply_Curves_Houston-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEdcWestHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_edc_west_history(self) -> Archive[np3_908_er._2dAggDamEdcWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEdcWestHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Demand_Curves_West-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEdcSouthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_edc_south_history(self) -> Archive[np3_908_er._2dAggDamEdcSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEdcSouthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Demand_Curves_South-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEdcNorthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_edc_north_history(self) -> Archive[np3_908_er._2dAggDamEdcNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEdcNorthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Demand_Curves_North-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEdcHoustonHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_edc_houston_history(self) -> Archive[np3_908_er._2dAggDamEdcHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEdcHoustonHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Demand_Curves_Houston-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEdcHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_edc_history(self) -> Archive[np3_908_er._2dAggDamEdcHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEdcHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Demand_Curves-[0-9]*.csv', datetimes={}, variants=())
 
 class np3_909_er:
     def __init__(self, client: Transport) -> None:
