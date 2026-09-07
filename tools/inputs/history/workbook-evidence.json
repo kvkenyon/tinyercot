@@ -1,0 +1,63 @@
+[
+  {
+    "endpoint": "np1-346-er/outages",
+    "fixture": "np1-346-er-history-samples.xlsx",
+    "files": [
+      "221207050015.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx"
+    ],
+    "sheet_rows": {
+      "Unplanned Resource Outages": 1425
+    }
+  },
+  {
+    "endpoint": "np1-346-er/outages",
+    "fixture": "np1-346-er-history-current.xlsx",
+    "files": [
+      "UnplannedResOutage_20260907.xlsx"
+    ],
+    "sheet_rows": {
+      "Unplanned Resource Outages": 474
+    }
+  },
+  {
+    "endpoint": "np3-108/demand_response",
+    "fixture": "np3-108-history-samples.xlsx",
+    "files": [
+      "593398390.rpt.00013242.0000000000000000.20180104.080738083.Monthly_ERCOT_LoadResourceDR_17_12.xlsx"
+    ],
+    "sheet_rows": {
+      "Report Data": 96
+    }
+  },
+  {
+    "endpoint": "np3-108/demand_response",
+    "fixture": "np3-108-history-current.xlsx",
+    "files": [
+      "1270433337.rpt.00013242.0000000000000000.20260904.080058.Monthly_ERCOT_LoadResourceDR_26_08.xlsx"
+    ],
+    "sheet_rows": {
+      "CLR Report Data": 48,
+      "NCLR Report Data": 72
+    }
+  },
+  {
+    "endpoint": "np5-520-er/deployment_factors",
+    "fixture": "np5-520-er-history-samples.xlsx",
+    "files": [
+      "rpt.00025822.0000000000000000.20260104.080019.202512_MonthlyASDeployFactors.xlsx"
+    ],
+    "sheet_rows": {
+      "Monthly ASDF": 144
+    }
+  },
+  {
+    "endpoint": "np5-520-er/deployment_factors",
+    "fixture": "np5-520-er-history-current.xlsx",
+    "files": [
+      "rpt.00025822.0000000000000000.20260904.080036.202608_MonthlyASDeployFactors.xlsx"
+    ],
+    "sheet_rows": {
+      "Monthly ASDF": 144
+    }
+  }
+]

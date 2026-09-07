@@ -41,3 +41,10 @@ with Client() as client:
 
     for row in client.eia_930_er.daily_operations_history.read(b""):
         assert_type(row.HR1, Decimal | datetime | None)
+
+    for outage in client.np1_346_er.outages_history.rows():
+        assert_type(outage.plannedEndDate, datetime | None)
+        assert_type(outage.availableMWMaximum, Decimal | None)
+    for response in client.np3_108.demand_response_history.rows():
+        assert_type(response.month, date | None)
+        assert_type(response.sourceSheet, str | None)

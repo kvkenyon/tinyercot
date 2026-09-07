@@ -22,17 +22,19 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound=BaseModel)
 
 
-def _csv_files(data: bytes, pattern: str = "*.csv") -> Iterator[tuple[str, bytes]]:
+def _archive_files(data: bytes, pattern: str) -> Iterator[tuple[str, bytes]]:
     with ZipFile(BytesIO(data)) as archive:
         for member in archive.infolist():
             if member.is_dir():
                 continue
-            if member.filename.lower().endswith(".zip"):
-                yield from _csv_files(archive.read(member), pattern)
-            elif member.filename.lower().endswith(".csv") and fnmatchcase(
-                member.filename.rsplit("/", 1)[-1], pattern
-            ):
+            if fnmatchcase(member.filename.rsplit("/", 1)[-1], pattern):
                 yield member.filename, archive.read(member)
+            elif member.filename.lower().endswith(".zip"):
+                yield from _archive_files(archive.read(member), pattern)
+
+
+def _csv_files(data: bytes, pattern: str = "*.csv") -> Iterator[tuple[str, bytes]]:
+    yield from _archive_files(data, pattern)
 
 
 def _eia_hour(value: object) -> object:

@@ -35,9 +35,7 @@ with Client() as ercot:
     products = ercot.products()
     history = ercot.archives("np4-190-cd")
     document = history.archives[0]
-    Path("prices.zip").write_bytes(
-        ercot.download("np4-190-cd", [document.docId])
-    )
+    Path("prices.zip").write_bytes(ercot.download("np4-190-cd", [document.docId]))
 
     bundles = ercot.bundles("np4-190-cd")
     Path("monthly.zip").write_bytes(
@@ -150,3 +148,25 @@ Known optional columns can appear in intermediate combinations. Required model
 fields still apply, and unknown columns, duplicate aliases, or ambiguous reused
 headers raise an error. This supports compatible schema evolution without
 silently discarding source columns or assuming changed fields mean the same thing.
+
+Install `tinyercot[files]` for typed XLSX archives. This adds workbook support
+without changing the dependencies needed for API and CSV access:
+
+```python
+with Client() as ercot:
+    for row in ercot.np1_346_er.outages_history.rows(
+        posted_from=datetime(2026, 8, 1),
+        posted_to=datetime(2026, 8, 2),
+    ):
+        print(row.resourceName, row.actualOutageStart, row.plannedEndDate)
+```
+
+Workbook readers also cover monthly load-resource demand response
+(`ercot.np3_108.demand_response_history`) and ancillary-service deployment factors
+(`ercot.np5_520_er.deployment_factors_history`). `sourceSheet` preserves the source
+worksheet, including separate CLR and NCLR demand response tables; older reports
+have a single `Report Data` sheet. Month fields are dates on the first of the month.
+Older outage reports expose `returnToServiceDate`; newer reports expose separate
+`plannedEndDate` and `actualEndDate` fields. Missing fields remain `None`.
+These readers have been checked against the oldest available and recent sampled
+workbooks, not every intervening publication.

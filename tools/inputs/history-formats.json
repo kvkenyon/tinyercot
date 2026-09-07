@@ -1955,5 +1955,112 @@
       "STWPFWestNorth": "Decimal",
       "WGRPPWestNorth": "Decimal"
     }
+  },
+  "np1-346-er/outages": {
+    "archive_only": true,
+    "sheets": [
+      "Unplanned Resource Outages"
+    ],
+    "columns": {
+      "Resource Name": "resourceName",
+      "Resource Unit Code": "resourceUnitCode",
+      "Fuel Type": "fuelType",
+      "Outage Type": "outageType",
+      "Available MW Maximum": "availableMWMaximum",
+      "Available MW During Outage": "availableMWDuringOutage",
+      "Effective MW Reduction Due to Outage": "effectiveMWReduction",
+      "Actual Outage Start": "actualOutageStart",
+      "Return to Service Date": "returnToServiceDate",
+      "Nature Of Work": "natureOfWork"
+    },
+    "variants": [
+      {
+        "Resource Name": "resourceName",
+        "Resource Unit Code": "resourceUnitCode",
+        "Fuel Type": "fuelType",
+        "Outage Type": "outageType",
+        "Available MW Maximum": "availableMWMaximum",
+        "Available MW During Outage": "availableMWDuringOutage",
+        "Effective MW Reduction Due to Outage": "effectiveMWReduction",
+        "Actual Outage Start": "actualOutageStart",
+        "Planned End Date": "plannedEndDate",
+        "Actual End Date": "actualEndDate",
+        "Nature Of Work": "natureOfWork"
+      }
+    ],
+    "fields": {
+      "sourceSheet": "str",
+      "resourceName": "str",
+      "resourceUnitCode": "str",
+      "fuelType": "str",
+      "outageType": "str",
+      "availableMWMaximum": "Decimal",
+      "availableMWDuringOutage": "Decimal",
+      "effectiveMWReduction": "Decimal",
+      "actualOutageStart": "datetime",
+      "returnToServiceDate": "datetime",
+      "plannedEndDate": "datetime",
+      "actualEndDate": "datetime",
+      "natureOfWork": "str"
+    },
+    "dates": {}
+  },
+  "np3-108/demand_response": {
+    "archive_only": true,
+    "sheets": [
+      "Report Data",
+      "CLR Report Data",
+      "NCLR Report Data"
+    ],
+    "columns": {
+      "Month": "month",
+      "Hour": "hour",
+      "ASType": "ASType",
+      "Houston": "houston",
+      "North": "north",
+      "South": "south",
+      "West": "west"
+    },
+    "variants": [],
+    "fields": {
+      "sourceSheet": "str",
+      "month": "date",
+      "hour": "int",
+      "ASType": "str",
+      "houston": "Decimal",
+      "north": "Decimal",
+      "south": "Decimal",
+      "west": "Decimal"
+    },
+    "dates": {
+      "month": "%b-%y"
+    }
+  },
+  "np5-520-er/deployment_factors": {
+    "archive_only": true,
+    "sheets": [
+      "Monthly ASDF"
+    ],
+    "columns": {
+      "Delivery Month": "deliveryMonth",
+      "Hour Ending": "hourEnding",
+      "AS Type": "ASType",
+      "Avg AS Deployment Factors": "average",
+      "Min AS Deployment Factors": "minimum",
+      "Max AS Deployment Factors": "maximum"
+    },
+    "variants": [],
+    "fields": {
+      "sourceSheet": "str",
+      "deliveryMonth": "date",
+      "hourEnding": "int",
+      "ASType": "str",
+      "average": "Decimal",
+      "minimum": "Decimal",
+      "maximum": "Decimal"
+    },
+    "dates": {
+      "deliveryMonth": "%Y-%m"
+    }
   }
 }
