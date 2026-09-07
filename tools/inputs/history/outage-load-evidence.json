@@ -1,0 +1,695 @@
+{
+  "scope": "One publication from January, April, July and October of 2023\u20132025 for outages; one January publication per year where listed in 2015\u20132025 for load forecasts. All rows and all published data values were compared independently with source cells/CSV values, normalizing dates, numeric quantities and surrounding text whitespace. Missing complementary outage end-date fields and load forecast publication timestamps remain None. These checks do not establish continuous retention or every historical layout.",
+  "outages": {
+    "files": 12,
+    "decodedRows": 4519,
+    "allSourceValuesMatch": true
+  },
+  "loadForecasts": {
+    "files": 7,
+    "decodedRows": 1344,
+    "allSourceValuesMatch": true
+  },
+  "samples": [
+    {
+      "product": "NP1-346-ER",
+      "period": "2023-01",
+      "totalPublications": 32,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-01-01T00:00:00",
+        "postDatetimeTo": "2023-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 892933823,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2023-01-31T05:03:09"
+      },
+      "source": "work/history-outage-2023-01/NP1-346-ER.zip",
+      "zipSha256": "9e9c22ce5c39d4931e907d3596cbc56bcea0a138290e2d77c11f3ce53a90d2dd",
+      "files": [
+        {
+          "member": "230131050008.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx",
+          "xlsxSha256": "34dc80c90d6231c19934562f7581b357f1d6259ddefca13cc5deddb6ce1c929c",
+          "sheet": "Unplanned Resource Outages",
+          "columns": [
+            "Resource Name",
+            "Resource Unit Code",
+            "Fuel Type",
+            "Outage Type",
+            "Available MW Maximum",
+            "Available MW During Outage",
+            "Effective MW Reduction Due to Outage",
+            "Actual Outage Start",
+            "Planned End Date",
+            "Actual End Date",
+            "Nature Of Work"
+          ],
+          "sourceRows": 271,
+          "decodedRows": 271,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP1-346-ER",
+      "period": "2023-04",
+      "totalPublications": 30,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-04-01T00:00:00",
+        "postDatetimeTo": "2023-05-01T00:00:00"
+      },
+      "document": {
+        "docId": 912227552,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2023-04-30T05:03:22"
+      },
+      "source": "work/history-outage-2023-04/NP1-346-ER.zip",
+      "zipSha256": "d73fe29d2089c94862d41e4f3dd8df151f7fc4092b4742b220c5d653049f8243",
+      "files": [
+        {
+          "member": "230430050007.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx",
+          "xlsxSha256": "267211f5595b56a0929d6d170234daf455d415b1a8479deaed76413cad935518",
+          "sheet": "Unplanned Resource Outages",
+          "columns": [
+            "Resource Name",
+            "Resource Unit Code",
+            "Fuel Type",
+            "Outage Type",
+            "Available MW Maximum",
+            "Available MW During Outage",
+            "Effective MW Reduction Due to Outage",
+            "Actual Outage Start",
+            "Planned End Date",
+            "Actual End Date",
+            "Nature Of Work"
+          ],
+          "sourceRows": 364,
+          "decodedRows": 364,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP1-346-ER",
+      "period": "2023-07",
+      "totalPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-07-01T00:00:00",
+        "postDatetimeTo": "2023-08-01T00:00:00"
+      },
+      "document": {
+        "docId": 933122574,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2023-07-31T05:05:34"
+      },
+      "source": "work/history-outage-2023-07/NP1-346-ER.zip",
+      "zipSha256": "28540ea9263c1989fd57423f4bceec8639027d22eaf95b567d6043cef4d6e095",
+      "files": [
+        {
+          "member": "230731050012.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx",
+          "xlsxSha256": "34f6119357a9d411d29ed34f64ec2eae09955d722cc8bd28329082273d9a823d",
+          "sheet": "Unplanned Resource Outages",
+          "columns": [
+            "Resource Name",
+            "Resource Unit Code",
+            "Fuel Type",
+            "Outage Type",
+            "Available MW Maximum",
+            "Available MW During Outage",
+            "Effective MW Reduction Due to Outage",
+            "Actual Outage Start",
+            "Planned End Date",
+            "Actual End Date",
+            "Nature Of Work"
+          ],
+          "sourceRows": 315,
+          "decodedRows": 315,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP1-346-ER",
+      "period": "2023-10",
+      "totalPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-10-01T00:00:00",
+        "postDatetimeTo": "2023-11-01T00:00:00"
+      },
+      "document": {
+        "docId": 954784528,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2023-10-31T05:00:45"
+      },
+      "source": "work/history-outage-2023-10/NP1-346-ER.zip",
+      "zipSha256": "bfdb9e725d629015a02de58a19889cacdd58126e0e56f414f4dc19906fc2d75e",
+      "files": [
+        {
+          "member": "231031050004.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx",
+          "xlsxSha256": "04f0a3ba9079521d154ce8685b854af7ccb7c5a51037ad5e6486042e02b99a38",
+          "sheet": "Unplanned Resource Outages",
+          "columns": [
+            "Resource Name",
+            "Resource Unit Code",
+            "Fuel Type",
+            "Outage Type",
+            "Available MW Maximum",
+            "Available MW During Outage",
+            "Effective MW Reduction Due to Outage",
+            "Actual Outage Start",
+            "Planned End Date",
+            "Actual End Date",
+            "Nature Of Work"
+          ],
+          "sourceRows": 388,
+          "decodedRows": 388,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP1-346-ER",
+      "period": "2024-01",
+      "totalPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-01-01T00:00:00",
+        "postDatetimeTo": "2024-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 977288125,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2024-01-31T05:00:51"
+      },
+      "source": "work/history-outage-2024-01/NP1-346-ER.zip",
+      "zipSha256": "616c852573ce277283cdd7ea633b5527b28f9cfe996127993bdf00cdd468552f",
+      "files": [
+        {
+          "member": "240131050006.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx",
+          "xlsxSha256": "7150198835267ff91d990402af0897050377e5d8d8c4eed00fab7228a4e553f5",
+          "sheet": "Unplanned Resource Outages",
+          "columns": [
+            "Resource Name",
+            "Resource Unit Code",
+            "Fuel Type",
+            "Outage Type",
+            "Available MW Maximum",
+            "Available MW During Outage",
+            "Effective MW Reduction Due to Outage",
+            "Actual Outage Start",
+            "Planned End Date",
+            "Actual End Date",
+            "Nature Of Work"
+          ],
+          "sourceRows": 328,
+          "decodedRows": 328,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP1-346-ER",
+      "period": "2024-04",
+      "totalPublications": 30,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-04-01T00:00:00",
+        "postDatetimeTo": "2024-05-01T00:00:00"
+      },
+      "document": {
+        "docId": 1000009344,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2024-04-30T05:01:14"
+      },
+      "source": "work/history-outage-2024-04/NP1-346-ER.zip",
+      "zipSha256": "d162a67e1b283dce017c8f1ba3e58b0c9c72a964b8d13053c9c84caec1eb1166",
+      "files": [
+        {
+          "member": "240430050011.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx",
+          "xlsxSha256": "1b6faaf85e4c1b23186fef563d11010e8520f9e8364be6d4cb79af8a964ae459",
+          "sheet": "Unplanned Resource Outages",
+          "columns": [
+            "Resource Name",
+            "Resource Unit Code",
+            "Fuel Type",
+            "Outage Type",
+            "Available MW Maximum",
+            "Available MW During Outage",
+            "Effective MW Reduction Due to Outage",
+            "Actual Outage Start",
+            "Planned End Date",
+            "Actual End Date",
+            "Nature Of Work"
+          ],
+          "sourceRows": 374,
+          "decodedRows": 374,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP1-346-ER",
+      "period": "2024-07",
+      "totalPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-07-01T00:00:00",
+        "postDatetimeTo": "2024-08-01T00:00:00"
+      },
+      "document": {
+        "docId": 1024003166,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2024-07-31T05:00:56"
+      },
+      "source": "work/history-outage-2024-07/NP1-346-ER.zip",
+      "zipSha256": "abca6063b697e1413faedc5113c967e407758aa04efa158f90f45c38a1e3e42d",
+      "files": [
+        {
+          "member": "240731050005.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx",
+          "xlsxSha256": "2221be5710c777196667d0d738c1a1ebd905a715fc5002b2463dd668cd3f77dc",
+          "sheet": "Unplanned Resource Outages",
+          "columns": [
+            "Resource Name",
+            "Resource Unit Code",
+            "Fuel Type",
+            "Outage Type",
+            "Available MW Maximum",
+            "Available MW During Outage",
+            "Effective MW Reduction Due to Outage",
+            "Actual Outage Start",
+            "Planned End Date",
+            "Actual End Date",
+            "Nature Of Work"
+          ],
+          "sourceRows": 349,
+          "decodedRows": 349,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP1-346-ER",
+      "period": "2024-10",
+      "totalPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-10-01T00:00:00",
+        "postDatetimeTo": "2024-11-01T00:00:00"
+      },
+      "document": {
+        "docId": 1048529591,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2024-10-31T05:01:04"
+      },
+      "source": "work/history-outage-2024-10/NP1-346-ER.zip",
+      "zipSha256": "dc9d5c28be3b3203832f63cb9371936f01a35df22be68102561db9b0bcd2203f",
+      "files": [
+        {
+          "member": "241031050011.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx",
+          "xlsxSha256": "196ef458286135f7b82e62bef4fe73fc0f6198f262c3c73adf963aaf595bf08f",
+          "sheet": "Unplanned Resource Outages",
+          "columns": [
+            "Resource Name",
+            "Resource Unit Code",
+            "Fuel Type",
+            "Outage Type",
+            "Available MW Maximum",
+            "Available MW During Outage",
+            "Effective MW Reduction Due to Outage",
+            "Actual Outage Start",
+            "Planned End Date",
+            "Actual End Date",
+            "Nature Of Work"
+          ],
+          "sourceRows": 363,
+          "decodedRows": 363,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP1-346-ER",
+      "period": "2025-01",
+      "totalPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-01-01T00:00:00",
+        "postDatetimeTo": "2025-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 1073744783,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2025-01-31T05:00:56"
+      },
+      "source": "work/history-outage-2025-01/NP1-346-ER.zip",
+      "zipSha256": "cf94787d4cd533bda3ec3d14cbed318dc5eaf61a8e86f038b003816d4b4fef8f",
+      "files": [
+        {
+          "member": "250131050006.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx",
+          "xlsxSha256": "dc19ceffad0c5a3bbce4baed4b5f27df20b2a3de5267240158272e185c259d1f",
+          "sheet": "Unplanned Resource Outages",
+          "columns": [
+            "Resource Name",
+            "Resource Unit Code",
+            "Fuel Type",
+            "Outage Type",
+            "Available MW Maximum",
+            "Available MW During Outage",
+            "Effective MW Reduction Due to Outage",
+            "Actual Outage Start",
+            "Planned End Date",
+            "Actual End Date",
+            "Nature Of Work"
+          ],
+          "sourceRows": 514,
+          "decodedRows": 514,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP1-346-ER",
+      "period": "2025-04",
+      "totalPublications": 30,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-04-01T00:00:00",
+        "postDatetimeTo": "2025-05-01T00:00:00"
+      },
+      "document": {
+        "docId": 1098677985,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2025-04-30T05:00:52"
+      },
+      "source": "work/history-outage-2025-04/NP1-346-ER.zip",
+      "zipSha256": "aac34c1e8fc600cc337f3ea523b1f4455ec71b0b8dc4e03e45ca938f892d9967",
+      "files": [
+        {
+          "member": "250430050004.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx",
+          "xlsxSha256": "bc4305c5856adb16ab31a5b63584512068c43c34b0107c6907061631c1c3a001",
+          "sheet": "Unplanned Resource Outages",
+          "columns": [
+            "Resource Name",
+            "Resource Unit Code",
+            "Fuel Type",
+            "Outage Type",
+            "Available MW Maximum",
+            "Available MW During Outage",
+            "Effective MW Reduction Due to Outage",
+            "Actual Outage Start",
+            "Planned End Date",
+            "Actual End Date",
+            "Nature Of Work"
+          ],
+          "sourceRows": 416,
+          "decodedRows": 416,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP1-346-ER",
+      "period": "2025-07",
+      "totalPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-07-01T00:00:00",
+        "postDatetimeTo": "2025-08-01T00:00:00"
+      },
+      "document": {
+        "docId": 1125875478,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2025-07-31T05:06:46"
+      },
+      "source": "work/history-outage-2025-07/NP1-346-ER.zip",
+      "zipSha256": "1b375287a83396fea7c16abb76a512e1255a3467c2682bfa85650509a6b8f6f5",
+      "files": [
+        {
+          "member": "250731050602.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx",
+          "xlsxSha256": "a1c139dd79f34d571fd5897189ecfdf59bfac6848063baa6a2231fc286fdad07",
+          "sheet": "Unplanned Resource Outages",
+          "columns": [
+            "Resource Name",
+            "Resource Unit Code",
+            "Fuel Type",
+            "Outage Type",
+            "Available MW Maximum",
+            "Available MW During Outage",
+            "Effective MW Reduction Due to Outage",
+            "Actual Outage Start",
+            "Planned End Date",
+            "Actual End Date",
+            "Nature Of Work"
+          ],
+          "sourceRows": 411,
+          "decodedRows": 411,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP1-346-ER",
+      "period": "2025-10",
+      "totalPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-10-01T00:00:00",
+        "postDatetimeTo": "2025-11-01T00:00:00"
+      },
+      "document": {
+        "docId": 1155776946,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2025-10-31T05:01:00"
+      },
+      "source": "work/history-outage-2025-10/NP1-346-ER.zip",
+      "zipSha256": "f26967195fafa7cc141c5927f6262f75ea1cb758cd1996e615d0798d1c009468",
+      "files": [
+        {
+          "member": "251031050005.rpt.00022912.0000000000000000.UnplannedResOutage.xlsx",
+          "xlsxSha256": "e172f448517f6c1c23aa9345844177dc192cb08c655116f3fe01a91e6c073b96",
+          "sheet": "Unplanned Resource Outages",
+          "columns": [
+            "Resource Name",
+            "Resource Unit Code",
+            "Fuel Type",
+            "Outage Type",
+            "Available MW Maximum",
+            "Available MW During Outage",
+            "Effective MW Reduction Due to Outage",
+            "Actual Outage Start",
+            "Planned End Date",
+            "Actual End Date",
+            "Nature Of Work"
+          ],
+          "sourceRows": 426,
+          "decodedRows": 426,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP3-560-CD",
+      "period": "2015",
+      "totalPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2015-01-01T00:00:00",
+        "postDatetimeTo": "2015-02-01T00:00:00"
+      }
+    },
+    {
+      "product": "NP3-560-CD",
+      "period": "2016",
+      "totalPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2016-01-01T00:00:00",
+        "postDatetimeTo": "2016-02-01T00:00:00"
+      }
+    },
+    {
+      "product": "NP3-560-CD",
+      "period": "2017",
+      "totalPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2017-01-01T00:00:00",
+        "postDatetimeTo": "2017-02-01T00:00:00"
+      }
+    },
+    {
+      "product": "NP3-560-CD",
+      "period": "2018",
+      "totalPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2018-01-01T00:00:00",
+        "postDatetimeTo": "2018-02-01T00:00:00"
+      }
+    },
+    {
+      "product": "NP3-560-CD",
+      "period": "2019",
+      "totalPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2019-01-01T00:00:00",
+        "postDatetimeTo": "2019-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 646775914,
+        "friendlyName": "LFCCONGESTNP3560_csv",
+        "postDatetime": "2019-01-31T23:30:01"
+      },
+      "source": "work/history-annual-load-2019/NP3-560-CD.zip",
+      "zipSha256": "7ffee61c3b2d8ef5dcb4100753667899dbe31f1e68bcc888c4c8fccedc59c3ec",
+      "files": [
+        {
+          "member": "cdr.00012311.0000000000000000.20190131.233000.LFCCONGESTNP3560.csv",
+          "csvSha256": "e032b3aaf6cd6d486c5c40041c50986f7ead99eeddad40310aafe7303f8c2716",
+          "sourceRows": 192,
+          "decodedRows": 192,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP3-560-CD",
+      "period": "2020",
+      "totalPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2020-01-01T00:00:00",
+        "postDatetimeTo": "2020-02-01T00:00:00"
+      },
+      "listingReusedFrom": "history-middle-listings.json",
+      "document": {
+        "docId": 698822255,
+        "friendlyName": "LFCCONGESTNP3560_csv",
+        "postDatetime": "2020-01-31T23:30:01"
+      },
+      "source": "work/history-middle-2020/NP3-560-CD.zip",
+      "zipSha256": "ec487dc8296e4b4e1dc84666843325fafa3c5ddfefcb0a694ec46472c063781e",
+      "files": [
+        {
+          "member": "cdr.00012311.0000000000000000.20200131.233000.LFCCONGESTNP3560.csv",
+          "csvSha256": "6609c47d4a9baeb48790cc32acdfb55336c7f3bc996a1eafbe9df309140216a4",
+          "sourceRows": 192,
+          "decodedRows": 192,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP3-560-CD",
+      "period": "2021",
+      "totalPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2021-01-01T00:00:00",
+        "postDatetimeTo": "2021-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 756350731,
+        "friendlyName": "LFCCONGESTNP3560_csv",
+        "postDatetime": "2021-01-31T23:30:01"
+      },
+      "source": "work/history-annual-load-2021/NP3-560-CD.zip",
+      "zipSha256": "07d90a28c572d9437174d41e02bf594d0dddc56e15a15d4a7efbe9e0615c3d79",
+      "files": [
+        {
+          "member": "cdr.00012311.0000000000000000.20210131.233000.LFCCONGESTNP3560.csv",
+          "csvSha256": "a4fa935a783dd793f2388820cc756f00846562e71873bf12aae293de39c5fd02",
+          "sourceRows": 192,
+          "decodedRows": 192,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP3-560-CD",
+      "period": "2022",
+      "totalPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2022-01-01T00:00:00",
+        "postDatetimeTo": "2022-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 820531535,
+        "friendlyName": "LFCCONGESTNP3560_csv",
+        "postDatetime": "2022-01-31T23:30:00"
+      },
+      "source": "work/history-annual-load-2022/NP3-560-CD.zip",
+      "zipSha256": "0fbbe82a52c47a01313cbc72a32693b4cb5a1fe0fae2253673a07b2c6222519e",
+      "files": [
+        {
+          "member": "cdr.00012311.0000000000000000.20220131.233000.LFCCONGESTNP3560.csv",
+          "csvSha256": "53eaf38c285d8f827bbcacbac7c66162f71c1c0204a1f6520f06e0cfc8b7a0aa",
+          "sourceRows": 192,
+          "decodedRows": 192,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP3-560-CD",
+      "period": "2023",
+      "totalPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-01-01T00:00:00",
+        "postDatetimeTo": "2023-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 893107715,
+        "friendlyName": "LFCCONGESTNP3560_csv",
+        "postDatetime": "2023-01-31T23:30:00"
+      },
+      "source": "work/history-annual-load-2023/NP3-560-CD.zip",
+      "zipSha256": "1d6dc908011e394f3a0271b09ed6590e66552c5bf7751d06882c6b1638b496af",
+      "files": [
+        {
+          "member": "cdr.00012311.0000000000000000.20230131.233000.LFCCONGESTNP3560.csv",
+          "csvSha256": "7d6343bb173384b25217067d81bfb1c979cea294caf1e787ccf9b63082850a76",
+          "sourceRows": 192,
+          "decodedRows": 192,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP3-560-CD",
+      "period": "2024",
+      "totalPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-01-01T00:00:00",
+        "postDatetimeTo": "2024-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 977487127,
+        "friendlyName": "LFCCONGESTNP3560_csv",
+        "postDatetime": "2024-01-31T23:30:00"
+      },
+      "source": "work/history-annual-load-2024/NP3-560-CD.zip",
+      "zipSha256": "e4a46614a1a80a90077ff909be59ac26acae6be915ca42b12f2666ba566e4ded",
+      "files": [
+        {
+          "member": "cdr.00012311.0000000000000000.20240131.233000.LFCCONGESTNP3560.csv",
+          "csvSha256": "f560451df616cf6d0fcbf899edcbe9c054d894eb19994842d4e197c0babd5bfb",
+          "sourceRows": 192,
+          "decodedRows": 192,
+          "allSourceValuesMatch": true
+        }
+      ]
+    },
+    {
+      "product": "NP3-560-CD",
+      "period": "2025",
+      "totalPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-01-01T00:00:00",
+        "postDatetimeTo": "2025-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 1073967218,
+        "friendlyName": "LFCCONGESTNP3560_csv",
+        "postDatetime": "2025-01-31T23:30:00"
+      },
+      "source": "work/history-annual-load-2025/NP3-560-CD.zip",
+      "zipSha256": "c3e56a880a3d2c0bac6d430717511ea817ea7aa512e8c664b91de8d271488f96",
+      "files": [
+        {
+          "member": "cdr.00012311.0000000000000000.20250131.233000.LFCCONGESTNP3560.csv",
+          "csvSha256": "4c6a47ea05b1ecca13039f1de267d8bfa66ea33769997bbc4b1d7d1924721069",
+          "sourceRows": 192,
+          "decodedRows": 192,
+          "allSourceValuesMatch": true
+        }
+      ]
+    }
+  ]
+}
