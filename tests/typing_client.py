@@ -163,3 +163,12 @@ with Client() as client:
     for highest_sced in client.np3_916_ex._3d_highest_price_offer_sced_history.rows():
         assert_type(highest_sced.batchId, str | None)
         assert_type(highest_sced.LMP, Decimal | None)
+
+    for sced_curve in client.np3_906_ex._2day_agg_sced_as_offers_regdn_history.rows():
+        assert_type(sced_curve.SCEDTimestamp, datetime | None)
+        assert_type(sced_curve.MWOffered, Decimal | None)
+        assert_type(sced_curve.REGDNOfferPrice, Decimal | None)
+    for dam_curve in client.np3_907_ex._2d_agg_edc_north_history.rows():
+        assert_type(dam_curve.deliveryDate, date | None)
+        assert_type(dam_curve.MW, Decimal | None)
+        assert_type(dam_curve.price, Decimal | None)

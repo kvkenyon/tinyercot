@@ -1186,3 +1186,56 @@ def test_highest_price_history_preserves_legacy_fields():
     assert dam.qseName is None
     assert len(current) == 3
     assert current[0] == current[1] == current[2]
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "disclosure-curves-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_disclosure_curve_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    if rows:
+        assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_disclosure_curve_readers_select_their_own_tables():
+    samples = json.loads((INPUTS / "disclosure-curves-evidence.json").read_text())
+    content = BytesIO()
+    with ZipFile(content, "w") as archive:
+        for sample in samples:
+            if "history-samples" in sample["fixture"]:
+                archive.writestr(
+                    sample["file"], (INPUTS / sample["fixture"]).read_bytes()
+                )
+    with Client() as client:
+        system = list(client.np3_907_ex._2d_agg_edc_history.read(content.getvalue()))
+        north = list(
+            client.np3_907_ex._2d_agg_edc_north_history.read(content.getvalue())
+        )
+        supply = list(client.np3_907_ex._2d_agg_esc_history.read(content.getvalue()))
+        regulation = list(
+            client.np3_906_ex._2day_agg_sced_as_offers_regdn_history.read(
+                content.getvalue()
+            )
+        )
+    assert len(system) == len(north) == len(supply) == len(regulation) == 3
+    assert system[0].MW == Decimal("51260.7")
+    assert north[0].MW == Decimal(19048)
+    assert system[1].MW == Decimal("47922.79882")
+    assert supply[0].MW == Decimal(1)
+    assert supply[0].price == Decimal(-250)
+    assert regulation[0].MWOffered == Decimal("318.1")
+    assert regulation[0].REGDNOfferPrice == Decimal(0)
+    assert regulation[0].repeatHourFlag is False
