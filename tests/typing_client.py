@@ -231,3 +231,11 @@ with Client() as client:
         assert_type(self_arranged.RRSPFR, Decimal | None)
     for cap_override in client.np3_965_er._60d_sced_as_cap_man_override_history.rows():
         assert_type(cap_override.startTime, datetime | None)
+
+    for sced_adder in client.np6_792_er.price_adders_history.rows():
+        assert_type(sced_adder.SCEDTimestamp, datetime | None)
+        assert_type(sced_adder.RTORPA, Decimal | None)
+        assert_type(sced_adder.RTRDPA, Decimal | None)
+    for interval_adder in client.np6_793_er.price_adders_history.rows():
+        assert_type(interval_adder.deliveryDate, date | None)
+        assert_type(interval_adder.RTRSVPOR, Decimal | None)
