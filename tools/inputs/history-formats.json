@@ -2477,5 +2477,307 @@
       "deliveryDate": "%m/%d/%Y"
     },
     "datetimes": {}
+  },
+  "np6-322-cd/sced_system_lambda": {
+    "columns": {
+      "SCEDTimeStamp": "SCEDTimestamp",
+      "RepeatedHourFlag": "repeatedHourFlag",
+      "CappedSystemLambda": "cappedSystemLambda",
+      "UncappedSystemLambda": "uncappedSystemLambda"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "variants": [
+      {
+        "SCEDTimestamp": "SCEDTimestamp",
+        "RepeatedHourFlag": "repeatedHourFlag",
+        "SystemLambda": "systemLambda"
+      }
+    ],
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatedHourFlag": "bool",
+      "cappedSystemLambda": "Decimal",
+      "uncappedSystemLambda": "Decimal",
+      "systemLambda": "Decimal"
+    }
+  },
+  "np6-323-cd/rt_price_adder_sced": {
+    "columns": {
+      "SCEDTimestamp": "SCEDTimestamp",
+      "RepeatedHourFlag": "repeatHourFlag",
+      "SystemLambda": "systemLambda",
+      "RTRDPA": "RTRDPA",
+      "RTRDPARUS": "RTRDPARUS",
+      "RTRDPARDS": "RTRDPARDS",
+      "RTRDPARRS": "RTRDPARRS",
+      "RTRDPAECRS": "RTRDPAECRS",
+      "RTRDPANSS": "RTRDPANSS",
+      "RTRRUC": "RTRRUC",
+      "RTRRMR": "RTRRMR",
+      "RTDNCLR": "RTDNCLR",
+      "RTDERS": "RTDERS",
+      "RTDCTIEIMPORT": "RTDCTIEIMPORT",
+      "RTDCTIEEXPORT": "RTDCTIEEXPORT",
+      "RTBLTIMPORT": "RTBLTIMPORT",
+      "RTBLTEXPORT": "RTBLTEXPORT",
+      "RTOLLSL": "RTOLLSL",
+      "RTOLHSL": "RTOLHSL",
+      "RTDLL": "RTDLL"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "variants": [
+      {
+        "BatchID": "BatchID",
+        "SCEDTimestamp": "SCEDTimestamp",
+        "RepeatedHourFlag": "repeatHourFlag",
+        "SystemLambda": "systemLambda",
+        "PRC": "PRC",
+        "RTORPA": "RTORPA",
+        "RTOFFPA": "RTOFFPA",
+        "RTOLCAP": "RTOLCAP",
+        "RTOFFCAP": "RTOFFCAP",
+        "RTOLHSL": "RTOLHSL",
+        "RTBP": "RTBP",
+        "RTCLRCAP": "RTCLRCAP",
+        "RTCLRREG": "RTCLRREG",
+        "RTCLRBP": "RTCLRBP",
+        "RTCLRLSL": "RTCLRLSL",
+        "RTCLRNS": "RTCLRNS",
+        "RTNCLRRRS": "RTNCLRRRS",
+        "RTOLNSRS": "RTOLNSRS",
+        "RTCST30HSL": "RTCST30HSL",
+        "RTOFFNSHSL": "RTOFFNSHSL",
+        "RTOFF10": "RTOFF10",
+        "RTOFF30": "RTOFF30"
+      }
+    ],
+    "fields": {
+      "SCEDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "systemLambda": "Decimal",
+      "RTRDPA": "Decimal",
+      "RTRDPARUS": "Decimal",
+      "RTRDPARDS": "Decimal",
+      "RTRDPARRS": "Decimal",
+      "RTRDPAECRS": "Decimal",
+      "RTRDPANSS": "Decimal",
+      "RTRRUC": "Decimal",
+      "RTRRMR": "Decimal",
+      "RTDNCLR": "Decimal",
+      "RTDERS": "Decimal",
+      "RTDCTIEIMPORT": "Decimal",
+      "RTDCTIEEXPORT": "Decimal",
+      "RTBLTIMPORT": "Decimal",
+      "RTBLTEXPORT": "Decimal",
+      "RTOLLSL": "Decimal",
+      "RTOLHSL": "Decimal",
+      "RTDLL": "Decimal",
+      "BatchID": "int",
+      "PRC": "Decimal",
+      "RTORPA": "Decimal",
+      "RTOFFPA": "Decimal",
+      "RTOLCAP": "Decimal",
+      "RTOFFCAP": "Decimal",
+      "RTBP": "Decimal",
+      "RTCLRCAP": "Decimal",
+      "RTCLRREG": "Decimal",
+      "RTCLRBP": "Decimal",
+      "RTCLRLSL": "Decimal",
+      "RTCLRNS": "Decimal",
+      "RTNCLRRRS": "Decimal",
+      "RTOLNSRS": "Decimal",
+      "RTCST30HSL": "Decimal",
+      "RTOFFNSHSL": "Decimal",
+      "RTOFF10": "Decimal",
+      "RTOFF30": "Decimal"
+    }
+  },
+  "np6-324-cd/rt_15min_price_adders": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "DeliveryInterval": "deliveryInterval",
+      "RTRDPA": "RTRDPA",
+      "RTRDPRU": "RTRDPRU",
+      "RTRDPRD": "RTRDPRD",
+      "RTRDPRRS": "RTRDPRRS",
+      "RTRDPECRS": "RTRDPECRS",
+      "RTRDPNS": "RTRDPNS",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {},
+    "variants": [
+      {
+        "DeliveryDate": "deliveryDate",
+        "DeliveryHour": "deliveryHour",
+        "DeliveryInterval": "deliveryInterval",
+        "RTRSVPOR": "RTRSVPOR",
+        "RTRSVPOFF": "RTRSVPOFF",
+        "DSTFlag": "repeatHourFlag"
+      }
+    ],
+    "fields": {
+      "deliveryDate": "date",
+      "deliveryHour": "int",
+      "deliveryInterval": "int",
+      "RTRDPA": "Decimal",
+      "RTRDPRU": "Decimal",
+      "RTRDPRD": "Decimal",
+      "RTRDPRRS": "Decimal",
+      "RTRDPECRS": "Decimal",
+      "RTRDPNS": "Decimal",
+      "repeatHourFlag": "bool",
+      "RTRSVPOR": "Decimal",
+      "RTRSVPOFF": "Decimal"
+    }
+  },
+  "np6-325-cd/rtd_price_adders": {
+    "columns": {
+      "RTDTimestamp": "RTDTimestamp",
+      "RepeatedHourFlag": "repeatHourFlag",
+      "IntervalID": "intervalID",
+      "IntervalEnding": "intervalEnding",
+      "IERepeatedHourFlag": "IERepeatHourFlag",
+      "SystemLambda": "systemLambda",
+      "RTRDPA": "RTRDPA",
+      "RTRDPARUS": "RTRDPARUS",
+      "RTRDPARDS": "RTRDPARDS",
+      "RTRDPARRS": "RTRDPARRS",
+      "RTRDPAECRS": "RTRDPAECRS",
+      "RTRDPANSS": "RTRDPANSS",
+      "RTRRUC": "RTRRUC",
+      "RTRRMR": "RTRRMR",
+      "RTDNCLR": "RTDNCLR",
+      "RTDERS": "RTDERS",
+      "RTDCTIEIMPORT": "RTDCTIEImport",
+      "RTDCTIEEXPORT": "RTDCTIEExport",
+      "RTBLTIMPORT": "RTBLTImport",
+      "RTBLTEXPORT": "RTBLTExport",
+      "RTOLLSL": "RTOLLSL",
+      "RTOLHSL": "RTOLHSL",
+      "RTDLL": "RTDLL"
+    },
+    "dates": {},
+    "datetimes": {
+      "RTDTimestamp": "%m/%d/%Y %H:%M:%S",
+      "intervalEnding": "%m/%d/%Y %H:%M:%S"
+    },
+    "variants": [
+      {
+        "BatchID": "BatchID",
+        "RTDTimestamp": "RTDTimestamp",
+        "RepeatedHourFlag": "repeatHourFlag",
+        "IntervalID": "intervalID",
+        "IntervalEnding": "intervalEnding",
+        "IERepeatedHourFlag": "IERepeatHourFlag",
+        "SystemLambda": "systemLambda",
+        "RTORPA": "RTORPA",
+        "RTOFFPA": "RTOFFPA",
+        "RTOLCAP": "RTOLCAP",
+        "RTOFFCAP": "RTOFFCAP"
+      }
+    ],
+    "fields": {
+      "RTDTimestamp": "datetime",
+      "repeatHourFlag": "bool",
+      "intervalID": "int",
+      "intervalEnding": "datetime",
+      "IERepeatHourFlag": "bool",
+      "systemLambda": "Decimal",
+      "RTRDPA": "Decimal",
+      "RTRDPARUS": "Decimal",
+      "RTRDPARDS": "Decimal",
+      "RTRDPARRS": "Decimal",
+      "RTRDPAECRS": "Decimal",
+      "RTRDPANSS": "Decimal",
+      "RTRRUC": "Decimal",
+      "RTRRMR": "Decimal",
+      "RTDNCLR": "Decimal",
+      "RTDERS": "Decimal",
+      "RTDCTIEImport": "Decimal",
+      "RTDCTIEExport": "Decimal",
+      "RTBLTImport": "Decimal",
+      "RTBLTExport": "Decimal",
+      "RTOLLSL": "Decimal",
+      "RTOLHSL": "Decimal",
+      "RTDLL": "Decimal",
+      "BatchID": "int",
+      "RTORPA": "Decimal",
+      "RTOFFPA": "Decimal",
+      "RTOLCAP": "Decimal",
+      "RTOFFCAP": "Decimal"
+    }
+  },
+  "np6-625-cd/se_ld_rpt_ercot_gen": {
+    "columns": {
+      "SE_EXE_TIME": "seExeTime",
+      "SE_EXE_TIME_DST": "seExeTimeDST",
+      "SE_MW": "seMW",
+      "SE_MVAR": "seMVAR",
+      "SCADA_MW": "scadaMW",
+      "SCADA_MVAR": "scadaMVAR"
+    },
+    "dates": {},
+    "datetimes": {
+      "seExeTime": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np6-626-cd/se_load_dcties_flows": {
+    "columns": {
+      "TAGCLAST_TIME": "TAGCTimestamp",
+      "TAGCLAST_TIME_DST": "TAGCTimeDST",
+      "TIE_LINE_ID": "TIELineId",
+      "MW_TIE": "MWTIE",
+      "TEID_TIE": "TEIDTIE"
+    },
+    "dates": {},
+    "datetimes": {
+      "TAGCTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np6-915-cd/sum_hdl_ldl": {
+    "columns": {
+      "SCED_TimeStamp": "SCEDTimestamp",
+      "Repeated_Hour_Flag": "repeatHourFlag",
+      "GTBD": "GTBD",
+      "SUM_HDL": "sumHDL",
+      "SUM_LDL": "sumLDL"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np6-86-cd/shdw_prices_bnd_trns_const": {
+    "columns": {
+      "SCEDTimeStamp": "SCEDTimestamp",
+      "RepeatedHourFlag": "repeatedHourFlag",
+      "ConstraintID": "constraintID",
+      "ConstraintName": "constraintName",
+      "ContingencyName": "contingencyName",
+      "ShadowPrice": "shadowPrice",
+      "MaxShadowPrice": "maxShadowPrice",
+      "Limit": "limit",
+      "Value": "value",
+      "ViolatedMW": "violatedMW",
+      "FromStation": "fromStation",
+      "ToStation": "toStation",
+      "FromStationkV": "fromStationkV",
+      "ToStationkV": "toStationkV",
+      "CCTStatus": "CCTStatus"
+    },
+    "dates": {},
+    "datetimes": {
+      "SCEDTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
   }
 }

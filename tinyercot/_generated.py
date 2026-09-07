@@ -7839,6 +7839,18 @@ class np6_322_cd:
         repeatedHourFlag: bool | None
         uncappedSystemLambda: Decimal | None
 
+    class ScedSystemLambdaHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatedHourFlag: bool | None
+        cappedSystemLambda: Decimal | None = None
+        uncappedSystemLambda: Decimal | None = None
+        systemLambda: Decimal | None = None
+
+    @property
+    def sced_system_lambda_history(self) -> Archive[np6_322_cd.ScedSystemLambdaHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-322-cd', np6_322_cd.ScedSystemLambdaHistoryRow, {'SCEDTimeStamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'CappedSystemLambda': 'cappedSystemLambda', 'UncappedSystemLambda': 'uncappedSystemLambda'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'SystemLambda': 'systemLambda'},))
+
     def sced_system_lambda(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatedHourFlag: bool | None = None, cappedSystemLambdaFrom: Decimal | None = None, cappedSystemLambdaTo: Decimal | None = None, uncappedSystemLambdaFrom: Decimal | None = None, uncappedSystemLambdaTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_322_cd.ScedSystemLambdaRow]:
         'SCED System Lambda'
         return self._client._page('/np6-322-cd/sced_system_lambda', np6_322_cd.ScedSystemLambdaRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatedHourFlag': repeatedHourFlag, 'cappedSystemLambdaFrom': cappedSystemLambdaFrom, 'cappedSystemLambdaTo': cappedSystemLambdaTo, 'uncappedSystemLambdaFrom': uncappedSystemLambdaFrom, 'uncappedSystemLambdaTo': uncappedSystemLambdaTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7881,6 +7893,51 @@ class np6_323_cd:
         repeatHourFlag: bool | None
         systemLambda: Decimal | None
 
+    class RtPriceAdderScedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        systemLambda: Decimal | None
+        RTRDPA: Decimal | None = None
+        RTRDPARUS: Decimal | None = None
+        RTRDPARDS: Decimal | None = None
+        RTRDPARRS: Decimal | None = None
+        RTRDPAECRS: Decimal | None = None
+        RTRDPANSS: Decimal | None = None
+        RTRRUC: Decimal | None = None
+        RTRRMR: Decimal | None = None
+        RTDNCLR: Decimal | None = None
+        RTDERS: Decimal | None = None
+        RTDCTIEIMPORT: Decimal | None = None
+        RTDCTIEEXPORT: Decimal | None = None
+        RTBLTIMPORT: Decimal | None = None
+        RTBLTEXPORT: Decimal | None = None
+        RTOLLSL: Decimal | None = None
+        RTOLHSL: Decimal | None
+        RTDLL: Decimal | None = None
+        BatchID: int | None = None
+        PRC: Decimal | None = None
+        RTORPA: Decimal | None = None
+        RTOFFPA: Decimal | None = None
+        RTOLCAP: Decimal | None = None
+        RTOFFCAP: Decimal | None = None
+        RTBP: Decimal | None = None
+        RTCLRCAP: Decimal | None = None
+        RTCLRREG: Decimal | None = None
+        RTCLRBP: Decimal | None = None
+        RTCLRLSL: Decimal | None = None
+        RTCLRNS: Decimal | None = None
+        RTNCLRRRS: Decimal | None = None
+        RTOLNSRS: Decimal | None = None
+        RTCST30HSL: Decimal | None = None
+        RTOFFNSHSL: Decimal | None = None
+        RTOFF10: Decimal | None = None
+        RTOFF30: Decimal | None = None
+
+    @property
+    def rt_price_adder_sced_history(self) -> Archive[np6_323_cd.RtPriceAdderScedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-323-cd', np6_323_cd.RtPriceAdderScedHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'SystemLambda': 'systemLambda', 'RTRDPA': 'RTRDPA', 'RTRDPARUS': 'RTRDPARUS', 'RTRDPARDS': 'RTRDPARDS', 'RTRDPARRS': 'RTRDPARRS', 'RTRDPAECRS': 'RTRDPAECRS', 'RTRDPANSS': 'RTRDPANSS', 'RTRRUC': 'RTRRUC', 'RTRRMR': 'RTRRMR', 'RTDNCLR': 'RTDNCLR', 'RTDERS': 'RTDERS', 'RTDCTIEIMPORT': 'RTDCTIEIMPORT', 'RTDCTIEEXPORT': 'RTDCTIEEXPORT', 'RTBLTIMPORT': 'RTBLTIMPORT', 'RTBLTEXPORT': 'RTBLTEXPORT', 'RTOLLSL': 'RTOLLSL', 'RTOLHSL': 'RTOLHSL', 'RTDLL': 'RTDLL'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'BatchID': 'BatchID', 'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'SystemLambda': 'systemLambda', 'PRC': 'PRC', 'RTORPA': 'RTORPA', 'RTOFFPA': 'RTOFFPA', 'RTOLCAP': 'RTOLCAP', 'RTOFFCAP': 'RTOFFCAP', 'RTOLHSL': 'RTOLHSL', 'RTBP': 'RTBP', 'RTCLRCAP': 'RTCLRCAP', 'RTCLRREG': 'RTCLRREG', 'RTCLRBP': 'RTCLRBP', 'RTCLRLSL': 'RTCLRLSL', 'RTCLRNS': 'RTCLRNS', 'RTNCLRRRS': 'RTNCLRRRS', 'RTOLNSRS': 'RTOLNSRS', 'RTCST30HSL': 'RTCST30HSL', 'RTOFFNSHSL': 'RTOFFNSHSL', 'RTOFF10': 'RTOFF10', 'RTOFF30': 'RTOFF30'},))
+
     def rt_price_adder_sced(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, systemLambdaFrom: Decimal | None = None, systemLambdaTo: Decimal | None = None, RTRDPAFrom: Decimal | None = None, RTRDPATo: Decimal | None = None, RTRDPARUSFrom: Decimal | None = None, RTRDPARUSTo: Decimal | None = None, RTRDPARDSFrom: Decimal | None = None, RTRDPARDSTo: Decimal | None = None, RTRDPARRSFrom: Decimal | None = None, RTRDPARRSTo: Decimal | None = None, RTRDPAECRSFrom: Decimal | None = None, RTRDPAECRSTo: Decimal | None = None, RTRDPANSSFrom: Decimal | None = None, RTRDPANSSTo: Decimal | None = None, RTRRUCFrom: Decimal | None = None, RTRRUCTo: Decimal | None = None, RTRRMRFrom: Decimal | None = None, RTRRMRTo: Decimal | None = None, RTDNCLRFrom: Decimal | None = None, RTDNCLRTo: Decimal | None = None, RTDERSFrom: Decimal | None = None, RTDERSTo: Decimal | None = None, RTDCTIEIMPORTFrom: Decimal | None = None, RTDCTIEIMPORTTo: Decimal | None = None, RTDCTIEEXPORTFrom: Decimal | None = None, RTDCTIEEXPORTTo: Decimal | None = None, RTBLTIMPORTFrom: Decimal | None = None, RTBLTIMPORTTo: Decimal | None = None, RTBLTEXPORTFrom: Decimal | None = None, RTBLTEXPORTTo: Decimal | None = None, RTOLLSLFrom: Decimal | None = None, RTOLLSLTo: Decimal | None = None, RTOLHSLFrom: Decimal | None = None, RTOLHSLTo: Decimal | None = None, RTDLLFrom: Decimal | None = None, RTDLLTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_323_cd.RtPriceAdderScedRow]:
         'Real-Time Price Adders by SCED Interval'
         return self._client._page('/np6-323-cd/rt_price_adder_sced', np6_323_cd.RtPriceAdderScedRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'systemLambdaFrom': systemLambdaFrom, 'systemLambdaTo': systemLambdaTo, 'RTRDPAFrom': RTRDPAFrom, 'RTRDPATo': RTRDPATo, 'RTRDPARUSFrom': RTRDPARUSFrom, 'RTRDPARUSTo': RTRDPARUSTo, 'RTRDPARDSFrom': RTRDPARDSFrom, 'RTRDPARDSTo': RTRDPARDSTo, 'RTRDPARRSFrom': RTRDPARRSFrom, 'RTRDPARRSTo': RTRDPARRSTo, 'RTRDPAECRSFrom': RTRDPAECRSFrom, 'RTRDPAECRSTo': RTRDPAECRSTo, 'RTRDPANSSFrom': RTRDPANSSFrom, 'RTRDPANSSTo': RTRDPANSSTo, 'RTRRUCFrom': RTRRUCFrom, 'RTRRUCTo': RTRRUCTo, 'RTRRMRFrom': RTRRMRFrom, 'RTRRMRTo': RTRRMRTo, 'RTDNCLRFrom': RTDNCLRFrom, 'RTDNCLRTo': RTDNCLRTo, 'RTDERSFrom': RTDERSFrom, 'RTDERSTo': RTDERSTo, 'RTDCTIEIMPORTFrom': RTDCTIEIMPORTFrom, 'RTDCTIEIMPORTTo': RTDCTIEIMPORTTo, 'RTDCTIEEXPORTFrom': RTDCTIEEXPORTFrom, 'RTDCTIEEXPORTTo': RTDCTIEEXPORTTo, 'RTBLTIMPORTFrom': RTBLTIMPORTFrom, 'RTBLTIMPORTTo': RTBLTIMPORTTo, 'RTBLTEXPORTFrom': RTBLTEXPORTFrom, 'RTBLTEXPORTTo': RTBLTEXPORTTo, 'RTOLLSLFrom': RTOLLSLFrom, 'RTOLLSLTo': RTOLLSLTo, 'RTOLHSLFrom': RTOLHSLFrom, 'RTOLHSLTo': RTOLHSLTo, 'RTDLLFrom': RTDLLFrom, 'RTDLLTo': RTDLLTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7912,6 +7969,25 @@ class np6_324_cd:
         deliveryHour: int | None
         deliveryInterval: int | None
         repeatHourFlag: bool | None
+
+    class Rt15minPriceAddersHistoryRow(Row):
+        deliveryDate: date | None
+        deliveryHour: int | None
+        deliveryInterval: int | None
+        RTRDPA: Decimal | None = None
+        RTRDPRU: Decimal | None = None
+        RTRDPRD: Decimal | None = None
+        RTRDPRRS: Decimal | None = None
+        RTRDPECRS: Decimal | None = None
+        RTRDPNS: Decimal | None = None
+        repeatHourFlag: bool | None
+        RTRSVPOR: Decimal | None = None
+        RTRSVPOFF: Decimal | None = None
+
+    @property
+    def rt_15min_price_adders_history(self) -> Archive[np6_324_cd.Rt15minPriceAddersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-324-cd', np6_324_cd.Rt15minPriceAddersHistoryRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RTRDPA': 'RTRDPA', 'RTRDPRU': 'RTRDPRU', 'RTRDPRD': 'RTRDPRD', 'RTRDPRRS': 'RTRDPRRS', 'RTRDPECRS': 'RTRDPECRS', 'RTRDPNS': 'RTRDPNS', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=({'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'DSTFlag': 'repeatHourFlag'},))
 
     def rt_15min_price_adders(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, RTRDPAFrom: Decimal | None = None, RTRDPATo: Decimal | None = None, RTRDPRUFrom: Decimal | None = None, RTRDPRUTo: Decimal | None = None, RTRDPRDFrom: Decimal | None = None, RTRDPRDTo: Decimal | None = None, RTRDPRRSFrom: Decimal | None = None, RTRDPRRSTo: Decimal | None = None, RTRDPECRSFrom: Decimal | None = None, RTRDPECRSTo: Decimal | None = None, RTRDPNSFrom: Decimal | None = None, RTRDPNSTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_324_cd.Rt15minPriceAddersRow]:
         'Real-Time Price Adders for 15-Minute Settlement Interval'
@@ -7957,6 +8033,41 @@ class np6_325_cd:
         intervalID: int | None
         repeatHourFlag: bool | None
         systemLambda: Decimal | None
+
+    class RtdPriceAddersHistoryRow(Row):
+        RTDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        intervalID: int | None
+        intervalEnding: datetime | None
+        IERepeatHourFlag: bool | None
+        systemLambda: Decimal | None
+        RTRDPA: Decimal | None = None
+        RTRDPARUS: Decimal | None = None
+        RTRDPARDS: Decimal | None = None
+        RTRDPARRS: Decimal | None = None
+        RTRDPAECRS: Decimal | None = None
+        RTRDPANSS: Decimal | None = None
+        RTRRUC: Decimal | None = None
+        RTRRMR: Decimal | None = None
+        RTDNCLR: Decimal | None = None
+        RTDERS: Decimal | None = None
+        RTDCTIEImport: Decimal | None = None
+        RTDCTIEExport: Decimal | None = None
+        RTBLTImport: Decimal | None = None
+        RTBLTExport: Decimal | None = None
+        RTOLLSL: Decimal | None = None
+        RTOLHSL: Decimal | None = None
+        RTDLL: Decimal | None = None
+        BatchID: int | None = None
+        RTORPA: Decimal | None = None
+        RTOFFPA: Decimal | None = None
+        RTOLCAP: Decimal | None = None
+        RTOFFCAP: Decimal | None = None
+
+    @property
+    def rtd_price_adders_history(self) -> Archive[np6_325_cd.RtdPriceAddersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-325-cd', np6_325_cd.RtdPriceAddersHistoryRow, {'RTDTimestamp': 'RTDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'IntervalID': 'intervalID', 'IntervalEnding': 'intervalEnding', 'IERepeatedHourFlag': 'IERepeatHourFlag', 'SystemLambda': 'systemLambda', 'RTRDPA': 'RTRDPA', 'RTRDPARUS': 'RTRDPARUS', 'RTRDPARDS': 'RTRDPARDS', 'RTRDPARRS': 'RTRDPARRS', 'RTRDPAECRS': 'RTRDPAECRS', 'RTRDPANSS': 'RTRDPANSS', 'RTRRUC': 'RTRRUC', 'RTRRMR': 'RTRRMR', 'RTDNCLR': 'RTDNCLR', 'RTDERS': 'RTDERS', 'RTDCTIEIMPORT': 'RTDCTIEImport', 'RTDCTIEEXPORT': 'RTDCTIEExport', 'RTBLTIMPORT': 'RTBLTImport', 'RTBLTEXPORT': 'RTBLTExport', 'RTOLLSL': 'RTOLLSL', 'RTOLHSL': 'RTOLHSL', 'RTDLL': 'RTDLL'}, {}, member='*.csv', datetimes={'RTDTimestamp': '%m/%d/%Y %H:%M:%S', 'intervalEnding': '%m/%d/%Y %H:%M:%S'}, variants=({'BatchID': 'BatchID', 'RTDTimestamp': 'RTDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'IntervalID': 'intervalID', 'IntervalEnding': 'intervalEnding', 'IERepeatedHourFlag': 'IERepeatHourFlag', 'SystemLambda': 'systemLambda', 'RTORPA': 'RTORPA', 'RTOFFPA': 'RTOFFPA', 'RTOLCAP': 'RTOLCAP', 'RTOFFCAP': 'RTOFFCAP'},))
 
     def rtd_price_adders(self, *, RTDTimestampFrom: datetime | None = None, RTDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, intervalIDFrom: int | None = None, intervalIDTo: int | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, IERepeatHourFlag: bool | None = None, systemLambdaFrom: Decimal | None = None, systemLambdaTo: Decimal | None = None, RTRDPAFrom: Decimal | None = None, RTRDPATo: Decimal | None = None, RTRDPARUSFrom: Decimal | None = None, RTRDPARUSTo: Decimal | None = None, RTRDPARDSFrom: Decimal | None = None, RTRDPARDSTo: Decimal | None = None, RTRDPARRSFrom: Decimal | None = None, RTRDPARRSTo: Decimal | None = None, RTRDPAECRSFrom: Decimal | None = None, RTRDPAECRSTo: Decimal | None = None, RTRDPANSSFrom: Decimal | None = None, RTRDPANSSTo: Decimal | None = None, RTRRUCFrom: Decimal | None = None, RTRRUCTo: Decimal | None = None, RTRRMRFrom: Decimal | None = None, RTRRMRTo: Decimal | None = None, RTDNCLRFrom: Decimal | None = None, RTDNCLRTo: Decimal | None = None, RTDERSFrom: Decimal | None = None, RTDERSTo: Decimal | None = None, RTDCTIEImportFrom: Decimal | None = None, RTDCTIEImportTo: Decimal | None = None, RTDCTIEExportFrom: Decimal | None = None, RTDCTIEExportTo: Decimal | None = None, RTBLTImportFrom: Decimal | None = None, RTBLTImportTo: Decimal | None = None, RTBLTExportFrom: Decimal | None = None, RTBLTExportTo: Decimal | None = None, RTOLLSLFrom: Decimal | None = None, RTOLLSLTo: Decimal | None = None, RTOLHSLFrom: Decimal | None = None, RTOLHSLTo: Decimal | None = None, RTDLLFrom: Decimal | None = None, RTDLLTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_325_cd.RtdPriceAddersRow]:
         'RTD Indicative Price Adders'
@@ -8272,6 +8383,11 @@ class np6_625_cd:
         seMVAR: Decimal | None
         seMW: Decimal | None
 
+    @property
+    def se_ld_rpt_ercot_gen_history(self) -> Archive[np6_625_cd.SeLdRptErcotGenRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-625-cd', np6_625_cd.SeLdRptErcotGenRow, {'SE_EXE_TIME': 'seExeTime', 'SE_EXE_TIME_DST': 'seExeTimeDST', 'SE_MW': 'seMW', 'SE_MVAR': 'seMVAR', 'SCADA_MW': 'scadaMW', 'SCADA_MVAR': 'scadaMVAR'}, {}, member='*.csv', datetimes={'seExeTime': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def se_ld_rpt_ercot_gen(self, *, scadaMWFrom: Decimal | None = None, scadaMWTo: Decimal | None = None, seExeTimeFrom: datetime | None = None, seExeTimeTo: datetime | None = None, seExeTimeDST: str | None = None, seMWFrom: Decimal | None = None, seMWTo: Decimal | None = None, seMVARFrom: Decimal | None = None, seMVARTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_625_cd.SeLdRptErcotGenRow]:
         'State Estimator Load Report - Total ERCOT Generation'
         return self._client._page('/np6-625-cd/se_ld_rpt_ercot_gen', np6_625_cd.SeLdRptErcotGenRow, {'scadaMWFrom': scadaMWFrom, 'scadaMWTo': scadaMWTo, 'seExeTimeFrom': seExeTimeFrom, 'seExeTimeTo': seExeTimeTo, 'seExeTimeDST': seExeTimeDST, 'seMWFrom': seMWFrom, 'seMWTo': seMWTo, 'seMVARFrom': seMVARFrom, 'seMVARTo': seMVARTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -8298,6 +8414,11 @@ class np6_626_cd:
         TAGCTimestamp: datetime | None
         TEIDTIE: Decimal | None
         TIELineId: str | None
+
+    @property
+    def se_load_dcties_flows_history(self) -> Archive[np6_626_cd.SeLoadDctiesFlowsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-626-cd', np6_626_cd.SeLoadDctiesFlowsRow, {'TAGCLAST_TIME': 'TAGCTimestamp', 'TAGCLAST_TIME_DST': 'TAGCTimeDST', 'TIE_LINE_ID': 'TIELineId', 'MW_TIE': 'MWTIE', 'TEID_TIE': 'TEIDTIE'}, {}, member='*.csv', datetimes={'TAGCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def se_load_dcties_flows(self, *, TAGCTimestampFrom: datetime | None = None, TAGCTimestampTo: datetime | None = None, TAGCTimeDST: str | None = None, TIELineId: str | None = None, MWTIEFrom: Decimal | None = None, MWTIETo: Decimal | None = None, TEIDTIEFrom: Decimal | None = None, TEIDTIETo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_626_cd.SeLoadDctiesFlowsRow]:
         'State Estimator Load Report - DC Ties Flows'
@@ -8407,6 +8528,11 @@ class np6_86_cd:
         value: Decimal | None
         violatedMW: Decimal | None
 
+    @property
+    def shdw_prices_bnd_trns_const_history(self) -> Archive[np6_86_cd.ShdwPricesBndTrnsConstRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-86-cd', np6_86_cd.ShdwPricesBndTrnsConstRow, {'SCEDTimeStamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'ConstraintID': 'constraintID', 'ConstraintName': 'constraintName', 'ContingencyName': 'contingencyName', 'ShadowPrice': 'shadowPrice', 'MaxShadowPrice': 'maxShadowPrice', 'Limit': 'limit', 'Value': 'value', 'ViolatedMW': 'violatedMW', 'FromStation': 'fromStation', 'ToStation': 'toStation', 'FromStationkV': 'fromStationkV', 'ToStationkV': 'toStationkV', 'CCTStatus': 'CCTStatus'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def shdw_prices_bnd_trns_const(self, *, fromStation: str | None = None, toStation: str | None = None, fromStationkVFrom: Decimal | None = None, fromStationkVTo: Decimal | None = None, toStationkVFrom: Decimal | None = None, toStationkVTo: Decimal | None = None, CCTStatus: str | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatedHourFlag: bool | None = None, constraintIDFrom: int | None = None, constraintIDTo: int | None = None, constraintName: str | None = None, contingencyName: str | None = None, shadowPriceFrom: Decimal | None = None, shadowPriceTo: Decimal | None = None, maxShadowPriceFrom: Decimal | None = None, maxShadowPriceTo: Decimal | None = None, limitFrom: Decimal | None = None, limitTo: Decimal | None = None, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, violatedMWFrom: Decimal | None = None, violatedMWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_86_cd.ShdwPricesBndTrnsConstRow]:
         'SCED Shadow Prices and Binding Transmission Constraints'
         return self._client._page('/np6-86-cd/shdw_prices_bnd_trns_const', np6_86_cd.ShdwPricesBndTrnsConstRow, {'fromStation': fromStation, 'toStation': toStation, 'fromStationkVFrom': fromStationkVFrom, 'fromStationkVTo': fromStationkVTo, 'toStationkVFrom': toStationkVFrom, 'toStationkVTo': toStationkVTo, 'CCTStatus': CCTStatus, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatedHourFlag': repeatedHourFlag, 'constraintIDFrom': constraintIDFrom, 'constraintIDTo': constraintIDTo, 'constraintName': constraintName, 'contingencyName': contingencyName, 'shadowPriceFrom': shadowPriceFrom, 'shadowPriceTo': shadowPriceTo, 'maxShadowPriceFrom': maxShadowPriceFrom, 'maxShadowPriceTo': maxShadowPriceTo, 'limitFrom': limitFrom, 'limitTo': limitTo, 'valueFrom': valueFrom, 'valueTo': valueTo, 'violatedMWFrom': violatedMWFrom, 'violatedMWTo': violatedMWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -8467,6 +8593,11 @@ class np6_915_cd:
         repeatHourFlag: bool | None
         sumHDL: Decimal | None
         sumLDL: Decimal | None
+
+    @property
+    def sum_hdl_ldl_history(self) -> Archive[np6_915_cd.SumHdlLdlRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-915-cd', np6_915_cd.SumHdlLdlRow, {'SCED_TimeStamp': 'SCEDTimestamp', 'Repeated_Hour_Flag': 'repeatHourFlag', 'GTBD': 'GTBD', 'SUM_HDL': 'sumHDL', 'SUM_LDL': 'sumLDL'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def sum_hdl_ldl(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, GTBDFrom: Decimal | None = None, GTBDTo: Decimal | None = None, sumHDLFrom: Decimal | None = None, sumHDLTo: Decimal | None = None, sumLDLFrom: Decimal | None = None, sumLDLTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_915_cd.SumHdlLdlRow]:
         'Summary Report of HDL and LDL'
