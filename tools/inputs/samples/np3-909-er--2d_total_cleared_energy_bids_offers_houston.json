@@ -1,0 +1,104 @@
+{
+  "_meta": {
+    "totalRecords": 6551,
+    "pageSize": 1,
+    "totalPages": 6551,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "2d_total_cleared_energy_bids_offers_houston",
+    "reportDisplayName": "2-Day Total Cleared Energy Bids and Energy-Only Offers Houston",
+    "reportId": "13055",
+    "reportEMIL": "NP3-909-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumDamENOnlyBidsCleared",
+      "label": "Summation of DAM Energy Only Bids cleared for each hour",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sum3POCleared",
+      "label": "Summation of 3PO Offers cleared",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumDamENOnlyOffersCleared",
+      "label": "Summation of DAM Energy Only Offers cleared",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumESRBidsCleared",
+      "label": "Summation of ESR Bids Cleared for each hour",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumESROffersCleared",
+      "label": "Summation of ESR Offers Cleared for each hour",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-04",
+      1,
+      -6289.0,
+      3989.1,
+      641.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-909-er/2d_total_cleared_energy_bids_offers_houston"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-909-er"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "totalRecords": 149589,
+    "pageSize": 1,
+    "totalPages": 149589,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC"
+    }
+  },
+  "report": {
+    "reportName": "2d_agg_out_sched_north",
+    "reportDisplayName": "2-Day Aggregated Output Schedule North",
+    "reportId": "13056",
+    "reportEMIL": "NP3-910-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "sumLSLOutputSched",
+      "label": "Sum LSL Output Schedule",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumHSLOutputSched",
+      "label": "Sum HSL Output Schedule",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumOutputSched",
+      "label": "Sum Output Schedule",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-04T23:55:16",
+      false,
+      653.50000381,
+      3421.96164608,
+      2407.94417996
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-910-er/2d_agg_out_sched_north"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-910-er"
+    }
+  }
+}

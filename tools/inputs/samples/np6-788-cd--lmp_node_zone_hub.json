@@ -1,0 +1,77 @@
+{
+  "_meta": {
+    "totalRecords": 234707,
+    "pageSize": 1,
+    "totalPages": 234707,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 2,
+      "parameters": {
+        "SCEDTimestampFrom": "2026-09-06T00:00:00",
+        "SCEDTimestampTo": "2026-09-06T23:59:59"
+      },
+      "sortedBy": "SCEDTimestamp: DESC"
+    }
+  },
+  "report": {
+    "reportName": "lmp_node_zone_hub",
+    "reportDisplayName": "LMPs by Resource Nodes, Load Zones and Trading Hubs",
+    "reportId": "12300",
+    "reportEMIL": "NP6-788-CD",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Time Stamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "settlementPoint",
+      "label": "Settlement Point",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "LMP",
+      "label": "LMP",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T17:15:17",
+      false,
+      "7RNCHSLR_ALL",
+      28.89
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np6-788-cd/lmp_node_zone_hub"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np6-788-cd"
+    }
+  }
+}

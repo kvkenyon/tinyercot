@@ -1,0 +1,174 @@
+{
+  "_meta": {
+    "totalRecords": 2268554,
+    "pageSize": 1,
+    "totalPages": 2268554,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "postedDatetime: DESC,intervalEnding: ASC,DSTFlag: ASC,model: ASC,inUseFlag: ASC"
+    }
+  },
+  "report": {
+    "reportName": "ih_load_fcast_by_wzn",
+    "reportDisplayName": "Intra-Hour Load Forecast by Weather Zone",
+    "reportId": "16553",
+    "reportEMIL": "NP3-562-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "intervalEnding",
+      "label": "Interval Ending",
+      "cardinality": 2,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "coast",
+      "label": "Coast",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "east",
+      "label": "East",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "farWest",
+      "label": "Far West",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "north",
+      "label": "North",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "northCentral",
+      "label": "North Central",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "southCentral",
+      "label": "South Central",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "southern",
+      "label": "Southern",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "west",
+      "label": "West",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "systemTotal",
+      "label": "System Total",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "model",
+      "label": "Model",
+      "cardinality": 12,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "inUseFlag",
+      "label": "In Use Flag",
+      "cardinality": 13,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 14,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T16:57:00",
+      "2026-09-06T17:00:00",
+      18289.056640625,
+      2728.21923828125,
+      8248.40234375,
+      2681.7763671875,
+      26807.439453125,
+      14029.30078125,
+      6628.98193359375,
+      2594.61474609375,
+      82007.7890625,
+      "A6",
+      false,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-562-cd/ih_load_fcast_by_wzn"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-562-cd"
+    }
+  }
+}

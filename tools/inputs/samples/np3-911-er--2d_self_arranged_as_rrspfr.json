@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "totalRecords": 23999,
+    "pageSize": 1,
+    "totalPages": 23999,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "2d_self_arranged_as_rrspfr",
+    "reportDisplayName": "2-Day Self Arranged Ancillary Service RRSPFR",
+    "reportId": "13057",
+    "reportEMIL": "NP3-911-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalSelfArrangedASRRSPFR",
+      "label": "Total Self Arranged AS RRSPFR",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-04",
+      1,
+      59.7
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-911-er/2d_self_arranged_as_rrspfr"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-911-er"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "_meta": {
+    "totalRecords": 187522488,
+    "pageSize": 1,
+    "totalPages": 187522488,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC,qseName: ASC"
+    }
+  },
+  "report": {
+    "reportName": "60_dam_ptp_obl_bid_awards",
+    "reportDisplayName": "60-Day DAM PTP Obligation Bid Awards",
+    "reportId": "13051",
+    "reportEMIL": "NP3-966-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "qseName",
+      "label": "QSE",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "settlementPointSource",
+      "label": "Settlement Point Source",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "settlementPointSink",
+      "label": "Settlement Point Sink",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "PTPBidAwardMW",
+      "label": "PtP Bid Award - MW",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "PTPBidPrice",
+      "label": "PtP Bid - Price",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "bidId",
+      "label": "Bid ID",
+      "cardinality": 8,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-07-08",
+      1,
+      "QAEN",
+      "EXGNWTL_1",
+      "LZ_AEN",
+      4.0,
+      -0.04,
+      "PTP2"
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-966-er/60_dam_ptp_obl_bid_awards"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-966-er"
+    }
+  }
+}

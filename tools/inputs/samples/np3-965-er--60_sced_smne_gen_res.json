@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "totalRecords": 144250216,
+    "pageSize": 1,
+    "totalPages": 144250216,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "intervalTime: DESC,intervalNumber: ASC,resourceCode: ASC"
+    }
+  },
+  "report": {
+    "reportName": "60_sced_smne_gen_res",
+    "reportDisplayName": "60-Day SCED Settlement Metered Net Energy for Generation Resources",
+    "reportId": "13052",
+    "reportEMIL": "NP3-965-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "intervalTime",
+      "label": "Interval Time",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "intervalNumber",
+      "label": "Interval Number",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "resourceCode",
+      "label": "Resource Code",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "intervalValue",
+      "label": "Interval Value",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-07-08T23:59:59",
+      96,
+      "19599_1_PV_A1",
+      0.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er/60_sced_smne_gen_res"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er"
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "_meta": {
+    "totalRecords": 234,
+    "pageSize": 1,
+    "totalPages": 234,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC"
+    }
+  },
+  "report": {
+    "reportName": "60_hdl_ldl_man_override",
+    "reportDisplayName": "60-Day HDL and LDL Manual Override Summary",
+    "reportId": "13052",
+    "reportEMIL": "NP3-965-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Time Stamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "participantName",
+      "label": "Participant Name",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceName",
+      "label": "Resource Name",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "HDLOriginal",
+      "label": "HDL Original",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "HDLManual",
+      "label": "HDL Manual",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "HDLFinal",
+      "label": "HDL Final",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "LDLOriginal",
+      "label": "LDL Original",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "LDLManual",
+      "label": "LDL Manual",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "LDLFinal",
+      "label": "LDL Final",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "reasonCode",
+      "label": "Reason Code",
+      "cardinality": 11,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2024-04-08T13:30:16",
+      false,
+      "QAEN",
+      "FPPYD1_FPP_G2_J02",
+      219.52,
+      0.0,
+      219.52,
+      197.02,
+      160.0,
+      197.02,
+      "."
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er/60_hdl_ldl_man_override"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er"
+    }
+  }
+}

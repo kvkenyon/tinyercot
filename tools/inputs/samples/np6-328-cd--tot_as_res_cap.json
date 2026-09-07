@@ -1,0 +1,134 @@
+{
+  "_meta": {
+    "totalRecords": 145294,
+    "pageSize": 1,
+    "totalPages": 145294,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC,repeatHourFlag: ASC"
+    }
+  },
+  "report": {
+    "reportName": "tot_as_res_cap",
+    "reportDisplayName": "Total Capability of Resources Available to Provide Ancillary Service",
+    "reportId": "24887",
+    "reportEMIL": "NP6-328-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Time Stamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "capREGUP",
+      "label": "CapREGUPTotal",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capREGDN",
+      "label": "CapREGDNTotal",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capRRS",
+      "label": "CapRRSTotal",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capECRS",
+      "label": "CapECRSTotal",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capNSPIN",
+      "label": "CapNSPINTotal",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capREGUPRRS",
+      "label": "CapREGUP_RRSTotal",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capREGUPRRSECRS",
+      "label": "CapREGUP_RRS_ECRSTotal",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capREGUPRRSECRSNSPIN",
+      "label": "CapREGUP_RRS_ECRS_NSPINTotal",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T17:15:17",
+      false,
+      28307.3,
+      7705.9,
+      22978.9,
+      28942.1,
+      22936.6,
+      35982.6,
+      40913.4,
+      50250.2
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np6-328-cd/tot_as_res_cap"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np6-328-cd"
+    }
+  }
+}

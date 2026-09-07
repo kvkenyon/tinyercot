@@ -1,0 +1,69 @@
+{
+  "value": [
+    {
+      "id": "getListForProducts",
+      "name": "All available Data Products",
+      "method": "GET",
+      "urlTemplate": "/",
+      "description": "Retrieve all available (active) products in the current Data registry having public accessibility.",
+      "request": null
+    },
+    {
+      "id": "getProductHistoryBundles",
+      "name": "Available historical report archives for a specified Data product.",
+      "method": "GET",
+      "urlTemplate": "/bundle/{productId}",
+      "description": "Available historical report archives for a specified Data product.",
+      "request": null
+    },
+    {
+      "id": "getProductHistory",
+      "name": "Available report archives for a specified Data product.",
+      "method": "GET",
+      "urlTemplate": "/archive/{productId}",
+      "description": "Available report archives for a specified Data product.",
+      "request": null
+    },
+    {
+      "id": "getProduct",
+      "name": "Available report artifacts for a specified Data product.",
+      "method": "GET",
+      "urlTemplate": "/{productId}",
+      "description": "Available report artifacts for a specified Data product.",
+      "request": null
+    },
+    {
+      "id": "getProductArchives",
+      "name": "Download a collection of Data Product archives.",
+      "method": "POST",
+      "urlTemplate": "/archive/{productId}/download",
+      "description": "Download a collection of Data Product archives by generating a JSON request with a single 'docIds' element containing the document identifiers you wish to download.",
+      "request": null
+    },
+    {
+      "id": "getProductBundle",
+      "name": "Download a Data Product historical archive.",
+      "method": "POST",
+      "urlTemplate": "/bundle/{productId}/download",
+      "description": "Download a Data Product bundle archive by generating a JSON request with a single 'docIds' element containing the document identifier you wish to download.",
+      "request": null
+    },
+    {
+      "id": "getData",
+      "name": "Energy Storage Resource Four Second Data",
+      "method": "GET",
+      "urlTemplate": "/rptesr-m/4_sec_esr_charging_mw",
+      "description": "Energy Storage Resource Four Second Data",
+      "request": null
+    },
+    {
+      "id": "getVersion",
+      "name": "Retrieve the current version for the ERCOT ESR API Service.",
+      "method": "GET",
+      "urlTemplate": "/version",
+      "description": "Retrieve the current version for the ERCOT ESR API Service.",
+      "request": null
+    }
+  ],
+  "nextLink": null
+}

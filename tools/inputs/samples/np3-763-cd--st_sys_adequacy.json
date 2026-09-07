@@ -1,0 +1,324 @@
+{
+  "_meta": {
+    "totalRecords": 1110481,
+    "pageSize": 1,
+    "totalPages": 1110481,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "postedDatetime: DESC,deliveryDate: DESC,hourEnding: ASC,repeatHourFlag: ASC"
+    }
+  },
+  "report": {
+    "reportName": "st_sys_adequacy",
+    "reportDisplayName": "Short-Term System Adequacy",
+    "reportId": "12315",
+    "reportEMIL": "NP3-763-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 2,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capGenResSouth",
+      "label": "Cap Gen Res South",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capGenResNorth",
+      "label": "Cap Gen Res North",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capGenResWest",
+      "label": "Cap Gen Res West",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capGenResHouston",
+      "label": "Cap Gen Res Houston",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capLoadResSouth",
+      "label": "Cap Load Res South",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capLoadResNorth",
+      "label": "Cap Load Res North",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capLoadResWest",
+      "label": "Cap Load Res West",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capLoadResHouston",
+      "label": "Cap Load Res Houston",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "offAvailMWSouth",
+      "label": "Offline Available MW South",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "offAvailMWNorth",
+      "label": "Offline Available MW North",
+      "cardinality": 13,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "offAvailMWWest",
+      "label": "Offline Available MW West",
+      "cardinality": 14,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "offAvailMWHouston",
+      "label": "Offline Available MW Houston",
+      "cardinality": 15,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "availCapGen",
+      "label": "Avail Cap Gen",
+      "cardinality": 16,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "availCapRes",
+      "label": "Avail Cap Reserve",
+      "cardinality": 17,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capGenRes",
+      "label": "Cap Gen Res Total",
+      "cardinality": 18,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capLoadRes",
+      "label": "Cap Load Res Total",
+      "cardinality": 19,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "offAvailMW",
+      "label": "Offline Available MW Total",
+      "cardinality": 20,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capREGUP",
+      "label": "Cap REGUP Total",
+      "cardinality": 21,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capREGDN",
+      "label": "Cap REGDN Total",
+      "cardinality": 22,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capRRS",
+      "label": "Cap RRS Total",
+      "cardinality": 23,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capECRS",
+      "label": "Cap ECRS Total",
+      "cardinality": 24,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capNSPIN",
+      "label": "Cap NSPIN Total",
+      "cardinality": 25,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capREGUPRRS",
+      "label": "Cap REGUP_RRS Total",
+      "cardinality": 26,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capREGUPRRSECRS",
+      "label": "Cap REGUP RRS ECRS Total",
+      "cardinality": 27,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "capREGUPRRSECRSNSPIN",
+      "label": "Cap REGUP RRS ECRS NSPIN Total",
+      "cardinality": 28,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 29,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T16:00:54",
+      "2026-09-12",
+      "01:00",
+      21515.5,
+      20124.5,
+      20792.5,
+      13187.2,
+      883.5,
+      117.0,
+      236.7,
+      310.0,
+      6278.4,
+      16381.0,
+      2720.0,
+      8691.6,
+      112023.4,
+      47324.5592,
+      75619.7,
+      1547.2,
+      34071.0,
+      22972.0,
+      22866.5,
+      8729.74,
+      24291.1,
+      13929.4,
+      25942.22,
+      29678.7,
+      35239.94,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-763-cd/st_sys_adequacy"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-763-cd"
+    }
+  }
+}

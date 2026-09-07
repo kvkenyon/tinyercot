@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "totalRecords": 173839021,
+    "pageSize": 1,
+    "totalPages": 173839021,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC"
+    }
+  },
+  "report": {
+    "reportName": "2d_agg_esc_esr_west",
+    "reportDisplayName": "2-Day Aggregate Supply Curve for ESR Resources West",
+    "reportId": "13054",
+    "reportEMIL": "NP3-908-ER",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Time Stamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "history_id",
+      "label": "Artifact History Id",
+      "cardinality": 2,
+      "dataType": "LONG",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "docId",
+      "label": "Document Id",
+      "cardinality": 3,
+      "dataType": "LONG",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 4,
+      "dataType": "BOOLEAN",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": false
+    },
+    {
+      "name": "price",
+      "label": "Price",
+      "cardinality": 5,
+      "dataType": "INTEGER",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "MW",
+      "label": "MW",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-08-26T23:55:20",
+      false,
+      -250,
+      -3967.17047238
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-908-er/2d_agg_esc_esr_west"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-908-er"
+    }
+  }
+}

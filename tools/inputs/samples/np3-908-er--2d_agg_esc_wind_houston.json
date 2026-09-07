@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "totalRecords": 4914620,
+    "pageSize": 1,
+    "totalPages": 4914620,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC,repeatHourFlag: ASC,price: ASC"
+    }
+  },
+  "report": {
+    "reportName": "2d_agg_esc_wind_houston",
+    "reportDisplayName": "2-Day Aggregate Supply Curve for Wind Resources Houston",
+    "reportId": "13054",
+    "reportEMIL": "NP3-908-ER",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Time Stamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "price",
+      "label": "Price",
+      "cardinality": 3,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "MW",
+      "label": "MW",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-04T23:55:16",
+      false,
+      -100,
+      0.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-908-er/2d_agg_esc_wind_houston"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-908-er"
+    }
+  }
+}

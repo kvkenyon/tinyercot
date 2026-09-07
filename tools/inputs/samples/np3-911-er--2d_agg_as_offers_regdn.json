@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "totalRecords": 2392921,
+    "pageSize": 1,
+    "totalPages": 2392921,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "2d_agg_as_offers_regdn",
+    "reportDisplayName": "2-Day Aggregated Ancillary Service Offers REGDN",
+    "reportId": "13057",
+    "reportEMIL": "NP3-911-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "MWOffered",
+      "label": "MW Offered",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "REGDNOfferPrice",
+      "label": "REGDN Offer Price",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2025-12-05",
+      1,
+      2.0,
+      0.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-911-er/2d_agg_as_offers_regdn"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-911-er"
+    }
+  }
+}

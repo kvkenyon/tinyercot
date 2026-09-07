@@ -1,0 +1,8 @@
+{
+  "np3-908-er/2d_agg_esc_esr_west": [
+    "SCEDTimestamp",
+    "repeatHourFlag",
+    "price",
+    "MW"
+  ]
+}

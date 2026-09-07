@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "totalRecords": 4309627,
+    "pageSize": 1,
+    "totalPages": 4309627,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC,repeatHourFlag: ASC,settlementPoint: ASC"
+    }
+  },
+  "report": {
+    "reportName": "total_dam_energy_sold",
+    "reportDisplayName": "DAM Total Energy Sold",
+    "reportId": "12334",
+    "reportEMIL": "NP4-193-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "settlementPoint",
+      "label": "Settlement Point",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "totalDAMEnergySold",
+      "label": "Total DAM Energy Sold",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 5,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-07",
+      "01:00",
+      "ABINDUST_RN",
+      1.1,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np4-193-cd/total_dam_energy_sold"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np4-193-cd"
+    }
+  }
+}

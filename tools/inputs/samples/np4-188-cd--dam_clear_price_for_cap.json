@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "totalRecords": 119995,
+    "pageSize": 1,
+    "totalPages": 119995,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "dam_clear_price_for_cap",
+    "reportDisplayName": "DAM Clearing Prices for Capacity",
+    "reportId": "12329",
+    "reportEMIL": "NP4-188-CD",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "ancillaryType",
+      "label": "Ancillary Type",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "MCPC",
+      "label": "MCPC",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 5,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-07",
+      "01:00",
+      "NSPIN",
+      5.91,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np4-188-cd/dam_clear_price_for_cap"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np4-188-cd"
+    }
+  }
+}

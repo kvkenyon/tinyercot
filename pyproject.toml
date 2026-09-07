@@ -10,13 +10,9 @@ authors = [
 ]
 
 dependencies = [
-    "aiolimiter>=1.1.0",
-    "cachetools>=6.2.4",
     "httpx>=0.28.1",
     "httpx-retries>=0.4.5",
     "pydantic>=2.10.0",
-    "tqdm>=4.67.1",
-    "pandas>=2.0",
 ]
 
 [project.urls]
@@ -26,8 +22,9 @@ Issues = "https://github.com/kvkenyon/tinyercot/issues"
 
 [dependency-groups]
 dev = [
-    "ipython>=9.8.0",
-    "tqdm>=4.67.1",
+    "mypy>=2.3.1",
+    "pytest>=9.1.1",
+    "ruff>=0.16.6",
 ]
 
 

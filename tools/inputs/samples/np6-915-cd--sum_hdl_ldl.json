@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "totalRecords": 37467,
+    "pageSize": 1,
+    "totalPages": 37467,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC"
+    }
+  },
+  "report": {
+    "reportName": "sum_hdl_ldl",
+    "reportDisplayName": "Summary Report of HDL and LDL",
+    "reportId": "13081",
+    "reportEMIL": "NP6-915-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "GTBD",
+      "label": "Generation To Be Dispatched",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumHDL",
+      "label": "Sum Of High Dispatch Limit",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumLDL",
+      "label": "Sum Of Low Dispatch Limit",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T17:10:18",
+      false,
+      82712.1,
+      104081.7,
+      31136.3
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np6-915-cd/sum_hdl_ldl"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np6-915-cd"
+    }
+  }
+}

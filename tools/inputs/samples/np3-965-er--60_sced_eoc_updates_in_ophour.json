@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "totalRecords": 2386448,
+    "pageSize": 1,
+    "totalPages": 2386448,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,deliveryHour: ASC,resourceName: ASC"
+    }
+  },
+  "report": {
+    "reportName": "60_sced_eoc_updates_in_ophour",
+    "reportDisplayName": "60-Day SCED Energy Offer Curve Updates in Operating Hour",
+    "reportId": "13052",
+    "reportEMIL": "NP3-965-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryHour",
+      "label": "Delivery Hour",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "resourceName",
+      "label": "Resource Name",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "reason",
+      "label": "Reason",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": false
+    },
+    {
+      "name": "opHourUpdates",
+      "label": "Count of Updates During Operating Hour",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-07-08",
+      1,
+      "AE_ESR1",
+      "SOC Management; SOC Management; SOC Management; SOC Management; SOC Management; SOC Management",
+      6.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er/60_sced_eoc_updates_in_ophour"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er"
+    }
+  }
+}

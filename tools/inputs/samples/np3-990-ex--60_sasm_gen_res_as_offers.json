@@ -1,0 +1,654 @@
+{
+  "_meta": {
+    "totalRecords": 101782,
+    "pageSize": 1,
+    "totalPages": 101782,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,SASMId: DESC,hourEnding: ASC,qseName: ASC"
+    }
+  },
+  "report": {
+    "reportName": "60_sasm_gen_res_as_offers",
+    "reportDisplayName": "60-Day SASM Generation Resource AS Offers",
+    "reportId": "15833",
+    "reportEMIL": "NP3-990-EX",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SASMId",
+      "label": "SASM ID",
+      "cardinality": 2,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 3,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "qseName",
+      "label": "QSE NAME",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "dmeName",
+      "label": "DME",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceName",
+      "label": "Resource Name",
+      "cardinality": 6,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "multiHourBlockFlag",
+      "label": "Multi-Hour Block Flag",
+      "cardinality": 7,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "blockIndicator1",
+      "label": "BLOCK INDICATOR1",
+      "cardinality": 8,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "price1RRSPFR",
+      "label": "PRICE1 RRSPFR",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1RRSFFR",
+      "label": "PRICE1 RRSFFR",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1RRSUFR",
+      "label": "PRICE1 RRSUFR",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1ECRS",
+      "label": "PRICE1 ECRS",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1OFFEC",
+      "label": "PRICE1 OFFEC",
+      "cardinality": 13,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1OnlineNONSPIN",
+      "label": "PRICE1 ONLINE NONSPIN",
+      "cardinality": 14,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1REGUP",
+      "label": "PRICE1 REGUP",
+      "cardinality": 15,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1REGDOWN",
+      "label": "PRICE1 REGDOWN",
+      "cardinality": 16,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1OfflineNONSPIN",
+      "label": "PRICE1 OFFLINE NONSPIN",
+      "cardinality": 17,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "quantityMW1",
+      "label": "QUANTITY MW1",
+      "cardinality": 18,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "blockIndicator2",
+      "label": "BLOCK INDICATOR2",
+      "cardinality": 19,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "price2RRSPFR",
+      "label": "PRICE2 RRSPFR",
+      "cardinality": 20,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2RRSFFR",
+      "label": "PRICE2 RRSFFR",
+      "cardinality": 21,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2RRSUFR",
+      "label": "PRICE2 RRSUFR",
+      "cardinality": 22,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2ECRS",
+      "label": "PRICE2 ECRS",
+      "cardinality": 23,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2OFFEC",
+      "label": "PRICE2 OFFEC",
+      "cardinality": 24,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2OnlineNONSPIN",
+      "label": "PRICE2 ONLINE NONSPIN",
+      "cardinality": 25,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2REGUP",
+      "label": "PRICE2 REGUP",
+      "cardinality": 26,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2REGDOWN",
+      "label": "PRICE2 REGDOWN",
+      "cardinality": 27,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2OfflineNONSPIN",
+      "label": "PRICE2 OFFLINE NONSPIN",
+      "cardinality": 28,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "quantityMW2",
+      "label": "QUANTITY MW2",
+      "cardinality": 29,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "blockIndicator3",
+      "label": "BLOCK INDICATOR3",
+      "cardinality": 30,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "price3RRSPFR",
+      "label": "PRICE3 RRSPFR",
+      "cardinality": 31,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3RRSFFR",
+      "label": "PRICE3 RRSFFR",
+      "cardinality": 32,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3RRSUFR",
+      "label": "PRICE3 RRSUFR",
+      "cardinality": 33,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3ECRS",
+      "label": "PRICE3 ECRS",
+      "cardinality": 34,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3OFFEC",
+      "label": "PRICE3 OFFEC",
+      "cardinality": 35,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3OnlineNONSPIN",
+      "label": "PRICE3 ONLINE NONSPIN",
+      "cardinality": 36,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3REGUP",
+      "label": "PRICE3 REGUP",
+      "cardinality": 37,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3REGDOWN",
+      "label": "PRICE3 REGDOWN",
+      "cardinality": 38,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3OfflineNONSPIN",
+      "label": "PRICE3 OFFLINE NONSPIN",
+      "cardinality": 39,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "quantityMW3",
+      "label": "QUANTITY MW3",
+      "cardinality": 40,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "blockIndicator4",
+      "label": "BLOCK INDICATOR4",
+      "cardinality": 41,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "price4RRSPFR",
+      "label": "PRICE4 RRSPFR",
+      "cardinality": 42,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4RRSFFR",
+      "label": "PRICE4 RRSFFR",
+      "cardinality": 43,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4RRSUFR",
+      "label": "PRICE4 RRSUFR",
+      "cardinality": 44,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4ECRS",
+      "label": "PRICE4 ECRS",
+      "cardinality": 45,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4OFFEC",
+      "label": "PRICE4 OFFEC",
+      "cardinality": 46,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4OnlineNONSPIN",
+      "label": "PRICE4 ONLINE NONSPIN",
+      "cardinality": 47,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4REGUP",
+      "label": "PRICE4 REGUP",
+      "cardinality": 48,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4REGDOWN",
+      "label": "PRICE4 REGDOWN",
+      "cardinality": 49,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4OfflineNONSPIN",
+      "label": "PRICE4 OFFLINE NONSPIN",
+      "cardinality": 50,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "quantityMW4",
+      "label": "QUANTITY MW4",
+      "cardinality": 51,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "blockIndicator5",
+      "label": "BLOCK INDICATOR5",
+      "cardinality": 52,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "price5RRSPFR",
+      "label": "PRICE5 RRSPFR",
+      "cardinality": 53,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5RRSFFR",
+      "label": "PRICE5 RRSFFR",
+      "cardinality": 54,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5RRSUFR",
+      "label": "PRICE5 RRSUFR",
+      "cardinality": 55,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5ECRS",
+      "label": "PRICE5 ECRS",
+      "cardinality": 56,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5OFFEC",
+      "label": "PRICE5 OFFEC",
+      "cardinality": 57,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5OnlineNONSPIN",
+      "label": "PRICE5 ONLINE NONSPIN",
+      "cardinality": 58,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5REGUP",
+      "label": "PRICE5 REGUP",
+      "cardinality": 59,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5REGDOWN",
+      "label": "PRICE5 REGDOWN",
+      "cardinality": 60,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5OfflineNONSPIN",
+      "label": "PRICE5 OFFLINE NONSPIN",
+      "cardinality": 61,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "quantityMW5",
+      "label": "QUANTITY MW5",
+      "cardinality": 62,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2025-11-27",
+      "2025-11-27T02:45:05",
+      1,
+      "QBTU",
+      "YBRYN",
+      "ATKINS_ATKINSG7",
+      false,
+      "V",
+      null,
+      null,
+      null,
+      null,
+      null,
+      500.0,
+      null,
+      null,
+      null,
+      12.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-990-ex/60_sasm_gen_res_as_offers"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-990-ex"
+    }
+  }
+}

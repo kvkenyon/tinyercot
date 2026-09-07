@@ -1,0 +1,2064 @@
+{
+  "_meta": {
+    "totalRecords": 158914642,
+    "pageSize": 1,
+    "totalPages": 158914642,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC,repeatHourFlag: ASC,resourceName: ASC"
+    }
+  },
+  "report": {
+    "reportName": "60_sced_gen_res_data",
+    "reportDisplayName": "60-Day SCED Gen Resource Data",
+    "reportId": "13052",
+    "reportEMIL": "NP3-965-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Time Stamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "qseName",
+      "label": "QSE",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "dmeName",
+      "label": "DME",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceName",
+      "label": "Resource Name",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceType",
+      "label": "Resource Type",
+      "cardinality": 6,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "SCED1CurveMW1",
+      "label": "SCED1 Curve-MW1",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice1",
+      "label": "SCED1 Curve-Price1",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW2",
+      "label": "SCED1 Curve-MW2",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice2",
+      "label": "SCED1 Curve-Price2",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW3",
+      "label": "SCED1 Curve-MW3",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice3",
+      "label": "SCED1 Curve-Price3",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW4",
+      "label": "SCED1 Curve-MW4",
+      "cardinality": 13,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice4",
+      "label": "SCED1 Curve-Price4",
+      "cardinality": 14,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW5",
+      "label": "SCED1 Curve-MW5",
+      "cardinality": 15,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice5",
+      "label": "SCED1 Curve-Price5",
+      "cardinality": 16,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW6",
+      "label": "SCED1 Curve-MW6",
+      "cardinality": 17,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice6",
+      "label": "SCED1 Curve-Price6",
+      "cardinality": 18,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW7",
+      "label": "SCED1 Curve-MW7",
+      "cardinality": 19,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice7",
+      "label": "SCED1 Curve-Price7",
+      "cardinality": 20,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW8",
+      "label": "SCED1 Curve-MW8",
+      "cardinality": 21,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice8",
+      "label": "SCED1 Curve-Price8",
+      "cardinality": 22,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW9",
+      "label": "SCED1 Curve-MW9",
+      "cardinality": 23,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice9",
+      "label": "SCED1 Curve-Price9",
+      "cardinality": 24,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW10",
+      "label": "SCED1 Curve-MW10",
+      "cardinality": 25,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice10",
+      "label": "SCED1 Curve-Price10",
+      "cardinality": 26,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW11",
+      "label": "SCED1 Curve-MW11",
+      "cardinality": 27,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice11",
+      "label": "SCED1 Curve-Price11",
+      "cardinality": 28,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW12",
+      "label": "SCED1 Curve-MW12",
+      "cardinality": 29,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice12",
+      "label": "SCED1 Curve-Price12",
+      "cardinality": 30,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW13",
+      "label": "SCED1 Curve-MW13",
+      "cardinality": 31,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice13",
+      "label": "SCED1 Curve-Price13",
+      "cardinality": 32,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW14",
+      "label": "SCED1 Curve-MW14",
+      "cardinality": 33,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice14",
+      "label": "SCED1 Curve-Price14",
+      "cardinality": 34,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW15",
+      "label": "SCED1 Curve-MW15",
+      "cardinality": 35,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice15",
+      "label": "SCED1 Curve-Price15",
+      "cardinality": 36,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW16",
+      "label": "SCED1 Curve-MW16",
+      "cardinality": 37,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice16",
+      "label": "SCED1 Curve-Price16",
+      "cardinality": 38,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW17",
+      "label": "SCED1 Curve-MW17",
+      "cardinality": 39,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice17",
+      "label": "SCED1 Curve-Price17",
+      "cardinality": 40,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW18",
+      "label": "SCED1 Curve-MW18",
+      "cardinality": 41,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice18",
+      "label": "SCED1 Curve-Price18",
+      "cardinality": 42,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW19",
+      "label": "SCED1 Curve-MW19",
+      "cardinality": 43,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice19",
+      "label": "SCED1 Curve-Price19",
+      "cardinality": 44,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW20",
+      "label": "SCED1 Curve-MW20",
+      "cardinality": 45,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice20",
+      "label": "SCED1 Curve-Price20",
+      "cardinality": 46,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW21",
+      "label": "SCED1 Curve-MW21",
+      "cardinality": 47,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice21",
+      "label": "SCED1 Curve-Price21",
+      "cardinality": 48,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW22",
+      "label": "SCED1 Curve-MW22",
+      "cardinality": 49,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice22",
+      "label": "SCED1 Curve-Price22",
+      "cardinality": 50,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW23",
+      "label": "SCED1 Curve-MW23",
+      "cardinality": 51,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice23",
+      "label": "SCED1 Curve-Price23",
+      "cardinality": 52,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW24",
+      "label": "SCED1 Curve-MW24",
+      "cardinality": 53,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice24",
+      "label": "SCED1 Curve-Price24",
+      "cardinality": 54,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW25",
+      "label": "SCED1 Curve-MW25",
+      "cardinality": 55,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice25",
+      "label": "SCED1 Curve-Price25",
+      "cardinality": 56,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW26",
+      "label": "SCED1 Curve-MW26",
+      "cardinality": 57,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice26",
+      "label": "SCED1 Curve-Price26",
+      "cardinality": 58,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW27",
+      "label": "SCED1 Curve-MW27",
+      "cardinality": 59,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice27",
+      "label": "SCED1 Curve-Price27",
+      "cardinality": 60,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW28",
+      "label": "SCED1 Curve-MW28",
+      "cardinality": 61,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice28",
+      "label": "SCED1 Curve-Price28",
+      "cardinality": 62,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW29",
+      "label": "SCED1 Curve-MW29",
+      "cardinality": 63,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice29",
+      "label": "SCED1 Curve-Price29",
+      "cardinality": 64,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW30",
+      "label": "SCED1 Curve-MW30",
+      "cardinality": 65,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice30",
+      "label": "SCED1 Curve-Price30",
+      "cardinality": 66,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW31",
+      "label": "SCED1 Curve-MW31",
+      "cardinality": 67,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice31",
+      "label": "SCED1 Curve-Price31",
+      "cardinality": 68,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW32",
+      "label": "SCED1 Curve-MW32",
+      "cardinality": 69,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice32",
+      "label": "SCED1 Curve-Price32",
+      "cardinality": 70,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW33",
+      "label": "SCED1 Curve-MW33",
+      "cardinality": 71,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice33",
+      "label": "SCED1 Curve-Price33",
+      "cardinality": 72,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW34",
+      "label": "SCED1 Curve-MW34",
+      "cardinality": 73,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice34",
+      "label": "SCED1 Curve-Price34",
+      "cardinality": 74,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurveMW35",
+      "label": "SCED1 Curve-MW35",
+      "cardinality": 75,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED1CurvePrice35",
+      "label": "SCED1 Curve-Price35",
+      "cardinality": 76,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW1",
+      "label": "SCED2 Curve-MW1",
+      "cardinality": 77,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice1",
+      "label": "SCED2 Curve-Price1",
+      "cardinality": 78,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW2",
+      "label": "SCED2 Curve-MW2",
+      "cardinality": 79,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice2",
+      "label": "SCED2 Curve-Price2",
+      "cardinality": 80,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW3",
+      "label": "SCED2 Curve-MW3",
+      "cardinality": 81,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice3",
+      "label": "SCED2 Curve-Price3",
+      "cardinality": 82,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW4",
+      "label": "SCED2 Curve-MW4",
+      "cardinality": 83,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice4",
+      "label": "SCED2 Curve-Price4",
+      "cardinality": 84,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW5",
+      "label": "SCED2 Curve-MW5",
+      "cardinality": 85,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice5",
+      "label": "SCED2 Curve-Price5",
+      "cardinality": 86,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW6",
+      "label": "SCED2 Curve-MW6",
+      "cardinality": 87,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice6",
+      "label": "SCED2 Curve-Price6",
+      "cardinality": 88,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW7",
+      "label": "SCED2 Curve-MW7",
+      "cardinality": 89,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice7",
+      "label": "SCED2 Curve-Price7",
+      "cardinality": 90,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW8",
+      "label": "SCED2 Curve-MW8",
+      "cardinality": 91,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice8",
+      "label": "SCED2 Curve-Price8",
+      "cardinality": 92,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW9",
+      "label": "SCED2 Curve-MW9",
+      "cardinality": 93,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice9",
+      "label": "SCED2 Curve-Price9",
+      "cardinality": 94,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW10",
+      "label": "SCED2 Curve-MW10",
+      "cardinality": 95,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice10",
+      "label": "SCED2 Curve-Price10",
+      "cardinality": 96,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW11",
+      "label": "SCED2 Curve-MW11",
+      "cardinality": 97,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice11",
+      "label": "SCED2 Curve-Price11",
+      "cardinality": 98,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW12",
+      "label": "SCED2 Curve-MW12",
+      "cardinality": 99,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice12",
+      "label": "SCED2 Curve-Price12",
+      "cardinality": 100,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW13",
+      "label": "SCED2 Curve-MW13",
+      "cardinality": 101,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice13",
+      "label": "SCED2 Curve-Price13",
+      "cardinality": 102,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW14",
+      "label": "SCED2 Curve-MW14",
+      "cardinality": 103,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice14",
+      "label": "SCED2 Curve-Price14",
+      "cardinality": 104,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW15",
+      "label": "SCED2 Curve-MW15",
+      "cardinality": 105,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice15",
+      "label": "SCED2 Curve-Price15",
+      "cardinality": 106,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW16",
+      "label": "SCED2 Curve-MW16",
+      "cardinality": 107,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice16",
+      "label": "SCED2 Curve-Price16",
+      "cardinality": 108,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW17",
+      "label": "SCED2 Curve-MW17",
+      "cardinality": 109,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice17",
+      "label": "SCED2 Curve-Price17",
+      "cardinality": 110,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW18",
+      "label": "SCED2 Curve-MW18",
+      "cardinality": 111,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice18",
+      "label": "SCED2 Curve-Price18",
+      "cardinality": 112,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW19",
+      "label": "SCED2 Curve-MW19",
+      "cardinality": 113,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice19",
+      "label": "SCED2 Curve-Price19",
+      "cardinality": 114,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW20",
+      "label": "SCED2 Curve-MW20",
+      "cardinality": 115,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice20",
+      "label": "SCED2 Curve-Price20",
+      "cardinality": 116,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW21",
+      "label": "SCED2 Curve-MW21",
+      "cardinality": 117,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice21",
+      "label": "SCED2 Curve-Price21",
+      "cardinality": 118,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW22",
+      "label": "SCED2 Curve-MW22",
+      "cardinality": 119,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice22",
+      "label": "SCED2 Curve-Price22",
+      "cardinality": 120,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW23",
+      "label": "SCED2 Curve-MW23",
+      "cardinality": 121,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice23",
+      "label": "SCED2 Curve-Price23",
+      "cardinality": 122,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW24",
+      "label": "SCED2 Curve-MW24",
+      "cardinality": 123,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice24",
+      "label": "SCED2 Curve-Price24",
+      "cardinality": 124,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW25",
+      "label": "SCED2 Curve-MW25",
+      "cardinality": 125,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice25",
+      "label": "SCED2 Curve-Price25",
+      "cardinality": 126,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW26",
+      "label": "SCED2 Curve-MW26",
+      "cardinality": 127,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice26",
+      "label": "SCED2 Curve-Price26",
+      "cardinality": 128,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW27",
+      "label": "SCED2 Curve-MW27",
+      "cardinality": 129,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice27",
+      "label": "SCED2 Curve-Price27",
+      "cardinality": 130,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW28",
+      "label": "SCED2 Curve-MW28",
+      "cardinality": 131,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice28",
+      "label": "SCED2 Curve-Price28",
+      "cardinality": 132,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW29",
+      "label": "SCED2 Curve-MW29",
+      "cardinality": 133,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice29",
+      "label": "SCED2 Curve-Price29",
+      "cardinality": 134,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW30",
+      "label": "SCED2 Curve-MW30",
+      "cardinality": 135,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice30",
+      "label": "SCED2 Curve-Price30",
+      "cardinality": 136,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW31",
+      "label": "SCED2 Curve-MW31",
+      "cardinality": 137,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice31",
+      "label": "SCED2 Curve-Price31",
+      "cardinality": 138,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW32",
+      "label": "SCED2 Curve-MW32",
+      "cardinality": 139,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice32",
+      "label": "SCED2 Curve-Price32",
+      "cardinality": 140,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW33",
+      "label": "SCED2 Curve-MW33",
+      "cardinality": 141,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice33",
+      "label": "SCED2 Curve-Price33",
+      "cardinality": 142,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW34",
+      "label": "SCED2 Curve-MW34",
+      "cardinality": 143,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice34",
+      "label": "SCED2 Curve-Price34",
+      "cardinality": 144,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurveMW35",
+      "label": "SCED2 Curve-MW35",
+      "cardinality": 145,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "SCED2CurvePrice35",
+      "label": "SCED2 Curve-Price35",
+      "cardinality": 146,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "outputSchedule",
+      "label": "Output Schedule",
+      "cardinality": 147,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "HSL",
+      "label": "HSL",
+      "cardinality": 148,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "HDL",
+      "label": "HDL",
+      "cardinality": 149,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "LSL",
+      "label": "LSL",
+      "cardinality": 150,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "LDL",
+      "label": "LDL",
+      "cardinality": 151,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "telemeteredResourceStatus",
+      "label": "Telemetered Resource Status",
+      "cardinality": 152,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "basePoint",
+      "label": "Base Point",
+      "cardinality": 153,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "telemeteredNetOutput",
+      "label": "Telemetered Net Output",
+      "cardinality": 154,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "rampRateUp",
+      "label": "Ramp Rate Up",
+      "cardinality": 155,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "rampRateDown",
+      "label": "Ramp Rate Down",
+      "cardinality": 156,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASCapREGUP",
+      "label": "AS Capability REGUP",
+      "cardinality": 157,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASCapREGDN",
+      "label": "AS Capability REGDN",
+      "cardinality": 158,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASCapECRS",
+      "label": "AS Capability ECRS",
+      "cardinality": 159,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASCapNSPIN",
+      "label": "AS Capability NSPIN",
+      "cardinality": 160,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASCapRRSPFR",
+      "label": "AS Capability RRSPFR",
+      "cardinality": 161,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASCapRRSFFR",
+      "label": "AS Capability RRSFFR",
+      "cardinality": 162,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASAwardsNSPIN",
+      "label": "AS Awards NSPIN",
+      "cardinality": 163,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASAwardsRRSFFR",
+      "label": "AS Awards RRSFFR",
+      "cardinality": 164,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASAwardsRRSPFR",
+      "label": "AS Awards RRSPFR",
+      "cardinality": 165,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASAwardsRRSUFR",
+      "label": "AS Awards RRSUFR",
+      "cardinality": 166,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASAwardsECRS",
+      "label": "AS Awards ECRS",
+      "cardinality": 167,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASAwardsREGUP",
+      "label": "AS Awards REGUP",
+      "cardinality": 168,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ASAwardsREGDN",
+      "label": "AS Awards REGDN",
+      "cardinality": 169,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "bidType",
+      "label": "Bid_Type",
+      "cardinality": 170,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "startUpColdOffer",
+      "label": "Start Up Cold Offer",
+      "cardinality": 171,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "startUpHotOffer",
+      "label": "Start Up Hot Offer",
+      "cardinality": 172,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "startUpInterOffer",
+      "label": "Start Up Inter Offer",
+      "cardinality": 173,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "minGenCost",
+      "label": "Min Gen Cost",
+      "cardinality": 174,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOMW1",
+      "label": "Submitted TPO-MW1",
+      "cardinality": 175,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOPrice1",
+      "label": "Submitted TPO-Price1",
+      "cardinality": 176,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOMW2",
+      "label": "Submitted TPO-MW2",
+      "cardinality": 177,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOPrice2",
+      "label": "Submitted TPO-Price2",
+      "cardinality": 178,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOMW3",
+      "label": "Submitted TPO-MW3",
+      "cardinality": 179,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOPrice3",
+      "label": "Submitted TPO-Price3",
+      "cardinality": 180,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOMW4",
+      "label": "Submitted TPO-MW4",
+      "cardinality": 181,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOPrice4",
+      "label": "Submitted TPO-Price4",
+      "cardinality": 182,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOMW5",
+      "label": "Submitted TPO-MW5",
+      "cardinality": 183,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOPrice5",
+      "label": "Submitted TPO-Price5",
+      "cardinality": 184,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOMW6",
+      "label": "Submitted TPO-MW6",
+      "cardinality": 185,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOPrice6",
+      "label": "Submitted TPO-Price6",
+      "cardinality": 186,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOMW7",
+      "label": "Submitted TPO-MW7",
+      "cardinality": 187,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOPrice7",
+      "label": "Submitted TPO-Price7",
+      "cardinality": 188,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOMW8",
+      "label": "Submitted TPO-MW8",
+      "cardinality": 189,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOPrice8",
+      "label": "Submitted TPO-Price8",
+      "cardinality": 190,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOMW9",
+      "label": "Submitted TPO-MW9",
+      "cardinality": 191,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOPrice9",
+      "label": "Submitted TPO-Price9",
+      "cardinality": 192,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOMW10",
+      "label": "Submitted TPO-MW10",
+      "cardinality": 193,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submittedTPOPrice10",
+      "label": "Submitted TPO-Price10",
+      "cardinality": 194,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "proxyExtension",
+      "label": "Proxy Extension",
+      "cardinality": 195,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "HASL",
+      "label": "HASL",
+      "cardinality": 196,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "LASL",
+      "label": "LASL",
+      "cardinality": 197,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "ASREGUP",
+      "label": "Ancillary Service REGUP",
+      "cardinality": 198,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "ASREGDN",
+      "label": "Ancillary Service REGDN",
+      "cardinality": 199,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "ASRRS",
+      "label": "Ancillary Service RRS",
+      "cardinality": 200,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "ASRRSFFR",
+      "label": "Ancillary Service RRSFFR",
+      "cardinality": 201,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "ASNSRS",
+      "label": "Ancillary Service NSRS",
+      "cardinality": 202,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "ASECRS",
+      "label": "Ancillary Service ECRS",
+      "cardinality": 203,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-07-08T23:55:15",
+      false,
+      "QSUE66",
+      "Y7VSOL",
+      "7RNCHSLR_UNIT1",
+      "PVGR",
+      0.0,
+      -250.0,
+      0.0,
+      -10.0100002288818,
+      139.199996948242,
+      -10.0,
+      139.199996948242,
+      -10.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      0.0,
+      -50.0,
+      0.0,
+      -50.0,
+      0.0,
+      -10.0100002288818,
+      139.199996948242,
+      -10.0,
+      139.199996948242,
+      -10.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      "ON",
+      0.0,
+      0.0,
+      27.84,
+      27.84,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "3PT",
+      null,
+      null,
+      null,
+      null,
+      0.0,
+      -10.01,
+      139.2,
+      -10.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "No",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er/60_sced_gen_res_data"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er"
+    }
+  }
+}

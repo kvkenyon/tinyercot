@@ -1,0 +1,4468 @@
+{
+  "lastUpdated": "2026-09-06 17:11:01-0500",
+  "previousDay": {
+    "dayDate": "2026-09-05 03:00:00-0500",
+    "data": [
+      {
+        "tagCLastTime": "2026-09-05 00:00:00",
+        "dstFlag": "N",
+        "totalCharging": -354.183,
+        "totalDischarging": 813.958,
+        "netOutput": 459.775,
+        "timestamp": "2026-09-05 00:00:00-0500",
+        "epoch": 1788584400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 00:05:00",
+        "dstFlag": "N",
+        "totalCharging": -276.922,
+        "totalDischarging": 721.049,
+        "netOutput": 444.127,
+        "timestamp": "2026-09-05 00:05:00-0500",
+        "epoch": 1788584700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 00:10:00",
+        "dstFlag": "N",
+        "totalCharging": -276.58,
+        "totalDischarging": 881.667,
+        "netOutput": 605.087,
+        "timestamp": "2026-09-05 00:10:00-0500",
+        "epoch": 1788585000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 00:15:00",
+        "dstFlag": "N",
+        "totalCharging": -284.473,
+        "totalDischarging": 904.068,
+        "netOutput": 619.595,
+        "timestamp": "2026-09-05 00:15:00-0500",
+        "epoch": 1788585300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 00:20:00",
+        "dstFlag": "N",
+        "totalCharging": -343.582,
+        "totalDischarging": 751.259,
+        "netOutput": 407.677,
+        "timestamp": "2026-09-05 00:20:00-0500",
+        "epoch": 1788585600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 00:25:00",
+        "dstFlag": "N",
+        "totalCharging": -272.973,
+        "totalDischarging": 571.526,
+        "netOutput": 298.552,
+        "timestamp": "2026-09-05 00:25:00-0500",
+        "epoch": 1788585900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 00:30:00",
+        "dstFlag": "N",
+        "totalCharging": -156.069,
+        "totalDischarging": 427.924,
+        "netOutput": 271.855,
+        "timestamp": "2026-09-05 00:30:00-0500",
+        "epoch": 1788586200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 00:35:00",
+        "dstFlag": "N",
+        "totalCharging": -269.984,
+        "totalDischarging": 429.037,
+        "netOutput": 159.053,
+        "timestamp": "2026-09-05 00:35:00-0500",
+        "epoch": 1788586500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 00:40:00",
+        "dstFlag": "N",
+        "totalCharging": -304.822,
+        "totalDischarging": 261.303,
+        "netOutput": -43.519,
+        "timestamp": "2026-09-05 00:40:00-0500",
+        "epoch": 1788586800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 00:45:00",
+        "dstFlag": "N",
+        "totalCharging": -216.805,
+        "totalDischarging": 139.496,
+        "netOutput": -77.309,
+        "timestamp": "2026-09-05 00:45:00-0500",
+        "epoch": 1788587100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 00:50:00",
+        "dstFlag": "N",
+        "totalCharging": -323.206,
+        "totalDischarging": 123.644,
+        "netOutput": -199.54,
+        "timestamp": "2026-09-05 00:50:00-0500",
+        "epoch": 1788587400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 00:55:00",
+        "dstFlag": "N",
+        "totalCharging": -322.665,
+        "totalDischarging": 134.392,
+        "netOutput": -188.273,
+        "timestamp": "2026-09-05 00:55:00-0500",
+        "epoch": 1788587700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 01:00:00",
+        "dstFlag": "N",
+        "totalCharging": -243.911,
+        "totalDischarging": 194.345,
+        "netOutput": -49.566,
+        "timestamp": "2026-09-05 01:00:00-0500",
+        "epoch": 1788588000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 01:05:00",
+        "dstFlag": "N",
+        "totalCharging": -214.243,
+        "totalDischarging": 230.342,
+        "netOutput": 16.098,
+        "timestamp": "2026-09-05 01:05:00-0500",
+        "epoch": 1788588300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 01:10:00",
+        "dstFlag": "N",
+        "totalCharging": -369.273,
+        "totalDischarging": 223.413,
+        "netOutput": -145.86,
+        "timestamp": "2026-09-05 01:10:00-0500",
+        "epoch": 1788588600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 01:15:00",
+        "dstFlag": "N",
+        "totalCharging": -329.003,
+        "totalDischarging": 94.189,
+        "netOutput": -234.815,
+        "timestamp": "2026-09-05 01:15:00-0500",
+        "epoch": 1788588900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 01:20:00",
+        "dstFlag": "N",
+        "totalCharging": -424.885,
+        "totalDischarging": 68.409,
+        "netOutput": -356.476,
+        "timestamp": "2026-09-05 01:20:00-0500",
+        "epoch": 1788589200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 01:25:00",
+        "dstFlag": "N",
+        "totalCharging": -414.288,
+        "totalDischarging": 26.413,
+        "netOutput": -387.874,
+        "timestamp": "2026-09-05 01:25:00-0500",
+        "epoch": 1788589500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 01:30:00",
+        "dstFlag": "N",
+        "totalCharging": -321.198,
+        "totalDischarging": 30.277,
+        "netOutput": -290.921,
+        "timestamp": "2026-09-05 01:30:00-0500",
+        "epoch": 1788589800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 01:35:00",
+        "dstFlag": "N",
+        "totalCharging": -492.117,
+        "totalDischarging": 190.632,
+        "netOutput": -301.486,
+        "timestamp": "2026-09-05 01:35:00-0500",
+        "epoch": 1788590100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 01:40:00",
+        "dstFlag": "N",
+        "totalCharging": -581.687,
+        "totalDischarging": 209.906,
+        "netOutput": -371.78,
+        "timestamp": "2026-09-05 01:40:00-0500",
+        "epoch": 1788590400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 01:45:00",
+        "dstFlag": "N",
+        "totalCharging": -597.307,
+        "totalDischarging": 58.74,
+        "netOutput": -538.568,
+        "timestamp": "2026-09-05 01:45:00-0500",
+        "epoch": 1788590700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 01:50:00",
+        "dstFlag": "N",
+        "totalCharging": -539.299,
+        "totalDischarging": 25.786,
+        "netOutput": -513.513,
+        "timestamp": "2026-09-05 01:50:00-0500",
+        "epoch": 1788591000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 01:55:00",
+        "dstFlag": "N",
+        "totalCharging": -372.298,
+        "totalDischarging": 35.328,
+        "netOutput": -336.97,
+        "timestamp": "2026-09-05 01:55:00-0500",
+        "epoch": 1788591300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 02:00:00",
+        "dstFlag": "N",
+        "totalCharging": -401.002,
+        "totalDischarging": 37.374,
+        "netOutput": -363.629,
+        "timestamp": "2026-09-05 02:00:00-0500",
+        "epoch": 1788591600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 02:05:00",
+        "dstFlag": "N",
+        "totalCharging": -851.161,
+        "totalDischarging": 205.249,
+        "netOutput": -645.912,
+        "timestamp": "2026-09-05 02:05:00-0500",
+        "epoch": 1788591900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 02:10:00",
+        "dstFlag": "N",
+        "totalCharging": -1300.895,
+        "totalDischarging": 384.813,
+        "netOutput": -916.082,
+        "timestamp": "2026-09-05 02:10:00-0500",
+        "epoch": 1788592200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 02:15:00",
+        "dstFlag": "N",
+        "totalCharging": -1453.266,
+        "totalDischarging": 275.267,
+        "netOutput": -1177.999,
+        "timestamp": "2026-09-05 02:15:00-0500",
+        "epoch": 1788592500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 02:20:00",
+        "dstFlag": "N",
+        "totalCharging": -1464.702,
+        "totalDischarging": 101.606,
+        "netOutput": -1363.096,
+        "timestamp": "2026-09-05 02:20:00-0500",
+        "epoch": 1788592800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 02:25:00",
+        "dstFlag": "N",
+        "totalCharging": -1416.648,
+        "totalDischarging": 44.087,
+        "netOutput": -1372.561,
+        "timestamp": "2026-09-05 02:25:00-0500",
+        "epoch": 1788593100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 02:30:00",
+        "dstFlag": "N",
+        "totalCharging": -1418.356,
+        "totalDischarging": 129.686,
+        "netOutput": -1288.669,
+        "timestamp": "2026-09-05 02:30:00-0500",
+        "epoch": 1788593400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 02:35:00",
+        "dstFlag": "N",
+        "totalCharging": -1434.978,
+        "totalDischarging": 31.625,
+        "netOutput": -1403.353,
+        "timestamp": "2026-09-05 02:35:00-0500",
+        "epoch": 1788593700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 02:40:00",
+        "dstFlag": "N",
+        "totalCharging": -1410.251,
+        "totalDischarging": 50.203,
+        "netOutput": -1360.048,
+        "timestamp": "2026-09-05 02:40:00-0500",
+        "epoch": 1788594000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 02:45:00",
+        "dstFlag": "N",
+        "totalCharging": -1461.444,
+        "totalDischarging": 21.729,
+        "netOutput": -1439.716,
+        "timestamp": "2026-09-05 02:45:00-0500",
+        "epoch": 1788594300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 02:50:00",
+        "dstFlag": "N",
+        "totalCharging": -1352.665,
+        "totalDischarging": 27.508,
+        "netOutput": -1325.157,
+        "timestamp": "2026-09-05 02:50:00-0500",
+        "epoch": 1788594600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 02:55:00",
+        "dstFlag": "N",
+        "totalCharging": -1348.489,
+        "totalDischarging": 42.986,
+        "netOutput": -1305.503,
+        "timestamp": "2026-09-05 02:55:00-0500",
+        "epoch": 1788594900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 03:00:00",
+        "dstFlag": "N",
+        "totalCharging": -1201.145,
+        "totalDischarging": 25.662,
+        "netOutput": -1175.483,
+        "timestamp": "2026-09-05 03:00:00-0500",
+        "epoch": 1788595200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 03:05:00",
+        "dstFlag": "N",
+        "totalCharging": -1017.471,
+        "totalDischarging": 15.29,
+        "netOutput": -1002.18,
+        "timestamp": "2026-09-05 03:05:00-0500",
+        "epoch": 1788595500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 03:10:00",
+        "dstFlag": "N",
+        "totalCharging": -743.655,
+        "totalDischarging": 32.974,
+        "netOutput": -710.68,
+        "timestamp": "2026-09-05 03:10:00-0500",
+        "epoch": 1788595800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 03:15:00",
+        "dstFlag": "N",
+        "totalCharging": -492.901,
+        "totalDischarging": 55.927,
+        "netOutput": -436.975,
+        "timestamp": "2026-09-05 03:15:00-0500",
+        "epoch": 1788596100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 03:20:00",
+        "dstFlag": "N",
+        "totalCharging": -544.622,
+        "totalDischarging": 52.597,
+        "netOutput": -492.025,
+        "timestamp": "2026-09-05 03:20:00-0500",
+        "epoch": 1788596400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 03:25:00",
+        "dstFlag": "N",
+        "totalCharging": -600.973,
+        "totalDischarging": 39.225,
+        "netOutput": -561.625,
+        "timestamp": "2026-09-05 03:25:00-0500",
+        "epoch": 1788596700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 03:30:00",
+        "dstFlag": "N",
+        "totalCharging": -422.657,
+        "totalDischarging": 194.675,
+        "netOutput": -227.982,
+        "timestamp": "2026-09-05 03:30:00-0500",
+        "epoch": 1788597000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 03:35:00",
+        "dstFlag": "N",
+        "totalCharging": -449.861,
+        "totalDischarging": 158.945,
+        "netOutput": -290.915,
+        "timestamp": "2026-09-05 03:35:00-0500",
+        "epoch": 1788597300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 03:40:00",
+        "dstFlag": "N",
+        "totalCharging": -518.184,
+        "totalDischarging": 87.576,
+        "netOutput": -430.609,
+        "timestamp": "2026-09-05 03:40:00-0500",
+        "epoch": 1788597600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 03:45:00",
+        "dstFlag": "N",
+        "totalCharging": -704.476,
+        "totalDischarging": 70.588,
+        "netOutput": -633.888,
+        "timestamp": "2026-09-05 03:45:00-0500",
+        "epoch": 1788597900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 03:50:00",
+        "dstFlag": "N",
+        "totalCharging": -700.965,
+        "totalDischarging": 48.874,
+        "netOutput": -652.091,
+        "timestamp": "2026-09-05 03:50:00-0500",
+        "epoch": 1788598200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 03:55:00",
+        "dstFlag": "N",
+        "totalCharging": -659.028,
+        "totalDischarging": 30.566,
+        "netOutput": -628.502,
+        "timestamp": "2026-09-05 03:55:00-0500",
+        "epoch": 1788598500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 04:00:00",
+        "dstFlag": "N",
+        "totalCharging": -618.202,
+        "totalDischarging": 39.604,
+        "netOutput": -578.597,
+        "timestamp": "2026-09-05 04:00:00-0500",
+        "epoch": 1788598800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 04:05:00",
+        "dstFlag": "N",
+        "totalCharging": -529.206,
+        "totalDischarging": 41.657,
+        "netOutput": -487.549,
+        "timestamp": "2026-09-05 04:05:00-0500",
+        "epoch": 1788599100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 04:10:00",
+        "dstFlag": "N",
+        "totalCharging": -540.265,
+        "totalDischarging": 24.005,
+        "netOutput": -516.26,
+        "timestamp": "2026-09-05 04:10:00-0500",
+        "epoch": 1788599400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 04:15:00",
+        "dstFlag": "N",
+        "totalCharging": -511.026,
+        "totalDischarging": 49.372,
+        "netOutput": -461.654,
+        "timestamp": "2026-09-05 04:15:00-0500",
+        "epoch": 1788599700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 04:20:00",
+        "dstFlag": "N",
+        "totalCharging": -499.934,
+        "totalDischarging": 70.422,
+        "netOutput": -429.517,
+        "timestamp": "2026-09-05 04:20:00-0500",
+        "epoch": 1788600000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 04:25:00",
+        "dstFlag": "N",
+        "totalCharging": -647.379,
+        "totalDischarging": 99.129,
+        "netOutput": -548.25,
+        "timestamp": "2026-09-05 04:25:00-0500",
+        "epoch": 1788600300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 04:30:00",
+        "dstFlag": "N",
+        "totalCharging": -772.135,
+        "totalDischarging": 68.534,
+        "netOutput": -703.601,
+        "timestamp": "2026-09-05 04:30:00-0500",
+        "epoch": 1788600600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 04:35:00",
+        "dstFlag": "N",
+        "totalCharging": -824.398,
+        "totalDischarging": 81.034,
+        "netOutput": -743.365,
+        "timestamp": "2026-09-05 04:35:00-0500",
+        "epoch": 1788600900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 04:40:00",
+        "dstFlag": "N",
+        "totalCharging": -695.893,
+        "totalDischarging": 70.907,
+        "netOutput": -624.986,
+        "timestamp": "2026-09-05 04:40:00-0500",
+        "epoch": 1788601200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 04:45:00",
+        "dstFlag": "N",
+        "totalCharging": -642.358,
+        "totalDischarging": 24.078,
+        "netOutput": -618.279,
+        "timestamp": "2026-09-05 04:45:00-0500",
+        "epoch": 1788601500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 04:50:00",
+        "dstFlag": "N",
+        "totalCharging": -466.263,
+        "totalDischarging": 67.952,
+        "netOutput": -398.297,
+        "timestamp": "2026-09-05 04:50:00-0500",
+        "epoch": 1788601800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 04:55:00",
+        "dstFlag": "N",
+        "totalCharging": -472.947,
+        "totalDischarging": 63.312,
+        "netOutput": -409.635,
+        "timestamp": "2026-09-05 04:55:00-0500",
+        "epoch": 1788602100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 05:00:00",
+        "dstFlag": "N",
+        "totalCharging": -441.725,
+        "totalDischarging": 71.165,
+        "netOutput": -370.56,
+        "timestamp": "2026-09-05 05:00:00-0500",
+        "epoch": 1788602400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 05:05:00",
+        "dstFlag": "N",
+        "totalCharging": -339.725,
+        "totalDischarging": 91.2,
+        "netOutput": -248.525,
+        "timestamp": "2026-09-05 05:05:00-0500",
+        "epoch": 1788602700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 05:10:00",
+        "dstFlag": "N",
+        "totalCharging": -343.053,
+        "totalDischarging": 89.97,
+        "netOutput": -253.083,
+        "timestamp": "2026-09-05 05:10:00-0500",
+        "epoch": 1788603000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 05:15:00",
+        "dstFlag": "N",
+        "totalCharging": -297.165,
+        "totalDischarging": 93.587,
+        "netOutput": -203.578,
+        "timestamp": "2026-09-05 05:15:00-0500",
+        "epoch": 1788603300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 05:20:00",
+        "dstFlag": "N",
+        "totalCharging": -195.304,
+        "totalDischarging": 137.92,
+        "netOutput": -57.384,
+        "timestamp": "2026-09-05 05:20:00-0500",
+        "epoch": 1788603600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 05:25:00",
+        "dstFlag": "N",
+        "totalCharging": -168.332,
+        "totalDischarging": 159.49,
+        "netOutput": -8.842,
+        "timestamp": "2026-09-05 05:25:00-0500",
+        "epoch": 1788603900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 05:30:00",
+        "dstFlag": "N",
+        "totalCharging": -176.718,
+        "totalDischarging": 172.011,
+        "netOutput": -4.712,
+        "timestamp": "2026-09-05 05:30:00-0500",
+        "epoch": 1788604200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 05:35:00",
+        "dstFlag": "N",
+        "totalCharging": -161.734,
+        "totalDischarging": 165.19,
+        "netOutput": 3.437,
+        "timestamp": "2026-09-05 05:35:00-0500",
+        "epoch": 1788604500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 05:40:00",
+        "dstFlag": "N",
+        "totalCharging": -142.991,
+        "totalDischarging": 251.083,
+        "netOutput": 108.092,
+        "timestamp": "2026-09-05 05:40:00-0500",
+        "epoch": 1788604800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 05:45:00",
+        "dstFlag": "N",
+        "totalCharging": -170.399,
+        "totalDischarging": 294.14,
+        "netOutput": 123.741,
+        "timestamp": "2026-09-05 05:45:00-0500",
+        "epoch": 1788605100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 05:50:00",
+        "dstFlag": "N",
+        "totalCharging": -192.236,
+        "totalDischarging": 279.052,
+        "netOutput": 86.816,
+        "timestamp": "2026-09-05 05:50:00-0500",
+        "epoch": 1788605400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 05:55:00",
+        "dstFlag": "N",
+        "totalCharging": -216.955,
+        "totalDischarging": 300.62,
+        "netOutput": 83.665,
+        "timestamp": "2026-09-05 05:55:00-0500",
+        "epoch": 1788605700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 06:00:00",
+        "dstFlag": "N",
+        "totalCharging": -286.155,
+        "totalDischarging": 547.097,
+        "netOutput": 260.942,
+        "timestamp": "2026-09-05 06:00:00-0500",
+        "epoch": 1788606000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 06:05:00",
+        "dstFlag": "N",
+        "totalCharging": -313.847,
+        "totalDischarging": 855.169,
+        "netOutput": 541.321,
+        "timestamp": "2026-09-05 06:05:00-0500",
+        "epoch": 1788606300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 06:10:00",
+        "dstFlag": "N",
+        "totalCharging": -263.481,
+        "totalDischarging": 1035.589,
+        "netOutput": 772.107,
+        "timestamp": "2026-09-05 06:10:00-0500",
+        "epoch": 1788606600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 06:15:00",
+        "dstFlag": "N",
+        "totalCharging": -213.796,
+        "totalDischarging": 1143.477,
+        "netOutput": 929.68,
+        "timestamp": "2026-09-05 06:15:00-0500",
+        "epoch": 1788606900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 06:20:00",
+        "dstFlag": "N",
+        "totalCharging": -182.2,
+        "totalDischarging": 1154.427,
+        "netOutput": 972.227,
+        "timestamp": "2026-09-05 06:20:00-0500",
+        "epoch": 1788607200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 06:25:00",
+        "dstFlag": "N",
+        "totalCharging": -301.375,
+        "totalDischarging": 1083.401,
+        "netOutput": 782.026,
+        "timestamp": "2026-09-05 06:25:00-0500",
+        "epoch": 1788607500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 06:30:00",
+        "dstFlag": "N",
+        "totalCharging": -211.897,
+        "totalDischarging": 1099.02,
+        "netOutput": 887.123,
+        "timestamp": "2026-09-05 06:30:00-0500",
+        "epoch": 1788607800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 06:35:00",
+        "dstFlag": "N",
+        "totalCharging": -234.501,
+        "totalDischarging": 1120.8,
+        "netOutput": 886.3,
+        "timestamp": "2026-09-05 06:35:00-0500",
+        "epoch": 1788608100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 06:40:00",
+        "dstFlag": "N",
+        "totalCharging": -255.643,
+        "totalDischarging": 1216.097,
+        "netOutput": 960.453,
+        "timestamp": "2026-09-05 06:40:00-0500",
+        "epoch": 1788608400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 06:45:00",
+        "dstFlag": "N",
+        "totalCharging": -275.718,
+        "totalDischarging": 1247.083,
+        "netOutput": 971.365,
+        "timestamp": "2026-09-05 06:45:00-0500",
+        "epoch": 1788608700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 06:50:00",
+        "dstFlag": "N",
+        "totalCharging": -293.521,
+        "totalDischarging": 1243.655,
+        "netOutput": 950.134,
+        "timestamp": "2026-09-05 06:50:00-0500",
+        "epoch": 1788609000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 06:55:00",
+        "dstFlag": "N",
+        "totalCharging": -262.214,
+        "totalDischarging": 1207.097,
+        "netOutput": 944.883,
+        "timestamp": "2026-09-05 06:55:00-0500",
+        "epoch": 1788609300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 07:00:00",
+        "dstFlag": "N",
+        "totalCharging": -297.076,
+        "totalDischarging": 1105.157,
+        "netOutput": 808.08,
+        "timestamp": "2026-09-05 07:00:00-0500",
+        "epoch": 1788609600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 07:05:00",
+        "dstFlag": "N",
+        "totalCharging": -252.55,
+        "totalDischarging": 1050.138,
+        "netOutput": 797.588,
+        "timestamp": "2026-09-05 07:05:00-0500",
+        "epoch": 1788609900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 07:10:00",
+        "dstFlag": "N",
+        "totalCharging": -190.471,
+        "totalDischarging": 1111.05,
+        "netOutput": 920.578,
+        "timestamp": "2026-09-05 07:10:00-0500",
+        "epoch": 1788610200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 07:15:00",
+        "dstFlag": "N",
+        "totalCharging": -166.287,
+        "totalDischarging": 1065.601,
+        "netOutput": 899.314,
+        "timestamp": "2026-09-05 07:15:00-0500",
+        "epoch": 1788610500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 07:20:00",
+        "dstFlag": "N",
+        "totalCharging": -224.389,
+        "totalDischarging": 1019.48,
+        "netOutput": 795.091,
+        "timestamp": "2026-09-05 07:20:00-0500",
+        "epoch": 1788610800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 07:25:00",
+        "dstFlag": "N",
+        "totalCharging": -278.668,
+        "totalDischarging": 1022.982,
+        "netOutput": 744.314,
+        "timestamp": "2026-09-05 07:25:00-0500",
+        "epoch": 1788611100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 07:30:00",
+        "dstFlag": "N",
+        "totalCharging": -267.853,
+        "totalDischarging": 980.391,
+        "netOutput": 712.765,
+        "timestamp": "2026-09-05 07:30:00-0500",
+        "epoch": 1788611400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 07:35:00",
+        "dstFlag": "N",
+        "totalCharging": -269.129,
+        "totalDischarging": 864.786,
+        "netOutput": 595.656,
+        "timestamp": "2026-09-05 07:35:00-0500",
+        "epoch": 1788611700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 07:40:00",
+        "dstFlag": "N",
+        "totalCharging": -464.024,
+        "totalDischarging": 663.451,
+        "netOutput": 199.427,
+        "timestamp": "2026-09-05 07:40:00-0500",
+        "epoch": 1788612000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 07:45:00",
+        "dstFlag": "N",
+        "totalCharging": -515.068,
+        "totalDischarging": 440.714,
+        "netOutput": -74.354,
+        "timestamp": "2026-09-05 07:45:00-0500",
+        "epoch": 1788612300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 07:50:00",
+        "dstFlag": "N",
+        "totalCharging": -753.628,
+        "totalDischarging": 336.583,
+        "netOutput": -417.044,
+        "timestamp": "2026-09-05 07:50:00-0500",
+        "epoch": 1788612600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 07:55:00",
+        "dstFlag": "N",
+        "totalCharging": -1052.927,
+        "totalDischarging": 221.237,
+        "netOutput": -831.689,
+        "timestamp": "2026-09-05 07:55:00-0500",
+        "epoch": 1788612900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 08:00:00",
+        "dstFlag": "N",
+        "totalCharging": -1336.735,
+        "totalDischarging": 120.829,
+        "netOutput": -1215.906,
+        "timestamp": "2026-09-05 08:00:00-0500",
+        "epoch": 1788613200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 08:05:00",
+        "dstFlag": "N",
+        "totalCharging": -2051.148,
+        "totalDischarging": 155.424,
+        "netOutput": -1895.723,
+        "timestamp": "2026-09-05 08:05:00-0500",
+        "epoch": 1788613500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 08:10:00",
+        "dstFlag": "N",
+        "totalCharging": -3156.308,
+        "totalDischarging": 129.919,
+        "netOutput": -3026.389,
+        "timestamp": "2026-09-05 08:10:00-0500",
+        "epoch": 1788613800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 08:15:00",
+        "dstFlag": "N",
+        "totalCharging": -3778.276,
+        "totalDischarging": 23.284,
+        "netOutput": -3754.992,
+        "timestamp": "2026-09-05 08:15:00-0500",
+        "epoch": 1788614100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 08:20:00",
+        "dstFlag": "N",
+        "totalCharging": -4264.171,
+        "totalDischarging": 25.516,
+        "netOutput": -4238.655,
+        "timestamp": "2026-09-05 08:20:00-0500",
+        "epoch": 1788614400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 08:25:00",
+        "dstFlag": "N",
+        "totalCharging": -4718.836,
+        "totalDischarging": 22.785,
+        "netOutput": -4696.051,
+        "timestamp": "2026-09-05 08:25:00-0500",
+        "epoch": 1788614700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 08:30:00",
+        "dstFlag": "N",
+        "totalCharging": -5112.299,
+        "totalDischarging": 35.729,
+        "netOutput": -5076.57,
+        "timestamp": "2026-09-05 08:30:00-0500",
+        "epoch": 1788615000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 08:35:00",
+        "dstFlag": "N",
+        "totalCharging": -5413.759,
+        "totalDischarging": 30.597,
+        "netOutput": -5383.162,
+        "timestamp": "2026-09-05 08:35:00-0500",
+        "epoch": 1788615300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 08:40:00",
+        "dstFlag": "N",
+        "totalCharging": -6105.749,
+        "totalDischarging": 21.317,
+        "netOutput": -6084.432,
+        "timestamp": "2026-09-05 08:40:00-0500",
+        "epoch": 1788615600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 08:45:00",
+        "dstFlag": "N",
+        "totalCharging": -6874.521,
+        "totalDischarging": 12.872,
+        "netOutput": -6861.649,
+        "timestamp": "2026-09-05 08:45:00-0500",
+        "epoch": 1788615900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 08:50:00",
+        "dstFlag": "N",
+        "totalCharging": -7516.444,
+        "totalDischarging": 13.808,
+        "netOutput": -7502.636,
+        "timestamp": "2026-09-05 08:50:00-0500",
+        "epoch": 1788616200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 08:55:00",
+        "dstFlag": "N",
+        "totalCharging": -8295.573,
+        "totalDischarging": 14.509,
+        "netOutput": -8280.9,
+        "timestamp": "2026-09-05 08:55:00-0500",
+        "epoch": 1788616500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 09:00:00",
+        "dstFlag": "N",
+        "totalCharging": -8933.727,
+        "totalDischarging": 13.41,
+        "netOutput": -8920.317,
+        "timestamp": "2026-09-05 09:00:00-0500",
+        "epoch": 1788616800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 09:05:00",
+        "dstFlag": "N",
+        "totalCharging": -9679.693,
+        "totalDischarging": 13.366,
+        "netOutput": -9666.327,
+        "timestamp": "2026-09-05 09:05:00-0500",
+        "epoch": 1788617100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 09:10:00",
+        "dstFlag": "N",
+        "totalCharging": -10417.46,
+        "totalDischarging": 13.58,
+        "netOutput": -10403.881,
+        "timestamp": "2026-09-05 09:10:00-0500",
+        "epoch": 1788617400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 09:15:00",
+        "dstFlag": "N",
+        "totalCharging": -10613.311,
+        "totalDischarging": 13.912,
+        "netOutput": -10599.399,
+        "timestamp": "2026-09-05 09:15:00-0500",
+        "epoch": 1788617700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 09:20:00",
+        "dstFlag": "N",
+        "totalCharging": -10347.358,
+        "totalDischarging": 18.634,
+        "netOutput": -10328.724,
+        "timestamp": "2026-09-05 09:20:00-0500",
+        "epoch": 1788618000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 09:25:00",
+        "dstFlag": "N",
+        "totalCharging": -10094.628,
+        "totalDischarging": 13.878,
+        "netOutput": -10080.749,
+        "timestamp": "2026-09-05 09:25:00-0500",
+        "epoch": 1788618300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 09:30:00",
+        "dstFlag": "N",
+        "totalCharging": -10002.609,
+        "totalDischarging": 23.47,
+        "netOutput": -9979.138,
+        "timestamp": "2026-09-05 09:30:00-0500",
+        "epoch": 1788618600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 09:35:00",
+        "dstFlag": "N",
+        "totalCharging": -9698.455,
+        "totalDischarging": 35.162,
+        "netOutput": -9663.294,
+        "timestamp": "2026-09-05 09:35:00-0500",
+        "epoch": 1788618900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 09:40:00",
+        "dstFlag": "N",
+        "totalCharging": -9500.795,
+        "totalDischarging": 36.839,
+        "netOutput": -9463.956,
+        "timestamp": "2026-09-05 09:40:00-0500",
+        "epoch": 1788619200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 09:45:00",
+        "dstFlag": "N",
+        "totalCharging": -9288.11,
+        "totalDischarging": 25.968,
+        "netOutput": -9262.141,
+        "timestamp": "2026-09-05 09:45:00-0500",
+        "epoch": 1788619500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 09:50:00",
+        "dstFlag": "N",
+        "totalCharging": -9081.218,
+        "totalDischarging": 16.875,
+        "netOutput": -9064.343,
+        "timestamp": "2026-09-05 09:50:00-0500",
+        "epoch": 1788619800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 09:55:00",
+        "dstFlag": "N",
+        "totalCharging": -8751.062,
+        "totalDischarging": 25.206,
+        "netOutput": -8725.856,
+        "timestamp": "2026-09-05 09:55:00-0500",
+        "epoch": 1788620100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 10:00:00",
+        "dstFlag": "N",
+        "totalCharging": -8359.951,
+        "totalDischarging": 12.86,
+        "netOutput": -8347.247,
+        "timestamp": "2026-09-05 10:00:00-0500",
+        "epoch": 1788620400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 10:05:00",
+        "dstFlag": "N",
+        "totalCharging": -7757.447,
+        "totalDischarging": 14.63,
+        "netOutput": -7742.817,
+        "timestamp": "2026-09-05 10:05:00-0500",
+        "epoch": 1788620700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 10:10:00",
+        "dstFlag": "N",
+        "totalCharging": -7196.145,
+        "totalDischarging": 17.142,
+        "netOutput": -7179.004,
+        "timestamp": "2026-09-05 10:10:00-0500",
+        "epoch": 1788621000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 10:15:00",
+        "dstFlag": "N",
+        "totalCharging": -6801.908,
+        "totalDischarging": 13.414,
+        "netOutput": -6788.494,
+        "timestamp": "2026-09-05 10:15:00-0500",
+        "epoch": 1788621300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 10:20:00",
+        "dstFlag": "N",
+        "totalCharging": -6328.312,
+        "totalDischarging": 41.376,
+        "netOutput": -6286.936,
+        "timestamp": "2026-09-05 10:20:00-0500",
+        "epoch": 1788621600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 10:25:00",
+        "dstFlag": "N",
+        "totalCharging": -6099.726,
+        "totalDischarging": 41.839,
+        "netOutput": -6057.887,
+        "timestamp": "2026-09-05 10:25:00-0500",
+        "epoch": 1788621900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 10:30:00",
+        "dstFlag": "N",
+        "totalCharging": -5924.188,
+        "totalDischarging": 28.825,
+        "netOutput": -5895.363,
+        "timestamp": "2026-09-05 10:30:00-0500",
+        "epoch": 1788622200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 10:35:00",
+        "dstFlag": "N",
+        "totalCharging": -5672.871,
+        "totalDischarging": 20.341,
+        "netOutput": -5652.529,
+        "timestamp": "2026-09-05 10:35:00-0500",
+        "epoch": 1788622500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 10:40:00",
+        "dstFlag": "N",
+        "totalCharging": -5509.936,
+        "totalDischarging": 15.292,
+        "netOutput": -5494.645,
+        "timestamp": "2026-09-05 10:40:00-0500",
+        "epoch": 1788622800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 10:45:00",
+        "dstFlag": "N",
+        "totalCharging": -5379.934,
+        "totalDischarging": 13.351,
+        "netOutput": -5366.582,
+        "timestamp": "2026-09-05 10:45:00-0500",
+        "epoch": 1788623100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 10:50:00",
+        "dstFlag": "N",
+        "totalCharging": -5171.447,
+        "totalDischarging": 16.743,
+        "netOutput": -5154.704,
+        "timestamp": "2026-09-05 10:50:00-0500",
+        "epoch": 1788623400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 10:55:00",
+        "dstFlag": "N",
+        "totalCharging": -4810.089,
+        "totalDischarging": 46.294,
+        "netOutput": -4763.794,
+        "timestamp": "2026-09-05 10:55:00-0500",
+        "epoch": 1788623700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 11:00:00",
+        "dstFlag": "N",
+        "totalCharging": -4513.171,
+        "totalDischarging": 28.749,
+        "netOutput": -4484.422,
+        "timestamp": "2026-09-05 11:00:00-0500",
+        "epoch": 1788624000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 11:05:00",
+        "dstFlag": "N",
+        "totalCharging": -3875.607,
+        "totalDischarging": 25.968,
+        "netOutput": -3849.639,
+        "timestamp": "2026-09-05 11:05:00-0500",
+        "epoch": 1788624300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 11:10:00",
+        "dstFlag": "N",
+        "totalCharging": -2879.104,
+        "totalDischarging": 167.966,
+        "netOutput": -2711.138,
+        "timestamp": "2026-09-05 11:10:00-0500",
+        "epoch": 1788624600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 11:15:00",
+        "dstFlag": "N",
+        "totalCharging": -2421.471,
+        "totalDischarging": 71.159,
+        "netOutput": -2350.311,
+        "timestamp": "2026-09-05 11:15:00-0500",
+        "epoch": 1788624900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 11:20:00",
+        "dstFlag": "N",
+        "totalCharging": -2352.112,
+        "totalDischarging": 35.343,
+        "netOutput": -2316.769,
+        "timestamp": "2026-09-05 11:20:00-0500",
+        "epoch": 1788625200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 11:25:00",
+        "dstFlag": "N",
+        "totalCharging": -2320.397,
+        "totalDischarging": 42.923,
+        "netOutput": -2277.561,
+        "timestamp": "2026-09-05 11:25:00-0500",
+        "epoch": 1788625500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 11:30:00",
+        "dstFlag": "N",
+        "totalCharging": -1904.691,
+        "totalDischarging": 205.262,
+        "netOutput": -1699.527,
+        "timestamp": "2026-09-05 11:30:00-0500",
+        "epoch": 1788625800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 11:35:00",
+        "dstFlag": "N",
+        "totalCharging": -1585.737,
+        "totalDischarging": 202.325,
+        "netOutput": -1383.411,
+        "timestamp": "2026-09-05 11:35:00-0500",
+        "epoch": 1788626100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 11:40:00",
+        "dstFlag": "N",
+        "totalCharging": -1206.451,
+        "totalDischarging": 185.544,
+        "netOutput": -1020.906,
+        "timestamp": "2026-09-05 11:40:00-0500",
+        "epoch": 1788626400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 11:45:00",
+        "dstFlag": "N",
+        "totalCharging": -1057.953,
+        "totalDischarging": 132.561,
+        "netOutput": -925.392,
+        "timestamp": "2026-09-05 11:45:00-0500",
+        "epoch": 1788626700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 11:50:00",
+        "dstFlag": "N",
+        "totalCharging": -1025.329,
+        "totalDischarging": 102.573,
+        "netOutput": -922.757,
+        "timestamp": "2026-09-05 11:50:00-0500",
+        "epoch": 1788627000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 11:55:00",
+        "dstFlag": "N",
+        "totalCharging": -1216.457,
+        "totalDischarging": 38.57,
+        "netOutput": -1177.888,
+        "timestamp": "2026-09-05 11:55:00-0500",
+        "epoch": 1788627300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 12:00:00",
+        "dstFlag": "N",
+        "totalCharging": -1060.273,
+        "totalDischarging": 56.613,
+        "netOutput": -1003.66,
+        "timestamp": "2026-09-05 12:00:00-0500",
+        "epoch": 1788627600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 12:05:00",
+        "dstFlag": "N",
+        "totalCharging": -1060.338,
+        "totalDischarging": 53.374,
+        "netOutput": -1006.964,
+        "timestamp": "2026-09-05 12:05:00-0500",
+        "epoch": 1788627900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 12:10:00",
+        "dstFlag": "N",
+        "totalCharging": -1097.338,
+        "totalDischarging": 55.259,
+        "netOutput": -1042.079,
+        "timestamp": "2026-09-05 12:10:00-0500",
+        "epoch": 1788628200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 12:15:00",
+        "dstFlag": "N",
+        "totalCharging": -969.968,
+        "totalDischarging": 73.991,
+        "netOutput": -895.977,
+        "timestamp": "2026-09-05 12:15:00-0500",
+        "epoch": 1788628500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 12:20:00",
+        "dstFlag": "N",
+        "totalCharging": -863.73,
+        "totalDischarging": 65.269,
+        "netOutput": -798.399,
+        "timestamp": "2026-09-05 12:20:00-0500",
+        "epoch": 1788628800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 12:25:00",
+        "dstFlag": "N",
+        "totalCharging": -875.876,
+        "totalDischarging": 44.89,
+        "netOutput": -830.986,
+        "timestamp": "2026-09-05 12:25:00-0500",
+        "epoch": 1788629100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 12:30:00",
+        "dstFlag": "N",
+        "totalCharging": -634.868,
+        "totalDischarging": 81.06,
+        "netOutput": -553.808,
+        "timestamp": "2026-09-05 12:30:00-0500",
+        "epoch": 1788629400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 12:35:00",
+        "dstFlag": "N",
+        "totalCharging": -478.206,
+        "totalDischarging": 115.917,
+        "netOutput": -362.289,
+        "timestamp": "2026-09-05 12:35:00-0500",
+        "epoch": 1788629700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 12:40:00",
+        "dstFlag": "N",
+        "totalCharging": -390.839,
+        "totalDischarging": 105.432,
+        "netOutput": -285.407,
+        "timestamp": "2026-09-05 12:40:00-0500",
+        "epoch": 1788630000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 12:45:00",
+        "dstFlag": "N",
+        "totalCharging": -335.086,
+        "totalDischarging": 100.5,
+        "netOutput": -234.586,
+        "timestamp": "2026-09-05 12:45:00-0500",
+        "epoch": 1788630300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 12:50:00",
+        "dstFlag": "N",
+        "totalCharging": -286.952,
+        "totalDischarging": 128.615,
+        "netOutput": -158.337,
+        "timestamp": "2026-09-05 12:50:00-0500",
+        "epoch": 1788630600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 12:55:00",
+        "dstFlag": "N",
+        "totalCharging": -321.825,
+        "totalDischarging": 116.075,
+        "netOutput": -205.75,
+        "timestamp": "2026-09-05 12:55:00-0500",
+        "epoch": 1788630900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 13:00:00",
+        "dstFlag": "N",
+        "totalCharging": -313.965,
+        "totalDischarging": 99.383,
+        "netOutput": -214.582,
+        "timestamp": "2026-09-05 13:00:00-0500",
+        "epoch": 1788631200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 13:05:00",
+        "dstFlag": "N",
+        "totalCharging": -464.703,
+        "totalDischarging": 70.988,
+        "netOutput": -393.832,
+        "timestamp": "2026-09-05 13:05:00-0500",
+        "epoch": 1788631500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 13:10:00",
+        "dstFlag": "N",
+        "totalCharging": -338.842,
+        "totalDischarging": 76.019,
+        "netOutput": -262.823,
+        "timestamp": "2026-09-05 13:10:00-0500",
+        "epoch": 1788631800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 13:15:00",
+        "dstFlag": "N",
+        "totalCharging": -117.344,
+        "totalDischarging": 376.448,
+        "netOutput": 259.103,
+        "timestamp": "2026-09-05 13:15:00-0500",
+        "epoch": 1788632100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 13:20:00",
+        "dstFlag": "N",
+        "totalCharging": -157.374,
+        "totalDischarging": 460.751,
+        "netOutput": 303.377,
+        "timestamp": "2026-09-05 13:20:00-0500",
+        "epoch": 1788632400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 13:25:00",
+        "dstFlag": "N",
+        "totalCharging": -127.658,
+        "totalDischarging": 331.748,
+        "netOutput": 204.09,
+        "timestamp": "2026-09-05 13:25:00-0500",
+        "epoch": 1788632700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 13:30:00",
+        "dstFlag": "N",
+        "totalCharging": -115.553,
+        "totalDischarging": 335.377,
+        "netOutput": 219.825,
+        "timestamp": "2026-09-05 13:30:00-0500",
+        "epoch": 1788633000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 13:35:00",
+        "dstFlag": "N",
+        "totalCharging": -237.326,
+        "totalDischarging": 154.225,
+        "netOutput": -83.102,
+        "timestamp": "2026-09-05 13:35:00-0500",
+        "epoch": 1788633300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 13:40:00",
+        "dstFlag": "N",
+        "totalCharging": -504.819,
+        "totalDischarging": 79.476,
+        "netOutput": -425.284,
+        "timestamp": "2026-09-05 13:40:00-0500",
+        "epoch": 1788633600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 13:45:00",
+        "dstFlag": "N",
+        "totalCharging": -496.472,
+        "totalDischarging": 79.302,
+        "netOutput": -417.17,
+        "timestamp": "2026-09-05 13:45:00-0500",
+        "epoch": 1788633900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 13:50:00",
+        "dstFlag": "N",
+        "totalCharging": -488.213,
+        "totalDischarging": 80.098,
+        "netOutput": -408.116,
+        "timestamp": "2026-09-05 13:50:00-0500",
+        "epoch": 1788634200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 13:55:00",
+        "dstFlag": "N",
+        "totalCharging": -343.15,
+        "totalDischarging": 91.371,
+        "netOutput": -251.779,
+        "timestamp": "2026-09-05 13:55:00-0500",
+        "epoch": 1788634500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 14:00:00",
+        "dstFlag": "N",
+        "totalCharging": -229.797,
+        "totalDischarging": 88.452,
+        "netOutput": -141.345,
+        "timestamp": "2026-09-05 14:00:00-0500",
+        "epoch": 1788634800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 14:05:00",
+        "dstFlag": "N",
+        "totalCharging": -208.694,
+        "totalDischarging": 77.317,
+        "netOutput": -131.377,
+        "timestamp": "2026-09-05 14:05:00-0500",
+        "epoch": 1788635100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 14:10:00",
+        "dstFlag": "N",
+        "totalCharging": -113.7,
+        "totalDischarging": 461.761,
+        "netOutput": 348.061,
+        "timestamp": "2026-09-05 14:10:00-0500",
+        "epoch": 1788635400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 14:15:00",
+        "dstFlag": "N",
+        "totalCharging": -67.861,
+        "totalDischarging": 891.172,
+        "netOutput": 823.311,
+        "timestamp": "2026-09-05 14:15:00-0500",
+        "epoch": 1788635700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 14:20:00",
+        "dstFlag": "N",
+        "totalCharging": -99.611,
+        "totalDischarging": 674.199,
+        "netOutput": 574.589,
+        "timestamp": "2026-09-05 14:20:00-0500",
+        "epoch": 1788636000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 14:25:00",
+        "dstFlag": "N",
+        "totalCharging": -125.135,
+        "totalDischarging": 528.535,
+        "netOutput": 403.4,
+        "timestamp": "2026-09-05 14:25:00-0500",
+        "epoch": 1788636300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 14:30:00",
+        "dstFlag": "N",
+        "totalCharging": -205.437,
+        "totalDischarging": 308.226,
+        "netOutput": 102.82,
+        "timestamp": "2026-09-05 14:30:00-0500",
+        "epoch": 1788636600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 14:35:00",
+        "dstFlag": "N",
+        "totalCharging": -242.946,
+        "totalDischarging": 177.647,
+        "netOutput": -65.299,
+        "timestamp": "2026-09-05 14:35:00-0500",
+        "epoch": 1788636900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 14:40:00",
+        "dstFlag": "N",
+        "totalCharging": -187.732,
+        "totalDischarging": 201.526,
+        "netOutput": 13.879,
+        "timestamp": "2026-09-05 14:40:00-0500",
+        "epoch": 1788637200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 14:45:00",
+        "dstFlag": "N",
+        "totalCharging": -322.55,
+        "totalDischarging": 140.291,
+        "netOutput": -182.26,
+        "timestamp": "2026-09-05 14:45:00-0500",
+        "epoch": 1788637500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 14:50:00",
+        "dstFlag": "N",
+        "totalCharging": -295.793,
+        "totalDischarging": 102.128,
+        "netOutput": -193.665,
+        "timestamp": "2026-09-05 14:50:00-0500",
+        "epoch": 1788637800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 14:55:00",
+        "dstFlag": "N",
+        "totalCharging": -217.814,
+        "totalDischarging": 210.484,
+        "netOutput": -7.33,
+        "timestamp": "2026-09-05 14:55:00-0500",
+        "epoch": 1788638100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:00:00",
+        "dstFlag": "N",
+        "totalCharging": -100.799,
+        "totalDischarging": 594.514,
+        "netOutput": 493.714,
+        "timestamp": "2026-09-05 15:00:00-0500",
+        "epoch": 1788638400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:05:00",
+        "dstFlag": "N",
+        "totalCharging": -256.97,
+        "totalDischarging": 306.805,
+        "netOutput": 49.834,
+        "timestamp": "2026-09-05 15:05:00-0500",
+        "epoch": 1788638700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:10:00",
+        "dstFlag": "N",
+        "totalCharging": -376.496,
+        "totalDischarging": 191.708,
+        "netOutput": -184.788,
+        "timestamp": "2026-09-05 15:10:00-0500",
+        "epoch": 1788639000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:15:00",
+        "dstFlag": "N",
+        "totalCharging": -424.267,
+        "totalDischarging": 147.592,
+        "netOutput": -276.675,
+        "timestamp": "2026-09-05 15:15:00-0500",
+        "epoch": 1788639300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:20:00",
+        "dstFlag": "N",
+        "totalCharging": -405.779,
+        "totalDischarging": 143.732,
+        "netOutput": -262.047,
+        "timestamp": "2026-09-05 15:20:00-0500",
+        "epoch": 1788639600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:25:00",
+        "dstFlag": "N",
+        "totalCharging": -388.095,
+        "totalDischarging": 132.303,
+        "netOutput": -255.791,
+        "timestamp": "2026-09-05 15:25:00-0500",
+        "epoch": 1788639900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:30:00",
+        "dstFlag": "N",
+        "totalCharging": -267.412,
+        "totalDischarging": 164.794,
+        "netOutput": -102.618,
+        "timestamp": "2026-09-05 15:30:00-0500",
+        "epoch": 1788640200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:35:00",
+        "dstFlag": "N",
+        "totalCharging": -338.52,
+        "totalDischarging": 154.26,
+        "netOutput": -184.261,
+        "timestamp": "2026-09-05 15:35:00-0500",
+        "epoch": 1788640500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:40:00",
+        "dstFlag": "N",
+        "totalCharging": -241.106,
+        "totalDischarging": 174.304,
+        "netOutput": -66.802,
+        "timestamp": "2026-09-05 15:40:00-0500",
+        "epoch": 1788640800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:45:00",
+        "dstFlag": "N",
+        "totalCharging": -169.984,
+        "totalDischarging": 276.107,
+        "netOutput": 106.123,
+        "timestamp": "2026-09-05 15:45:00-0500",
+        "epoch": 1788641100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:50:00",
+        "dstFlag": "N",
+        "totalCharging": -179.47,
+        "totalDischarging": 470.056,
+        "netOutput": 290.586,
+        "timestamp": "2026-09-05 15:50:00-0500",
+        "epoch": 1788641400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 15:55:00",
+        "dstFlag": "N",
+        "totalCharging": -234.619,
+        "totalDischarging": 614.778,
+        "netOutput": 380.159,
+        "timestamp": "2026-09-05 15:55:00-0500",
+        "epoch": 1788641700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 16:00:00",
+        "dstFlag": "N",
+        "totalCharging": -397.721,
+        "totalDischarging": 660.538,
+        "netOutput": 262.817,
+        "timestamp": "2026-09-05 16:00:00-0500",
+        "epoch": 1788642000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 16:05:00",
+        "dstFlag": "N",
+        "totalCharging": -527.824,
+        "totalDischarging": 631.972,
+        "netOutput": 104.148,
+        "timestamp": "2026-09-05 16:05:00-0500",
+        "epoch": 1788642300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 16:10:00",
+        "dstFlag": "N",
+        "totalCharging": -554.638,
+        "totalDischarging": 420.015,
+        "netOutput": -134.622,
+        "timestamp": "2026-09-05 16:10:00-0500",
+        "epoch": 1788642600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 16:15:00",
+        "dstFlag": "N",
+        "totalCharging": -243.496,
+        "totalDischarging": 324.558,
+        "netOutput": 81.062,
+        "timestamp": "2026-09-05 16:15:00-0500",
+        "epoch": 1788642900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 16:20:00",
+        "dstFlag": "N",
+        "totalCharging": -246.83,
+        "totalDischarging": 246.399,
+        "netOutput": -0.43,
+        "timestamp": "2026-09-05 16:20:00-0500",
+        "epoch": 1788643200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 16:25:00",
+        "dstFlag": "N",
+        "totalCharging": -352.472,
+        "totalDischarging": 199.932,
+        "netOutput": -152.54,
+        "timestamp": "2026-09-05 16:25:00-0500",
+        "epoch": 1788643500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 16:30:00",
+        "dstFlag": "N",
+        "totalCharging": -231.15,
+        "totalDischarging": 394.219,
+        "netOutput": 163.069,
+        "timestamp": "2026-09-05 16:30:00-0500",
+        "epoch": 1788643800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 16:35:00",
+        "dstFlag": "N",
+        "totalCharging": -197.073,
+        "totalDischarging": 657.616,
+        "netOutput": 460.543,
+        "timestamp": "2026-09-05 16:35:00-0500",
+        "epoch": 1788644100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 16:40:00",
+        "dstFlag": "N",
+        "totalCharging": -187.284,
+        "totalDischarging": 694.069,
+        "netOutput": 506.785,
+        "timestamp": "2026-09-05 16:40:00-0500",
+        "epoch": 1788644400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 16:45:00",
+        "dstFlag": "N",
+        "totalCharging": -135.242,
+        "totalDischarging": 798.769,
+        "netOutput": 663.527,
+        "timestamp": "2026-09-05 16:45:00-0500",
+        "epoch": 1788644700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 16:50:00",
+        "dstFlag": "N",
+        "totalCharging": -262.135,
+        "totalDischarging": 462.617,
+        "netOutput": 200.482,
+        "timestamp": "2026-09-05 16:50:00-0500",
+        "epoch": 1788645000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 16:55:00",
+        "dstFlag": "N",
+        "totalCharging": -482.152,
+        "totalDischarging": 376.363,
+        "netOutput": -105.789,
+        "timestamp": "2026-09-05 16:55:00-0500",
+        "epoch": 1788645300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 17:00:00",
+        "dstFlag": "N",
+        "totalCharging": -502.897,
+        "totalDischarging": 349.436,
+        "netOutput": -153.461,
+        "timestamp": "2026-09-05 17:00:00-0500",
+        "epoch": 1788645600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 17:05:00",
+        "dstFlag": "N",
+        "totalCharging": -485.677,
+        "totalDischarging": 360.455,
+        "netOutput": -125.223,
+        "timestamp": "2026-09-05 17:05:00-0500",
+        "epoch": 1788645900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 17:10:00",
+        "dstFlag": "N",
+        "totalCharging": -419.94,
+        "totalDischarging": 527.053,
+        "netOutput": 107.12,
+        "timestamp": "2026-09-05 17:10:00-0500",
+        "epoch": 1788646200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 17:15:00",
+        "dstFlag": "N",
+        "totalCharging": -301.811,
+        "totalDischarging": 634.188,
+        "netOutput": 332.377,
+        "timestamp": "2026-09-05 17:15:00-0500",
+        "epoch": 1788646500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 17:20:00",
+        "dstFlag": "N",
+        "totalCharging": -209.095,
+        "totalDischarging": 541.094,
+        "netOutput": 331.999,
+        "timestamp": "2026-09-05 17:20:00-0500",
+        "epoch": 1788646800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 17:25:00",
+        "dstFlag": "N",
+        "totalCharging": -276.382,
+        "totalDischarging": 454.473,
+        "netOutput": 178.091,
+        "timestamp": "2026-09-05 17:25:00-0500",
+        "epoch": 1788647100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 17:30:00",
+        "dstFlag": "N",
+        "totalCharging": -220.277,
+        "totalDischarging": 647.322,
+        "netOutput": 427.045,
+        "timestamp": "2026-09-05 17:30:00-0500",
+        "epoch": 1788647400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 17:35:00",
+        "dstFlag": "N",
+        "totalCharging": -124.313,
+        "totalDischarging": 1236.574,
+        "netOutput": 1112.261,
+        "timestamp": "2026-09-05 17:35:00-0500",
+        "epoch": 1788647700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 17:40:00",
+        "dstFlag": "N",
+        "totalCharging": -70.049,
+        "totalDischarging": 1874.14,
+        "netOutput": 1804.091,
+        "timestamp": "2026-09-05 17:40:00-0500",
+        "epoch": 1788648000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 17:45:00",
+        "dstFlag": "N",
+        "totalCharging": -141.017,
+        "totalDischarging": 1898.856,
+        "netOutput": 1757.838,
+        "timestamp": "2026-09-05 17:45:00-0500",
+        "epoch": 1788648300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 17:50:00",
+        "dstFlag": "N",
+        "totalCharging": -101.141,
+        "totalDischarging": 2179.569,
+        "netOutput": 2078.428,
+        "timestamp": "2026-09-05 17:50:00-0500",
+        "epoch": 1788648600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 17:55:00",
+        "dstFlag": "N",
+        "totalCharging": -175.761,
+        "totalDischarging": 2262.07,
+        "netOutput": 2086.309,
+        "timestamp": "2026-09-05 17:55:00-0500",
+        "epoch": 1788648900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 18:00:00",
+        "dstFlag": "N",
+        "totalCharging": -382.537,
+        "totalDischarging": 1946.859,
+        "netOutput": 1564.322,
+        "timestamp": "2026-09-05 18:00:00-0500",
+        "epoch": 1788649200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 18:05:00",
+        "dstFlag": "N",
+        "totalCharging": -368.794,
+        "totalDischarging": 1898.899,
+        "netOutput": 1530.104,
+        "timestamp": "2026-09-05 18:05:00-0500",
+        "epoch": 1788649500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 18:10:00",
+        "dstFlag": "N",
+        "totalCharging": -383.349,
+        "totalDischarging": 2253.075,
+        "netOutput": 1869.726,
+        "timestamp": "2026-09-05 18:10:00-0500",
+        "epoch": 1788649800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 18:15:00",
+        "dstFlag": "N",
+        "totalCharging": -318.533,
+        "totalDischarging": 2667.74,
+        "netOutput": 2349.206,
+        "timestamp": "2026-09-05 18:15:00-0500",
+        "epoch": 1788650100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 18:20:00",
+        "dstFlag": "N",
+        "totalCharging": -373.95,
+        "totalDischarging": 2747.812,
+        "netOutput": 2373.862,
+        "timestamp": "2026-09-05 18:20:00-0500",
+        "epoch": 1788650400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 18:25:00",
+        "dstFlag": "N",
+        "totalCharging": -298.224,
+        "totalDischarging": 3011.786,
+        "netOutput": 2713.562,
+        "timestamp": "2026-09-05 18:25:00-0500",
+        "epoch": 1788650700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 18:30:00",
+        "dstFlag": "N",
+        "totalCharging": -165.883,
+        "totalDischarging": 3625.453,
+        "netOutput": 3459.57,
+        "timestamp": "2026-09-05 18:30:00-0500",
+        "epoch": 1788651000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 18:35:00",
+        "dstFlag": "N",
+        "totalCharging": -169.95,
+        "totalDischarging": 3853.671,
+        "netOutput": 3683.779,
+        "timestamp": "2026-09-05 18:35:00-0500",
+        "epoch": 1788651300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 18:40:00",
+        "dstFlag": "N",
+        "totalCharging": -106.88,
+        "totalDischarging": 4286.734,
+        "netOutput": 4179.854,
+        "timestamp": "2026-09-05 18:40:00-0500",
+        "epoch": 1788651600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 18:45:00",
+        "dstFlag": "N",
+        "totalCharging": -69.652,
+        "totalDischarging": 4840.661,
+        "netOutput": 4771.009,
+        "timestamp": "2026-09-05 18:45:00-0500",
+        "epoch": 1788651900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 18:50:00",
+        "dstFlag": "N",
+        "totalCharging": -64.819,
+        "totalDischarging": 5226.399,
+        "netOutput": 5161.58,
+        "timestamp": "2026-09-05 18:50:00-0500",
+        "epoch": 1788652200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 18:55:00",
+        "dstFlag": "N",
+        "totalCharging": -80.902,
+        "totalDischarging": 5460.562,
+        "netOutput": 5379.653,
+        "timestamp": "2026-09-05 18:55:00-0500",
+        "epoch": 1788652500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 19:00:00",
+        "dstFlag": "N",
+        "totalCharging": -69.387,
+        "totalDischarging": 5795.758,
+        "netOutput": 5726.371,
+        "timestamp": "2026-09-05 19:00:00-0500",
+        "epoch": 1788652800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 19:05:00",
+        "dstFlag": "N",
+        "totalCharging": -86.41,
+        "totalDischarging": 6202.458,
+        "netOutput": 6116.048,
+        "timestamp": "2026-09-05 19:05:00-0500",
+        "epoch": 1788653100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 19:10:00",
+        "dstFlag": "N",
+        "totalCharging": -78.764,
+        "totalDischarging": 6732.139,
+        "netOutput": 6653.377,
+        "timestamp": "2026-09-05 19:10:00-0500",
+        "epoch": 1788653400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 19:15:00",
+        "dstFlag": "N",
+        "totalCharging": -57.205,
+        "totalDischarging": 7445.345,
+        "netOutput": 7388.142,
+        "timestamp": "2026-09-05 19:15:00-0500",
+        "epoch": 1788653700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 19:20:00",
+        "dstFlag": "N",
+        "totalCharging": -37.952,
+        "totalDischarging": 7975.441,
+        "netOutput": 7937.491,
+        "timestamp": "2026-09-05 19:20:00-0500",
+        "epoch": 1788654000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 19:25:00",
+        "dstFlag": "N",
+        "totalCharging": -35.914,
+        "totalDischarging": 8517.532,
+        "netOutput": 8481.62,
+        "timestamp": "2026-09-05 19:25:00-0500",
+        "epoch": 1788654300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 19:30:00",
+        "dstFlag": "N",
+        "totalCharging": -30.698,
+        "totalDischarging": 8980.284,
+        "netOutput": 8949.588,
+        "timestamp": "2026-09-05 19:30:00-0500",
+        "epoch": 1788654600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 19:35:00",
+        "dstFlag": "N",
+        "totalCharging": -22.089,
+        "totalDischarging": 9357.729,
+        "netOutput": 9335.642,
+        "timestamp": "2026-09-05 19:35:00-0500",
+        "epoch": 1788654900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 19:40:00",
+        "dstFlag": "N",
+        "totalCharging": -25.101,
+        "totalDischarging": 9391.211,
+        "netOutput": 9366.112,
+        "timestamp": "2026-09-05 19:40:00-0500",
+        "epoch": 1788655200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 19:45:00",
+        "dstFlag": "N",
+        "totalCharging": -28.396,
+        "totalDischarging": 9335.304,
+        "netOutput": 9306.908,
+        "timestamp": "2026-09-05 19:45:00-0500",
+        "epoch": 1788655500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 19:50:00",
+        "dstFlag": "N",
+        "totalCharging": -19.31,
+        "totalDischarging": 9448.524,
+        "netOutput": 9429.215,
+        "timestamp": "2026-09-05 19:50:00-0500",
+        "epoch": 1788655800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 19:55:00",
+        "dstFlag": "N",
+        "totalCharging": -22.82,
+        "totalDischarging": 9453.175,
+        "netOutput": 9430.356,
+        "timestamp": "2026-09-05 19:55:00-0500",
+        "epoch": 1788656100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 20:00:00",
+        "dstFlag": "N",
+        "totalCharging": -20.464,
+        "totalDischarging": 9276.881,
+        "netOutput": 9256.418,
+        "timestamp": "2026-09-05 20:00:00-0500",
+        "epoch": 1788656400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 20:05:00",
+        "dstFlag": "N",
+        "totalCharging": -32.964,
+        "totalDischarging": 8983.69,
+        "netOutput": 8950.727,
+        "timestamp": "2026-09-05 20:05:00-0500",
+        "epoch": 1788656700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 20:10:00",
+        "dstFlag": "N",
+        "totalCharging": -46.96,
+        "totalDischarging": 8567.581,
+        "netOutput": 8520.621,
+        "timestamp": "2026-09-05 20:10:00-0500",
+        "epoch": 1788657000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 20:15:00",
+        "dstFlag": "N",
+        "totalCharging": -68.099,
+        "totalDischarging": 8069.265,
+        "netOutput": 8001.167,
+        "timestamp": "2026-09-05 20:15:00-0500",
+        "epoch": 1788657300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 20:20:00",
+        "dstFlag": "N",
+        "totalCharging": -140.555,
+        "totalDischarging": 7673.55,
+        "netOutput": 7532.997,
+        "timestamp": "2026-09-05 20:20:00-0500",
+        "epoch": 1788657600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 20:25:00",
+        "dstFlag": "N",
+        "totalCharging": -88.648,
+        "totalDischarging": 7314.45,
+        "netOutput": 7225.803,
+        "timestamp": "2026-09-05 20:25:00-0500",
+        "epoch": 1788657900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 20:30:00",
+        "dstFlag": "N",
+        "totalCharging": -107.346,
+        "totalDischarging": 7157.317,
+        "netOutput": 7049.972,
+        "timestamp": "2026-09-05 20:30:00-0500",
+        "epoch": 1788658200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 20:35:00",
+        "dstFlag": "N",
+        "totalCharging": -155.473,
+        "totalDischarging": 6853.633,
+        "netOutput": 6698.161,
+        "timestamp": "2026-09-05 20:35:00-0500",
+        "epoch": 1788658500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 20:40:00",
+        "dstFlag": "N",
+        "totalCharging": -81.98,
+        "totalDischarging": 6701.453,
+        "netOutput": 6619.474,
+        "timestamp": "2026-09-05 20:40:00-0500",
+        "epoch": 1788658800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 20:45:00",
+        "dstFlag": "N",
+        "totalCharging": -72.231,
+        "totalDischarging": 6544.555,
+        "netOutput": 6472.325,
+        "timestamp": "2026-09-05 20:45:00-0500",
+        "epoch": 1788659100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 20:50:00",
+        "dstFlag": "N",
+        "totalCharging": -122.143,
+        "totalDischarging": 6315.124,
+        "netOutput": 6192.981,
+        "timestamp": "2026-09-05 20:50:00-0500",
+        "epoch": 1788659400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 20:55:00",
+        "dstFlag": "N",
+        "totalCharging": -82.064,
+        "totalDischarging": 6025.505,
+        "netOutput": 5943.44,
+        "timestamp": "2026-09-05 20:55:00-0500",
+        "epoch": 1788659700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 21:00:00",
+        "dstFlag": "N",
+        "totalCharging": -32.615,
+        "totalDischarging": 5774.57,
+        "netOutput": 5741.954,
+        "timestamp": "2026-09-05 21:00:00-0500",
+        "epoch": 1788660000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 21:05:00",
+        "dstFlag": "N",
+        "totalCharging": -30.922,
+        "totalDischarging": 5401.42,
+        "netOutput": 5370.498,
+        "timestamp": "2026-09-05 21:05:00-0500",
+        "epoch": 1788660300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 21:10:00",
+        "dstFlag": "N",
+        "totalCharging": -84.224,
+        "totalDischarging": 4983.649,
+        "netOutput": 4899.424,
+        "timestamp": "2026-09-05 21:10:00-0500",
+        "epoch": 1788660600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 21:15:00",
+        "dstFlag": "N",
+        "totalCharging": -114.224,
+        "totalDischarging": 4511.404,
+        "netOutput": 4397.179,
+        "timestamp": "2026-09-05 21:15:00-0500",
+        "epoch": 1788660900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 21:20:00",
+        "dstFlag": "N",
+        "totalCharging": -152.569,
+        "totalDischarging": 3986.22,
+        "netOutput": 3833.65,
+        "timestamp": "2026-09-05 21:20:00-0500",
+        "epoch": 1788661200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 21:25:00",
+        "dstFlag": "N",
+        "totalCharging": -110.034,
+        "totalDischarging": 3341.493,
+        "netOutput": 3231.458,
+        "timestamp": "2026-09-05 21:25:00-0500",
+        "epoch": 1788661500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 21:30:00",
+        "dstFlag": "N",
+        "totalCharging": -50.275,
+        "totalDischarging": 2967.6,
+        "netOutput": 2917.326,
+        "timestamp": "2026-09-05 21:30:00-0500",
+        "epoch": 1788661800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 21:35:00",
+        "dstFlag": "N",
+        "totalCharging": -42.855,
+        "totalDischarging": 2720.855,
+        "netOutput": 2677.999,
+        "timestamp": "2026-09-05 21:35:00-0500",
+        "epoch": 1788662100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 21:40:00",
+        "dstFlag": "N",
+        "totalCharging": -214.159,
+        "totalDischarging": 2546.848,
+        "netOutput": 2332.689,
+        "timestamp": "2026-09-05 21:40:00-0500",
+        "epoch": 1788662400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 21:45:00",
+        "dstFlag": "N",
+        "totalCharging": -218.924,
+        "totalDischarging": 2311.511,
+        "netOutput": 2092.587,
+        "timestamp": "2026-09-05 21:45:00-0500",
+        "epoch": 1788662700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 21:50:00",
+        "dstFlag": "N",
+        "totalCharging": -49.097,
+        "totalDischarging": 2029.135,
+        "netOutput": 1980.037,
+        "timestamp": "2026-09-05 21:50:00-0500",
+        "epoch": 1788663000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 21:55:00",
+        "dstFlag": "N",
+        "totalCharging": -237.189,
+        "totalDischarging": 1944.166,
+        "netOutput": 1706.977,
+        "timestamp": "2026-09-05 21:55:00-0500",
+        "epoch": 1788663300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 22:00:00",
+        "dstFlag": "N",
+        "totalCharging": -311.443,
+        "totalDischarging": 1814.637,
+        "netOutput": 1503.194,
+        "timestamp": "2026-09-05 22:00:00-0500",
+        "epoch": 1788663600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 22:05:00",
+        "dstFlag": "N",
+        "totalCharging": -123.203,
+        "totalDischarging": 1408.191,
+        "netOutput": 1284.988,
+        "timestamp": "2026-09-05 22:05:00-0500",
+        "epoch": 1788663900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 22:10:00",
+        "dstFlag": "N",
+        "totalCharging": -221.658,
+        "totalDischarging": 1253.495,
+        "netOutput": 1031.885,
+        "timestamp": "2026-09-05 22:10:00-0500",
+        "epoch": 1788664200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 22:15:00",
+        "dstFlag": "N",
+        "totalCharging": -228.799,
+        "totalDischarging": 1321.571,
+        "netOutput": 1092.772,
+        "timestamp": "2026-09-05 22:15:00-0500",
+        "epoch": 1788664500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 22:20:00",
+        "dstFlag": "N",
+        "totalCharging": -138.29,
+        "totalDischarging": 996.973,
+        "netOutput": 858.683,
+        "timestamp": "2026-09-05 22:20:00-0500",
+        "epoch": 1788664800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 22:25:00",
+        "dstFlag": "N",
+        "totalCharging": -61.393,
+        "totalDischarging": 762.901,
+        "netOutput": 701.508,
+        "timestamp": "2026-09-05 22:25:00-0500",
+        "epoch": 1788665100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 22:30:00",
+        "dstFlag": "N",
+        "totalCharging": -79.481,
+        "totalDischarging": 668.75,
+        "netOutput": 589.269,
+        "timestamp": "2026-09-05 22:30:00-0500",
+        "epoch": 1788665400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 22:35:00",
+        "dstFlag": "N",
+        "totalCharging": -104.376,
+        "totalDischarging": 522.745,
+        "netOutput": 418.37,
+        "timestamp": "2026-09-05 22:35:00-0500",
+        "epoch": 1788665700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 22:40:00",
+        "dstFlag": "N",
+        "totalCharging": -66.873,
+        "totalDischarging": 480.541,
+        "netOutput": 413.669,
+        "timestamp": "2026-09-05 22:40:00-0500",
+        "epoch": 1788666000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 22:45:00",
+        "dstFlag": "N",
+        "totalCharging": -92.112,
+        "totalDischarging": 560.628,
+        "netOutput": 468.516,
+        "timestamp": "2026-09-05 22:45:00-0500",
+        "epoch": 1788666300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 22:50:00",
+        "dstFlag": "N",
+        "totalCharging": -127.441,
+        "totalDischarging": 486.679,
+        "netOutput": 359.238,
+        "timestamp": "2026-09-05 22:50:00-0500",
+        "epoch": 1788666600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 22:55:00",
+        "dstFlag": "N",
+        "totalCharging": -109.085,
+        "totalDischarging": 439.711,
+        "netOutput": 330.627,
+        "timestamp": "2026-09-05 22:55:00-0500",
+        "epoch": 1788666900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 23:00:00",
+        "dstFlag": "N",
+        "totalCharging": -175.448,
+        "totalDischarging": 301.452,
+        "netOutput": 126.003,
+        "timestamp": "2026-09-05 23:00:00-0500",
+        "epoch": 1788667200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 23:05:00",
+        "dstFlag": "N",
+        "totalCharging": -336.233,
+        "totalDischarging": 446.123,
+        "netOutput": 109.889,
+        "timestamp": "2026-09-05 23:05:00-0500",
+        "epoch": 1788667500000
+      },
+      {
+        "tagCLastTime": "2026-09-05 23:10:00",
+        "dstFlag": "N",
+        "totalCharging": -460.566,
+        "totalDischarging": 672.501,
+        "netOutput": 211.934,
+        "timestamp": "2026-09-05 23:10:00-0500",
+        "epoch": 1788667800000
+      },
+      {
+        "tagCLastTime": "2026-09-05 23:15:00",
+        "dstFlag": "N",
+        "totalCharging": -484.642,
+        "totalDischarging": 666.54,
+        "netOutput": 181.898,
+        "timestamp": "2026-09-05 23:15:00-0500",
+        "epoch": 1788668100000
+      },
+      {
+        "tagCLastTime": "2026-09-05 23:20:00",
+        "dstFlag": "N",
+        "totalCharging": -440.657,
+        "totalDischarging": 617.375,
+        "netOutput": 176.717,
+        "timestamp": "2026-09-05 23:20:00-0500",
+        "epoch": 1788668400000
+      },
+      {
+        "tagCLastTime": "2026-09-05 23:25:00",
+        "dstFlag": "N",
+        "totalCharging": -233.847,
+        "totalDischarging": 734.284,
+        "netOutput": 500.437,
+        "timestamp": "2026-09-05 23:25:00-0500",
+        "epoch": 1788668700000
+      },
+      {
+        "tagCLastTime": "2026-09-05 23:30:00",
+        "dstFlag": "N",
+        "totalCharging": -216.588,
+        "totalDischarging": 775.135,
+        "netOutput": 558.546,
+        "timestamp": "2026-09-05 23:30:00-0500",
+        "epoch": 1788669000000
+      },
+      {
+        "tagCLastTime": "2026-09-05 23:35:00",
+        "dstFlag": "N",
+        "totalCharging": -275.938,
+        "totalDischarging": 620.619,
+        "netOutput": 344.681,
+        "timestamp": "2026-09-05 23:35:00-0500",
+        "epoch": 1788669300000
+      },
+      {
+        "tagCLastTime": "2026-09-05 23:40:00",
+        "dstFlag": "N",
+        "totalCharging": -290.142,
+        "totalDischarging": 412.426,
+        "netOutput": 122.284,
+        "timestamp": "2026-09-05 23:40:00-0500",
+        "epoch": 1788669600000
+      },
+      {
+        "tagCLastTime": "2026-09-05 23:45:00",
+        "dstFlag": "N",
+        "totalCharging": -299.456,
+        "totalDischarging": 247.64,
+        "netOutput": -51.816,
+        "timestamp": "2026-09-05 23:45:00-0500",
+        "epoch": 1788669900000
+      },
+      {
+        "tagCLastTime": "2026-09-05 23:50:00",
+        "dstFlag": "N",
+        "totalCharging": -335.233,
+        "totalDischarging": 148.697,
+        "netOutput": -186.536,
+        "timestamp": "2026-09-05 23:50:00-0500",
+        "epoch": 1788670200000
+      },
+      {
+        "tagCLastTime": "2026-09-05 23:55:00",
+        "dstFlag": "N",
+        "totalCharging": -358.434,
+        "totalDischarging": 124.74,
+        "netOutput": -233.694,
+        "timestamp": "2026-09-05 23:55:00-0500",
+        "epoch": 1788670500000
+      }
+    ]
+  },
+  "currentDay": {
+    "dayDate": "2026-09-06 03:00:00-0500",
+    "data": [
+      {
+        "tagCLastTime": "2026-09-06 00:00:00",
+        "dstFlag": "N",
+        "totalCharging": -292.784,
+        "totalDischarging": 150.461,
+        "netOutput": -142.322,
+        "timestamp": "2026-09-06 00:00:00-0500",
+        "epoch": 1788670800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 00:05:00",
+        "dstFlag": "N",
+        "totalCharging": -342.805,
+        "totalDischarging": 282.371,
+        "netOutput": -60.435,
+        "timestamp": "2026-09-06 00:05:00-0500",
+        "epoch": 1788671100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 00:10:00",
+        "dstFlag": "N",
+        "totalCharging": -529.705,
+        "totalDischarging": 434.397,
+        "netOutput": -95.308,
+        "timestamp": "2026-09-06 00:10:00-0500",
+        "epoch": 1788671400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 00:15:00",
+        "dstFlag": "N",
+        "totalCharging": -474.103,
+        "totalDischarging": 286.904,
+        "netOutput": -187.199,
+        "timestamp": "2026-09-06 00:15:00-0500",
+        "epoch": 1788671700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 00:20:00",
+        "dstFlag": "N",
+        "totalCharging": -193.482,
+        "totalDischarging": 125.948,
+        "netOutput": -67.533,
+        "timestamp": "2026-09-06 00:20:00-0500",
+        "epoch": 1788672000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 00:25:00",
+        "dstFlag": "N",
+        "totalCharging": -152.24,
+        "totalDischarging": 66.655,
+        "netOutput": -85.585,
+        "timestamp": "2026-09-06 00:25:00-0500",
+        "epoch": 1788672300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 00:30:00",
+        "dstFlag": "N",
+        "totalCharging": -161.612,
+        "totalDischarging": 38.459,
+        "netOutput": -123.153,
+        "timestamp": "2026-09-06 00:30:00-0500",
+        "epoch": 1788672600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 00:35:00",
+        "dstFlag": "N",
+        "totalCharging": -190.439,
+        "totalDischarging": 66.548,
+        "netOutput": -123.891,
+        "timestamp": "2026-09-06 00:35:00-0500",
+        "epoch": 1788672900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 00:40:00",
+        "dstFlag": "N",
+        "totalCharging": -145.004,
+        "totalDischarging": 64.942,
+        "netOutput": -80.063,
+        "timestamp": "2026-09-06 00:40:00-0500",
+        "epoch": 1788673200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 00:45:00",
+        "dstFlag": "N",
+        "totalCharging": -226.46,
+        "totalDischarging": 18.161,
+        "netOutput": -208.299,
+        "timestamp": "2026-09-06 00:45:00-0500",
+        "epoch": 1788673500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 00:50:00",
+        "dstFlag": "N",
+        "totalCharging": -239.459,
+        "totalDischarging": 21.051,
+        "netOutput": -218.408,
+        "timestamp": "2026-09-06 00:50:00-0500",
+        "epoch": 1788673800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 00:55:00",
+        "dstFlag": "N",
+        "totalCharging": -266.41,
+        "totalDischarging": 26.925,
+        "netOutput": -239.484,
+        "timestamp": "2026-09-06 00:55:00-0500",
+        "epoch": 1788674100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 01:00:00",
+        "dstFlag": "N",
+        "totalCharging": -354.438,
+        "totalDischarging": 28.744,
+        "netOutput": -325.694,
+        "timestamp": "2026-09-06 01:00:00-0500",
+        "epoch": 1788674400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 01:05:00",
+        "dstFlag": "N",
+        "totalCharging": -482.813,
+        "totalDischarging": 74.973,
+        "netOutput": -407.841,
+        "timestamp": "2026-09-06 01:05:00-0500",
+        "epoch": 1788674700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 01:10:00",
+        "dstFlag": "N",
+        "totalCharging": -458.737,
+        "totalDischarging": 70.813,
+        "netOutput": -387.924,
+        "timestamp": "2026-09-06 01:10:00-0500",
+        "epoch": 1788675000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 01:15:00",
+        "dstFlag": "N",
+        "totalCharging": -501.783,
+        "totalDischarging": 47.37,
+        "netOutput": -454.315,
+        "timestamp": "2026-09-06 01:15:00-0500",
+        "epoch": 1788675300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 01:20:00",
+        "dstFlag": "N",
+        "totalCharging": -491.144,
+        "totalDischarging": 36.324,
+        "netOutput": -454.82,
+        "timestamp": "2026-09-06 01:20:00-0500",
+        "epoch": 1788675600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 01:25:00",
+        "dstFlag": "N",
+        "totalCharging": -508.87,
+        "totalDischarging": 26.211,
+        "netOutput": -482.659,
+        "timestamp": "2026-09-06 01:25:00-0500",
+        "epoch": 1788675900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 01:30:00",
+        "dstFlag": "N",
+        "totalCharging": -647.383,
+        "totalDischarging": 25.758,
+        "netOutput": -621.625,
+        "timestamp": "2026-09-06 01:30:00-0500",
+        "epoch": 1788676200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 01:35:00",
+        "dstFlag": "N",
+        "totalCharging": -769.764,
+        "totalDischarging": 32.473,
+        "netOutput": -737.291,
+        "timestamp": "2026-09-06 01:35:00-0500",
+        "epoch": 1788676500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 01:40:00",
+        "dstFlag": "N",
+        "totalCharging": -900.31,
+        "totalDischarging": 27.312,
+        "netOutput": -872.998,
+        "timestamp": "2026-09-06 01:40:00-0500",
+        "epoch": 1788676800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 01:45:00",
+        "dstFlag": "N",
+        "totalCharging": -756.733,
+        "totalDischarging": 27.454,
+        "netOutput": -729.278,
+        "timestamp": "2026-09-06 01:45:00-0500",
+        "epoch": 1788677100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 01:50:00",
+        "dstFlag": "N",
+        "totalCharging": -730.576,
+        "totalDischarging": 45.887,
+        "netOutput": -684.689,
+        "timestamp": "2026-09-06 01:50:00-0500",
+        "epoch": 1788677400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 01:55:00",
+        "dstFlag": "N",
+        "totalCharging": -800.847,
+        "totalDischarging": 30.612,
+        "netOutput": -770.235,
+        "timestamp": "2026-09-06 01:55:00-0500",
+        "epoch": 1788677700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 02:00:00",
+        "dstFlag": "N",
+        "totalCharging": -951.934,
+        "totalDischarging": 39.331,
+        "netOutput": -912.658,
+        "timestamp": "2026-09-06 02:00:00-0500",
+        "epoch": 1788678000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 02:05:00",
+        "dstFlag": "N",
+        "totalCharging": -1047.545,
+        "totalDischarging": 34.819,
+        "netOutput": -1012.726,
+        "timestamp": "2026-09-06 02:05:00-0500",
+        "epoch": 1788678300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 02:10:00",
+        "dstFlag": "N",
+        "totalCharging": -1161.186,
+        "totalDischarging": 16.936,
+        "netOutput": -1144.251,
+        "timestamp": "2026-09-06 02:10:00-0500",
+        "epoch": 1788678600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 02:15:00",
+        "dstFlag": "N",
+        "totalCharging": -1035.428,
+        "totalDischarging": 219.335,
+        "netOutput": -816.093,
+        "timestamp": "2026-09-06 02:15:00-0500",
+        "epoch": 1788678900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 02:20:00",
+        "dstFlag": "N",
+        "totalCharging": -926.97,
+        "totalDischarging": 138.195,
+        "netOutput": -788.775,
+        "timestamp": "2026-09-06 02:20:00-0500",
+        "epoch": 1788679200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 02:25:00",
+        "dstFlag": "N",
+        "totalCharging": -903.165,
+        "totalDischarging": 99.813,
+        "netOutput": -803.352,
+        "timestamp": "2026-09-06 02:25:00-0500",
+        "epoch": 1788679500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 02:30:00",
+        "dstFlag": "N",
+        "totalCharging": -925.696,
+        "totalDischarging": 110.947,
+        "netOutput": -814.749,
+        "timestamp": "2026-09-06 02:30:00-0500",
+        "epoch": 1788679800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 02:35:00",
+        "dstFlag": "N",
+        "totalCharging": -831.776,
+        "totalDischarging": 101.54,
+        "netOutput": -730.236,
+        "timestamp": "2026-09-06 02:35:00-0500",
+        "epoch": 1788680100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 02:40:00",
+        "dstFlag": "N",
+        "totalCharging": -830.057,
+        "totalDischarging": 56.663,
+        "netOutput": -773.394,
+        "timestamp": "2026-09-06 02:40:00-0500",
+        "epoch": 1788680400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 02:45:00",
+        "dstFlag": "N",
+        "totalCharging": -901.009,
+        "totalDischarging": 37.951,
+        "netOutput": -863.028,
+        "timestamp": "2026-09-06 02:45:00-0500",
+        "epoch": 1788680700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 02:50:00",
+        "dstFlag": "N",
+        "totalCharging": -980.617,
+        "totalDischarging": 31.637,
+        "netOutput": -948.98,
+        "timestamp": "2026-09-06 02:50:00-0500",
+        "epoch": 1788681000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 02:55:00",
+        "dstFlag": "N",
+        "totalCharging": -1041.689,
+        "totalDischarging": 46.927,
+        "netOutput": -994.762,
+        "timestamp": "2026-09-06 02:55:00-0500",
+        "epoch": 1788681300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 03:00:00",
+        "dstFlag": "N",
+        "totalCharging": -854.324,
+        "totalDischarging": 76.626,
+        "netOutput": -777.698,
+        "timestamp": "2026-09-06 03:00:00-0500",
+        "epoch": 1788681600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 03:05:00",
+        "dstFlag": "N",
+        "totalCharging": -587.167,
+        "totalDischarging": 55.089,
+        "netOutput": -532.078,
+        "timestamp": "2026-09-06 03:05:00-0500",
+        "epoch": 1788681900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 03:10:00",
+        "dstFlag": "N",
+        "totalCharging": -475.068,
+        "totalDischarging": 28.575,
+        "netOutput": -446.493,
+        "timestamp": "2026-09-06 03:10:00-0500",
+        "epoch": 1788682200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 03:15:00",
+        "dstFlag": "N",
+        "totalCharging": -385.129,
+        "totalDischarging": 65.642,
+        "netOutput": -319.487,
+        "timestamp": "2026-09-06 03:15:00-0500",
+        "epoch": 1788682500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 03:20:00",
+        "dstFlag": "N",
+        "totalCharging": -228.269,
+        "totalDischarging": 184.268,
+        "netOutput": -44.001,
+        "timestamp": "2026-09-06 03:20:00-0500",
+        "epoch": 1788682800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 03:25:00",
+        "dstFlag": "N",
+        "totalCharging": -130.17,
+        "totalDischarging": 89.03,
+        "netOutput": -41.14,
+        "timestamp": "2026-09-06 03:25:00-0500",
+        "epoch": 1788683100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 03:30:00",
+        "dstFlag": "N",
+        "totalCharging": -131.537,
+        "totalDischarging": 135.202,
+        "netOutput": 3.665,
+        "timestamp": "2026-09-06 03:30:00-0500",
+        "epoch": 1788683400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 03:35:00",
+        "dstFlag": "N",
+        "totalCharging": -202.229,
+        "totalDischarging": 130.498,
+        "netOutput": -71.73,
+        "timestamp": "2026-09-06 03:35:00-0500",
+        "epoch": 1788683700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 03:40:00",
+        "dstFlag": "N",
+        "totalCharging": -237.997,
+        "totalDischarging": 246.794,
+        "netOutput": 8.798,
+        "timestamp": "2026-09-06 03:40:00-0500",
+        "epoch": 1788684000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 03:45:00",
+        "dstFlag": "N",
+        "totalCharging": -191.966,
+        "totalDischarging": 303.458,
+        "netOutput": 111.492,
+        "timestamp": "2026-09-06 03:45:00-0500",
+        "epoch": 1788684300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 03:50:00",
+        "dstFlag": "N",
+        "totalCharging": -142.167,
+        "totalDischarging": 210.805,
+        "netOutput": 68.637,
+        "timestamp": "2026-09-06 03:50:00-0500",
+        "epoch": 1788684600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 03:55:00",
+        "dstFlag": "N",
+        "totalCharging": -154.503,
+        "totalDischarging": 87.688,
+        "netOutput": -66.838,
+        "timestamp": "2026-09-06 03:55:00-0500",
+        "epoch": 1788684900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 04:00:00",
+        "dstFlag": "N",
+        "totalCharging": -116.385,
+        "totalDischarging": 203.228,
+        "netOutput": 86.842,
+        "timestamp": "2026-09-06 04:00:00-0500",
+        "epoch": 1788685200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 04:05:00",
+        "dstFlag": "N",
+        "totalCharging": -120.42,
+        "totalDischarging": 406.531,
+        "netOutput": 286.111,
+        "timestamp": "2026-09-06 04:05:00-0500",
+        "epoch": 1788685500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 04:10:00",
+        "dstFlag": "N",
+        "totalCharging": -128.058,
+        "totalDischarging": 531.445,
+        "netOutput": 403.387,
+        "timestamp": "2026-09-06 04:10:00-0500",
+        "epoch": 1788685800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 04:15:00",
+        "dstFlag": "N",
+        "totalCharging": -115.903,
+        "totalDischarging": 667.33,
+        "netOutput": 551.427,
+        "timestamp": "2026-09-06 04:15:00-0500",
+        "epoch": 1788686100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 04:20:00",
+        "dstFlag": "N",
+        "totalCharging": -122.615,
+        "totalDischarging": 644.047,
+        "netOutput": 521.432,
+        "timestamp": "2026-09-06 04:20:00-0500",
+        "epoch": 1788686400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 04:25:00",
+        "dstFlag": "N",
+        "totalCharging": -118.347,
+        "totalDischarging": 591.213,
+        "netOutput": 472.866,
+        "timestamp": "2026-09-06 04:25:00-0500",
+        "epoch": 1788686700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 04:30:00",
+        "dstFlag": "N",
+        "totalCharging": -130.032,
+        "totalDischarging": 506.881,
+        "netOutput": 376.849,
+        "timestamp": "2026-09-06 04:30:00-0500",
+        "epoch": 1788687000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 04:35:00",
+        "dstFlag": "N",
+        "totalCharging": -108.641,
+        "totalDischarging": 659.563,
+        "netOutput": 550.922,
+        "timestamp": "2026-09-06 04:35:00-0500",
+        "epoch": 1788687300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 04:40:00",
+        "dstFlag": "N",
+        "totalCharging": -132.969,
+        "totalDischarging": 723.051,
+        "netOutput": 590.083,
+        "timestamp": "2026-09-06 04:40:00-0500",
+        "epoch": 1788687600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 04:45:00",
+        "dstFlag": "N",
+        "totalCharging": -348.764,
+        "totalDischarging": 665.365,
+        "netOutput": 316.686,
+        "timestamp": "2026-09-06 04:45:00-0500",
+        "epoch": 1788687900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 04:50:00",
+        "dstFlag": "N",
+        "totalCharging": -314.098,
+        "totalDischarging": 448.57,
+        "netOutput": 134.472,
+        "timestamp": "2026-09-06 04:50:00-0500",
+        "epoch": 1788688200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 04:55:00",
+        "dstFlag": "N",
+        "totalCharging": -191.795,
+        "totalDischarging": 301.814,
+        "netOutput": 110.019,
+        "timestamp": "2026-09-06 04:55:00-0500",
+        "epoch": 1788688500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 05:00:00",
+        "dstFlag": "N",
+        "totalCharging": -230.103,
+        "totalDischarging": 376.212,
+        "netOutput": 146.109,
+        "timestamp": "2026-09-06 05:00:00-0500",
+        "epoch": 1788688800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 05:05:00",
+        "dstFlag": "N",
+        "totalCharging": -190.722,
+        "totalDischarging": 514.636,
+        "netOutput": 323.914,
+        "timestamp": "2026-09-06 05:05:00-0500",
+        "epoch": 1788689100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 05:10:00",
+        "dstFlag": "N",
+        "totalCharging": -139.407,
+        "totalDischarging": 650.257,
+        "netOutput": 510.85,
+        "timestamp": "2026-09-06 05:10:00-0500",
+        "epoch": 1788689400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 05:15:00",
+        "dstFlag": "N",
+        "totalCharging": -122.427,
+        "totalDischarging": 831.217,
+        "netOutput": 708.742,
+        "timestamp": "2026-09-06 05:15:00-0500",
+        "epoch": 1788689700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 05:20:00",
+        "dstFlag": "N",
+        "totalCharging": -142.411,
+        "totalDischarging": 961.463,
+        "netOutput": 819.052,
+        "timestamp": "2026-09-06 05:20:00-0500",
+        "epoch": 1788690000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 05:25:00",
+        "dstFlag": "N",
+        "totalCharging": -183.866,
+        "totalDischarging": 1156.213,
+        "netOutput": 972.288,
+        "timestamp": "2026-09-06 05:25:00-0500",
+        "epoch": 1788690300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 05:30:00",
+        "dstFlag": "N",
+        "totalCharging": -185.54,
+        "totalDischarging": 1192.403,
+        "netOutput": 1006.863,
+        "timestamp": "2026-09-06 05:30:00-0500",
+        "epoch": 1788690600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 05:35:00",
+        "dstFlag": "N",
+        "totalCharging": -129.859,
+        "totalDischarging": 1362.519,
+        "netOutput": 1232.66,
+        "timestamp": "2026-09-06 05:35:00-0500",
+        "epoch": 1788690900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 05:40:00",
+        "dstFlag": "N",
+        "totalCharging": -230.896,
+        "totalDischarging": 1388.066,
+        "netOutput": 1157.17,
+        "timestamp": "2026-09-06 05:40:00-0500",
+        "epoch": 1788691200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 05:45:00",
+        "dstFlag": "N",
+        "totalCharging": -205.948,
+        "totalDischarging": 1377.643,
+        "netOutput": 1171.694,
+        "timestamp": "2026-09-06 05:45:00-0500",
+        "epoch": 1788691500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 05:50:00",
+        "dstFlag": "N",
+        "totalCharging": -204.487,
+        "totalDischarging": 1415.846,
+        "netOutput": 1211.358,
+        "timestamp": "2026-09-06 05:50:00-0500",
+        "epoch": 1788691800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 05:55:00",
+        "dstFlag": "N",
+        "totalCharging": -239.224,
+        "totalDischarging": 1544.624,
+        "netOutput": 1305.4,
+        "timestamp": "2026-09-06 05:55:00-0500",
+        "epoch": 1788692100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 06:00:00",
+        "dstFlag": "N",
+        "totalCharging": -243.674,
+        "totalDischarging": 1623.697,
+        "netOutput": 1380.024,
+        "timestamp": "2026-09-06 06:00:00-0500",
+        "epoch": 1788692400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 06:05:00",
+        "dstFlag": "N",
+        "totalCharging": -188.468,
+        "totalDischarging": 1791.422,
+        "netOutput": 1602.954,
+        "timestamp": "2026-09-06 06:05:00-0500",
+        "epoch": 1788692700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 06:10:00",
+        "dstFlag": "N",
+        "totalCharging": -154.64,
+        "totalDischarging": 2025.208,
+        "netOutput": 1870.561,
+        "timestamp": "2026-09-06 06:10:00-0500",
+        "epoch": 1788693000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 06:15:00",
+        "dstFlag": "N",
+        "totalCharging": -134.943,
+        "totalDischarging": 2251.334,
+        "netOutput": 2116.39,
+        "timestamp": "2026-09-06 06:15:00-0500",
+        "epoch": 1788693300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 06:20:00",
+        "dstFlag": "N",
+        "totalCharging": -112.413,
+        "totalDischarging": 2363.933,
+        "netOutput": 2251.521,
+        "timestamp": "2026-09-06 06:20:00-0500",
+        "epoch": 1788693600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 06:25:00",
+        "dstFlag": "N",
+        "totalCharging": -99.993,
+        "totalDischarging": 2579.897,
+        "netOutput": 2479.903,
+        "timestamp": "2026-09-06 06:25:00-0500",
+        "epoch": 1788693900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 06:30:00",
+        "dstFlag": "N",
+        "totalCharging": -170.575,
+        "totalDischarging": 2754.948,
+        "netOutput": 2584.373,
+        "timestamp": "2026-09-06 06:30:00-0500",
+        "epoch": 1788694200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 06:35:00",
+        "dstFlag": "N",
+        "totalCharging": -246.096,
+        "totalDischarging": 2890.982,
+        "netOutput": 2644.885,
+        "timestamp": "2026-09-06 06:35:00-0500",
+        "epoch": 1788694500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 06:40:00",
+        "dstFlag": "N",
+        "totalCharging": -229.975,
+        "totalDischarging": 2674.43,
+        "netOutput": 2444.455,
+        "timestamp": "2026-09-06 06:40:00-0500",
+        "epoch": 1788694800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 06:45:00",
+        "dstFlag": "N",
+        "totalCharging": -191.52,
+        "totalDischarging": 2623.686,
+        "netOutput": 2432.165,
+        "timestamp": "2026-09-06 06:45:00-0500",
+        "epoch": 1788695100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 06:50:00",
+        "dstFlag": "N",
+        "totalCharging": -174.791,
+        "totalDischarging": 2621.223,
+        "netOutput": 2446.431,
+        "timestamp": "2026-09-06 06:50:00-0500",
+        "epoch": 1788695400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 06:55:00",
+        "dstFlag": "N",
+        "totalCharging": -141.646,
+        "totalDischarging": 2648.366,
+        "netOutput": 2506.719,
+        "timestamp": "2026-09-06 06:55:00-0500",
+        "epoch": 1788695700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 07:00:00",
+        "dstFlag": "N",
+        "totalCharging": -174.654,
+        "totalDischarging": 2835.402,
+        "netOutput": 2660.748,
+        "timestamp": "2026-09-06 07:00:00-0500",
+        "epoch": 1788696000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 07:05:00",
+        "dstFlag": "N",
+        "totalCharging": -119.996,
+        "totalDischarging": 2726.227,
+        "netOutput": 2606.231,
+        "timestamp": "2026-09-06 07:05:00-0500",
+        "epoch": 1788696300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 07:10:00",
+        "dstFlag": "N",
+        "totalCharging": -75.073,
+        "totalDischarging": 2238.823,
+        "netOutput": 2163.75,
+        "timestamp": "2026-09-06 07:10:00-0500",
+        "epoch": 1788696600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 07:15:00",
+        "dstFlag": "N",
+        "totalCharging": -87.164,
+        "totalDischarging": 1935.006,
+        "netOutput": 1847.843,
+        "timestamp": "2026-09-06 07:15:00-0500",
+        "epoch": 1788696900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 07:20:00",
+        "dstFlag": "N",
+        "totalCharging": -100.295,
+        "totalDischarging": 1590.104,
+        "netOutput": 1489.808,
+        "timestamp": "2026-09-06 07:20:00-0500",
+        "epoch": 1788697200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 07:25:00",
+        "dstFlag": "N",
+        "totalCharging": -133.32,
+        "totalDischarging": 1409.686,
+        "netOutput": 1276.366,
+        "timestamp": "2026-09-06 07:25:00-0500",
+        "epoch": 1788697500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 07:30:00",
+        "dstFlag": "N",
+        "totalCharging": -274.282,
+        "totalDischarging": 1332.883,
+        "netOutput": 1058.601,
+        "timestamp": "2026-09-06 07:30:00-0500",
+        "epoch": 1788697800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 07:35:00",
+        "dstFlag": "N",
+        "totalCharging": -491.081,
+        "totalDischarging": 1197.872,
+        "netOutput": 706.792,
+        "timestamp": "2026-09-06 07:35:00-0500",
+        "epoch": 1788698100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 07:40:00",
+        "dstFlag": "N",
+        "totalCharging": -465.209,
+        "totalDischarging": 874.835,
+        "netOutput": 409.626,
+        "timestamp": "2026-09-06 07:40:00-0500",
+        "epoch": 1788698400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 07:45:00",
+        "dstFlag": "N",
+        "totalCharging": -475.279,
+        "totalDischarging": 566.054,
+        "netOutput": 90.775,
+        "timestamp": "2026-09-06 07:45:00-0500",
+        "epoch": 1788698700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 07:50:00",
+        "dstFlag": "N",
+        "totalCharging": -569.829,
+        "totalDischarging": 381.217,
+        "netOutput": -188.612,
+        "timestamp": "2026-09-06 07:50:00-0500",
+        "epoch": 1788699000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 07:55:00",
+        "dstFlag": "N",
+        "totalCharging": -730.129,
+        "totalDischarging": 172.703,
+        "netOutput": -557.426,
+        "timestamp": "2026-09-06 07:55:00-0500",
+        "epoch": 1788699300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 08:00:00",
+        "dstFlag": "N",
+        "totalCharging": -724.766,
+        "totalDischarging": 144.785,
+        "netOutput": -579.981,
+        "timestamp": "2026-09-06 08:00:00-0500",
+        "epoch": 1788699600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 08:05:00",
+        "dstFlag": "N",
+        "totalCharging": -705.212,
+        "totalDischarging": 125.18,
+        "netOutput": -580.033,
+        "timestamp": "2026-09-06 08:05:00-0500",
+        "epoch": 1788699900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 08:10:00",
+        "dstFlag": "N",
+        "totalCharging": -1041.639,
+        "totalDischarging": 71.537,
+        "netOutput": -969.949,
+        "timestamp": "2026-09-06 08:10:00-0500",
+        "epoch": 1788700200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 08:15:00",
+        "dstFlag": "N",
+        "totalCharging": -1461.66,
+        "totalDischarging": 40.915,
+        "netOutput": -1420.745,
+        "timestamp": "2026-09-06 08:15:00-0500",
+        "epoch": 1788700500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 08:20:00",
+        "dstFlag": "N",
+        "totalCharging": -2007.11,
+        "totalDischarging": 17.756,
+        "netOutput": -1989.245,
+        "timestamp": "2026-09-06 08:20:00-0500",
+        "epoch": 1788700800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 08:25:00",
+        "dstFlag": "N",
+        "totalCharging": -2540.897,
+        "totalDischarging": 12.593,
+        "netOutput": -2528.304,
+        "timestamp": "2026-09-06 08:25:00-0500",
+        "epoch": 1788701100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 08:30:00",
+        "dstFlag": "N",
+        "totalCharging": -3400.025,
+        "totalDischarging": 12.785,
+        "netOutput": -3387.125,
+        "timestamp": "2026-09-06 08:30:00-0500",
+        "epoch": 1788701400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 08:35:00",
+        "dstFlag": "N",
+        "totalCharging": -4340.889,
+        "totalDischarging": 12.326,
+        "netOutput": -4328.563,
+        "timestamp": "2026-09-06 08:35:00-0500",
+        "epoch": 1788701700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 08:40:00",
+        "dstFlag": "N",
+        "totalCharging": -5266.991,
+        "totalDischarging": 13.712,
+        "netOutput": -5253.278,
+        "timestamp": "2026-09-06 08:40:00-0500",
+        "epoch": 1788702000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 08:45:00",
+        "dstFlag": "N",
+        "totalCharging": -5965.142,
+        "totalDischarging": 14.381,
+        "netOutput": -5950.761,
+        "timestamp": "2026-09-06 08:45:00-0500",
+        "epoch": 1788702300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 08:50:00",
+        "dstFlag": "N",
+        "totalCharging": -6638.102,
+        "totalDischarging": 14.616,
+        "netOutput": -6623.486,
+        "timestamp": "2026-09-06 08:50:00-0500",
+        "epoch": 1788702600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 08:55:00",
+        "dstFlag": "N",
+        "totalCharging": -7456.192,
+        "totalDischarging": 13.238,
+        "netOutput": -7442.954,
+        "timestamp": "2026-09-06 08:55:00-0500",
+        "epoch": 1788702900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 09:00:00",
+        "dstFlag": "N",
+        "totalCharging": -8059.959,
+        "totalDischarging": 15.128,
+        "netOutput": -8044.83,
+        "timestamp": "2026-09-06 09:00:00-0500",
+        "epoch": 1788703200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 09:05:00",
+        "dstFlag": "N",
+        "totalCharging": -8880.18,
+        "totalDischarging": 16.105,
+        "netOutput": -8864.075,
+        "timestamp": "2026-09-06 09:05:00-0500",
+        "epoch": 1788703500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 09:10:00",
+        "dstFlag": "N",
+        "totalCharging": -9768.774,
+        "totalDischarging": 11.462,
+        "netOutput": -9757.312,
+        "timestamp": "2026-09-06 09:10:00-0500",
+        "epoch": 1788703800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 09:15:00",
+        "dstFlag": "N",
+        "totalCharging": -9974.778,
+        "totalDischarging": 13.61,
+        "netOutput": -9961.169,
+        "timestamp": "2026-09-06 09:15:00-0500",
+        "epoch": 1788704100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 09:20:00",
+        "dstFlag": "N",
+        "totalCharging": -10056.417,
+        "totalDischarging": 14.129,
+        "netOutput": -10042.288,
+        "timestamp": "2026-09-06 09:20:00-0500",
+        "epoch": 1788704400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 09:25:00",
+        "dstFlag": "N",
+        "totalCharging": -10166.401,
+        "totalDischarging": 10.562,
+        "netOutput": -10155.839,
+        "timestamp": "2026-09-06 09:25:00-0500",
+        "epoch": 1788704700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 09:30:00",
+        "dstFlag": "N",
+        "totalCharging": -10001.124,
+        "totalDischarging": 15.589,
+        "netOutput": -9985.536,
+        "timestamp": "2026-09-06 09:30:00-0500",
+        "epoch": 1788705000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 09:35:00",
+        "dstFlag": "N",
+        "totalCharging": -10058.224,
+        "totalDischarging": 11.001,
+        "netOutput": -10047.223,
+        "timestamp": "2026-09-06 09:35:00-0500",
+        "epoch": 1788705300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 09:40:00",
+        "dstFlag": "N",
+        "totalCharging": -9905.382,
+        "totalDischarging": 15.214,
+        "netOutput": -9890.167,
+        "timestamp": "2026-09-06 09:40:00-0500",
+        "epoch": 1788705600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 09:45:00",
+        "dstFlag": "N",
+        "totalCharging": -9725.16,
+        "totalDischarging": 14.339,
+        "netOutput": -9710.821,
+        "timestamp": "2026-09-06 09:45:00-0500",
+        "epoch": 1788705900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 09:50:00",
+        "dstFlag": "N",
+        "totalCharging": -9514.211,
+        "totalDischarging": 13.778,
+        "netOutput": -9500.395,
+        "timestamp": "2026-09-06 09:50:00-0500",
+        "epoch": 1788706200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 09:55:00",
+        "dstFlag": "N",
+        "totalCharging": -9421.857,
+        "totalDischarging": 15.908,
+        "netOutput": -9405.949,
+        "timestamp": "2026-09-06 09:55:00-0500",
+        "epoch": 1788706500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 10:00:00",
+        "dstFlag": "N",
+        "totalCharging": -9385.974,
+        "totalDischarging": 10.9,
+        "netOutput": -9375.074,
+        "timestamp": "2026-09-06 10:00:00-0500",
+        "epoch": 1788706800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 10:05:00",
+        "dstFlag": "N",
+        "totalCharging": -9245.823,
+        "totalDischarging": 15.757,
+        "netOutput": -9230.065,
+        "timestamp": "2026-09-06 10:05:00-0500",
+        "epoch": 1788707100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 10:10:00",
+        "dstFlag": "N",
+        "totalCharging": -9423.516,
+        "totalDischarging": 13.36,
+        "netOutput": -9410.156,
+        "timestamp": "2026-09-06 10:10:00-0500",
+        "epoch": 1788707400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 10:15:00",
+        "dstFlag": "N",
+        "totalCharging": -9659.164,
+        "totalDischarging": 11.177,
+        "netOutput": -9647.987,
+        "timestamp": "2026-09-06 10:15:00-0500",
+        "epoch": 1788707700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 10:20:00",
+        "dstFlag": "N",
+        "totalCharging": -9356.326,
+        "totalDischarging": 38.578,
+        "netOutput": -9317.748,
+        "timestamp": "2026-09-06 10:20:00-0500",
+        "epoch": 1788708000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 10:25:00",
+        "dstFlag": "N",
+        "totalCharging": -8978.719,
+        "totalDischarging": 74.471,
+        "netOutput": -8904.248,
+        "timestamp": "2026-09-06 10:25:00-0500",
+        "epoch": 1788708300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 10:30:00",
+        "dstFlag": "N",
+        "totalCharging": -8552.341,
+        "totalDischarging": 30.205,
+        "netOutput": -8522.136,
+        "timestamp": "2026-09-06 10:30:00-0500",
+        "epoch": 1788708600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 10:35:00",
+        "dstFlag": "N",
+        "totalCharging": -8279.604,
+        "totalDischarging": 12.421,
+        "netOutput": -8267.183,
+        "timestamp": "2026-09-06 10:35:00-0500",
+        "epoch": 1788708900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 10:40:00",
+        "dstFlag": "N",
+        "totalCharging": -7995.512,
+        "totalDischarging": 12.677,
+        "netOutput": -7982.835,
+        "timestamp": "2026-09-06 10:40:00-0500",
+        "epoch": 1788709200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 10:45:00",
+        "dstFlag": "N",
+        "totalCharging": -7848.494,
+        "totalDischarging": 22.477,
+        "netOutput": -7826.018,
+        "timestamp": "2026-09-06 10:45:00-0500",
+        "epoch": 1788709500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 10:50:00",
+        "dstFlag": "N",
+        "totalCharging": -7659.333,
+        "totalDischarging": 24.222,
+        "netOutput": -7635.111,
+        "timestamp": "2026-09-06 10:50:00-0500",
+        "epoch": 1788709800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 10:55:00",
+        "dstFlag": "N",
+        "totalCharging": -7531.572,
+        "totalDischarging": 13.762,
+        "netOutput": -7517.811,
+        "timestamp": "2026-09-06 10:55:00-0500",
+        "epoch": 1788710100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 11:00:00",
+        "dstFlag": "N",
+        "totalCharging": -7382.932,
+        "totalDischarging": 11.115,
+        "netOutput": -7371.817,
+        "timestamp": "2026-09-06 11:00:00-0500",
+        "epoch": 1788710400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 11:05:00",
+        "dstFlag": "N",
+        "totalCharging": -7064.655,
+        "totalDischarging": 11.033,
+        "netOutput": -7053.623,
+        "timestamp": "2026-09-06 11:05:00-0500",
+        "epoch": 1788710700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 11:10:00",
+        "dstFlag": "N",
+        "totalCharging": -6600.664,
+        "totalDischarging": 64.459,
+        "netOutput": -6536.205,
+        "timestamp": "2026-09-06 11:10:00-0500",
+        "epoch": 1788711000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 11:15:00",
+        "dstFlag": "N",
+        "totalCharging": -6144.1,
+        "totalDischarging": 67.351,
+        "netOutput": -6076.749,
+        "timestamp": "2026-09-06 11:15:00-0500",
+        "epoch": 1788711300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 11:20:00",
+        "dstFlag": "N",
+        "totalCharging": -5732.909,
+        "totalDischarging": 11.822,
+        "netOutput": -5721.087,
+        "timestamp": "2026-09-06 11:20:00-0500",
+        "epoch": 1788711600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 11:25:00",
+        "dstFlag": "N",
+        "totalCharging": -5413.646,
+        "totalDischarging": 13.332,
+        "netOutput": -5400.314,
+        "timestamp": "2026-09-06 11:25:00-0500",
+        "epoch": 1788711900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 11:30:00",
+        "dstFlag": "N",
+        "totalCharging": -5084.498,
+        "totalDischarging": 15.084,
+        "netOutput": -5069.414,
+        "timestamp": "2026-09-06 11:30:00-0500",
+        "epoch": 1788712200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 11:35:00",
+        "dstFlag": "N",
+        "totalCharging": -5008.302,
+        "totalDischarging": 13.118,
+        "netOutput": -4995.185,
+        "timestamp": "2026-09-06 11:35:00-0500",
+        "epoch": 1788712500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 11:40:00",
+        "dstFlag": "N",
+        "totalCharging": -5000.471,
+        "totalDischarging": 13.634,
+        "netOutput": -4986.837,
+        "timestamp": "2026-09-06 11:40:00-0500",
+        "epoch": 1788712800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 11:45:00",
+        "dstFlag": "N",
+        "totalCharging": -4936.199,
+        "totalDischarging": 14.616,
+        "netOutput": -4921.583,
+        "timestamp": "2026-09-06 11:45:00-0500",
+        "epoch": 1788713100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 11:50:00",
+        "dstFlag": "N",
+        "totalCharging": -4859.495,
+        "totalDischarging": 15.508,
+        "netOutput": -4843.987,
+        "timestamp": "2026-09-06 11:50:00-0500",
+        "epoch": 1788713400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 11:55:00",
+        "dstFlag": "N",
+        "totalCharging": -4880.987,
+        "totalDischarging": 33.893,
+        "netOutput": -4847.094,
+        "timestamp": "2026-09-06 11:55:00-0500",
+        "epoch": 1788713700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 12:00:00",
+        "dstFlag": "N",
+        "totalCharging": -4944.478,
+        "totalDischarging": 23.687,
+        "netOutput": -4920.791,
+        "timestamp": "2026-09-06 12:00:00-0500",
+        "epoch": 1788714000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 12:05:00",
+        "dstFlag": "N",
+        "totalCharging": -4859.445,
+        "totalDischarging": 44.074,
+        "netOutput": -4815.371,
+        "timestamp": "2026-09-06 12:05:00-0500",
+        "epoch": 1788714300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 12:10:00",
+        "dstFlag": "N",
+        "totalCharging": -4392.743,
+        "totalDischarging": 129.267,
+        "netOutput": -4263.477,
+        "timestamp": "2026-09-06 12:10:00-0500",
+        "epoch": 1788714600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 12:15:00",
+        "dstFlag": "N",
+        "totalCharging": -4165.82,
+        "totalDischarging": 136.13,
+        "netOutput": -4029.689,
+        "timestamp": "2026-09-06 12:15:00-0500",
+        "epoch": 1788714900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 12:20:00",
+        "dstFlag": "N",
+        "totalCharging": -3816.479,
+        "totalDischarging": 142.803,
+        "netOutput": -3673.676,
+        "timestamp": "2026-09-06 12:20:00-0500",
+        "epoch": 1788715200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 12:25:00",
+        "dstFlag": "N",
+        "totalCharging": -3910.878,
+        "totalDischarging": 145.652,
+        "netOutput": -3765.226,
+        "timestamp": "2026-09-06 12:25:00-0500",
+        "epoch": 1788715500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 12:30:00",
+        "dstFlag": "N",
+        "totalCharging": -3703.999,
+        "totalDischarging": 265.281,
+        "netOutput": -3438.717,
+        "timestamp": "2026-09-06 12:30:00-0500",
+        "epoch": 1788715800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 12:35:00",
+        "dstFlag": "N",
+        "totalCharging": -3345.816,
+        "totalDischarging": 336.187,
+        "netOutput": -3009.629,
+        "timestamp": "2026-09-06 12:35:00-0500",
+        "epoch": 1788716100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 12:40:00",
+        "dstFlag": "N",
+        "totalCharging": -2963.189,
+        "totalDischarging": 124.367,
+        "netOutput": -2838.823,
+        "timestamp": "2026-09-06 12:40:00-0500",
+        "epoch": 1788716400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 12:45:00",
+        "dstFlag": "N",
+        "totalCharging": -2807.46,
+        "totalDischarging": 95.633,
+        "netOutput": -2711.827,
+        "timestamp": "2026-09-06 12:45:00-0500",
+        "epoch": 1788716700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 12:50:00",
+        "dstFlag": "N",
+        "totalCharging": -2611.757,
+        "totalDischarging": 70.562,
+        "netOutput": -2541.195,
+        "timestamp": "2026-09-06 12:50:00-0500",
+        "epoch": 1788717000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 12:55:00",
+        "dstFlag": "N",
+        "totalCharging": -2516.036,
+        "totalDischarging": 65.302,
+        "netOutput": -2450.734,
+        "timestamp": "2026-09-06 12:55:00-0500",
+        "epoch": 1788717300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 13:00:00",
+        "dstFlag": "N",
+        "totalCharging": -2339.746,
+        "totalDischarging": 61.922,
+        "netOutput": -2277.824,
+        "timestamp": "2026-09-06 13:00:00-0500",
+        "epoch": 1788717600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 13:05:00",
+        "dstFlag": "N",
+        "totalCharging": -2181.662,
+        "totalDischarging": 36.641,
+        "netOutput": -2145.02,
+        "timestamp": "2026-09-06 13:05:00-0500",
+        "epoch": 1788717900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 13:10:00",
+        "dstFlag": "N",
+        "totalCharging": -1853.545,
+        "totalDischarging": 194.203,
+        "netOutput": -1659.326,
+        "timestamp": "2026-09-06 13:10:00-0500",
+        "epoch": 1788718200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 13:15:00",
+        "dstFlag": "N",
+        "totalCharging": -1980.93,
+        "totalDischarging": 77.04,
+        "netOutput": -1903.89,
+        "timestamp": "2026-09-06 13:15:00-0500",
+        "epoch": 1788718500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 13:20:00",
+        "dstFlag": "N",
+        "totalCharging": -2138.908,
+        "totalDischarging": 57.097,
+        "netOutput": -2081.753,
+        "timestamp": "2026-09-06 13:20:00-0500",
+        "epoch": 1788718800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 13:25:00",
+        "dstFlag": "N",
+        "totalCharging": -1971.707,
+        "totalDischarging": 34.348,
+        "netOutput": -1937.358,
+        "timestamp": "2026-09-06 13:25:00-0500",
+        "epoch": 1788719100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 13:30:00",
+        "dstFlag": "N",
+        "totalCharging": -1890.602,
+        "totalDischarging": 56.213,
+        "netOutput": -1834.388,
+        "timestamp": "2026-09-06 13:30:00-0500",
+        "epoch": 1788719400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 13:35:00",
+        "dstFlag": "N",
+        "totalCharging": -1791.865,
+        "totalDischarging": 98.069,
+        "netOutput": -1693.796,
+        "timestamp": "2026-09-06 13:35:00-0500",
+        "epoch": 1788719700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 13:40:00",
+        "dstFlag": "N",
+        "totalCharging": -1745.485,
+        "totalDischarging": 25.557,
+        "netOutput": -1719.929,
+        "timestamp": "2026-09-06 13:40:00-0500",
+        "epoch": 1788720000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 13:45:00",
+        "dstFlag": "N",
+        "totalCharging": -1418.642,
+        "totalDischarging": 50.144,
+        "netOutput": -1368.498,
+        "timestamp": "2026-09-06 13:45:00-0500",
+        "epoch": 1788720300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 13:50:00",
+        "dstFlag": "N",
+        "totalCharging": -1650.87,
+        "totalDischarging": 11.885,
+        "netOutput": -1638.985,
+        "timestamp": "2026-09-06 13:50:00-0500",
+        "epoch": 1788720600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 13:55:00",
+        "dstFlag": "N",
+        "totalCharging": -1439.05,
+        "totalDischarging": 70.796,
+        "netOutput": -1368.255,
+        "timestamp": "2026-09-06 13:55:00-0500",
+        "epoch": 1788720900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 14:00:00",
+        "dstFlag": "N",
+        "totalCharging": -1221.104,
+        "totalDischarging": 154.794,
+        "netOutput": -1066.31,
+        "timestamp": "2026-09-06 14:00:00-0500",
+        "epoch": 1788721200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 14:05:00",
+        "dstFlag": "N",
+        "totalCharging": -1076.308,
+        "totalDischarging": 88.175,
+        "netOutput": -988.132,
+        "timestamp": "2026-09-06 14:05:00-0500",
+        "epoch": 1788721500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 14:10:00",
+        "dstFlag": "N",
+        "totalCharging": -990.628,
+        "totalDischarging": 22.821,
+        "netOutput": -967.807,
+        "timestamp": "2026-09-06 14:10:00-0500",
+        "epoch": 1788721800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 14:15:00",
+        "dstFlag": "N",
+        "totalCharging": -866.668,
+        "totalDischarging": 158.241,
+        "netOutput": -708.427,
+        "timestamp": "2026-09-06 14:15:00-0500",
+        "epoch": 1788722100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 14:20:00",
+        "dstFlag": "N",
+        "totalCharging": -761.816,
+        "totalDischarging": 462.726,
+        "netOutput": -299.089,
+        "timestamp": "2026-09-06 14:20:00-0500",
+        "epoch": 1788722400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 14:25:00",
+        "dstFlag": "N",
+        "totalCharging": -750.508,
+        "totalDischarging": 342.676,
+        "netOutput": -407.831,
+        "timestamp": "2026-09-06 14:25:00-0500",
+        "epoch": 1788722700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 14:30:00",
+        "dstFlag": "N",
+        "totalCharging": -1053.478,
+        "totalDischarging": 16.703,
+        "netOutput": -1036.775,
+        "timestamp": "2026-09-06 14:30:00-0500",
+        "epoch": 1788723000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 14:35:00",
+        "dstFlag": "N",
+        "totalCharging": -1146.617,
+        "totalDischarging": 22.536,
+        "netOutput": -1124.082,
+        "timestamp": "2026-09-06 14:35:00-0500",
+        "epoch": 1788723300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 14:40:00",
+        "dstFlag": "N",
+        "totalCharging": -746.454,
+        "totalDischarging": 329.808,
+        "netOutput": -416.646,
+        "timestamp": "2026-09-06 14:40:00-0500",
+        "epoch": 1788723600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 14:45:00",
+        "dstFlag": "N",
+        "totalCharging": -696.946,
+        "totalDischarging": 281.524,
+        "netOutput": -415.422,
+        "timestamp": "2026-09-06 14:45:00-0500",
+        "epoch": 1788723900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 14:50:00",
+        "dstFlag": "N",
+        "totalCharging": -748.008,
+        "totalDischarging": 47.03,
+        "netOutput": -701.031,
+        "timestamp": "2026-09-06 14:50:00-0500",
+        "epoch": 1788724200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 14:55:00",
+        "dstFlag": "N",
+        "totalCharging": -464.993,
+        "totalDischarging": 361.2,
+        "netOutput": -103.793,
+        "timestamp": "2026-09-06 14:55:00-0500",
+        "epoch": 1788724500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 15:00:00",
+        "dstFlag": "N",
+        "totalCharging": -504.26,
+        "totalDischarging": 127.933,
+        "netOutput": -376.326,
+        "timestamp": "2026-09-06 15:00:00-0500",
+        "epoch": 1788724800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 15:05:00",
+        "dstFlag": "N",
+        "totalCharging": -400.902,
+        "totalDischarging": 127.927,
+        "netOutput": -272.975,
+        "timestamp": "2026-09-06 15:05:00-0500",
+        "epoch": 1788725100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 15:10:00",
+        "dstFlag": "N",
+        "totalCharging": -664.242,
+        "totalDischarging": 16.27,
+        "netOutput": -647.972,
+        "timestamp": "2026-09-06 15:10:00-0500",
+        "epoch": 1788725400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 15:15:00",
+        "dstFlag": "N",
+        "totalCharging": -655.037,
+        "totalDischarging": 37.67,
+        "netOutput": -617.367,
+        "timestamp": "2026-09-06 15:15:00-0500",
+        "epoch": 1788725700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 15:20:00",
+        "dstFlag": "N",
+        "totalCharging": -445.79,
+        "totalDischarging": 192.924,
+        "netOutput": -252.867,
+        "timestamp": "2026-09-06 15:20:00-0500",
+        "epoch": 1788726000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 15:25:00",
+        "dstFlag": "N",
+        "totalCharging": -547.72,
+        "totalDischarging": 24.591,
+        "netOutput": -523.129,
+        "timestamp": "2026-09-06 15:25:00-0500",
+        "epoch": 1788726300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 15:30:00",
+        "dstFlag": "N",
+        "totalCharging": -516.68,
+        "totalDischarging": 29.07,
+        "netOutput": -487.61,
+        "timestamp": "2026-09-06 15:30:00-0500",
+        "epoch": 1788726600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 15:35:00",
+        "dstFlag": "N",
+        "totalCharging": -501.564,
+        "totalDischarging": 27.832,
+        "netOutput": -473.732,
+        "timestamp": "2026-09-06 15:35:00-0500",
+        "epoch": 1788726900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 15:40:00",
+        "dstFlag": "N",
+        "totalCharging": -552.854,
+        "totalDischarging": 17.738,
+        "netOutput": -535.115,
+        "timestamp": "2026-09-06 15:40:00-0500",
+        "epoch": 1788727200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 15:45:00",
+        "dstFlag": "N",
+        "totalCharging": -281.669,
+        "totalDischarging": 243.569,
+        "netOutput": -38.1,
+        "timestamp": "2026-09-06 15:45:00-0500",
+        "epoch": 1788727500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 15:50:00",
+        "dstFlag": "N",
+        "totalCharging": -196.951,
+        "totalDischarging": 531.413,
+        "netOutput": 334.384,
+        "timestamp": "2026-09-06 15:50:00-0500",
+        "epoch": 1788727800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 15:55:00",
+        "dstFlag": "N",
+        "totalCharging": -274.24,
+        "totalDischarging": 82.197,
+        "netOutput": -192.044,
+        "timestamp": "2026-09-06 15:55:00-0500",
+        "epoch": 1788728100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 16:00:00",
+        "dstFlag": "N",
+        "totalCharging": -361.153,
+        "totalDischarging": 49.057,
+        "netOutput": -312.096,
+        "timestamp": "2026-09-06 16:00:00-0500",
+        "epoch": 1788728400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 16:05:00",
+        "dstFlag": "N",
+        "totalCharging": -643.891,
+        "totalDischarging": 12.102,
+        "netOutput": -631.789,
+        "timestamp": "2026-09-06 16:05:00-0500",
+        "epoch": 1788728700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 16:10:00",
+        "dstFlag": "N",
+        "totalCharging": -620.47,
+        "totalDischarging": 18.76,
+        "netOutput": -601.859,
+        "timestamp": "2026-09-06 16:10:00-0500",
+        "epoch": 1788729000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 16:15:00",
+        "dstFlag": "N",
+        "totalCharging": -328.945,
+        "totalDischarging": 27,
+        "netOutput": -301.945,
+        "timestamp": "2026-09-06 16:15:00-0500",
+        "epoch": 1788729300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 16:20:00",
+        "dstFlag": "N",
+        "totalCharging": -511.494,
+        "totalDischarging": 11.588,
+        "netOutput": -499.907,
+        "timestamp": "2026-09-06 16:20:00-0500",
+        "epoch": 1788729600000
+      },
+      {
+        "tagCLastTime": "2026-09-06 16:25:00",
+        "dstFlag": "N",
+        "totalCharging": -608.674,
+        "totalDischarging": 11.594,
+        "netOutput": -597.08,
+        "timestamp": "2026-09-06 16:25:00-0500",
+        "epoch": 1788729900000
+      },
+      {
+        "tagCLastTime": "2026-09-06 16:30:00",
+        "dstFlag": "N",
+        "totalCharging": -406.141,
+        "totalDischarging": 28.772,
+        "netOutput": -377.369,
+        "timestamp": "2026-09-06 16:30:00-0500",
+        "epoch": 1788730200000
+      },
+      {
+        "tagCLastTime": "2026-09-06 16:35:00",
+        "dstFlag": "N",
+        "totalCharging": -285.294,
+        "totalDischarging": 92.986,
+        "netOutput": -192.308,
+        "timestamp": "2026-09-06 16:35:00-0500",
+        "epoch": 1788730500000
+      },
+      {
+        "tagCLastTime": "2026-09-06 16:40:00",
+        "dstFlag": "N",
+        "totalCharging": -305.534,
+        "totalDischarging": 63.573,
+        "netOutput": -241.961,
+        "timestamp": "2026-09-06 16:40:00-0500",
+        "epoch": 1788730800000
+      },
+      {
+        "tagCLastTime": "2026-09-06 16:45:00",
+        "dstFlag": "N",
+        "totalCharging": -339.739,
+        "totalDischarging": 23.943,
+        "netOutput": -315.796,
+        "timestamp": "2026-09-06 16:45:00-0500",
+        "epoch": 1788731100000
+      },
+      {
+        "tagCLastTime": "2026-09-06 16:50:00",
+        "dstFlag": "N",
+        "totalCharging": -394.683,
+        "totalDischarging": 30.591,
+        "netOutput": -364.092,
+        "timestamp": "2026-09-06 16:50:00-0500",
+        "epoch": 1788731400000
+      },
+      {
+        "tagCLastTime": "2026-09-06 16:55:00",
+        "dstFlag": "N",
+        "totalCharging": -255.382,
+        "totalDischarging": 267.301,
+        "netOutput": 11.919,
+        "timestamp": "2026-09-06 16:55:00-0500",
+        "epoch": 1788731700000
+      },
+      {
+        "tagCLastTime": "2026-09-06 17:00:00",
+        "dstFlag": "N",
+        "totalCharging": -310.812,
+        "totalDischarging": 241.807,
+        "netOutput": -69.005,
+        "timestamp": "2026-09-06 17:00:00-0500",
+        "epoch": 1788732000000
+      },
+      {
+        "tagCLastTime": "2026-09-06 17:05:00",
+        "dstFlag": "N",
+        "totalCharging": -361.631,
+        "totalDischarging": 75.533,
+        "netOutput": -286.098,
+        "timestamp": "2026-09-06 17:05:00-0500",
+        "epoch": 1788732300000
+      },
+      {
+        "tagCLastTime": "2026-09-06 17:10:00",
+        "dstFlag": "N",
+        "totalCharging": -217.009,
+        "totalDischarging": 88.177,
+        "netOutput": -128.832,
+        "timestamp": "2026-09-06 17:10:00-0500",
+        "epoch": 1788732600000
+      }
+    ]
+  }
+}

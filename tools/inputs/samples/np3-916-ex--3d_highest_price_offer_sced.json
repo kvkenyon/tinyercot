@@ -1,0 +1,114 @@
+{
+  "_meta": {
+    "totalRecords": 856417,
+    "pageSize": 1,
+    "totalPages": 856417,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC,repeatedHourFlag: ASC,resourceName: ASC"
+    }
+  },
+  "report": {
+    "reportName": "3d_highest_price_offer_sced",
+    "reportDisplayName": "3-Day Highest Price Offered in SCED",
+    "reportId": "13029",
+    "reportEMIL": "NP3-916-EX",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatedHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "LMP",
+      "label": "LMP",
+      "cardinality": 3,
+      "dataType": "DECIMAL",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "qseName",
+      "label": "QSE",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "dmeName",
+      "label": "DME",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceName",
+      "label": "Generation Resource",
+      "cardinality": 6,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "proxyExtension",
+      "label": "Proxy Extension",
+      "cardinality": 7,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "penaltyFlag",
+      "label": "Power Balance Penalty Flag",
+      "cardinality": 8,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-03T23:55:18",
+      false,
+      25.8839721679688,
+      "QBEEP1",
+      "YBEEPR",
+      "HOLCOMB_ESR1",
+      "No",
+      "No"
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-916-ex/3d_highest_price_offer_sced"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-916-ex"
+    }
+  }
+}

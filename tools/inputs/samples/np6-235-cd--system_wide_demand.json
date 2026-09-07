@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "totalRecords": 15752,
+    "pageSize": 1,
+    "totalPages": 15752,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,timeEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "system_wide_demand",
+    "reportDisplayName": "System-Wide Demand",
+    "reportId": "12340",
+    "reportEMIL": "NP6-235-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "timeEnding",
+      "label": "Time Ending",
+      "cardinality": 2,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "demand",
+      "label": "Demand",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 4,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06",
+      "00:00",
+      66136.6927,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np6-235-cd/system_wide_demand"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np6-235-cd"
+    }
+  }
+}

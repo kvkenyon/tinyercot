@@ -1,0 +1,214 @@
+{
+  "_meta": {
+    "totalRecords": 2780,
+    "pageSize": 1,
+    "totalPages": 2780,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SASMId: DESC,deliveryDate: DESC,hourEnding: ASC,resourceName: ASC"
+    }
+  },
+  "report": {
+    "reportName": "60_sasm_load_res_as_offer_awards",
+    "reportDisplayName": "60-Day SASM Load Resource AS Offer Awards",
+    "reportId": "15833",
+    "reportEMIL": "NP3-990-EX",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "SASMId",
+      "label": "SASM ID",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 2,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 3,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "resourceName",
+      "label": "Resource Name",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceType",
+      "label": "Resource Type",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "REGUPAawarded",
+      "label": "REGUP Awarded",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "REGUPMCPC",
+      "label": "REGUP MCPC",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "REGDNAwarded",
+      "label": "REGDN Awarded",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "REGDNMCPC",
+      "label": "REGDN MCPC",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RRSPFRAwarded",
+      "label": "RRSPFR Awarded",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RRSFFRAwarded",
+      "label": "RRSFFR Awarded",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RRSUFRAwarded",
+      "label": "RRSUFR Awarded",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RRSMCPC",
+      "label": "RRS MCPC",
+      "cardinality": 13,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ECRSMAwarded",
+      "label": "ECRSM Awarded",
+      "cardinality": 14,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ECRSSAwarded",
+      "label": "ECRSS Awarded",
+      "cardinality": 15,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ECRSMCPC",
+      "label": "ECRS MCPC",
+      "cardinality": 16,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "NSPINAwarded",
+      "label": "NSPIN Awarded",
+      "cardinality": 17,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "NSPINMCPC",
+      "label": "NSPIN MCPC",
+      "cardinality": 18,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2025-11-27T02:45:05",
+      "2025-11-27",
+      18,
+      "DOWGEN_LD5",
+      "NCLR",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      4.4,
+      33.0,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-990-ex/60_sasm_load_res_as_offer_awards"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-990-ex"
+    }
+  }
+}

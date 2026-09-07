@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "totalRecords": 27341957,
+    "pageSize": 1,
+    "totalPages": 27341957,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC,price: ASC"
+    }
+  },
+  "report": {
+    "reportName": "2d_agg_esc_north",
+    "reportDisplayName": "2-Day Aggregate Energy Supply Curves North",
+    "reportId": "25813",
+    "reportEMIL": "NP3-907-EX",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "MW",
+      "label": "MW",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price",
+      "label": "Price",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-04",
+      1,
+      0.0,
+      -250.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-907-ex/2d_agg_esc_north"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-907-ex"
+    }
+  }
+}
