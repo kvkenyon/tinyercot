@@ -514,6 +514,17 @@ solar tables decoded, with independent CSV counts matching. Other curve tables
 were checked only through their headers and first three rows. Publication IDs,
 hashes and scope are recorded in `tools/inputs/history/annual-curves-solar-evidence.json`.
 
+Intermediate SCED price-adder workbooks preserve `RTRUCCST30HSL` and
+`RTNCLRNSCAP` as separate decimal fields. All 55,173 rows in seven January
+publications from 2019–2025 decoded; timestamps, repeat-hour flags, system
+lambda and both added fields matched the source cells on every row. Eight
+demand-response workbooks from 2018–2025 also decoded all 816 rows, with all
+seven data values per row matching their source cells. Their January 2024/2025
+samples have 120 rows, compared with 96 in earlier samples. The separate
+monthly deployment-factor product returned no January archives for 2015–2025.
+Queries, document IDs, hashes and worksheet counts are recorded in
+`tools/inputs/history/annual-workbooks-evidence.json`.
+
 The latest checks for NP6-569, NP6-655 and NP6-913 returned no archives or bundles.
 Their typed catalog/document operations remain usable, but no historical row
 schema is inferred from absent files. Point-in-time listing evidence is recorded

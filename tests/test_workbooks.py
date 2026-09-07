@@ -262,3 +262,32 @@ def test_path_adders_preserve_dates_and_signed_coefficients():
     assert row.timeOfUse == "Off-peak"
     assert row.ACI99 == Decimal("-2.9138")
     assert row.ACP == Decimal("-1.0881")
+
+
+@pytest.mark.parametrize(
+    "year, count, system_lambda, capacity",
+    [(2019, 3, "13.8376", "3583.92"), (2023, 4, "-2.6458", "4125.85")],
+)
+def test_price_adder_workbooks_preserve_intermediate_capacity_fields(
+    year, count, system_lambda, capacity
+):
+    with Client() as client:
+        rows = list(
+            client.np6_792_er.price_adders_history.read(
+                zipped(
+                    "prices.xlsx",
+                    (INPUTS / f"np6-792-er-history-{year}.xlsx").read_bytes(),
+                )
+            )
+        )
+    assert len(rows) == count
+    assert rows[0].SCEDTimestamp == datetime(year, 1, 1, 0, 0, 20)
+    assert rows[0].systemLambda == Decimal(system_lambda)
+    assert rows[0].RTCST30HSL == Decimal(capacity)
+    assert rows[0].RTRUCCST30HSL == Decimal(0)
+    assert rows[0].RTRDPA is None
+    if year == 2019:
+        assert all(row.RTNCLRNSCAP is None for row in rows)
+    else:
+        assert rows[-1].SCEDTimestamp == datetime(2023, 1, 4, 0, 5, 15)
+        assert rows[-1].RTNCLRNSCAP == Decimal(30)

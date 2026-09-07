@@ -1,0 +1,991 @@
+{
+  "scope": "One January publication per year where available. Demand-response selected sheets were compared with all seven source data cells for every row. Price-adder selected sheets were decoded in full, and SCEDTimestamp, repeatHourFlag, systemLambda, RTRUCCST30HSL and RTNCLRNSCAP were compared with source cells for every row. Empty future month sheets and empty January listings are retained in the evidence. This does not establish continuous retention or every historical layout.",
+  "demandResponse": {
+    "files": 8,
+    "rows": 816,
+    "allSourceValuesMatch": true
+  },
+  "priceAdders": {
+    "files": 7,
+    "rows": 55173,
+    "checkedFields": [
+      "SCEDTimestamp",
+      "repeatHourFlag",
+      "systemLambda",
+      "RTRUCCST30HSL",
+      "RTNCLRNSCAP"
+    ],
+    "allCheckedSourceValuesMatch": true
+  },
+  "samples": [
+    {
+      "year": 2015,
+      "product": "NP3-108",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2015-01-01T00:00:00",
+        "postDatetimeTo": "2015-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2015,
+      "product": "NP5-520-ER",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2015-01-01T00:00:00",
+        "postDatetimeTo": "2015-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2016,
+      "product": "NP3-108",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2016-01-01T00:00:00",
+        "postDatetimeTo": "2016-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2016,
+      "product": "NP5-520-ER",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2016-01-01T00:00:00",
+        "postDatetimeTo": "2016-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2017,
+      "product": "NP3-108",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2017-01-01T00:00:00",
+        "postDatetimeTo": "2017-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2017,
+      "product": "NP5-520-ER",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2017-01-01T00:00:00",
+        "postDatetimeTo": "2017-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2018,
+      "product": "NP3-108",
+      "totalJanuaryPublications": 1,
+      "publicationQuery": {
+        "postDatetimeFrom": "2018-01-01T00:00:00",
+        "postDatetimeTo": "2018-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 593398390,
+        "friendlyName": "Monthly_ERCOT_LoadResourceDR_17_12",
+        "postDatetime": "2018-01-04T08:07:38"
+      },
+      "source": "work/history-annual-workbooks-2018/NP3-108.zip",
+      "zipSha256": "b5b3272adfcc40e21b87c340aa0c85bf1254f904b51317ea876ecd41a33252cf",
+      "files": [
+        {
+          "member": "593398390.rpt.00013242.0000000000000000.20180104.080738083.Monthly_ERCOT_LoadResourceDR_17_12.xlsx",
+          "xlsxSha256": "0b5b557297a05f75dfc0378560f1796304c3ec1cced86c70b065fe76dbccdc8f",
+          "sheets": [
+            {
+              "name": "Report Data",
+              "sourceRows": 96,
+              "decodedRows": 96
+            }
+          ],
+          "documentationSheet": "Report Info"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "product": "NP5-520-ER",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2018-01-01T00:00:00",
+        "postDatetimeTo": "2018-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2019,
+      "product": "NP3-108",
+      "totalJanuaryPublications": 1,
+      "publicationQuery": {
+        "postDatetimeFrom": "2019-01-01T00:00:00",
+        "postDatetimeTo": "2019-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 642983796,
+        "friendlyName": "Monthly_ERCOT_LoadResourceDR_18_12",
+        "postDatetime": "2019-01-04T08:14:39"
+      },
+      "source": "work/history-annual-workbooks-2019/NP3-108.zip",
+      "zipSha256": "34a309260936f013be7e658e7c44cd5f09a587dddc2108c491070b62488ef828",
+      "files": [
+        {
+          "member": "642983796.rpt.00013242.0000000000000000.20190104.081439650.Monthly_ERCOT_LoadResourceDR_18_12.xlsx",
+          "xlsxSha256": "04649131d66a736640b705b8165d709258cbea280c5c23e2bda4fc7e83f832aa",
+          "sheets": [
+            {
+              "name": "Report Data",
+              "sourceRows": 96,
+              "decodedRows": 96
+            }
+          ],
+          "documentationSheet": "Report Info"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "product": "NP5-520-ER",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2019-01-01T00:00:00",
+        "postDatetimeTo": "2019-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2020,
+      "product": "NP3-108",
+      "totalJanuaryPublications": 1,
+      "publicationQuery": {
+        "postDatetimeFrom": "2020-01-01T00:00:00",
+        "postDatetimeTo": "2020-02-01T00:00:00"
+      },
+      "listingReusedFrom": "history-middle-listings.json",
+      "document": {
+        "docId": 694720108,
+        "friendlyName": "Monthly_ERCOT_LoadResourceDR_19_12",
+        "postDatetime": "2020-01-04T08:13:57"
+      },
+      "source": "work/history-middle-2020/NP3-108.zip",
+      "zipSha256": "bf177592474907018f70ab0c61deb6017cc3e4df5a3a8f95773f3b8ab5326999",
+      "files": [
+        {
+          "member": "694720108.rpt.00013242.0000000000000000.20200104.081357846.Monthly_ERCOT_LoadResourceDR_19_12.xlsx",
+          "xlsxSha256": "787da39c1f64f76d98c2ecdb8f76dee9c7ea8de03876a6a35ca8b2763f7b1efb",
+          "sheets": [
+            {
+              "name": "Report Data",
+              "sourceRows": 96,
+              "decodedRows": 96
+            }
+          ],
+          "documentationSheet": "Report Info"
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "product": "NP5-520-ER",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2020-01-01T00:00:00",
+        "postDatetimeTo": "2020-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2021,
+      "product": "NP3-108",
+      "totalJanuaryPublications": 1,
+      "publicationQuery": {
+        "postDatetimeFrom": "2021-01-01T00:00:00",
+        "postDatetimeTo": "2021-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 751906418,
+        "friendlyName": "Monthly_ERCOT_LoadResourceDR_20_12",
+        "postDatetime": "2021-01-04T19:17:49"
+      },
+      "source": "work/history-annual-workbooks-2021/NP3-108.zip",
+      "zipSha256": "f4175463359d0c36256c6c0a5324f66f3a81a75f38cd6cf84b62766d5e9c543f",
+      "files": [
+        {
+          "member": "751906418.rpt.00013242.0000000000000000.20210104.191749809.Monthly_ERCOT_LoadResourceDR_20_12.xlsx",
+          "xlsxSha256": "2e30d46bf0369b8f100878ff4ea403afc4aef9784b7e9c44735e779b59102bd7",
+          "sheets": [
+            {
+              "name": "Report Data",
+              "sourceRows": 96,
+              "decodedRows": 96
+            }
+          ],
+          "documentationSheet": "Report Info"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "product": "NP5-520-ER",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2021-01-01T00:00:00",
+        "postDatetimeTo": "2021-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2022,
+      "product": "NP3-108",
+      "totalJanuaryPublications": 1,
+      "publicationQuery": {
+        "postDatetimeFrom": "2022-01-01T00:00:00",
+        "postDatetimeTo": "2022-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 815470313,
+        "friendlyName": "Monthly_ERCOT_LoadResourceDR_21_12",
+        "postDatetime": "2022-01-04T08:55:09"
+      },
+      "source": "work/history-annual-workbooks-2022/NP3-108.zip",
+      "zipSha256": "de41bfe68b231692ddcee756202f7c10e35a1f98e11882d101d20181dd924880",
+      "files": [
+        {
+          "member": "815470313.rpt.00013242.0000000000000000.20220104.085509846.Monthly_ERCOT_LoadResourceDR_21_12.xlsx",
+          "xlsxSha256": "9bf9aed0747d1923286d0398e69387ce2476370c698234fa8be37caeb7e35307",
+          "sheets": [
+            {
+              "name": "Report Data",
+              "sourceRows": 96,
+              "decodedRows": 96
+            }
+          ],
+          "documentationSheet": "Report Info"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "product": "NP5-520-ER",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2022-01-01T00:00:00",
+        "postDatetimeTo": "2022-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2023,
+      "product": "NP3-108",
+      "totalJanuaryPublications": 1,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-01-01T00:00:00",
+        "postDatetimeTo": "2023-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 887247882,
+        "friendlyName": "Monthly_ERCOT_LoadResourceDR_22_12",
+        "postDatetime": "2023-01-04T08:16:58"
+      },
+      "source": "work/history-annual-workbooks-2023/NP3-108.zip",
+      "zipSha256": "8dc305cd378510c6a68e1761f9c2be28e642bf7f1158b1eeb96d1b40fcd0fdc1",
+      "files": [
+        {
+          "member": "887247882.rpt.00013242.0000000000000000.20230104.081658666.Monthly_ERCOT_LoadResourceDR_22_12.xlsx",
+          "xlsxSha256": "f81815341ae1a019209c7041ca18cc7974eb79a40c3c81e1058ab78cda6e7274",
+          "sheets": [
+            {
+              "name": "Report Data",
+              "sourceRows": 96,
+              "decodedRows": 96
+            }
+          ],
+          "documentationSheet": "Report Info"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "product": "NP5-520-ER",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-01-01T00:00:00",
+        "postDatetimeTo": "2023-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2024,
+      "product": "NP3-108",
+      "totalJanuaryPublications": 1,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-01-01T00:00:00",
+        "postDatetimeTo": "2024-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 970554714,
+        "friendlyName": "Monthly_ERCOT_LoadResourceDR_23_12",
+        "postDatetime": "2024-01-04T08:14:10"
+      },
+      "source": "work/history-annual-workbooks-2024/NP3-108.zip",
+      "zipSha256": "a53ba3ceaa0276d2cc613bccffd231a632e59cad6f21007ba64ce8b7ca2b9ced",
+      "files": [
+        {
+          "member": "970554714.rpt.00013242.0000000000000000.20240104.081410154.Monthly_ERCOT_LoadResourceDR_23_12.xlsx",
+          "xlsxSha256": "73f77f0c036259d4cda464b7fb25c98da5955a23ed0858e3797d256e6c6ff439",
+          "sheets": [
+            {
+              "name": "Report Data",
+              "sourceRows": 120,
+              "decodedRows": 120
+            }
+          ],
+          "documentationSheet": "Report Info"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "product": "NP5-520-ER",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-01-01T00:00:00",
+        "postDatetimeTo": "2024-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2025,
+      "product": "NP3-108",
+      "totalJanuaryPublications": 1,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-01-01T00:00:00",
+        "postDatetimeTo": "2025-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 1066292055,
+        "friendlyName": "Monthly_ERCOT_LoadResourceDR_24_12",
+        "postDatetime": "2025-01-04T08:20:35"
+      },
+      "source": "work/history-annual-workbooks-2025/NP3-108.zip",
+      "zipSha256": "a8d9370611a713a490f66634d16ae650870d50ed8356b56efd72b68dc90ce3d2",
+      "files": [
+        {
+          "member": "1066292055.rpt.00013242.0000000000000000.20250104.082035860.Monthly_ERCOT_LoadResourceDR_24_12.xlsx",
+          "xlsxSha256": "8b88ec539844a75f3b427894d0d1f6ef080aac3bc9397377647d435ea6e9aca7",
+          "sheets": [
+            {
+              "name": "Report Data",
+              "sourceRows": 120,
+              "decodedRows": 120
+            }
+          ],
+          "documentationSheet": "Report Info"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "product": "NP5-520-ER",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-01-01T00:00:00",
+        "postDatetimeTo": "2025-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2019,
+      "product": "NP6-792-ER",
+      "totalJanuaryPublications": 8,
+      "publicationQuery": {
+        "postDatetimeFrom": "2019-01-01T00:00:00",
+        "postDatetimeTo": "2019-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 646145899,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2019",
+        "postDatetime": "2019-01-27T10:02:00"
+      },
+      "source": "work/history-annual-price-workbooks-2019/NP6-792-ER.zip",
+      "zipSha256": "3d338b36a4c853a5d8fdaeb6658abcf4ebee326a8f73698dfc5b0161dab091eb",
+      "files": [
+        {
+          "member": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2019.xlsx",
+          "xlsxSha256": "d3b99de28715a5aeb4fcc2e142dce042a494fe587195f276dcf8d5854397e24c",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 7527,
+              "decodedRows": 7527,
+              "firstTimestamp": "2019-01-01 00:00:20",
+              "lastTimestamp": "2019-01-26 23:55:09"
+            },
+            {
+              "name": "Feb",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Mar",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Apr",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "May",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jun",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jul",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Aug",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Sep",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Oct",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Nov",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Dec",
+              "sourceRows": 0,
+              "decodedRows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "product": "NP6-792-ER",
+      "totalJanuaryPublications": 5,
+      "publicationQuery": {
+        "postDatetimeFrom": "2020-01-01T00:00:00",
+        "postDatetimeTo": "2020-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 697984113,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2020",
+        "postDatetime": "2020-01-26T10:02:05"
+      },
+      "source": "work/history-annual-price-workbooks-2020/NP6-792-ER.zip",
+      "zipSha256": "496dfe3cc14c62bd834938b22ddf7606d90b7a317c2dad0edd480ae0994931cd",
+      "files": [
+        {
+          "member": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2020.xlsx",
+          "xlsxSha256": "3a6ecd67b2c1903a555e1323a90e09f0d8e35b1257017ec91e270a28e3d26617",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 7234,
+              "decodedRows": 7234,
+              "firstTimestamp": "2020-01-01 00:00:25.999000",
+              "lastTimestamp": "2020-01-25 23:55:16.999000"
+            },
+            {
+              "name": "Feb",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Mar",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Apr",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "May",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jun",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jul",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Aug",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Sep",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Oct",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Nov",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Dec",
+              "sourceRows": 0,
+              "decodedRows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "product": "NP6-792-ER",
+      "totalJanuaryPublications": 6,
+      "publicationQuery": {
+        "postDatetimeFrom": "2021-01-01T00:00:00",
+        "postDatetimeTo": "2021-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 756271442,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2021",
+        "postDatetime": "2021-01-31T10:06:03"
+      },
+      "source": "work/history-annual-price-workbooks-2021/NP6-792-ER.zip",
+      "zipSha256": "6b7560e4d8e34f98b7ff89505823e3bd7b75788e3b211d6a61c3853d810cb35c",
+      "files": [
+        {
+          "member": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2021.xlsx",
+          "xlsxSha256": "a9ef1b85c398a3bd0a76ee18d4e14fa001f946ae9a2c668445719536113f7639",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 8757,
+              "decodedRows": 8757,
+              "firstTimestamp": "2021-01-01 00:00:20",
+              "lastTimestamp": "2021-01-30 23:55:14.999000"
+            },
+            {
+              "name": "Feb",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Mar",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Apr",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "May",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jun",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jul",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Aug",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Sep",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Oct",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Nov",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Dec",
+              "sourceRows": 0,
+              "decodedRows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "product": "NP6-792-ER",
+      "totalJanuaryPublications": 6,
+      "publicationQuery": {
+        "postDatetimeFrom": "2022-01-01T00:00:00",
+        "postDatetimeTo": "2022-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 820248364,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2022",
+        "postDatetime": "2022-01-30T10:06:22"
+      },
+      "source": "work/history-annual-price-workbooks-2022/NP6-792-ER.zip",
+      "zipSha256": "5ef1c2e0ca7c58068d63d3bad5590a357f6b4687ddc3a182452cb5f048dd7b54",
+      "files": [
+        {
+          "member": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2022.xlsx",
+          "xlsxSha256": "f4dfc4566c4eeb6154e2eaad2f9e169d3ba6ec04bee2584680ffeee0518bd101",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 8473,
+              "decodedRows": 8473,
+              "firstTimestamp": "2022-01-01 00:00:18.999000",
+              "lastTimestamp": "2022-01-29 23:55:18"
+            },
+            {
+              "name": "Feb",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Mar",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Apr",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "May",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jun",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jul",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Aug",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Sep",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Oct",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Nov",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Dec",
+              "sourceRows": 0,
+              "decodedRows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "product": "NP6-792-ER",
+      "totalJanuaryPublications": 5,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-01-01T00:00:00",
+        "postDatetimeTo": "2023-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 892552928,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2023",
+        "postDatetime": "2023-01-29T10:04:20"
+      },
+      "source": "work/history-annual-price-workbooks-2023/NP6-792-ER.zip",
+      "zipSha256": "c5b4b68486e0ba0d4df1802056ff9d0a72ad4537292ccd17ea3af7335f1d6dc4",
+      "files": [
+        {
+          "member": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2023.xlsx",
+          "xlsxSha256": "0cbcdea1044816a7f2b048fca1a712bd9e12a9362096f90cc4be5a0ce980aaee",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 8102,
+              "decodedRows": 8102,
+              "firstTimestamp": "2023-01-01 00:00:20",
+              "lastTimestamp": "2023-01-28 23:55:16"
+            },
+            {
+              "name": "Feb",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Mar",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Apr",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "May",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jun",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jul",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Aug",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Sep",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Oct",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Nov",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Dec",
+              "sourceRows": 0,
+              "decodedRows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "product": "NP6-792-ER",
+      "totalJanuaryPublications": 5,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-01-01T00:00:00",
+        "postDatetimeTo": "2024-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 976588816,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2024",
+        "postDatetime": "2024-01-28T10:02:20"
+      },
+      "source": "work/history-annual-price-workbooks-2024/NP6-792-ER.zip",
+      "zipSha256": "07fd9afad21125d1a8736524ade0eb0e5fb8967efce637254cdec70fd5f1054d",
+      "files": [
+        {
+          "member": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2024.xlsx",
+          "xlsxSha256": "28e12f795d4e618bcf2eb26409fb1a30afdabd588b9d89548bcd68eb490bce86",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 7829,
+              "decodedRows": 7829,
+              "firstTimestamp": "2024-01-01 00:00:27",
+              "lastTimestamp": "2024-01-27 23:55:19"
+            },
+            {
+              "name": "Feb",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Mar",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Apr",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "May",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jun",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jul",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Aug",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Sep",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Oct",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Nov",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Dec",
+              "sourceRows": 0,
+              "decodedRows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "product": "NP6-792-ER",
+      "totalJanuaryPublications": 5,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-01-01T00:00:00",
+        "postDatetimeTo": "2025-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 1072411748,
+        "friendlyName": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2025",
+        "postDatetime": "2025-01-26T10:01:26"
+      },
+      "source": "work/history-annual-price-workbooks-2025/NP6-792-ER.zip",
+      "zipSha256": "4d76586c0e2ee53ccd1d244a3ddf7796cc98934642e3de1f33f158fa73504b42",
+      "files": [
+        {
+          "member": "RTM_ORDC_REL_DPLY_PRC_ADDR_RSRV_2025.xlsx",
+          "xlsxSha256": "5eaa2ebd51f6e23a4f896a9d13439ad0c04332c832cd4c9400537390a5a1e8c0",
+          "sheets": [
+            {
+              "name": "Jan",
+              "sourceRows": 7251,
+              "decodedRows": 7251,
+              "firstTimestamp": "2025-01-01 00:00:13",
+              "lastTimestamp": "2025-01-25 23:55:11"
+            },
+            {
+              "name": "Feb",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Mar",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Apr",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "May",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jun",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Jul",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Aug",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Sep",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Oct",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Nov",
+              "sourceRows": 0,
+              "decodedRows": 0
+            },
+            {
+              "name": "Dec",
+              "sourceRows": 0,
+              "decodedRows": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

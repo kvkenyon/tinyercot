@@ -236,6 +236,8 @@ with Client() as client:
         assert_type(sced_adder.SCEDTimestamp, datetime | None)
         assert_type(sced_adder.RTORPA, Decimal | None)
         assert_type(sced_adder.RTRDPA, Decimal | None)
+        assert_type(sced_adder.RTRUCCST30HSL, Decimal | None)
+        assert_type(sced_adder.RTNCLRNSCAP, Decimal | None)
     for interval_adder in client.np6_793_er.price_adders_history.rows():
         assert_type(interval_adder.deliveryDate, date | None)
         assert_type(interval_adder.RTRSVPOR, Decimal | None)
