@@ -3478,5 +3478,86 @@
       "inUseFlag": "bool",
       "DSTFlag": "bool"
     }
+  },
+  "np5-525-cd/wruc_as_deploy_factors": {
+    "columns": {
+      "RUCTimestamp": "RUCTimestamp",
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "ASType": "ASType",
+      "ASDeploymentFactors": "ASDeploymentFactors",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S",
+      "RUCTimestamp": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "RUCTimestamp": "datetime",
+      "deliveryDate": "date",
+      "deliveryHour": "str",
+      "ASType": "str",
+      "ASDeploymentFactors": "Decimal",
+      "repeatHourFlag": "bool"
+    }
+  },
+  "np5-526-cd/proj_as_deploy_factor": {
+    "columns": {
+      "DeliveryDate": "deliveryDate",
+      "HourEnding": "hourEnding",
+      "ASType": "ASType",
+      "ASDeploymentFactors": "ASDeploymentFactors",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "postedDatetime": "%m/%d/%Y %H:%M:%S"
+    },
+    "fields": {
+      "postedDatetime": "datetime",
+      "deliveryDate": "date",
+      "hourEnding": "str",
+      "ASType": "str",
+      "ASDeploymentFactors": "Decimal",
+      "repeatHourFlag": "bool"
+    }
+  },
+  "np5-527-cd/druc_as_deploy_factors": {
+    "columns": {
+      "RUCTimestamp": "RUCTimestamp",
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "ASType": "ASType",
+      "ASDeploymentFactors": "ASDeploymentFactors",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "RUCTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
+  },
+  "np5-528-cd/hruc_as_deploy_factors": {
+    "columns": {
+      "RUCTimestamp": "RUCTimestamp",
+      "DeliveryDate": "deliveryDate",
+      "DeliveryHour": "deliveryHour",
+      "ASType": "ASType",
+      "ASDeploymentFactors": "ASDeploymentFactors",
+      "RepeatedHourFlag": "repeatHourFlag"
+    },
+    "dates": {
+      "deliveryDate": "%m/%d/%Y"
+    },
+    "datetimes": {
+      "RUCTimestamp": "%m/%d/%Y %H:%M:%S"
+    }
   }
 }

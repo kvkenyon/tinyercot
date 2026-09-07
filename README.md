@@ -263,3 +263,11 @@ with Client() as ercot:
 `SYSTEM_TOTAL` rows remain separate from regional rows; summing both would count
 both the total and its components. As with load forecasts, preserve document
 metadata when publication time matters because these CSVs omit `postedDatetime`.
+
+Weekly, daily and hourly RUC ancillary-service deployment factors (NP5-525/527/528)
+and projected deployment factors (NP5-526) have generated `_history` readers.
+For example, `ercot.np5_527_cd.druc_as_deploy_factors_history.rows(...)` retains the
+RUC execution timestamp separately from delivery date/hour, service type, and the
+decimal factor. The oldest files listed in the September 2026 probes were from
+December 2025; these products do not establish a common start date for other
+ancillary-service history.

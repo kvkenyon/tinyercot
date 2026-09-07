@@ -7962,6 +7962,20 @@ class np5_525_cd:
         postedDatetime: datetime | None
         repeatHourFlag: bool | None
 
+    class WrucAsDeployFactorsHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        RUCTimestamp: datetime | None
+        deliveryDate: date | None
+        deliveryHour: str | None
+        ASType: str | None
+        ASDeploymentFactors: Decimal | None
+        repeatHourFlag: bool | None
+
+    @property
+    def wruc_as_deploy_factors_history(self) -> Archive[np5_525_cd.WrucAsDeployFactorsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-525-cd', np5_525_cd.WrucAsDeployFactorsHistoryRow, {'RUCTimestamp': 'RUCTimestamp', 'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'ASType': 'ASType', 'ASDeploymentFactors': 'ASDeploymentFactors', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S', 'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def wruc_as_deploy_factors(self, *, ASType: str | None = None, ASDeploymentFactorsFrom: Decimal | None = None, ASDeploymentFactorsTo: Decimal | None = None, repeatHourFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHour: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_525_cd.WrucAsDeployFactorsRow]:
         'WRUC Ancillary Service Deployment Factors'
         return self._client._page('/np5-525-cd/wruc_as_deploy_factors', np5_525_cd.WrucAsDeployFactorsRow, {'ASType': ASType, 'ASDeploymentFactorsFrom': ASDeploymentFactorsFrom, 'ASDeploymentFactorsTo': ASDeploymentFactorsTo, 'repeatHourFlag': repeatHourFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'RUCTimestampFrom': RUCTimestampFrom, 'RUCTimestampTo': RUCTimestampTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHour': deliveryHour, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7989,6 +8003,19 @@ class np5_526_cd:
         hourEnding: str | None
         postedDatetime: datetime | None
         repeatHourFlag: bool | None
+
+    class ProjAsDeployFactorHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        ASType: str | None
+        ASDeploymentFactors: Decimal | None
+        repeatHourFlag: bool | None
+
+    @property
+    def proj_as_deploy_factor_history(self) -> Archive[np5_526_cd.ProjAsDeployFactorHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-526-cd', np5_526_cd.ProjAsDeployFactorHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'ASType': 'ASType', 'ASDeploymentFactors': 'ASDeploymentFactors', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def proj_as_deploy_factor(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, ASType: str | None = None, ASDeploymentFactorsFrom: Decimal | None = None, ASDeploymentFactorsTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_526_cd.ProjAsDeployFactorRow]:
         'Projected Ancillary Service Deployments Factors'
@@ -8018,6 +8045,11 @@ class np5_527_cd:
         deliveryHour: str | None
         repeatHourFlag: bool | None
 
+    @property
+    def druc_as_deploy_factors_history(self) -> Archive[np5_527_cd.DrucAsDeployFactorsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-527-cd', np5_527_cd.DrucAsDeployFactorsRow, {'RUCTimestamp': 'RUCTimestamp', 'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'ASType': 'ASType', 'ASDeploymentFactors': 'ASDeploymentFactors', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def druc_as_deploy_factors(self, *, ASType: str | None = None, ASDeploymentFactorsFrom: Decimal | None = None, ASDeploymentFactorsTo: Decimal | None = None, repeatHourFlag: bool | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHour: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_527_cd.DrucAsDeployFactorsRow]:
         'DRUC Ancillary Service Deployment Factors'
         return self._client._page('/np5-527-cd/druc_as_deploy_factors', np5_527_cd.DrucAsDeployFactorsRow, {'ASType': ASType, 'ASDeploymentFactorsFrom': ASDeploymentFactorsFrom, 'ASDeploymentFactorsTo': ASDeploymentFactorsTo, 'repeatHourFlag': repeatHourFlag, 'RUCTimestampFrom': RUCTimestampFrom, 'RUCTimestampTo': RUCTimestampTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHour': deliveryHour, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -8045,6 +8077,11 @@ class np5_528_cd:
         deliveryDate: date | None
         deliveryHour: str | None
         repeatHourFlag: bool | None
+
+    @property
+    def hruc_as_deploy_factors_history(self) -> Archive[np5_528_cd.HrucAsDeployFactorsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-528-cd', np5_528_cd.HrucAsDeployFactorsRow, {'RUCTimestamp': 'RUCTimestamp', 'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'ASType': 'ASType', 'ASDeploymentFactors': 'ASDeploymentFactors', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def hruc_as_deploy_factors(self, *, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHour: str | None = None, ASType: str | None = None, ASDeploymentFactorsFrom: Decimal | None = None, ASDeploymentFactorsTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_528_cd.HrucAsDeployFactorsRow]:
         'HRUC Ancillary Service Deployment Factors'

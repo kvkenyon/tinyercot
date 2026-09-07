@@ -760,3 +760,45 @@ def test_intra_hour_forecasts_keep_model_alternatives():
     assert len({(row.region, row.intervalEnding) for row in forecasts}) == 1
     assert forecasts[1].value == Decimal("4665.2")
     assert all(row.postedDatetime is None for row in forecasts)
+
+
+@pytest.mark.parametrize(
+    "sample",
+    json.loads((INPUTS / "deployment-evidence.json").read_text()),
+    ids=lambda entry: entry["fixture"],
+)
+def test_deployment_factor_historical_formats(sample):
+    product, method = sample["endpoint"].split("/")
+    with Client() as client:
+        reader = getattr(
+            getattr(client, product.replace("-", "_")),
+            ("_" if method[0].isdigit() else "") + method + "_history",
+        )
+        rows = list(
+            reader.read(
+                zipped(sample["file"], (INPUTS / sample["fixture"]).read_bytes())
+            )
+        )
+    assert len(rows) == min(3, sample["csv_rows"])
+    assert rows[0].model_dump(mode="json") == sample["first_row"]
+
+
+def test_deployment_factors_preserve_ruc_time_and_service_types():
+    with Client() as client:
+        factors = list(
+            client.np5_527_cd.druc_as_deploy_factors_history.read(
+                zipped(
+                    "factors.csv",
+                    (INPUTS / "np5-527-cd-history-samples.csv").read_bytes(),
+                )
+            )
+        )
+    assert [row.ASType for row in factors] == ["ECRS", "NSPIN", "REGDN"]
+    assert [row.ASDeploymentFactors for row in factors] == [
+        Decimal("0.04"),
+        Decimal("0.15"),
+        Decimal("0.25"),
+    ]
+    assert factors[0].RUCTimestamp.isoformat() == "2025-12-05T14:33:01"
+    assert factors[0].deliveryDate == date(2025, 12, 6)
+    assert factors[0].deliveryHour == "01:00"

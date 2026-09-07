@@ -1,0 +1,4 @@
+RUCTimestamp,DeliveryDate,DeliveryHour,ASType,ASDeploymentFactors,RepeatedHourFlag
+12/05/2025 00:07:23,12/05/2025,02:00,ECRS,0.05,N
+12/05/2025 00:07:23,12/05/2025,02:00,NSPIN,0.2,N
+12/05/2025 00:07:23,12/05/2025,02:00,REGDN,0.3,N
