@@ -160,14 +160,20 @@ ancillary-service prices, and actual load by forecast or weather zone through
 These public website snapshots supplement the authenticated archive; their
 retention is not a substitute for a complete historical backfill.
 
+For winter peak exposure, `winter_load_forecasts` returns hourly system forecasts,
+transmission-operator allocations, and the separate published peak forecast.
+The [winter workflow](usage.md#winter-hourly-load-and-peak-forecasts) preserves the
+forecast percentile and large-load assumptions; operator areas are distinct from
+weather zones and settlement load zones.
+
 ## Current limits
 
 All 242 report queries in the verified Public Reports inventory have typed
 methods, and all their report tables have history readers. That does not prove
 that every intermediate historical file format is supported or every public
-website dataset has been decoded. Remaining website coverage includes the
-winter reliability-standard hourly forecast. Further historical layout verification is also
-needed for core market products. Broad legacy document extraction is deferred
+website dataset has been decoded. Further historical layout verification is
+needed for core market products, and older modeled-generation profile formats
+remain outside the supported readers. Broad legacy document extraction is deferred
 while market-data coverage and usability take priority.
 MIS remains excluded. In particular, ERCOT separately
 lists [annual DAM hub/load-zone prices](https://www.ercot.com/mp/data-products/data-product-details?id=NP4-180-ER),
