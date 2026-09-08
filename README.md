@@ -210,6 +210,15 @@ row coverage):
 | Unplanned resource outages | December 7, 2022 |
 | RT AS prices by settlement/SCED interval and indicative RT AS prices | December 5, 2025 |
 
+A full retained actual-load backfill (NP6-345-CD) returned **108,285 rows** from
+all 4,512 listed archive publications, combining 102 bundles with two archive
+batches. Every field matched an independent CSV comparison. Operating dates
+span April 30, 2014–September 6, 2026, with December 4, 2025 absent from both the
+files and the report query. Three older dates also lack hour ending 24:00:
+November 4, 2014; August 4, 2015; and March 15, 2016. These source gaps remain
+explicit; rows are not synthesized. See `tools/inputs/history/bundle-evidence.json`
+for the full-source check and adjacent-day query controls.
+
 Weather-zone load forecasts had only five listed bundles, starting March 2026,
 despite archives extending to 2019. Archive access therefore matters for complete
 backfills. The oldest retrieved load-forecast publication contained 192 rows and
@@ -262,6 +271,13 @@ check, the linked **2026 ZIP failed its CRC check on two identical downloads**;
 that integrity error propagates. Bound queries through 2025 to read the verified
 completed years. The index has no 2001 file. See
 `tools/inputs/public-hourly-load-evidence.json` for the inventory and source issues.
+
+The annual files and `np6_345_cd.act_sys_load_by_wzn_history` retain different
+published values. Across 720 matching January 2018 hours, all 6,480 compared load
+cells differed, including after rounding the annual values to two decimals. Keep
+the source identified when combining these series; the API data cannot silently
+replace a missing annual workbook. The source comparison is recorded in
+`tools/inputs/public-hourly-load-evidence.json`.
 
 For the older system, control-area and load-serving-entity records, use the typed
 `legacy()` reader. It emits one entity/hour measurement, with the source entity

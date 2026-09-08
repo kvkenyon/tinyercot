@@ -782,5 +782,60 @@
       "note": "Original source bytes; the directly published XLS for 2002 is wrapped in a ZIP for storage."
     }
   ],
-  "legacyReaderEvidence": "public-legacy-hourly-load-evidence.json"
+  "legacyReaderEvidence": "public-legacy-hourly-load-evidence.json",
+  "apiArchiveComparison": {
+    "scope": "January 2018 API archive publications compared against January rows in the annual Native Load 2018 workbook. Joined on operating day and hour ending; January avoids DST ambiguity. This comparison tests source equivalence, not parser correctness.",
+    "apiRows": 744,
+    "matchedHours": 720,
+    "cellsCompared": 6480,
+    "exactEqualCells": 0,
+    "equalAfterAnnualRoundedToHundredth": 0,
+    "differentValueExamples": [
+      {
+        "day": "2018-01-01",
+        "hour": 1,
+        "zone": "coast",
+        "api": "10964.93",
+        "annual": "11425.979115"
+      },
+      {
+        "day": "2018-01-01",
+        "hour": 1,
+        "zone": "east",
+        "api": "2076.80",
+        "annual": "1852.663959"
+      },
+      {
+        "day": "2018-01-01",
+        "hour": 1,
+        "zone": "farWest",
+        "api": "2738.81",
+        "annual": "2823.409245"
+      },
+      {
+        "day": "2018-01-01",
+        "hour": 1,
+        "zone": "north",
+        "api": "1410.78",
+        "annual": "1135.360907"
+      }
+    ],
+    "checkedAt": "2026-09-08T04:12:32.836046+00:00",
+    "sources": [
+      {
+        "kind": "API archive publications posted during January 2018",
+        "product": "NP6-345-CD",
+        "sha256": "9e69d1a0cc530f667eae86334b0a375f44ee343c8f0c7c4c6144d929ca84a317"
+      },
+      {
+        "kind": "Annual hourly load workbook",
+        "url": "https://www.ercot.com/files/docs/2019/01/07/native_load_2018.zip",
+        "sha256": "c57da4b5927a920eb8e160cf8927ec0e8f6a11f5e02962f4c9850787f13e2474"
+      }
+    ],
+    "conclusion": "These published series are not numerically interchangeable for the compared intervals; no cause for the differences is inferred and no automatic substitution is performed.",
+    "apiFirstOperatingDay": "2017-12-31",
+    "apiLastOperatingDay": "2018-01-30",
+    "independentRawComparison": "The same 720-hour/6480-cell result was reproduced directly from CSV dictionaries and openpyxl worksheet cells, without SDK models or readers."
+  }
 }

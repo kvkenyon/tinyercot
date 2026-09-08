@@ -3761,5 +3761,115 @@
         "query": ""
       }
     ]
+  },
+  "fullLoadBackfillCheck": {
+    "startedAt": "2026-09-08T04:08:33.620310+00:00",
+    "finishedAt": "2026-09-08T04:17:01.657722+00:00",
+    "product": "NP6-345-CD",
+    "scope": "Unbounded SDK backfill of every listed archive and bundle publication at this snapshot, with every typed row independently compared to downloaded source CSV fields using stdlib CSV/date/Decimal. Original document IDs deduplicate exact source copies; distinct publications and repeated rows are preserved. No claim about other products or availability before the first retained source row.",
+    "archivePublications": 4512,
+    "bundlePublications": 102,
+    "uniqueOriginalPublications": 4512,
+    "bundleOnlyPublications": 0,
+    "rows": 108285,
+    "sourceCellsCompared": 1299420,
+    "firstOperatingDay": "2014-04-30",
+    "lastOperatingDay": "2026-09-06",
+    "operatingDays": 4512,
+    "missingOperatingDays": [
+      "2025-12-04"
+    ],
+    "rowsPerDayHistogram": {
+      "24": 4485,
+      "23": 15,
+      "25": 12
+    },
+    "sourceLayouts": {
+      "OperDay,HourEnding,COAST,EAST,FAR_WEST,NORTH,NORTH_C,SOUTHERN,SOUTH_C,WEST,TOTAL,DSTFlag": 4512
+    },
+    "allListedArchivesIncluded": true,
+    "allTypedRowsMatchIndependentSource": true,
+    "sourceManifestSha256": "c03cc098a78fdab8892ac1f019b509801a0a07bbf7a458babcf91ff014f861a7",
+    "downloadSummary": {
+      "bundles": 102,
+      "archiveBatches": 2,
+      "individualArchivePublications": 1410,
+      "bytes": 7314764,
+      "manifestSha256": "11da34943e56c8865033d39b07cde0a03a313a0e88fb1288ee7fee097af135d3"
+    },
+    "missingHours": [
+      {
+        "operatingDay": "2014-11-04",
+        "expectedClockHours": 24,
+        "sourceRows": 23,
+        "absentHourLabels": [
+          "24:00"
+        ]
+      },
+      {
+        "operatingDay": "2015-08-04",
+        "expectedClockHours": 24,
+        "sourceRows": 23,
+        "absentHourLabels": [
+          "24:00"
+        ]
+      },
+      {
+        "operatingDay": "2016-03-15",
+        "expectedClockHours": 24,
+        "sourceRows": 23,
+        "absentHourLabels": [
+          "24:00"
+        ]
+      }
+    ],
+    "gapQueryCheck": {
+      "checkedAt": "2026-09-08T04:19:45.077506+00:00",
+      "missingDay": "2025-12-04",
+      "missingDayRows": 0,
+      "controls": [
+        {
+          "operatingDay": "2025-12-03",
+          "totalRecords": 24,
+          "rows": 24
+        },
+        {
+          "operatingDay": "2025-12-05",
+          "totalRecords": 24,
+          "rows": 24
+        },
+        {
+          "operatingDay": "2014-11-03",
+          "totalRecords": 0,
+          "rows": 0
+        },
+        {
+          "operatingDay": "2014-11-04",
+          "totalRecords": 0,
+          "rows": 0
+        },
+        {
+          "operatingDay": "2015-08-03",
+          "totalRecords": 0,
+          "rows": 0
+        },
+        {
+          "operatingDay": "2015-08-04",
+          "totalRecords": 0,
+          "rows": 0
+        },
+        {
+          "operatingDay": "2016-03-14",
+          "totalRecords": 0,
+          "rows": 0
+        },
+        {
+          "operatingDay": "2016-03-15",
+          "totalRecords": 0,
+          "rows": 0
+        }
+      ],
+      "conclusion": "The missing December 2025 day is also absent from the report query, while both adjacent days return 24 rows. Queries for the three older short days and their adjacent control dates all return zero rows, so query access did not recover their missing hours; this does not establish a retention cutoff."
+    }
   }
 }
