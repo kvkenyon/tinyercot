@@ -360,3 +360,15 @@ with Client() as client:
     assert_type(
         forecast_publication.rows, Iterator[np3_561_cd._7dLoadFcastByWznHistoryRow]
     )
+
+
+with Client() as client:
+    sced_capacity = client.dashboards.sced_capacity()
+    assert_type(sced_capacity.current.data[0].increaseGenResESRs, Decimal)
+    assert_type(sced_capacity.previous.data[0].timestamp, datetime)
+    ancillary_capacity = client.dashboards.ancillary_capacity()
+    assert_type(
+        ancillary_capacity.data.systemAvailableCapacityGroup.esrCapWEoIncreaseBp,
+        Decimal,
+    )
+    assert_type(ancillary_capacity.data.regulationAwardsGroup.regUpAwd, Decimal)

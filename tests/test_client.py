@@ -183,6 +183,8 @@ def test_invalid_arguments_are_rejected_by_type_checker(tmp_path):
         ("combined_wind_solar", "combine-wind-solar"),
         ("system_demand", "system-wide-demand"),
         ("ancillary_services", "ancillary-services"),
+        ("sced_capacity", "capacity-available-sced"),
+        ("ancillary_capacity", "ancillary-service-capacity-monitor"),
     ],
 )
 def test_dashboard_methods_need_no_credentials(method, source):
@@ -227,6 +229,60 @@ def test_weather_forecast():
     forecast = WeatherForecasts.model_validate(body).root
     assert len(forecast) == len(body)
     assert forecast[0].data["DFW"].high == int(body[0]["data"]["DFW"]["high"])
+
+
+def test_capacity_feeds_preserve_values_and_source_sections():
+    from datetime import datetime
+    from decimal import Decimal
+
+    from tinyercot._dashboards import AncillaryCapacitySnapshot, ScedCapacitySnapshot
+
+    capacity = json.loads(
+        (INPUTS / "dashboards/capacity-available-sced.json").read_text()
+    )
+    result = ScedCapacitySnapshot.model_validate(capacity)
+    for period in ("current", "previous"):
+        rows = getattr(result, period).data
+        for row, source in zip(rows, capacity[period]["data"], strict=True):
+            assert row.timestamp == datetime.fromisoformat(source["timestamp"])
+            assert row.epoch == source["epoch"]
+            assert row.dstFlag == source["dstFlag"]
+            assert row.increaseGenResESRs == Decimal(source["increaseGenResESRs"])
+            assert row.decreaseGenResESRs == Decimal(source["decreaseGenResESRs"])
+
+    body = json.loads(
+        (INPUTS / "dashboards/ancillary-service-capacity-monitor.json").read_text()
+    )
+    # Preserve fractional and negative telemetry instead of integer truncation.
+    body["data"]["systemAvailableCapacityGroup"][1][1] = "-6.125"
+    monitor = AncillaryCapacitySnapshot.model_validate(body)
+    for group, table in body["data"].items():
+        assert getattr(monitor.data, group).model_dump() == {
+            key: Decimal(str(value)) for key, value in table[1:]
+        }
+    assert monitor.lastUpdated == datetime.fromisoformat(body["lastUpdated"])
+    assert monitor.data.systemAvailableCapacityGroup.capClrDecreaseBp == Decimal(
+        "-6.125"
+    )
+    assert monitor == AncillaryCapacitySnapshot.model_validate(monitor.model_dump())
+
+
+@pytest.mark.parametrize(
+    "table",
+    [
+        [["wrong", "header"], ["regUpAwd", 1], ["regDownAwd", 2]],
+        [["key", "value"], ["regUpAwd", 1], ["regUpAwd", 2], ["regDownAwd", 3]],
+        [["key", "value"], ["regUpAwd", 1]],
+        [["key", "value"], ["regUpAwd", 1, 2], ["regDownAwd", 3]],
+    ],
+)
+def test_capacity_tables_reject_lost_or_ambiguous_values(table):
+    from pydantic import ValidationError
+
+    from tinyercot._dashboards import RegulationAwards
+
+    with pytest.raises(ValidationError):
+        RegulationAwards.model_validate(table)
 
 
 def test_single_bundle_400_uses_published_get_download():

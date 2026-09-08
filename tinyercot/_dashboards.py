@@ -5,7 +5,7 @@ from decimal import Decimal
 from typing import Literal, TypeVar
 
 import httpx
-from pydantic import BaseModel, ConfigDict, Field, RootModel
+from pydantic import BaseModel, ConfigDict, Field, RootModel, model_validator
 
 T = TypeVar("T", bound=BaseModel)
 
@@ -288,6 +288,165 @@ class AncillarySnapshot(DashboardModel):
     lastEcrs: int
 
 
+class ScedCapacityRow(DashboardModel):
+    timestamp: datetime
+    epoch: int
+    dstFlag: str
+    increaseGenResESRs: Decimal
+    decreaseGenResESRs: Decimal
+
+
+class ScedCapacityDay(DashboardModel):
+    timestamp: datetime
+    data: list[ScedCapacityRow]
+
+
+class ScedCapacitySnapshot(DashboardModel):
+    lastUpdated: datetime
+    current: ScedCapacityDay
+    previous: ScedCapacityDay
+
+
+class _CapacityGroup(DashboardModel):
+    @model_validator(mode="before")
+    @classmethod
+    def _key_value_table(cls, value: object) -> object:
+        if not isinstance(value, list):
+            return value
+        if not value or value[0] != ["key", "value"]:
+            raise ValueError("Expected a capacity table with key/value headers")
+        fields: dict[str, object] = {}
+        for row in value[1:]:
+            if not isinstance(row, (list, tuple)) or len(row) != 2:
+                raise ValueError("Expected a capacity key/value pair")
+            key, amount = row
+            if not isinstance(key, str) or key in fields:
+                raise ValueError("Capacity keys must be distinct strings")
+            fields[key] = amount
+        return fields
+
+
+class ResponsiveReserveCapability(_CapacityGroup):
+    rrcCapPfrGenEsr: Decimal
+    rrcCapLrWoClr: Decimal
+    rrcCapLr: Decimal
+    rrcCapFfr: Decimal
+    rrcCapFfrEsr: Decimal
+
+
+class ResponsiveReserveAwards(_CapacityGroup):
+    rrAwdGen: Decimal
+    rrAwdNonClr: Decimal
+    rrAwdClr: Decimal
+    rrAwdFfr: Decimal
+
+
+class ContingencyReserveCapability(_CapacityGroup):
+    ecrsCapGen: Decimal
+    ecrsCapNclr: Decimal
+    ecrsCapClr: Decimal
+    ecrsCapQs: Decimal
+    ecrsCapEsr: Decimal
+    ecrsCapDeployedGenLr: Decimal
+
+
+class ContingencyReserveAwards(_CapacityGroup):
+    ecrsAwdGen: Decimal
+    ecrsAwdNonClr: Decimal
+    ecrsAwdClr: Decimal
+    ecrsAwdQs: Decimal
+    ecrsAwdEsr: Decimal
+
+
+class NonSpinReserveCapability(_CapacityGroup):
+    nsrCapOnGenWoEo: Decimal
+    nsrCapOffResWOs: Decimal
+    nsrCapUndeployedLr: Decimal
+    nsrCapOffGen: Decimal
+    nsrCapEsr: Decimal
+
+
+class NonSpinReserveAwards(_CapacityGroup):
+    nsrAwdGenWEo: Decimal
+    nsrAwdGenWOs: Decimal
+    nsrAwdLr: Decimal
+    nsrAwdOffGen: Decimal
+    nsrAwdQs: Decimal
+    nsrAwdAs: Decimal
+
+
+class RegulationCapacity(_CapacityGroup):
+    regUpCap: Decimal
+    regDownCap: Decimal
+    regUpUndeployed: Decimal
+    regDownUndeployed: Decimal
+    regUpDeployed: Decimal
+    regDownDeployed: Decimal
+
+
+class RegulationAwards(_CapacityGroup):
+    regUpAwd: Decimal
+    regDownAwd: Decimal
+
+
+class SystemAvailableCapacity(_CapacityGroup):
+    capClrDecreaseBp: Decimal
+    capClrIncreaseBp: Decimal
+    capWEoIncreaseBp: Decimal
+    capWEoDecreaseBp: Decimal
+    capWoEoIncreaseBp: Decimal
+    capWoEoDecreaseBp: Decimal
+    esrCapWEoIncreaseBp: Decimal
+    esrCapWEoDecreaseBp: Decimal
+    esrCapWoEoIncreaseBp: Decimal
+    esrCapWoEoDecreaseBp: Decimal
+    capIncreaseGenBp: Decimal
+    capDecreaseGenBp: Decimal
+    sumCapResRegUpRrs: Decimal
+    sumCapResRegUpRrsEcrs: Decimal
+    sumCapResRegUpRrsEcrsNsr: Decimal
+
+
+class PhysicalResponsiveCapability(_CapacityGroup):
+    prc: Decimal
+
+
+class OperatingReserveDemandCurveCapacity(_CapacityGroup):
+    rtReserveOnline: Decimal
+    rtReserveOnOffline: Decimal
+
+
+class EmergencyOutageCapacity(_CapacityGroup):
+    telemHslEmr: Decimal
+    telemHslOut: Decimal
+    telemHslOutl: Decimal
+
+
+class AncillaryCapacityData(DashboardModel):
+    responsiveReserveCapabilityGroup: ResponsiveReserveCapability
+    responsiveReserveAwardsGroup: ResponsiveReserveAwards
+    ercotContingencyReserveCapabilityGroup: ContingencyReserveCapability
+    ercotContingencyReserveAwardsGroup: ContingencyReserveAwards
+    nonSpinReserveCapabilityGroup: NonSpinReserveCapability
+    nonSpinReserveAwardsGroup: NonSpinReserveAwards
+    regulationCapacityGroup: RegulationCapacity
+    regulationAwardsGroup: RegulationAwards
+    systemAvailableCapacityGroup: SystemAvailableCapacity
+    ercotWidePhysicalResponsiveCapabilityGroup: PhysicalResponsiveCapability
+    realTimeOperatingReserveDemandCurveCapacityGroup: (
+        OperatingReserveDemandCurveCapacity
+    )
+    emrOutAndOutLCapacityGroup: EmergencyOutageCapacity
+
+
+class AncillaryCapacitySnapshot(DashboardModel):
+    lastUpdated: datetime
+    epoch: int
+    interval: str
+    dstFlag: str
+    data: AncillaryCapacityData
+
+
 class CityWeather(DashboardModel):
     name: str
     y: int
@@ -348,6 +507,16 @@ class Dashboards:
 
     def ancillary_services(self) -> AncillarySnapshot:
         return self._get("ancillary-services", AncillarySnapshot)
+
+    def sced_capacity(self) -> ScedCapacitySnapshot:
+        """Current and previous day capacity to increase/decrease SCED base points, MW."""
+        return self._get("capacity-available-sced", ScedCapacitySnapshot)
+
+    def ancillary_capacity(self) -> AncillaryCapacitySnapshot:
+        """Current reserve capability, awards and available capacity by source group, MW."""
+        return self._get(
+            "ancillary-service-capacity-monitor", AncillaryCapacitySnapshot
+        )
 
     def weather_forecast(self) -> list[WeatherForecast]:
         return self._get("weather-forecast", WeatherForecasts).root

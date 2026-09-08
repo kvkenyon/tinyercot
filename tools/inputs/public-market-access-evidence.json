@@ -41,6 +41,46 @@
       "listingRoute": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=",
       "downloadRoute": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=",
       "conclusion": "The published page uses MIS listing/download routes. Those routes were inspected in HTML but not called; MIS is excluded from this SDK release."
+    },
+    {
+      "product": "NP4-160-SG",
+      "title": "Settlement Points List and Electrical Buses Mapping",
+      "page": "https://www.ercot.com/mp/data-products/data-product-details?id=NP4-160-SG",
+      "htmlSha256": "9a1798d9521cfbbd4680cf5bdb8109411e6ae67f01011fd6c5ef9e6bd58b01b7",
+      "reportTypeId": "10008",
+      "listingRoute": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=",
+      "downloadRoute": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=",
+      "conclusion": "Linked from the public market/grid index but absent from the API catalog and generated histories. The page uses MIS listing/download routes and contains no direct CSV/ZIP/workbook links. MIS routes were inspected in HTML, not called."
+    },
+    {
+      "product": "NP4-106-M",
+      "title": "Percent Change in Load-Provided Responsive Reserve",
+      "page": "https://www.ercot.com/mp/data-products/data-product-details?id=NP4-106-M",
+      "htmlSha256": "1e536c78ac1c7fadc7a566f50e62290dd32f27573ea33d2d1f0e18b89798f425",
+      "reportTypeId": "10040",
+      "listingRoute": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=",
+      "downloadRoute": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=",
+      "conclusion": "Linked from the public market/grid index but absent from the API catalog and generated histories. The page uses MIS listing/download routes and contains no direct CSV/ZIP/workbook links. MIS routes were inspected in HTML, not called."
+    },
+    {
+      "product": "OPG-103-ER",
+      "title": "DC Tie Outage Report",
+      "page": "https://www.ercot.com/mp/data-products/data-product-details?id=OPG-103-ER",
+      "htmlSha256": "d8df01ab96840340de844865f3b1f72ef80b9ef6fab4af08894506f4fb2d456c",
+      "reportTypeId": "13112",
+      "listingRoute": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=",
+      "downloadRoute": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=",
+      "conclusion": "Linked from the public market/grid index but absent from the API catalog and generated histories. The page uses MIS listing/download routes and contains no direct CSV/ZIP/workbook links. MIS routes were inspected in HTML, not called."
+    },
+    {
+      "product": "NP3-220-SG",
+      "title": "Electrical Bus to Hub List",
+      "page": "https://www.ercot.com/mp/data-products/data-product-details?id=NP3-220-SG",
+      "htmlSha256": "4198a1836514aff2e1663e828957a7e8c996777fc3f8b8be9222ce6cd3e469ad",
+      "reportTypeId": "10011",
+      "listingRoute": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=",
+      "downloadRoute": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=",
+      "conclusion": "Linked from the public market/grid index but absent from the API catalog and generated histories. The page uses MIS listing/download routes and contains no direct CSV/ZIP/workbook links. MIS routes were inspected in HTML, not called."
     }
   ],
   "fourCpDirectArchive": {

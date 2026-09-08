@@ -1943,5 +1943,38 @@
     "scope": "Isolated installed wheel, captured responses through all generated query methods and a historical CSV; no live network queries or optional format decoding.",
     "wheelSha256": "759efde4a1612d2a6690339b478309cc22555eb3779b6426857651132e683345",
     "commit": "3adbe8d2658edbcfdba95ffd37ff2cff7411c57f"
+  },
+  "additionalCapacityDashboardCheck": {
+    "checkedAt": "2026-09-08T05:34:44.407551+00:00",
+    "scedCapacityRows": 8846,
+    "scedCapacityCurrentRows": 206,
+    "scedCapacityPreviousRows": 8640,
+    "scedLastUpdated": "2026-09-08T00:34:14-05:00",
+    "ancillaryGroups": 12,
+    "ancillaryValues": 60,
+    "ancillaryLastUpdated": "2026-09-08T00:34:26-05:00",
+    "allSourceValuesMatched": true,
+    "credentialsUsed": false,
+    "sources": {
+      "capacity-available-sced.json": {
+        "url": "https://www.ercot.com/api/1/services/read/dashboards/capacity-available-sced.json",
+        "sha256": "ba2d9c1869aec66637f14a9304497840c82df07a75a1f04236be04eb9eae8f17"
+      },
+      "ancillary-service-capacity-monitor.json": {
+        "url": "https://www.ercot.com/api/1/services/read/dashboards/ancillary-service-capacity-monitor.json",
+        "sha256": "217b6d7e0cd9cc4d4f7c80e04e979f827da86f5d89f0af9dc0ed7ebc33110c67"
+      }
+    },
+    "discovery": "Two additional public dashboard pages linked from https://www.ercot.com/gridinfo/index, absent from the main dashboard index and previously unimplemented.",
+    "pages": [
+      "https://www.ercot.com/gridmktinfo/dashboards/capacityavailablesced",
+      "https://www.ercot.com/gridmktinfo/dashboards/ancillaryservicecapacitymonitor"
+    ],
+    "fixtureScope": "Capacity fixture retains the first and last source row of each current/previous section; ancillary fixture preserves the complete captured 12-group table. Live comparison covers every row and field in the fetched responses.",
+    "methods": [
+      "sced_capacity",
+      "ancillary_capacity"
+    ],
+    "typedNumericDashboardFeeds": 13
   }
 }

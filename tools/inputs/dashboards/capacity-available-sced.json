@@ -1,0 +1,41 @@
+{
+  "lastUpdated": "2026-09-08 00:30:46-0500",
+  "current": {
+    "data": [
+      {
+        "timestamp": "2026-09-08 00:00:06-0500",
+        "epoch": 1788843606,
+        "dstFlag": "N",
+        "increaseGenResESRs": 17992,
+        "decreaseGenResESRs": -57669
+      },
+      {
+        "timestamp": "2026-09-08 00:30:46-0500",
+        "epoch": 1788845446,
+        "dstFlag": "N",
+        "increaseGenResESRs": 18143,
+        "decreaseGenResESRs": -56962
+      }
+    ],
+    "timestamp": "2026-09-08 00:00:00-0500"
+  },
+  "previous": {
+    "data": [
+      {
+        "timestamp": "2026-09-07 00:00:06-0500",
+        "epoch": 1788757206,
+        "dstFlag": "N",
+        "increaseGenResESRs": 19723,
+        "decreaseGenResESRs": -53909
+      },
+      {
+        "timestamp": "2026-09-07 23:59:54-0500",
+        "epoch": 1788843594,
+        "dstFlag": "N",
+        "increaseGenResESRs": 17989,
+        "decreaseGenResESRs": -57680
+      }
+    ],
+    "timestamp": "2026-09-07 00:00:00-0500"
+  }
+}

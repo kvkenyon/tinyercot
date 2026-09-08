@@ -413,7 +413,23 @@ Generation fails if an endpoint has no field schema. During discovery only,
 Public dashboards are available through `ercot.dashboards`: fuel mix, grid
 conditions, energy storage, generation outages, DC-tie flows, system prices,
 supply/demand, combined wind/solar, system demand, ancillary services, weather,
-and the current locational price map.
+SCED capacity, the ancillary-service capacity monitor, and the current locational
+price map.
+
+```python
+with Client() as ercot:
+    capacity = ercot.dashboards.sced_capacity()
+    for row in capacity.current.data:
+        print(row.timestamp, row.increaseGenResESRs, row.decreaseGenResESRs)
+
+    reserves = ercot.dashboards.ancillary_capacity()
+    print(reserves.data.regulationAwardsGroup.regUpAwd)
+```
+
+SCED capacity includes current and previous day telemetry. The ancillary monitor
+exposes 60 values across 12 named source groups, including battery capacity and
+reserve awards. Both are public and require no credentials. Values are in MW;
+SCED capacity does not account for individual resource ramp-rate or duration limits.
 
 Detailed field mappings, historical layout changes and source limitations are
 recorded in [data coverage](docs/data-coverage.md).
