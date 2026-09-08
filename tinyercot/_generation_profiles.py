@@ -11,7 +11,7 @@ from io import BytesIO, TextIOWrapper
 from itertools import islice
 from zipfile import ZipFile
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 from ._generation_keys import GenerationProfileKey, read_keys
 from ._legacy_load import _number
@@ -33,6 +33,12 @@ class GenerationProfileSite(BaseModel):
     newForLabel: str | None = None
     plantStatus: str | None = None
     tracking: str | None = None
+    awsName: str | None = None
+    annualEnergyMWh: dict[int, Decimal | None] = Field(default_factory=dict)
+    annualCapacityFactor: dict[int, Decimal | None] = Field(default_factory=dict)
+    sourceSum: Decimal | None = None
+    sourceCount: int | None = None
+    sourceCapacityFactor: Decimal | None = None
     sourceMember: str
     sourceSheet: str
     sourceBlock: int = 1
@@ -53,6 +59,7 @@ class GenerationProfileHour(BaseModel):
     sourceTime: str
     sourceTimeColumn: str
     sourceYear: int | None = None
+    calendarDate: date | None = None
     generationMW: dict[str, Decimal | None]
     sourceMember: str
     sourceSheet: str
@@ -82,6 +89,64 @@ class _Block:
     stop: int
     clock: str
     sites: list[GenerationProfileSite]
+    dateColumn: int | None = None
+    calendarColumns: tuple[int, int, int] | None = None
+    rowWidth: int | None = None
+
+
+def _legacy_header(
+    metadata: list[tuple[object, ...]], row: tuple[object, ...], member: str, sheet: str
+) -> _Block:
+    hypothetical = row[1] == "DATE-CST"
+    label_column, start, date_column = (5, 6, 1) if hypothetical else (0, 2, 0)
+    labels = {
+        str(cells[label_column]): cells
+        for cells in metadata
+        if len(cells) > label_column and cells[label_column] is not None
+    }
+    ids = labels["SITE_ID" if hypothetical else "Site ID"]
+    stop = max(i for i in range(start, len(ids)) if ids[i] is not None) + 1
+    sites = []
+    for i in range(start, stop):
+        site = GenerationProfileSite(
+            column=str(ids[i]),
+            siteId=str(ids[i]),
+            sourceMember=member,
+            sourceSheet=sheet,
+        )
+        for label, cells in labels.items():
+            value = cells[i] if i < len(cells) else None
+            if label in ("MW", "MW per ERCOT"):
+                site.capacityMW = _number(value)
+            elif label == "Generator":
+                site.commonName = str(value) if value is not None else None
+            elif label == "Site Name per AWS":
+                site.awsName = str(value) if value is not None else None
+            elif label == "COUNTY":
+                site.county = str(value) if value is not None else None
+            elif label == "Sum":
+                site.sourceSum = _number(value)
+            elif label == "Count":
+                site.sourceCount = int(str(value)) if value is not None else None
+            elif label == "CF":
+                site.sourceCapacityFactor = _number(value)
+            elif label[:4].isdigit() and label.endswith(" MWh"):
+                site.annualEnergyMWh[int(label[:4])] = _number(value)
+            elif label[:4].isdigit() and label.endswith(" CF"):
+                site.annualCapacityFactor[int(label[:4])] = _number(value)
+        sites.append(site)
+    if len({site.column for site in sites}) != len(sites):
+        raise ValueError(f"{member}: duplicate legacy site IDs")
+    calendar = (3, 4, 5) if hypothetical else (stop, stop + 1, stop + 2)
+    return _Block(
+        start,
+        stop,
+        str(row[date_column + 1]),
+        sites,
+        date_column,
+        calendar,
+        max(len(row), stop, calendar[-1] + 1),
+    )
 
 
 def _headers(
@@ -89,6 +154,15 @@ def _headers(
 ) -> list[_Block]:
     metadata: list[tuple[object, ...]] = []
     for row in islice(rows, 32):
+        if row[:2] == ("YYYYMMDD", "YYMMHH(CST)") or row[:6] == (
+            "year",
+            "DATE-CST",
+            "TIME-CST",
+            "Year",
+            "Month",
+            "Day",
+        ):
+            return [_legacy_header(metadata, row, member, sheet)]
         starts = [
             i + 2
             for i, label in enumerate(row[:-1])
@@ -141,6 +215,8 @@ def _headers(
                 blocks.append(_Block(start, stop, str(row[start - 1]), sites))
             return blocks
         metadata.append(row)
+    if not any(value not in (None, "") for row in metadata for value in row):
+        return []
     raise ValueError(f"{member} {sheet}: no supported date/time profile table")
 
 
@@ -191,25 +267,43 @@ class GenerationProfiles(_PublicTable[GenerationProfileHour]):
         found = False
         for member, sheet, rows in _tables(data, filename):
             blocks = _headers(rows, member, sheet)
+            if not blocks:
+                continue
             found = True
             for row in rows:
                 if not row or all(value in (None, "") for value in row):
                     continue
-                if len(row) > blocks[-1].stop:
+                if len(row) > (blocks[-1].rowWidth or blocks[-1].stop):
                     raise ValueError(f"{member}: profile row width differs from header")
                 for number, block in enumerate(blocks, 1):
                     start, stop = block.start, block.stop
-                    if all(value in (None, "") for value in row[start - 2 : stop]):
+                    date_column = (
+                        block.dateColumn if block.dateColumn is not None else start - 2
+                    )
+                    if all(
+                        value in (None, "")
+                        for value in (
+                            *row[date_column : date_column + 2],
+                            *row[start:stop],
+                        )
+                    ):
                         continue
                     if len(row) < stop:
                         raise ValueError(f"{member}: profile block has missing columns")
-                    clock = str(row[start - 1])
+                    clock = str(row[date_column + 1])
+                    calendar = None
+                    if block.calendarColumns is not None:
+                        year, month, day = (
+                            int(str(row[i])) for i in block.calendarColumns
+                        )
+                        calendar = date(year, month, day)
                     yield GenerationProfileHour(
-                        profileDate=date.fromisoformat(str(row[start - 2])),
+                        profileDate=date.fromisoformat(str(row[date_column])),
                         timeHHMM=int(clock),
                         sourceTime=clock,
                         sourceTimeColumn=block.clock,
-                        sourceYear=int(str(row[0])) if start == 3 else None,
+                        sourceYear=int(str(row[0])) if date_column == 1 else None,
+                        calendarDate=calendar,
                         generationMW={
                             site.column: _number(value)
                             for site, value in zip(

@@ -1263,7 +1263,22 @@ in `tools/inputs/generation-profiles/formats/evidence.json` and
 a complete original compound-table CSV member and the unchanged dual-axis
 workbook. Fixtures are excluded from the installed wheel.
 
-Remaining profile formats include the two older wind-shape workbook layouts and
-the earliest solar shapes, whose columns include weather years and `TMY3`.
+The two older wind-shape workbook layouts are also supported. Complete original
+workbook comparisons cover **131,496 records / 12,229,128 values / 93 sites**
+for existing sites and **131,472 records / 17,485,776 values / 133 sites** for
+hypothetical sites. Existing-site records run from December 31, 1996 at 19:00
+through January 1, 2012 at 18:00; hypothetical records run from January 1, 1997
+at 00:00 through December 31, 2011 at 23:00. Source boundaries are preserved.
+
+Numeric site IDs, separate calendar columns, AWS names, annual energy and
+capacity factors, and raw hypothetical summaries remain typed. The generic
+`Sum` field is preserved without inferring its unit. Empty sheets and formatting
+rows are ignored. [Comparison receipts](../tools/inputs/generation-profiles/legacy-workbooks/evidence.json)
+record original URLs, hashes, reader versions and scope. Regression tests use
+clearly labelled source-cell excerpts; the two original workbooks, each over
+100 MB, are kept out of the repository and installed package.
+
+Remaining profile formats include the earliest solar shapes, whose columns
+include weather years and `TMY3`.
 Those solar shapes require separate treatment of units and non-calendar-year
 values. Fifteen of the nineteen newer profile workbooks remain unverified.

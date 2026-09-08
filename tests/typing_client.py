@@ -763,3 +763,12 @@ with Client() as client:
     generation_site = next(client.generation_profiles.sites(b""))
     assert_type(generation_site.sourceBlock, int)
     assert_type(generation_site.tracking, str | None)
+
+with Client() as client:
+    legacy_profile_hour = next(client.generation_profiles.read(b""))
+    assert_type(legacy_profile_hour.calendarDate, date | None)
+    legacy_profile_site = next(client.generation_profiles.sites(b""))
+    assert_type(legacy_profile_site.annualEnergyMWh, dict[int, Decimal | None])
+    assert_type(legacy_profile_site.annualCapacityFactor, dict[int, Decimal | None])
+    assert_type(legacy_profile_site.sourceCount, int | None)
+    assert_type(legacy_profile_site.sourceSum, Decimal | None)

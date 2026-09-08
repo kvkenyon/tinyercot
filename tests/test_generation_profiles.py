@@ -244,3 +244,60 @@ def test_hypothetical_solar_tracking_metadata():
     assert sites[0].siteId == sites[0].column == "SITE_00004"
     assert sites[0].county == "Presidio"
     assert sites[0].sourceBlock == row.sourceBlock == 1
+
+
+@pytest.mark.parametrize("index", [0, 1])
+def test_legacy_workbook_source_row_excerpts(index, monkeypatch):
+    from tinyercot import _generation_profiles
+
+    source = json.loads((FIXTURES / "legacy-workbooks/rows.json").read_text())[index]
+    hypothetical = source["member"].startswith("Hypotherical")
+    start, stop, date_column = (6, 139, 1) if hypothetical else (2, 95, 0)
+    calendar_columns = (3, 4, 5) if hypothetical else (95, 96, 97)
+    metadata = [tuple(row) for row in source["metadata"]]
+    # The XLSX header has only six stored cells despite a 139-column data table.
+    if hypothetical:
+        metadata[-1] = metadata[-1][:6]
+    data_rows = [tuple(row) for _, row in source["sampleRows"]]
+    ids = metadata[2 if hypothetical else 6]
+
+    def tables(data, filename):
+        yield filename, "Sheet1", iter([*metadata, *data_rows, (None,)])
+        for sheet in source["emptySheets"]:
+            yield filename, sheet, iter([(None,)])
+
+    # Feed exact source cell values through the table-reading boundary. Complete
+    # original XLSX parsing and all rows are checked by the recorded source audit.
+    monkeypatch.setattr(_generation_profiles, "_tables", tables)
+    with Client() as client:
+        sites = list(client.generation_profiles.sites(b"", filename=source["member"]))
+        rows = list(client.generation_profiles.read(b"", filename=source["member"]))
+    assert len(sites) == stop - start
+    assert len(rows) == len(data_rows)
+    for parsed, raw in zip(rows, data_rows, strict=True):
+        assert parsed.profileDate == date.fromisoformat(str(raw[date_column]))
+        assert parsed.sourceTime == str(raw[date_column + 1])
+        assert parsed.calendarDate == date(*(raw[i] for i in calendar_columns))
+        assert parsed.sourceYear == (int(raw[0]) if hypothetical else None)
+        assert parsed.generationMW == {
+            str(ids[i]): Decimal(str(raw[i])) if raw[i] is not None else None
+            for i in range(start, stop)
+        }
+        assert parsed.sourceMember == source["member"]
+    for i, site in enumerate(sites, start):
+        assert site.siteId == site.column == str(ids[i])
+        assert site.capacityMW == Decimal(str(metadata[4 if hypothetical else 2][i]))
+        if hypothetical:
+            assert site.county == metadata[0][i]
+            assert site.sourceSum == Decimal(str(metadata[5][i]))
+            assert site.sourceCount == metadata[6][i]
+            assert site.sourceCapacityFactor == Decimal(str(metadata[7][i]))
+        else:
+            assert site.commonName == metadata[0][i]
+            assert site.awsName == metadata[1][i]
+            assert site.annualEnergyMWh == {
+                2006: Decimal(str(metadata[3][i])),
+                2011: Decimal(str(metadata[4][i])),
+            }
+            assert site.annualCapacityFactor == {2011: Decimal(str(metadata[5][i]))}
+        assert GenerationProfileSite.model_validate_json(site.model_dump_json()) == site

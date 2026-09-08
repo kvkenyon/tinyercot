@@ -1125,3 +1125,17 @@ for example, a 2011 onshore table can share a file with 2013 offshore data.
 Entirely empty trailing blocks produce no records. Records are emitted in source
 row/block order, which need not be chronological across blocks. The original
 `YYYYMMDD`/`HHMM(CST)` headers are supported alongside newer `DATE`/`TIME` layouts.
+
+The older existing/hypothetical wind workbooks are also accepted by `read()` and
+`sites()`. Their blank column headings use the numeric IDs from the source's
+`Site ID`/`SITE_ID` row as string keys, without inventing padded IDs or unit codes.
+`calendarDate` preserves the separate Year/Month/Day cells, while `profileDate`
+and `sourceTime` retain the primary date/clock pair. The original `YYMMHH(CST)`
+and `TIME-CST` clock labels remain available in `sourceTimeColumn`.
+
+Site metadata includes the original AWS name, annual MWh and capacity-factor
+mappings where published, and the hypothetical workbook's `sourceSum`,
+`sourceCount` and `sourceCapacityFactor`. These summaries are read as supplied;
+they are not recalculated from the hourly rows. `sourceSum` preserves the field
+labelled `Sum` without assigning it an inferred unit. Empty worksheets and blank
+formatting rows do not create observations.
