@@ -1,6 +1,7 @@
 # tinyercot
 
-A small, fully typed client for ERCOT public data.
+A small, fully typed ERCOT market-data client for retailers, battery operators,
+and energy traders.
 
 **Development status:** all 242 Public Reports endpoints have typed methods and captured-response tests. The separate ESR API is awaiting an enabled subscription key. MIS is not included.
 
@@ -11,13 +12,11 @@ expected named parameters and types. The live catalog lists the same 242 report
 paths. See `tools/inputs/live-inventory-evidence.json` for the check date and
 scope; endpoint coverage does not establish every historical file layout.
 
-Public website files extend beyond that API inventory. `client.wind_integration`
-provides typed daily summaries from ERCOT's directly linked wind ZIPs for
-2010–2015 and January 2016, without credentials or MIS access. All 2,000 PDFs in
-those seven ZIPs decoded successfully. This reader is separate from the 289
-generated API-history readers. Other website archives and unlabelled chart values
-remain outside this coverage. See `tools/inputs/public-website-archives-evidence.json`
-for source URLs, missing dates, date conflicts and verification scope.
+The SDK focuses on operational and market time series: prices and settlements,
+ancillary services, load and generation, forecasts, outages, constraints, offers,
+and awards. Typed archive and monthly-bundle readers support historical analysis.
+Direct public load and fuel-mix files extend the available time series. Planning
+studies and document-specific summary extraction are outside the release scope.
 
 ```python
 from datetime import date
@@ -208,24 +207,6 @@ See
 `tools/inputs/public-legacy-hourly-load-evidence.json` for the source checks and
 EEI format reference.
 
-The companion annual/monthly outlook and summary tables have a separate typed
-reader, using the same `tinyercot[files]` extra:
-
-```python
-with Client(timeout=120) as ercot:
-    for value in ercot.hourly_load.outlook(year_from=1999, year_to=1999):
-        print(value.entity, value.periodLabel, value.status, value.value, value.unit)
-```
-
-`outlook()` discovers the five linked source archives/workbooks and filters their
-contents by inclusive target start year. Without bounds it yields all 2,087 values,
-with target years 1996–2010. `read_outlook(data, filename=...)` reads saved files.
-Actual, reporting-year, next-year and projected values retain their source labels;
-these labels do not establish publication dates. Winter spans such as `1999/00`
-retain both years. Printed MW, MWh and GWh units are preserved without rescaling;
-unlabelled units and measures remain explicit. See
-`tools/inputs/public-load-outlook-evidence.json` for source comparisons.
-
 ### Historical generation by fuel
 
 `fuel_mix` reads the public annual settlement workbooks, independently of the
@@ -290,194 +271,6 @@ the preceding operating day. August 9, 2001 is missing from the published data.
 No intervals are synthesized. These schedules are distinct from actual generation
 in the fuel-mix reports. All source timestamps, zone IDs and MW quantities were
 compared directly; see `tools/inputs/public-zonal-generation-evidence.json`.
-
-### Public load forecast summaries
-
-`load_forecast` reads summary and winter reliability workbooks on ERCOT's
-[load forecast page](https://www.ercot.com/gridinfo/load/forecast/index.html).
-Install `tinyercot[files]`; these downloads need no credentials.
-
-```python
-with Client() as ercot:
-    forecasts = ercot.load_forecast
-    archive = forecasts.archives(kind="weather-year-peaks")[0]
-    for peak in forecasts.peaks(archive):
-        if peak.year == 2030 and peak.scenario == "ERCOT Adjusted":
-            print(peak.weatherYear, peak.percentile, peak.peakDemandMW)
-
-    weekly = forecasts.archives(kind="weekly-p90")[0]
-    for peak in forecasts.weekly(weekly):
-        if peak.region == "ERCOT":
-            print(peak.beginDate, peak.endDate, peak.peakDate, peak.peakDemandMW)
-
-    monthly = forecasts.archives(kind="monthly")[0]
-    saved = forecasts.download(monthly)
-    rows = forecasts.read_monthly(saved)
-```
-
-`peaks()` also accepts `kind="seasonal-peaks"` archives. Its typed records retain
-winter year spans, weather years, published percentiles, region names, and
-coincident/non-coincident distinctions. `weekly()` preserves the literal peak
-hour without assigning a UTC offset or interval-ending convention. The published
-2025 weekly file actually contains 104 weeks through May 1, 2027.
-`read_peaks()` and `read_weekly()` support saved original files.
-
-`monthly()` returns both ERCOT Adjusted and TSP Provided scenarios through 2044.
-The original TSP table has date labels one row below the values: its initial
-quantities sit beside the literal `year`/`month` headings, and its final December
-2044 row has empty quantities. The reader preserves this layout; `year`/`month`
-are `None` on the unlabelled row, and `sourceYear`/`sourceMonth` keep the original
-text. `energyLabel` retains the workbook's `Annual Energy` heading; the workbook
-does not specify energy units. No energy conversion or date repair is applied.
-
-All records retain worksheet and cell positions. Blank quantities remain `None`,
-and published ERCOT totals are preserved independently of regional sums. The four
-original workbooks are offline test fixtures; all 2,638 quantity cells were
-compared with the sources. See `tools/inputs/public-load-forecast-evidence.json`.
-The hourly XLSB/weather-year files and monthly model-error reports are not yet
-decoded by this helper.
-
-The winter reliability workbook is available as a single typed result:
-
-```python
-with Client() as ercot:
-    forecasts = ercot.load_forecast
-    archive = forecasts.archives(kind="winter-reliability")[0]
-    winter = forecasts.reliability(archive)
-    for hour in winter.hours:
-        if hour.operatingDay == date(2026, 1, 31):
-            print(hour.hour, hour.baseLoadMW, hour.loadWithLargeLoadsMW)
-            for operator in hour.operators:
-                print(operator.name, operator.loadMW)
-    print(winter.percentile, winter.peaks[0].largeLoadAdditionsMW)
-    saved = forecasts.download(archive)
-    same_study = forecasts.read_reliability(saved)
-```
-
-This is the published 75th-percentile planning forecast for December 2025 through
-February 2026: 2,160 hourly rows, 21 Transmission Operator shares per hour, and a
-separate peak breakdown. Operator shares exclude large-load additions. System
-base load, system load with additions, and the peak's explicit additions remain
-separate fields. Hour values retain the source's 1–24 labels without inferring
-UTC or an interval convention. Original year/month/day columns are kept alongside
-`operatingDay`; missing cells remain `None`. `notes` retains all explanation and
-peak-footnote text with source positions, including the adjustments to large loads.
-All 49,704 MW quantities and date/operator labels were compared with the original
-workbook; `public-reliability-forecast-evidence.json` records the source and scope.
-
-### Historical wind and solar planning profiles
-
-`generation_profiles` discovers 42 direct CSV/XLSX files from the 2021 and 2022
-studies on ERCOT's [2022 resource index](https://www.ercot.com/gridinfo/resource/2022).
-The 2021 study spans weather years 1980–2020; the 2022 study extends through 2021.
-These are modeled outputs for a study's fleet, including hypothetical sites and
-distributed rooftop solar. They are distinct from measured historical generation.
-
-```python
-with Client(timeout=180) as ercot:
-    profiles = ercot.generation_profiles
-    for archive in profiles.archives(study_year=2021, scenario="metro-distributed"):
-        for hour in profiles.rows(
-            archive,
-            date_from=date(1980, 1, 1),
-            date_to=date(1980, 1, 2),
-            series=["SITE_01022"],
-        ):
-            print(hour.timestamp, hour.outputs[0].generationMW)
-
-    # Work offline with an original CSV or workbook:
-    data = profiles.download(archive)
-    columns = profiles.read_series(data)
-    hours = profiles.read(data, filename=archive.url.rsplit("/", 1)[-1])
-```
-
-CSV needs no optional dependencies; XLSX uses `tinyercot[files]`. Each output has
-a typed series with its original header and column position. Embedded capacities,
-site IDs, names, counties, zones, tracking and development status remain available
-when supplied. Separate key workbooks are not joined implicitly. Date bounds are
-inclusive and `series` selects exact labels. The original file is downloaded in
-full; some decade files exceed 150 MB.
-
-Choose a study and scenario explicitly to avoid combining revisions of different
-fleets. The original source DATE/TIME is a local timestamp without an inferred UTC
-offset or interval-ending convention. The 2021 CSV files are labelled CST; the 2022
-workbooks are CST-CDT and retain repeated fall-back hours without inventing a DST
-flag. Source row numbers distinguish repeats; missing cells stay `None`. File year
-labels are not strict row bounds: the 2020–2021 wind workbook also contains midnight
-on January 1, 2022. The 2022 index has no linked 2000–2009 wind workbook, while the
-2021 study provides that period. The 1980–1989 wind workbook starts at 01:00 on
-January 1. Later Public Portal studies are not yet included in this direct-file
-helper. Full comparisons cover all 23 CSVs and four 2020–2021 workbooks; all 19
-workbooks have metadata and sample-value checks. Details and source hashes are
-in `tools/inputs/public-profile-evidence.json`.
-
-The four companion keys are also typed. `key(archive)` selects the matching study
-and fuel; `keys(study_year=..., fuel=...)` lists keys for direct download or reuse.
-
-```python
-with Client() as ercot:
-    profiles = ercot.generation_profiles
-    archive = profiles.archives(study_year=2021, scenario="metro-distributed")[0]
-    key = profiles.key(archive)
-    for site in key.sites:
-        if site.kind == "solar-metro":
-            print(
-                site.siteId, site.metroArea, site.developmentIntensity, site.capacityMW
-            )
-
-    saved_key = profiles.download(profiles.keys(study_year=2022, fuel="wind")[0])
-    wind_key = profiles.read_key(saved_key)
-    for unit in wind_key.units:
-        print(unit.siteId, unit.unitCode)
-```
-
-Keys include site geography, solar equipment/tracking settings, county-level
-distributed solar sites, wind unit mappings, printed summaries and modeling notes.
-`tilt` retains literal `Lat`/`NA` settings; flags retain the year in their source
-header. `markedAsQueued` follows the wind key's shading legend (`None` when no
-legend is supplied). Solar table sections remain numbered without inferring a
-development status. Source labels, many-to-one mappings and published totals are
-preserved. Key capacities remain separate from hourly-file capacities: the first
-2022 wind site is 99.825 MW in its key and 99.83 MW in the hourly workbook.
-All four original keys are regression fixtures; source comparisons cover every
-data cell and note. See `tools/inputs/public-profile-key-evidence.json`.
-
-### Direct public wind archives
-
-Install `tinyercot[pdf]`. These public website files need no API credentials.
-
-```python
-from datetime import date
-from tinyercot import Client
-
-with Client(timeout=120) as ercot:
-    for wind in ercot.wind_integration.rows(
-        date_from=date(2010, 8, 9), date_to=date(2010, 8, 10)
-    ):
-        print(wind.reportDate, wind.peakLoadMW, wind.maxWindMW)
-
-    archives = ercot.wind_integration.archives()
-    data = ercot.wind_integration.download(archives[0])
-    saved_rows = list(ercot.wind_integration.read(data))
-```
-
-`archives()` discovers actual links on ERCOT's wind integration index. `rows()`
-downloads overlapping annual or monthly ZIPs and applies inclusive **report-date**
-bounds. `read()` also accepts a saved PDF. It exposes the printed summary tables,
-including peak load, wind output and generation/penetration records as `Decimal`,
-`date`, `time` and `datetime` values. Older missing fields remain `None`. Original
-labels distinguish a previous record from a newly established one and preserve
-“Wind Integration %” separately from newer penetration metrics. Source clocks
-remain local and timezone-naive; older date-only records do not gain a time.
-
-The inspected files span August 9, 2010 through January 31, 2016, with gaps and
-revisions. ERCOT explicitly lists five missing 2014 reports. Two 2011 files have
-headings that disagree with their filenames; report-date filters follow those
-headings and `sourceMember` retains each filename. One malformed heading prints
-`05/14/12013`; its chart and filename identify May 14, 2013, which is used for
-`reportDate` while `reportDateText` preserves the typo. Reports are not deduplicated.
-No hourly values are estimated from chart positions. This is coverage of these
-seven linked ZIPs, not a promise of uninterrupted history or all website data.
 
 ## Development
 

@@ -18,9 +18,6 @@ from pydantic import BaseModel, ConfigDict, Field
 from ._dashboards import Dashboards
 from ._fuel_mix import FuelMix
 from ._load import HourlyLoad
-from ._load_forecast import LoadForecast
-from ._profiles import GenerationProfiles
-from ._wind import WindIntegration
 from ._zonal_generation import ZonalGeneration
 
 T = TypeVar("T", bound=BaseModel)
@@ -333,14 +330,6 @@ class Transport:
             page += 1
 
     @property
-    def load_forecast(self) -> LoadForecast:
-        return LoadForecast(self._http)
-
-    @property
-    def generation_profiles(self) -> GenerationProfiles:
-        return GenerationProfiles(self._http)
-
-    @property
     def zonal_generation(self) -> ZonalGeneration:
         return ZonalGeneration(self._http)
 
@@ -351,10 +340,6 @@ class Transport:
     @property
     def hourly_load(self) -> HourlyLoad:
         return HourlyLoad(self._http)
-
-    @property
-    def wind_integration(self) -> WindIntegration:
-        return WindIntegration(self._http)
 
     @property
     def dashboards(self) -> Dashboards:

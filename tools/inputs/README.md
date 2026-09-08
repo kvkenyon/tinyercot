@@ -21,22 +21,5 @@ Captured responses and generated Python are marked in `.gitattributes` so GitHub
 collapses their diffs by default. Hand-maintained mappings, overrides and evidence
 remain visible. Preserve original source bytes for binary fixtures; add examples
 when a new layout or behavior needs a regression test, rather than refreshing
-snapshots on every live check. For large repetitive profile files,
-`history/generation-profiles.zip` retains original CSV rows and workbook XML cells
-for first/last dates, leap day and daylight-saving transitions in representative
-files, plus initial rows from each additional workbook. These are explicitly
-derived samples, not full original downloads; XLSX metadata and retained cells are
-unchanged. `public-profile-fixtures.json` records source and sample hashes and row
-counts. Full-source comparisons are recorded separately in the profile evidence.
-Do not store credentials or private responses here.
-
-`history/load-forecast-summaries.zip` contains the four unchanged public forecast
-summary workbooks. Tests exercise their full tables, forecast/weather-year and
-region distinctions, and the original misaligned TSP date labels. The associated
-index HTML drives offline discovery; source hashes and full-cell comparison counts
-are recorded in `public-load-forecast-evidence.json`.
-
-`history/reliability-load-forecast.zip` contains the unchanged winter 2025–2026
-reliability forecast workbook. Tests read all hours, operator shares, peak values,
-and explanatory notes. The full source-cell comparison is recorded in
-`public-reliability-forecast-evidence.json`.
+snapshots on every live check. Keep fixtures for supported market and operational
+readers alongside their tests. Do not store credentials or private responses here.
