@@ -1195,6 +1195,50 @@ those link-derived fields unset. Filtering does not reduce downloads. The
 optional Calamine reader loads one worksheet at a time, so large workbooks still
 require memory even though decoded models are yielded one at a time.
 
+## Hourly weather-year load scenarios
+
+`hourly_load_scenarios` reads the separate regional scenario workbooks with
+`tinyercot[files]`. Select a region's file to avoid downloading the entire set:
+
+```python
+from tinyercot import Client
+
+with Client() as ercot:
+    scenarios = ercot.hourly_load_scenarios
+    file = next(f for f in scenarios.files() if f.title == "Coast")
+    for row in scenarios.read(
+        scenarios.download(file), filename=file.url.rsplit("/", 1)[-1]
+    ):
+        if row.forecastDate.year == 2030:
+            print(row.forecastDate, row.hour, row.weatherYearPredictions[2011])
+```
+
+Each `HourlyLoadScenario` contains all published `Pred_YYYY` values as
+`weatherYearPredictions: dict[int, Decimal | None]`, plus separate
+`electricVehicles`, `rooftopPV`, `largeFlexibleLoad`, `contractedLoad` and
+`officerLetterLoad` fields. The reader preserves the predictions as published;
+it does not recombine components or relabel them as net demand. Absent components
+remain `None`, distinct from zero. `sourceLabels` retains their original headers.
+Spreadsheet errors and other nonnumeric text have `None` numeric values but keep
+their original text in `sourceMarkers`, keyed by source column. For example, South's published
+`Pred_2017` value at 2028-03-12 hour 3 is `#REF!`, not an empty observation.
+The captured workbooks do not explicitly label units, so `unit` remains `None`.
+
+`weatherZone` is one of the eight typed weather-zone codes, with the source label
+retained separately. South Central uses its worksheet name because it has no
+`wzone` column; `sourceWeatherZoneColumn` records that absence. Calendar fields
+follow their header names, including North's different column order. The
+separate source Date value remains in `sourceDate`, or `None` in South and West.
+Hours, duplicates and missing hours stay as published, without inferred timezone
+or DST flags. Region files have different row counts; align by the actual source
+calendar fields and retain repeated hours when comparing them.
+
+`scenarios.rows(where=lambda r: r.weatherZone == "COAST")` attaches `sourceFile`
+and filters typed rows after downloading all discovered files. Files are large;
+download bytes are held in memory, while worksheet rows and models are streamed.
+The weather-year labels are scenario inputs, while `forecastDate` is the target
+date. These forecasts are not realized loads from the historical weather years.
+
 ## Monthly peak-demand and energy forecasts
 
 `monthly_load_forecasts` reads the public monthly forecast workbooks across

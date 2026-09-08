@@ -25,6 +25,7 @@ from ._hourly_forecasts import HourlyLoadForecasts
 from ._load import HourlyLoad
 from ._load_forecasts import MonthlyLoadForecasts
 from ._load_profiles import LoadProfiles
+from ._load_scenarios import HourlyLoadScenarios
 from ._loss_coefficients import TransmissionLossCoefficients
 from ._loss_factors import LossFactors
 from ._mora import ResourceOutlook
@@ -365,6 +366,10 @@ class Transport:
     @property
     def weekly_peak_forecasts(self) -> WeeklyPeakForecasts:
         return WeeklyPeakForecasts(self._http)
+
+    @property
+    def hourly_load_scenarios(self) -> HourlyLoadScenarios:
+        return HourlyLoadScenarios(self._http)
 
     @property
     def hourly_load_forecasts(self) -> HourlyLoadForecasts:

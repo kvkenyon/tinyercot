@@ -37,6 +37,7 @@ from ._load_profiles import LoadProfileAdjustment as LoadProfileAdjustment
 from ._load_profiles import LoadProfileCount as LoadProfileCount
 from ._load_profiles import LoadProfileDay as LoadProfileDay
 from ._load_profiles import LoadProfileInterval as LoadProfileInterval
+from ._load_scenarios import HourlyLoadScenario as HourlyLoadScenario
 from ._loss_coefficients import (
     TransmissionLossCoefficient as TransmissionLossCoefficient,
 )

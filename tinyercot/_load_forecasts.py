@@ -27,7 +27,7 @@ T = TypeVar("T", bound=_ForecastRow)
 
 class _ForecastTable(_PublicTable[T]):
     index_url = "https://www.ercot.com/gridinfo/load/forecast"
-    extensions = (".xls", ".xlsx")
+    extensions: tuple[str, ...] = (".xls", ".xlsx")
 
     def files(self) -> list[PublicFile]:
         return [

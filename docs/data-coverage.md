@@ -1295,8 +1295,8 @@ before fixture compression) and captured index pages are retained under
 `tools/inputs/peak-forecasts/` for offline tests and excluded from the wheel.
 Source URLs distinguish identically named files in different publication paths.
 Monthly, seasonal and weekly peak workbooks use separate readers below.
-The main hourly long-term forecast workbooks are covered below; weather-year
-hourly scenarios and performance workbooks remain known coverage gaps.
+The main hourly long-term forecast workbooks and regional weather-year scenarios
+are covered below; performance workbooks remain a known coverage gap.
 
 
 ## Public monthly peak-demand and energy forecasts
@@ -1392,5 +1392,50 @@ independently extracted expected values, and the existing public index snapshots
 distinguish full-source verification from the smaller offline fixtures. Fixtures
 are excluded from the installed wheel.
 
-The eight separate weather-year regional scenario files, winter reliability-
-standard forecast and forecast-performance families remain additional gaps.
+The eight separate weather-year regional scenario files are covered below. The
+winter reliability-standard forecast and forecast-performance families remain
+additional gaps.
+
+## Regional hourly weather-year scenarios
+
+`Client.hourly_load_scenarios` discovers all eight files in the public
+[2025 weather-year forecast index](https://www.ercot.com/gridinfo/load/forecast/2025).
+The September 8, 2026 complete-source check covers **771,233 regional
+hourly rows**, **34,704,958 numeric weather-year predictions**
+and **3,566,972 numeric adjustment values**. Every source hour
+has 45 labelled predictions for historical weather years 1980–2024. Forecast
+dates span 2025-01-01 through 2035-12-31; these are scenario target dates, not
+observed loads from the historical weather years.
+
+| Region | Source hourly rows | Repeated hour labels |
+| --- | ---: | ---: |
+| Coast | 96,408 | 11 |
+| East | 96,397 | 0 |
+| Far West | 96,408 | 11 |
+| North Central | 96,408 | 11 |
+| North | 96,408 | 11 |
+| South Central | 96,408 | 11 |
+| South | 96,398 | 11 |
+| West | 96,398 | 11 |
+
+Calendar fields follow named columns, including North's Day/Hour/year/month/date
+order. South and West have no separate Date column. South Central has no wzone
+column, so its worksheet supplies the source zone; it also puts PV before EV.
+West also contains 515 blank prediction cells, returned as None without a marker.
+East, South and West publish no flexible-load adjustment column. Missing
+components remain None, and the source EV/PV/flexible/contract/officer-letter
+adjustments are preserved separately from each prediction.
+
+South contains seven `#REF!` errors and five literal dot markers in `Pred_2017`.
+For example, source row 27984 contains `#REF!`
+(2028-03-12 hour 3). The typed numeric value is None, with that error label
+in `sourceMarkers`; a blank value has no error marker. This real source cell
+and all eleven other marker rows are retained in a regression fixture. The reader uses the shared streaming
+XLSX reader, which preserves spreadsheet errors. Units are unlabelled in these
+workbooks, and no timezone, DST flag or net-demand interpretation is inferred.
+
+All numeric cells, clock values, errors, zone labels and original row positions
+were compared against original worksheets using separately specified source
+coordinates. The smaller offline fixtures retain original XML row excerpts,
+with expected cells captured separately. [Evidence and manifests](../tools/inputs/load-scenarios/evidence.json)
+distinguish these two verification scopes. Fixtures are excluded from the wheel.

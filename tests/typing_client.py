@@ -23,6 +23,7 @@ from tinyercot import (
     GenerationProfileKeySummary,
     GenerationProfileSite,
     HourlyLoadForecast,
+    HourlyLoadScenario,
     IndicativeOrdcPrice,
     LegacyHourlyLoad,
     LoadArchive,
@@ -827,3 +828,18 @@ def hourly_forecast_typing(client: Client) -> None:
         assert_type(row.net.total, Decimal | None)
     assert_type(row.unit, Literal["MW"] | None)
     assert_type(row.scenario, Literal["tsp_provided", "ercot_adjusted"] | None)
+
+
+def hourly_load_scenario_typing(client: Client) -> None:
+    assert_type(client.hourly_load_scenarios.files(), list[PublicFile])
+    assert_type(client.hourly_load_scenarios.read(b""), Iterator[HourlyLoadScenario])
+    rows = client.hourly_load_scenarios.rows(where=lambda r: r.weatherZone == "COAST")
+    assert_type(rows, Iterator[HourlyLoadScenario])
+    row = next(rows)
+    assert_type(row.forecastDate, date)
+    assert_type(row.weatherZone, WeatherZone)
+    assert_type(row.weatherYearPredictions, dict[int, Decimal | None])
+    assert_type(row.sourceMarkers, dict[str, str])
+    assert_type(row.electricVehicles, Decimal | None)
+    assert_type(row.largeFlexibleLoad, Decimal | None)
+    assert_type(row.sourceFile, PublicFile | None)

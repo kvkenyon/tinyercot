@@ -126,14 +126,18 @@ sections, coincident/non-coincident peaks and forecast percentiles distinct.
 publications, including both 2025 TSP and adjusted scenarios through target year
 2044. The [hourly workflow](usage.md#hourly-long-term-load-forecasts) preserves
 separate gross/net/PV/EV and large-load values, original hours and date discrepancies.
+For regional weather exposure, `hourly_load_scenarios` adds all eight weather zones
+with 45 weather-year predictions per source hour. The
+[scenario workflow](usage.md#hourly-weather-year-load-scenarios) keeps predictions
+and adjustment components separate, with source target dates through 2035.
 
 ## Current limits
 
 All 242 report queries in the verified Public Reports inventory have typed
 methods, and all their report tables have history readers. That does not prove
 that every intermediate historical file format is supported or every public
-website dataset has been decoded. Remaining website coverage includes weather-year hourly load scenarios and
-forecast-performance workbooks. Further historical layout verification is also
+website dataset has been decoded. Remaining website coverage includes forecast-performance workbooks and the
+winter reliability-standard hourly forecast. Further historical layout verification is also
 needed for core market products. Broad legacy document extraction is deferred
 while market-data coverage and usability take priority.
 MIS and the separate ESR API remain excluded. In particular, ERCOT separately

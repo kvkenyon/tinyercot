@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from collections.abc import Callable, Iterator
+from collections.abc import Callable, Iterator, Sequence
 from datetime import date, datetime
 from decimal import Decimal
 from io import BytesIO
@@ -98,6 +98,21 @@ def _column(label: str) -> tuple[str, str]:
     raise ValueError(f"Unknown hourly forecast column: {label!r}")
 
 
+def _forecast_clock(
+    values: Sequence[object], offset: int
+) -> tuple[date, int, date | None]:
+    source_date = values[0] if offset else None
+    if isinstance(source_date, datetime):
+        source_date = source_date.date()
+    elif isinstance(source_date, str):
+        source_date = date.fromisoformat(source_date)
+    if source_date is not None and not isinstance(source_date, date):
+        raise ValueError(f"Unsupported source date: {source_date!r}")
+    day = date(*(int(str(v).removesuffix(".0")) for v in values[offset : offset + 3]))
+    hour = int(str(values[offset + 3]).removesuffix(".0"))
+    return day, hour, source_date
+
+
 class HourlyLoadForecasts(_ForecastTable[HourlyLoadForecast]):
     title_pattern = r"\d{4} ERCOT Hourly Forecast|TSP Provided Hourly Forecast|ERCOT Adjusted Forecast"
     extensions = (".xlsx", ".xlsb")
@@ -180,27 +195,12 @@ class HourlyLoadForecasts(_ForecastTable[HourlyLoadForecast]):
                             columns, values[start:], strict=True
                         ):
                             components.setdefault(component, {})[zone] = _number(value)
-                        source_date = values[0] if offset else None
-                        if isinstance(source_date, datetime):
-                            source_date = source_date.date()
-                        elif isinstance(source_date, str):
-                            source_date = date.fromisoformat(source_date)
-                        if source_date is not None and not isinstance(
-                            source_date, date
-                        ):
-                            raise ValueError(
-                                f"Unsupported source date: {source_date!r}"
-                            )
+                        day, hour, source_date = _forecast_clock(values, offset)
                         found = True
                         yield HourlyLoadForecast.model_validate(
                             dict(
-                                forecastDate=date(
-                                    *(
-                                        int(str(v).removesuffix(".0"))
-                                        for v in values[offset : offset + 3]
-                                    )
-                                ),
-                                hour=int(str(values[offset + 3]).removesuffix(".0")),
+                                forecastDate=day,
+                                hour=hour,
                                 sourceDate=source_date,
                                 unit=unit,
                                 sourceLabels=labels,
