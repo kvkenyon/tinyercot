@@ -18,6 +18,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from ._dashboards import Dashboards
 from ._fuel_mix import FuelMix
 from ._load import HourlyLoad
+from ._load_profiles import LoadProfiles
 from ._zonal_generation import ZonalGeneration
 
 T = TypeVar("T", bound=BaseModel)
@@ -336,6 +337,10 @@ class Transport:
     @property
     def fuel_mix(self) -> FuelMix:
         return FuelMix(self._http)
+
+    @property
+    def load_profiles(self) -> LoadProfiles:
+        return LoadProfiles(self._http)
 
     @property
     def hourly_load(self) -> HourlyLoad:

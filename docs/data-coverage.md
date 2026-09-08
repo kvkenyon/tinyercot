@@ -477,3 +477,49 @@ from older combined-region and current `genLoadZone*` fields. With a separate
 the oldest layout's timestamp. All 213,456 rows across seven affected files were
 decoded; the broader saved-file audit checks headers and short samples only and
 does not establish continuous historical completeness.
+
+## Direct historical retail load profiles
+
+`Client.load_profiles` reads the annual files linked from
+[ERCOT's historical load-profile index](https://www.ercot.com/mktinfo/loadprofile/alp).
+All 30 linked archives (1997–2026) were downloaded and their worksheet headers
+inspected. Six profile header layouts and a separate adjustment-factor layout
+span XLS and XLSX files, including three profile layouts within 2012.
+Compact source-derived test workbooks retain notes, headers, dates,
+and selected data rows; their source and fixture hashes are recorded in
+`tools/inputs/public-load-profiles-evidence.json`.
+
+Each row contains one profile/weather-zone combination and trade date, with all
+numbered 15-minute kWh columns preserved (100 in the annual backcasts, 96 in the
+2008 original-profile companion table). Blank cells remain `None`. The
+2013 source samples contain 92 nonempty cells on the spring transition and 100
+on the autumn transition. No UTC timestamp is inferred. Optional `ADDTIME` is
+retained as `sourceAddTime`, without assuming a timezone or public release time.
+[ERCOT's published file layout](https://www.ercot.com/files/docs/2011/08/29/fileformatsloadprofiles.xls)
+describes backcasts as settlement profiles using observed weather inputs.
+
+The 2007 ZIP includes a separate auxiliary workbook. Its rows keep
+`kind="auxiliary"` and their original filename. Workbook notes distinguish old
+and new profile models around May 14, 2007; auxiliary production ends November
+14. Do not collapse these overlapping rows into the main backcast series.
+
+The 2008 archive also includes original pre-adjustment COAST profiles and
+Hurricane Ike adjustment factors for September 13–28. Original rows have
+`kind="original"`. `adjustments()` and `read_adjustments()` expose the factors
+through their own typed model, with date, interval number and weather zone.
+All 1,536 factors were compared with the complete original source table;
+factors are never silently applied to energy values.
+The direct factor download was verified byte-for-byte equal to the companion
+workbook in the annual ZIP, so `adjustments()` fetches that smaller file directly.
+
+Complete original-file comparisons cover 1997, 2007, 2008, 2012 and 2026:
+255,408 profile-days and 25,540,160 interval cells. Each typed value, date, interval
+number and source identity was independently compared with the original workbook.
+The older checked years have no missing dates within their observed ranges;
+1997 begins January 3, as its source note explains. These checks establish those
+files' contents; the other linked years have header-layout evidence only.
+
+Every field and all 5,232,800 interval cells in the complete 2026 archive were
+independently compared with the source workbook: 52,328 rows, 248 profiles,
+211 dates spanning January 1–August 30. All of May is absent. This is the
+published file's coverage, not a guarantee of continuous historical availability.

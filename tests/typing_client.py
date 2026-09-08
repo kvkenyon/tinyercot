@@ -12,6 +12,8 @@ from tinyercot import (
     FuelMixTotal,
     LegacyHourlyLoad,
     LoadArchive,
+    LoadProfileAdjustment,
+    LoadProfileDay,
     Page,
     Publication,
     ScheduledGeneration,
@@ -397,3 +399,23 @@ with Client() as client:
     assert_type(rtd_display.data[0].actualLMP, Decimal)
     assert_type(rtd_display.data[0].intervals[0].minutesAhead, int)
     assert_type(rtd_display.data[0].intervals[0].LMP, Decimal)
+
+
+with Client() as client:
+    assert_type(client.load_profiles.archives(), list[LoadArchive])
+    assert_type(
+        client.load_profiles.rows(profile="BUSHIDG_COAST"), Iterator[LoadProfileDay]
+    )
+    assert_type(
+        client.load_profiles.read(b"", date_from=date(2026, 1, 1)),
+        Iterator[LoadProfileDay],
+    )
+    profile_day = next(client.load_profiles.rows())
+    assert_type(profile_day.intervals[0].energyKWh, Decimal | None)
+    assert_type(profile_day.sourceAddTime, datetime | None)
+    assert_type(profile_day.profileType, str)
+    assert_type(profile_day.weatherZone, str)
+    assert_type(client.load_profiles.adjustments(), Iterator[LoadProfileAdjustment])
+    assert_type(
+        client.load_profiles.read_adjustments(b""), Iterator[LoadProfileAdjustment]
+    )

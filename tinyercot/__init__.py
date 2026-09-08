@@ -14,6 +14,9 @@ from ._history import Publication as Publication
 from ._legacy_load import LegacyHourlyLoad as LegacyHourlyLoad
 from ._load import LoadArchive as LoadArchive
 from ._load import WeatherZoneLoad as WeatherZoneLoad
+from ._load_profiles import LoadProfileAdjustment as LoadProfileAdjustment
+from ._load_profiles import LoadProfileDay as LoadProfileDay
+from ._load_profiles import LoadProfileInterval as LoadProfileInterval
 from ._pdf import PdfArchive as PdfArchive
 from ._pdf import PdfChartArchive as PdfChartArchive
 from ._xlsx import WorkbookArchive as WorkbookArchive

@@ -15,7 +15,7 @@ scope; endpoint coverage does not establish every historical file layout.
 The SDK focuses on operational and market time series: prices and settlements,
 ancillary services, load and generation, forecasts, outages, constraints, offers,
 and awards. Typed archive and monthly-bundle readers support historical analysis.
-Direct public load and fuel-mix files extend the available time series. Planning
+Direct public load, retail load-profile and fuel-mix files extend the available time series. Planning
 studies and document-specific summary extraction are outside the release scope.
 
 ```python
@@ -249,6 +249,45 @@ NP6-785-ER) and annual DAM ancillary-price product (NP4-181-ER) use MIS download
 routes on their current public pages. They are outside this release's **no MIS**
 scope; earlier annual price history is not provided by the daily API readers.
 The inspected routes are recorded in `tools/inputs/public-market-access-evidence.json`.
+
+### Historical retail load profiles
+
+`load_profiles` discovers ERCOT's annual backcasted load-profile files, currently
+labelled 1997–2026. Install `tinyercot[files]`; API credentials are unnecessary.
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client(timeout=120) as ercot:
+    for day in ercot.load_profiles.rows(
+        date_from=date(2026, 1, 1),
+        date_to=date(2026, 1, 2),
+        profile="BUSHIDG_COAST",
+    ):
+        print(day.operatingDay, day.profileType, day.weatherZone)
+        for interval in day.intervals:
+            print(interval.interval, interval.energyKWh)
+```
+
+Omit `profile` for all profile types and weather zones. `archives()` discovers
+actual links, `download(archive)` returns the original ZIP, and `read(data)`
+decodes saved ZIPs or workbooks with the same date/profile filters. Each daily
+row retains every numbered interval column, including unused blank cells
+(100 columns in annual backcasts; 96 in the original Hurricane Ike profiles).
+These are modeled settlement profiles using observed weather, not individual
+meter readings. No wall-clock timestamp is inferred from the interval number.
+The 2007 auxiliary and 2008 pre-adjustment profiles remain separate through
+`kind="auxiliary"` and `kind="original"`; original member and sheet names are
+retained. `adjustments(date_from=..., date_to=...)` and `read_adjustments(data)`
+return the Hurricane Ike factors separately, without applying them to kWh.
+`sourceAddTime` preserves optional `ADDTIME` values,
+without treating them as proof of public availability for backtesting.
+
+The complete 2026 file contains 248 profiles and 52,328 profile-days through
+August 30; May is absent from the workbook. These source gaps remain visible.
+Format coverage and original-file comparisons are recorded in
+`tools/inputs/public-load-profiles-evidence.json`.
 
 ### Direct public hourly load archives
 

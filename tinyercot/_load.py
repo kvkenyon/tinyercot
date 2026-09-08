@@ -106,8 +106,15 @@ class WeatherZoneLoad(BaseModel):
 
 
 class _Links(HTMLParser):
-    def __init__(self) -> None:
+    def __init__(
+        self,
+        *,
+        index_url: str = INDEX_URL,
+        title_pattern: str = r"(\d{4}) ERCOT Hourly Load Data(?: \(Raw\))?",
+    ) -> None:
         super().__init__()
+        self.index_url = index_url
+        self.title_pattern = title_pattern
         self.href: str | None = None
         self.title = ""
         self.archives: dict[str, LoadArchive] = {}
@@ -125,8 +132,8 @@ class _Links(HTMLParser):
         if tag != "a" or self.href is None:
             return
         title = " ".join(self.title.split())
-        match = re.fullmatch(r"(\d{4}) ERCOT Hourly Load Data(?: \(Raw\))?", title)
-        url = urljoin(INDEX_URL, self.href)
+        match = re.fullmatch(self.title_pattern, title)
+        url = urljoin(self.index_url, self.href)
         parts = urlsplit(url)
         if (
             match
@@ -308,7 +315,9 @@ def _workbook_member(archive: ZipFile, member: ZipInfo, data: bytes) -> bytes:
         return content
 
 
-def _sheets(data: bytes) -> Iterator[tuple[str, Iterator[tuple[object, ...]]]]:
+def _sheets(
+    data: bytes, *, date_columns: tuple[int, ...] = (0,)
+) -> Iterator[tuple[str, Iterator[tuple[object, ...]]]]:
     if data.startswith(b"\xd0\xcf\x11\xe0"):
         try:
             import xlrd
@@ -324,10 +333,12 @@ def _sheets(data: bytes) -> Iterator[tuple[str, Iterator[tuple[object, ...]]]]:
                 ) -> Iterator[tuple[object, ...]]:
                     for i in range(sheet.nrows):
                         values: list[object] = list(sheet.row_values(i))
-                        if i and isinstance(values[0], float):
-                            values[0] = xlrd.xldate_as_datetime(
-                                values[0], book.datemode
-                            )
+                        for column in date_columns:
+                            value = values[column] if len(values) > column else None
+                            if i and isinstance(value, float):
+                                values[column] = xlrd.xldate_as_datetime(
+                                    value, book.datemode
+                                )
                         yield tuple(values)
 
                 yield sheet.name, rows()
