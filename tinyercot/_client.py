@@ -36,6 +36,7 @@ from ._peak_forecasts import PeakDemandForecasts
 from ._public_tables import CrrHours, LoadShed, PolrHistory
 from ._retail import RetailTransactions
 from ._weather import HistoricalWeather
+from ._winter_forecasts import WinterLoadForecasts
 from ._zonal_energy import ZonalEnergy
 from ._zonal_generation import ZonalGeneration
 from ._zonal_peaks import SeasonalPeakForecasts, WeeklyPeakForecasts
@@ -390,6 +391,10 @@ class Transport:
     @property
     def hourly_load_forecasts(self) -> HourlyLoadForecasts:
         return HourlyLoadForecasts(self._http)
+
+    @property
+    def winter_load_forecasts(self) -> WinterLoadForecasts:
+        return WinterLoadForecasts(self._http)
 
     @property
     def monthly_load_forecasts(self) -> MonthlyLoadForecasts:
