@@ -22,10 +22,11 @@ from ._fuel_mix import FuelMix
 from ._idr import IdrComplianceHistory
 from ._load import HourlyLoad
 from ._load_profiles import LoadProfiles
+from ._loss_coefficients import TransmissionLossCoefficients
 from ._loss_factors import LossFactors
 from ._mora import ResourceOutlook
 from ._ordc import IndicativeOrdcHistory
-from ._public_tables import CrrHours, PolrHistory
+from ._public_tables import CrrHours, LoadShed, PolrHistory
 from ._retail import RetailTransactions
 from ._weather import HistoricalWeather
 from ._zonal_generation import ZonalGeneration
@@ -366,6 +367,14 @@ class Transport:
     @property
     def loss_factors(self) -> LossFactors:
         return LossFactors(self._http)
+
+    @property
+    def transmission_loss_coefficients(self) -> TransmissionLossCoefficients:
+        return TransmissionLossCoefficients(self._http)
+
+    @property
+    def load_shed(self) -> LoadShed:
+        return LoadShed(self._http)
 
     @property
     def crr_hours(self) -> CrrHours:

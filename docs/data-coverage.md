@@ -589,6 +589,52 @@ pages and nine complete, unchanged legacy workbooks used in tests. These cover
 header variants, timestamps, repeated intervals, missing identifiers, orphan
 labels and the misaligned 2013 row. Fixtures are excluded from the wheel.
 
+## Annual transmission-loss coefficients and seasonal operator load shares
+
+`Client.transmission_loss_coefficients` follows the same 26 data-aggregation
+indexes as the interval-loss reader. It exposes the final published SSC/SIC
+coefficients and the separate SONL/SOFFL/SONLF/SOFFLF input basis from **all 26
+annual workbooks, 2001–2026**. All **948 area/season records**, **5,682 numeric
+cells** and **six blanks** were compared directly with original XLS/XLSX cells,
+including year/as-of headings, area labels, source rows and effective periods.
+The six blanks are the LPL spring 2021 entry; it remains a record with missing
+values. Both coefficient columns and all four input columns survive.
+
+Areas are matched by published labels because the 2002 COCS coefficient columns
+are shifted relative to their input columns. PUB and BPUB labels remain distinct,
+as do Rayburn and TEXLA. Final and input ERCOT correction labels are retained
+separately. SSC and SIC carry percent/MW and percent units; the on/off-peak input
+loss-factor cells retain their fractional values. In all populated NOIE cases,
+the original SSC × load + SIC matches the input loss factor × 100. The SDK does
+not recalculate or apply coefficients. Internal base-case and “For Testing Only”
+calculation tables remain in the downloadable original workbooks.
+
+The 2001–2010 workbooks have no effective-period tables (**348 records**).
+The source winter ranges in 2020 and 2026 are reversed (**19 records**):
+`12/01/2021 - 02/28/2021` and `12/01/2027 - 02/28/2027`. Their raw text remains in
+`sourceEffectivePeriod`, with both usable date bounds `None`; dates are not
+repaired or inferred. The remaining **581 records** retain explicit bounds,
+including the change from an August summer end in 2011 to September in 2012,
+and leap-year winter ends. Workbook as-of dates and versions remain separate
+from any claim about public availability. Live queries attach the original
+`PublicFile`; saved reads accept it through `source_file`. Overlaps and revisions
+are not deduplicated by year, area or season.
+
+`Client.load_shed` reads both current workbooks linked from the
+[load page](https://www.ercot.com/gridinfo/load). All **42 operator load-share
+values**, headings, operator names, effective dates and notes were compared with
+the originals. Summer starts **April 1, 2026**, winter **September 1, 2026**,
+according to the workbook notes rather than upload dates. These are published
+load percentages, not actual shed MW or probabilities. Delegation footnotes
+remain attached; no end date or renormalized percentages are invented.
+
+Both readers support original saved workbooks/ZIPs and typed predicates with
+`tinyercot[files]`. The source manifest is
+`tools/inputs/public-seasonal-tables-sources.csv`; verification and fixture
+provenance are in `tools/inputs/public-seasonal-tables-evidence.json`. All 28
+complete original workbooks are used in regression tests and excluded from the
+wheel. Coefficient discovery reuses the 26 captured original index pages.
+
 ## CRR time-of-use hours and POLR territory totals
 
 `Client.crr_hours` discovers the calendar linked from

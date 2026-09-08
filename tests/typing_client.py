@@ -21,6 +21,7 @@ from tinyercot import (
     LoadProfileAdjustment,
     LoadProfileCount,
     LoadProfileDay,
+    LoadShedShare,
     LossFactorDay,
     MonthlyCoincidentPeak,
     MoraBalance,
@@ -35,6 +36,7 @@ from tinyercot import (
     PublicFile,
     RetailTransactionMonth,
     ScheduledGeneration,
+    TransmissionLossCoefficient,
     WeatherDay,
     WeatherVariable,
     WeatherZone,
@@ -44,6 +46,34 @@ from tinyercot import (
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    assert_type(client.transmission_loss_coefficients.files(), list[PublicFile])
+    assert_type(
+        client.transmission_loss_coefficients.read(b""),
+        Iterator[TransmissionLossCoefficient],
+    )
+    assert_type(
+        client.transmission_loss_coefficients.rows(
+            where=lambda r: r.year == 2026 and r.area == "ERCOT"
+        ),
+        Iterator[TransmissionLossCoefficient],
+    )
+    coefficient = next(client.transmission_loss_coefficients.rows())
+    assert_type(coefficient.slopePercentPerMW, Decimal | None)
+    assert_type(coefficient.onPeakLossFactor, Decimal | None)
+    assert_type(coefficient.effectiveFrom, date | None)
+    assert_type(coefficient.sourceEffectivePeriod, str | None)
+    assert_type(coefficient.sourceFile, PublicFile | None)
+    assert_type(client.load_shed.files(), list[PublicFile])
+    assert_type(client.load_shed.read(b""), Iterator[LoadShedShare])
+    assert_type(
+        client.load_shed.rows(where=lambda r: r.season == "winter"),
+        Iterator[LoadShedShare],
+    )
+    operator_share = next(client.load_shed.rows())
+    assert_type(operator_share.effectiveFrom, date)
+    assert_type(operator_share.loadSharePercent, Decimal | None)
 
 with Client() as client:
     assert_type(client.capacity_changes.files(), list[PublicFile])

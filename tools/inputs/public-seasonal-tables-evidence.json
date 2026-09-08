@@ -1,0 +1,42 @@
+{
+  "sourceManifest": "tools/inputs/public-seasonal-tables-sources.csv",
+  "fixtures": [
+    {
+      "path": "tools/inputs/public-tables/transmission-loss-coefficients.zip",
+      "files": 26,
+      "bytes": 584965,
+      "sha256": "e5c8dbebdcce18ea20a93e73b8e630869f90a9b09580eef19ccc228d737ca7b1"
+    },
+    {
+      "path": "tools/inputs/public-tables/load-shed.zip",
+      "files": 2,
+      "bytes": 18643,
+      "sha256": "e0cda8859c76b1806b1778e4e739ec01162ff0fe64ee4ff5e63cf794c32d3c60"
+    }
+  ],
+  "selection": "All 26 original annual coefficient workbooks and both original seasonal load-share workbooks, compressed without changing source bytes.",
+  "coefficients": {
+    "numericCells": 5682,
+    "validPeriods": 581,
+    "rows": 948,
+    "reversedPeriods": 19,
+    "missingPeriods": 348,
+    "blankCells": 6
+  },
+  "loadShares": {
+    "rows": 42,
+    "summerEffectiveFrom": "2026-04-01",
+    "winterEffectiveFrom": "2026-09-01"
+  },
+  "comparison": "Every coefficient, input load/loss factor, period, source group label, year/as-of label and missing value across all 26 original XLS/XLSX workbooks was compared independently with xlrd/openpyxl. Every operator share, effective date, heading and note in both load-shed originals was also compared.",
+  "units": "NOIE SSC * published on/off-peak load + SIC matches SONLF/SOFFLF * 100 in every populated source case. Final coefficients return percent; source loss-factor input cells retain their fractional values. ERCOT input and final correction bases remain separately labeled.",
+  "limitations": [
+    "2001-2010 workbooks omit effective-date tables; no dates are inferred from season or year.",
+    "2020 and 2026 winter ranges are reversed in the sources. Raw labels are retained; effectiveFrom/effectiveThrough are None.",
+    "LPL spring 2021 has six blank numeric cells; its area/season row is retained with None values.",
+    "The 2002 COCS coefficient columns are offset from the input columns; tables are joined by published area labels. PUB and BPUB, Rayburn, TEXLA and other original area names remain distinct.",
+    "Internal base-case and For Testing Only calculation tables remain in the downloadable originals; the reader exposes published final coefficients and their input basis.",
+    "Operator shares are published load percentages, not shed MW or outage probabilities. Tables remain effective until replaced; no end date is inferred.",
+    "As-of labels are not proof of public availability; originals and revisions are not deduplicated by year or season."
+  ]
+}

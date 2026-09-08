@@ -13,7 +13,7 @@ from pydantic import BaseModel, ConfigDict
 
 from ._legacy_load import _number
 from ._load import LoadArchive, _sheets, _workbooks
-from ._public_tables import _YearLinks
+from ._public_tables import _year_files
 
 INDEX_URL = "https://www.ercot.com/mktinfo/data_agg"
 _SERIES: dict[
@@ -89,19 +89,8 @@ class LossFactors:
             r"(?:Actual|Forecasted)|[DT]LF (?:actual|forecasted) for \d{4})"
         )
 
-        def links(url: str) -> _YearLinks:
-            response = self._http.get(url, follow_redirects=True)
-            response.raise_for_status()
-            parser = _YearLinks(INDEX_URL, pattern)
-            parser.feed(response.text)
-            return parser
-
-        current = links(INDEX_URL)
-        files = dict(current.files)
-        for url in sorted(current.years):
-            files.update(links(url).files)
         archives = []
-        for file in files.values():
+        for file in _year_files(self._http, INDEX_URL, pattern):
             year = re.search(r"\d{4}", file.title)
             if year is not None:
                 archives.append(LoadArchive(year=int(year[0]), **file.model_dump()))

@@ -25,6 +25,9 @@ from ._load_profiles import LoadProfileAdjustment as LoadProfileAdjustment
 from ._load_profiles import LoadProfileCount as LoadProfileCount
 from ._load_profiles import LoadProfileDay as LoadProfileDay
 from ._load_profiles import LoadProfileInterval as LoadProfileInterval
+from ._loss_coefficients import (
+    TransmissionLossCoefficient as TransmissionLossCoefficient,
+)
 from ._loss_factors import LossFactorDay as LossFactorDay
 from ._loss_factors import LossFactorInterval as LossFactorInterval
 from ._mora import MoraBalance as MoraBalance
@@ -38,6 +41,7 @@ from ._ordc import IndicativeOrdcPrice as IndicativeOrdcPrice
 from ._pdf import PdfArchive as PdfArchive
 from ._pdf import PdfChartArchive as PdfChartArchive
 from ._public_tables import CrrTimeOfUse as CrrTimeOfUse
+from ._public_tables import LoadShedShare as LoadShedShare
 from ._public_tables import PolrUsage as PolrUsage
 from ._public_tables import PublicFile as PublicFile
 from ._retail import RetailTransactionDay as RetailTransactionDay

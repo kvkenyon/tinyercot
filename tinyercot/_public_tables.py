@@ -105,33 +105,42 @@ class _YearLinks(_FileLinks):
                 self.years.add(url)
 
 
+def _year_files(
+    client: httpx.Client, index_url: str, title_pattern: str
+) -> list[PublicFile]:
+    """Collect actual download links from an index and its linked annual pages."""
+
+    def links(url: str) -> _YearLinks:
+        response = client.get(url, follow_redirects=True)
+        response.raise_for_status()
+        parser = _YearLinks(url, title_pattern)
+        parser.feed(response.text)
+        return parser
+
+    current = links(index_url)
+    files = dict(current.files)
+    for url in sorted(current.years):
+        files.update(links(url).files)
+    if not files:
+        raise ValueError(f"No matching public files found at {index_url}")
+    return sorted(files.values(), key=lambda f: f.url)
+
+
 class _ResourceFiles(_PublicFiles):
     index_url = "https://www.ercot.com/gridinfo/resource"
 
     def files(self) -> list[PublicFile]:
         """Discover resource workbooks in current and linked historical indexes."""
-
-        def links(url: str) -> _YearLinks:
-            response = self._http.get(url, follow_redirects=True)
-            response.raise_for_status()
-            parser = _YearLinks(url, self.title_pattern)
-            parser.feed(response.text)
-            return parser
-
-        current = links(self.index_url)
-        files = dict(current.files)
-        for url in sorted(current.years):
-            files.update(links(url).files)
         workbooks = [
             f
-            for f in files.values()
+            for f in _year_files(self._http, self.index_url, self.title_pattern)
             if urlsplit(f.url).path.lower().endswith((".xlsx", ".xls"))
         ]
         if not workbooks:
             raise ValueError(
                 "No matching resource workbooks found in ERCOT's public indexes"
             )
-        return sorted(workbooks, key=lambda f: f.url)
+        return workbooks
 
 
 class _PublicTable(_PublicFiles, ABC, Generic[T]):
@@ -304,3 +313,74 @@ class PolrHistory(_PublicTable[PolrUsage]):
                     )
         if not found:
             raise ValueError("Download contains no POLR tables")
+
+
+class LoadShedShare(BaseModel):
+    """An operator's published load share, not shed MW or outage probability.
+
+    The effective start comes from the workbook note; no end date is assumed.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+    season: Literal["summer", "winter"]
+    transmissionOperator: str
+    loadSharePercent: Decimal | None
+    effectiveFrom: date
+    sourceHeader: str
+    sourceNotes: list[str]
+    sourceMember: str
+    sourceSheet: str
+
+
+class LoadShed(_PublicTable[LoadShedShare]):
+    """Published seasonal operator load shares, read with tinyercot[files]."""
+
+    index_url = "https://www.ercot.com/gridinfo/load"
+    title_pattern = r"(?:Summer|Winter) Load Shed Table"
+
+    def _read(self, data: bytes, filename: str) -> Iterator[LoadShedShare]:
+        found = False
+        for member, content in _workbooks(data):
+            member = filename if member in {"workbook.xls", "workbook.xlsx"} else member
+            for sheet, source in _sheets(content, date_columns=()):
+                rows = list(source)
+                header = str(rows[0][1]) if rows else ""
+                match = re.fullmatch(
+                    r"(Summer|Winter) Total Transmission Operator Load \(% MW\)", header
+                )
+                if not match or rows[0][0] != "Transmission Operator":
+                    raise ValueError(
+                        f"{member}/{sheet}: Missing load-shed share header"
+                    )
+                notes = [
+                    str(row[0])
+                    for row in rows
+                    if row and str(row[0]).startswith(("*", "Note:"))
+                ]
+                effective = re.search(
+                    r"goes into effect on (\d{2}/\d{2}/\d{4})", "\n".join(notes)
+                )
+                if effective is None:
+                    raise ValueError(
+                        f"{member}/{sheet}: Missing load-shed effective date"
+                    )
+                found = True
+                for row in rows[1:]:
+                    if (
+                        not row
+                        or row[0] in (None, "")
+                        or str(row[0]).startswith(("*", "Note:"))
+                    ):
+                        continue
+                    yield LoadShedShare(
+                        season="summer" if match[1] == "Summer" else "winter",
+                        transmissionOperator=str(row[0]),
+                        loadSharePercent=_number(row[1]),
+                        effectiveFrom=date(*strptime(effective[1], "%m/%d/%Y")[:3]),
+                        sourceHeader=header,
+                        sourceNotes=notes,
+                        sourceMember=member,
+                        sourceSheet=sheet,
+                    )
+        if not found:
+            raise ValueError("Download contains no operator load-share tables")

@@ -399,6 +399,44 @@ are retained separately. No TDSP is inferred from a recorder ID. Source timestam
 have no inferred timezone and do not establish public availability. MIS feeds
 remain outside this client's scope.
 
+### Seasonal loss coefficients and operator load shares
+
+Annual transmission-loss coefficients are available through the same client:
+
+```python
+with Client() as ercot:
+    for coefficient in ercot.transmission_loss_coefficients.rows(
+        where=lambda r: r.year == 2026 and r.area == "ERCOT",
+    ):
+        print(
+            coefficient.season,
+            coefficient.slopePercentPerMW,
+            coefficient.interceptPercent,
+        )
+
+    for share in ercot.load_shed.rows(where=lambda r: r.season == "winter"):
+        print(share.transmissionOperator, share.loadSharePercent, share.effectiveFrom)
+```
+
+Both services expose `files()`, `download(file)` and `read(data, filename=...,
+where=...)` for saved workbooks or ZIPs; parsing uses `tinyercot[files]`.
+Coefficient discovery follows all 26 current/annual indexes and returns **948
+area/season records for 2001–2026**. The published SSC/SIC values produce percent
+loss; the separate on/off-peak load inputs are MW and their loss factors retain
+the original fractional scale. Source correction labels remain distinct.
+`asOf` comes from the workbook heading and is not a publication timestamp.
+
+Missing coefficients remain `None`. Early files omit effective periods; the
+2020 and 2026 winter ranges are reversed in the originals. Their usable date
+bounds remain `None`, with the original text in `sourceEffectivePeriod`.
+`source_file=file` can attach the original coefficient index link to saved reads;
+live reads attach it automatically. Revisions remain separate.
+
+The two current load-shed tables contain **21 operator load percentages each**,
+effective April 1 and September 1, 2026. These are load shares, not shed MW or
+outage probabilities. The reader keeps the original notes and assumes no end
+date: ERCOT says each table remains effective until replaced.
+
 ### CRR hours and retail counts/energy
 
 The direct public CRR calendar and provider-of-last-resort (POLR) territory
