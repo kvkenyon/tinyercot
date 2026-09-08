@@ -27,12 +27,13 @@ T = TypeVar("T", bound=_ForecastRow)
 
 class _ForecastTable(_PublicTable[T]):
     index_url = "https://www.ercot.com/gridinfo/load/forecast"
+    extensions = (".xls", ".xlsx")
 
     def files(self) -> list[PublicFile]:
         return [
             f
             for f in _year_files(self._http, self.index_url, self.title_pattern)
-            if urlsplit(f.url).path.lower().endswith((".xls", ".xlsx"))
+            if urlsplit(f.url).path.lower().endswith(self.extensions)
         ]
 
     def rows(self, *, where: Callable[[T], bool] | None = None) -> Iterator[T]:

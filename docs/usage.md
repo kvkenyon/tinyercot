@@ -1183,6 +1183,47 @@ readers. Hourly long-term forecasts and forecast-performance workbooks remain
 separate coverage gaps.
 
 
+## Hourly long-term load forecasts
+
+Install `tinyercot[files]` for the public XLSX and XLSB workbooks. Discover and
+read one publication without fetching every forecast vintage:
+
+```python
+from tinyercot import Client
+
+with Client() as ercot:
+    forecasts = ercot.hourly_load_forecasts
+    file = next(f for f in forecasts.files() if f.title == "ERCOT Adjusted Forecast")
+    data = forecasts.download(file)
+    for row in forecasts.read(data, filename=file.url.rsplit("/", 1)[-1]):
+        if row.forecastDate.year == 2030 and row.net is not None:
+            print(row.forecastDate, row.hour, row.net.coast, row.net.total)
+```
+
+Rows have concrete weather-zone fields for `forecast`, `gross`, `baseLoad`,
+`electricVehicles`, `rooftopPV`, `largeFlexibleLoad`, `contractedLoad`,
+`officerLetterLoad`, `contractedFlexibleLoad`, `officerLetterFlexibleLoad` and
+`net`. Each component is optional because publications differ. Missing regional
+values and totals remain `None`; totals are never reconstructed. Original
+column labels and the 2024 flexible-load assumptions are retained in
+`sourceLabels` and `sourceNotes`.
+
+`forecastDate` follows the workbook's year/month/day columns. `sourceDate`
+retains its separate Date column, which sometimes disagrees. `hour` preserves
+the literal source hour, including repeated labels; the reader does not infer
+a timezone, DST flag or hour-ending convention. Numeric values use `Decimal`.
+`unit` is MW where the workbook explicitly labels the entire value block (2023),
+and `None` where no such label is provided. These are planning forecasts with
+overlapping vintages, not actual demand or a deduplicated time series.
+
+To read every discovered vintage, use
+`forecasts.rows(where=lambda r: r.forecastDate.year == 2030)`. That method attaches
+`sourceFile` and sets `scenario` from the TSP-provided or ERCOT-adjusted public
+link title before applying the filter. Reading saved bytes with `read()` leaves
+those link-derived fields unset. Filtering does not reduce downloads. The
+optional Calamine reader loads one worksheet at a time, so large workbooks still
+require memory even though decoded models are yielded one at a time.
+
 ## Monthly peak-demand and energy forecasts
 
 `monthly_load_forecasts` reads the public monthly forecast workbooks across

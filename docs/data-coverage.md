@@ -1322,8 +1322,9 @@ record the comparison scope. All 11 unchanged original workbooks (268,611 bytes
 before fixture compression) and captured index pages are retained under
 `tools/inputs/peak-forecasts/` for offline tests and excluded from the wheel.
 Source URLs distinguish identically named files in different publication paths.
-Monthly, seasonal and weekly peak workbooks use separate readers below. Hourly
-and performance forecast workbooks remain additional known coverage gaps.
+Monthly, seasonal and weekly peak workbooks use separate readers below.
+The main hourly long-term forecast workbooks are covered below; weather-year
+hourly scenarios and performance workbooks remain known coverage gaps.
 
 
 ## Public monthly peak-demand and energy forecasts
@@ -1378,3 +1379,46 @@ forecast percentile. Original numeric totals and declared units are preserved.
 Tests reuse the existing forecast-index captures. Fixtures remain outside the
 installed wheel. Hourly forecasts and forecast-performance workbooks remain
 separate implementation gaps.
+
+## Public hourly long-term load forecasts
+
+`Client.hourly_load_forecasts` discovers the six main hourly forecast workbooks
+on the public forecast index and its annual pages at the September 8, 2026 check.
+Complete original-source comparisons cover **701,294 rows and 32,084,130 numeric
+load-component values**:
+
+| Publication | Source target dates | Rows | Numeric values |
+| --- | --- | ---: | ---: |
+| 2021 | 2021-01-01–2030-12-31 | 87,648 | 788,832 |
+| 2022 | 2022-01-01–2031-12-31 | 87,664 | 2,366,640 |
+| 2023 | 2023-01-01–2032-12-31 | 87,670 | 2,366,874 |
+| 2024 | 2024-01-01–2033-12-31 | 87,672 | 5,874,024 |
+| 2025 TSP provided | 2025-01-01–2044-12-31 | 175,320 | 10,168,560 |
+| 2025 ERCOT adjusted | 2025-01-01–2044-12-31 | 175,320 | 10,519,200 |
+
+These are overlapping planning vintages, not counts or bounds of actual demand.
+All eight weather zones and published ERCOT totals have concrete typed fields.
+Gross/base/net load, rooftop PV, EVs, flexible loads, contracts and officer-letter
+loads remain separate. The 2024 flexible-load contract/officer-letter columns
+are also distinct from the corresponding general load additions. Missing totals
+and regions remain `None`, and negative source PV values are retained.
+
+The originals contain 33 differences between the separate Date column and the
+year/month/day columns, plus repeated hour labels and 23-/25-row dates.
+`forecastDate` follows year/month/day; `sourceDate` keeps the separate Date value.
+No hours are inserted, removed or timezone-adjusted. The 2022 workbook has
+87,664 rows and the 2023 workbook has 87,670, despite different calendar lengths;
+neither is reshaped to a conventional hourly grid. Formatted trailing blank rows
+in the 2024 sheet are not data. The 2023 merged MW header establishes units for
+all its numeric columns; the other five workbooks omit that explicit unit label.
+
+Calamine is an optional `files` dependency, used locally by this reader for XLSX
+and XLSB. Independent complete comparisons used openpyxl and pyxlsb respectively.
+Offline tests use original row excerpts, retained binary/XML cell records,
+independently extracted expected values, and the existing public index snapshots.
+[Evidence and source manifests](../tools/inputs/hourly-forecasts/evidence.json)
+distinguish full-source verification from the smaller offline fixtures. Fixtures
+are excluded from the installed wheel.
+
+The eight separate weather-year regional scenario files, winter reliability-
+standard forecast and forecast-performance families remain additional gaps.

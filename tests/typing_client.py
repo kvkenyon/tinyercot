@@ -22,6 +22,7 @@ from tinyercot import (
     GenerationProfileKeySite,
     GenerationProfileKeySummary,
     GenerationProfileSite,
+    HourlyLoadForecast,
     IdrCompliance,
     IndicativeOrdcPrice,
     LegacyHourlyLoad,
@@ -52,6 +53,7 @@ from tinyercot import (
     WeatherDay,
     WeatherVariable,
     WeatherZone,
+    WeatherZoneForecastValues,
     WeatherZoneLoad,
     WeatherZonePeakValues,
     WeeklyPeakForecast,
@@ -818,3 +820,21 @@ def zonal_peak_typing(client: Client) -> None:
     weekly = next(client.weekly_peak_forecasts.rows())
     assert_type(weekly.peakDate, date)
     assert_type(weekly.peakHour, int)
+
+
+def hourly_forecast_typing(client: Client) -> None:
+    assert_type(client.hourly_load_forecasts.files(), list[PublicFile])
+    assert_type(client.hourly_load_forecasts.read(b""), Iterator[HourlyLoadForecast])
+    rows = client.hourly_load_forecasts.rows(
+        where=lambda r: r.forecastDate.year == 2026
+    )
+    assert_type(rows, Iterator[HourlyLoadForecast])
+    row = next(rows)
+    assert_type(row.forecastDate, date)
+    assert_type(row.hour, int)
+    assert_type(row.net, WeatherZoneForecastValues | None)
+    if row.net is not None:
+        assert_type(row.net.coast, Decimal | None)
+        assert_type(row.net.total, Decimal | None)
+    assert_type(row.unit, Literal["MW"] | None)
+    assert_type(row.scenario, Literal["tsp_provided", "ercot_adjusted"] | None)

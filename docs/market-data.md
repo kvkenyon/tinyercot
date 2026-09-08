@@ -118,15 +118,20 @@ for the 2025 source date/value ambiguity. Seasonal and weekly weather-zone
 peaks are available through `seasonal_peak_forecasts` and `weekly_peak_forecasts`.
 Their [workflow](usage.md#seasonal-and-weekly-weather-zone-peaks) keeps historical
 sections, coincident/non-coincident peaks and forecast percentiles distinct.
+`hourly_load_forecasts` adds hourly regional load components from the 2021–2025
+publications, including both 2025 TSP and adjusted scenarios through target year
+2044. The [hourly workflow](usage.md#hourly-long-term-load-forecasts) preserves
+separate gross/net/PV/EV and large-load values, original hours and date discrepancies.
 
 ## Current limits
 
 All 242 report queries in the verified Public Reports inventory have typed
 methods, and all their report tables have history readers. That does not prove
 that every intermediate historical file format is supported or every public
-website dataset has been decoded. Remaining website coverage includes UFE
-settlement analyses and older resource-adequacy tables. Broad legacy document
-extraction is deferred while market-data coverage and usability take priority.
+website dataset has been decoded. Remaining website coverage includes weather-year hourly load scenarios and
+forecast-performance workbooks. Further historical layout verification is also
+needed for core market products. Broad legacy document extraction is deferred
+while market-data coverage and usability take priority.
 MIS and the separate ESR API remain excluded. In particular, ERCOT separately
 lists [annual DAM hub/load-zone prices](https://www.ercot.com/mp/data-products/data-product-details?id=NP4-180-ER),
 [annual RTM hub/load-zone prices](https://www.ercot.com/mp/data-products/data-product-details?id=NP6-785-ER),

@@ -21,6 +21,7 @@ from ._dashboards import Dashboards
 from ._distribution_losses import DistributionLossCoefficients
 from ._fuel_mix import FuelMix
 from ._generation_profiles import GenerationProfiles
+from ._hourly_forecasts import HourlyLoadForecasts
 from ._idr import IdrComplianceHistory
 from ._load import HourlyLoad
 from ._load_forecasts import MonthlyLoadForecasts
@@ -365,6 +366,10 @@ class Transport:
     @property
     def weekly_peak_forecasts(self) -> WeeklyPeakForecasts:
         return WeeklyPeakForecasts(self._http)
+
+    @property
+    def hourly_load_forecasts(self) -> HourlyLoadForecasts:
+        return HourlyLoadForecasts(self._http)
 
     @property
     def monthly_load_forecasts(self) -> MonthlyLoadForecasts:
