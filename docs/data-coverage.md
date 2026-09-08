@@ -549,9 +549,29 @@ worksheets from the source workbooks, rewritten with their cached values and
 notes; the fixture omits unrelated workbook sheets. Hashes and comparison scope
 are recorded in `tools/inputs/public-four-cp-evidence.json`.
 
-The original archive also contains monthly preliminary/submitted load reports.
-Those remain a known gap for a separate typed monthly reader; supporting
-calculation matrices and contact lists are not part of the annual allocations.
+`monthly()` and `read_monthly()` cover all 86 monthly peak tables in that archive:
+7,633 records spanning 1997–2007, checked independently against 22,950 original
+numeric cells, every peak timestamp, 5,249 settlement-metadata records, and
+source identifiers. This is the monthly-table range, distinct from the annual
+allocation range. Submitted kW, loss-adjusted peak kW and settled MW/MWh remain
+distinct via `loadType`, `unit`, `energyMWh` and named adjustment fields. Relative
+differences retain their dimensionless source values. SIS report cells have no
+explicit published unit and remain unscaled in `sisLoadReport`.
+
+Totals are retained, including three unlabeled 1997 totals (`entity=None`). An
+unlabeled cross-month transmission-loss calculation below the 1997 peak tables
+is not represented as a monthly load. Source row numbers, headers, table notes
+and row notes are preserved. Original and revised 2001 files report different
+August peak dates; both remain queryable by their actual peak dates. The August
+2005 preliminary workbook has a worksheet named July; the source heading controls
+the date. Peak clocks have no inferred timezone. Settlement run dates/times and
+explicit stage/channel labels remain separate; missing times are `None`. The
+source typo `9/17/032` is preserved with `runDate=None`, without guessing a year.
+Preliminary report labels remain separate from FINAL settlement-run labels.
+
+Tests retain all monthly worksheets from 29 source workbooks (68 sheets), including
+their cached values and notes. Supporting calculation matrices and contact lists
+are outside these peak-table readers.
 The current NP9-83-M product page exposes report type 13037 through MIS listing
 and download routes, which were inspected without calling MIS. The public direct
 ZIP therefore supplies history through 2020, not recent 4CP filings.

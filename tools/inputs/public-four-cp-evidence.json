@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-08T07:08:11.905794+00:00",
+  "checkedAt": "2026-09-08T07:35:39.651408+00:00",
   "indexUrl": "https://www.ercot.com/mktinfo/data_agg/4cp",
   "indexSha256": "7cebdf2c95372d7a8d49549ddc0cdb46270eb52e5c81270c60fc2c5ba73b6a0e",
   "archiveUrl": "https://www.ercot.com/files/docs/2022/01/13/1996-2020_FourCoincidentPeakCalculations.zip",
@@ -510,12 +510,501 @@
     "downloadRoute": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=",
     "status": "Excluded MIS routes; page inspected, MIS not called."
   },
-  "remainingMonthlyFormats": "The archive contains monthly submitted-load tables (including1997) and preliminary/monthly settlement peak reports. Annual allocations do not decode those tables; a separate typed monthly reader remains required.",
+  "monthlyComparison": {
+    "archiveSha256": "2583f723df58a5cc90a9fb7270bf02346003c4642d541d32cbd0bb837fcd4f03",
+    "rows": 7633,
+    "tables": 86,
+    "numericFieldsCompared": 22950,
+    "peakTimestampsCompared": 7633,
+    "settlementMetadataRowsCompared": 5249,
+    "identifierFieldsCompared": 30532,
+    "years": [
+      1997,
+      1998,
+      1999,
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007
+    ],
+    "countsByYear": {
+      "1997": 100,
+      "1998": 108,
+      "1999": 444,
+      "2000": 148,
+      "2001": 1584,
+      "2002": 1004,
+      "2003": 1000,
+      "2004": 504,
+      "2005": 1375,
+      "2006": 994,
+      "2007": 372
+    },
+    "scope": "All 86 published monthly peak/submitted-load tables in the original historical ZIP independently compared by source cell, including totals, revisions, loss components, MW/MWh quantities, peak clocks and settlement-run metadata. Supporting generation/loss calculation matrices are outside this reader."
+  },
+  "monthlyFixture": {
+    "path": "four-cp/monthly.zip",
+    "sha256": "3bb3bdb97eb2c94397f0e484f7018a49ba9c1da07e92bdf77c749c77a5aaf9a1",
+    "bytes": 290437,
+    "method": "All 68 monthly worksheets retained from 29 source workbooks, rewritten with original cached values and notes. Original member/sheet names and row positions retained.",
+    "workbooks": [
+      {
+        "member": "974cpcal.xls",
+        "sourceSha256": "f13481134c17f69f842881983052ddd7f5f7fc3c4f4ca6a6272c2456edecaf34",
+        "sheets": [
+          {
+            "name": "97 FOUR CP",
+            "rows": 155
+          }
+        ]
+      },
+      {
+        "member": "984CPCAL.xls",
+        "sourceSha256": "ca60410e61ed0c223a32cf0a2dab81c29a5436027b6aa85e4c903120616ce1a7",
+        "sheets": [
+          {
+            "name": "ISO DATA REVIEW",
+            "rows": 127
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/1999/994CPCAL1.xls",
+        "sourceSha256": "6d369b38b3413fb4b56cea708aa9372825684d697922533c063cc192f358d0c7",
+        "sheets": [
+          {
+            "name": "ISO DATA REVIEW",
+            "rows": 169
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/1999/994CPCAL2.xls",
+        "sourceSha256": "840dab6316e875008e565e10281b622b2d6493364737e15943c018bdb199c7a8",
+        "sheets": [
+          {
+            "name": "ISO DATA REVIEW",
+            "rows": 169
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/1999/994CPCALFiled.xls",
+        "sourceSha256": "3c9a33a3014232c85d9a55f85af07debaabf964625b36f8e50c04464c879b59d",
+        "sheets": [
+          {
+            "name": "ISO DATA REVIEW",
+            "rows": 169
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2000/4CPCAL200003262001.xls",
+        "sourceSha256": "f8f7032e0704063c88c0ac47e92a3e189284ddcc5f79dd1ed2c394ab6cbcc353",
+        "sheets": [
+          {
+            "name": "ISO DATA REVIEW",
+            "rows": 169
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2001/2001_4CP_Attachment_A_Revised_11.04.02.xls",
+        "sourceSha256": "fdb11c6ebe4f70d4f6c16ee404ede48f67fb6e3884d7c89e7a6a055d04883608",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 82
+          },
+          {
+            "name": "July",
+            "rows": 82
+          },
+          {
+            "name": "August",
+            "rows": 83
+          },
+          {
+            "name": "September",
+            "rows": 83
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2001/4CPCAL-12012001.xls",
+        "sourceSha256": "38ff478cc12c349b5a38062501e2cf8dfc10709a46b83c65966ac39061ed6823",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 80
+          },
+          {
+            "name": "July",
+            "rows": 80
+          },
+          {
+            "name": "August",
+            "rows": 81
+          },
+          {
+            "name": "September",
+            "rows": 81
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2001/4CPCAL-12202001.xls",
+        "sourceSha256": "b5a58bf7cbe517499ae2dd911c335b48b6b71f3b5d263934f02693049fc7888e",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 80
+          },
+          {
+            "name": "July",
+            "rows": 80
+          },
+          {
+            "name": "August",
+            "rows": 81
+          },
+          {
+            "name": "September",
+            "rows": 81
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2001/4CPCalc-rev03252002.xls",
+        "sourceSha256": "395c32de965b142df05fa12f9b63a13c32d783b223f6cead820a2cd7808b45b2",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 82
+          },
+          {
+            "name": "July",
+            "rows": 82
+          },
+          {
+            "name": "August",
+            "rows": 83
+          },
+          {
+            "name": "September",
+            "rows": 83
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2001/4CPCalc-rev10112002.xls",
+        "sourceSha256": "d5a93315d6715003100d5eddefc1465bd8c8dd32a3484abc205f3ffc79746e93",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 82
+          },
+          {
+            "name": "July",
+            "rows": 82
+          },
+          {
+            "name": "August",
+            "rows": 83
+          },
+          {
+            "name": "September",
+            "rows": 83
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2002/2002_4CP.xls",
+        "sourceSha256": "80c7f0d8b02976663121f116b5c8e2f39d35b0519c4defb64a05f7175eff1af8",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 128
+          },
+          {
+            "name": "July",
+            "rows": 128
+          },
+          {
+            "name": "August",
+            "rows": 128
+          },
+          {
+            "name": "September",
+            "rows": 128
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2002/2002_4CP_revised.xls",
+        "sourceSha256": "5a1a51454d6eae408186df6317f0b671b8cfb4094139a532f854e6801c9a272b",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 127
+          },
+          {
+            "name": "July",
+            "rows": 127
+          },
+          {
+            "name": "August",
+            "rows": 127
+          },
+          {
+            "name": "September",
+            "rows": 127
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2003/20034CP2.xls",
+        "sourceSha256": "a6cf30982cc3be43d6e521cbce097cab33a29dcc59c60e155b0263007dc57e12",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 128
+          },
+          {
+            "name": "July",
+            "rows": 128
+          },
+          {
+            "name": "August",
+            "rows": 128
+          },
+          {
+            "name": "September",
+            "rows": 128
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2003/20034CP3.xls",
+        "sourceSha256": "4bd077814f9d23f87606a44096feaecba21342c3256b5809926b881d9b42489d",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 128
+          },
+          {
+            "name": "July",
+            "rows": 128
+          },
+          {
+            "name": "August",
+            "rows": 128
+          },
+          {
+            "name": "September",
+            "rows": 128
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2004/20044CP.xls",
+        "sourceSha256": "dbf459d310538ea82f492e6388cae8cc9e835ea6ce1888489da0b7de6f97ef7d",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 129
+          },
+          {
+            "name": "July",
+            "rows": 129
+          },
+          {
+            "name": "August",
+            "rows": 129
+          },
+          {
+            "name": "September",
+            "rows": 129
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2005/2005-08CP.xls",
+        "sourceSha256": "e7450d6971cec87822b0d97876ada10ed31cf561d8bc9ce53f1e02e11d8a18f5",
+        "sheets": [
+          {
+            "name": "July",
+            "rows": 129
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2005/20054CP.xls",
+        "sourceSha256": "39447266ed27866e9b1a06ca6a8670845720756b8e322387ffaae2a21d088b71",
+        "sheets": [
+          {
+            "name": "July",
+            "rows": 129
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2005/20054CP2.xls",
+        "sourceSha256": "b648544547376d179ff6e5079350b8ef868d32d0e6b5eb10f2a011cfd7714ef4",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 129
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2005/20054CP3.xls",
+        "sourceSha256": "cd831f2cd1bfcffc5aabd72b699d5fcef2e64638562257e11412cd8766b387b6",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 128
+          },
+          {
+            "name": "July",
+            "rows": 128
+          },
+          {
+            "name": "August",
+            "rows": 128
+          },
+          {
+            "name": "September",
+            "rows": 128
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2005/Attch_A_2005_4CP_REVISED.xls",
+        "sourceSha256": "b1a49cda47ef87898a92932fda07a91ef6dd8d1f3ea82492c11591e926745837",
+        "sheets": [
+          {
+            "name": "June",
+            "rows": 128
+          },
+          {
+            "name": "July",
+            "rows": 128
+          },
+          {
+            "name": "August",
+            "rows": 128
+          },
+          {
+            "name": "September",
+            "rows": 128
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2006/2006-06CP-PRELIMINARY.xls",
+        "sourceSha256": "bf00ff61276de2af8c059f0881727218a6b1e364b115657b92afc029503f76fa",
+        "sheets": [
+          {
+            "name": "Sheet1",
+            "rows": 129
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2006/2006-07CP-PRELIMINARY.xls",
+        "sourceSha256": "76fd1692983c26170c8951a6a202a5a58fdb87f685844c850af7158c629796bb",
+        "sheets": [
+          {
+            "name": "Sheet1",
+            "rows": 128
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2006/2006-08CP-PRELIMINARY.xls",
+        "sourceSha256": "f29247c8198a5f8de79d583c133405d6b1efee47472b43a4271ca2bd988353e0",
+        "sheets": [
+          {
+            "name": "Sheet1",
+            "rows": 128
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2006/2006-09CP-PRELIMINARY.xls",
+        "sourceSha256": "919a4fa1447b2c429397f0a8571b7e91d60b0613a24dbfeee2d6a82cfc853087",
+        "sheets": [
+          {
+            "name": "Sheet1",
+            "rows": 128
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2006/FILING_20064CP.xls",
+        "sourceSha256": "25a94c0960f9ac063f1c6c1a026f127a7b72f8921ef9621765363d31647f0d25",
+        "sheets": [
+          {
+            "name": "JUNE",
+            "rows": 129
+          },
+          {
+            "name": "JULY",
+            "rows": 128
+          },
+          {
+            "name": "AUGUST",
+            "rows": 128
+          },
+          {
+            "name": "SEPTEMBER",
+            "rows": 128
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2007/2007-06CP-Preliminary.xls",
+        "sourceSha256": "fbd0fa13ebedd8efab5ec6e8fb0bc25f87aa3fa789814d3f6588f133c5ed7f5d",
+        "sheets": [
+          {
+            "name": "June 07 4CP Filing",
+            "rows": 128
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2007/2007-07CP-Preliminary.xls",
+        "sourceSha256": "5e9bc1911911be0851257111b79f3a6639a12c4ab49b0948961bf14dd974fb66",
+        "sheets": [
+          {
+            "name": "July 07 4CP Filing",
+            "rows": 128
+          }
+        ]
+      },
+      {
+        "member": "1996-2020_FourCoincidentPeakCalculations/2007/2007-08CP-Preliminary.xls",
+        "sourceSha256": "639829e135886623ec2cbadfc2b5fcf47756c295d4d2c337976f2d4382ea59be",
+        "sheets": [
+          {
+            "name": "Sheet1",
+            "rows": 128
+          }
+        ]
+      }
+    ]
+  },
   "ufePage": {
     "url": "https://www.ercot.com/mktinfo/data_agg/ufe",
     "htmlSha256": "0d480df4bb1c55dcff4458c1bde863a6743b5695989a6c68351e4502ec3cd586",
     "sourceFormat": "Annual PPT/PPTX analysis reports",
     "decision": "No slide extraction: outside the agreed operational and market time-series focus."
   },
-  "decoderSha256": "30f876f29d4e0f512fab4acf3647f6577bfe96240fed5d603cdc9cd2cf9ff3d0"
+  "decoderSha256": "58e5b78ac17a7b352d06ee8787b8592333d219343c6ab7dc9b751d15c9afe2bf"
 }

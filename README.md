@@ -279,8 +279,18 @@ strings, including leading zeros. Loads retain their published kW/MW units, and
 remain `None`; the 1997 annual summary provides an average without monthly peak
 columns, so its `peaks` list is empty.
 
-Monthly preliminary/submitted peak tables are not yet decoded. Recent 4CP
-publications use MIS routes and remain outside this release's scope. See
+`monthly(date_from=..., date_to=..., entity=...)` and `read_monthly(data, ...)`
+return typed monthly peak records, using inclusive **peak dates**. They cover
+7,633 records in 86 submitted/preliminary/settled tables from 1997–2007 within
+the same archive. `loadType` identifies submitted load, coincident-peak load or
+load responsibility; `unit` applies to `load`, and `energyMWh` remains separate.
+Revisions, loss components and report differences are retained. Total rows remain
+present, including three unlabeled source totals with `entity=None`.
+`settlementRun` retains the published date, optional time, stage and channel;
+an invalid source date stays visible in `sourceDate` with `runDate=None`.
+Member, sheet, one-based source row, headings and notes provide provenance.
+
+Recent 4CP publications use MIS routes and remain outside this release's scope. See
 `tools/inputs/public-four-cp-evidence.json` for source comparisons and limitations.
 
 ### Historical retail load profiles

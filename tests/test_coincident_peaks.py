@@ -1,5 +1,5 @@
 from collections import Counter
-from datetime import datetime
+from datetime import date, datetime, time
 from decimal import Decimal
 from io import BytesIO
 from pathlib import Path
@@ -9,10 +9,11 @@ import httpx
 import openpyxl
 import pytest
 
-from tinyercot import Client, CoincidentPeakAllocation
+from tinyercot import Client, CoincidentPeakAllocation, MonthlyCoincidentPeak
 from tinyercot._coincident_peaks import URL
 
 FIXTURE = Path(__file__).resolve().parents[1] / "tools/inputs/four-cp/allocations.zip"
+MONTHLY = FIXTURE.with_name("monthly.zip")
 
 
 @pytest.fixture(scope="module")
@@ -152,3 +153,165 @@ def test_anonymous_download_and_query_filters():
         with pytest.raises(ValueError, match="year_from"):
             list(client.coincident_peaks.allocations(year_from=2020, year_to=2019))
     assert requested == [URL]
+
+
+@pytest.fixture(scope="module")
+def monthly():
+    with Client() as client:
+        return list(client.coincident_peaks.read_monthly(MONTHLY.read_bytes()))
+
+
+def test_monthly_tables_keep_every_publication(monthly):
+    assert len(monthly) == 7633
+    assert (
+        len({(r.sourceMember, r.sourceSheet, r.sourceHeading) for r in monthly}) == 86
+    )
+    assert {r.timestamp.year for r in monthly} == set(range(1997, 2008))
+    assert all(r.timestamp.tzinfo is None for r in monthly)
+    assert (
+        MonthlyCoincidentPeak.model_validate_json(monthly[0].model_dump_json())
+        == monthly[0]
+    )
+
+
+def test_submitted_loads_missing_values_and_table_footnotes(monthly):
+    rows = [
+        r
+        for r in monthly
+        if r.timestamp.year == 1997 and r.entity == "Austin Electric Utility"
+    ]
+    june = rows[0]
+    assert june.timestamp == datetime.fromisoformat("1997-06-30T17:00:00")
+    assert june.loadType == "submitted" and june.unit == "kW"
+    assert june.load == Decimal(1640586)
+    assert june.gsuLossesKW == Decimal(2377)
+    assert june.transmissionLossesKW is None
+    assert june.controlAreaTotalKW == Decimal(1642963)
+    assert june.demandReportRelativeDifference == Decimal("-0.000022519780888639415")
+    assert june.sourceRow == 4
+    assert any("metered load" in note for note in june.sourceNotes)
+    assert not any("metered load" in note for note in rows[1].sourceNotes)
+    assert june.settlementRun is None
+
+
+def test_extended_submitted_report_values_and_row_note(monthly):
+    row = next(r for r in monthly if r.timestamp.year == 1998 and r.sourceRowNote)
+    assert row.entity == "Central Power & Light" and row.entityCode == "CPLC"
+    assert row.controlArea == "CSWS"
+    assert row.sisLoadReport == Decimal(5988)
+    assert row.sisDifferenceMW == Decimal("-21.179399999999987")
+    assert (
+        row.sourceRowNote
+        == "Rayburn Country (RCEC) was double counted in the D&E Report"
+    )
+
+
+def test_monthly_loss_adjustments_and_changed_peak_dates(monthly):
+    row = next(
+        r for r in monthly if r.timestamp.year == 2001 and r.entityCode == "ACPL"
+    )
+    assert row.loadType == "coincident_peak" and row.load == Decimal("3180561.6")
+    assert row.lossAdjustmentPercent == Decimal("4.11072")
+    assert row.loadAtDeliveryPointKW == Decimal("3054979.9")
+    assert row.vamoLossPercent == Decimal("4.01376")
+    assert row.loadResponsibilityKW == Decimal("3177599.5")
+    assert {
+        r.timestamp
+        for r in monthly
+        if r.timestamp.year == 2001 and r.timestamp.month == 8
+    } == {
+        datetime.fromisoformat("2001-08-15T16:30:00"),
+        datetime.fromisoformat("2001-08-22T16:45:00"),
+    }
+
+
+def test_monthly_totals_and_unlabeled_source_rows(monthly):
+    unnamed = [r for r in monthly if r.entity is None]
+    assert len(unnamed) == 3
+    assert unnamed[0].sourceRow == 59
+    assert unnamed[0].load == Decimal("49274873.4")
+    row = next(r for r in monthly if r.timestamp.year == 2001 and r.entity == "Total")
+    assert row.vamoLossPercent is None
+    assert row.loadResponsibilityKW == Decimal("50910818.1")
+    row = next(r for r in monthly if r.timestamp.year == 2002 and r.entity == "Total")
+    assert row.entityCode is None and row.duns is None
+    assert row.load == Decimal("51805.597200000026")
+    assert row.energyMWh == Decimal("12951.399300000006")
+
+
+def test_settlement_stage_date_only_and_invalid_source_date(monthly):
+    runs = [r.settlementRun for r in monthly if r.settlementRun]
+    assert {r.kind for r in runs} == {None, "FINAL", "INTERIM", "TRUE-UP"}
+    interim = next(r for r in runs if r.sourceDate == "1/22/04")
+    assert interim.runDate == date(2004, 1, 22)
+    assert interim.runTime is None
+    typo = next(r for r in runs if r.sourceDate == "9/17/032")
+    assert typo.runDate is None and typo.runTime == time(21, 48)
+    unspecified = next(r for r in runs if r.sourceDate == "10/5/03")
+    assert unspecified.channel == 5 and unspecified.kind is None
+
+
+def test_monthly_filters_use_peak_date_despite_misnamed_sheet():
+    with Client() as client:
+        rows = list(
+            client.coincident_peaks.read_monthly(
+                MONTHLY.read_bytes(),
+                date_from=date(2005, 8, 23),
+                date_to=date(2005, 8, 23),
+                entity="CENTERPOINT ENERGY HOUSTON ELECTRIC LLC (TDSP)",
+            )
+        )
+    row = next(r for r in rows if r.sourceMember.endswith("2005-08CP.xls"))
+    assert row.sourceSheet == "July"
+    assert row.timestamp == datetime.fromisoformat("2005-08-23T16:30:00")
+    assert row.load == Decimal("14802.5748") and row.unit == "MW"
+    assert row.energyMWh == Decimal("3700.6437")
+    assert row.sourceNotes == ["PRELIMINARY AUGUST 4CP"]
+    assert row.settlementRun.kind == "FINAL"
+
+
+def test_monthly_download_and_invalid_bounds():
+    requested = []
+
+    def handler(request):
+        assert "authorization" not in request.headers
+        requested.append(str(request.url))
+        return httpx.Response(200, content=MONTHLY.read_bytes())
+
+    with (
+        httpx.Client(transport=httpx.MockTransport(handler)) as http,
+        Client(client=http) as client,
+    ):
+        rows = list(
+            client.coincident_peaks.monthly(
+                date_from=date(1997, 6, 30),
+                date_to=date(1997, 6, 30),
+                entity="Austin Electric Utility",
+            )
+        )
+        assert len(rows) == 1
+        with pytest.raises(ValueError, match="date_from"):
+            list(
+                client.coincident_peaks.monthly(
+                    date_from=date(2000, 1, 1), date_to=date(1999, 1, 1)
+                )
+            )
+    assert requested == [URL]
+
+
+def test_monthly_unknown_columns_report_source():
+    book = openpyxl.Workbook()
+    book.active.append(["Peak Interval Demand 06/13/2001 17:00"])
+    book.active.append(["New header", "Unrecognized data"])
+    data = BytesIO()
+    book.save(data)
+    book.close()
+    with (
+        Client() as client,
+        pytest.raises(
+            ValueError, match="saved.xlsx/Sheet: Missing monthly peak columns"
+        ),
+    ):
+        list(
+            client.coincident_peaks.read_monthly(data.getvalue(), filename="saved.xlsx")
+        )

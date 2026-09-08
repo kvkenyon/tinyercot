@@ -1,5 +1,5 @@
 from collections.abc import AsyncIterator, Iterator
-from datetime import date, datetime
+from datetime import date, datetime, time
 from decimal import Decimal
 from typing import assert_type
 
@@ -15,6 +15,7 @@ from tinyercot import (
     LoadArchive,
     LoadProfileAdjustment,
     LoadProfileDay,
+    MonthlyCoincidentPeak,
     Page,
     Publication,
     ScheduledGeneration,
@@ -435,3 +436,15 @@ with Client() as client:
     assert_type(cp_allocation.averageLoad, Decimal | None)
     assert_type(cp_allocation.peaks[0].timestamp, datetime | None)
     assert_type(cp_allocation.duns, str | None)
+    assert_type(client.coincident_peaks.monthly(), Iterator[MonthlyCoincidentPeak])
+    assert_type(
+        client.coincident_peaks.read_monthly(b""), Iterator[MonthlyCoincidentPeak]
+    )
+    cp_monthly = next(client.coincident_peaks.monthly())
+    assert_type(cp_monthly.entity, str | None)
+    assert_type(cp_monthly.timestamp, datetime)
+    assert_type(cp_monthly.load, Decimal | None)
+    assert_type(cp_monthly.energyMWh, Decimal | None)
+    if cp_monthly.settlementRun:
+        assert_type(cp_monthly.settlementRun.runDate, date | None)
+        assert_type(cp_monthly.settlementRun.runTime, time | None)
