@@ -3217,6 +3217,14 @@
         "TotalCapGenRes": "capGenRes",
         "TotalCapLoadRes": "capLoadRes",
         "DSTFlag": "repeatHourFlag"
+      },
+      {
+        "DeliveryDate": "deliveryDate",
+        "HourEnding": "hourEnding",
+        "TotalCapGenRes": "capGenRes",
+        "TotalCapLoadRes": "capLoadRes",
+        "OfflineAvailableMW": "offAvailMW",
+        "DSTFlag": "repeatHourFlag"
       }
     ],
     "fields": {

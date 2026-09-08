@@ -673,6 +673,35 @@ def test_adequacy_historical_formats(sample):
     assert rows[0].model_dump(mode="json") == expected
 
 
+def test_legacy_adequacy_offline_capacity_matches_complete_original():
+    data = (INPUTS / "adequacy-offline-original.zip").read_bytes()
+    with Client() as client:
+        rows = list(client.np3_763_cd.st_sys_adequacy_history.read(data))
+    with ZipFile(BytesIO(data)) as source:
+        content = source.read(source.namelist()[0]).decode("utf-8-sig")
+    originals = list(
+        csv.DictReader(line for line in content.splitlines() if line.strip())
+    )
+    assert len(rows) == len(originals) == 168
+    for row, original in zip(rows, originals, strict=True):
+        month, day, year = map(int, original["DeliveryDate"].split("/"))
+        expected = {
+            "deliveryDate": date(year, month, day),
+            "hourEnding": original["HourEnding"],
+            "capGenRes": Decimal(original["TotalCapGenRes"]),
+            "capLoadRes": Decimal(original["TotalCapLoadRes"]),
+            "offAvailMW": Decimal(original["OfflineAvailableMW"]),
+            "repeatHourFlag": original["DSTFlag"] == "Y",
+        }
+        actual = row.model_dump()
+        assert {field: actual[field] for field in expected} == expected
+        assert all(
+            value is None for field, value in actual.items() if field not in expected
+        )
+    assert any(row.offAvailMW == 0 for row in rows)
+    assert any(row.offAvailMW and row.offAvailMW > 0 for row in rows)
+
+
 def test_legacy_outage_new_equipment_totals_match_complete_originals():
     data = (INPUTS / "outage-equipment-originals.zip").read_bytes()
     with Client() as client:
