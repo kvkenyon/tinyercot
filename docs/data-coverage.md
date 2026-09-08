@@ -22,8 +22,15 @@ Disclosure readers select their own CSV member from the shared ZIP. For example,
 that preserve the old `RRSAwarded` field separately from newer `RRSPFRAwarded`,
 `RRSFFRAwarded`, and `RRSUFRAwarded` fields. Fields absent in a captured schema
 are `None`. The current API row contracts remain unchanged. Reading a ZIP that
-predates a table raises a missing-member error; full-range queries across table
-introduction dates still need handling.
+predates a table raises a missing-member error when using `read()` or `download()`.
+For full-range retrieval, `backfill()` skips absent named tables in shared CSV
+reports, including bundle members and remaining individual archive downloads.
+This also handles tables that disappear from later reports without inventing an
+introduction or retirement date. A missing generic CSV report, empty ZIP, corrupt
+ZIP or invalid selected table still raises.
+A live SCED disclosure check returned zero ESR rows for May 1, 2014 and all
+96,480 ESR rows for September 6, 2026, matching the saved original. The selected
+table is absent from the older file. See `tools/inputs/history/sparse-table-evidence.json`.
 
 Archive-only CSV products also have generated namespaces: resource ownership
 (`ercot.np3_988_er.resources_history`), public load estimation counts

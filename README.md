@@ -107,6 +107,12 @@ same publication again, then fetches uncovered archive IDs. Distinct correction
 IDs and repeated rows within a report remain intact; output is not sorted.
 It holds listing IDs in memory and processes bundle members one at a time.
 
+Shared disclosure reports can gain or lose tables over time. `backfill()` skips
+reports where the requested named table is absent but other CSV tables are
+present. It does not infer an introduction date. Empty ZIPs, non-CSV downloads,
+and errors inside selected tables still raise. Explicit `read()` and `download()`
+remain strict when their requested table is missing.
+
 With publication bounds, the archive listing selects the original reports;
 bundle timestamps only help choose candidate months. Reports missed by those
 bundles are still fetched from archives. Omit both bounds to include all listed

@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 from io import BytesIO
 from pathlib import Path
-from zipfile import ZipFile
+from zipfile import BadZipFile, ZipFile
 
 import httpx
 import pytest
@@ -247,3 +247,107 @@ def test_invalid_selection_fails_before_network(kwargs):
     with pytest.raises(ValueError):
         run(source, **kwargs)
     assert not source.listings and not source.downloads
+
+
+def disclosure_reports():
+    old = zipped(
+        {
+            "60d_SCED_SMNE_GEN_RES-01-MAY-14.csv": (
+                INPUTS / "np3-965-er--60_sced_smne_gen_res-history-samples.csv"
+            ).read_bytes()
+        }
+    )
+    current = zipped(
+        {
+            "60d_ESR_Data_in_SCED-06-SEP-26.csv": (
+                INPUTS / "np3-965-er--60d_sced_esr_data-history-current.csv"
+            ).read_bytes()
+        }
+    )
+    return old, current
+
+
+@pytest.mark.parametrize(
+    "bundled,batch_size", [(False, 1), (False, 25), (True, 1), (True, 25)]
+)
+def test_disclosure_backfill_crosses_absent_tables_in_both_sources(bundled, batch_size):
+    old, current = disclosure_reports()
+    if bundled:
+        bundles = [document(-1)]
+        payloads = {
+            ("bundle", (-1,)): zipped(
+                {"1.ext.disclosure.zip": old, "3.ext.disclosure.zip": current}
+            )
+        }
+        remaining = [2, 4]
+    else:
+        bundles, payloads, remaining = [], {}, [1, 2, 3, 4]
+    reports = {1: old, 2: old, 3: current, 4: current}
+    limit = min(batch_size, 2)
+    batches = [remaining[i : i + limit] for i in range(0, len(remaining), limit)]
+    payloads.update(
+        {
+            ("archive", tuple(batch)): zipped({f"{i}.zip": reports[i] for i in batch})
+            for batch in batches
+        }
+    )
+    source = Source([document(i) for i in reports], bundles, payloads)
+    rows = run(
+        source, "np3_965_er", "_60d_sced_esr_data_history", batch_size=batch_size
+    )
+    with Client() as client:
+        expected = list(client.np3_965_er._60d_sced_esr_data_history.read(current))
+    assert rows == expected * 2 and expected
+    assert source.downloads == ([("bundle", [-1])] if bundled else []) + [
+        ("archive", batch) for batch in batches
+    ]
+
+
+@pytest.mark.parametrize("bundled", [False, True])
+def test_named_table_absent_from_all_selected_disclosures_returns_no_rows(bundled):
+    old, _ = disclosure_reports()
+    kind, doc_id = ("bundle", -1) if bundled else ("archive", 1)
+    source = Source(
+        [document(1)],
+        [document(-1)] if bundled else [],
+        {(kind, (doc_id,)): zipped({"1.ext.report.zip": old})},
+    )
+    assert run(source, "np3_965_er", "_60d_sced_esr_data_history") == []
+    assert source.downloads == [(kind, [doc_id])]
+
+
+@pytest.mark.parametrize(
+    "bad",
+    [
+        zipped({}),
+        zipped({"report.xml": b"<report/>"}),
+        zipped({"nested.zip": b"corrupt"}),
+        zipped({"60d_ESR_Data_in_SCED-06-SEP-26.csv": b"wrong,columns\n1,2\n"}),
+    ],
+)
+def test_missing_table_handling_does_not_swallow_bad_downloads(bad):
+    source = Source([document(1)], [], {("archive", (1,)): bad})
+    with pytest.raises((ValueError, BadZipFile)):
+        run(source, "np3_965_er", "_60d_sced_esr_data_history")
+
+
+def test_explicit_disclosure_read_and_download_remain_strict():
+    old, _ = disclosure_reports()
+    source = Source([], [], {("archive", (1,)): old})
+    with (
+        httpx.Client(transport=httpx.MockTransport(source)) as http,
+        Client("u", "p", "k", client=http) as client,
+    ):
+        history = client.np3_965_er._60d_sced_esr_data_history
+        with pytest.raises(ValueError, match="no CSV files matching"):
+            list(history.read(old))
+        with pytest.raises(ValueError, match="no CSV files matching"):
+            list(history.download([1]))
+
+
+def test_generic_uppercase_csv_reader_does_not_treat_missing_report_as_sparse_table():
+    source = Source(
+        [document(1)], [], {("archive", (1,)): zipped({"other.csv": b"a,b\n1,2\n"})}
+    )
+    with pytest.raises(ValueError, match="no CSV files matching"):
+        run(source, "np7_535_sg", "path_adders_history")

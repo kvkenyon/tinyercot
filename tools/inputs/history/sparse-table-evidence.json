@@ -1,0 +1,86 @@
+[
+  {
+    "product": "np3-965-er",
+    "table": "60d_sced_esr_data",
+    "checkedAt": "2026-09-08T03:46:13.947473+00:00",
+    "postedFrom": "2014-05-01T00:00:00",
+    "postedTo": "2014-05-01T23:59:59",
+    "docId": 446390848,
+    "originalSha256": "44c8aec9850c0d7c9eff6b30a8f30ea4fa71fc65443df6a2901cb7bdbb9d73f8",
+    "originalMembers": [
+      "60d_Load Resource_Data_in_SCED-01-MAY-14.csv",
+      "60d_SCED_Gen_Resource_Data-01-MAY-14.csv",
+      "60d_SCED_SMNE_GEN_RES-01-MAY-14.csv",
+      "60d_SCED_DSR_Load_Data-01-MAY-14.csv",
+      "60d_SCED_QSE_Self_Arranged_AS-01-MAY-14.csv",
+      "60d_HDL_LDL_ManOverride-01-MAY-14.csv"
+    ],
+    "rows": 0,
+    "matchesRecordedSource": true,
+    "comparison": "Original 2014 ZIP has no selected ESR member and explicit read raises; current source compared by Counter of SHA256 of every typed row model_dump_json, including multiplicity.",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/api/public-reports/archive/np3-965-er",
+        "query": "page=1&size=1000&postDatetimeFrom=2014-05-01T00%3A00%3A00&postDatetimeTo=2014-05-01T23%3A59%3A59"
+      },
+      {
+        "method": "GET",
+        "path": "/api/public-reports/bundle/np3-965-er",
+        "query": "page=1&size=1000"
+      },
+      {
+        "method": "POST",
+        "path": "/api/public-reports/archive/np3-965-er/download",
+        "query": "",
+        "docIds": [
+          446390848
+        ]
+      }
+    ]
+  },
+  {
+    "product": "np3-965-er",
+    "table": "60d_sced_esr_data",
+    "checkedAt": "2026-09-08T03:46:52.081595+00:00",
+    "postedFrom": "2026-09-06T00:00:00",
+    "postedTo": "2026-09-06T23:59:59",
+    "docId": 1271171684,
+    "originalSha256": "31f9c73ea31136893a7cccf3f7459018b66d2b12b7a4660152fdf88e16b5375e",
+    "originalMembers": [
+      "60d_SCED_QSE_Self_Arranged_AS-06-SEP-26.csv",
+      "60d_SCED_SMNE_GEN_RES-06-SEP-26.csv",
+      "60d_SCED_Gen_Resource_Data-06-SEP-26.csv",
+      "60d_Load_Resource_Data_in_SCED-06-SEP-26.csv",
+      "60d_HDL_LDL_ManOverride-06-SEP-26.csv",
+      "60d_SCED_EOC_Updates_in_OpHour-06-SEP-26.csv",
+      "60d_AS_Capability_ManOverride-06-SEP-26.csv",
+      "60d_ESR_Data_in_SCED-06-SEP-26.csv",
+      "60d_SCED_Resource_AS_OFFERS-06-SEP-26.csv",
+      "60d_SCED_AS_Offer_Updates_in_OpPeriod-06-SEP-26.csv"
+    ],
+    "rows": 96480,
+    "matchesRecordedSource": true,
+    "comparison": "Original 2014 ZIP has no selected ESR member and explicit read raises; current source compared by Counter of SHA256 of every typed row model_dump_json, including multiplicity.",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/api/public-reports/archive/np3-965-er",
+        "query": "page=1&size=1000&postDatetimeFrom=2026-09-06T00%3A00%3A00&postDatetimeTo=2026-09-06T23%3A59%3A59"
+      },
+      {
+        "method": "GET",
+        "path": "/api/public-reports/bundle/np3-965-er",
+        "query": "page=1&size=1000"
+      },
+      {
+        "method": "POST",
+        "path": "/api/public-reports/archive/np3-965-er/download",
+        "query": "",
+        "docIds": [
+          1271171684
+        ]
+      }
+    ]
+  }
+]

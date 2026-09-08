@@ -23,6 +23,10 @@ if TYPE_CHECKING:
 T = TypeVar("T", bound=BaseModel)
 
 
+class _MissingTable(ValueError):
+    """A valid ZIP contains no member matching the requested CSV table."""
+
+
 def _archive_files(data: bytes, pattern: str) -> Iterator[tuple[str, bytes]]:
     with ZipFile(BytesIO(data)) as archive:
         for member in archive.infolist():
@@ -176,7 +180,7 @@ class Archive(Generic[T]):
                 except ValueError as error:
                     raise ValueError(f"{filename}:{line}: {error}") from error
         if not found:
-            raise ValueError(
+            raise _MissingTable(
                 f"Download contains no CSV files matching {self._member!r}"
             )
 
@@ -192,6 +196,23 @@ class Archive(Generic[T]):
         Archive batches respect the product's advertised limit. The default of
         one file limits memory use; bundles are always requested individually.
         """
+        for data in self._downloads(doc_ids, kind=kind, batch_size=batch_size):
+            # A mixed correction bundle may contain no publication of this subtype.
+            if (
+                kind == "bundle"
+                and self._document is not None
+                and next(_archive_files(data, self._member), None) is None
+            ):
+                continue
+            yield from self.read(data)
+
+    def _downloads(
+        self,
+        doc_ids: Iterable[int],
+        *,
+        kind: Literal["archive", "bundle"],
+        batch_size: int,
+    ) -> Iterator[bytes]:
         if batch_size < 1:
             raise ValueError("batch_size must be positive")
         ids = iter(doc_ids)
@@ -206,15 +227,20 @@ class Archive(Generic[T]):
             limit = max(1, limit)
         selected = chain((first,), ids)
         while batch := list(islice(selected, limit)):
-            data = self._client.download(self._product, batch, kind=kind)
-            # A mixed correction bundle may contain no publication of this subtype.
-            if (
-                kind == "bundle"
-                and self._document is not None
-                and next(_archive_files(data, self._member), None) is None
-            ):
-                continue
+            yield self._client.download(self._product, batch, kind=kind)
+
+    def _read_backfill(self, data: bytes) -> Iterator[T]:
+        try:
             yield from self.read(data)
+        except _MissingTable:
+            # Shared disclosures can predate a named table. A CSV archive with
+            # no matching member contributes no rows; an empty/non-CSV download
+            # or a missing generic CSV report is still an error.
+            if (
+                self._member.lower() == "*.csv"
+                or next(_csv_files(data, "*.[cC][sS][vV]"), None) is None
+            ):
+                raise
 
     def backfill(
         self,
@@ -233,6 +259,8 @@ class Archive(Generic[T]):
         With bounds, archive posting metadata selects the original documents.
         Without bounds, bundle-only documents are included too. Bundle posting
         dates and member filenames never supply an original publication time.
+        Named tables absent from shared CSV reports contribute no rows. Selected
+        tables with invalid data, corrupt ZIPs and empty ZIPs still raise.
         """
         if batch_size < 1:
             raise ValueError("batch_size must be positive")
@@ -278,21 +306,17 @@ class Archive(Generic[T]):
                     with ZipFile(payload, "w") as report:
                         report.writestr(member.filename, archive.read(member))
                     content = payload.getvalue()
-                    if (
-                        self._document is not None
-                        and next(_archive_files(content, self._member), None) is None
-                    ):
-                        continue
-                    for row in self.read(content):
+                    for row in self._read_backfill(content):
                         if where is None or where(row):
                             yield row
                     seen.add(doc_id)
                     remaining.pop(doc_id, None)
             if bounded and not remaining:
                 return
-        for row in self.download(remaining, batch_size=batch_size):
-            if where is None or where(row):
-                yield row
+        for data in self._downloads(remaining, kind="archive", batch_size=batch_size):
+            for row in self._read_backfill(data):
+                if where is None or where(row):
+                    yield row
 
     def publications(
         self,
