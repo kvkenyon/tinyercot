@@ -293,7 +293,7 @@ compared directly; see `tools/inputs/public-zonal-generation-evidence.json`.
 
 ### Public load forecast summaries
 
-`load_forecast` reads the four summary workbooks on ERCOT's
+`load_forecast` reads summary and winter reliability workbooks on ERCOT's
 [load forecast page](https://www.ercot.com/gridinfo/load/forecast/index.html).
 Install `tinyercot[files]`; these downloads need no credentials.
 
@@ -334,8 +334,36 @@ All records retain worksheet and cell positions. Blank quantities remain `None`,
 and published ERCOT totals are preserved independently of regional sums. The four
 original workbooks are offline test fixtures; all 2,638 quantity cells were
 compared with the sources. See `tools/inputs/public-load-forecast-evidence.json`.
-These summary methods do not yet read the page's hourly XLSB/weather-year files,
-winter reliability forecast, or monthly model-error reports.
+The hourly XLSB/weather-year files and monthly model-error reports are not yet
+decoded by this helper.
+
+The winter reliability workbook is available as a single typed result:
+
+```python
+with Client() as ercot:
+    forecasts = ercot.load_forecast
+    archive = forecasts.archives(kind="winter-reliability")[0]
+    winter = forecasts.reliability(archive)
+    for hour in winter.hours:
+        if hour.operatingDay == date(2026, 1, 31):
+            print(hour.hour, hour.baseLoadMW, hour.loadWithLargeLoadsMW)
+            for operator in hour.operators:
+                print(operator.name, operator.loadMW)
+    print(winter.percentile, winter.peaks[0].largeLoadAdditionsMW)
+    saved = forecasts.download(archive)
+    same_study = forecasts.read_reliability(saved)
+```
+
+This is the published 75th-percentile planning forecast for December 2025 through
+February 2026: 2,160 hourly rows, 21 Transmission Operator shares per hour, and a
+separate peak breakdown. Operator shares exclude large-load additions. System
+base load, system load with additions, and the peak's explicit additions remain
+separate fields. Hour values retain the source's 1–24 labels without inferring
+UTC or an interval convention. Original year/month/day columns are kept alongside
+`operatingDay`; missing cells remain `None`. `notes` retains all explanation and
+peak-footnote text with source positions, including the adjustments to large loads.
+All 49,704 MW quantities and date/operator labels were compared with the original
+workbook; `public-reliability-forecast-evidence.json` records the source and scope.
 
 ### Historical wind and solar planning profiles
 

@@ -35,3 +35,8 @@ summary workbooks. Tests exercise their full tables, forecast/weather-year and
 region distinctions, and the original misaligned TSP date labels. The associated
 index HTML drives offline discovery; source hashes and full-cell comparison counts
 are recorded in `public-load-forecast-evidence.json`.
+
+`history/reliability-load-forecast.zip` contains the unchanged winter 2025–2026
+reliability forecast workbook. Tests read all hours, operator shares, peak values,
+and explanatory notes. The full source-cell comparison is recorded in
+`public-reliability-forecast-evidence.json`.

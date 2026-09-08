@@ -21,7 +21,12 @@ from tinyercot import (
     ProfileKey,
     ProfileKeyArchive,
     ProfileSeries,
+    ReliabilityForecastHour,
+    ReliabilityForecastNote,
+    ReliabilityForecastPeak,
+    ReliabilityLoadForecast,
     ScheduledGeneration,
+    TransmissionOperatorLoad,
     WeatherZoneLoad,
     WeeklyLoadForecast,
     WindArchive,
@@ -381,3 +386,14 @@ with Client() as client:
     assert_type(forecasts.read_monthly(b""), Iterator[MonthlyLoadForecast])
     assert_type(forecasts.read_weekly(b""), Iterator[WeeklyLoadForecast])
     assert_type(forecasts.read_peaks(b""), Iterator[LoadForecastPeak])
+
+with Client() as client:
+    winter = client.load_forecast.archives(kind="winter-reliability")[0]
+    reliability = client.load_forecast.reliability(winter)
+    assert_type(reliability, ReliabilityLoadForecast)
+    assert_type(client.load_forecast.read_reliability(b""), ReliabilityLoadForecast)
+    assert_type(reliability.hours, list[ReliabilityForecastHour])
+    assert_type(reliability.peaks, list[ReliabilityForecastPeak])
+    assert_type(reliability.notes, list[ReliabilityForecastNote])
+    assert_type(reliability.hours[0].operators, list[TransmissionOperatorLoad])
+    assert_type(reliability.peaks[0].largeLoadAdditionsMW, Decimal | None)
