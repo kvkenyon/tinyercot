@@ -1135,3 +1135,29 @@ November and March fixtures are reused. Tests compare every original coordinate,
 scenario context, both hours, zero probability and JSON round trips, and exercise
 anonymous typed queries plus a report without numerical curves. Fixtures remain
 outside the installed wheel.
+
+
+## Complete intermediate and annual CSV checks
+
+A subsequent check decoded every row in **221 distinct intermediate/annual CSV samples**
+across **92 history readers and eight products**, totaling **28,881,274 rows**.
+These cover SCED/DAM disclosures, aggregated offer curves, highest-offer data,
+wind actuals, and load/solar forecasts. The earlier cross-product audit had checked
+only their headers and up to three rows. Each complete file now decodes through
+its concrete generated reader, with its row count cross-checked against a
+separate CSV reader. No parser changes were needed.
+
+The 433 oldest/current CSV members already had corresponding full-file decode
+receipts in the per-product evidence, so those files were not decoded again.
+The three saved audits contain 661 CSV entries, including seven files reused
+between the intermediate and annual checks; those repeats are excluded from the
+new totals. Every entry now has a complete-file decode receipt. It does not establish every intervening publication's layout,
+gap-free history, or an independent comparison of every numerical value.
+
+`tools/inputs/history/intermediate-full-files.csv` records each reader, original
+archive/member identity, source hash, byte size, and source/decoded row count.
+`intermediate-full-file-evidence.json` records the decoder commit and hashes,
+scope, and totals. The same evidence records the separately listed annual DAM/RT
+hub/load-zone and DAM ancillary-price products that use ICE/MIS routes; those
+remain outside the no-MIS scope. Their oldest years were not queried, so the
+Public Reports archive bounds are not a claim about all price history ERCOT holds.

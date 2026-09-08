@@ -65,6 +65,13 @@ The September 2026 checks establish different levels of evidence:
 | Weather-zone load forecasts | Earliest archive posting observed January 1, 2019 | Oldest forecast decoded with original publication metadata; bundles cover a shorter period |
 | RT ancillary-service prices | Earliest archive posting observed December 5, 2025 | Listing bounds and sampled workbook layouts |
 
+An additional complete-file check decoded 28,881,274 rows in 221 distinct intermediate
+and annual samples across disclosure, offer-curve, and forecast readers. It checks
+decoding and source row counts, not every retained publication or independent
+numerical values. The [receipt](../tools/inputs/history/intermediate-full-file-evidence.json)
+and [per-file manifest](../tools/inputs/history/intermediate-full-files.csv) record
+its scope and decoder version.
+
 These are recorded checks, not promises of permanent ERCOT retention. Publication
 boundaries are not delivery-date boundaries. The [source coverage notes](data-coverage.md)
 and [full usage reference](usage.md) link the receipts, layout variants, and gaps.
@@ -97,5 +104,13 @@ that every intermediate historical file format is supported or every public
 website dataset has been decoded. Remaining website coverage includes UFE
 settlement analyses and older resource-adequacy tables. Broad legacy document
 extraction is deferred while market-data coverage and usability take priority.
-MIS and the separate ESR API remain excluded. Existing specialized readers are
-documented in the usage reference.
+MIS and the separate ESR API remain excluded. In particular, ERCOT separately
+lists [annual DAM hub/load-zone prices](https://www.ercot.com/mp/data-products/data-product-details?id=NP4-180-ER),
+[annual RTM hub/load-zone prices](https://www.ercot.com/mp/data-products/data-product-details?id=NP6-785-ER),
+and [annual DAM ancillary-service prices](https://www.ercot.com/mp/data-products/data-product-details?id=NP4-181-ER)
+through ICE/MIS listings. The captured product pages advertise no direct-file
+alternative. Those sources are not queried by this client's Public Reports
+backfills, and their earliest available years have not been established here.
+The 2014 API archive bounds above therefore do not establish the earliest price
+history ERCOT holds. Existing specialized readers are documented in the usage
+reference.
