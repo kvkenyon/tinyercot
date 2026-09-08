@@ -22,6 +22,7 @@ from ._dashboards import Dashboards
 from ._distribution_losses import DistributionLossCoefficients
 from ._forecast_performance import LoadForecastPerformance
 from ._fuel_mix import FuelMix
+from ._generation_capacity import GenerationCapacity
 from ._generation_profiles import GenerationProfiles
 from ._hourly_forecasts import HourlyLoadForecasts
 from ._load import HourlyLoad
@@ -460,6 +461,10 @@ class Transport:
     @property
     def resource_outlook(self) -> ResourceOutlook:
         return ResourceOutlook(self._http)
+
+    @property
+    def generation_capacity(self) -> GenerationCapacity:
+        return GenerationCapacity(self._http)
 
     @property
     def capacity_changes(self) -> CapacityChanges:

@@ -37,6 +37,20 @@ from ._fuel_mix import FuelMixInterval as FuelMixInterval
 from ._fuel_mix import FuelMixTotal as FuelMixTotal
 from ._generated import *
 from ._generated_esr import *
+from ._generation_capacity import (
+    GenerationCapacityForecast as GenerationCapacityForecast,
+)
+from ._generation_capacity import GenerationCapacityNote as GenerationCapacityNote
+from ._generation_capacity import GenerationCapacityRegion as GenerationCapacityRegion
+from ._generation_capacity import (
+    GenerationCategoryCapacity as GenerationCategoryCapacity,
+)
+from ._generation_capacity import (
+    GenerationResourceCapacity as GenerationResourceCapacity,
+)
+from ._generation_capacity import (
+    SeasonalGenerationCapability as SeasonalGenerationCapability,
+)
 from ._generation_keys import GenerationProfileKey as GenerationProfileKey
 from ._generation_keys import GenerationProfileKeySite as GenerationProfileKeySite
 from ._generation_keys import GenerationProfileKeySummary as GenerationProfileKeySummary

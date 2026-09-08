@@ -1737,3 +1737,20 @@ The [source manifest](../tools/inputs/as-requirements/sources.json) and
 [comparison receipt](../tools/inputs/as-requirements/evidence.json) record scope,
 counts and hashes. Tests retain all 15 unchanged original numerical workbooks;
 they stay outside the installed wheel. Narrative Word documents are excluded.
+
+### Generation Resource Capacity Forecast
+
+`Client.generation_capacity` adds typed access to the public
+[May 2026 generation resource forecast](https://www.ercot.com/files/docs/2026/05/18/Generation_Resource_Forecast_May2026.xlsx).
+The original workbook fixture covers all 1,836 Unit Details rows, 47 category
+rows, 37,190 seasonal capability cells, 1,883 installed-capacity cells, and
+508 county/region mappings. Regression tests compare all these values and unit
+metadata with the saved original, including category indentation and reference
+text. Numeric comparisons use openpyxl's stored-value decoding and Decimal
+conversion, rather than asserting byte-exact preservation of XML number lexemes.
+
+The source includes DC ties and an aggregate small-generator row; 1,836 is not
+a count of unique physical generators. Repeated resource codes, planned status,
+missing dates, zero ratings, and hierarchical totals remain distinct. The
+workbook is a planning forecast with no load forecast or planning reserve margin.
+This reader does not establish coverage of older CDR workbook layouts.

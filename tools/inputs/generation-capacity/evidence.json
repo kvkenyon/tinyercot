@@ -1,0 +1,15 @@
+[
+  {
+    "file": {
+      "title": "Generation Resource Capacity Forecast",
+      "url": "https://www.ercot.com/files/docs/2026/05/18/Generation_Resource_Forecast_May2026.xlsx"
+    },
+    "bytes": 360802,
+    "sha256": "396dfa3ac042ef70f937139f3499d49490470459c1a79f305bff396da1c5de79",
+    "resources": 1836,
+    "categories": 47,
+    "regions": 508,
+    "notes": 150,
+    "capabilities": 37190
+  }
+]
