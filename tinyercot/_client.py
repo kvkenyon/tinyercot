@@ -18,6 +18,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from ._dashboards import Dashboards
 from ._fuel_mix import FuelMix
 from ._load import HourlyLoad
+from ._load_forecast import LoadForecast
 from ._profiles import GenerationProfiles
 from ._wind import WindIntegration
 from ._zonal_generation import ZonalGeneration
@@ -330,6 +331,10 @@ class Transport:
             if page >= result.meta.totalPages:
                 return
             page += 1
+
+    @property
+    def load_forecast(self) -> LoadForecast:
+        return LoadForecast(self._http)
 
     @property
     def generation_profiles(self) -> GenerationProfiles:

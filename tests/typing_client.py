@@ -11,7 +11,10 @@ from tinyercot import (
     FuelMixTotal,
     LegacyHourlyLoad,
     LoadArchive,
+    LoadForecastArchive,
+    LoadForecastPeak,
     LoadOutlook,
+    MonthlyLoadForecast,
     Page,
     ProfileArchive,
     ProfileHour,
@@ -20,6 +23,7 @@ from tinyercot import (
     ProfileSeries,
     ScheduledGeneration,
     WeatherZoneLoad,
+    WeeklyLoadForecast,
     WindArchive,
     WindDailyValues,
     np3_966_er,
@@ -365,3 +369,15 @@ with Client() as client:
     )
     assert_type(client.hourly_load.outlook(year_from=1999), Iterator[LoadOutlook])
     assert_type(client.hourly_load.read_outlook(b""), Iterator[LoadOutlook])
+
+with Client() as client:
+    forecasts = client.load_forecast
+    assert_type(forecasts.archives(), list[LoadForecastArchive])
+    forecast_archive = forecasts.archives()[0]
+    assert_type(forecasts.download(forecast_archive), bytes)
+    assert_type(forecasts.monthly(forecast_archive), Iterator[MonthlyLoadForecast])
+    assert_type(forecasts.weekly(forecast_archive), Iterator[WeeklyLoadForecast])
+    assert_type(forecasts.peaks(forecast_archive), Iterator[LoadForecastPeak])
+    assert_type(forecasts.read_monthly(b""), Iterator[MonthlyLoadForecast])
+    assert_type(forecasts.read_weekly(b""), Iterator[WeeklyLoadForecast])
+    assert_type(forecasts.read_peaks(b""), Iterator[LoadForecastPeak])

@@ -29,3 +29,9 @@ derived samples, not full original downloads; XLSX metadata and retained cells a
 unchanged. `public-profile-fixtures.json` records source and sample hashes and row
 counts. Full-source comparisons are recorded separately in the profile evidence.
 Do not store credentials or private responses here.
+
+`history/load-forecast-summaries.zip` contains the four unchanged public forecast
+summary workbooks. Tests exercise their full tables, forecast/weather-year and
+region distinctions, and the original misaligned TSP date labels. The associated
+index HTML drives offline discovery; source hashes and full-cell comparison counts
+are recorded in `public-load-forecast-evidence.json`.

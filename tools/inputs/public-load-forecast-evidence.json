@@ -1,0 +1,42 @@
+[
+  {
+    "url": "https://www.ercot.com/files/docs/2025/04/08/2025-ERCOT-Monthly-Peak-Demand-and-Energy-Forecast.xlsx",
+    "title": "2025 ERCOT Monthly Peak Demand and Energy Forecast",
+    "filename": "2025-ERCOT-Monthly-Peak-Demand-and-Energy-Forecast.xlsx",
+    "bytes": 27202,
+    "sha256": "cf2f50b9f9846f6d378715b7027a58bbeda926ce43626178e0604e48866e2e75",
+    "records": 481,
+    "quantityCells": 960,
+    "verification": "Every quantity and period/region/scenario label compared with original cached workbook cells; all numeric source cells accounted for."
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2025/02/05/p90_peaks_may.xlsx",
+    "title": "2025 Weekly P90 Peaks",
+    "filename": "p90_peaks_may.xlsx",
+    "bytes": 20492,
+    "sha256": "12f93c0b81a44ea185aeac8f27f58fbb7408a6be2a8d06758440a275d87e7cac",
+    "records": 936,
+    "quantityCells": 936,
+    "verification": "Every quantity and period/region/scenario label compared with original cached workbook cells; all numeric source cells accounted for."
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2025/04/08/ERCOT-Peak-Demand-Scenarios.xlsx",
+    "title": "ERCOT Peak Demand Scenarios",
+    "filename": "ERCOT-Peak-Demand-Scenarios.xlsx",
+    "bytes": 15096,
+    "sha256": "6466032a028185f22abb287ca7e55816694ebe8233605299b053bb3a8c34696f",
+    "records": 238,
+    "quantityCells": 238,
+    "verification": "Every quantity and period/region/scenario label compared with original cached workbook cells; all numeric source cells accounted for."
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2025/04/08/Summer-and-Winter-Peaks.xlsx",
+    "title": "Summer and Winter Peaks",
+    "filename": "Summer-and-Winter-Peaks.xlsx",
+    "bytes": 18193,
+    "sha256": "34543ad92d7905a85d9edf262fd38e3e7492c52bd08e257778b3645576803369",
+    "records": 504,
+    "quantityCells": 504,
+    "verification": "Every quantity and period/region/scenario label compared with original cached workbook cells; all numeric source cells accounted for."
+  }
+]

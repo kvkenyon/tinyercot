@@ -291,6 +291,52 @@ No intervals are synthesized. These schedules are distinct from actual generatio
 in the fuel-mix reports. All source timestamps, zone IDs and MW quantities were
 compared directly; see `tools/inputs/public-zonal-generation-evidence.json`.
 
+### Public load forecast summaries
+
+`load_forecast` reads the four summary workbooks on ERCOT's
+[load forecast page](https://www.ercot.com/gridinfo/load/forecast/index.html).
+Install `tinyercot[files]`; these downloads need no credentials.
+
+```python
+with Client() as ercot:
+    forecasts = ercot.load_forecast
+    archive = forecasts.archives(kind="weather-year-peaks")[0]
+    for peak in forecasts.peaks(archive):
+        if peak.year == 2030 and peak.scenario == "ERCOT Adjusted":
+            print(peak.weatherYear, peak.percentile, peak.peakDemandMW)
+
+    weekly = forecasts.archives(kind="weekly-p90")[0]
+    for peak in forecasts.weekly(weekly):
+        if peak.region == "ERCOT":
+            print(peak.beginDate, peak.endDate, peak.peakDate, peak.peakDemandMW)
+
+    monthly = forecasts.archives(kind="monthly")[0]
+    saved = forecasts.download(monthly)
+    rows = forecasts.read_monthly(saved)
+```
+
+`peaks()` also accepts `kind="seasonal-peaks"` archives. Its typed records retain
+winter year spans, weather years, published percentiles, region names, and
+coincident/non-coincident distinctions. `weekly()` preserves the literal peak
+hour without assigning a UTC offset or interval-ending convention. The published
+2025 weekly file actually contains 104 weeks through May 1, 2027.
+`read_peaks()` and `read_weekly()` support saved original files.
+
+`monthly()` returns both ERCOT Adjusted and TSP Provided scenarios through 2044.
+The original TSP table has date labels one row below the values: its initial
+quantities sit beside the literal `year`/`month` headings, and its final December
+2044 row has empty quantities. The reader preserves this layout; `year`/`month`
+are `None` on the unlabelled row, and `sourceYear`/`sourceMonth` keep the original
+text. `energyLabel` retains the workbook's `Annual Energy` heading; the workbook
+does not specify energy units. No energy conversion or date repair is applied.
+
+All records retain worksheet and cell positions. Blank quantities remain `None`,
+and published ERCOT totals are preserved independently of regional sums. The four
+original workbooks are offline test fixtures; all 2,638 quantity cells were
+compared with the sources. See `tools/inputs/public-load-forecast-evidence.json`.
+These summary methods do not yet read the page's hourly XLSB/weather-year files,
+winter reliability forecast, or monthly model-error reports.
+
 ### Historical wind and solar planning profiles
 
 `generation_profiles` discovers 42 direct CSV/XLSX files from the 2021 and 2022

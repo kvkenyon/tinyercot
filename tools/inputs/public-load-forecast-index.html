@@ -1,0 +1,2495 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+            <meta name="keywords" content="Long-Term Load Forecast, Monthly Peak, Demand and Energy values">
+            <meta name="description" content="Long-Term Load Forecast page. Contains ERCOT Monthly Peak Demand and Energy values.">
+        
+        <link rel="stylesheet" href="/static-assets/css/ercot-com.css">
+  <title>Load Forecast</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><script type="text/javascript" src="/ruxitagentjs_ICA7NQVfqrux_10343260715123811.js" data-dtconfig="rid=RID_-691180573|rpid=-1728537584|domain=ercot.com|reportUrl=/rb_b41ed366-424d-4b61-8d7a-8b07c2fd7a11|app=b4c8ff390fce92cc|owasp=1|featureHash=ICA7NQVfqrux|msl=153600|srsr=1000|rdnt=1|uxrgce=1|cuc=1o2mss9s|srms=2,1,0,0%2Ftextarea%2Cinput%2Cselect%2Coption;0%2Fdatalist;0%2Fform%20button;0%2F%5Bdata-dtrum-input%5D;0%2F.data-dtrum-input;0%2F%5Bcontenteditable%5D%3Anot%28%5Bcontenteditable%3D%22false%22%5D%29;0%2F%5Brole%3D%22textbox%22%5D%2C%5Brole%3D%22checkbox%22%5D%2C%5Brole%3D%22radio%22%5D%2C%5Brole%3D%22option%22%5D%2C%5Brole%3D%22combobox%22%5D%2C%5Brole%3D%22slider%22%5D%2C%5Brole%3D%22searchbox%22%5D%2C%5Brole%3D%22switch%22%5D%2C%5Brole%3D%22spinbutton%22%5D;1%2F%5Edata%28%28%5C-.%2B%24%29%7C%24%29|mel=100000|expw=1|dpvc=1|lastModification=1788461412517|tp=500,50,0|srbbv=2|agentUri=/ruxitagentjs_ICA7NQVfqrux_10343260715123811.js"></script><link rel="shortcut icon" href="/static-assets/images/favicon.ico" />
+<link rel="stylesheet" href="/static-assets/css/application.css">
+<link rel="stylesheet" href="/static-assets/css/fontawesome-all.css">
+<link rel="stylesheet" href="/static-assets/css/daterangepicker.css" />
+<link rel="stylesheet" href="/static-assets/css/migration.css" />
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PH5D2W5');</script>
+<!-- End Google Tag Manager -->
+
+
+
+<script type="text/javascript">
+    var pageProxyContext = "";
+    var pageProxyStaticContext = "";
+    var pageProxySecureContextRequest = "https://mis.ercot.com/secure/data-products";
+    var dataProductsPathPublic = "/mp/data-products";
+    var dataProductsPathSecure = "/data-products";
+    var isMIS = false
+    var pageWWWBase = "";
+</script>
+<script src="/static-assets/js/vendor/purify.min.js"></script>
+<script src="/static-assets/js/vendor/jquery-3.7.1.min.js"></script>
+<script src="/static-assets/js/app/scripts.js"></script>
+<script src="/static-assets/js/app/application-scripts.js"></script>
+<script src="/static-assets/js/vendor/fontawesome-all.min.js"></script>
+<script src="/static-assets/js/vendor/popper.min.js"></script>
+<script src="/static-assets/js/vendor/bootstrap.min.js"></script>
+<script src="/static-assets/js/vendor/moment.min.js"></script>
+<script src="/static-assets/js/vendor/daterangepicker.js"></script>
+<script src="/static-assets/js/app/migration.js"></script>
+
+<script>
+  function showTab(parent_id, anchor_tag) {
+    if ($(parent_id).length > 0) {
+      let tab_id = anchor_tag.split('#')[1];
+
+      // default is first tab
+      if (tab_id === undefined) {
+        tab_id = $(parent_id + ' .tabNav li a').first().attr('href').replace('#','');
+      }
+
+      // reset active tab
+      $(parent_id + ' .tabNav li').removeClass();
+
+      // set active tab
+      $(parent_id + ' .tabNav a[href="#' + tab_id + '"]').parent().attr('class', 'active');
+
+      // show content for tab
+      $('#tab-' + tab_id).show().siblings().hide();
+    }
+  }
+  $(function() {
+    showTab('#tabsBar', window.location.href);
+    $("ul.tabNav li a").click(function() { showTab('#tabsBar', this.href); });
+    $(".tabs a.nav").click(function() { showTab('#tabsBar', this.href); });
+  });
+</script>
+
+<style type="text/css">
+        #mainContainer > div > header > mainheader > nav > ul > li {
+transition-delay: 375ms;
+}
+</style>
+<script type="text/javascript">
+        $(function() {
+  $(".research tr:not(.accordion)").hide();
+  $(".research tr:first-child").show();
+    
+  $(".research tr.accordion").click(function(){
+      $(this).nextAll("tr").fadeToggle(300);
+  }).eq(0).trigger('click');
+});
+</script>
+    </head>
+
+    <body>
+        <div class="wrapper--main" id="mainContainer">
+            <div class="page--content">
+<header class="combined container-fluid px-0">
+<utility>
+    <a href="#"
+ onclick="navigate(pageProxySecureContextRequest);"
+    >MIS LOG IN</a>
+    <script>
+        function searchSubmit(){
+        var theSearchQuery = document.frmSearch.sQuery.value;
+        if (theSearchQuery) {
+            document.frmSearch.q.value = utils.mask(theSearchQuery);
+            return true;
+        }
+        else {
+            return false;
+        }
+        }
+    </script>
+    <div class="searchBox">
+        <form id="frmSearch" name="frmSearch" action="/search" method="get" onsubmit="searchSubmit()" class="no-filter-form">
+        <input type="text" class="text" id="sQuery" maxlength="250" value="" placeholder="Search" required>
+        <button type="submit" class="button" id="searchBtn" alt="Search"><svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 18 18">
+            <path class="searchicon"
+                d="M7.127,0a7.127,7.127,0,0,0,0,14.254,7,7,0,0,0,3.655-1.019l4.8,4.517a.915.915,0,0,0,1.3-.053l.183-.208a.917.917,0,0,0-.052-1.306l-4.6-4.307A7.116,7.116,0,0,0,7.127,0Zm0,2.062A5.065,5.065,0,1,1,2.062,7.127,5.052,5.052,0,0,1,7.127,2.062Z">
+            </path>
+            </svg></button>
+        <input type="hidden" name="q" value="">
+        </form>
+    </div>
+</utility>  <mainheader class="combined--header">
+    <a id="hlogo" href="https://www.ercot.com">
+
+
+
+<img src="https://www.ercot.com/files/assets/2023/07/14/ERCOT-logo-122x45.svg" title="ERCOT home" alt="Electric Reliability Council of Texas" />    </a>
+
+    <button id="menuon" onclick="navToggle()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path fill="#2D3338" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z">
+        </path>
+      </svg>
+    </button>
+    <button id="menuoff" onclick="navToggle()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+        <path fill="#ffffff" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z">
+        </path>
+      </svg>
+    </button>
+
+<nav>
+<ul>
+  <li class="">
+    <a class="" href="/about">About ERCOT</a>
+      <div class="dropdown">
+        <ul>           <li class="d-xl-none"><a class="" href="/about">About ERCOT</a></li>
+          <li class="">
+            <a class="" href="/about/profile">Company Profile</a>
+            <ul>
+                <li class=""><a class="" href="/about/profile/vision">Vision and Mission</a></li>
+                <li class=""><a class="" href="/about/profile/community">Community Involvement</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/about/governance">Governance</a>
+            <ul>
+                <li class=""><a class="" href="/about/governance/directors">Board of Directors</a></li>
+                <li class=""><a class="" href="/about/governance/executives">Executive Team</a></li>
+                <li class=""><a class="" href="/about/governance/members">Membership</a></li>
+                <li class=""><a class="" href="/about/governance/ethics">Ethics</a></li>
+                <li class=""><a class="" href="/about/governance/FinancialInformation">Financial Information</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/about/hb4492securitization">HB 4492 Securitization</a>
+            <ul>
+                <li class=""><a class="" href="/about/hb4492securitization/subchapterm">Subchapter M Default Balance Securitization</a></li>
+                <li class=""><a class="" href="/about/hb4492securitization/subchaptern">Subchapter N Uplift Balance Securitization </a></li>
+            </ul>
+          </li>
+            </ul><ul>
+          <li class="">
+            <a class="" href="/about/legal">Legal Policies and Notices</a>
+            <ul>
+                <li class=""><a class="" href="/about/legal/brazos">Proposed Brazos and ERCOT Bankruptcy Settlement</a></li>
+                <li class=""><a class="" href="/about/legal/boardethicsagmts">Board Ethics Agreements</a></li>
+                <li class=""><a class="" href="/about/legal/legal_notices">Legal Notices</a></li>
+                <li class=""><a class="" href="/about/legal/february2021">February 2021 Extreme Weather Event</a></li>
+                <li class=""><a class="" href="/about/legal/doe202c">January 24 and 25, 2026, DOE 202(c) Orders</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/about/grit">Grid Research Innovation and Transformation</a>
+            <ul>
+                <li class=""><a class="" href="/about/grit/grid-transformation">Grid Transformation </a></li>
+                <li class=""><a class="" href="/about/grit/research-and-innovation">Research and Innovation</a></li>
+                <li class=""><a class="" href="/about/grit/ercot-innovation-summit">ERCOT Innovation Summit</a></li>
+            </ul>
+          </li>
+            </ul><ul>
+          <li class="">
+            <a class="" href="/about/news">News and Publications</a>
+            <ul>
+                <li class=""><a class="" href="/about/news/mediakit">Media Kit</a></li>
+                <li class=""><a class="" href="/about/news/presentations">Helpful Resources</a></li>
+                <li class=""><a class="" href="/about/news/releases">News Releases</a></li>
+                <li class=""><a class="" href="/about/news/trendingtopics">Trending Topics</a></li>
+                <li class=""><a class="" href="/about/news/grid-insights">Grid Insights </a></li>
+                <li class=""><a class="" href="/about/news/seasonal-updates">Summer 2026</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/about/reliability-monitor">ERCOT Reliability Monitor Program</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/about/careers">Careers</a>
+            <ul>
+                <li class=""><a class="" href="/about/careers/culture">Life at ERCOT</a></li>
+                <li class=""><a class="" href="/about/careers/programs">Development Programs</a></li>
+                <li class=""><a class="" href="/about/careers/ercotinternship">Internship Program</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/about/procurement">Procurement</a>
+            <ul>
+                <li class=""><a class="" href="/about/procurement/rfp">Request for Proposal</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/about/locations">Locations</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/about/contact">Contact Us</a>
+            <ul>
+                <li class=""><a class="" href="/about/contact/inforequest">Information Request</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+      
+    
+  </li>
+  <li class="">
+    <a class="" href="/services">Services</a>
+      <div class="dropdown">
+        <ul>           <li class="d-xl-none"><a class="" href="/services">Services</a></li>
+          <li class="">
+            <a class="" href="/services/client_svcs">Client Services</a>
+            <ul>
+                <li class=""><a class="" href="/services/client_svcs/acctmgmt">Account Management</a></li>
+                <li class=""><a class="" href="/services/client_svcs/mktsupport">Market Support</a></li>
+                <li class=""><a class="" href="/services/client_svcs/mktrk_info">MarkeTrak Information</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/services/comm">Market Participant Communications</a>
+            <ul>
+                <li class=""><a class="" href="/services/comm/archives">Market Notice Archives</a></li>
+                <li class=""><a class="" href="/services/comm/opsmessages">Operations Messages</a></li>
+                <li class=""><a class="" href="/services/comm/pobs">Power Operations Bulletins</a></li>
+                <li class=""><a class="" href="/services/comm/notices">Public Notices</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/services/programs">Programs</a>
+            <ul>
+                <li class=""><a class="" href="/services/programs/load">Demand Response</a></li>
+                <li class=""><a class="" href="/services/programs/firmfuelsupply">Firm Fuel Supply Service</a></li>
+                <li class=""><a class="" href="/services/programs/qse">QSE Services Available on Short Notice</a></li>
+                <li class=""><a class="" href="/services/programs/rec">Renewable Energy Credit</a></li>
+                <li class=""><a class="" href="/services/programs/tcmp">Texas Cybersecurity Monitor Program</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/services/projects">Projects</a>
+            <ul>
+            </ul>
+          </li>
+            </ul><ul>
+          <li class="">
+            <a class="" href="/services/rq">Registration and Qualification</a>
+            <ul>
+                <li class=""><a class="" href="/services/rq/crr">Congestion Revenue Rights Account Holder</a></li>
+                <li class=""><a class="" href="/services/rq/credit">Credit</a></li>
+                <li class=""><a class="" href="/services/rq/imre">Independent Market Information System Registered Entity</a></li>
+                <li class=""><a class="" href="/services/rq/lse">Load Serving Entities</a></li>
+                <li class=""><a class="" href="/services/rq/qse">Qualified Scheduling Entities</a></li>
+                <li class=""><a class="" href="/services/rq/large-load-integration">Large Load Integration</a></li>
+                <li class=""><a class="" href="/services/rq/re">Resource Entities</a></li>
+                <li class=""><a class="" href="/services/rq/integration">Resource Integration</a></li>
+                <li class=""><a class="" href="/services/rq/tdsp">Transmission/Distribution Service Providers</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/services/sla">Service Level Agreements</a>
+            <ul>
+            </ul>
+          </li>
+            </ul><ul>
+          <li class="">
+            <a class="" href="/services/training">Training</a>
+            <ul>
+                <li class=""><a class="" href="/services/training/courses">Course Catalog</a></li>
+                <li class=""><a class="" href="/services/training/recommendations">Course Recommendations</a></li>
+                <li class=""><a class="" href="/services/training/exams">ERCOT System Operator Certification Exam</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/services/mdt">Market Data Transparency</a>
+            <ul>
+                <li class=""><a class="" href="/services/mdt/ddls">DDLs</a></li>
+                <li class=""><a class="" href="/services/mdt/userguides">User Guides</a></li>
+                <li class=""><a class="" href="/services/mdt/webservices">Digital Certificate Security Information</a></li>
+                <li class=""><a class="" href="/services/mdt/xsds">XSDs</a></li>
+                <li class=""><a class="" href="/services/mdt/data-portal">ERCOT Public API Applications</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+      
+    
+  </li>
+  <li class="">
+    <a class="" href="/committees">Committees and Groups</a>
+      <div class="dropdown">
+        <ul>           <li class="d-xl-none"><a class="" href="/committees">Committees and Groups</a></li>
+          <li class="">
+            <a class="" href="/committees/calendar">Meeting Calendar</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/committees/puct">PUCT</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/committees/board">Board of Directors</a>
+            <ul>
+                <li class=""><a class="" href="/committees/board/finance_audit">Finance and Audit Committee</a></li>
+                <li class=""><a class="" href="/committees/board/hr_governance">HR and Governance Committee</a></li>
+                <li class=""><a class="" href="/committees/board/tech-security">Technology and Security Committee </a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/committees/tac">Technical Advisory Committee</a>
+            <ul>
+                <li class=""><a class="" href="/committees/tac/llwg">Large Load Working Group</a></li>
+                <li class=""><a class="" href="/committees/tac/cfsg">Credit Finance Sub Group</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/committees/prs">Protocol Revision Subcommittee</a>
+            <ul>
+                <li class=""><a class="" href="/committees/prs/2025">Protocol Revision Subcommittee</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/committees/rms">Retail Market Subcommittee</a>
+            <ul>
+                <li class=""><a class="" href="/committees/rms/rmttf">Retail Market Training Task Force</a></li>
+                <li class=""><a class="" href="/committees/rms/tdtms">Texas Data Transport and MarkeTrak Systems Working Group</a></li>
+                <li class=""><a class="" href="/committees/rms/txsetlp">Texas Standard Electronic Transaction/Load Profiling Working Group</a></li>
+            </ul>
+          </li>
+            </ul><ul>
+          <li class="">
+            <a class="" href="/committees/ros">Reliability and Operations Subcommittee</a>
+            <ul>
+                <li class=""><a class="" href="/committees/ros/bswg">Black Start Working Group</a></li>
+                <li class=""><a class="" href="/committees/ros/dwg">Dynamics Working Group</a></li>
+                <li class=""><a class="" href="/committees/ros/ibrwg">Inverter-Based Resource Working Group</a></li>
+                <li class=""><a class="" href="/committees/ros/mwg">Meter Working Group</a></li>
+                <li class=""><a class="" href="/committees/ros/ndswg">Network Data Support Working Group</a></li>
+                <li class=""><a class="" href="/committees/ros/otwg">Operations Training Working Group</a></li>
+                <li class=""><a class="" href="/committees/ros/owg">Operations Working Group</a></li>
+                <li class=""><a class="" href="/committees/ros/pdcwg">Performance, Disturbance, Compliance Working Group</a></li>
+                <li class=""><a class="" href="/committees/ros/plwg">Planning Working Group</a></li>
+                <li class=""><a class="" href="/committees/ros/spwg">System Protection Working Group</a></li>
+                <li class=""><a class="" href="/committees/ros/sswg">Steady State Working Group</a></li>
+                <li class=""><a class="" href="/committees/ros/vpwg">Voltage Profile Working Group</a></li>
+            </ul>
+          </li>
+            </ul><ul>
+          <li class="">
+            <a class="" href="/committees/wms">Wholesale Market Subcommittee</a>
+            <ul>
+                <li class=""><a class="" href="/committees/wms/cmwg">Congestion Management Working Group</a></li>
+                <li class=""><a class="" href="/committees/wms/dswg">Demand Side Working Group</a></li>
+                <li class=""><a class="" href="/committees/wms/sawg">Supply Analysis Working Group</a></li>
+                <li class=""><a class="" href="/committees/wms/wmwg">Wholesale Market Working Group</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/committees/inactive">Inactive Groups</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/committees/other">Other Groups</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/committees/workshops">Workshops</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/committees/mktparticipants">Market Participants</a>
+            <ul>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+      
+    
+  </li>
+  <li class="">
+    <a class="" href="/mktrules">Market Rules</a>
+      <div class="dropdown">
+        <ul>           <li class="d-xl-none"><a class="" href="/mktrules">Market Rules</a></li>
+          <li class="">
+            <a class="" href="/mktrules/nprotocols">Protocols - Nodal</a>
+            <ul>
+                <li class=""><a class="" href="/mktrules/nprotocols/current">Current Protocols - Nodal</a></li>
+                <li class=""><a class="" href="/mktrules/nprotocols/library">Protocol Library - Nodal</a></li>
+                <li class=""><a class="" href="/mktrules/nprotocols/nprr">Nodal Protocol Revision Requests</a></li>
+                <li class=""><a class="" href="/mktrules/nprotocols/nprr_process">NPRR Submission Process</a></li>
+                <li class=""><a class="" href="/mktrules/nprotocols/pir_process">Protocol Interpretation Request Submission Process</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktrules/protocols">Archives - Zonal</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktrules/puctDirectives">PUCT Directives</a>
+            <ul>
+                <li class=""><a class="" href="/mktrules/puctDirectives/phase-2-bridging-options">Phase 2 Bridging Options</a></li>
+                <li class=""><a class="" href="/mktrules/puctDirectives/southernCross">Southern Cross Transmission</a></li>
+                <li class=""><a class="" href="/mktrules/puctDirectives/emergencyoperationsplans">Emergency Operations Plans</a></li>
+            </ul>
+          </li>
+            </ul><ul>
+          <li class="">
+            <a class="" href="/mktrules/guides">Market Guides</a>
+            <ul>
+                <li class=""><a class="" href="/mktrules/guides/commercialops">Commercial Operations Market Guide</a></li>
+                <li class=""><a class="" href="/mktrules/guides/data_transport">Data Transport Guides</a></li>
+                <li class=""><a class="" href="/mktrules/guides/loadprofiling">Load Profiling Guide</a></li>
+                <li class=""><a class="" href="/mktrules/guides/noperating">Nodal Operating Guide</a></li>
+                <li class=""><a class="" href="/mktrules/guides/procedures">Operating Procedures</a></li>
+                <li class=""><a class="" href="/mktrules/guides/planning">Planning Guide</a></li>
+                <li class=""><a class="" href="/mktrules/guides/resourcereg">Resource Registration Glossary</a></li>
+                <li class=""><a class="" href="/mktrules/guides/retail">Retail Market Guide</a></li>
+                <li class=""><a class="" href="/mktrules/guides/settlement">Settlement Metering Operating Guide</a></li>
+                <li class=""><a class="" href="/mktrules/guides/txset">Texas Standard Electronic Transaction Guides</a></li>
+                <li class=""><a class="" href="/mktrules/guides/vcm">Verifiable Cost Manual</a></li>
+                <li class=""><a class="" href="/mktrules/guides/archives">Inactive Market Guides</a></li>
+            </ul>
+          </li>
+            </ul><ul>
+          <li class="">
+            <a class="" href="/mktrules/pilots">Pilot Projects</a>
+            <ul>
+                <li class=""><a class="" href="/mktrules/pilots/ader">Aggregate Distributed Energy Resource (ADER) Pilot Project</a></li>
+                <li class=""><a class="" href="/mktrules/pilots/ers">30-Minute Emergency Response Service - Completed</a></li>
+                <li class=""><a class="" href="/mktrules/pilots/frrs">Fast Responding Regulation Service - Completed</a></li>
+                <li class=""><a class="" href="/mktrules/pilots/wsers">Weather-Sensitive Emergency Response Service - Completed</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktrules/syschangereq">System Changes</a>
+            <ul>
+                <li class=""><a class="" href="/mktrules/syschangereq/scr">System Change Requests</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktrules/compliance">Compliance in ERCOT</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktrules/bpm">Business Practice Manual</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktrules/obd">Other Binding Documents</a>
+            <ul>
+                <li class=""><a class="" href="/mktrules/obd/obdlist">Other Binding Documents List</a></li>
+                <li class=""><a class="" href="/mktrules/obd/obdrr">Other Binding Documents Revision Requests</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktrules/keypriorities">Key Priorities</a>
+            <ul>
+                <li class=""><a class="" href="/mktrules/keypriorities/bes">Battery Energy Storage</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+      
+    
+  </li>
+  <li class="">
+    <a class="" href="/mktinfo">Market Information</a>
+      <div class="dropdown">
+        <ul>           <li class="d-xl-none"><a class="" href="/mktinfo">Market Information</a></li>
+          <li class="">
+            <a class="" href="/mktinfo/crr">Congestion Revenue Rights</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktinfo/dam">Day-Ahead Market</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktinfo/rtm">Real-Time Market</a>
+            <ul>
+                <li class=""><a class="" href="/mktinfo/rtm/marginallosses">Marginal Losses</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktinfo/prices">Market Prices</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktinfo/retail">Retail</a>
+            <ul>
+                <li class=""><a class="" href="/mktinfo/retail/electric">Labeling of Electricity</a></li>
+            </ul>
+          </li>
+            </ul><ul>
+          <li class="">
+            <a class="" href="/mktinfo/loadprofile">Load Profiling</a>
+            <ul>
+                <li class=""><a class="" href="/mktinfo/loadprofile/alp">Backcasted (Actual) Load Profiles - Historical</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktinfo/metering">Metering</a>
+            <ul>
+                <li class=""><a class="" href="/mktinfo/metering/competitive">Competitive Metering</a></li>
+                <li class=""><a class="" href="/mktinfo/metering/eps">ERCOT-Polled Settlement Metering</a></li>
+                <li class=""><a class="" href="/mktinfo/metering/dlfmethodology">TDSP Distribution Loss Factors - Methodology</a></li>
+            </ul>
+          </li>
+            </ul><ul>
+          <li class="">
+            <a class="" href="/mktinfo/data_agg">Data Aggregation</a>
+            <ul>
+                <li class=""><a class="" href="/mktinfo/data_agg/idr_pcv">IDR Protocol Compliance Verification - Historical</a></li>
+                <li class=""><a class="" href="/mktinfo/data_agg/4cp">ERCOT Four Coincident Peak Calculations</a></li>
+                <li class=""><a class="" href="/mktinfo/data_agg/ssig">Shadow Settlement Instruction Guides</a></li>
+                <li class=""><a class="" href="/mktinfo/data_agg/ufe">UFE Analysis Reports</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktinfo/settlements">Settlements</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mktinfo/reports">Market Reports</a>
+            <ul>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+      
+    
+  </li>
+  <li class="">
+    <a class="" href="/gridinfo">Grid Information</a>
+      <div class="dropdown">
+        <ul>           <li class="d-xl-none"><a class="" href="/gridinfo">Grid Information</a></li>
+          <li class="">
+            <a class="" href="/gridinfo/csc">Current System Conditions</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/gridinfo/generation">Generation</a>
+            <ul>
+                <li class=""><a class="" href="/gridinfo/generation/ibr-integration-reports">Inverter Based Resources Integration Reports</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/gridinfo/load">Load</a>
+            <ul>
+                <li class=""><a class="" href="/gridinfo/load/load_hist">Hourly Load Data Archives</a></li>
+                <li class=""><a class="" href="/gridinfo/load/covid-19-load-forecast">Supplemental Data for COVID-19 Scenario </a></li>
+                <li class=""><a class="" href="/gridinfo/load/forecast">Load Forecast</a></li>
+            </ul>
+          </li>
+            </ul><ul>
+          <li class="">
+            <a class="" href="/gridinfo/transmission">Transmission</a>
+            <ul>
+                <li class=""><a class="" href="/gridinfo/transmission/opsys-change-schedule">Production Load Schedule</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/gridinfo/resource">Resource Adequacy</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/gridinfo/sysplan">Market Reports</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/gridinfo/planning">Planning</a>
+            <ul>
+            </ul>
+          </li>
+            </ul><ul>
+          <li class="">
+            <a class="" href="/gridinfo/resiliency">Resiliency</a>
+            <ul>
+                <li class=""><a class="" href="/gridinfo/resiliency/winterready">Winter Weather Readiness</a></li>
+                <li class=""><a class="" href="/gridinfo/resiliency/summerready">Summer Weather Readiness</a></li>
+                <li class=""><a class="" href="/gridinfo/resiliency/gas-electric">Gas-Electric Coordination</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/gridinfo/modeling">Modeling</a>
+            <ul>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+      
+    
+  </li>
+  <li class="">
+    <a class="" href="/mp">Market Participants</a>
+      <div class="dropdown">
+        <ul>           <li class="d-xl-none"><a class="" href="/mp">Market Participants</a></li>
+          <li class="">
+            <a class="" href="/mp/data-products">EMIL</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mp/mis-ercot-com">MIS Log In</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mp/rioo-rs">RIOO Log In</a>
+            <ul>
+            </ul>
+          </li>
+          <li class="">
+            <a class="" href="/mp/rec">Renewable Energy Credit</a>
+            <ul>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+      
+    
+  </li>
+<ul class="m-list">
+<li class="d-block d-lg-none d-mb my-3 pt-3" style="
+    border-top: solid 2px rgba(255, 255, 255, 0.1);">
+    <a class="text-white text-decoration-none mx-4 subtitle1" href="https://www.ercot.com/news/releases">News Releases</a>
+</li>
+<li class="d-block d-lg-none d-mb my-3 pt-3" style="
+    border-top: solid 2px rgba(255, 255, 255, 0.1);">
+    <a class="text-white text-decoration-none mx-4 subtitle1" href="https://www.ercot.com/gridmktinfo/dashboards">Grid and Market Conditions</a>
+</li>
+</ul>
+</ul>
+</nav>
+  </mainheader>
+</header>
+<script src="/static-assets/js/app/nav.js"></script>
+                <div class="container-fluid">
+                    <div class="row">
+    <div
+        class="col content-margin"
+    >                            <!-- Page Content -->
+                            <div id="bcrumb" class="d-sm-none d-md-block"><ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/gridinfo">Grid Information</a></li>
+        <li><a href="/gridinfo/load">Load</a></li>
+        <li class="active">Load Forecast</li>
+                            </ul></div>
+                                  <h1
+    >Load Forecast</h1>
+
+                                <div
+    ><p style="margin-top: 0in; background: white;">This page contains information related to ERCOT&rsquo;s Mid-Term Load Forecast (MTLF) and Long-Term Load Forecast (LTLF) and Winter 2025-2026 Load Forecast for the Reliability Standard Magnitude.</p>
+<p style="margin-top: 0in; background: white;"><br /></p></div>
+
+    <div
+    ><div>
+<div name="section" class="section mb-5">
+      <div class="title">    <h2
+    >Long-Term Load Forecast</h2>
+</div>
+  <div id="details-2e537902-6a7d-8d5a-219d-4ce3b0f6b21b" 
+    class="section-details
+">
+
+      <div class="mb-5"><p>The Long-Term Load forecast is an hourly forecast for the next 10 years. &nbsp;It is based on forecasted economic data and historical weather from 2008&ndash;2022.</p></div>
+  </div>
+</div>
+</div>
+
+<div class="container my-5">
+    <div class="row justify-content-center text-center">
+        <div class="col-12 chart col-md-6 mb-4">
+            
+            <a href="#shopModal5" data-toggle="modal">
+                <img  src="https://www.ercot.com/static-assets/data/images/spotlight/annual-v-peak-adjusted-forecast.png" class="img-fluid" alt="Annual Energy Vs. Peak Demand ERCOT Based on ERCOT Adjusted Forecast" width="443" height="308.11">
+            </a>
+            <h7>Annual Energy Vs. Peak Demand ERCOT Based on ERCOT Adjusted Forecast</h7>
+        </div>
+
+        <div class="col-12 chart col-md-6 mb-4">
+            
+            <a href="#shopModal6" data-toggle="modal">
+                <img src="https://www.ercot.com/static-assets/data/images/spotlight/tsp-large-load-breakdown.png" class="img-fluid" alt="TSP Provided Large Load Breakdown" width="443" height="308.11">
+            </a>
+            <h7>ERCOT Adjusted Large Load Breakdown</h7>
+        </div>
+
+        <div class="col-12 chart col-md-6 mb-4">
+            
+            <a href="#shopModal7" data-toggle="modal">
+                <img  src="https://www.ercot.com/static-assets/data/images/spotlight/annual-v-peak-tsp-provided.png"  class="img-fluid" alt="Annual Energy Vs. Peak Demand Based on TSP Provided Forecast" width="443" height="308.11">
+            </a>
+            <h7>Annual Energy Vs. Peak Demand Based on TSP Provided Forecast</h7>
+        </div>
+       
+        <div class="col-12 chart col-md-6 mb-4">
+            
+            <a href="#shopModal8" data-toggle="modal">
+                <img src="https://www.ercot.com/static-assets/data/images/spotlight/adjusted-large-load-breakdown.png" class="img-fluid" alt="ERCOT Adjusted Large Load Breakdown" width="443" height="308.11">
+            </a>
+            <h7>TSP Provided Large Load Breakdown</h7>
+        </div>
+
+        
+
+        
+<p class="m-auto caption">*Click on image to view it in greater detail.</p>
+    </div>
+</div>
+
+<!-- Modals -->
+<div class="modal fade" id="shopModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h7 class="modal-title">Annual Energy Vs. Peak Demand ERCOT Based on ERCOT Adjusted Forecast</h7>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="https://www.ercot.com/static-assets/data/images/spotlight/annual-v-peak-adjusted-forecast.png" class="img-fluid" alt="Annual Energy Vs. Peak Demand ERCOT Based on ERCOT Adjusted Forecast">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="shopModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h7 class="modal-title">ERCOT Adjusted Large Load Breakdown</h7>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="https://www.ercot.com/static-assets/data/images/spotlight/tsp-large-load-breakdown.png" class="img-fluid" alt="TSP Provided Large Load Breakdown">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="shopModal7" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h7 class="modal-title">Annual Energy Vs. Peak Demand Based on TSP Provided Forecas</h7>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="https://www.ercot.com/static-assets/data/images/spotlight/annual-v-peak-tsp-provided.png"  class="img-fluid" alt="Annual Energy Vs. Peak Demand Based on TSP Provided Forecas">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="shopModal8" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h7 class="modal-title">TSP Provided Large Load Breakdown</h7>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="https://www.ercot.com/static-assets/data/images/spotlight/adjusted-large-load-breakdown.png" class="img-fluid" alt="ERCOT Adjusted Large Load Breakdown">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+<div name="section" class="section mb-5">
+  <div id="details-37475432-cc53-4995-5a86-9892fe404ae9" 
+    class="section-details
+">
+
+    <div name="section-components" class="mt-5">
+<div>
+<div name="section" class="section mb-5">
+    <h3 id="sectionDetailsAccordion-5e055a7d-498a-a76a-fa72-a281ec2e10e8" class="mb-2 p-3 section-details-accordion" data-toggle="collapse" data-target="#details-5e055a7d-498a-a76a-fa72-a281ec2e10e8" role="button"
+      aria-expanded="true" aria-controls="details-5e055a7d-498a-a76a-fa72-a281ec2e10e8">
+        <span class=""><i class="far fa-minus mt-1 mr-2"></i>2025 Long-Term Load Forecast Reports</span>
+        <span class="d-none"><i class="far fa-plus mt-1 mr-2"></i>2025 Long-Term Load Forecast Reports</span>
+    </h3>
+    <script>
+      $('#sectionDetailsAccordion-5e055a7d-498a-a76a-fa72-a281ec2e10e8').click(function() {
+          $(this).find('span').toggleClass('d-none')
+      });
+    </script>
+  <div id="details-5e055a7d-498a-a76a-fa72-a281ec2e10e8" 
+    class="section-details
+        collapse
+          show
+      ">
+
+    <div name="section-components" class="mt-5">
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/04/08/2025-ERCOT-Monthly-Peak-Demand-and-Energy-Forecast.xlsx" title="2025 ERCOT Monthly Peak Demand and Energy Forecast" class="d-block pb-2">2025 ERCOT Monthly Peak Demand and Energy Forecast</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    Contains ERCOT Monthly Peak Demand and Energy values.
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Apr 8, 2025 - xlsx - 26.6 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/04/08/2025_LTLF_Report.docx" title="ERCOT 2025 Long-Term Load Forecast Report" class="d-block pb-2">ERCOT 2025 Long-Term Load Forecast Report</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    Contains an explanation of how the ERCOT Long-Term Hourly Peak Demand and Energy Forecast was developed.
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 7, 2025 - docx - 1014.2 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/04/08/TSP-Provided-Hourly-Forecast.xlsb" title="TSP Provided Hourly Forecast" class="d-block pb-2">TSP Provided Hourly Forecast</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    ERCOT and Weather Zone hourly load forecast with TSP provided large load additions
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Apr 8, 2025 - xlsb - 46.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/04/08/ErcotAdjustedForecast.xlsb" title="ERCOT Adjusted Forecast" class="d-block pb-2">ERCOT Adjusted Forecast</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    ERCOT and Weather Zone hourly load forecast with adjustments applied to the TSP provided large load additions
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Apr 15, 2025 - xlsb - 46.2 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+<div>
+<div name="section" class="section mb-5">
+    <h3 id="sectionDetailsAccordion-ee64bcc1-ccd4-3325-2961-821866da8fe8" class="mb-2 p-3 section-details-accordion" data-toggle="collapse" data-target="#details-ee64bcc1-ccd4-3325-2961-821866da8fe8" role="button"
+      aria-expanded="true" aria-controls="details-ee64bcc1-ccd4-3325-2961-821866da8fe8">
+        <span class=""><i class="far fa-minus mt-1 mr-2"></i>2025 Load Forecast Scenarios</span>
+        <span class="d-none"><i class="far fa-plus mt-1 mr-2"></i>2025 Load Forecast Scenarios</span>
+    </h3>
+    <script>
+      $('#sectionDetailsAccordion-ee64bcc1-ccd4-3325-2961-821866da8fe8').click(function() {
+          $(this).find('span').toggleClass('d-none')
+      });
+    </script>
+  <div id="details-ee64bcc1-ccd4-3325-2961-821866da8fe8" 
+    class="section-details
+        collapse
+          show
+      ">
+
+    <div name="section-components" class="mt-5">
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/02/05/p90_peaks_may.xlsx" title="2025 Weekly P90 Peaks" class="d-block pb-2">2025 Weekly P90 Peaks</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Feb 5, 2025 - xlsx - 20 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/04/08/ERCOT-Peak-Demand-Scenarios.xlsx" title="ERCOT Peak Demand Scenarios" class="d-block pb-2">ERCOT Peak Demand Scenarios</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    Contains ERCOT summer peak demand forecast scenarios for 2025– 2031. These scenarios are based on using historical weather years in the forecast model. Includes ERCOT net summer peak forecast and the 90th percentile forecast
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Apr 8, 2025 - xlsx - 14.7 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/04/08/Summer-and-Winter-Peaks.xlsx" title="Summer and Winter Peaks" class="d-block pb-2">Summer and Winter Peaks</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    Contains weather zone coincident and non-coincidental summer and winter peak demand forecasts for 2025-2031
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Apr 8, 2025 - xlsx - 17.8 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+<div name="section" class="section mb-5">
+    <h3 id="sectionDetailsAccordion-5f44d5c8-7385-a68d-ba00-b455ced38337" class="mb-2 p-3 section-details-accordion" data-toggle="collapse" data-target="#details-5f44d5c8-7385-a68d-ba00-b455ced38337" role="button"
+      aria-expanded="false" aria-controls="details-5f44d5c8-7385-a68d-ba00-b455ced38337">
+        <span class="d-none"><i class="far fa-minus mt-1 mr-2"></i>Weather Year Scenario Forecast - By Weather Region</span>
+        <span class=""><i class="far fa-plus mt-1 mr-2"></i>Weather Year Scenario Forecast - By Weather Region</span>
+    </h3>
+    <script>
+      $('#sectionDetailsAccordion-5f44d5c8-7385-a68d-ba00-b455ced38337').click(function() {
+          $(this).find('span').toggleClass('d-none')
+      });
+    </script>
+  <div id="details-5f44d5c8-7385-a68d-ba00-b455ced38337" 
+    class="section-details
+        collapse
+          hide
+      ">
+
+      <div class="mb-5"><p>Files contain weather year (1980 - 2024) forecasts for 2025 - 2035</p></div>
+    <div name="section-components" class="mt-5">
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/08/22/Coast.xlsx" title="Coast" class="d-block pb-2">Coast</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 22, 2025 - xlsx - 68.3 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/08/22/East.xlsx" title="East" class="d-block pb-2">East</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 22, 2025 - xlsx - 67.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/08/22/FWest.xlsx" title="Far West" class="d-block pb-2">Far West</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 22, 2025 - xlsx - 68.3 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/08/22/Ncent.xlsx" title="North Central" class="d-block pb-2">North Central</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 22, 2025 - xlsx - 68.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/08/22/North.xlsx" title="North" class="d-block pb-2">North</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 22, 2025 - xlsx - 68.4 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/08/22/SCENT.xlsx" title="South Central" class="d-block pb-2">South Central</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 22, 2025 - xlsx - 78.2 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/08/22/South.xlsx" title="South" class="d-block pb-2">South</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 22, 2025 - xlsx - 66.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/08/22/West.xlsx" title="West" class="d-block pb-2">West</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 22, 2025 - xlsx - 66.1 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+<div>
+<div name="section" class="section mb-5">
+      <div class="title">    <h2
+    >Mid-Term Load Forecast</h2>
+</div>
+  <div id="details-797f8f5b-f19f-da87-b910-3c11837d3664" 
+    class="section-details
+">
+
+      <div class="mb-5"><p><!-- x-tinymce/html -->The Mid-Term Load forecast (MTLF) is an hourly forecast for the next 168 hours based on current weather forecast parameters within each Weather Zone. The MTLF Monthly Mean Absolute Percentage Error (MAPE) chart below contains average MAPE values for the 3 hour ahead, 6 hour ahead, and day ahead forecast horizons for each calendar month. The MTLF Monthly Backcast chart contains the average model error for each calendar month. Note that a backcast is created by using the current MTLF forecast models with actual weather data and calendar variables (day-of-week, holiday) as input. The backcasted values are then compared to the actual load values to arrive at model error.</p></div>
+  </div>
+</div>
+</div>
+    <div class="container my-5">
+        <div class="row justify-content-center text-center">
+            <div class="col-12 chart col-md-6 mb-4">
+                
+                <a href="#shopModal1" data-toggle="modal">
+                    <img  src="https://www.ercot.com/files/assets/2026/09/02/load-mtlf-mape.png" class="img-fluid" alt="MTLF Monthly MAPE" width="443" height="295">
+                </a>
+                <h7>MTLF Monthly MAPE</h7>
+            </div>
+
+            <div class="col-12 chart col-md-6 mb-4">
+                
+                <a href="#shopModal2" data-toggle="modal">
+                    <img  src="https://www.ercot.com/files/assets/2026/09/02/load-backcast.png"  class="img-fluid" alt="Monthly Backcast" width="443" height="295">
+                </a>
+                <h7>Monthly Backcast</h7>
+            </div>
+
+            <div class="col-12 chart col-md-6 mb-4">
+                
+                <a href="#shopModal3" data-toggle="modal">
+                    <img  src="https://www.ercot.com/files/assets/2026/09/02/load-ercot-aver-forecast-error.png"  class="img-fluid" alt="Average Forecast Error" width="443" height="295">
+                </a>
+                <h7>Average Forecast Error</h7>
+            </div>
+
+            <div class="col-12 chart col-md-6 mb-4">
+                
+                <a href="#shopModal4" data-toggle="modal">
+                    <img src="https://www.ercot.com/files/assets/2026/09/02/load-ercot-freq-over-forecast.png" class="img-fluid" alt="Frequency of Over and Under Forecast" width="443" height="295">
+                </a>
+                <h7>Frequency of Over and Under Forecast</h7>
+            </div>
+    <p class="m-auto caption">*Click on image to view it in greater detail.</p>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal fade" id="shopModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h7 class="modal-title">MTLF Monthly MAPE</h7>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="https://www.ercot.com/files/assets/2026/09/02/load-mtlf-mape.png" class="img-fluid" alt="MTLF Monthly MAPE">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="shopModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h7 class="modal-title">Monthly Backcast</h7>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="https://www.ercot.com/files/assets/2026/09/02/load-backcast.png"  class="img-fluid" alt="Monthly Backcast">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="shopModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h7 class="modal-title">Average Forecast Error</h7>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="https://www.ercot.com/files/assets/2026/09/02/load-ercot-aver-forecast-error.png"  class="img-fluid" alt="Average Forecast Error">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="shopModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h7 class="modal-title">Frequency of Over and Under Forecast</h7>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="https://www.ercot.com/files/assets/2026/09/02/load-ercot-freq-over-forecast.png" class="img-fluid" alt="Frequency of Over and Under Forecast">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div>
+<div name="section" class="section mb-5">
+    <h3 id="sectionDetailsAccordion-f8ef631d-05a5-7c8c-3d3e-53cae9faf8bc" class="mb-2 p-3 section-details-accordion" data-toggle="collapse" data-target="#details-f8ef631d-05a5-7c8c-3d3e-53cae9faf8bc" role="button"
+      aria-expanded="false" aria-controls="details-f8ef631d-05a5-7c8c-3d3e-53cae9faf8bc">
+        <span class="d-none"><i class="far fa-minus mt-1 mr-2"></i>2026 Mid-Term Load Forecast Reports</span>
+        <span class=""><i class="far fa-plus mt-1 mr-2"></i>2026 Mid-Term Load Forecast Reports</span>
+    </h3>
+    <script>
+      $('#sectionDetailsAccordion-f8ef631d-05a5-7c8c-3d3e-53cae9faf8bc').click(function() {
+          $(this).find('span').toggleClass('d-none')
+      });
+    </script>
+  <div id="details-f8ef631d-05a5-7c8c-3d3e-53cae9faf8bc" 
+    class="section-details
+        collapse
+          hide
+      ">
+
+    <div name="section-components" class="mt-5">
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2026/09/02/DayAhead-Backcast-Report-Aug26.xlsx" title="DayAhead Backcast Report August 2026" class="d-block pb-2">DayAhead Backcast Report August 2026</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Sep 2, 2026 - xlsx - 30.7 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2026/08/07/DayAhead-Backcast-Report-July26.xlsx" title="DayAhead Backcast Report July 2026" class="d-block pb-2">DayAhead Backcast Report July 2026</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 7, 2026 - xlsx - 29.6 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2026/07/13/DayAhead-Backcast-Report-June26.xlsx" title="DayAhead Backcast Report June 2026" class="d-block pb-2">DayAhead Backcast Report June 2026</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Jul 13, 2026 - xlsx - 29.3 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2026/06/03/DayAhead-Backcast-Report-May26.xlsx" title="DayAhead Backcast Report May 2026" class="d-block pb-2">DayAhead Backcast Report May 2026</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Jun 3, 2026 - xlsx - 29 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2026/05/05/DayAhead-Backcast-Report-Apr26.xlsx" title="DayAhead Backcast Report April 2026" class="d-block pb-2">DayAhead Backcast Report April 2026</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">May 5, 2026 - xlsx - 29 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2026/04/10/DayAhead-Backcast-Report-Mar26.xlsx" title="DayAhead Backcast Report March 2026" class="d-block pb-2">DayAhead Backcast Report March 2026</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Apr 10, 2026 - xlsx - 29 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2026/03/27/MidTerm_Load_Metrics_Feb26.xlsx" title="DayAhead Backcast Report February 2026" class="d-block pb-2">DayAhead Backcast Report February 2026</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Apr 9, 2026 - xlsx - 686.5 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2026/03/27/MidTerm_Load_Metrics_Jan26.xlsx" title="DayAhead Backcast Report January 2026" class="d-block pb-2">DayAhead Backcast Report January 2026</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Apr 9, 2026 - xlsx - 751.4 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+<div>
+<div name="section" class="section mb-5">
+    <h3 id="sectionDetailsAccordion-25dd75b0-be64-d4cd-72ad-29127b667fe0" class="mb-2 p-3 section-details-accordion" data-toggle="collapse" data-target="#details-25dd75b0-be64-d4cd-72ad-29127b667fe0" role="button"
+      aria-expanded="false" aria-controls="details-25dd75b0-be64-d4cd-72ad-29127b667fe0">
+        <span class="d-none"><i class="far fa-minus mt-1 mr-2"></i>2025 Mid-Term Load Forecast Reports</span>
+        <span class=""><i class="far fa-plus mt-1 mr-2"></i>2025 Mid-Term Load Forecast Reports</span>
+    </h3>
+    <script>
+      $('#sectionDetailsAccordion-25dd75b0-be64-d4cd-72ad-29127b667fe0').click(function() {
+          $(this).find('span').toggleClass('d-none')
+      });
+    </script>
+  <div id="details-25dd75b0-be64-d4cd-72ad-29127b667fe0" 
+    class="section-details
+        collapse
+          hide
+      ">
+
+    <div name="section-components" class="mt-5">
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2026/03/27/DayAhead-Backcast-Report-Dec25.xlsx" title="Day-Ahead Backcast Report December 2025" class="d-block pb-2">Day-Ahead Backcast Report December 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Mar 27, 2026 - xlsx - 29.1 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/12/03/DayAhead-Backcast-ReportNov25.xlsx" title="Day-Ahead Backcast Report November 2025" class="d-block pb-2">Day-Ahead Backcast Report November 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Dec 3, 2025 - xlsx - 38.1 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/11/05/DayAhead-Backcast-ReportOct25.xlsx" title="Day-Ahead Backcast Report October 2025" class="d-block pb-2">Day-Ahead Backcast Report October 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Nov 5, 2025 - xlsx - 38.4 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/10/03/DayAhead-Backcast-ReportSep25.xlsx" title="Day-Ahead Backcast Report September 2025" class="d-block pb-2">Day-Ahead Backcast Report September 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Oct 3, 2025 - xlsx - 38.1 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/09/08/DayAhead-Backcast-ReportAug25.xlsx" title="Day-Ahead Backcast Report August 2025" class="d-block pb-2">Day-Ahead Backcast Report August 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Sep 8, 2025 - xlsx - 38.1 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/08/06/DayAhead-Backcast-ReportJul25.xlsx" title="Day-Ahead Backcast Report July 2025" class="d-block pb-2">Day-Ahead Backcast Report July 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 6, 2025 - xlsx - 38.1 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/08/06/DayAhead-Backcast-ReportJun25.xlsx" title="Day-Ahead Backcast Report June 2025" class="d-block pb-2">Day-Ahead Backcast Report June 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 6, 2025 - xlsx - 38.1 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/06/12/DayAhead-Backcast-ReportMay25.xlsb.xlsx" title="Day-Ahead Backcast Report May 2025" class="d-block pb-2">Day-Ahead Backcast Report May 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Jun 12, 2025 - xlsx - 38 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+<div name="section" class="section mb-5">
+    <h3 id="sectionDetailsAccordion-5308e1bb-d866-e3ef-8252-83a11cb0b549" class="mb-2 p-3 section-details-accordion" data-toggle="collapse" data-target="#details-5308e1bb-d866-e3ef-8252-83a11cb0b549" role="button"
+      aria-expanded="false" aria-controls="details-5308e1bb-d866-e3ef-8252-83a11cb0b549">
+        <span class="d-none"><i class="far fa-minus mt-1 mr-2"></i>Monthly Mid-Term Load Forecast Metrics</span>
+        <span class=""><i class="far fa-plus mt-1 mr-2"></i>Monthly Mid-Term Load Forecast Metrics</span>
+    </h3>
+    <script>
+      $('#sectionDetailsAccordion-5308e1bb-d866-e3ef-8252-83a11cb0b549').click(function() {
+          $(this).find('span').toggleClass('d-none')
+      });
+    </script>
+  <div id="details-5308e1bb-d866-e3ef-8252-83a11cb0b549" 
+    class="section-details
+        collapse
+          hide
+      ">
+
+      <div class="mb-5"><p><span style="color: #212529; font-family: Roboto, sans-serif; font-size: 16px; text-align: left; float: none; display: inline;">Includes data from Average Error Forecast and Frequency Over Under Forecast.</span></p></div>
+    <div name="section-components" class="mt-5">
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/12/03/Mid_Term_Load_Forecast_Metrics_Nov_2025.xlsx" title="Metrics - November 2025" class="d-block pb-2">Metrics - November 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Dec 3, 2025 - xlsx - 1.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/11/05/Mid_Term_Load_Forecast_Metrics_Oct_2025.xlsx" title="Metrics - October 2025" class="d-block pb-2">Metrics - October 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Nov 5, 2025 - xlsx - 1.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/10/03/Mid_Term_Load_Forecast_Metrics_Sep_2025.xlsx" title="Metrics - September 2025" class="d-block pb-2">Metrics - September 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Oct 3, 2025 - xlsx - 1.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/09/08/Mid_Term_Load_Forecast_Metrics_Aug_2025.xlsx" title="Metrics - Aug 2025" class="d-block pb-2">Metrics - Aug 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Sep 8, 2025 - xlsx - 1.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/08/06/Mid_Term_Load_Forecast_Metrics_July_2025.xlsx" title="Metrics - July 2025" class="d-block pb-2">Metrics - July 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 6, 2025 - xlsx - 1.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/08/06/Mid_Term_Load_Forecast_Metrics_June_2025.xlsx" title="Metrtics - June 2025" class="d-block pb-2">Metrtics - June 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Aug 6, 2025 - xlsx - 1.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/06/12/Mid_Term_Load_Forecast_Metrics_May_2025.xlsb.xlsx" title="Metrics - May 2025" class="d-block pb-2">Metrics - May 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Jun 12, 2025 - xlsx - 1.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/05/05/Mid_Term_Load_Forecast_Metrics.xlsb.xlsx" title="Metrics - April 2025" class="d-block pb-2">Metrics - April 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">May 5, 2025 - xlsx - 1.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/04/07/Mid_Term_Load_Forecast_Metrics_Mar_2025.xlsb.xlsx" title="Metrics - March 2025" class="d-block pb-2">Metrics - March 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Apr 7, 2025 - xlsx - 1.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/03/21/Mid_Term_Load_Forecast_Metrics_Feb_2025.xlsb.xlsx" title="Metrics - February 2025" class="d-block pb-2">Metrics - February 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Mar 21, 2025 - xlsx - 1.4 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/02/04/mid_term_load_forecast_metrics_jan_2025-xlsb.xlsx" title="Metrics - January 2025" class="d-block pb-2">Metrics - January 2025</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Feb 4, 2025 - xlsx - 1.5 MB</span>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+<div>
+<div name="section" class="section mb-5">
+      <div class="title">    <h2
+    >Winter 2025-2026 Load Forecast for Reliability Standard Magnitude</h2>
+</div>
+  <div id="details-194881d7-3225-4238-07d9-fe031cf7c3c1" 
+    class="section-details
+">
+
+      <div class="mb-5"><div id="element.sc_task.work_notes">
+<div id="element.sc_task.work_notes.additional">
+<div>
+<div>The load forecast provided is the ERCOT-adjusted 75th percentile of the load forecast for Winter 2025-2026, with each Transmission Operator&rsquo;s (TO&rsquo;s) respective portion of the ERCOT System load broken out. Note that these values do not include any Large Load megawatts that are subject to curtailment under the Senate Bill (S.B.) 6 (89th Tex. Leg., R.S.) requirements of Public Utility Regulatory Act &sect;&sect; 37.0561(e) and 39.169 (i.e., Large Load that has at least 50% backup generation installed or is colocated with certain Generation Resources). ERCOT is consulting with TOs and the Staff of the Public Utility Commission of Texas (PUCT) to use this load forecast to develop the reliability standard&rsquo;s magnitude criterion for 2025-2026 in accordance with the requirement of 16 Texas Administrative Code &sect; 25.508(b)(3).</div>
+</div>
+</div>
+</div>
+<p><br /></p></div>
+    <div name="section-components" class="mt-5">
+
+
+
+
+
+
+
+
+
+    <div
+        class="row wrapper ml-0 pt-2 pb-2"
+    >    <div class="col pl-2">
+        <div class="row" >
+            <div class="col-12 col-md">
+                <a download href="https://www.ercot.com/files/docs/2025/10/06/ERCOT-Adjusted-Load-Forecast-Winter-2025-2026-for-RS-Magnitude-2025.10.07-.xlsx" title="ERCOT Adjusted Load Forecast Winter 2025-2026 for RS Magnitude" class="d-block pb-2">ERCOT Adjusted Load Forecast Winter 2025-2026 for RS Magnitude</a>
+                <div class="row">
+                    <div $field="description_t" class="col">
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2 caption col-12 col-md-2">
+                <span class="">Oct 7, 2025 - xlsx - 788.1 KB</span>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+<style type="text/css">
+          .chart img {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+}
+
+ .chart a: focus img{
+border: 2px solid #ccc;
+box-shadow: 0 0 0 0.2rem rgba(65, 156, 172, 0.5)
+}
+.chart h7{
+display: block;
+text-align: center;
+}
+        </style></div>
+</div>
+                    </div> <!-- row end -->
+                </div> <!-- container end -->
+
+<!-- footer icons and logo sprite sheet -->
+<svg width="0" height="0" class="hidden">
+  <symbol id="fb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.9069 36.83714">
+    <defs></defs>
+    <path d="M18.17216,1.774a16,16,0,1,0,16,16A16.00084,16.00084,0,0,0,18.17216,1.774ZM21.6,17.77987h-2.2422V25.774h-3.3223v-7.9941h-1.5801v-2.8242h1.5801v-1.8281A3.1158,3.1158,0,0,1,19.388,9.774l2.461.0098V12.526h-1.7862a.67628.67628,0,0,0-.705.7695v1.6602H21.891Z"></path>
+  </symbol>
+  <symbol id="li" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.9069 36.83714">
+    <defs></defs>
+    <path d="M18.91245,17.24386v-.03319a.20251.20251,0,0,1-.0225.03319Z"></path>
+    <path d="M17.95345,2.41957a16,16,0,1,0,16,16A16.0002,16.0002,0,0,0,17.95345,2.41957Zm-4.3672,23.6465h-3.4307V15.74967h3.4307Zm-1.7158-11.7265H11.848a1.788,1.788,0,1,1,.0449-3.5664,1.78876,1.78876,0,1,1-.0224,3.5664Zm14.083,11.7265H22.52376v-5.5195c0-1.38671-.49611-2.334-1.73831-2.334a1.88107,1.88107,0,0,0-1.75969,1.2559,2.33048,2.33048,0,0,0-.11331.8359v5.7617H15.48376s.04389-9.3496,0-10.3164h3.42869v1.461a3.40358,3.40358,0,0,1,3.0918-1.7032c2.2558,0,3.9492,1.4727,3.9492,4.6426Z"></path>
+  </symbol>
+  <symbol version="1.1" id="mail-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve" viewBox="0 0 35.9 36.8">
+    <path d="M18,2.4c-8.8,0-16,7.2-16,16s7.2,16,16,16s16-7.2,16-16C34,9.6,26.8,2.4,18,2.4z M26,22.9
+	c0,0.8-0.7,1.5-1.5,1.5h-13c-0.8,0-1.5-0.7-1.5-1.5v-6.4c0-0.2,0.2-0.2,0.3-0.1c0.7,0.5,1.6,1.2,4.8,3.5c0.7,0.5,1.8,1.5,2.9,1.5
+	c1.1,0,2.2-1,2.9-1.5c3.2-2.3,4.1-3,4.8-3.6c0.1-0.1,0.3,0,0.3,0.1V22.9z M26,14.5c0,0.2-0.1,0.5-0.3,0.6c-1,0.8-1.3,1-5.4,4
+	c-0.5,0.4-1.6,1.3-2.3,1.3c-0.7,0-1.8-0.9-2.3-1.3c-4.1-3-4.5-3.3-5.4-4C10.1,15,10,14.7,10,14.5v-0.6c0-0.8,0.7-1.5,1.5-1.5h13
+	c0.8,0,1.5,0.7,1.5,1.5V14.5z"></path>
+  </symbol>
+  <symbol version="1.1" id="news-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve" viewBox="0 0 35.9 36.8">
+    <g>
+      <path d="M18.1,18.4h-4.8c-0.2,0-0.4,0.2-0.4,0.4V19c0,0.2,0.2,0.4,0.4,0.4h4.8c0.2,0,0.4-0.2,0.4-0.4v-0.2
+		C18.5,18.6,18.3,18.4,18.1,18.4z"></path>
+      <path d="M18.1,21.4h-4.8c-0.2,0-0.4,0.2-0.4,0.4V22c0,0.2,0.2,0.4,0.4,0.4h4.8c0.2,0,0.4-0.2,0.4-0.4v-0.2
+		C18.5,21.6,18.3,21.4,18.1,21.4z"></path>
+      <path d="M10.5,22.7c0,0.1,0.1,0.2,0.2,0.2s0.2-0.1,0.2-0.2v-7.8h-0.5V22.7z"></path>
+      <path d="M24.6,21.4h-4.8c-0.2,0-0.4,0.2-0.4,0.4V22c0,0.2,0.2,0.4,0.4,0.4h4.8c0.2,0,0.4-0.2,0.4-0.4v-0.2
+		C25,21.6,24.8,21.4,24.6,21.4z"></path>
+      <path d="M24.6,18.4h-4.8c-0.2,0-0.4,0.2-0.4,0.4V19c0,0.2,0.2,0.4,0.4,0.4h4.8c0.2,0,0.4-0.2,0.4-0.4v-0.2
+		C25,18.6,24.8,18.4,24.6,18.4z"></path>
+      <path d="M24.6,14.4H13.3c-0.2,0-0.4,0.2-0.4,0.4V16c0,0.2,0.2,0.4,0.4,0.4h11.2c0.2,0,0.4-0.2,0.4-0.4v-1.2
+		C25,14.6,24.8,14.4,24.6,14.4z"></path>
+      <path d="M18,2.4c-8.8,0-16,7.2-16,16s7.2,16,16,16s16-7.2,16-16C34,9.6,26.8,2.4,18,2.4z M27,22.9
+		c0,0.8-0.7,1.5-1.5,1.5H10.7c-1,0-1.8-0.8-1.8-1.8v-8.5c0-0.4,0.3-0.8,0.8-0.8H11v-0.2c0-0.4,0.3-0.8,0.8-0.8h14.5
+		c0.4,0,0.8,0.3,0.8,0.8V22.9z"></path>
+    </g>
+  </symbol>
+  <symbol id="tw" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.9069 36.83714">
+<defs>
+</defs>
+<polygon class="cls-1" points="13.35 10.42 25.31 26.41 22.6 26.41 10.64 10.42 13.35 10.42"/>
+<path class="cls-1" d="M17.95,2.42C9.12,2.42,1.95,9.58,1.95,18.42s7.16,16,16,16,16-7.16,16-16S26.79,2.42,17.95,2.42ZM21.96,27.69l-5.44-7.28-6.74,7.28h-1.73l7.7-8.31-7.65-10.23h5.89l5.01,6.7,6.21-6.7h1.73l-7.16,7.74,8.08,10.8h-5.89Z"/>
+</symbol>
+  <symbol id="yt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.9069 36.83714">
+    <defs></defs>
+    <path d="M17.81185,15.98107a.40938.40938,0,0,0,.2939-.1015.37059.37059,0,0,0,.1104-.2832v-2.4297a.28961.28961,0,0,0-.1113-.2363.44838.44838,0,0,0-.293-.0899.40118.40118,0,0,0-.2715.0899.3007.3007,0,0,0-.1035.2363v2.4297a.38922.38922,0,0,0,.0977.2832A.35572.35572,0,0,0,17.81185,15.98107Z"></path>
+    <path d="M19.82355,20.46937a.8012.8012,0,0,0-.374.0957,1.302,1.302,0,0,0-.3467.2813v-1.7676h-.8183V24.569h.8183v-.3105a1.03156,1.03156,0,0,0,.3467.27339.94323.94323,0,0,0,.4228.08791.66866.66866,0,0,0,.54992-.2285,1.00372,1.00372,0,0,0,.19038-.6582v-2.248a1.21029,1.21029,0,0,0-.2022-.7579A.70072.70072,0,0,0,19.82355,20.46937Zm-.0449,3.1504a.443.443,0,0,1-.0693.2793.2626.2626,0,0,1-.2188.0879.45388.45388,0,0,1-.19528-.0449.68225.68225,0,0,1-.19242-.1426v-2.5234a.60506.60506,0,0,1,.167-.125.41944.41944,0,0,1,.1719-.0391.31074.31074,0,0,1,.2519.1055.48241.48241,0,0,1,.085.3125Z"></path>
+    <polygon points="12.209 19.878 13.153 19.878 13.153 24.569 14.065 24.569 14.065 19.878 15.009 19.878 15.009 19.079 12.209 19.079 12.209 19.878"></polygon>
+    <path d="M16.86655,23.59437a1.14864,1.14864,0,0,1-.251.2188.4591.4591,0,0,1-.2256.084.1969.1969,0,0,1-.166-.0645.34665.34665,0,0,1-.0498-.207v-3.1074h-.8096V23.905a.8693.8693,0,0,0,.1416.541.50038.50038,0,0,0,.4239.1816.97538.97538,0,0,0,.4697-.1289,1.7429,1.7429,0,0,0,.4668-.375v.4453h.8096v-4.0507h-.8096Z"></path>
+    <path d="M17.95345,2.41857a16,16,0,1,0,16,16A16.00084,16.00084,0,0,0,17.95345,2.41857Zm1.9297,9.7618h.91012v3.4199a.36888.36888,0,0,0,.05858.2285.22037.22037,0,0,0,.1856.0723.52933.52933,0,0,0,.2549-.0938,1.26744,1.26744,0,0,0,.2802-.2402v-3.3867h.9122v4.4609h-.9122v-.4941a1.91206,1.91206,0,0,1-.5244.416,1.156,1.156,0,0,1-.5283.1445.57139.57139,0,0,1-.47658-.2031.93317.93317,0,0,1-.16012-.59571Zm-3.3838,1.01949a1.01757,1.01757,0,0,1,.3672-.82419,1.49555,1.49555,0,0,1,.9902-.3067,1.34519,1.34519,0,0,1,.9278.3223,1.07432,1.07432,0,0,1,.3593.834V15.53a1.16241,1.16241,0,0,1-.3525.8984,1.39316,1.39316,0,0,1-.9766.3262,1.34275,1.34275,0,0,1-.957-.3379,1.18326,1.18326,0,0,1-.3584-.9043ZM14.017,10.59437l.666,2.418h.0644l.6358-2.418h1.042l-1.1944,3.5391v2.5078h-1.0253v-2.3965l-1.2217-3.6504ZM25.95345,23.321a2.92489,2.92489,0,0,1-2.9228,2.9238H12.87535a2.92342,2.92342,0,0,1-2.9219-2.9238v-2.3496a2.92342,2.92342,0,0,1,2.9219-2.9238h10.1553a2.92489,2.92489,0,0,1,2.9228,2.9238Z"></path>
+    <path d="M22.267,20.41857a1.22245,1.22245,0,0,0-.8858.3301,1.14246,1.14246,0,0,0-.3437.8594v1.8184a1.2909,1.2909,0,0,0,.3125.9179,1.10887,1.10887,0,0,0,.8564.334,1.20665,1.20665,0,0,0,.9082-.31251,1.29526,1.29526,0,0,0,.30572-.93939v-.2071h-.833v.1836a.88216.88216,0,0,1-.08012.46289.334.334,0,0,1-.2822.10551.30322.30322,0,0,1-.2744-.1231.89483.89483,0,0,1-.0791-.4453v-.7617h1.54882v-1.0332a1.2138,1.2138,0,0,0-.29882-.8828A1.134,1.134,0,0,0,22.267,20.41857Zm.32032,1.5918h-.71582v-.4082a.59457.59457,0,0,1,.084-.3632.32146.32146,0,0,1,.2773-.1133.31085.31085,0,0,1,.26952.1133.601.601,0,0,1,.085.3632Z"></path>
+  </symbol>
+  <symbol id="app-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.9069 36.83714">
+    <g>
+      <path d="M21.89,10.7h-7.87c-0.12,0-0.22,0.1-0.22,0.22v14.99c0,0.12,0.1,0.22,0.22,0.22h7.87
+		c0.12,0,0.22-0.1,0.22-0.22V10.92C22.11,10.8,22.01,10.7,21.89,10.7z M17.95,25.54c-0.66,0-1.19-0.53-1.19-1.19
+		c0-0.66,0.53-1.19,1.19-1.19c0.66,0,1.19,0.53,1.19,1.19C19.14,25.01,18.61,25.54,17.95,25.54z"></path>
+      <path d="M17.95,2.42c-8.84,0-16,7.16-16,16s7.16,16,16,16s16-7.16,16-16C33.95,9.58,26.79,2.42,17.95,2.42z
+		 M23.89,26.14c0,0.98-0.8,1.78-1.78,1.78H13.8c-0.98,0-1.78-0.8-1.78-1.78V10.7c0-0.98,0.8-1.78,1.78-1.78h8.31
+		c0.98,0,1.78,0.8,1.78,1.78V26.14z"></path>
+    </g>
+  </symbol>
+<symbol id="ig" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.9069 36.83714">
+<defs>
+</defs>
+<path class="cls-1" d="M26.65,13.61c-.06-1.04-.22-1.6-.38-1.99-.19-.48-.42-.84-.8-1.22-.37-.37-.73-.59-1.23-.79-.37-.16-.94-.33-1.99-.37-1.12-.06-1.46-.07-4.31-.06-2.85,0-3.2.02-4.33.08-1.04.03-1.59.21-1.97.37-.49.19-.85.42-1.23.8-.37.37-.59.73-.8,1.23-.13.37-.31.94-.36,1.97-.06,1.14-.06,1.47-.06,4.32s.02,3.2.07,4.33c.04,1.04.22,1.59.38,1.97.19.49.42.86.8,1.23.37.36.73.59,1.23.8.37.13.94.31,1.99.36,1.12.06,1.46.06,4.31.06s3.2-.01,4.33-.07c1.04-.06,1.59-.22,1.97-.38.49-.19.85-.43,1.23-.81.37-.36.59-.72.8-1.22.13-.37.31-.94.36-1.99.06-1.12.06-1.46.06-4.31s-.02-3.2-.07-4.33ZM17.96,23.43c-3.03.02-5.49-2.43-5.5-5.46,0-3.03,2.45-5.49,5.48-5.5,3.03,0,5.49,2.45,5.5,5.48,0,3.03-2.45,5.49-5.48,5.49ZM23.65,13.52c-.71,0-1.29-.57-1.29-1.28s.57-1.28,1.28-1.28c.71-.01,1.29.57,1.29,1.28s-.57,1.28-1.28,1.28ZM17.94,14.39c-1.96.01-3.56,1.6-3.56,3.57.01,1.97,1.6,3.57,3.58,3.56,1.96,0,3.56-1.59,3.55-3.57,0-1.96-1.59-3.56-3.57-3.56Z"/>
+      <path id="pass" class="cls-1" d="M17.95,0C8.03,0,0,8.05,0,17.95s8.03,17.95,17.95,17.95,17.95-8.03,17.95-17.95S27.86,0,17.95,0ZM28.59,22.33c-.06,1.14-.24,1.92-.5,2.6-.26.7-.64,1.29-1.22,1.9-.59.59-1.19.95-1.89,1.23-.68.27-1.46.45-2.6.5-1.14.06-1.5.07-4.41.07-2.9.01-3.25,0-4.39-.06-1.14-.04-1.92-.22-2.6-.49-.71-.27-1.31-.64-1.9-1.22s-.97-1.19-1.23-1.89c-.26-.68-.45-1.46-.5-2.6-.04-1.13-.07-1.5-.08-4.41,0-2.88.01-3.27.06-4.41.06-1.12.24-1.9.5-2.58.26-.71.64-1.31,1.22-1.91.59-.58,1.19-.95,1.89-1.22.68-.28,1.46-.46,2.6-.52,1.14-.03,1.5-.06,4.41-.07,2.9,0,3.25.01,4.39.06,1.14.06,1.92.24,2.6.5.71.26,1.31.62,1.9,1.22.59.59.95,1.18,1.23,1.89.26.68.45,1.46.5,2.6.04,1.12.07,1.5.08,4.4,0,2.91-.01,3.27-.06,4.4Z"/>
+      <path class="cls-1" d="M21.51,17.94c.01,1.97-1.58,3.57-3.55,3.57-1.97.01-3.57-1.58-3.58-3.56,0-1.96,1.59-3.56,3.56-3.57,1.97,0,3.57,1.59,3.57,3.56Z"/>
+</symbol>
+
+  <symbol version="1.1" id="ercot-lockup-white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve" viewBox="0 0 226.3 83.6">
+    <title>ERCOT-Lockup-white</title>
+    <g id="Layer_1-2">
+      <g id="Layer_1-2-2">
+        <path d="M29.3,48.9c-2.9,9.2-8.7,13.5-17.9,13.5c-4.6,0-7.8-1.2-9.6-3.4c-2-2.6-2.4-6.7-1.1-12.4l3.1-13.4
+			C6.4,22.2,12.6,17,22.5,17c4.6,0,7.8,1.1,9.6,3.4c2,2.6,2.4,6.7,1.1,12.4l-1.6,6.8c-0.1,0.6-0.6,1-1.2,0.9H11.3
+			c-0.8,0-1.1,0-1.2,0.8l-1.6,6.6c-0.8,3.2-0.6,5.5,0.6,7c1,1.2,2.6,1.8,4.2,1.7c4.1,0,6.9-2.7,8.2-7.9c0.1-0.3,0.4-0.6,0.8-0.6h6.5
+			c0.3-0.1,0.6,0.1,0.7,0.4c0,0,0,0,0,0C29.4,48.6,29.4,48.8,29.3,48.9 M20.7,22.8c-4.2,0-7,2.8-8.2,8.2L12,33.1
+			c-0.1,0.3-0.1,0.7,0,1.1c0.2,0.5,0.5,0.5,1.2,0.5h10.6c0.8,0,1-0.1,1.2-0.8l0.5-2.3c0.8-3.2,0.6-5.5-0.6-7
+			C23.8,23.3,22.3,22.7,20.7,22.8"></path>
+        <path d="M65.5,17.6c-0.3,1.5-1.2,5.1-1.5,6.5c-0.1,0.3-0.4,0.5-0.7,0.5c0,0,0,0,0,0l0,0c-1.6-0.4-3.3-0.6-5-0.6
+			c-3.6,0-8,2.1-9.1,6.9l-7.1,30.2c-0.1,0.3-0.3,0.5-0.6,0.5h-7c-0.3,0-0.5-0.2-0.5-0.5c0,0,0,0,0,0c0,0,0-0.1,0-0.1l10-42.7
+			c0.1-0.3,0.3-0.5,0.6-0.5h6.1c0.6,0,0.9,0.1,0.8,0.7l-0.2,1c-0.2,1,0.5,1.1,1.5,0.4c3.4-2.6,7.8-3.7,12.1-3
+			C65.3,16.9,65.6,17.2,65.5,17.6C65.5,17.5,65.5,17.5,65.5,17.6L65.5,17.6"></path>
+        <path d="M91.7,46.2c0.2,0,0.4,0.2,0.4,0.5c0,0,0,0.1,0,0.1c-2.7,10.6-8.7,15.7-18.5,15.7c-4.6,0-7.8-1.2-9.6-3.4
+			c-2-2.6-2.4-6.7-1.1-12.4l3.1-13.4C68.6,22.2,74.7,17,84.7,17c4.5,0,7.7,1.1,9.5,3.3s2.4,5.8,1.6,10.6c-0.1,0.4-0.4,0.7-0.8,0.7
+			h-6.8c-0.2,0-0.4-0.2-0.4-0.5c0,0,0,0,0,0c0,0,0-0.1,0-0.1c0.6-3,0.4-5.1-0.7-6.4c-1-1.2-2.6-1.8-4.2-1.7c-4.2,0-7,2.8-8.3,8.2
+			l-3.9,16.8c-0.8,3.2-0.6,5.5,0.6,7c1,1.2,2.6,1.8,4.2,1.7c4.2,0,7-2.8,8.3-8.2l0.4-1.7c0.1-0.2,0.3-0.4,0.5-0.4L91.7,46.2z"></path>
+        <path d="M109.1,62.4c-4.6,0-7.8-1.2-9.6-3.4c-2-2.6-2.4-6.7-1.1-12.4l3.1-13.4c2.6-10.9,8.6-16.2,18.6-16.2
+			c4.6,0,7.8,1.1,9.6,3.4c2,2.6,2.4,6.7,1.1,12.4l-3.1,13.4C125.2,57.2,119.1,62.5,109.1,62.4 M118.4,22.9c-4.2,0-7,2.8-8.3,8.2
+			l-3.9,16.8c-0.8,3.2-0.6,5.5,0.6,7c1,1.2,2.6,1.8,4.2,1.7c4.2,0,7-2.8,8.3-8.2l3.9-16.8c0.8-3.2,0.6-5.5-0.6-7
+			C121.5,23.3,119.9,22.7,118.4,22.9"></path>
+        <path d="M142,24.3l-6.8,29c-0.7,2.9-0.4,5.1,0.7,6.6c1.3,1.7,3.9,2.5,7.6,2.5c1.3,0,2.7-0.1,4-0.3
+			c0.2,0,0.3-0.2,0.4-0.4l1.3-5.7c0-0.2-0.1-0.3-0.2-0.4c0,0,0,0,0,0h-1.8c-1.4,0-2.8-0.2-3.4-0.9s-0.5-2.4-0.1-4l6.2-26.5
+			c0.1-0.5,0.4-0.6,0.9-0.6h5.4c0.3,0,0.6-0.2,0.6-0.5l1.1-4.8c0.1-0.2-0.1-0.5-0.3-0.5h-5.6c-0.3,0-0.5-0.2-0.5-0.4
+			c0-0.1,0-0.2,0.1-0.3l2.5-10.9c0.2-0.8-0.5-0.8-0.5-0.8H147c-0.3,0-0.6,0.2-0.7,0.4l-2.7,11.3c-0.1,0.4-0.2,0.6-0.7,0.6h-5.3
+			c0,0-0.4,0-0.7,0.6l-1.1,4.6c-0.1,0.5,0.5,0.6,0.5,0.6h5.1C141.4,23.6,142.2,23.6,142,24.3"></path>
+        <path d="M210.9,40.7l-20.4,23.6c-0.1,0.1-0.2,0.1-0.3,0c0,0,0,0,0,0c-0.1-0.1-0.1-0.1-0.1-0.2l2-10.6
+			c0-0.3-0.2-0.6-0.5-0.6c0,0,0,0,0,0h-0.1l-4.7,1.4c-0.4,0.1-0.8,0.5-0.8,0.9l-4.5,27.1c-0.1,0.7,0.5,1,1,0.4l36.1-42.4
+			c0.3-0.3,0.3-0.8,0.1-1.1c-1.3-2-3.3-3.6-5.6-4.3c-6.8-2.7-14.8,2.1-20.2,4.9c-13.9,7.3-22.2,0.5-23.9-1.2
+			c-0.2-0.2-0.4-0.3-0.7-0.3h-5.9c-0.2,0-0.4,0.2-0.4,0.4c0,0.1,0,0.1,0.1,0.2c1.3,1.7,5.2,6.6,10.7,8.4c4.9,1.6,12.7,3,22.9-2.5
+			l0.1-0.1c5.5-3.1,11.3-5.8,14.9-4.5C210.6,40.2,211.1,40.4,210.9,40.7 M194.2,20.7c-8.6,5.1-14.3,5.6-16.4,4.5
+			c-0.3-0.2-0.4-0.5-0.4-0.8l3.8-18.2c0.1-0.2,0.3-0.4,0.5-0.4h11.4c0.2,0,0.3,0.1,0.3,0.3c0,0,0,0,0,0c0,0,0,0,0,0.1l-2.1,9.4
+			c0,0.2,0.1,0.4,0.3,0.4c0.1,0,0.2,0,0.2,0l4.9-2.2c0.3-0.1,0.5-0.4,0.6-0.7l2.7-12c0.1-0.4-0.1-0.9-0.5-1c0,0,0,0,0,0h-0.2h-22
+			c-0.4,0-0.7,0.3-0.8,0.7L171,26.5c-0.1,0.3,0,0.6,0.2,0.9l0.6,0.8c0.4,0.6,3,3.3,8.7,3.3c3.8,0,8.4-1.3,17.3-5.9
+			c0.1-0.1,13.8-8.2,21.5,0.9c0.2,0.2,0.4,0.3,0.7,0.3h5.9c0.2,0,0.4-0.2,0.4-0.4c0,0,0,0,0,0c0-0.1,0-0.1-0.1-0.2
+			C216.3,10.6,201.4,16.4,194.2,20.7"></path>
+      </g>
+    </g>
+  </symbol>
+</svg>
+<!-- end sprite sheet -->
+
+<footer class="combined container-fluid">
+  <div class="fc_quarter large">
+    <a href="/about">About ERCOT</a>
+    <a href="/services">Services</a>
+    <a href="/committees">Committees & Groups</a>
+    <a href="/mktrules">Market Rules</a>
+    <a href="/mktinfo">Market Information</a>
+    <a href="/gridinfo">Grid Information</a>
+    <a href="/mp">Market Participants </a>
+  </div>
+  <div class="fc_quarter large">
+    <a href="/about/contact">Contact Us</a>
+    <a href="/glossary">Glossary</a>
+    <a href="/careers">Careers</a>
+    <a href="/about/locations">Locations</a>
+    <a href="/calendar">Calendar</a>
+  </div>
+  
+  <div class="fc_quarter medium">
+    <h5>Quick Links</h5>
+      <a href="/about/governance/ethics">Ethics Point</a>
+      <a href="/services/comm/mkt_notices/opsmessages">Operations Messages</a>
+      <a href="/services/projects">Project Status</a>
+      <a href="/services/sla">Service Level Agreements</a>
+      <a href="https://mis.ercot.com/secure/applications">MIS Applications</a>
+      <a href="/gridmktinfo/dashboards">Grid and Market Conditions</a>
+      <a href="/mp/data-products">ERCOT Market Information List</a>
+      <a href="https://sa.ercot.com/rioo-rs/">Resource Integration & Ongoing Operations – Resource Services</a>
+      <a href="/txans?utm_source=navigation&utm_medium=footer&utm_campaign=txans&utm_term=txans-launch">Texas Advisory and Notification System</a>
+  </div>
+  <div class="fc_quarter medium">
+    <h5>STAY CONNECTED</h5>
+    <h6>SOCIAL</h6>
+    <div class="social">
+        <a href="https://www.facebook.com/ERCOTISO/" rel="noopener" target="_blank">
+            <svg class="icon"><use xlink:href="#fb"></use></svg>
+        </a>
+        <a href="https://instagram.com/ercot_iso" rel="noopener" target="_blank">
+            <svg class="icon"><use xlink:href="#ig"></use></svg>
+        </a>
+        <a href="https://twitter.com/ercot_iso" rel="noopener" target="_blank">
+            <svg class="icon"><use xlink:href="#tw"></use></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/ercot/" rel="noopener" target="_blank">
+            <svg class="icon"><use xlink:href="#li"></use></svg>
+        </a>
+        <a href="https://www.youtube.com/user/ERCOTISO" rel="noopener" target="_blank">
+            <svg class="icon"><use xlink:href="#yt"></use></svg>
+        </a>
+        <a href="http://www.ercot.com/news" rel="noopener" target="_blank">
+            <svg class="icon"><use xlink:href="#app-icon"></use></svg>
+        </a>
+      
+    </div>
+
+    <h6>News & Press</h6>
+      <a class="hasicon" href="https://lists.ercot.com">
+          <svg class="icon"><use xlink:href="#mail-icon"></use></svg>
+        Mailing Lists</a>
+      <a class="hasicon" href="/news">
+          <svg class="icon"><use xlink:href="#news-icon"></use></svg>
+        News & Publications</a>
+
+  </div>
+    <div class="w-100 medium terms_of_use"><p>Use of this site constitutes agreement to our <span style="text-decoration: underline;"><a title="ERCOT Terms of Use" href="/help/terms">Terms of Use</a></span>.</p></div>
+  <div class="fc_half copyright">© 1996-2026 Electric Reliability Council of Texas, Inc. All rights reserved.</div>
+  <div class="additional">
+      <a href="/help/sitemap">Sitemap</a>
+      <a href="/help/privacy">Privacy</a>
+  </div>
+  <div class="fc_quarter logo">
+    <a id="flogo" href="https://www.ercot.com">
+        <svg class="logo"><use xlink:href="#ercot-lockup-white"></use></svg>
+    </a>
+  </div>
+</footer>
+            </div> <!-- page--content end -->
+        </div> <!-- wrapper--main -->
+    <script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1944879170" async></script></body>
+
+</html>
