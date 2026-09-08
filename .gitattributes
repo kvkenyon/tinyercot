@@ -5,6 +5,8 @@ tools/inputs/operations.json linguist-generated=true
 tools/inputs/esr-operations.json linguist-generated=true
 tools/inputs/products.json linguist-generated=true
 tools/inputs/*-sample.json linguist-generated=true
+# Keep captured HTML byte-for-byte, including ERCOT's trailing whitespace.
+tools/inputs/*-index.html linguist-generated=true -whitespace
 tools/inputs/samples/** linguist-generated=true
 tools/inputs/dashboards/** linguist-generated=true
 # Hand-maintained mappings, overrides and evidence remain visible.

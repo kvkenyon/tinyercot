@@ -291,6 +291,52 @@ No intervals are synthesized. These schedules are distinct from actual generatio
 in the fuel-mix reports. All source timestamps, zone IDs and MW quantities were
 compared directly; see `tools/inputs/public-zonal-generation-evidence.json`.
 
+### Historical wind and solar planning profiles
+
+`generation_profiles` discovers 42 direct CSV/XLSX files from the 2021 and 2022
+studies on ERCOT's [2022 resource index](https://www.ercot.com/gridinfo/resource/2022).
+The 2021 study spans weather years 1980–2020; the 2022 study extends through 2021.
+These are modeled outputs for a study's fleet, including hypothetical sites and
+distributed rooftop solar. They are distinct from measured historical generation.
+
+```python
+with Client(timeout=180) as ercot:
+    profiles = ercot.generation_profiles
+    for archive in profiles.archives(study_year=2021, scenario="metro-distributed"):
+        for hour in profiles.rows(
+            archive,
+            date_from=date(1980, 1, 1),
+            date_to=date(1980, 1, 2),
+            series=["SITE_01022"],
+        ):
+            print(hour.timestamp, hour.outputs[0].generationMW)
+
+    # Work offline with an original CSV or workbook:
+    data = profiles.download(archive)
+    columns = profiles.read_series(data)
+    hours = profiles.read(data, filename=archive.url.rsplit("/", 1)[-1])
+```
+
+CSV needs no optional dependencies; XLSX uses `tinyercot[files]`. Each output has
+a typed series with its original header and column position. Embedded capacities,
+site IDs, names, counties, zones, tracking and development status remain available
+when supplied. Separate key workbooks are not joined implicitly. Date bounds are
+inclusive and `series` selects exact labels. The original file is downloaded in
+full; some decade files exceed 150 MB.
+
+Choose a study and scenario explicitly to avoid combining revisions of different
+fleets. The original source DATE/TIME is a local timestamp without an inferred UTC
+offset or interval-ending convention. The 2021 CSV files are labelled CST; the 2022
+workbooks are CST-CDT and retain repeated fall-back hours without inventing a DST
+flag. Source row numbers distinguish repeats; missing cells stay `None`. File year
+labels are not strict row bounds: the 2020–2021 wind workbook also contains midnight
+on January 1, 2022. The 2022 index has no linked 2000–2009 wind workbook, while the
+2021 study provides that period. The 1980–1989 wind workbook starts at 01:00 on
+January 1. Later Public Portal studies are not yet included in this direct-file
+helper. Full comparisons cover all 23 CSVs and four 2020–2021 workbooks; all 19
+workbooks have metadata and sample-value checks. Details and source hashes are
+in `tools/inputs/public-profile-evidence.json`.
+
 ### Direct public wind archives
 
 Install `tinyercot[pdf]`. These public website files need no API credentials.

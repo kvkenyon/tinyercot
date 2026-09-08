@@ -21,4 +21,11 @@ Captured responses and generated Python are marked in `.gitattributes` so GitHub
 collapses their diffs by default. Hand-maintained mappings, overrides and evidence
 remain visible. Preserve original source bytes for binary fixtures; add examples
 when a new layout or behavior needs a regression test, rather than refreshing
-snapshots on every live check. Do not store credentials or private responses here.
+snapshots on every live check. For large repetitive profile files,
+`history/generation-profiles.zip` retains original CSV rows and workbook XML cells
+for first/last dates, leap day and daylight-saving transitions in representative
+files, plus initial rows from each additional workbook. These are explicitly
+derived samples, not full original downloads; XLSX metadata and retained cells are
+unchanged. `public-profile-fixtures.json` records source and sample hashes and row
+counts. Full-source comparisons are recorded separately in the profile evidence.
+Do not store credentials or private responses here.

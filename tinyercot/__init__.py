@@ -16,6 +16,10 @@ from ._load import WeatherZoneLoad as WeatherZoneLoad
 from ._load_outlook import LoadOutlook as LoadOutlook
 from ._pdf import PdfArchive as PdfArchive
 from ._pdf import PdfChartArchive as PdfChartArchive
+from ._profiles import ProfileArchive as ProfileArchive
+from ._profiles import ProfileHour as ProfileHour
+from ._profiles import ProfileOutput as ProfileOutput
+from ._profiles import ProfileSeries as ProfileSeries
 from ._wind import WindArchive as WindArchive
 from ._wind import WindDailyValues as WindDailyValues
 from ._xlsx import WorkbookArchive as WorkbookArchive
