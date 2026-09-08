@@ -106,6 +106,13 @@ back to 1980. Use them for resource and fleet scenarios. They describe modeled
 plants under reconstructed weather, rather than the observed historical fleet;
 they must not be treated as historical forecasts in a trading backtest.
 
+For longer-term demand and scarcity scenarios, `peak_demand_forecasts.rows()`
+returns typed summer peak forecasts under historical weather years, with original
+source-file metadata. It keeps gross/net demand, rooftop-PV impact, large-load
+assumptions and TSP/adjusted scenarios separate. See the
+[forecast workflow](usage.md#long-term-peak-demand-forecasts). These are planning
+forecasts, not realized hourly demand.
+
 ## Current limits
 
 All 242 report queries in the verified Public Reports inventory have typed

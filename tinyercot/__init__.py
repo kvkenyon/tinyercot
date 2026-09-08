@@ -51,6 +51,7 @@ from ._mora_risk import MoraRiskPoint as MoraRiskPoint
 from ._ordc import IndicativeOrdcPrice as IndicativeOrdcPrice
 from ._pdf import PdfArchive as PdfArchive
 from ._pdf import PdfChartArchive as PdfChartArchive
+from ._peak_forecasts import PeakDemandForecast as PeakDemandForecast
 from ._public_tables import CrrTimeOfUse as CrrTimeOfUse
 from ._public_tables import LoadShedShare as LoadShedShare
 from ._public_tables import PolrUsage as PolrUsage

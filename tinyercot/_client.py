@@ -28,6 +28,7 @@ from ._loss_coefficients import TransmissionLossCoefficients
 from ._loss_factors import LossFactors
 from ._mora import ResourceOutlook
 from ._ordc import IndicativeOrdcHistory
+from ._peak_forecasts import PeakDemandForecasts
 from ._public_tables import CrrHours, LoadShed, PolrHistory
 from ._retail import RetailTransactions
 from ._weather import HistoricalWeather
@@ -354,6 +355,10 @@ class Transport:
     @property
     def coincident_peaks(self) -> CoincidentPeaks:
         return CoincidentPeaks(self._http)
+
+    @property
+    def peak_demand_forecasts(self) -> PeakDemandForecasts:
+        return PeakDemandForecasts(self._http)
 
     @property
     def generation_profiles(self) -> GenerationProfiles:

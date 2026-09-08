@@ -40,6 +40,7 @@ from tinyercot import (
     MoraRiskPoint,
     MoraScenarioValue,
     Page,
+    PeakDemandForecast,
     PolrUsage,
     Publication,
     PublicFile,
@@ -772,3 +773,14 @@ with Client() as client:
     assert_type(legacy_profile_site.annualCapacityFactor, dict[int, Decimal | None])
     assert_type(legacy_profile_site.sourceCount, int | None)
     assert_type(legacy_profile_site.sourceSum, Decimal | None)
+
+
+def peak_forecast_typing(client: Client) -> None:
+    assert_type(client.peak_demand_forecasts.files(), list[PublicFile])
+    assert_type(client.peak_demand_forecasts.read(b""), Iterator[PeakDemandForecast])
+    rows = client.peak_demand_forecasts.rows(where=lambda r: r.forecastYear >= 2025)
+    assert_type(rows, Iterator[PeakDemandForecast])
+    row = next(rows)
+    assert_type(row.weatherYearMW, dict[int, Decimal | None])
+    assert_type(row.p90MW, Decimal | None)
+    assert_type(row.sourceFile, PublicFile | None)

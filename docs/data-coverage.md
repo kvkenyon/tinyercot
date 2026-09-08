@@ -1298,3 +1298,29 @@ row arrived in 11.757 seconds in that run; this is an observation, not a latency
 guarantee. The [receipt](../tools/inputs/history/backfill-first-rows-evidence.json)
 records the source and decoder hashes and request paths. This startup check
 does not establish complete real-time price history coverage.
+
+
+## Public peak-demand forecast scenarios
+
+`Client.peak_demand_forecasts` covers all **11 XLS/XLSX peak-demand scenario
+workbooks** linked from the live [load forecast index](https://www.ercot.com/gridinfo/load/forecast)
+and its annual pages at the September 8, 2026 check. The 155 forecast-year rows
+include **2,276 weather-scenario MW values**, **286 summary values** and **150
+unlabelled auxiliary values**. Target years span 2014–2033 and weather scenarios
+span 2002–2023 across vintages; these are not issue-date or actual-load bounds.
+
+Regression tests compare complete original workbook tables using separately
+recorded source row coordinates, including every numeric cell on forecast rows.
+They cover old XLS headers and P50/P90 labels, gross/net/rooftop-PV blocks,
+2024 large-load summaries and the 2025 TSP/adjusted sheets. The 2023 rooftop-PV
+table starts at source year 2022 despite the gross/net tables starting at 2023;
+that difference is retained. Its unlabelled auxiliary cells have source-column
+keys without invented units. Excel's Compatibility Report is not forecast data.
+
+[Source manifests and receipts](../tools/inputs/peak-forecasts/evidence.json)
+record the comparison scope. All 11 unchanged original workbooks (268,611 bytes
+before fixture compression) and captured index pages are retained under
+`tools/inputs/peak-forecasts/` for offline tests and excluded from the wheel.
+Source URLs distinguish identically named files in different publication paths.
+Monthly, hourly, seasonal and performance forecast workbooks are additional
+known coverage gaps; the peak-demand reader does not claim to decode them.

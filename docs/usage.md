@@ -1142,3 +1142,41 @@ mappings where published, and the hypothetical workbook's `sourceSum`,
 they are not recalculated from the hourly rows. `sourceSum` preserves the field
 labelled `Sum` without assigning it an inferred unit. Empty worksheets and blank
 formatting rows do not create observations.
+
+
+## Long-term peak-demand forecasts
+
+`peak_demand_forecasts` discovers the directly published summer peak-demand
+scenario workbooks, including files on linked historical forecast pages.
+It uses the optional `files` extra and needs no ERCOT credentials:
+
+```python
+with Client() as ercot:
+    for forecast in ercot.peak_demand_forecasts.rows(
+        where=lambda row: row.forecastYear == 2026 and row.demandBasis == "net"
+    ):
+        print(forecast.sourceFile, forecast.sourceSheet, forecast.p90MW)
+        print(forecast.weatherYearMW[2011])
+```
+
+`files()`, `download(file)` and `read(data, filename=...)` also support explicit
+vintage selection and saved workbooks. `rows()` attaches the original `PublicFile`
+before applying `where`, so predicates can select a source URL as well as a
+forecast year. Distinct publications and scenarios remain separate.
+
+`weatherYearMW` maps historical weather years to forecast peak MW; these keys
+are neither forecast issue dates nor observed demand years. `demandBasis`
+distinguishes gross, net and rooftop-PV impact tables, leaving older unspecified
+bases explicit. `forecastMW`, `p50MW` and `p90MW` remain separate, and absent
+summary columns are `None`. `sourceSummaryLabels` preserves the original labels.
+
+The 2024 workbook retains contracts, officer letters and total large loads in
+separate fields plus the published consumption-reduction note. The 2025 workbook
+keeps TSP-provided and ERCOT-adjusted sheets separate. Unlabelled auxiliary
+numbers in the 2023 workbook remain in `sourceExtraValues`, keyed by one-based
+source column, with no inferred weather year or unit. Source target-year labels
+are preserved even when they differ between tables in one workbook.
+
+This reader covers the peak-demand scenario workbooks. Monthly energy forecasts,
+hourly long-term forecasts, seasonal zonal peaks and forecast-performance
+workbooks are separate source families and remain to be implemented.

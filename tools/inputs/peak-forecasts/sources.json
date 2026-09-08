@@ -1,0 +1,213 @@
+[
+  {
+    "url": "https://www.ercot.com/files/docs/2025/04/08/ERCOT-Peak-Demand-Scenarios.xlsx",
+    "title": "ERCOT Peak Demand Scenarios",
+    "sha256": "6466032a028185f22abb287ca7e55816694ebe8233605299b053bb3a8c34696f",
+    "bytes": 15096,
+    "file": "25d1b3f59259-ERCOT-Peak-Demand-Scenarios.xlsx",
+    "tables": [
+      {
+        "sheet": "TSP Provided",
+        "titleRow": 2,
+        "headerRow": 6,
+        "firstRow": 7,
+        "lastRow": 13
+      },
+      {
+        "sheet": "ERCOT Adjusted",
+        "titleRow": 2,
+        "headerRow": 6,
+        "firstRow": 7,
+        "lastRow": 13
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2015/05/08/ercot_peak_demand_scenarios.xls",
+    "title": "ERCOT Peak Demand Scenarios",
+    "sha256": "c526076699563b6566175264758c2f36ae43760b0524bbfe1e769c9ca4aff405",
+    "bytes": 27648,
+    "file": "344debffaa39-ercot_peak_demand_scenarios.xls",
+    "tables": [
+      {
+        "sheet": "ERCOT Peak - Weather Scenarios",
+        "titleRow": 1,
+        "headerRow": 5,
+        "firstRow": 6,
+        "lastRow": 16
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2016/01/04/ercot_peak_demand_scenarios_2016.xls",
+    "title": "ERCOT Peak Demand Scenarios",
+    "sha256": "10ef5f43b7f22976703ea15afa4d9b732ea120d4505a73741167dd457a787740",
+    "bytes": 34816,
+    "file": "53d2d26ea538-ercot_peak_demand_scenarios_2016.xls",
+    "tables": [
+      {
+        "sheet": "ERCOT Peak - Weather Scenarios",
+        "titleRow": 1,
+        "headerRow": 5,
+        "firstRow": 6,
+        "lastRow": 15
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2017/01/19/ERCOT_Peak_Demand_Scenarios_2017_01192017.xls",
+    "title": "ERCOT Peak Demand Scenarios",
+    "sha256": "3ad2dbc187f6886fc0f8b00e2d857d34cf9ff5004614bd144f334ee2b5315af6",
+    "bytes": 35328,
+    "file": "29d0be507777-ERCOT_Peak_Demand_Scenarios_2017_01192017.xls",
+    "tables": [
+      {
+        "sheet": "ERCOT Peak - Weather Scenarios",
+        "titleRow": 1,
+        "headerRow": 5,
+        "firstRow": 6,
+        "lastRow": 15
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2017/12/13/ERCOT_Peak_Demand_Scenarios_2018_2027.xls",
+    "title": "ERCOT Peak Demand Scenarios",
+    "sha256": "21633819e404c270b3fc38f5706d9e2e35f47af00de10e7bdcd8c9d7f66b0a08",
+    "bytes": 32256,
+    "file": "f571952deb38-ERCOT_Peak_Demand_Scenarios_2018_2027.xls",
+    "tables": [
+      {
+        "sheet": "ERCOT Peak - Weather Scenarios",
+        "titleRow": 1,
+        "headerRow": 5,
+        "firstRow": 6,
+        "lastRow": 15
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2018/12/11/ERCOT_Peak_Demand_Scenarios_2019_2028.xlsx",
+    "title": "ERCOT Peak Demand Scenarios",
+    "sha256": "141f9ffd3595b59c6c0e774be122caec01d7c65bd9a1306486ff300f4f21842a",
+    "bytes": 17793,
+    "file": "6420b6ba441c-ERCOT_Peak_Demand_Scenarios_2019_2028.xlsx",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "titleRow": 1,
+        "headerRow": 5,
+        "firstRow": 6,
+        "lastRow": 15
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2019/12/10/ERCOT_Peak_Demand_Scenarios_2020_2029.xlsx",
+    "title": "ERCOT Peak Demand Scenarios",
+    "sha256": "288aed8cab2746de0cfcb66b4ad67dacb403fc83aa6f52dffa5aa38896dfc3b3",
+    "bytes": 19307,
+    "file": "6535a835e2e7-ERCOT_Peak_Demand_Scenarios_2020_2029.xlsx",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "titleRow": 1,
+        "headerRow": 5,
+        "firstRow": 6,
+        "lastRow": 15
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2020/12/28/ERCOT_Peak_Demand_Scenarios_2021_2030.xlsx",
+    "title": "ERCOT Peak Demand Scenarios",
+    "sha256": "a515547d2c875b3b81c580e91f3386cdd1f6e49864b24bd74fb6c9cfe812aac0",
+    "bytes": 17884,
+    "file": "1d62d1cb3994-ERCOT_Peak_Demand_Scenarios_2021_2030.xlsx",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "titleRow": 1,
+        "headerRow": 5,
+        "firstRow": 6,
+        "lastRow": 15
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2022/02/24/ERCOT_Peak_Demand_Scenarios.xlsx",
+    "title": "ERCOT Peak Demand Scenarios",
+    "sha256": "2975371c69da9a520c7db8643c2dd4079af867f44a371481ff45aaa1316886d6",
+    "bytes": 24852,
+    "file": "7ee1cc8be426-ERCOT_Peak_Demand_Scenarios.xlsx",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "titleRow": 1,
+        "headerRow": 5,
+        "firstRow": 6,
+        "lastRow": 15
+      },
+      {
+        "sheet": "Sheet1",
+        "titleRow": 19,
+        "headerRow": 23,
+        "firstRow": 24,
+        "lastRow": 33
+      },
+      {
+        "sheet": "Sheet1",
+        "titleRow": 37,
+        "headerRow": 41,
+        "firstRow": 42,
+        "lastRow": 51
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2023/01/18/ERCOT-Peak-Demand-Scenarios-2023-2032.xlsx",
+    "title": "ERCOT Peak Demand Scenarios",
+    "sha256": "3dbabeee96344530adbba2199849707a5d3c3af17b420bdf9182f6e164842c5b",
+    "bytes": 29688,
+    "file": "0a2c016277e4-ERCOT-Peak-Demand-Scenarios-2023-2032.xlsx",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "titleRow": 1,
+        "headerRow": 5,
+        "firstRow": 6,
+        "lastRow": 15
+      },
+      {
+        "sheet": "Sheet1",
+        "titleRow": 19,
+        "headerRow": 23,
+        "firstRow": 24,
+        "lastRow": 33
+      },
+      {
+        "sheet": "Sheet1",
+        "titleRow": 37,
+        "headerRow": 41,
+        "firstRow": 42,
+        "lastRow": 51
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2024/07/18/ERCOT-Peak-Demand-Scenarios.xlsx",
+    "title": "ERCOT Peak Demand Scenarios",
+    "sha256": "91b40c1cfc150e9cb8a317fbaf1296830e5da57ece20ed36673c0318eb6e99c5",
+    "bytes": 13943,
+    "file": "4c9b09d0b4d5-ERCOT-Peak-Demand-Scenarios.xlsx",
+    "tables": [
+      {
+        "sheet": "Net Summer Peak Demand",
+        "titleRow": 2,
+        "headerRow": 6,
+        "firstRow": 7,
+        "lastRow": 16
+      }
+    ]
+  }
+]
