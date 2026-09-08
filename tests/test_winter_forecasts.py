@@ -92,6 +92,22 @@ def test_anonymous_discovery_and_peak_filter_use_original_metadata():
     assert rows[0].sourceSheet == "Peak" and rows[0].sourceRow == 2
 
 
+def test_missing_source_date_and_load_value_do_not_drop_an_hour():
+    import openpyxl
+
+    book = openpyxl.load_workbook(BytesIO(original()))
+    book["Forecast"]["A2"] = None
+    book["Forecast"]["F2"] = None
+    output = BytesIO()
+    book.save(output)
+    with Client() as client:
+        rows = list(client.winter_load_forecasts.read(output.getvalue()))
+    assert len(rows) == 2161
+    assert rows[0].forecastDate == date(2025, 12, 1) and rows[0].hour == 1
+    assert rows[0].sourceDate is None and rows[0].baseLoad is None
+    assert rows[0].loadWithLargeLoads is not None
+
+
 def test_unrelated_workbook_does_not_return_empty_forecasts():
     import openpyxl
 

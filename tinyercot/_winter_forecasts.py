@@ -82,10 +82,8 @@ class WinterLoadForecasts(_ForecastTable[WinterLoadForecast]):
                 if len(set(operators)) != len(operators) or not all(operators):
                     raise ValueError(f"{member}/{name}: duplicate or empty operator")
                 for line, values in enumerate(rows[1:], 2):
-                    if (
-                        not values
-                        or values[0] is None
-                        or str(values[0]).startswith("*")
+                    if not any(v not in (None, "") for v in values) or (
+                        peak and str(values[0]).startswith("*")
                     ):
                         continue
                     if peak:
