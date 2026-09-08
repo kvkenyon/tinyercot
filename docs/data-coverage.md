@@ -1637,6 +1637,28 @@ merged headings and difference columns. All 53 originals were checked locally;
 the large December 2025 original remains outside the regression fixture.
 
 This adds labelled summary access. It does not claim typed coverage of CDR unit,
-county, fuel-type, ELCC, or detailed scenario sheets, unlabelled chart helper
+fuel-type, ELCC, or detailed scenario sheets, unlabelled chart helper
 calculations, or the 28 separately linked wind/solar peak-average capacity
 percentage workbooks. These sources remain part of the broader coverage work.
+
+
+### CDR county forecasts and illustrative balances
+
+`Client.cdr.county_tables/read_county_tables` covers all **74 county worksheets**
+in the **10 CDR workbooks** that publish them (report vintages 2003–2012). The
+comparison against original cells checks every county label, period, note, and
+**94,940 values**, including six missing cells and six values in one unlabelled
+numeric row. The retained annual forecasts extend through summer 2022 and winter
+2022/23; these are overlapping forecasts rather than realized county histories.
+
+Typed metrics distinguish load, coincident demand, generation capacity, and the
+published illustrative generation-minus-load balance. Load and balance bases
+change from noncoincident to coincident in later reports. Source wind and
+mothballed-capacity assumptions are retained in notes. Import needs have a
+negative balance; export potential has a positive balance. These tables do not
+establish observed power flows or realized congestion.
+
+Three additional unmodified originals form a 915 KB fixture, alongside a reused
+2007 workbook in the summary fixture. Source receipts cover all ten workbooks;
+regression tests compare the complete table cells and check the distinctions
+above. The fixtures remain excluded from the wheel.

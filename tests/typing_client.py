@@ -7,6 +7,8 @@ from tinyercot import (
     Archive,
     CapacityProject,
     CapacityTotals,
+    CdrCountyTable,
+    CdrCountyValue,
     CdrSummary,
     CdrSummaryValue,
     Client,
@@ -147,6 +149,11 @@ with Client() as client:
     assert_type(operator_share.loadSharePercent, Decimal | None)
 
 with Client() as client:
+    assert_type(client.cdr.county_tables(), Iterator[CdrCountyTable])
+    assert_type(client.cdr.read_county_tables(b""), Iterator[CdrCountyTable])
+    county_table = next(client.cdr.county_tables())
+    assert_type(county_table.values[0], CdrCountyValue)
+    assert_type(county_table.values[0].valueMW, Decimal | None)
     assert_type(client.cdr.files(), list[PublicFile])
     assert_type(client.cdr.summaries(), Iterator[CdrSummary])
     assert_type(client.cdr.read_summaries(b""), Iterator[CdrSummary])

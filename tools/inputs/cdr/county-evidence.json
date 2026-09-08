@@ -1,0 +1,174 @@
+{
+  "scope": "Original county table cells, labels, periods and notes compared with typed output; stored XLS numeric values converted to Decimal",
+  "workbooks": 10,
+  "tables": 74,
+  "values": 94940,
+  "blankCells": 6,
+  "unlabelledNumericCells": 6,
+  "files": [
+    {
+      "url": "https://www.ercot.com/files/docs/2012/05/22/capacitydemandandreservereport_2012.xls",
+      "title": "Capacity Demand and Reserve Report 2012",
+      "sha256": "b208446d3a60be25a9af64d033d03ac394d3c6b6f8c9e872a3253b2a84d8230c",
+      "bytes": 1089536,
+      "sheets": [
+        "SummerLoadbyCounty",
+        "SummerGenerationbyCounty",
+        "SummerImport-ExportbyCounty",
+        "WinterLoadbyCounty",
+        "WinterGenerationbyCounty",
+        "WinterImport-ExportbyCounty"
+      ],
+      "values": 11580
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2017/11/03/03CDR-05142003-corrected.xls",
+      "title": "Capacity, Demand and Reserves Report - 2003",
+      "sha256": "c9bdc94f1d92e3c373c4f8ce5908a9f41931f41d0ddbd0d3646455bb44fb185c",
+      "bytes": 528384,
+      "sheets": [
+        "SummerLoadbyCounty",
+        "SummerGenerationbyCounty",
+        "SummerImport-ExportbyCounty",
+        "WinterLoadbyCounty",
+        "WinterGenerationbyCounty",
+        "WinterImport-ExportbyCounty"
+      ],
+      "values": 6984
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2017/11/03/05CDRFinal.xls",
+      "title": "Capacity, Demand and Reserves Report - 2005",
+      "sha256": "319cd2a360372d93086f2a0437a0f98a7da9d3b15b87624973d57b094a0e43fe",
+      "bytes": 705026,
+      "sheets": [
+        "SummerCoincidentDemandbyCounty",
+        "SummerLoadbyCounty",
+        "SummerGenerationbyCounty",
+        "SummerImport-ExportbyCounty",
+        "WinterCoincidentDemandbyCounty",
+        "WinterLoadbyCounty",
+        "WinterGenerationbyCounty",
+        "WinterImport-ExportbyCounty"
+      ],
+      "values": 9204
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2017/11/03/07CDR05172007-final.xls",
+      "title": "Capacity, Demand and Reserves Report - May 2007",
+      "sha256": "c349259e8e343515e44708a8f6ea5b02238170e8055d2944e8ef79eeb588fe25",
+      "bytes": 955392,
+      "sheets": [
+        "SummerCoincidentDemandbyCounty",
+        "SummerLoadbyCounty",
+        "SummerGenerationbyCounty",
+        "SummerImport-ExportbyCounty",
+        "WinterCoincidentDemandbyCounty",
+        "WinterLoadbyCounty",
+        "WinterGenerationbyCounty",
+        "WinterImport-ExportbyCounty"
+      ],
+      "values": 9258
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2017/11/03/2008_Capacity__Demand__Reserves_Report_FINAL.xls",
+      "title": "Capacity, Demand and Reserves Report - May 2008",
+      "sha256": "2c5c549127db9fd94b98ebbe16e6202abc2ca903863aa8f55345bf78fecba26e",
+      "bytes": 832512,
+      "sheets": [
+        "SummerCoincidentDemandbyCounty",
+        "SummerLoadbyCounty",
+        "SummerGenerationbyCounty",
+        "SummerImport-ExportbyCounty",
+        "WinterCoincidentDemandbyCounty",
+        "WinterLoadbyCounty",
+        "WinterGenerationbyCounty",
+        "WinterImport-ExportbyCounty"
+      ],
+      "values": 9264
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2017/11/03/2010_Capacity__Demand_and_Reserves.xls",
+      "title": "Capacity, Demand and Reserves - May 2010",
+      "sha256": "a8054c55892687bf8fd0490a4e54334edc7401395f69c9880d6678d998a3d397",
+      "bytes": 1270784,
+      "sheets": [
+        "SummerCoincidentDemandbyCounty",
+        "SummerLoadbyCounty",
+        "SummerGenerationbyCounty",
+        "SummerImport-ExportbyCounty",
+        "WinterCoincidentDemandbyCounty",
+        "WinterLoadbyCounty",
+        "WinterGenerationbyCounty",
+        "WinterImport-ExportbyCounty"
+      ],
+      "values": 9264
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2017/11/03/ERCOT06CDR06192006.xls",
+      "title": "Capacity, Demand and Reserves Report - 2006",
+      "sha256": "45817eeda624478407ced723ec6d89b62d0acd9b39d4a989ffdbb227d109ad50",
+      "bytes": 636928,
+      "sheets": [
+        "SummerCoincidentDemandbyCounty",
+        "SummerLoadbyCounty",
+        "SummerGenerationbyCounty",
+        "SummerImport-ExportbyCounty",
+        "WinterCoincidentDemandbyCounty",
+        "WinterLoadbyCounty",
+        "WinterGenerationbyCounty",
+        "WinterImport-ExportbyCounty"
+      ],
+      "values": 9204
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2017/11/03/ERCOT2004CapacityDemandReserveReport09052004.xls",
+      "title": "Capacity, Demand and Reserves Report - 2004",
+      "sha256": "2810d92c0f2f6014351f7c6ee9cc3d5e68babd6c19d4d0622bca85d62ff16ca7",
+      "bytes": 812032,
+      "sheets": [
+        "SummerCoincidentDemandbyCounty",
+        "SummerLoadbyCounty",
+        "SummerGenerationbyCounty",
+        "SummerImport-ExportbyCounty",
+        "WinterCoincidentDemandbyCounty",
+        "WinterLoadbyCounty",
+        "WinterGenerationbyCounty",
+        "WinterImport-ExportbyCounty"
+      ],
+      "values": 9312
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2017/11/03/ERCOT_2011__Capacity_Demand_and_Reserves_Report.xls",
+      "title": "Capacity, Demand and Reserves Report - May 2011",
+      "sha256": "f313d6842e1f7b676e556d2df271790ad31800c6c0b1711602133f11add7d5e9",
+      "bytes": 846336,
+      "sheets": [
+        "SummerLoadbyCounty",
+        "SummerGenerationbyCounty",
+        "SummerImport-ExportbyCounty",
+        "WinterLoadbyCounty",
+        "WinterGenerationbyCounty",
+        "WinterImport-ExportbyCounty"
+      ],
+      "values": 11600
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2017/11/03/ERCOT_CDR_2009_with_8-3-09_fuel_type_corrections.xls",
+      "title": "Capacity, Demand and Reserves Report - May 2009",
+      "sha256": "c128b15b5a8f389977b31f9e2e30b693c68f310ae3d3cd835d87467bb3cd521d",
+      "bytes": 797184,
+      "sheets": [
+        "SummerCoincidentDemandbyCounty",
+        "SummerLoadbyCounty",
+        "SummerGenerationbyCounty",
+        "SummerImport-ExportbyCounty",
+        "WinterCoincidentDemandbyCounty",
+        "WinterLoadbyCounty",
+        "WinterGenerationbyCounty",
+        "WinterImport-ExportbyCounty"
+      ],
+      "values": 9270
+    }
+  ]
+}

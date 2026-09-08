@@ -2,6 +2,8 @@
 
 from ._capacity import CapacityProject as CapacityProject
 from ._capacity import CapacityTotals as CapacityTotals
+from ._cdr import CdrCountyTable as CdrCountyTable
+from ._cdr import CdrCountyValue as CdrCountyValue
 from ._cdr import CdrNote as CdrNote
 from ._cdr import CdrSummary as CdrSummary
 from ._cdr import CdrSummaryValue as CdrSummaryValue

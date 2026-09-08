@@ -1560,5 +1560,38 @@ periods retain their original year-span labels. Installed-capacity columns use
 including cumulative ratings by a future year.
 
 These methods expose labelled summary tables, not every numerical cell in the
-workbook. Unit, county, fuel-type, ELCC, and detailed scenario tables remain
+workbook. Unit, fuel-type, ELCC, and detailed scenario tables remain
 separate coverage work; unlabelled chart helper calculations are not returned.
+
+
+`cdr.county_tables()` and `read_county_tables(bytes, source_file=...)` return
+`CdrCountyTable` objects for county-level load, coincident demand, generation
+capacity, and generation-minus-load balances. They accept a typed `where`
+predicate; report vintages without these worksheets yield no county tables.
+
+```python
+with Client() as ercot:
+    for file in ercot.cdr.files():
+        if file.title == "Capacity Demand and Reserve Report 2012":
+            for table in ercot.cdr.read_county_tables(
+                ercot.cdr.download(file), source_file=file,
+                where=lambda table: table.metric == "load",
+            ):
+                for point in table.values:
+                    if point.county == "Harris":
+                        print(table.season, table.loadBasis,
+                              point.period, point.valueMW)
+```
+
+These are historical planning forecasts, not measured demand, generation, or
+physical flows. `metric` distinguishes `load`, `coincident_demand`,
+`generation_capacity`, and `generation_minus_load`; `loadBasis` distinguishes
+coincident and noncoincident definitions when stated. For the illustrative
+balance, negative values indicate import needs and positive values indicate
+export potential. The source notes qualify generation ratings, wind contribution
+assumptions, and excluded self-serve demand. Those assumptions change by vintage.
+
+County spelling and capitalization remain as published. Missing values remain
+`None`; a numeric row without a county label retains `county=None`. Winter year
+spans retain their original form, such as `2013/14`. Tables retain their source
+file, worksheet, located notes, and each value's original row and column.

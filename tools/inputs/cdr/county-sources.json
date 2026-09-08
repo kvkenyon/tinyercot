@@ -1,0 +1,23 @@
+[
+  {
+    "url": "https://www.ercot.com/files/docs/2017/11/03/03CDR-05142003-corrected.xls",
+    "title": "Capacity, Demand and Reserves Report - 2003",
+    "bytes": 528384,
+    "sha256": "c9bdc94f1d92e3c373c4f8ce5908a9f41931f41d0ddbd0d3646455bb44fb185c",
+    "member": "2017/11/03/03CDR-05142003-corrected.xls"
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2017/11/03/ERCOT_CDR_2009_with_8-3-09_fuel_type_corrections.xls",
+    "title": "Capacity, Demand and Reserves Report - May 2009",
+    "bytes": 797184,
+    "sha256": "c128b15b5a8f389977b31f9e2e30b693c68f310ae3d3cd835d87467bb3cd521d",
+    "member": "2017/11/03/ERCOT_CDR_2009_with_8-3-09_fuel_type_corrections.xls"
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2012/05/22/capacitydemandandreservereport_2012.xls",
+    "title": "Capacity Demand and Reserve Report 2012",
+    "bytes": 1089536,
+    "sha256": "b208446d3a60be25a9af64d033d03ac394d3c6b6f8c9e872a3253b2a84d8230c",
+    "member": "2012/05/22/capacitydemandandreservereport_2012.xls"
+  }
+]
