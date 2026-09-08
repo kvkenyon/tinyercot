@@ -21,7 +21,7 @@
   "comparison": "All 49,704 published load values, operator labels, source dates and hour labels match independent python-calamine reads; runtime uses openpyxl through existing workbook helpers.",
   "test": "tests/test_winter_forecasts.py",
   "sourceFixture": "source.zip/winter-2025-2026.xlsx",
-  "decoderSha256": "48af99fb764861312680e242a6e66fc15358d12883df064f2746b40404455ea6",
+  "decoderSha256": "0fec66627e37bcbbbe34caf42b90272a48835667beb8a3382b886222c48cdfc9",
   "limits": [
     "Transmission-operator allocations exclude large-load additions; these areas are not weather zones or settlement load zones.",
     "The hourly table does not separately publish large-load additions; that field remains null rather than being calculated.",
