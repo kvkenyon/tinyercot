@@ -260,7 +260,8 @@ class Archive(Generic[T]):
 
         Original document IDs identify publications across sources; distinct
         corrections and repeated rows within a publication are retained. Rows
-        are streamed without imposing chronological order.
+        are streamed without imposing chronological order. Unbounded reads begin
+        with bundles before requesting archive listings.
 
         With bounds, archive posting metadata selects the original documents.
         Without bounds, bundle-only documents are included too. Bundle posting
@@ -270,13 +271,15 @@ class Archive(Generic[T]):
         """
         if batch_size < 1:
             raise ValueError("batch_size must be positive")
-        remaining = dict.fromkeys(
+        documents = (
             publication.document.docId
             for publication in self.publications(
                 posted_from=posted_from, posted_to=posted_to
             )
         )
         bounded = posted_from is not None or posted_to is not None
+        # Only bounded selection needs archive metadata before reading bundles.
+        remaining = dict.fromkeys(documents) if bounded else {}
         if bounded and not remaining:
             return
         seen: set[int] = set()
@@ -319,7 +322,14 @@ class Archive(Generic[T]):
                     remaining.pop(doc_id, None)
             if bounded and not remaining:
                 return
-        for data in self._downloads(remaining, kind="archive", batch_size=batch_size):
+
+        def uncovered() -> Iterator[int]:
+            for doc_id in remaining if bounded else documents:
+                if doc_id not in seen:
+                    seen.add(doc_id)
+                    yield doc_id
+
+        for data in self._downloads(uncovered(), kind="archive", batch_size=batch_size):
             for row in self._read_backfill(data):
                 if where is None or where(row):
                     yield row

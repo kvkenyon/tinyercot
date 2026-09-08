@@ -1282,3 +1282,19 @@ Remaining profile formats include the earliest solar shapes, whose columns
 include weather years and `TMY3`.
 Those solar shapes require separate treatment of units and non-calendar-year
 values. Fifteen of the nineteen newer profile workbooks remain unverified.
+
+
+### Backfill startup on real-time settlement prices
+
+Unbounded `backfill()` streams bundles before requesting the archive listing,
+then pages through uncovered archives. Publication-bounded reads still select
+archive IDs first. Both paths retain document-ID deduplication and distinct
+corrections; row order remains source order.
+
+A live NP6-905-CD check returned the first 1,000 rows after one bundle-listing
+request and one bundle download, with **zero archive requests**. All seven
+fields matched an independent CSV parser of the downloaded source. The first
+row arrived in 11.757 seconds in that run; this is an observation, not a latency
+guarantee. The [receipt](../tools/inputs/history/backfill-first-rows-evidence.json)
+records the source and decoder hashes and request paths. This startup check
+does not establish complete real-time price history coverage.

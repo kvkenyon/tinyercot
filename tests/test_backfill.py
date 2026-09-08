@@ -113,9 +113,8 @@ def test_overlap_missing_months_and_distinct_corrections_preserve_rows():
         ("archive", [1, 4]),
         ("archive", [5]),
     ]
-    assert source.listings == [("archive", i) for i in range(1, 6)] + [
-        ("bundle", 1),
-        ("bundle", 2),
+    assert source.listings == [("bundle", 1), ("bundle", 2)] + [
+        ("archive", i) for i in range(1, 6)
     ]
 
 
@@ -408,3 +407,33 @@ def test_price_history_export_uses_delivery_dates_and_both_sources(
             == 0
         )
         assert path.read_text() == ""
+
+
+@pytest.mark.parametrize("bundled", [False, True])
+def test_unbounded_first_rows_do_not_wait_for_later_archive_pages(bundled):
+    report = price_report()
+    source = Source(
+        [document(1), document(1), document(2)],
+        [document(-1)] if bundled else [],
+        {
+            ("bundle", (-1,)): zipped({"1.report.zip": report}),
+            ("archive", (1,)): report,
+            ("archive", (2,)): report,
+        },
+    )
+    with (
+        httpx.Client(transport=httpx.MockTransport(source)) as http,
+        Client("u", "p", "k", client=http) as client,
+    ):
+        history = client.np4_190_cd.dam_stlmnt_pnt_prices_history
+        expected = list(history.read(report))
+        rows = history.backfill()
+        assert next(rows) == expected[0]
+        assert source.listings == (
+            [("bundle", 1)] if bundled else [("bundle", 1), ("archive", 1)]
+        )
+        assert list(rows) == expected[1:] + expected
+    assert source.downloads == [
+        ("bundle", [-1]) if bundled else ("archive", [1]),
+        ("archive", [2]),
+    ]

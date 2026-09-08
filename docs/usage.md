@@ -106,7 +106,10 @@ with Client() as ercot:
 `backfill()` uses original document IDs inside bundles to avoid downloading the
 same publication again, then fetches uncovered archive IDs. Distinct correction
 IDs and repeated rows within a report remain intact; output is not sorted.
-It holds listing IDs in memory and processes bundle members one at a time.
+Unbounded reads start with bundles before requesting archive listings, then
+stream uncovered archive IDs page by page. Publication-bounded reads first
+collect matching archive IDs. Both keep seen IDs in memory for deduplication
+and process bundle members one at a time.
 
 Shared disclosure reports can gain or lose tables over time. `backfill()` skips
 reports where the requested named table is absent but other CSV tables are
