@@ -572,6 +572,33 @@ Evidence and fixture provenance are in `tools/inputs/public-loss-factors-evidenc
 the fixture retains original cell XML for all series on four dates, including
 the short day and both ends of the inspected history.
 
+## CRR time-of-use hours and POLR territory totals
+
+`Client.crr_hours` discovers the calendar linked from
+[ERCOT's CRR page](https://www.ercot.com/mktinfo/crr). The complete captured
+workbook contains 48 monthly records for January 2026–December 2029. Every
+OffPeak, PeakWD, PeakWE and Total cell is compared with the typed result, along
+with the delivery month and source identity. Counts are retained as published,
+including 743 hours in March 2026, 721 in November 2026, and 696 in February
+2028. This is a trading calendar, not observations of future market activity.
+
+`Client.polr` discovers the counts/energy reports linked from
+[ERCOT's retail page](https://www.ercot.com/mktinfo/retail). All 24 rows in the
+captured 2026 report are compared with the original workbook: six territories
+and four premise classes, with 24 active-ESIID counts and 24 annual-kWh totals.
+Counts describe active ESIIDs with usage on March 31, 2026. Energy describes
+all ESIIDs active during April 1, 2025–March 31, 2026. These are distinct
+populations; no per-customer usage ratio is calculated. The source uses the
+most current premise-type assignment, as retained in its cover notes.
+
+Both services expose `files()`, `download(file)`, `rows(where=...)` and
+`read(data, filename=..., where=...)`. Predicates receive concrete typed rows.
+Dates come from table contents, not filenames or index labels. Saved ZIPs keep
+overlapping members distinct. Both complete original workbooks are included
+as regression fixtures, byte-for-byte. Source URLs, hashes and comparison
+counts are in `tools/inputs/public-market-tables-evidence.json`. No older
+history is inferred from the years embedded in download URLs.
+
 ## Historical IDR compliance summaries
 
 `Client.idr_compliance` discovers and reads all seven direct filing archives

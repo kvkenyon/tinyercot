@@ -7,6 +7,7 @@ from tinyercot import (
     Archive,
     Client,
     CoincidentPeakAllocation,
+    CrrTimeOfUse,
     Document,
     FuelMixArchive,
     FuelMixDay,
@@ -20,7 +21,9 @@ from tinyercot import (
     LossFactorDay,
     MonthlyCoincidentPeak,
     Page,
+    PolrUsage,
     Publication,
+    PublicFile,
     ScheduledGeneration,
     WeatherDay,
     WeatherVariable,
@@ -31,6 +34,29 @@ from tinyercot import (
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    assert_type(client.crr_hours.files(), list[PublicFile])
+    assert_type(client.crr_hours.download(PublicFile(title="", url="")), bytes)
+    assert_type(client.crr_hours.read(b""), Iterator[CrrTimeOfUse])
+    assert_type(
+        client.crr_hours.rows(where=lambda r: r.month.year == 2026),
+        Iterator[CrrTimeOfUse],
+    )
+    crr_month = next(client.crr_hours.rows())
+    assert_type(crr_month.month, date)
+    assert_type(crr_month.peakWDHours, int)
+    assert_type(client.polr.files(), list[PublicFile])
+    assert_type(client.polr.read(b""), Iterator[PolrUsage])
+    assert_type(
+        client.polr.rows(where=lambda r: r.premiseType == "Residential"),
+        Iterator[PolrUsage],
+    )
+    polr_usage = next(client.polr.rows())
+    assert_type(polr_usage.snapshotDate, date)
+    assert_type(polr_usage.energyPeriodStart, date)
+    assert_type(polr_usage.activeEsiids, int)
+    assert_type(polr_usage.energyKWh, Decimal | None)
 
 with Client() as client:
     assert_type(client.loss_factors.archives(), list[LoadArchive])

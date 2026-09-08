@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-09-08T08:53:26.553074+00:00",
+  "sources": [
+    {
+      "service": "crr_hours",
+      "files": [
+        {
+          "title": "CRR Time of Use Hours",
+          "url": "https://www.ercot.com/files/docs/2021/04/16/CRR-Time-of-Use-Hours_2026-2029_UPD.xlsx"
+        }
+      ],
+      "fixture": "tools/inputs/public-tables/crr-hours.xlsx",
+      "sourceBytes": 20518,
+      "sha256": "73134f3d15808c36eb03f53a71b5212a5d25280e0b89acfd9392e65ee7c6ae5e",
+      "fixtureSelection": "Complete original source workbook, byte-for-byte.",
+      "records": 48,
+      "numericCells": 192,
+      "firstMonth": "2026-01-01",
+      "lastMonth": "2029-12-01",
+      "comparison": "Every source delivery month and all four original hour-count cells matched; source sheet/member and DST/leap-month totals verified."
+    },
+    {
+      "service": "polr",
+      "files": [
+        {
+          "title": "POLR Counts Energy 2026 Report Final",
+          "url": "https://www.ercot.com/files/docs/2020/06/03/POLR_Counts_Energy_2026_Reporting.xlsx"
+        }
+      ],
+      "fixture": "tools/inputs/public-tables/polr.xlsx",
+      "sourceBytes": 26522,
+      "sha256": "fb3c1338f7667e20b1fcd09c1bc0a516379ac17c7543f15e05107a907c6e63c6",
+      "fixtureSelection": "Complete original source workbook, byte-for-byte.",
+      "records": 24,
+      "numericCells": 48,
+      "territories": 6,
+      "premiseTypes": 4,
+      "snapshotDate": "2026-03-31",
+      "energyPeriodStart": "2025-04-01",
+      "energyPeriodEnd": "2026-03-31",
+      "comparison": "Every source territory, premise class, active-ESIID count and annual-kWh total matched, with reporting periods, source sheet/member and all cover notes verified."
+    }
+  ],
+  "decoderSha256": "0bf200790dfe817d099b09719a9edbdbf11b6cec540b22cf4dbde416d86f33b9",
+  "verification": "tests/test_public_tables.py compares all original data using independent openpyxl reads, without SDK parsing helpers for expected values.",
+  "limitations": [
+    "Observed direct downloads only; URL years do not establish earlier history.",
+    "CRR hour counts describe delivery calendars, not realized future trading activity.",
+    "POLR count and energy populations differ; no per-customer usage ratio is inferred."
+  ]
+}

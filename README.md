@@ -388,6 +388,36 @@ of that download; older history is not inferred from its URL or current index.
 Overlapping downloads remain separate. Current MIS loss-factor feeds are outside
 this client's scope.
 
+### CRR hours and retail counts/energy
+
+The direct public CRR calendar and provider-of-last-resort (POLR) territory
+reports use the same small interface, with `tinyercot[files]`:
+
+```python
+from tinyercot import Client
+
+with Client() as ercot:
+    for month in ercot.crr_hours.rows(where=lambda r: r.month.year == 2026):
+        print(month.month, month.peakWDHours, month.peakWEHours, month.offPeakHours)
+
+    for usage in ercot.polr.rows(where=lambda r: r.premiseType == "Residential"):
+        print(usage.territory, usage.activeEsiids, usage.energyKWh)
+```
+
+`files()` discovers current links, `download(file)` returns original bytes, and
+`read(data, filename=..., where=...)` queries saved workbooks or ZIPs. Original
+and revised files stay separate. The captured CRR calendar covers 48 delivery
+months in 2026–2029; `month` is the first day of the delivery month. Published
+hour counts retain DST effects and are not recomputed from calendar assumptions.
+
+The POLR report contains 24 territory/customer-class totals. `snapshotDate`
+describes active ESIIDs with usage on March 31, 2026; `energyPeriodStart` and
+`energyPeriodEnd` describe all ESIIDs active during April 2025–March 2026.
+These populations differ, so `energyKWh / activeEsiids` is not automatically
+an annual per-customer usage measure. Dates come from the table headers;
+original cover notes remain in `sourceNotes`. These are the observed downloads,
+not a claim of older coverage or of realized future trading activity.
+
 ### Historical IDR compliance summaries
 
 `idr_compliance` exposes the public historical market/TDSP summary tables with

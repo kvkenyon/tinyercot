@@ -27,6 +27,9 @@ from ._loss_factors import LossFactorDay as LossFactorDay
 from ._loss_factors import LossFactorInterval as LossFactorInterval
 from ._pdf import PdfArchive as PdfArchive
 from ._pdf import PdfChartArchive as PdfChartArchive
+from ._public_tables import CrrTimeOfUse as CrrTimeOfUse
+from ._public_tables import PolrUsage as PolrUsage
+from ._public_tables import PublicFile as PublicFile
 from ._weather import WeatherDay as WeatherDay
 from ._weather import WeatherHour as WeatherHour
 from ._weather import WeatherVariable as WeatherVariable
