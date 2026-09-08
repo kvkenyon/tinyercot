@@ -250,6 +250,37 @@ routes on their current public pages. They are outside this release's **no MIS**
 scope; earlier annual price history is not provided by the daily API readers.
 The inspected routes are recorded in `tools/inputs/public-market-access-evidence.json`.
 
+### Historical zonal generation and load
+
+The older zonal-market MWh files are available with `tinyercot[files]`:
+
+```python
+from datetime import date
+
+with Client() as ercot:
+    for day in ercot.zonal_energy.rows(
+        date_from=date(2004, 1, 1),
+        date_to=date(2004, 1, 1),
+        where=lambda r: r.kind == "load" and r.zone == "H04",
+    ):
+        print(day.totalMWh, day.intervals[0].energyMWh)
+```
+
+`files()`, `download(file)` and `read(data, filename=..., kind=..., where=...)`
+support saved workbooks; bare unnamed files require `kind="load"` or
+`kind="generation"`. `totals()` and `read_totals()` return the published summary
+and detail totals separately, preserving their cached differences and shares.
+
+All ten 2001–2005 originals yield **13,886 zone/day records** and **88 totals**.
+2001 generation starts July 31, load August 1; 2005 generation is missing
+June 22–July 28 in all five zones. Original zone codes remain unchanged and are
+not mapped onto today's market. Numbered/clock interval labels have no inferred
+UTC offset; extended load rows retain all 100 values with unknown clock labels.
+`sourceNumbers` preserves numeric cells whose source headers do not establish
+their meaning, including extra generation numbers and a mislabeled `ORIGIN`
+column. These are kept separate from `energyMWh`. Totals are not reconciled,
+missing dates are not filled, and source timestamps are not publication times.
+
 ### Historical four-coincident-peak allocations
 
 Annual 4CP allocations are available without credentials through

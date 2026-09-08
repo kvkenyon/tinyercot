@@ -30,6 +30,7 @@ from ._ordc import IndicativeOrdcHistory
 from ._public_tables import CrrHours, LoadShed, PolrHistory
 from ._retail import RetailTransactions
 from ._weather import HistoricalWeather
+from ._zonal_energy import ZonalEnergy
 from ._zonal_generation import ZonalGeneration
 
 T = TypeVar("T", bound=BaseModel)
@@ -368,6 +369,10 @@ class Transport:
     @property
     def loss_factors(self) -> LossFactors:
         return LossFactors(self._http)
+
+    @property
+    def zonal_energy(self) -> ZonalEnergy:
+        return ZonalEnergy(self._http)
 
     @property
     def transmission_loss_coefficients(self) -> TransmissionLossCoefficients:

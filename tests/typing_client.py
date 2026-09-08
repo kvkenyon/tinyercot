@@ -44,11 +44,36 @@ from tinyercot import (
     WeatherVariable,
     WeatherZone,
     WeatherZoneLoad,
+    ZonalEnergyDay,
+    ZonalEnergyTotal,
+    ZonalSourceNumber,
     np3_561_cd,
     np3_966_er,
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    assert_type(client.zonal_energy.files(), list[PublicFile])
+    assert_type(
+        client.zonal_energy.rows(where=lambda r: r.kind == "load"),
+        Iterator[ZonalEnergyDay],
+    )
+    assert_type(
+        client.zonal_energy.read(b"", kind="generation"), Iterator[ZonalEnergyDay]
+    )
+    assert_type(
+        client.zonal_energy.totals(where=lambda r: r.year == 2005),
+        Iterator[ZonalEnergyTotal],
+    )
+    assert_type(
+        client.zonal_energy.read_totals(b"", kind="load"), Iterator[ZonalEnergyTotal]
+    )
+    zonal_day = next(client.zonal_energy.rows())
+    assert_type(zonal_day.sourceNumbers, list[ZonalSourceNumber])
+    assert_type(zonal_day.intervals[0].sourceLabel, str | None)
+    assert_type(zonal_day.totalMWh, Decimal | None)
+    assert_type(zonal_day.sourceTimestamp, datetime | None)
 
 with Client() as client:
     assert_type(client.distribution_loss_coefficients.files(), list[PublicFile])

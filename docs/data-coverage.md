@@ -1051,3 +1051,53 @@ numeric interval and entity/date/channel/header directly with openpyxl, verify
 all entity date sets, preserve the initial/final difference, and exercise exact
 source-index discovery with anonymous date-filtered queries. The fixture ships
 in the source distribution and is excluded from the installed wheel.
+
+## Historical zonal-market energy
+
+`Client.zonal_energy.files/download/rows/read` covers all ten generation/load
+MWh workbooks linked from the [public aggregation indexes](https://www.ercot.com/mktinfo/data_agg),
+2001–2005. `totals/read_totals` retain the published summary and detail aggregates
+separately. Files are anonymous downloads; parsing uses the optional files extra.
+Inclusive operating-date bounds and typed predicates apply to daily reads.
+Bare unnamed workbooks require an explicit generation/load kind; live reads
+attach the actual file link. Zone codes retain the original market vintage.
+
+Source comparisons cover **13,886 daily records**, **1,332,244 numeric interval
+values and 29,016 blank interval cells**, **1,170 additional source numbers**,
+and **88 published totals** (52 summary, 36 detail). One undated `Grand` row has
+96 interval-column aggregates, retained only among the totals. Generation raw
+sheets for 2001–2004 duplicate the published daily values; they remain in the
+original download without emitting duplicate daily observations. Cached summary
+and detail totals can differ: the 2001 generation grand totals are respectively
+115512611.682897 and 115512613.08008096 MWh. Neither is silently corrected.
+
+Coverage begins **2001-07-31 for generation** and **2001-08-01 for load**.
+All vintage zones have full calendar-year dates in 2002–2004; load also covers
+all of 2005. Generation in 2005 has only 328 dates per zone, missing June 22
+through July 28 in all five zones. No rows are synthesized to fill the gap.
+Source clock/position labels do not establish UTC instants or modern-zone mappings.
+
+Nine load rows extend to 100 values under 96 interval headers: four zones on
+2003-10-26 and five on 2005-10-30. Those extra values reconcile with the original
+daily totals; all 100 remain available, with clock labels `None` for the
+misaligned rows. The 805 additional generation numbers instead remain typed
+`ZonalSourceNumber` records with their original column and header, without an
+assumed unit or interval meaning. The 2003 W03 source calls a numeric column
+`ORIGIN`; its 365 daily values and one aggregate remain source numbers, leaving
+`totalMWh=None`. String origin markers, recorder/channel fields and the actual
+trailing timestamps are also retained. Numeric energy cells accidentally
+formatted as dates in the XLS files remain their original numbers.
+
+`ZonalEnergyTotal.scope` separates summary from detail totals; `share` retains
+the original fractional value and `sourceShareHeader` retains its displayed
+label. Original labels, headers and notes accompany totals, including unlabeled
+grand totals. Values are never recomputed or rescaled. The filename year and
+source timestamps do not establish observation availability or settlement finality.
+
+`tools/inputs/public-zonal-energy-sources.csv` records all original URLs/hashes;
+`public-zonal-energy-evidence.json` records counts and limitations. All ten complete
+original workbooks are retained unchanged in `public-tables/zonal-energy.zip`,
+including summaries and duplicate raw sheets. Regression tests compare each daily
+interval, numeric metadata cell, source timestamp and published total directly
+with xlrd, verify the missing dates and source quirks, and exercise anonymous
+index discovery and typed saved/live queries. Fixtures remain outside the wheel.
