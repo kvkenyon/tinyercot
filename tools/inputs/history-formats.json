@@ -2733,6 +2733,15 @@
         "RTRSVPOR": "RTRSVPOR",
         "RTRSVPOFF": "RTRSVPOFF",
         "DSTFlag": "repeatHourFlag"
+      },
+      {
+        "DeliveryDate": "deliveryDate",
+        "DeliveryHour": "deliveryHour",
+        "DeliveryInterval": "deliveryInterval",
+        "RTRSVPOR": "RTRSVPOR",
+        "RTRSVPOFF": "RTRSVPOFF",
+        "RTRDP": "RTRDP",
+        "DSTFlag": "repeatHourFlag"
       }
     ],
     "fields": {
@@ -2747,7 +2756,8 @@
       "RTRDPNS": "Decimal",
       "repeatHourFlag": "bool",
       "RTRSVPOR": "Decimal",
-      "RTRSVPOFF": "Decimal"
+      "RTRSVPOFF": "Decimal",
+      "RTRDP": "Decimal"
     }
   },
   "np6-325-cd/rtd_price_adders": {
@@ -2794,6 +2804,55 @@
         "RTOFFPA": "RTOFFPA",
         "RTOLCAP": "RTOLCAP",
         "RTOFFCAP": "RTOFFCAP"
+      },
+      {
+        "BatchID": "BatchID",
+        "RTDTimestamp": "RTDTimestamp",
+        "RepeatedHourFlag": "repeatHourFlag",
+        "IntervalID": "intervalID",
+        "IntervalEnding": "intervalEnding",
+        "IERepeatedHourFlag": "IERepeatHourFlag",
+        "SystemLambda": "systemLambda",
+        "RTORPA": "RTORPA",
+        "RTOFFPA": "RTOFFPA",
+        "RTOLCAP": "RTOLCAP",
+        "RTOFFCAP": "RTOFFCAP",
+        "RTORDPA": "RTORDPA",
+        "RTRRUC": "RTRRUC",
+        "RTRRMR": "RTRRMR",
+        "RTDLRRRS": "RTDLRRRS",
+        "RTDERS": "RTDERS",
+        "RTDCTIEIMPORT": "RTDCTIEImport",
+        "RTDCTIEEXPORT": "RTDCTIEExport",
+        "RTBLTIMPORT": "RTBLTImport",
+        "RTBLTEXPORT": "RTBLTExport",
+        "RTOLLASL": "RTOLLASL",
+        "RTOLHASL": "RTOLHASL"
+      },
+      {
+        "BatchID": "BatchID",
+        "RTDTimestamp": "RTDTimestamp",
+        "RepeatedHourFlag": "repeatHourFlag",
+        "IntervalID": "intervalID",
+        "IntervalEnding": "intervalEnding",
+        "IERepeatedHourFlag": "IERepeatHourFlag",
+        "SystemLambda": "systemLambda",
+        "RTORPA": "RTORPA",
+        "RTOFFPA": "RTOFFPA",
+        "RTOLCAP": "RTOLCAP",
+        "RTOFFCAP": "RTOFFCAP",
+        "RTORDPA": "RTORDPA",
+        "RTRRUC": "RTRRUC",
+        "RTRRMR": "RTRRMR",
+        "RTDNCLR": "RTDNCLR",
+        "RTDERS": "RTDERS",
+        "RTDCTIEIMPORT": "RTDCTIEImport",
+        "RTDCTIEEXPORT": "RTDCTIEExport",
+        "RTBLTIMPORT": "RTBLTImport",
+        "RTBLTEXPORT": "RTBLTExport",
+        "RTOLLASL": "RTOLLASL",
+        "RTOLHASL": "RTOLHASL",
+        "RTNCLRECRS": "RTNCLRECRS"
       }
     ],
     "fields": {
@@ -2824,7 +2883,12 @@
       "RTORPA": "Decimal",
       "RTOFFPA": "Decimal",
       "RTOLCAP": "Decimal",
-      "RTOFFCAP": "Decimal"
+      "RTOFFCAP": "Decimal",
+      "RTORDPA": "Decimal",
+      "RTDLRRRS": "Decimal",
+      "RTOLLASL": "Decimal",
+      "RTOLHASL": "Decimal",
+      "RTNCLRECRS": "Decimal"
     }
   },
   "np6-625-cd/se_ld_rpt_ercot_gen": {
