@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-09-08",
+  "scope": "Public website source inspection, not a claim that no alternative source can exist. Annual price products are absent from the captured Public Reports catalog. Search found no direct annual price-file links; do not infer their availability or coverage from daily API retention.",
+  "products": [
+    {
+      "product": "NP4-180-ER",
+      "title": "Annual DAM hub/load-zone settlement prices",
+      "page": "https://www.ercot.com/mp/data-products/data-product-details?id=NP4-180-ER",
+      "htmlSha256": "a48f7c339f8259e4951b27447507194989d4b86b14b7c48ad76066f75ebd1b55",
+      "reportTypeId": "13060",
+      "listingRoute": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=",
+      "downloadRoute": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=",
+      "conclusion": "The published page uses MIS listing/download routes. Those routes were inspected in HTML but not called; MIS is excluded from this SDK release."
+    },
+    {
+      "product": "NP6-785-ER",
+      "title": "Annual RTM hub/load-zone settlement prices",
+      "page": "https://www.ercot.com/mp/data-products/data-product-details?id=NP6-785-ER",
+      "htmlSha256": "b963ddf5dafe7c50f601f454019ed9e7d2a8fe26f10486b4b305aff15cf55543",
+      "reportTypeId": "13061",
+      "listingRoute": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=",
+      "downloadRoute": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=",
+      "conclusion": "The published page uses MIS listing/download routes. Those routes were inspected in HTML but not called; MIS is excluded from this SDK release."
+    },
+    {
+      "product": "NP4-181-ER",
+      "title": "Annual DAM ancillary-service clearing prices",
+      "page": "https://www.ercot.com/mp/data-products/data-product-details?id=NP4-181-ER",
+      "htmlSha256": "c4fe2e7cd38b1ac559239a71e59e225f4c2e209bcdd7a2b4719fe73b90de3eb1",
+      "reportTypeId": "13091",
+      "listingRoute": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=",
+      "downloadRoute": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=",
+      "conclusion": "The published page uses MIS listing/download routes. Those routes were inspected in HTML but not called; MIS is excluded from this SDK release."
+    },
+    {
+      "product": "NP9-83-M",
+      "title": "Recent four-coincident-peak calculations",
+      "page": "https://www.ercot.com/mp/data-products/data-product-details?id=NP9-83-M",
+      "htmlSha256": "4312c0a18b8ca8bb46879586a6ea784853f1509f6b826bab683e2fc229ddc730",
+      "reportTypeId": "13037",
+      "listingRoute": "https://www.ercot.com/misapp/servlets/IceDocListJsonWS?reportTypeId=",
+      "downloadRoute": "https://www.ercot.com/misdownload/servlets/mirDownload?doclookupId=",
+      "conclusion": "The published page uses MIS listing/download routes. Those routes were inspected in HTML but not called; MIS is excluded from this SDK release."
+    }
+  ],
+  "fourCpDirectArchive": {
+    "index": "https://www.ercot.com/mktinfo/data_agg/4cp",
+    "url": "https://www.ercot.com/files/docs/2022/01/13/1996-2020_FourCoincidentPeakCalculations.zip",
+    "bytes": 2428522,
+    "sha256": "2583f723df58a5cc90a9fb7270bf02346003c4642d541d32cbd0bb837fcd4f03",
+    "finding": "Direct archive contains 1996-2020 annual allocation calculations and supporting workpapers. No four-CP reader was added; document-specific calculation extraction remains outside the current time-series implementation."
+  }
+}
