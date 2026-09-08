@@ -32,6 +32,7 @@ from tinyercot import (
     MoraCapacity,
     MoraPercentile,
     MoraResource,
+    MoraRiskPoint,
     MoraScenarioValue,
     Page,
     PolrUsage,
@@ -52,6 +53,18 @@ from tinyercot import (
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    assert_type(
+        client.resource_outlook.risk_points(where=lambda r: r.event == "EEA"),
+        Iterator[MoraRiskPoint],
+    )
+    assert_type(client.resource_outlook.read_risk_points(b""), Iterator[MoraRiskPoint])
+    mora_risk_point = next(client.resource_outlook.risk_points())
+    assert_type(mora_risk_point.probability, Decimal)
+    assert_type(mora_risk_point.bessAvailabilityMW, Decimal | None)
+    assert_type(mora_risk_point.chartHourEnding, time | None)
+    assert_type(mora_risk_point.sourceFile, PublicFile | None)
 
 with Client() as client:
     assert_type(client.zonal_energy.files(), list[PublicFile])

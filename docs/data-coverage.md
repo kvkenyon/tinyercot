@@ -1101,3 +1101,37 @@ including summaries and duplicate raw sheets. Regression tests compare each dail
 interval, numeric metadata cell, source timestamp and published total directly
 with xlrd, verify the missing dates and source quirks, and exercise anonymous
 index discovery and typed saved/live queries. Fixtures remain outside the wheel.
+
+## MORA conditional wind/BESS risk curves
+
+`Client.resource_outlook.risk_points/read_risk_points` reads exact numerical
+coordinates from the original chart caches and follows workbook/drawing
+relationships to the source worksheet. All 37 retained MORA workbooks were
+checked: three contain native numerical risk curves, yielding **72 points and
+144 numeric coordinates**. June 2026 has ten points per EEA/EEA3-load-shed series;
+October and November have thirteen per series. The remaining 34 reports do not
+supply these numerical chart caches and yield no points through this method.
+Their original graphics remain available in the workbook download.
+
+`MoraRiskPoint` retains the reporting month, event, wind MW, fractional
+probability, fixed BESS availability MW, simulation count, chart/scenario hours,
+original axis/series labels, complete worksheet notes, original zero-based point
+index and file/member/sheet/chart provenance. Values are parsed directly from
+XML decimal strings, without interpolation or image digitization. The zero final
+EEA3 probability in October remains zero. Revisions are not deduplicated.
+
+The three source scenarios fix BESS at 2,070 MW (June), 4,473 MW (October) and
+4,394 MW (November), with 10,000 model runs stated in each worksheet. These are
+conditional modeled outcomes, not realized operating observations or an
+unconditional forecast. November's chart hour is 20:00 while its worksheet
+scenario hour is 19:00; both remain explicit. Neither an assessment month nor
+source file URL establishes when the forecast became available, and no timezone
+is inferred for these chart labels.
+
+`tools/inputs/public-mora-risk-evidence.json` records source URLs/hashes, fixture
+locations, comparison scope and limits. Two additional complete original
+workbooks are retained in `public-tables/mora-risk.zip`; existing original
+November and March fixtures are reused. Tests compare every original coordinate,
+scenario context, both hours, zero probability and JSON round trips, and exercise
+anonymous typed queries plus a report without numerical curves. Fixtures remain
+outside the installed wheel.

@@ -14,7 +14,8 @@ from pydantic import BaseModel, ConfigDict
 
 from ._legacy_load import _number
 from ._load import _sheets, _workbooks
-from ._public_tables import _ResourceFiles
+from ._mora_risk import MoraRiskPoint, _risk_points
+from ._public_tables import PublicFile, _ResourceFiles
 
 if TYPE_CHECKING:
     from openpyxl.worksheet._read_only import ReadOnlyWorksheet
@@ -216,6 +217,38 @@ class ResourceOutlook(_ResourceFiles):
     """Discover MORA workbooks, including links in the historical year indexes."""
 
     title_pattern = r"Monthly Outlook for Resource Adequacy \(MORA\) .+"
+
+    def risk_points(
+        self, *, where: Callable[[MoraRiskPoint], bool] | None = None
+    ) -> Iterator[MoraRiskPoint]:
+        """Query numerical conditional-risk curves; raster-only reports yield none."""
+        for file in self.files():
+            yield from self.read_risk_points(
+                self.download(file),
+                filename=file.url.rsplit("/", 1)[-1],
+                source_file=file,
+                where=where,
+            )
+
+    def read_risk_points(
+        self,
+        data: bytes,
+        *,
+        filename: str = "workbook",
+        source_file: PublicFile | None = None,
+        where: Callable[[MoraRiskPoint], bool] | None = None,
+    ) -> Iterator[MoraRiskPoint]:
+        """Read original chart coordinates and their scenario context from MORA.
+
+        Reports with no numerical chart cache yield no points. Original files
+        remain downloadable; pixel graphics are not converted to estimated data.
+        """
+        for member, content in _workbooks(data):
+            member = filename if member in {"workbook.xls", "workbook.xlsx"} else member
+            month, label = _report_month(content)
+            for record in _risk_points(content, member, month, label, source_file):
+                if where is None or where(record):
+                    yield record
 
     def percentiles(
         self, *, where: Callable[[MoraPercentile], bool] | None = None

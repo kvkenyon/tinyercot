@@ -42,6 +42,7 @@ from ._mora import MoraMetric as MoraMetric
 from ._mora import MoraPercentile as MoraPercentile
 from ._mora import MoraResource as MoraResource
 from ._mora import MoraScenarioValue as MoraScenarioValue
+from ._mora_risk import MoraRiskPoint as MoraRiskPoint
 from ._ordc import IndicativeOrdcPrice as IndicativeOrdcPrice
 from ._pdf import PdfArchive as PdfArchive
 from ._pdf import PdfChartArchive as PdfChartArchive

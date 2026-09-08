@@ -1014,3 +1014,24 @@ For the longer historical record, use `np6_970_cd.rtd_lmp_node_zone_hub_history`
 
 Detailed field mappings, historical layout changes and source limitations are
 recorded in [data coverage](docs/data-coverage.md).
+
+### Conditional MORA risk curves
+
+With `tinyercot[files]`, read the numerical wind/BESS risk curves from MORA:
+
+```python
+with Client() as ercot:
+    for point in ercot.resource_outlook.risk_points(
+        where=lambda r: r.reportMonth.year == 2026 and r.event == "EEA3_load_shed",
+    ):
+        print(point.windGenerationMW, point.probability, point.bessAvailabilityMW)
+```
+
+`read_risk_points(data, filename=..., source_file=..., where=...)` supports saved
+workbooks and ZIPs. There are **72 published points** in the June, October and
+November 2026 workbooks. Probabilities remain fractions from conditional model
+runs with fixed wind and BESS inputs. The original scenario notes accompany each
+point. November's chart says 8 p.m. while its scenario says 7 p.m.; both hours
+remain separate fields. These are simulated risk curves, not observed outcomes.
+Reports with only graphical images return no numeric curve points; the original
+reports remain available through `resource_outlook.download(file)`.
