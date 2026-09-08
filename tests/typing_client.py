@@ -13,6 +13,9 @@ from tinyercot import (
     LoadArchive,
     LoadOutlook,
     Page,
+    ProfileArchive,
+    ProfileHour,
+    ProfileSeries,
     ScheduledGeneration,
     WeatherZoneLoad,
     WindArchive,
@@ -21,6 +24,13 @@ from tinyercot import (
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    profiles = client.generation_profiles.archives(study_year=2021, fuel="solar")
+    assert_type(profiles, list[ProfileArchive])
+    assert_type(client.generation_profiles.rows(profiles[0]), Iterator[ProfileHour])
+    assert_type(client.generation_profiles.read(b""), Iterator[ProfileHour])
+    assert_type(client.generation_profiles.read_series(b""), list[ProfileSeries])
 
 with Client() as client:
     assert_type(
