@@ -108,6 +108,11 @@ uv run python -m examples.price_history rt --point LZ_HOUSTON --output rt-histor
 The export uses unbounded `backfill()`, so it includes bundle-only publications
 and archives older than the bundles. Optional `--date-from` and `--date-to`
 filter **delivery dates after download**; they do not reduce source downloads.
+To limit downloads explicitly, add `--posted-from` and/or `--posted-to` with
+inclusive ERCOT-local publication timestamps without offsets. These bounds use
+original archive metadata, excluding bundle-only publications without that
+metadata and corrections posted outside the chosen period. See the
+[bounded export example](../examples/README.md#retained-settlement-price-history).
 Unbounded backfills return bundle rows before fetching archive listings;
 they then stream the uncovered archives. Large histories still take time.
 For bounded recent data use the
