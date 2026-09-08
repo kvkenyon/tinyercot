@@ -15,6 +15,7 @@ import httpx
 from httpx_retries import Retry, RetryTransport
 from pydantic import AliasChoices, BaseModel, ConfigDict, Field
 
+from ._as_requirements import AncillaryRequirements
 from ._capacity import CapacityChanges
 from ._coincident_peaks import CoincidentPeaks
 from ._dashboards import Dashboards
@@ -442,6 +443,10 @@ class Transport:
     @property
     def retail_transactions(self) -> RetailTransactions:
         return RetailTransactions(self._http)
+
+    @property
+    def ancillary_requirements(self) -> AncillaryRequirements:
+        return AncillaryRequirements(self._http)
 
     @property
     def indicative_ordc(self) -> IndicativeOrdcHistory:

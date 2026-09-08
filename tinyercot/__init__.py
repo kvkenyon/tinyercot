@@ -1,5 +1,17 @@
 """Tiny, fully typed access to ERCOT public data."""
 
+from ._as_requirements import AncillaryServiceAdjustment as AncillaryServiceAdjustment
+from ._as_requirements import AncillaryServiceQuantity as AncillaryServiceQuantity
+from ._as_requirements import (
+    AncillaryServiceRequirementNote as AncillaryServiceRequirementNote,
+)
+from ._as_requirements import (
+    AncillaryServiceRequirements as AncillaryServiceRequirements,
+)
+from ._as_requirements import (
+    AncillaryServiceSupportingValue as AncillaryServiceSupportingValue,
+)
+from ._as_requirements import ResponsiveReserveAllocation as ResponsiveReserveAllocation
 from ._capacity import CapacityProject as CapacityProject
 from ._capacity import CapacityTotals as CapacityTotals
 from ._client import Document as Document
