@@ -4,6 +4,8 @@ from ._client import Document as Document
 from ._client import History as History
 from ._client import Page as Page
 from ._client import Product as Product
+from ._coincident_peaks import CoincidentPeak as CoincidentPeak
+from ._coincident_peaks import CoincidentPeakAllocation as CoincidentPeakAllocation
 from ._fuel_mix import FuelMixArchive as FuelMixArchive
 from ._fuel_mix import FuelMixDay as FuelMixDay
 from ._fuel_mix import FuelMixInterval as FuelMixInterval

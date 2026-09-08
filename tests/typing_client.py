@@ -6,6 +6,7 @@ from typing import assert_type
 from tinyercot import (
     Archive,
     Client,
+    CoincidentPeakAllocation,
     Document,
     FuelMixArchive,
     FuelMixDay,
@@ -419,3 +420,18 @@ with Client() as client:
     assert_type(
         client.load_profiles.read_adjustments(b""), Iterator[LoadProfileAdjustment]
     )
+
+
+with Client() as client:
+    assert_type(
+        client.coincident_peaks.allocations(year_from=1996),
+        Iterator[CoincidentPeakAllocation],
+    )
+    assert_type(
+        client.coincident_peaks.read_allocations(b""),
+        Iterator[CoincidentPeakAllocation],
+    )
+    cp_allocation = next(client.coincident_peaks.allocations())
+    assert_type(cp_allocation.averageLoad, Decimal | None)
+    assert_type(cp_allocation.peaks[0].timestamp, datetime | None)
+    assert_type(cp_allocation.duns, str | None)

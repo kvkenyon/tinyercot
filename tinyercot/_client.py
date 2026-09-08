@@ -15,6 +15,7 @@ import httpx
 from httpx_retries import Retry, RetryTransport
 from pydantic import BaseModel, ConfigDict, Field
 
+from ._coincident_peaks import CoincidentPeaks
 from ._dashboards import Dashboards
 from ._fuel_mix import FuelMix
 from ._load import HourlyLoad
@@ -337,6 +338,10 @@ class Transport:
     @property
     def fuel_mix(self) -> FuelMix:
         return FuelMix(self._http)
+
+    @property
+    def coincident_peaks(self) -> CoincidentPeaks:
+        return CoincidentPeaks(self._http)
 
     @property
     def load_profiles(self) -> LoadProfiles:

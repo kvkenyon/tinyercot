@@ -250,6 +250,39 @@ routes on their current public pages. They are outside this release's **no MIS**
 scope; earlier annual price history is not provided by the daily API readers.
 The inspected routes are recorded in `tools/inputs/public-market-access-evidence.json`.
 
+### Historical four-coincident-peak allocations
+
+Annual 4CP allocations are available without credentials through
+`coincident_peaks`, using the optional `tinyercot[files]` dependencies:
+
+```python
+from tinyercot import Client
+
+with Client() as ercot:
+    for allocation in ercot.coincident_peaks.allocations(
+        year_from=2020,
+        year_to=2020,
+        entity="AEP TEXAS CENTRAL COMPANY (TDSP)",
+    ):
+        print(allocation.averageLoad, allocation.unit, allocation.loadRatioShare)
+        for peak in allocation.peaks:
+            print(peak.month, peak.timestamp, peak.load)
+```
+
+`download()` returns the original 1996–2020 ZIP; `read_allocations(data)` accepts
+saved ZIPs and workbooks with the same inclusive year and exact entity filters.
+The annual reader covers 4,345 rows across all 25 years. Revisions remain separate;
+`kind` distinguishes allocations, comparison tables and revision details. Source
+member, worksheet, section and notes retain their context. DUNS identifiers stay
+strings, including leading zeros. Loads retain their published kW/MW units, and
+`adjustmentUnit` distinguishes factors from percentages. Missing peak clocks
+remain `None`; the 1997 annual summary provides an average without monthly peak
+columns, so its `peaks` list is empty.
+
+Monthly preliminary/submitted peak tables are not yet decoded. Recent 4CP
+publications use MIS routes and remain outside this release's scope. See
+`tools/inputs/public-four-cp-evidence.json` for source comparisons and limitations.
+
 ### Historical retail load profiles
 
 `load_profiles` discovers ERCOT's annual backcasted load-profile files, currently

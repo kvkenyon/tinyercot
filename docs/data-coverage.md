@@ -523,3 +523,39 @@ Every field and all 5,232,800 interval cells in the complete 2026 archive were
 independently compared with the source workbook: 52,328 rows, 248 profiles,
 211 dates spanning January 1–August 30. All of May is absent. This is the
 published file's coverage, not a guarantee of continuous historical availability.
+
+## Historical four-coincident-peak allocations
+
+`Client.coincident_peaks.allocations()` reads the annual allocation tables in
+[ERCOT's public 1996–2020 archive](https://www.ercot.com/files/docs/2022/01/13/1996-2020_FourCoincidentPeakCalculations.zip).
+The source includes originals, revised filings, comparison tables, and revision
+components. They remain separate records with source member, sheet and section;
+`kind` distinguishes allocation, comparison and revision-detail tables. The
+reader does not select a supposedly final revision or recalculate reported shares.
+
+The 1996 summary includes monthly loads in kW and loss-adjustment components.
+The 1997 summary occurs below monthly submitted-load tables and contains annual
+averages and adjustment percentages, but no monthly load columns. Its `peaks`
+list is empty. Subsequent tables retain kW or MW as published. `adjustmentUnit`
+is `factor` for the 1996 calculation and `percent` for the older tables whose
+headers specify percentages; no scale conversion is performed. DUNS and entity
+codes remain strings. Peak clocks are parsed only when supplied by the annual
+column headers, with no inferred timezone or public-availability timestamp.
+
+Independent extraction of the original archive verifies 4,345 rows across 43
+annual worksheets and all 25 years: 27,290 numeric values plus source identity,
+year, record kind, identifiers and published peak clocks. Tests retain all annual
+worksheets from the source workbooks, rewritten with their cached values and
+notes; the fixture omits unrelated workbook sheets. Hashes and comparison scope
+are recorded in `tools/inputs/public-four-cp-evidence.json`.
+
+The original archive also contains monthly preliminary/submitted load reports.
+Those remain a known gap for a separate typed monthly reader; supporting
+calculation matrices and contact lists are not part of the annual allocations.
+The current NP9-83-M product page exposes report type 13037 through MIS listing
+and download routes, which were inspected without calling MIS. The public direct
+ZIP therefore supplies history through 2020, not recent 4CP filings.
+
+The inspected UFE page provides annual PowerPoint analysis reports. No slide
+extraction was added: these reports fall outside this release's operational
+and market time-series focus.
