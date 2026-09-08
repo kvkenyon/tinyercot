@@ -2,6 +2,7 @@
 
 from datetime import date, datetime
 from decimal import Decimal
+from html.parser import HTMLParser
 from typing import Literal, TypeVar
 
 import httpx
@@ -12,6 +13,67 @@ T = TypeVar("T", bound=BaseModel)
 
 class DashboardModel(BaseModel):
     model_config = ConfigDict(extra="forbid")
+
+
+class RealTimeConditions(DashboardModel):
+    """Public display readings; lastUpdated has no source UTC offset."""
+
+    lastUpdated: datetime
+    currentFrequency: Decimal = Field(alias="Current Frequency")
+    instantaneousTimeError: Decimal = Field(alias="Instantaneous Time Error")
+    consecutiveBaalExceedances: int = Field(
+        alias="Consecutive BAAL Clock-Minute Exceedances (min)"
+    )
+    actualSystemDemand: Decimal = Field(alias="Actual System Demand")
+    averageNetLoad: Decimal = Field(alias="Average Net Load")
+    totalSystemCapacity: Decimal = Field(
+        alias="Total System Capacity (not including Ancillary Services)"
+    )
+    totalWindOutput: Decimal = Field(alias="Total Wind Output")
+    totalPvgrOutput: Decimal = Field(alias="Total PVGR Output")
+    currentSystemInertia: Decimal = Field(alias="Current System Inertia")
+    dcE: Decimal = Field(alias="DC_E (East)")
+    dcL: Decimal = Field(alias="DC_L (Laredo VFT)")
+    dcN: Decimal = Field(alias="DC_N (North)")
+    dcR: Decimal = Field(alias="DC_R (Railroad)")
+    dcS: Decimal = Field(alias="DC_S (Eagle Pass)")
+
+
+class _ConditionsTable(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.values: dict[str, str | datetime] = {}
+        self.cells: list[str] = []
+        self.tag: str | None = None
+        self.text = ""
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == "tr":
+            self.cells = []
+        classes = (dict(attrs).get("class") or "").split()
+        if tag == "td" or (tag == "div" and "schedTime" in classes):
+            self.tag, self.text = tag, ""
+
+    def handle_data(self, data: str) -> None:
+        if self.tag:
+            self.text += data
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == self.tag:
+            text = " ".join(self.text.split())
+            if tag == "td":
+                self.cells.append(text)
+            else:
+                # The public display supplies no UTC offset, including at DST folds.
+                self.values["lastUpdated"] = datetime.strptime(  # noqa: DTZ007
+                    text.removeprefix("Last Updated: "), "%b %d, %Y %H:%M:%S"
+                )
+            self.tag = None
+        if tag == "tr" and len(self.cells) > 1:
+            if len(self.cells) != 2 or self.cells[0] in self.values:
+                raise ValueError("Expected distinct system-condition label/value rows")
+            self.values[self.cells[0]] = self.cells[1]
+            self.cells = []
 
 
 class FuelMixValues(DashboardModel):
@@ -483,6 +545,17 @@ class Dashboards:
 
     def grid_conditions(self) -> GridConditionsSnapshot:
         return self._get("daily-prc", GridConditionsSnapshot)
+
+    def real_time_conditions(self) -> RealTimeConditions:
+        """Read the public system-conditions table, including time error and BAAL."""
+        response = self._http.get(
+            "https://www.ercot.com/content/cdr/html/real_time_system_conditions.html"
+        )
+        response.raise_for_status()
+        parser = _ConditionsTable()
+        parser.feed(response.text)
+        parser.close()
+        return RealTimeConditions.model_validate(parser.values)
 
     def energy_storage(self) -> EsrSnapshot:
         return self._get("energy-storage-resources", EsrSnapshot)

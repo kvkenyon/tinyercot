@@ -1976,5 +1976,35 @@
       "ancillary_capacity"
     ],
     "typedNumericDashboardFeeds": 13
+  },
+  "publicRealTimeConditionsCheck": {
+    "checkedAt": "2026-09-08T05:46:37.790529+00:00",
+    "url": "https://www.ercot.com/content/cdr/html/real_time_system_conditions.html",
+    "sourceSha256": "3aebe765ed7f013870cc5a0524bed2c408d31ab45e3233479b0ee534d7a304eb",
+    "numericFields": 14,
+    "allNumericValuesMatched": true,
+    "lastUpdated": "2026-09-08T00:46:20",
+    "sourceTimestampHasUtcOffset": false,
+    "credentialsUsed": false,
+    "verification": "Actual SDK method with raw response captured; all 14 values independently extracted by HTML label regex and Decimal, and timestamp independently parsed. No SDK parser/model used to construct reference values.",
+    "values": {
+      "lastUpdated": "2026-09-08T00:46:20",
+      "currentFrequency": "60.015",
+      "instantaneousTimeError": "-2.114",
+      "consecutiveBaalExceedances": 0,
+      "actualSystemDemand": "65754",
+      "averageNetLoad": "47930",
+      "totalSystemCapacity": "85873",
+      "totalWindOutput": "17978",
+      "totalPvgrOutput": "0",
+      "currentSystemInertia": "328564",
+      "dcE": "-443",
+      "dcL": "70",
+      "dcN": "-218",
+      "dcR": "83",
+      "dcS": "0"
+    },
+    "fixtureScope": "Captured source display body and table only, excluding tracking/header scripts. Values and source markup retained; line endings normalized.",
+    "fixtureSha256": "ce5414142d4bc12f94ba1e094729b5c6f2562dffd7175508beca1b1567f71772"
   }
 }

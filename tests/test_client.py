@@ -285,6 +285,76 @@ def test_capacity_tables_reject_lost_or_ambiguous_values(table):
         RegulationAwards.model_validate(table)
 
 
+def test_public_real_time_conditions():
+    from datetime import datetime
+    from decimal import Decimal
+
+    source = (INPUTS / "dashboards/real-time-system-conditions.html").read_text()
+
+    def handler(request):
+        assert (
+            request.url
+            == "https://www.ercot.com/content/cdr/html/real_time_system_conditions.html"
+        )
+        assert "authorization" not in request.headers
+        return httpx.Response(200, text=source)
+
+    with httpx.Client(transport=httpx.MockTransport(handler)) as http:
+        result = Client(client=http).dashboards.real_time_conditions()
+    assert result.lastUpdated == datetime.fromisoformat("2026-09-08T00:42:50")
+    assert result.lastUpdated.tzinfo is None
+    assert result.model_dump(exclude={"lastUpdated"}) == {
+        "currentFrequency": Decimal("59.984"),
+        "instantaneousTimeError": Decimal("-2.123"),
+        "consecutiveBaalExceedances": 0,
+        "actualSystemDemand": Decimal(65912),
+        "averageNetLoad": Decimal(48039),
+        "totalSystemCapacity": Decimal(86005),
+        "totalWindOutput": Decimal(17978),
+        "totalPvgrOutput": Decimal(0),
+        "currentSystemInertia": Decimal(328564),
+        "dcE": Decimal(-443),
+        "dcL": Decimal(70),
+        "dcN": Decimal(-218),
+        "dcR": Decimal(83),
+        "dcS": Decimal(0),
+    }
+
+
+@pytest.mark.parametrize("change", ["markup", "missing", "duplicate"])
+def test_real_time_conditions_use_labels_and_reject_incomplete_readings(change):
+    import re
+    from decimal import Decimal
+
+    source = (INPUTS / "dashboards/real-time-system-conditions.html").read_text()
+    row = re.search(
+        r"<tr>\s*<td[^>]*>Instantaneous Time Error</td>.*?</tr>", source, re.DOTALL
+    )[0]
+    if change == "missing":
+        source = source.replace(row, "")
+    elif change == "duplicate":
+        source = source.replace(row, row + row)
+    else:
+        # Moving the row and splitting its label across markup must preserve its meaning.
+        source = source.replace(row, "").replace("</tbody>", row + "</tbody>")
+        source = source.replace(
+            "Instantaneous Time Error", "<span>Instantaneous</span>&nbsp;Time Error"
+        )
+
+    with httpx.Client(
+        transport=httpx.MockTransport(lambda _: httpx.Response(200, text=source))
+    ) as http:
+        if change == "markup":
+            assert Client(
+                client=http
+            ).dashboards.real_time_conditions().instantaneousTimeError == Decimal(
+                "-2.123"
+            )
+        else:
+            with pytest.raises(ValueError):
+                Client(client=http).dashboards.real_time_conditions()
+
+
 def test_single_bundle_400_uses_published_get_download():
     calls = []
 

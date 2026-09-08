@@ -372,3 +372,11 @@ with Client() as client:
         Decimal,
     )
     assert_type(ancillary_capacity.data.regulationAwardsGroup.regUpAwd, Decimal)
+
+
+with Client() as client:
+    conditions = client.dashboards.real_time_conditions()
+    assert_type(conditions.lastUpdated, datetime)
+    assert_type(conditions.instantaneousTimeError, Decimal)
+    assert_type(conditions.consecutiveBaalExceedances, int)
+    assert_type(conditions.dcS, Decimal)

@@ -431,5 +431,11 @@ exposes 60 values across 12 named source groups, including battery capacity and
 reserve awards. Both are public and require no credentials. Values are in MW;
 SCED capacity does not account for individual resource ramp-rate or duration limits.
 
+`ercot.dashboards.real_time_conditions()` reads the public system-conditions table,
+including frequency, instantaneous time error, consecutive BAAL exceedances,
+demand, capacity, generation, inertia and all five DC ties. Its `lastUpdated`
+is a naive datetime because the display provides no UTC offset. This method
+returns the current snapshot; it does not provide a historical archive.
+
 Detailed field mappings, historical layout changes and source limitations are
 recorded in [data coverage](docs/data-coverage.md).
