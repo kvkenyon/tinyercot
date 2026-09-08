@@ -9,9 +9,11 @@ from tinyercot import (
     CapacityTotals,
     Client,
     CoincidentPeakAllocation,
+    CoincidentPeakDay,
     CrrTimeOfUse,
     DistributionLossCoefficient,
     Document,
+    EnergyInterval,
     FuelMixArchive,
     FuelMixDay,
     FuelMixTotal,
@@ -660,6 +662,23 @@ with Client() as client:
         client.coincident_peaks.read_allocations(b""),
         Iterator[CoincidentPeakAllocation],
     )
+    assert_type(client.coincident_peaks.daily_files(), list[PublicFile])
+    assert_type(
+        client.coincident_peaks.download(
+            PublicFile(url="https://www.ercot.com/data.xlsx", title="Source")
+        ),
+        bytes,
+    )
+    assert_type(
+        client.coincident_peaks.daily(where=lambda r: r.entity == "ERCOT"),
+        Iterator[CoincidentPeakDay],
+    )
+    assert_type(client.coincident_peaks.read_daily(b""), Iterator[CoincidentPeakDay])
+    cp_day = next(client.coincident_peaks.daily())
+    assert_type(cp_day.operatingDay, date)
+    assert_type(cp_day.intervals, list[EnergyInterval])
+    assert_type(cp_day.intervals[0].energyMWh, Decimal | None)
+    assert_type(cp_day.sourceFile, PublicFile | None)
     cp_allocation = next(client.coincident_peaks.allocations())
     assert_type(cp_allocation.averageLoad, Decimal | None)
     assert_type(cp_allocation.peaks[0].timestamp, datetime | None)

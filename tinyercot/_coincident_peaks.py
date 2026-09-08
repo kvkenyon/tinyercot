@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from datetime import date, datetime, time
 from decimal import Decimal
 from typing import Literal
@@ -11,8 +11,10 @@ from typing import Literal
 import httpx
 from pydantic import BaseModel, ConfigDict
 
+from ._energy import EnergyInterval
 from ._legacy_load import _number
 from ._load import _sheets, _workbooks
+from ._public_tables import PublicFile, _year_files
 
 URL = "https://www.ercot.com/files/docs/2022/01/13/1996-2020_FourCoincidentPeakCalculations.zip"
 _MONTHS = ("June", "July", "August", "September")
@@ -118,17 +120,131 @@ class MonthlyCoincidentPeak(BaseModel):
     sourceRowNote: str | None
 
 
+class CoincidentPeakDay(BaseModel):
+    """Daily 4CP source energy, preserving each published settlement version.
+
+    Includes ERCOT and individual entities without summing them. Source channel
+    and stage are retained separately; neither proves public availability time.
+    Energy stays in MWh and is not converted into peak MW or allocation shares.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+    operatingDay: date
+    entity: str
+    settlement: Literal["INITIAL", "FINAL"]
+    channel: int
+    intervals: list[EnergyInterval]
+    sourceUnitHeader: str
+    sourceMember: str
+    sourceSheet: str
+    sourceRow: int
+    sourceFile: PublicFile | None = None
+
+
 class CoincidentPeaks:
     """Public historical 4CP files, independently of MIS and API credentials."""
 
     def __init__(self, client: httpx.Client) -> None:
         self._http = client
 
-    def download(self) -> bytes:
-        """Download the original 1996–2020 archive, including nested yearly ZIPs."""
-        response = self._http.get(URL, follow_redirects=True)
+    def download(self, file: PublicFile | None = None) -> bytes:
+        """Download a daily source file, or the original 1996–2020 archive."""
+        response = self._http.get(file.url if file else URL, follow_redirects=True)
         response.raise_for_status()
         return response.content
+
+    def daily_files(self) -> list[PublicFile]:
+        """Discover daily 4CP source workbooks in all public aggregation indexes."""
+        return _year_files(
+            self._http,
+            "https://www.ercot.com/mktinfo/data_agg",
+            r"\d{4} Four Coincident Peak \(4CP\) Source Data",
+        )
+
+    def daily(
+        self,
+        *,
+        date_from: date | None = None,
+        date_to: date | None = None,
+        where: Callable[[CoincidentPeakDay], bool] | None = None,
+    ) -> Iterator[CoincidentPeakDay]:
+        """Read daily source energy with inclusive dates and a typed predicate."""
+        if date_from and date_to and date_from > date_to:
+            raise ValueError("date_from must not be after date_to")
+        for file in self.daily_files():
+            yield from self.read_daily(
+                self.download(file),
+                filename=file.url.rsplit("/", 1)[-1],
+                source_file=file,
+                date_from=date_from,
+                date_to=date_to,
+                where=where,
+            )
+
+    def read_daily(
+        self,
+        data: bytes,
+        *,
+        filename: str = "workbook",
+        source_file: PublicFile | None = None,
+        date_from: date | None = None,
+        date_to: date | None = None,
+        where: Callable[[CoincidentPeakDay], bool] | None = None,
+    ) -> Iterator[CoincidentPeakDay]:
+        """Read saved daily workbooks/ZIPs without combining settlement versions."""
+        if date_from and date_to and date_from > date_to:
+            raise ValueError("date_from must not be after date_to")
+        found = False
+        for member, content in _workbooks(data):
+            member = filename if member in {"workbook.xls", "workbook.xlsx"} else member
+            for sheet, rows in _sheets(content, date_columns=(), preserve_types=True):
+                units = next(rows, ())
+                if not units or units[0] != "ENERGY UNITS = MWH":
+                    continue
+                header = next(rows, ())
+                if sheet not in {"INITIAL", "FINAL"} or header[:3] != (
+                    "ENTITY_NAME",
+                    "OP_DATE",
+                    "SAVECHANNEL",
+                ):
+                    raise ValueError(f"{member}/{sheet}: Unknown daily 4CP table")
+                found = True
+                for line, cells in enumerate(rows, 3):
+                    if all(v in (None, "") for v in cells):
+                        continue
+                    stamp = cells[1]
+                    if not isinstance(stamp, datetime) or stamp.time() != time():
+                        raise ValueError(f"{member}/{sheet}:{line}: Invalid OP_DATE")
+                    day = stamp.date()
+                    if (date_from and day < date_from) or (date_to and day > date_to):
+                        continue
+                    record = CoincidentPeakDay.model_validate(
+                        {
+                            "operatingDay": day,
+                            "entity": cells[0],
+                            "settlement": sheet,
+                            "channel": cells[2],
+                            "intervals": [
+                                EnergyInterval(
+                                    interval=i,
+                                    energyMWh=_number(value),
+                                    sourceLabel=str(label),
+                                )
+                                for i, (label, value) in enumerate(
+                                    zip(header[3:], cells[3:], strict=True), 1
+                                )
+                            ],
+                            "sourceUnitHeader": units[0],
+                            "sourceMember": member,
+                            "sourceSheet": sheet,
+                            "sourceRow": line,
+                            "sourceFile": source_file,
+                        }
+                    )
+                    if where is None or where(record):
+                        yield record
+        if not found:
+            raise ValueError("Download contains no daily 4CP source tables")
 
     def allocations(
         self,

@@ -290,6 +290,30 @@ present, including three unlabeled source totals with `entity=None`.
 an invalid source date stays visible in `sourceDate` with `runDate=None`.
 Member, sheet, one-based source row, headings and notes provide provenance.
 
+Daily 4CP source energy is also available:
+
+```python
+from datetime import date
+
+with Client() as ercot:
+    for day in ercot.coincident_peaks.daily(
+        date_from=date(2017, 6, 1),
+        date_to=date(2017, 6, 1),
+        where=lambda r: r.entity == "ERCOT" and r.settlement == "FINAL",
+    ):
+        print(day.operatingDay, day.intervals[0].energyMWh)
+```
+
+`daily_files()` discovers public source workbooks; `download(file)` and
+`read_daily(data, filename=..., date_from=..., date_to=..., where=...)` support
+saved copies. The published 2017 workbook covers June–September, with **32,890
+entity/day records** across initial and final settlement sheets. Both versions,
+source channels and interval labels remain separate. These values are **MWh**;
+no peak MW, allocation share or UTC timestamp is inferred. One entity has 97 of
+the 122 dates in each sheet; missing dates are not filled. Source row, file link
+and units remain attached. The tables include both ERCOT and individual entities,
+so adding every row together would double-count energy.
+
 Recent 4CP publications use MIS routes and remain outside this release's scope. See
 `tools/inputs/public-four-cp-evidence.json` for source comparisons and limitations.
 

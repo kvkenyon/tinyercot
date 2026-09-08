@@ -1,0 +1,27 @@
+{
+  "url": "https://www.ercot.com/files/docs/2018/01/23/4CP_Daily_Posting_2017-11-27.xlsx",
+  "title": "2017 Four Coincident Peak (4CP) Source Data",
+  "bytes": 30842343,
+  "sha256": "71908df8110a874d0ac4de652be061ddc201d123f0428b36966fe57ec87126df",
+  "fixture": "coincident-peaks/daily-2017.xlsx",
+  "coverage": {
+    "from": "2017-06-01",
+    "through": "2017-09-30",
+    "entities": 135,
+    "settlements": [
+      "INITIAL",
+      "FINAL"
+    ],
+    "rowsPerSettlement": 16445,
+    "rows": 32890,
+    "numericMWh": 3157440,
+    "blankMWh": 0
+  },
+  "limits": [
+    "135 source entities include ERCOT; rows must not be blindly added together.",
+    "FARMERS ELECTRIC CO OP INC PRTN RC (TDSP) has only 97 of 122 dates in each settlement.",
+    "INITIAL and FINAL have distinct source channels and values. Neither sheet nor file URL establishes public availability time.",
+    "Energy is MWh. Clock labels, including 24:00, do not establish timezone or UTC timestamps."
+  ],
+  "verification": "Regression compares every daily interval, entity, date, channel and source header to a direct openpyxl read of the complete original workbook; no expected-value SDK helpers."
+}

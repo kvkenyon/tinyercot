@@ -1017,3 +1017,37 @@ also retained. Regression tests compare every parameter and the baseline fields
 against direct spreadsheet reads, exercise anonymous discovery, preserve both
 revisions, and check source-year conflicts and JSON round trips. Fixtures are
 included in the source distribution, excluded from the installed wheel.
+
+## Daily 4CP source energy
+
+`Client.coincident_peaks.daily_files()` follows the current and 25 historical
+aggregation indexes. Their one direct daily-source link is the
+[2017 4CP source workbook](https://www.ercot.com/files/docs/2018/01/23/4CP_Daily_Posting_2017-11-27.xlsx).
+`download(file)`, `daily()` and `read_daily()` expose its original workbook and
+typed daily records, independently of MIS and API credentials. The existing
+no-argument `download()` still retrieves the annual 1996–2020 allocation archive.
+
+The daily workbook contains **16,445 rows in each of INITIAL and FINAL**, spanning
+**2017-06-01 through 2017-09-30**: 135 source entities, 122 dates, and **3,157,440
+numeric interval values** in total. INITIAL uses source channel 1, FINAL channel
+2; their values differ and both remain queryable. The source includes ERCOT and
+individual entities, so rows are not an additive partition. FARMERS ELECTRIC CO
+OP INC PRTN RC (TDSP) has only 97 dates in each sheet; other entities have all 122.
+No missing rows are synthesized.
+
+`CoincidentPeakDay` retains the operating day, entity, settlement, channel,
+`EnergyInterval` records, original unit header, file/member/sheet and one-based
+source row. Each interval contains its original one-based position, source label
+and nullable `energyMWh`. These files have 96 columns, including the original
+`24:00` label, and no blank numeric cells. Clock labels have no inferred timezone.
+The source's MWh values are not converted to MW or peak allocation shares.
+Inclusive date filters and typed predicates do not combine settlement versions.
+A file URL date or settlement stage does not establish historical availability.
+
+The complete original workbook is retained unchanged in
+`tools/inputs/coincident-peaks/daily-2017.xlsx`. Original URL/hash, coverage and
+limitations are recorded in `public-daily-4cp-evidence.json`. Tests compare every
+numeric interval and entity/date/channel/header directly with openpyxl, verify
+all entity date sets, preserve the initial/final difference, and exercise exact
+source-index discovery with anonymous date-filtered queries. The fixture ships
+in the source distribution and is excluded from the installed wheel.
