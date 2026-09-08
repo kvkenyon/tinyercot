@@ -1,0 +1,210 @@
+{
+  "checkedAt": "2026-09-07",
+  "indexUrl": "https://www.ercot.com/gridinfo/resource/2022",
+  "scope": "All four directly linked public profile keys for the 2021 and 2022 wind/solar studies. Later Public Portal studies remain outside this reader.",
+  "method": "Compare each decoded site and unit field, summary quantity/label, title/date/author, and note against an independently read original workbook. Account for every nonempty source cell as a decoded value or structural table heading. Numeric comparisons use cached Excel values, with Decimal(str(value)) for decimal model fields. Regression expectations independently check the four shaded wind sites and twelve shaded wind unit mappings. No cell comments were present.",
+  "totals": {
+    "sites": 1249,
+    "unitMappings": 579,
+    "summaryRows": 32,
+    "notes": 12,
+    "dataCellsCompared": 10262,
+    "nonemptyCellsAccountedFor": 10384
+  },
+  "workbooks": [
+    {
+      "filename": "ERCOT-SolarPVProfiles-1980-2021-Key-public.xlsx",
+      "sha256": "f5c9b981a2e3920c2829c36f9e841110efc0df2378cfbd1e3f8930f4692f6a6e",
+      "siteRows": 313,
+      "siteKinds": {
+        "solar-operational-planned": 164,
+        "solar-hypothetical": 149
+      },
+      "unitRows": 0,
+      "summaryRows": 10,
+      "notes": 0,
+      "dataCellsCompared": 1929,
+      "allNonemptyCellsAccountedFor": 1961,
+      "queuedSites": [],
+      "queuedUnits": []
+    },
+    {
+      "filename": "ERCOT-WindProfiles-1980-2021-Key-public.xlsx",
+      "sha256": "bcc685b38b64c5b6943677b5ecbe606e316dcbdc9e9de7a6b2cc12042e278fb6",
+      "siteRows": 213,
+      "siteKinds": {
+        "wind-operational-planned": 213
+      },
+      "unitRows": 352,
+      "summaryRows": 0,
+      "notes": 0,
+      "dataCellsCompared": 2899,
+      "allNonemptyCellsAccountedFor": 2910,
+      "queuedSites": [],
+      "queuedUnits": []
+    },
+    {
+      "filename": "ERCOT_SolarPVProfiles_1980-2020_Key-public.xlsx",
+      "sha256": "21d3f577aa148048a16c45d60c1065f79b1d8fdfee2dad5e3cbff1beed0f6f50",
+      "siteRows": 420,
+      "siteKinds": {
+        "solar-operational-planned": 53,
+        "solar-hypothetical": 139,
+        "solar-metro": 12,
+        "solar-rural": 216
+      },
+      "unitRows": 0,
+      "summaryRows": 22,
+      "notes": 8,
+      "dataCellsCompared": 2718,
+      "allNonemptyCellsAccountedFor": 2781,
+      "queuedSites": [],
+      "queuedUnits": []
+    },
+    {
+      "filename": "ERCOT_WindProfiles_1980-2020_Key-public.xlsx",
+      "sha256": "f9dd952f82a80c32fe179192065890e07b6135820657bd7ec165f8482fd3181b",
+      "siteRows": 303,
+      "siteKinds": {
+        "wind-operational-planned": 155,
+        "wind-hypothetical": 148
+      },
+      "unitRows": 227,
+      "summaryRows": 0,
+      "notes": 4,
+      "dataCellsCompared": 2716,
+      "allNonemptyCellsAccountedFor": 2732,
+      "queuedSites": [
+        4000,
+        4001,
+        4004,
+        4007
+      ],
+      "queuedUnits": [
+        "BLSUMMIT_UNIT2_17",
+        "BLSUMMIT_UNIT2_25",
+        "BLSUMIT3_UNIT_17",
+        "BLSUMIT3_UNIT_25",
+        "HI_LONE_WGR1A",
+        "HI_LONE_WGR1B",
+        "HI_LONE_WGR1C",
+        "HI_LONE_WGR2",
+        "HI_LONE_WGR2A",
+        "HI_LONE_WGR3",
+        "HI_LONE_WGR4",
+        "PEY_UNIT1"
+      ]
+    }
+  ],
+  "live": {
+    "keys": [
+      {
+        "archive": {
+          "studyYear": 2021,
+          "yearFrom": 1980,
+          "yearTo": 2020,
+          "fuel": "solar",
+          "title": "ERCOT Solar PV Profiles 1980-2020 Key",
+          "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_SolarPVProfiles_1980-2020_Key-public.xlsx"
+        },
+        "sha256": "21d3f577aa148048a16c45d60c1065f79b1d8fdfee2dad5e3cbff1beed0f6f50",
+        "sites": 420,
+        "units": 0,
+        "summaries": 22
+      },
+      {
+        "archive": {
+          "studyYear": 2021,
+          "yearFrom": 1980,
+          "yearTo": 2020,
+          "fuel": "wind",
+          "title": "ERCOT Wind Profile 1980-2020 Key",
+          "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_WindProfiles_1980-2020_Key-public.xlsx"
+        },
+        "sha256": "f9dd952f82a80c32fe179192065890e07b6135820657bd7ec165f8482fd3181b",
+        "sites": 303,
+        "units": 227,
+        "summaries": 0
+      },
+      {
+        "archive": {
+          "studyYear": 2022,
+          "yearFrom": 1980,
+          "yearTo": 2021,
+          "fuel": "solar",
+          "title": "ERCOT Solar PV Profiles 1980-2021 Key",
+          "url": "https://www.ercot.com/files/docs/2022/12/19/ERCOT-SolarPVProfiles-1980-2021-Key-public.xlsx"
+        },
+        "sha256": "f5c9b981a2e3920c2829c36f9e841110efc0df2378cfbd1e3f8930f4692f6a6e",
+        "sites": 313,
+        "units": 0,
+        "summaries": 10
+      },
+      {
+        "archive": {
+          "studyYear": 2022,
+          "yearFrom": 1980,
+          "yearTo": 2021,
+          "fuel": "wind",
+          "title": "ERCOT Wind Profiles 1980-2021 Key",
+          "url": "https://www.ercot.com/files/docs/2022/12/19/ERCOT-WindProfiles-1980-2021-Key-public.xlsx"
+        },
+        "sha256": "bcc685b38b64c5b6943677b5ecbe606e316dcbdc9e9de7a6b2cc12042e278fb6",
+        "sites": 213,
+        "units": 352,
+        "summaries": 0
+      }
+    ],
+    "matchedProfile": {
+      "studyYear": 2022,
+      "yearFrom": 1980,
+      "yearTo": 1989,
+      "fuel": "wind",
+      "scenario": "operational-planned",
+      "timeBasis": "CST-CDT",
+      "title": "ERCOT Operational Planned Wind Profiles 1980-1989",
+      "url": "https://www.ercot.com/files/docs/2022/12/19/ERCOT_OperationalPlanned_WindProfiles_1980-1989_CST-CDT.xlsx"
+    },
+    "matchedKeyFirstSite": {
+      "kind": "wind-operational-planned",
+      "sourceSheet": "Op&Planned_Wind-Summary",
+      "sourceRow": 2,
+      "sourceSection": 1,
+      "siteId": 1,
+      "unitCode": null,
+      "commonName": "Anacacho",
+      "county": "Kinney",
+      "cdrZone": "South",
+      "capacityMW": "99.825",
+      "latitude": null,
+      "longitude": null,
+      "typeCode": null,
+      "trackingSystem": null,
+      "trackingType": null,
+      "tilt": null,
+      "azimuth": null,
+      "dcAcRatio": null,
+      "inverters": null,
+      "modules": null,
+      "modeledInYear": null,
+      "modeledInYearFlag": null,
+      "newForYear": 2022,
+      "newForYearFlag": "NO",
+      "developmentStatus": "Operational",
+      "distanceToExistingOrQueued": null,
+      "iecClass": null,
+      "metroArea": null,
+      "developmentIntensity": null,
+      "markedAsQueued": null
+    }
+  },
+  "sourceCaveats": [
+    "Solar operational/planned tables have two sections without per-row development status; sourceSection preserves numbering without inferring status.",
+    "The 2021 wind unit table says New for 2020; its site table says New for 2021. These source years are retained separately.",
+    "2021 wind key flags four site IDs and twelve unit rows as modeled as queued using an explicit cell-shading legend. No such legend is supplied in the 2022 key.",
+    "The first 2022 wind site is 99.825 MW in the key and 99.83 MW in the hourly profile workbook. No capacity is substituted across these sources.",
+    "The 2021 solar summary publishes an overview count of313 and separate table totals of53 and278; these values are retained without reconciliation.",
+    "Solar tilt strings Lat and NA remain literal settings, distinct from numeric0 and absent values.",
+    "All four original XLSX files are preserved byte-for-byte inside history/generation-profile-keys.zip."
+  ]
+}

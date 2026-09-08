@@ -337,6 +337,37 @@ helper. Full comparisons cover all 23 CSVs and four 2020–2021 workbooks; all 1
 workbooks have metadata and sample-value checks. Details and source hashes are
 in `tools/inputs/public-profile-evidence.json`.
 
+The four companion keys are also typed. `key(archive)` selects the matching study
+and fuel; `keys(study_year=..., fuel=...)` lists keys for direct download or reuse.
+
+```python
+with Client() as ercot:
+    profiles = ercot.generation_profiles
+    archive = profiles.archives(study_year=2021, scenario="metro-distributed")[0]
+    key = profiles.key(archive)
+    for site in key.sites:
+        if site.kind == "solar-metro":
+            print(
+                site.siteId, site.metroArea, site.developmentIntensity, site.capacityMW
+            )
+
+    saved_key = profiles.download(profiles.keys(study_year=2022, fuel="wind")[0])
+    wind_key = profiles.read_key(saved_key)
+    for unit in wind_key.units:
+        print(unit.siteId, unit.unitCode)
+```
+
+Keys include site geography, solar equipment/tracking settings, county-level
+distributed solar sites, wind unit mappings, printed summaries and modeling notes.
+`tilt` retains literal `Lat`/`NA` settings; flags retain the year in their source
+header. `markedAsQueued` follows the wind key's shading legend (`None` when no
+legend is supplied). Solar table sections remain numbered without inferring a
+development status. Source labels, many-to-one mappings and published totals are
+preserved. Key capacities remain separate from hourly-file capacities: the first
+2022 wind site is 99.825 MW in its key and 99.83 MW in the hourly workbook.
+All four original keys are regression fixtures; source comparisons cover every
+data cell and note. See `tools/inputs/public-profile-key-evidence.json`.
+
 ### Direct public wind archives
 
 Install `tinyercot[pdf]`. These public website files need no API credentials.

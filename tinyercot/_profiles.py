@@ -16,6 +16,7 @@ import httpx
 from pydantic import BaseModel, ConfigDict
 
 from ._load import _sheets
+from ._profile_keys import ProfileKey, ProfileKeyArchive, read_key
 
 INDEX_URL = "https://www.ercot.com/gridinfo/resource/2022"
 ProfileScenario = Literal[
@@ -93,6 +94,7 @@ class _Links(HTMLParser):
         self.href: str | None = None
         self.title = ""
         self.files: dict[str, ProfileArchive] = {}
+        self.keys: dict[str, ProfileKeyArchive] = {}
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         if tag == "a":
@@ -109,12 +111,29 @@ class _Links(HTMLParser):
         url = urljoin(INDEX_URL, self.href)
         self.href = None
         parts = urlsplit(url)
+        if parts.scheme != "https" or parts.netloc != "www.ercot.com":
+            return
+        key = re.fullmatch(
+            r"/files/docs/(\d{4})/\d{2}/\d{2}/ERCOT[_-](Wind|SolarPV)Profiles"
+            r"[_-](\d{4})-(\d{4})[_-]Key-public\.xlsx",
+            parts.path,
+        )
+        if key:
+            self.keys[url] = ProfileKeyArchive(
+                studyYear=int(key[1]),
+                yearFrom=int(key[3]),
+                yearTo=int(key[4]),
+                fuel="wind" if key[2] == "Wind" else "solar",
+                title=" ".join(self.title.split()),
+                url=url,
+            )
+            return
         match = re.fullmatch(
             r"/files/docs/(\d{4})/\d{2}/\d{2}/(.+?)[_-](\d{4})"
             r"(?:-(\d{4}))?[_-](CST(?:-CDT)?)\.(?:csv|xlsx)",
             parts.path,
         )
-        if parts.scheme != "https" or parts.netloc != "www.ercot.com" or not match:
+        if not match:
             return
         name = match[2].lower().replace("_", "-")
         if "profiles" not in name or not any(f in name for f in ("wind", "solar")):
@@ -157,6 +176,13 @@ class GenerationProfiles:
     def __init__(self, client: httpx.Client) -> None:
         self._http = client
 
+    def _index(self) -> _Links:
+        response = self._http.get(INDEX_URL, follow_redirects=True)
+        response.raise_for_status()
+        links = _Links()
+        links.feed(response.text)
+        return links
+
     def archives(
         self,
         *,
@@ -164,10 +190,7 @@ class GenerationProfiles:
         fuel: Literal["wind", "solar"] | None = None,
         scenario: ProfileScenario | None = None,
     ) -> list[ProfileArchive]:
-        response = self._http.get(INDEX_URL, follow_redirects=True)
-        response.raise_for_status()
-        links = _Links()
-        links.feed(response.text)
+        links = self._index()
         if not links.files:
             raise ValueError(
                 "No generation-profile files found in ERCOT's public index"
@@ -183,7 +206,42 @@ class GenerationProfiles:
             key=lambda a: (a.studyYear, a.fuel, a.scenario, a.yearFrom, a.url),
         )
 
-    def download(self, archive: ProfileArchive) -> bytes:
+    def keys(
+        self,
+        *,
+        study_year: int | None = None,
+        fuel: Literal["wind", "solar"] | None = None,
+    ) -> list[ProfileKeyArchive]:
+        """Discover the separate site-key workbooks for each study and fuel."""
+        links = self._index()
+        if not links.keys:
+            raise ValueError("No profile keys found in ERCOT's public index")
+        return sorted(
+            (
+                k
+                for k in links.keys.values()
+                if (study_year is None or k.studyYear == study_year)
+                and (fuel is None or k.fuel == fuel)
+            ),
+            key=lambda k: (k.studyYear, k.fuel, k.url),
+        )
+
+    def key(self, archive: ProfileArchive | ProfileKeyArchive) -> ProfileKey:
+        """Read a key, or find the matching study/fuel key for a profile archive."""
+        if isinstance(archive, ProfileArchive):
+            matches = self.keys(study_year=archive.studyYear, fuel=archive.fuel)
+            if len(matches) != 1:
+                raise ValueError("Select a specific key from keys() for this study")
+            archive = matches[0]
+        return self.read_key(
+            self.download(archive), filename=archive.url.rsplit("/", 1)[-1]
+        )
+
+    def read_key(self, data: bytes, *, filename: str = "workbook") -> ProfileKey:
+        """Read a saved key XLSX, including its site tables, summaries and notes."""
+        return read_key(data, filename=filename)
+
+    def download(self, archive: ProfileArchive | ProfileKeyArchive) -> bytes:
         response = self._http.get(archive.url, follow_redirects=True)
         response.raise_for_status()
         return response.content
