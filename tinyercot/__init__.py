@@ -20,6 +20,7 @@ from ._fuel_mix import FuelMixDay as FuelMixDay
 from ._fuel_mix import FuelMixInterval as FuelMixInterval
 from ._fuel_mix import FuelMixTotal as FuelMixTotal
 from ._generated import *
+from ._generated_esr import *
 from ._generation_keys import GenerationProfileKey as GenerationProfileKey
 from ._generation_keys import GenerationProfileKeySite as GenerationProfileKeySite
 from ._generation_keys import GenerationProfileKeySummary as GenerationProfileKeySummary

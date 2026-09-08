@@ -45,4 +45,4 @@ dev = [
 
 
 [tool.ruff]
-extend-exclude = ["tinyercot/_generated.py"]
+extend-exclude = ["tinyercot/_generated.py", "tinyercot/_generated_esr.py"]

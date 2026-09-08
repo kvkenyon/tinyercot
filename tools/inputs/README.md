@@ -5,6 +5,9 @@ client offline, without ERCOT credentials or a separately initialized submodule.
 
 - `operations.json` and the root `api_response_fields.json` describe the API used
   by the generator. Overrides and field mappings record deliberate corrections.
+- `esr/` contains the separate ESR operation/response contracts, archive mapping,
+  original nested ZIPs, API captures and the live verification receipt. It feeds
+  the same generator and ESR routing/history regression tests.
 - `samples/` contains captured report responses, exercised against every generated
   endpoint's typed row model and mocked HTTP retrieval.
 - `dashboards/` and catalog/archive/bundle samples exercise public dashboard and

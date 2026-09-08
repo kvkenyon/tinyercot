@@ -1,0 +1,16 @@
+{
+  "rptesr-m/4_sec_esr_charging_mw": {
+    "columns": {
+      "AGC_EXEC_TIME": "AGCExecTime",
+      "AGC_EXEC_TIME_DST": "DSTFlag",
+      "AGC_EXEC_TIME_UTC": "AGCExecTimeUTC",
+      "SYSTEM_DEMAND": "systemDemand",
+      "ESR_CHARGING_MW": "ESRChargingMW"
+    },
+    "dates": {},
+    "datetimes": {
+      "AGCExecTime": "%m/%d/%Y %H:%M:%S",
+      "AGCExecTimeUTC": "%m/%d/%Y %H:%M:%S"
+    }
+  }
+}

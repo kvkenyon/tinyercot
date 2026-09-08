@@ -151,13 +151,22 @@ def test_async_iteration_uses_typed_rows():
     asyncio.run(run())
 
 
-def test_invalid_arguments_are_rejected_by_type_checker(tmp_path):
+@pytest.mark.parametrize(
+    "service,method,parameter",
+    [
+        ("Client", "np4_190_cd.dam_stlmnt_pnt_prices", "deliveryDateFrom"),
+        ("ESRClient", "rptesr_m._4_sec_esr_charging_mw", "AGCExecTimeUTCFrom"),
+    ],
+)
+def test_invalid_arguments_are_rejected_by_type_checker(
+    tmp_path, service, method, parameter
+):
     import subprocess
     import sys
 
     snippet = tmp_path / "invalid_usage.py"
     snippet.write_text(
-        "from tinyercot import Client\nc = Client()\nc.np4_190_cd.dam_stlmnt_pnt_prices(deliveryDateFrom=123)\nc.np4_190_cd.dam_stlmnt_pnt_prices(unknown_filter=True)\n"
+        f"from tinyercot import {service}\nc = {service}()\nc.{method}({parameter}=123)\nc.{method}(unknown_filter=True)\n"
     )
     result = subprocess.run(
         [sys.executable, "-m", "mypy", str(snippet), "--follow-untyped-imports"],

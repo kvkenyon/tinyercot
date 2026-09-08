@@ -11,3 +11,5 @@ tools/inputs/samples/** linguist-generated=true
 tools/inputs/dashboards/** linguist-generated=true
 # Hand-maintained mappings, overrides and evidence remain visible.
 tools/inputs/generation-profiles/csv-header-samples.json linguist-generated=true
+tinyercot/_generated_esr.py linguist-generated=true
+tools/inputs/esr/operations.json linguist-generated=true

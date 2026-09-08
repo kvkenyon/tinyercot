@@ -1,0 +1,64 @@
+{
+  "_embedded": {
+    "products": [
+      {
+        "productId": "RPTESR-M",
+        "name": "Energy Storage Resource Four Second Data",
+        "description": "",
+        "reportTypeId": 10011001,
+        "status": "Active",
+        "audience": "Public",
+        "generationFrequency": "Chron - 5 minutes",
+        "securityClassification": "Public",
+        "lastUpdated": "2025-06-01",
+        "firstRun": "2025-06-01",
+        "eceii": null,
+        "channel": "Public",
+        "userGuide": null,
+        "postingType": "Report",
+        "market": "Nodal",
+        "extractSubscriber": null,
+        "xsdName": null,
+        "misPostingLocation": null,
+        "certificateRole": null,
+        "fileType": "zip, csv, json",
+        "ddlName": null,
+        "misDisplayDuration": 365,
+        "archiveDuration": 2555,
+        "notificationType": null,
+        "contentType": "DATA",
+        "downloadLimit": 1000,
+        "lastPostDatetime": "2025-12-22T13:45:10",
+        "bundle": 0,
+        "protocolRules": {},
+        "artifacts": [
+          {
+            "reportTypeId": 10011001,
+            "displayName": "Energy Storage Resource Four Second Data",
+            "_links": {
+              "endpoint": {
+                "href": "https://api.ercot.com/api/public-data/rptesr-m/4_sec_esr_charging_mw"
+              }
+            }
+          }
+        ],
+        "_links": {
+          "self": {
+            "href": "https://api.ercot.com/api/public-data/rptesr-m"
+          },
+          "parent": {
+            "href": "https://api.ercot.com/api/public-data"
+          },
+          "archive": {
+            "href": "https://api.ercot.com/api/public-data/archive/rptesr-m"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-data/"
+    }
+  }
+}

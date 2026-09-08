@@ -46,7 +46,9 @@ constraints, outages, and renewable/load forecasts. Use the public
 `dashboards.energy_storage()` snapshots for their published operating context.
 Aggregate system data do not establish an individual battery's feasible dispatch.
 The public SCED ESR disclosure is part of Public Reports; it is distinct from
-the separate ESR API that is outside the current scope.
+the separate ESR API, now available through `ESRClient`; see the
+[ESR workflow](usage.md#energy-storage-four-second-data). Its verified latest
+record is from December 2025, so check source freshness before operational use.
 
 **Trading and forecasting:** preserve publication metadata for forecasts,
 resource reports, and delayed disclosures. `history.publications()` keeps each
@@ -140,7 +142,7 @@ website dataset has been decoded. Remaining website coverage includes forecast-p
 winter reliability-standard hourly forecast. Further historical layout verification is also
 needed for core market products. Broad legacy document extraction is deferred
 while market-data coverage and usability take priority.
-MIS and the separate ESR API remain excluded. In particular, ERCOT separately
+MIS remains excluded. In particular, ERCOT separately
 lists [annual DAM hub/load-zone prices](https://www.ercot.com/mp/data-products/data-product-details?id=NP4-180-ER),
 [annual RTM hub/load-zone prices](https://www.ercot.com/mp/data-products/data-product-details?id=NP6-785-ER),
 and [annual DAM ancillary-service prices](https://www.ercot.com/mp/data-products/data-product-details?id=NP4-181-ER)

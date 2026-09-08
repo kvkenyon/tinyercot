@@ -843,3 +843,30 @@ def hourly_load_scenario_typing(client: Client) -> None:
     assert_type(row.electricVehicles, Decimal | None)
     assert_type(row.largeFlexibleLoad, Decimal | None)
     assert_type(row.sourceFile, PublicFile | None)
+
+
+# ESR uses a separate subscription while retaining the generated typed surface.
+from tinyercot import ESRClient, rptesr_m
+
+with ESRClient() as esr:
+    assert_type(
+        esr.rptesr_m._4_sec_esr_charging_mw(
+            AGCExecTimeUTCFrom=datetime.fromisoformat("2025-09-01T00:00:00")
+        ),
+        Page[rptesr_m._4SecEsrChargingMwRow],
+    )
+    assert_type(
+        esr.rptesr_m._4_sec_esr_charging_mw_iter(),
+        Iterator[rptesr_m._4SecEsrChargingMwRow],
+    )
+    assert_type(
+        esr.rptesr_m._4_sec_esr_charging_mw_iter_async(),
+        AsyncIterator[rptesr_m._4SecEsrChargingMwRow],
+    )
+    assert_type(
+        esr.rptesr_m._4_sec_esr_charging_mw_history,
+        Archive[rptesr_m._4SecEsrChargingMwRow],
+    )
+    esr_row = next(esr.rptesr_m._4_sec_esr_charging_mw_iter())
+    assert_type(esr_row.ESRChargingMW, Decimal | None)
+    assert_type(esr_row.AGCExecTimeUTC, datetime | None)

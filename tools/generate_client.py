@@ -28,13 +28,19 @@ def name(value: str) -> str:
     return "_" + value if value[0].isdigit() or keyword.iskeyword(value) else value
 
 
-def generate(*, allow_incomplete: bool = False) -> None:
-    operations = json.loads((INPUTS / "operations.json").read_text())
-    schemas = json.loads((ROOT / "api_response_fields.json").read_text())
+def generate(*, allow_incomplete: bool = False, esr: bool = False) -> None:
+    inputs = INPUTS / "esr" if esr else INPUTS
+    client_name = "ESRClient" if esr else "Client"
+    output_name = "_generated_esr.py" if esr else "_generated.py"
+    operations = json.loads((inputs / "operations.json").read_text())
+    schema_path = (
+        inputs / "response-fields.json" if esr else ROOT / "api_response_fields.json"
+    )
+    schemas = json.loads(schema_path.read_text())
     overrides = json.loads((INPUTS / "type-overrides.json").read_text())
     row_fields = json.loads((INPUTS / "row-fields.json").read_text())
     defaults = json.loads((INPUTS / "query-defaults.json").read_text())
-    history = json.loads((INPUTS / "history-formats.json").read_text())
+    history = json.loads((inputs / "history-formats.json").read_text())
     groups = {}
     missing = []
     for op in operations:
@@ -71,7 +77,7 @@ def generate(*, allow_incomplete: bool = False) -> None:
         "from ._pdf import PdfArchive, PdfChartArchive",
         "",
     ]
-    lines.append(f"__all__ = {['Client', *[name(p) for p in sorted(groups)]]!r}")
+    lines.append(f"__all__ = {[client_name, *[name(p) for p in sorted(groups)]]!r}")
     for product, endpoints in sorted(groups.items()):
         cls = name(product)
         lines += [
@@ -180,9 +186,14 @@ def generate(*, allow_incomplete: bool = False) -> None:
                 ]
         lines.append("")
     lines += [
-        "class Client(Transport):",
+        f"class {client_name}(Transport):",
         '    """ERCOT public data, with generated typed product methods."""',
     ]
+    if esr:
+        lines += [
+            '    _base_url = "https://api.ercot.com/api/public-data"',
+            '    _subscription_key_env = "ERCOT_ESR_SUBSCRIPTION_KEY"',
+        ]
     for product in sorted(groups):
         cls = name(product)
         lines += [
@@ -191,7 +202,7 @@ def generate(*, allow_incomplete: bool = False) -> None:
             f"    def {cls}(self) -> {cls}:",
             f"        return {cls}(self)",
         ]
-    (ROOT / "tinyercot" / "_generated.py").write_text("\n".join(lines) + "\n")
+    (ROOT / "tinyercot" / output_name).write_text("\n".join(lines) + "\n")
     print(
         f"Generated {sum(not op.get('historyOnly', False) for entries in groups.values() for _, op, _ in entries)} API endpoints in {len(groups)} product namespaces"
     )
@@ -204,4 +215,6 @@ if __name__ == "__main__":
         action="store_true",
         help="Generate available contracts during discovery; never a completeness claim",
     )
-    generate(allow_incomplete=parser.parse_args().allow_incomplete)
+    args = parser.parse_args()
+    generate(allow_incomplete=args.allow_incomplete)
+    generate(allow_incomplete=args.allow_incomplete, esr=True)

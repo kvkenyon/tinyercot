@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "totalRecords": 0,
+    "pageSize": 1,
+    "totalPages": 0,
+    "currentPage": 0,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "postDatetime: DESC"
+    }
+  },
+  "product": {
+    "productId": "RPTESR-M",
+    "name": "Energy Storage Resource Four Second Data",
+    "reportTypeId": 10011001
+  },
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-data/bundle/rptesr-m"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-data"
+    }
+  }
+}

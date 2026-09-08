@@ -82,8 +82,11 @@ and known-format coverage, not uninterrupted history for every dataset.
 Full-source comparisons cover retained DAM settlement prices, DAM ancillary
 prices, and weather-zone actual load. Other products have sampled historical
 layout checks; see the [coverage evidence](docs/data-coverage.md). Available
-history and source gaps differ by product. The separate ESR API and MIS remain
-outside the current scope.
+history and source gaps differ by product. The separate ESR service adds one
+generated query and its history reader through `ESRClient`, using
+`ERCOT_ESR_SUBSCRIPTION_KEY` with the same username/password. See the
+[ESR workflow](docs/usage.md#energy-storage-four-second-data) for verified retention
+and source freshness. MIS remains outside the current scope.
 
 Direct public services include `hourly_load`, `fuel_mix`, `load_profiles`,
 `loss_factors`, and `dashboards`. Install `tinyercot[files]` for XLS/XLSX/XLSB readers

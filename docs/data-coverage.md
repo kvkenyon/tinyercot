@@ -1439,3 +1439,32 @@ were compared against original worksheets using separately specified source
 coordinates. The smaller offline fixtures retain original XML row excerpts,
 with expected cells captured separately. [Evidence and manifests](../tools/inputs/load-scenarios/evidence.json)
 distinguish these two verification scopes. Fixtures are excluded from the wheel.
+
+## Separate ESR API
+
+`ESRClient` adds the generated `rptesr_m._4_sec_esr_charging_mw` query, its sync
+and async iterators, and `_4_sec_esr_charging_mw_history`. The September 8, 2026
+service inventory contains eight operations: one row query and seven shared
+metadata/listing/download operations. These are additional to the 242 Public
+Reports queries, 249 Public Reports operations, and 289 Public Reports history
+tables. The offline generator reads normalized ESR operations, live response
+fields and the CSV mapping under `tools/inputs/esr`.
+
+The service reported 4,087,281 query rows, 54,490 archive documents and zero
+bundles. The oldest and newest query rows observed were May 29, 2025 20:20:00
+and December 4, 2025 23:54:58 CPT; the oldest/newest archive postings were
+May 29, 2025 20:27:53 and December 4, 2025 23:55:10. These are observed bounds,
+not uninterrupted coverage or current operational freshness. Product metadata's
+`lastPostDatetime` is later than the newest returned archive and is not used to
+claim a later data boundary.
+
+The complete oldest, middle and newest archived CSV samples contain 225 rows.
+All five fields match independent CSV parsing, live paginated typed queries,
+archive downloads and bounded publications. Live sync/async paging and all 13
+query parameters were exercised. CSV `N` flags decode to false; local and UTC
+timestamps retain their separate source values, without inferred timezone
+offsets. The original nested ZIPs and API fixtures are used in regression tests.
+The shared transport normalizes ESR metadata identifiers through aliases while
+selecting the ESR base URL and separate subscription key. No bundles were
+available to verify a live bundle download, and intervening archives have not
+all been compared. [Verification receipt](../tools/inputs/esr/evidence.json).

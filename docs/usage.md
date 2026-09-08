@@ -3,7 +3,7 @@
 A small, fully typed ERCOT market-data client for retailers, battery operators,
 and energy traders.
 
-**Development status:** all 242 Public Reports endpoints have typed methods and captured-response tests. The separate ESR API is awaiting an enabled subscription key. MIS is not included.
+**Development status:** all 242 Public Reports endpoints have typed methods and captured-response tests. The separate ESR API has one generated query and a typed archive reader through `ESRClient`. MIS is not included.
 
 The live inventory check matched all 249 published HTTP operations: 242 generated
 report queries and seven shared operations. All 5,973 query-parameter definitions
@@ -1328,3 +1328,50 @@ Some sources declare a 90th percentile only in the public download title.
 `sourcePercentileLabel`; historical rows never inherit it. `read()` uses only
 workbook contents, so `percentile` stays `None` when the workbook lacks the label.
 No percentile is inferred from a filename or the magnitude of its values.
+
+## Energy storage four-second data
+
+Use `ESRClient` for the separate ESR service. Set `ERCOT_USERNAME`,
+`ERCOT_PASSWORD`, and `ERCOT_ESR_SUBSCRIPTION_KEY`, or pass `username`, `password`,
+and `subscription_key` directly. The ESR client does not fall back to the Public
+Reports subscription key.
+
+```python
+from datetime import datetime
+from tinyercot import ESRClient
+
+with ESRClient() as esr:
+    for row in esr.rptesr_m._4_sec_esr_charging_mw_iter(
+        AGCExecTimeUTCFrom=datetime.fromisoformat("2025-09-01T15:35:00"),
+        AGCExecTimeUTCTo=datetime.fromisoformat("2025-09-01T15:40:00"),
+    ):
+        print(row.AGCExecTimeUTC, row.systemDemand, row.ESRChargingMW)
+```
+
+All named date, decimal, flag, paging and sorting filters are generated from the
+ESR definition. `_async` and `_iter_async` use the same typed row. `AGCExecTime`
+(CPT), `AGCExecTimeUTC`, and `DSTFlag` remain separate source fields. Neither
+timestamp contains an encoded offset; the reader does not attach a timezone or
+reconstruct repeated hours. Numeric values are `Decimal | None`.
+
+For the widest retained history, use the shared archive workflow:
+
+```python
+with ESRClient() as esr:
+    history = esr.rptesr_m._4_sec_esr_charging_mw_history
+    for row in history.backfill(batch_size=100):
+        print(row.AGCExecTimeUTC, row.ESRChargingMW)
+```
+
+`read(zip_bytes)`, `download(doc_ids)`, `rows(posted_from=..., posted_to=...)`,
+and `publications()` work as with Public Reports. This service also supports
+`products()`, `product("RPTESR-M")`, `archives()`, `bundles()`, and `version()`.
+The shared metadata models expose ESR's `productId` as `emilId` and
+`reportProductId` as `reportEMIL`.
+
+On September 8, 2026, the service listed 54,490 archives and no bundles. Its row
+query reported 4,087,281 records, bounded by May 29 through December 4, 2025 in
+local time. The latest returned record was **not current operational data**.
+Three complete archives (225 rows) matched the API and original source cells;
+this is not a full-retention completeness check. See the
+[ESR evidence](../tools/inputs/esr/evidence.json).

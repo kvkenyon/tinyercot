@@ -9,11 +9,11 @@ import time
 from collections.abc import AsyncIterator, Iterator, Sequence
 from datetime import date, datetime
 from decimal import Decimal
-from typing import Any, Generic, Literal, Self, TypeVar
+from typing import Any, ClassVar, Generic, Literal, Self, TypeVar
 
 import httpx
 from httpx_retries import Retry, RetryTransport
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import AliasChoices, BaseModel, ConfigDict, Field
 
 from ._capacity import CapacityChanges
 from ._coincident_peaks import CoincidentPeaks
@@ -64,7 +64,7 @@ class Artifact(BaseModel):
 
 
 class Product(BaseModel):
-    emilId: str
+    emilId: str = Field(validation_alias=AliasChoices("emilId", "productId"))
     name: str
     description: str | None = None
     status: str
@@ -115,7 +115,9 @@ class Report(BaseModel):
     reportName: str
     reportDisplayName: str
     reportId: str | int
-    reportEMIL: str
+    reportEMIL: str = Field(
+        validation_alias=AliasChoices("reportEMIL", "reportProductId")
+    )
     downloadLimit: int | None = None
 
 
@@ -150,7 +152,7 @@ class Document(BaseModel):
 
 
 class ProductSummary(BaseModel):
-    emilId: str
+    emilId: str = Field(validation_alias=AliasChoices("emilId", "productId"))
     name: str
     reportTypeId: int
 
@@ -203,6 +205,9 @@ class Version(BaseModel):
 
 
 class Transport:
+    _base_url: ClassVar[str] = BASE_URL
+    _subscription_key_env: ClassVar[str] = "ERCOT_SUBSCRIPTION_KEY"
+
     def __init__(
         self,
         username: str | None = None,
@@ -215,7 +220,7 @@ class Transport:
     ) -> None:
         self._username = username or os.getenv("ERCOT_USERNAME")
         self._password = password or os.getenv("ERCOT_PASSWORD")
-        self._key = subscription_key or os.getenv("ERCOT_SUBSCRIPTION_KEY")
+        self._key = subscription_key or os.getenv(self._subscription_key_env)
         retry = Retry(
             total=5, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504]
         )
@@ -256,7 +261,8 @@ class Transport:
         with self._lock:
             if not (self._username and self._password and self._key):
                 raise ValueError(
-                    "ERCOT username, password, and subscription key are required"
+                    "ERCOT username, password, and subscription key are required "
+                    f"(subscription_key or {self._subscription_key_env})"
                 )
             if time.monotonic() >= self._expires:
                 response = self._http.post(
@@ -292,7 +298,7 @@ class Transport:
         for attempt in range(2):
             response = self._http.request(
                 method,
-                BASE_URL + "/" + path.lstrip("/"),
+                self._base_url + "/" + path.lstrip("/"),
                 headers=self._headers(),
                 params=_params(params or {}),
                 json={"docIds": list(doc_ids)} if doc_ids is not None else None,
@@ -325,7 +331,7 @@ class Transport:
         for attempt in range(2):
             headers = await asyncio.to_thread(self._headers)
             response = await self._async_http.get(
-                BASE_URL + "/" + path.lstrip("/"),
+                self._base_url + "/" + path.lstrip("/"),
                 headers=headers,
                 params=_params(params),
             )
