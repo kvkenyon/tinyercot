@@ -1,0 +1,154 @@
+{
+  "startedAt": "2026-09-08T18:21:42.676789+00:00",
+  "finishedAt": "2026-09-08T19:10:02.091330+00:00",
+  "product": "NP4-732-CD",
+  "rowsCompared": 21676139,
+  "modelFieldsCompared": 35,
+  "fields": [
+    "postedDatetime",
+    "deliveryDate",
+    "hourEnding",
+    "genSystemWide",
+    "COPHSLSystemWide",
+    "STWPFSystemWide",
+    "WGRPPSystemWide",
+    "genLoadZoneSouthHouston",
+    "COPHSLLoadZoneSouthHouston",
+    "STWPFLoadZoneSouthHouston",
+    "WGRPPLoadZoneSouthHouston",
+    "genLoadZoneWest",
+    "COPHSLLoadZoneWest",
+    "STWPFLoadZoneWest",
+    "WGRPPLoadZoneWest",
+    "genLoadZoneNorth",
+    "COPHSLLoadZoneNorth",
+    "STWPFLoadZoneNorth",
+    "WGRPPLoadZoneNorth",
+    "HSLSystemWide",
+    "DSTFlag",
+    "hourEndingTimestamp",
+    "actualSystemWide",
+    "actualSouthHouston",
+    "COPHSLSouthHouston",
+    "STWPFSouthHouston",
+    "WGRPPSouthHouston",
+    "actualWestNorth",
+    "COPHSLWestNorth",
+    "STWPFWestNorth",
+    "WGRPPWestNorth",
+    "actualLoadZoneSouthHouston",
+    "actualLoadZoneWest",
+    "actualLoadZoneNorth",
+    "hourBeginningTimestamp"
+  ],
+  "archivePublications": 108275,
+  "bundlePublications": 102,
+  "uniqueOriginalPublications": 108275,
+  "bundleOnlyPublications": 0,
+  "bounds": {
+    "deliveryDate": [
+      "2016-06-21",
+      "2026-09-15"
+    ],
+    "hourBeginningTimestamp": [
+      "2015-02-04T12:00:00",
+      "2016-06-30T09:00:00"
+    ],
+    "hourEndingTimestamp": [
+      "2014-04-29T01:00:00",
+      "2015-02-08T10:00:00"
+    ]
+  },
+  "sourceLayouts": {
+    "DELIVERY_DATE,HOUR_ENDING,SYSTEM_WIDE_GEN,COP_HSL_SYSTEM_WIDE,STWPF_SYSTEM_WIDE,WGRPP_SYSTEM_WIDE,GEN_LZ_SOUTH_HOUSTON,COP_HSL_LZ_SOUTH_HOUSTON,STWPF_LZ_SOUTH_HOUSTON,WGRPP_LZ_SOUTH_HOUSTON,GEN_LZ_WEST,COP_HSL_LZ_WEST,STWPF_LZ_WEST,WGRPP_LZ_WEST,GEN_LZ_NORTH,COP_HSL_LZ_NORTH,STWPF_LZ_NORTH,WGRPP_LZ_NORTH,SYSTEM_WIDE_HSL,DSTFlag": 17086,
+    "DELIVERY_DATE,HOUR_ENDING,ACTUAL_SYSTEM_WIDE,COP_HSL_SYSTEM_WIDE,STWPF_SYSTEM_WIDE,WGRPP_SYSTEM_WIDE,ACTUAL_LZ_SOUTH_HOUSTON,COP_HSL_LZ_SOUTH_HOUSTON,STWPF_LZ_SOUTH_HOUSTON,WGRPP_LZ_SOUTH_HOUSTON,ACTUAL_LZ_WEST,COP_HSL_LZ_WEST,STWPF_LZ_WEST,WGRPP_LZ_WEST,ACTUAL_LZ_NORTH,COP_HSL_LZ_NORTH,STWPF_LZ_NORTH,WGRPP_LZ_NORTH,DSTFlag": 64662,
+    "DELIVERY_DATE,HOUR_ENDING,ACTUAL_SYSTEM_WIDE,COP_HSL_SYSTEM_WIDE,STWPF_SYSTEM_WIDE,WGRPP_SYSTEM_WIDE,ACTUAL_SOUTH_HOUSTON,COP_HSL_SOUTH_HOUSTON,STWPF_SOUTH_HOUSTON,WGRPP_SOUTH_HOUSTON,ACTUAL_WEST_NORTH,COP_HSL_WEST_NORTH,STWPF_WEST_NORTH,WGRPP_WEST_NORTH,DSTFlag": 7708,
+    "HOUR_BEGINNING,ACTUAL_SYSTEM_WIDE,COP_HSL_SYSTEM_WIDE,STWPF_SYSTEM_WIDE,WGRPP_SYSTEM_WIDE,ACTUAL_SOUTH_HOUSTON,COP_HSL_SOUTH_HOUSTON,STWPF_SOUTH_HOUSTON,WGRPP_SOUTH_HOUSTON,ACTUAL_WEST_NORTH,COP_HSL_WEST_NORTH,STWPF_WEST_NORTH,WGRPP_WEST_NORTH,DSTFlag": 12064,
+    "HOUR_ENDING,ACTUAL_SYSTEM_WIDE,COP_HSL_SYSTEM_WIDE,STWPF_SYSTEM_WIDE,WGRPP_SYSTEM_WIDE,ACTUAL_SOUTH_HOUSTON,COP_HSL_SOUTH_HOUSTON,STWPF_SOUTH_HOUSTON,WGRPP_SOUTH_HOUSTON,ACTUAL_WEST_NORTH,COP_HSL_WEST_NORTH,STWPF_WEST_NORTH,WGRPP_WEST_NORTH,DSTFlag": 6755
+  },
+  "allListedArchivesIncluded": true,
+  "allTypedRowsMatchIndependentSource": true,
+  "scope": "Every row from unbounded NP4-732-CD backfill was compared field-for-field with independent stdlib CSV/date/Decimal decoding of downloaded originals. A separate pass accounted for every original CSV member, hash and row count. Captured archive IDs all appear in decoded sources; a fresh source-time-bounded listing agrees in cardinality and endpoints. These checks cover the enumerated retained publications, not continuous actual-generation observations or every ERCOT product.",
+  "limitations": [
+    "Forecast horizons overlap across publications; the row count is not a count of unique actual hours.",
+    "Dates extending after the retrieval day are forecast periods, not future actual generation.",
+    "Legacy hour-beginning/hour-ending timestamps and modern deliveryDate/hourEnding remain distinct; no UTC offset is inferred.",
+    "Newer generation fields, older actual fields and combined versus separate regional fields are preserved rather than interchanged.",
+    "Listing checks are not an atomic snapshot guarantee against retroactive changes with equal timestamps.",
+    "No claim of availability before the earliest retained source or through excluded MIS sources."
+  ],
+  "downloadsByKind": {
+    "bundle": 102,
+    "archive": 34
+  },
+  "remainingArchiveIdsDownloaded": 33813,
+  "sourceManifestSha256": "998483ebd4be2548837c58d24a34cca82149722302c4ed99c0ea06cf0d6201e0",
+  "sourceDownloadManifestSha256": "cadf325e46d2de8dd26008cb4de776b01d5e912f2f4e27b2020bf87cd39bef76",
+  "readerFilesSha256": {
+    "tinyercot/_history.py": "a9a2fcc790495bc8a6b7c643fd3a678ca23734c33f1563ce85f4264defa1f400",
+    "tinyercot/_client.py": "2882187b44b08a97a5ae4d4b73fce38db919483646ac15e9bca4fce191d79209",
+    "tinyercot/_generated.py": "4add31219447d92ec33bf16f4096a6745799d61c36b272ab2edba095e0c836c2",
+    "tools/inputs/history-formats.json": "2566844e8cebcc6b40d42813d32074d474fbd2319742457a49684e1dba66a53e"
+  },
+  "independentAccounting": {
+    "allDownloadHashesMatch": true,
+    "allOriginalMemberHashesAndRowCountsMatch": true,
+    "allBundleIdsDownloaded": true,
+    "allListedArchiveIdsDecoded": true,
+    "originalDocuments": 108275,
+    "rows": 21676139,
+    "repeatedOriginalCopies": 0,
+    "archiveListingRecords": 108276,
+    "uniqueArchiveIds": 108275,
+    "bundleListingRecords": 102
+  },
+  "boundedListingRecheck": {
+    "checkedAt": "2026-09-08T14:10:21.240724-05:00",
+    "postedTo": "2026-09-08T12:55:12",
+    "capturedListingRows": 108276,
+    "capturedUniqueIds": 108275,
+    "freshBoundedTotal": 108275,
+    "firstMeta": {
+      "totalRecords": 108275,
+      "pageSize": 1,
+      "totalPages": 108275,
+      "currentPage": 1,
+      "query": {
+        "parameterCount": 1,
+        "parameters": {
+          "postDatetimeTo": "2026-09-08T12:55:12"
+        },
+        "sortedBy": "postDatetime: DESC"
+      }
+    },
+    "lastMeta": {
+      "totalRecords": 108275,
+      "pageSize": 1,
+      "totalPages": 108275,
+      "currentPage": 108275,
+      "query": {
+        "parameterCount": 1,
+        "parameters": {
+          "postDatetimeTo": "2026-09-08T12:55:12"
+        },
+        "sortedBy": "postDatetime: DESC"
+      }
+    },
+    "freshFirstDocument": [
+      {
+        "docId": 1272100900,
+        "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+        "postDatetime": "2026-09-08T12:55:12"
+      }
+    ],
+    "freshLastDocument": [
+      {
+        "docId": 446378693,
+        "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+        "postDatetime": "2014-05-01T00:32:32.026000"
+      }
+    ],
+    "boundedCardinalityAndEndpointsMatch": true,
+    "limits": "Fresh bounded cardinality and endpoints agree with captured listing; not an atomic snapshot guarantee against retroactive insertions/deletions at equal timestamps."
+  }
+}

@@ -1579,3 +1579,37 @@ change column for APPALOSA_ALL, HB_NORTH and MIDP_SLR_RN. `lmpChange` now admits
 Prices and the changes including adders remain exactly as published. The complete
 original HTML is compressed in the regression fixture; every displayed field is
 compared, with separate cases for negative changes, zero and unrecognized text.
+
+
+### Complete retained wind backfill
+
+The September 8, 2026 unbounded `np4_732_cd.wpp_hrly_avrg_actl_fcast_history`
+backfill compared **21,676,139 rows across 108,275 original publications**, using
+102 monthly bundles and 34 archive download batches. All 35 typed fields in every
+row matched independent stdlib CSV/date/Decimal decoding, including missing
+fields. A separate recursive source-file pass checked every original hash and
+row count; all listed archive IDs were represented. A fresh listing bounded by
+the captured latest publication matched the count and both endpoints. No wind
+runtime or generated-reader changes were needed.
+
+The retained archive postings run from May 1, 2014 at 00:32:32.026 through
+September 8, 2026 at 12:55:12. These are source publication times with no supplied
+UTC offset. The report-period fields have separate bounds:
+
+| Source period field | First | Last |
+| --- | --- | --- |
+| `hourEndingTimestamp` | April 29, 2014 01:00 | February 8, 2015 10:00 |
+| `hourBeginningTimestamp` | February 4, 2015 12:00 | June 30, 2016 09:00 |
+| `deliveryDate` | June 21, 2016 | September 15, 2026 |
+
+Five layouts preserve their distinct generation/actual fields, combined versus
+separate regional series, and beginning/ending clocks. Rows include overlapping
+forecast vintages; the count is not a count of distinct observed hours, and
+September 15 is a forecast horizon, not future actual generation. The check does
+not establish uninterrupted actual-hour coverage, earlier ERCOT holdings, or an
+atomic snapshot against retroactive listing changes. Use `publications()` to
+retain archive posting metadata when evaluating forecasts as issued.
+
+[Full comparison and source-accounting receipt](../tools/inputs/history/wind-backfill-evidence.json)
+records the row-model fields, layouts, reader hashes, manifest hashes, listing
+recheck and limits. Source downloads remain outside the installed package.

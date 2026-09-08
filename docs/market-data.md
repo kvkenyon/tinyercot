@@ -73,7 +73,8 @@ The September 2026 checks establish different levels of evidence:
 | DAM settlement prices | May 2, 2014–September 8, 2026; 81,236,426 rows, 1,230 observed points | Every field compared across retained archives and bundles; a point need not exist throughout the range |
 | DAM ancillary-service prices | May 2, 2014–September 8, 2026; 461,736 rows | Every field compared across retained archives and bundles; ECRS begins June 10, 2023 |
 | Actual weather-zone load | April 30, 2014–September 6, 2026; 108,285 rows | Every field compared; December 4, 2025 and three older hour-ending-24 observations are absent |
-| RT settlement prices, wind, SCED constraints, hourly outage capacity | Earliest archive posting observed May 1, 2014 | Listing bounds and sampled layouts; complete intervening rows have not been compared |
+| Wind actuals and forecasts | Reported period fields span April 29, 2014–September 15, 2026; 21,676,139 report rows | Every field compared across all enumerated archives and bundles; overlapping vintages and future forecast periods are included |
+| RT settlement prices, SCED constraints, hourly outage capacity | Earliest archive posting observed May 1, 2014 | Listing bounds and sampled layouts; complete intervening rows have not been compared |
 | Solar actuals/forecasts | Earliest archive posting observed February 10, 2016 | Listing bounds and sampled layouts |
 | Weather-zone load forecasts | Earliest archive posting observed January 1, 2019 | Oldest forecast decoded with original publication metadata; bundles cover a shorter period |
 | RT ancillary-service prices | Earliest archive posting observed December 5, 2025 | Listing bounds and sampled workbook layouts |
@@ -84,6 +85,12 @@ decoding and source row counts, not every retained publication or independent
 numerical values. The [receipt](../tools/inputs/history/intermediate-full-file-evidence.json)
 and [per-file manifest](../tools/inputs/history/intermediate-full-files.csv) record
 its scope and decoder version.
+
+The [complete wind comparison](../tools/inputs/history/wind-backfill-evidence.json)
+covers 108,275 original publications and all five retained layouts. Independent
+source-file accounting and a fresh publication-bounded listing check agree with
+the backfill. Its forecast periods extend beyond the retrieval day; this is not
+a claim of future actual generation or continuous hourly observations.
 
 These are recorded checks, not promises of permanent ERCOT retention. Publication
 boundaries are not delivery-date boundaries. The [source coverage notes](data-coverage.md)
