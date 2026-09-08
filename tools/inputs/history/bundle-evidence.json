@@ -3625,5 +3625,141 @@
         "20180131055000"
       ]
     }
-  ]
+  ],
+  "originalDocumentIdChecks": [
+    {
+      "product": "np4-190-cd",
+      "archiveDocuments": 31,
+      "matchedBundleMemberIds": 31,
+      "identicalOriginalPayloads": 31,
+      "example": {
+        "docId": 593019152,
+        "bundleMember": "593019152.cdr.00012331.0000000000000000.20180101.123344143.DAMSPNP4190_csv.zip"
+      },
+      "archiveSha256": "52a19e7e30ebc99202837c385bd02f2a6fd5bf5f186129bc302d727218d407bc",
+      "bundleSha256": "658c40c7f7ea43d06ab629ee608c42eead0db8ccf94d219e4c8af90249f2ab3a"
+    },
+    {
+      "product": "np6-345-cd",
+      "archiveDocuments": 31,
+      "matchedBundleMemberIds": 31,
+      "identicalOriginalPayloads": 31,
+      "example": {
+        "docId": 592978227,
+        "bundleMember": "592978227.cdr.00013101.0000000000000000.20180101.055001214.ACTUALSYSLOADWZNP6345_csv.zip"
+      },
+      "archiveSha256": "9e69d1a0cc530f667eae86334b0a375f44ee343c8f0c7c4c6144d929ca84a317",
+      "bundleSha256": "fbed23aa166597b4624aaa8fee594e284931923fb6642e9712698accd9542009"
+    }
+  ],
+  "combinedBackfillChecks": [
+    {
+      "product": "np4-190-cd",
+      "checkedAt": "2026-09-08T03:15:42.179621+00:00",
+      "postedFrom": "2018-01-01T00:00:00",
+      "postedTo": "2018-01-31T23:59:59",
+      "rows": 473256,
+      "matchesRecordedArchiveRowMultiset": true,
+      "comparison": "SHA256 of every typed row serialized with model_dump_json, counted with multiplicity; order ignored.",
+      "referenceArchiveSha256": "52a19e7e30ebc99202837c385bd02f2a6fd5bf5f186129bc302d727218d407bc",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/public-reports/archive/np4-190-cd",
+          "query": "page=1&size=1000&postDatetimeFrom=2018-01-01T00%3A00%3A00&postDatetimeTo=2018-01-31T23%3A59%3A59"
+        },
+        {
+          "method": "GET",
+          "path": "/api/public-reports/bundle/np4-190-cd",
+          "query": "page=1&size=1000"
+        },
+        {
+          "method": "POST",
+          "path": "/api/public-reports/bundle/np4-190-cd/download",
+          "query": ""
+        },
+        {
+          "method": "GET",
+          "path": "/api/public-reports/bundle/np4-190-cd",
+          "query": "download=-593019152"
+        }
+      ]
+    },
+    {
+      "product": "np6-345-cd",
+      "checkedAt": "2026-09-08T03:15:50.780096+00:00",
+      "postedFrom": "2018-01-01T00:00:00",
+      "postedTo": "2018-01-31T23:59:59",
+      "rows": 744,
+      "matchesRecordedArchiveRowMultiset": true,
+      "comparison": "SHA256 of every typed row serialized with model_dump_json, counted with multiplicity; order ignored.",
+      "referenceArchiveSha256": "9e69d1a0cc530f667eae86334b0a375f44ee343c8f0c7c4c6144d929ca84a317",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/public-reports/archive/np6-345-cd",
+          "query": "page=1&size=1000&postDatetimeFrom=2018-01-01T00%3A00%3A00&postDatetimeTo=2018-01-31T23%3A59%3A59"
+        },
+        {
+          "method": "GET",
+          "path": "/api/public-reports/bundle/np6-345-cd",
+          "query": "page=1&size=1000"
+        },
+        {
+          "method": "POST",
+          "path": "/api/public-reports/bundle/np6-345-cd/download",
+          "query": ""
+        }
+      ]
+    }
+  ],
+  "retentionBoundaryBackfillCheck": {
+    "product": "np4-190-cd",
+    "checkedAt": "2026-09-08T03:17:43.985310+00:00",
+    "postedFrom": "2017-12-31T00:00:00",
+    "postedTo": "2018-01-01T23:59:59",
+    "archiveDocuments": [
+      {
+        "docId": 593019152,
+        "friendlyName": "DAMSPNP4190_csv",
+        "postDatetime": "2018-01-01T12:33:44"
+      },
+      {
+        "docId": 592891494,
+        "friendlyName": "DAMSPNP4190_csv",
+        "postDatetime": "2017-12-31T12:32:34"
+      }
+    ],
+    "rows": 30576,
+    "matchesFreshArchiveRowMultiset": true,
+    "comparison": "SHA256 of every typed row model_dump_json, counted with multiplicity; order ignored.",
+    "referenceArchiveSha256": "b3ba8ac856206aab9ae49b68b394a813401351f3a594c4993b3482a0521aeeab",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/api/public-reports/archive/np4-190-cd",
+        "query": "page=1&size=1000&postDatetimeFrom=2017-12-31T00%3A00%3A00&postDatetimeTo=2018-01-01T23%3A59%3A59"
+      },
+      {
+        "method": "GET",
+        "path": "/api/public-reports/bundle/np4-190-cd",
+        "query": "page=1&size=1000"
+      },
+      {
+        "method": "POST",
+        "path": "/api/public-reports/bundle/np4-190-cd/download",
+        "query": ""
+      },
+      {
+        "method": "GET",
+        "path": "/api/public-reports/bundle/np4-190-cd",
+        "query": "download=-593019152"
+      },
+      {
+        "method": "POST",
+        "path": "/api/public-reports/archive/np4-190-cd/download",
+        "query": ""
+      }
+    ]
+  }
 }

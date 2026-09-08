@@ -80,6 +80,32 @@ with Client() as ercot:
         print(price.deliveryDate, price.settlementPointPrice)
 ```
 
+For long backfills, combine monthly bundles with individual archives:
+
+```python
+with Client() as ercot:
+    for price in ercot.np4_190_cd.dam_stlmnt_pnt_prices_history.backfill(
+        posted_from=datetime(2018, 1, 1),
+        posted_to=datetime(2018, 12, 31, 23, 59, 59),
+        where=lambda price: price.settlementPoint == "HB_HOUSTON",
+        batch_size=25,
+    ):
+        print(price.deliveryDate, price.settlementPointPrice)
+```
+
+`backfill()` uses original document IDs inside bundles to avoid downloading the
+same publication again, then fetches uncovered archive IDs. Distinct correction
+IDs and repeated rows within a report remain intact; output is not sorted.
+It holds listing IDs in memory and processes bundle members one at a time.
+
+With publication bounds, the archive listing selects the original reports;
+bundle timestamps only help choose candidate months. Reports missed by those
+bundles are still fetched from archives. Omit both bounds to include all listed
+archives **and bundle-only reports**, whose original posting metadata may no
+longer be available. Use `where` to filter their typed row dates. Unknown bundle
+member identities and unreadable selected data raise rather than silently omit
+history; `rows()` and `rows(kind="bundle")` remain available for separate sources.
+
 For forecast backtests, keep the publication metadata alongside the typed rows:
 
 ```python
@@ -145,18 +171,16 @@ when a single-bundle POST returns 400; all 473,256 price rows in its 31 files
 decoded, covering delivery dates January 2 through February 1, 2018.
 The December 2023 ESR Integration bundle decoded 26 daily PDF summaries.
 These point-in-time observations are recorded in
-`tools/inputs/history/bundle-evidence.json`. Use both listings when assessing maximum
-available history; neither listing alone proves continuous coverage. Reading both
-sources can repeat publications, which the client preserves. All 62 CSV files in
-sampled January 2018 price/load bundles matched their individual archive copies
-by filename and content. File-name timestamps are not reliable publication keys:
-24 of 31 price files and four of 31 load files had timestamps differing from the
-API publication timestamp even at whole-second precision. Automatic source
-selection therefore needs stronger evidence than matching counts or timestamps.
-If both bundle
-download routes fail, the error propagates. Automatic selection between monthly
-bundles and individual archives is not implemented yet. Unsupported CSV layouts
-raise with the member name instead of silently dropping data.
+`tools/inputs/history/bundle-evidence.json`. Neither listing alone proves continuous
+coverage. All 62 sampled January 2018 price/load bundle members carried the same
+original document IDs as their archive listings, and their complete per-report
+payload bytes matched. `backfill()` uses those IDs to combine sources. Filename
+timestamps differ from the listed posting times in 28 of these reports and are
+not used as publication keys. Live January 2018 backfills returned all 473,256
+DAM price rows and 744 load rows, matching the recorded archive row multisets
+with zero individual archive downloads. If both bundle download routes fail, the
+error propagates. Unsupported CSV layouts raise with the member name instead of silently
+dropping data.
 
 The September 2026 live listing audit found these earliest archive posting dates
 for key market products (these are publication boundaries, not proof of continuous

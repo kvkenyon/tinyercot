@@ -308,6 +308,13 @@ with Client() as client:
         Iterator[np4_190_cd.DamStlmntPntPricesRow],
     )
 
+    assert_type(
+        client.np4_190_cd.dam_stlmnt_pnt_prices_history.backfill(
+            where=lambda price: price.settlementPoint == "HB_HOUSTON"
+        ),
+        Iterator[np4_190_cd.DamStlmntPntPricesRow],
+    )
+
     for percentages in client.np4_765_er.hourly_percentages_history.rows(kind="bundle"):
         assert_type(percentages.reportDate, date | None)
         assert_type(percentages.hourEnding, str | None)

@@ -216,6 +216,84 @@ class Archive(Generic[T]):
                 continue
             yield from self.read(data)
 
+    def backfill(
+        self,
+        *,
+        posted_from: datetime | None = None,
+        posted_to: datetime | None = None,
+        where: Callable[[T], bool] | None = None,
+        batch_size: int = 1,
+    ) -> Iterator[T]:
+        """Read bundles first, then archive reports not covered by those bundles.
+
+        Original document IDs identify publications across sources; distinct
+        corrections and repeated rows within a publication are retained. Rows
+        are streamed without imposing chronological order.
+
+        With bounds, archive posting metadata selects the original documents.
+        Without bounds, bundle-only documents are included too. Bundle posting
+        dates and member filenames never supply an original publication time.
+        """
+        if batch_size < 1:
+            raise ValueError("batch_size must be positive")
+        remaining = dict.fromkeys(
+            publication.document.docId
+            for publication in self.publications(
+                posted_from=posted_from, posted_to=posted_to
+            )
+        )
+        bounded = posted_from is not None or posted_to is not None
+        if bounded and not remaining:
+            return
+        seen: set[int] = set()
+        for bundle in self._client.iter_documents(self._product, kind="bundle"):
+            # Month selection only saves downloads. Any selected archive ID
+            # outside these bundles is still fetched individually below.
+            month = (bundle.postDatetime.year, bundle.postDatetime.month)
+            if posted_from is not None and month < (
+                posted_from.year,
+                posted_from.month,
+            ):
+                continue
+            if posted_to is not None and month > (posted_to.year, posted_to.month):
+                continue
+            data = self._client.download(self._product, [bundle.docId], kind="bundle")
+            with ZipFile(BytesIO(data)) as archive:
+                for member in archive.infolist():
+                    if member.is_dir():
+                        continue
+                    name = member.filename.rsplit("/", 1)[-1]
+                    match = re.match(r"([1-9]\d*)\.", name)
+                    if match is None:
+                        raise ValueError(
+                            f"{member.filename}: missing original document ID; "
+                            "use rows() or rows(kind='bundle') to read sources separately"
+                        )
+                    doc_id = int(match[1])
+                    if doc_id in seen or (bounded and doc_id not in remaining):
+                        continue
+                    # Keep the original filename for CSV/XLSX/PDF readers,
+                    # whether the member is a report or another ZIP.
+                    payload = BytesIO()
+                    with ZipFile(payload, "w") as report:
+                        report.writestr(member.filename, archive.read(member))
+                    content = payload.getvalue()
+                    if (
+                        self._document is not None
+                        and next(_archive_files(content, self._member), None) is None
+                    ):
+                        continue
+                    for row in self.read(content):
+                        if where is None or where(row):
+                            yield row
+                    seen.add(doc_id)
+                    remaining.pop(doc_id, None)
+            if bounded and not remaining:
+                return
+        for row in self.download(remaining, batch_size=batch_size):
+            if where is None or where(row):
+                yield row
+
     def publications(
         self,
         *,
