@@ -437,5 +437,12 @@ demand, capacity, generation, inertia and all five DC ties. Its `lastUpdated`
 is a naive datetime because the display provides no UTC offset. This method
 returns the current snapshot; it does not provide a historical archive.
 
+`ercot.dashboards.real_time_lmps()` reads the latest public settlement-point table.
+Use `hubs_and_zones=True` for the hubs/load-zones display. Each row keeps `LMP`,
+`lmpChange`, `lmpWithAdder` and `lmpWithAdderChange` separate; changes are the
+published five-minute changes. The snapshot includes `RTRDPA` and the display
+update time, which also has no UTC offset. For historical LMPs and adders, use
+the generated report-query and `_history` methods.
+
 Detailed field mappings, historical layout changes and source limitations are
 recorded in [data coverage](docs/data-coverage.md).

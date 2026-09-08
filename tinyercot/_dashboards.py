@@ -39,17 +39,36 @@ class RealTimeConditions(DashboardModel):
     dcS: Decimal = Field(alias="DC_S (Eagle Pass)")
 
 
-class _ConditionsTable(HTMLParser):
+class RealTimeLmp(DashboardModel):
+    settlementPoint: str = Field(alias="Settlement Point")
+    LMP: Decimal = Field(alias="LMP")
+    lmpChange: Decimal = Field(alias="5 Min Change to LMP")
+    lmpWithAdder: Decimal = Field(alias="RTRDPA + LMP")
+    lmpWithAdderChange: Decimal = Field(alias="5 Min Change to RTRDPA + LMP")
+
+
+class RealTimeLmpSnapshot(DashboardModel):
+    """Published price components and five-minute changes; timestamp has no offset."""
+
+    lastUpdated: datetime
+    RTRDPA: Decimal
+    data: list[RealTimeLmp]
+
+
+class _DisplayTable(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.values: dict[str, str | datetime] = {}
         self.cells: list[str] = []
+        self.rows: list[list[str]] = []
         self.tag: str | None = None
         self.text = ""
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         if tag == "tr":
             self.cells = []
+        if tag == "br" and self.tag:
+            self.text += " "
         classes = (dict(attrs).get("class") or "").split()
         if tag == "td" or (tag == "div" and "schedTime" in classes):
             self.tag, self.text = tag, ""
@@ -69,10 +88,8 @@ class _ConditionsTable(HTMLParser):
                     text.removeprefix("Last Updated: "), "%b %d, %Y %H:%M:%S"
                 )
             self.tag = None
-        if tag == "tr" and len(self.cells) > 1:
-            if len(self.cells) != 2 or self.cells[0] in self.values:
-                raise ValueError("Expected distinct system-condition label/value rows")
-            self.values[self.cells[0]] = self.cells[1]
+        if tag == "tr" and self.cells:
+            self.rows.append(self.cells)
             self.cells = []
 
 
@@ -546,16 +563,50 @@ class Dashboards:
     def grid_conditions(self) -> GridConditionsSnapshot:
         return self._get("daily-prc", GridConditionsSnapshot)
 
-    def real_time_conditions(self) -> RealTimeConditions:
-        """Read the public system-conditions table, including time error and BAAL."""
-        response = self._http.get(
-            "https://www.ercot.com/content/cdr/html/real_time_system_conditions.html"
-        )
+    def _html(self, name: str) -> _DisplayTable:
+        response = self._http.get(f"https://www.ercot.com/content/cdr/html/{name}.html")
         response.raise_for_status()
-        parser = _ConditionsTable()
+        parser = _DisplayTable()
         parser.feed(response.text)
         parser.close()
+        return parser
+
+    def real_time_conditions(self) -> RealTimeConditions:
+        """Read the public system-conditions table, including time error and BAAL."""
+        parser = self._html("real_time_system_conditions")
+        for cells in parser.rows:
+            if len(cells) == 1:  # Section heading.
+                continue
+            if len(cells) != 2 or cells[0] in parser.values:
+                raise ValueError("Expected distinct system-condition label/value rows")
+            parser.values[cells[0]] = cells[1]
         return RealTimeConditions.model_validate(parser.values)
+
+    def real_time_lmps(self, *, hubs_and_zones: bool = False) -> RealTimeLmpSnapshot:
+        """Latest published LMPs, separate reliability adder and five-minute changes."""
+        parser = self._html("hb_lz" if hubs_and_zones else "current_np6788")
+        if len(parser.rows) < 2:
+            raise ValueError("No real-time LMP table in the public display")
+        adder, headers, *rows = parser.rows
+        if (
+            len(adder) != 2
+            or adder[0] != "Price Adders"
+            or not adder[1].startswith("RTRDPA: $")
+        ):
+            raise ValueError("Unrecognized real-time price-adder heading")
+        expected = {field.alias for field in RealTimeLmp.model_fields.values()}
+        if len(headers) != len(expected) or set(headers) != expected:
+            raise ValueError("Unrecognized real-time LMP columns")
+        return RealTimeLmpSnapshot.model_validate(
+            {
+                **parser.values,
+                "RTRDPA": Decimal(adder[1].removeprefix("RTRDPA: $")),
+                "data": [
+                    RealTimeLmp.model_validate(dict(zip(headers, row, strict=True)))
+                    for row in rows
+                ],
+            }
+        )
 
     def energy_storage(self) -> EsrSnapshot:
         return self._get("energy-storage-resources", EsrSnapshot)

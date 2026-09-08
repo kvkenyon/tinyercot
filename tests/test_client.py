@@ -355,6 +355,59 @@ def test_real_time_conditions_use_labels_and_reject_incomplete_readings(change):
                 Client(client=http).dashboards.real_time_conditions()
 
 
+@pytest.mark.parametrize(
+    "hubs_and_zones,source,count,first_point",
+    [(False, "current_np6788", 2, "7RNCHSLR_ALL"), (True, "hb_lz", 15, "HB_BUSAVG")],
+)
+def test_public_lmps_keep_price_components_and_changes(
+    hubs_and_zones, source, count, first_point
+):
+    from datetime import datetime
+    from decimal import Decimal
+
+    body = (INPUTS / "dashboards" / f"{source}.html").read_text()
+
+    def handler(request):
+        assert request.url.path == f"/content/cdr/html/{source}.html"
+        assert "authorization" not in request.headers
+        return httpx.Response(200, text=body)
+
+    with httpx.Client(transport=httpx.MockTransport(handler)) as http:
+        result = Client(client=http).dashboards.real_time_lmps(
+            hubs_and_zones=hubs_and_zones
+        )
+    assert result.lastUpdated == datetime.fromisoformat("2026-09-08T00:50:15")
+    assert result.lastUpdated.tzinfo is None
+    assert result.RTRDPA == Decimal("0.71")
+    assert len(result.data) == count
+    row = result.data[0]
+    assert row.settlementPoint == first_point
+    assert row.LMP == Decimal("32.17")
+    assert row.lmpChange == Decimal("0.48")
+    assert row.lmpWithAdder == Decimal("32.88")
+    assert row.lmpWithAdderChange == Decimal("-0.01")
+
+
+@pytest.mark.parametrize(
+    "old,new",
+    [
+        ("5&nbsp;Min<br>Change to&nbsp;LMP", "Unknown Price"),
+        ("RTRDPA: $0.71", "Unknown: $0.71"),
+    ],
+)
+def test_public_lmps_reject_unknown_price_components(old, new):
+    body = (INPUTS / "dashboards/current_np6788.html").read_text()
+    assert old in body
+    body = body.replace(old, new)
+    with (
+        httpx.Client(
+            transport=httpx.MockTransport(lambda _: httpx.Response(200, text=body))
+        ) as http,
+        pytest.raises(ValueError),
+    ):
+        Client(client=http).dashboards.real_time_lmps()
+
+
 def test_single_bundle_400_uses_published_get_download():
     calls = []
 

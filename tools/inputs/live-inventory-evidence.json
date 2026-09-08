@@ -2006,5 +2006,33 @@
     },
     "fixtureScope": "Captured source display body and table only, excluding tracking/header scripts. Values and source markup retained; line endings normalized.",
     "fixtureSha256": "ce5414142d4bc12f94ba1e094729b5c6f2562dffd7175508beca1b1567f71772"
+  },
+  "publicRealTimeLmpDisplayCheck": {
+    "checkedAt": "2026-09-08T05:57:59.556384+00:00",
+    "credentialsUsed": false,
+    "scope": "Actual SDK requests for both display variants; every point, four price/change values, adder and timestamp compared independently with regex/Decimal extraction from the recorded HTML response. These are current snapshots, not historical queries.",
+    "checks": [
+      {
+        "source": "https://www.ercot.com/content/cdr/html/current_np6788.html",
+        "hubsAndZonesOnly": false,
+        "rows": 1123,
+        "fieldsCompared": 5615,
+        "lastUpdated": "2026-09-08T00:55:18",
+        "RTRDPA": "0.87",
+        "allValuesMatched": true,
+        "sourceSha256": "4833dc4da14bb063479ea506821cb5cfb8e543bcc2dfc23f77ee5b44790e496e"
+      },
+      {
+        "source": "https://www.ercot.com/content/cdr/html/hb_lz.html",
+        "hubsAndZonesOnly": true,
+        "rows": 15,
+        "fieldsCompared": 75,
+        "lastUpdated": "2026-09-08T00:55:18",
+        "RTRDPA": "0.87",
+        "allValuesMatched": true,
+        "sourceSha256": "324c9a15b121fe49af66a8af04879b0d72f154c636b3d9fc086f0a3219495e8e"
+      }
+    ],
+    "fixtures": "Full hubs/load-zones display body (15 points) and the first two data rows of the full settlement-point display, preserving source headers, metadata and nested adder table; tracking scripts excluded and line endings normalized."
   }
 }

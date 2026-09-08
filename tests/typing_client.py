@@ -380,3 +380,11 @@ with Client() as client:
     assert_type(conditions.instantaneousTimeError, Decimal)
     assert_type(conditions.consecutiveBaalExceedances, int)
     assert_type(conditions.dcS, Decimal)
+
+
+with Client() as client:
+    lmps = client.dashboards.real_time_lmps(hubs_and_zones=True)
+    assert_type(lmps.lastUpdated, datetime)
+    assert_type(lmps.RTRDPA, Decimal)
+    assert_type(lmps.data[0].LMP, Decimal)
+    assert_type(lmps.data[0].lmpWithAdderChange, Decimal)
