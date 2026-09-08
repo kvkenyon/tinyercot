@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterator
+import re
+from collections.abc import Callable, Iterator
 from datetime import date, datetime
 from decimal import Decimal
 from typing import Literal
@@ -16,6 +17,8 @@ from ._load import LoadArchive, _Links, _sheets, _workbooks
 
 INDEX_URL = "https://www.ercot.com/mktinfo/loadprofile/alp"
 ADJUSTMENTS_URL = "https://www.ercot.com/files/docs/2008/10/03/hurricane_ike_adj_factors_for_coast_wzone.xls"
+COUNTS_URL = "https://www.ercot.com/files/docs/2021/10/21/Profile_Type_Counts.zip"
+_COUNT_HEADER = ("WEATHERZONE", "METERDATATYPE", "TDSPNAME", "PROFILETYPE", "RECORDS")
 _FACTOR_HEADER = ("Date",) + tuple(f"INT{i}" for i in range(1, 97))
 _ORIGINAL_HEADER = ("DATE", "PType_WZ") + tuple(f"INT{i}" for i in range(1, 97))
 
@@ -69,6 +72,25 @@ class LoadProfileAdjustment(BaseModel):
     interval: int
     factor: Decimal | None
     weatherZone: Literal["COAST"] = "COAST"
+    sourceMember: str
+    sourceSheet: str
+
+
+class LoadProfileCount(BaseModel):
+    """An assignment count from a published profile-count snapshot.
+
+    snapshotDate comes from the filename, not a public-availability timestamp.
+    Malformed/missing labels remain visible with snapshotDate=None.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+    snapshotDate: date | None
+    sourceDateLabel: str | None
+    weatherZone: str | None
+    meterDataType: str
+    tdsp: str
+    profileType: str
+    records: int
     sourceMember: str
     sourceSheet: str
 
@@ -275,3 +297,101 @@ class LoadProfiles:
                             sourceMember=member,
                             sourceSheet=sheet,
                         )
+
+    def counts(
+        self,
+        *,
+        date_from: date | None = None,
+        date_to: date | None = None,
+        where: Callable[[LoadProfileCount], bool] | None = None,
+    ) -> Iterator[LoadProfileCount]:
+        """Stream profile-assignment snapshots with inclusive filename dates.
+
+        Undated snapshots are included when unbounded, excluded with date bounds.
+        Use where for typed weather-zone, TDSP, meter-type or profile filters.
+        """
+        if date_from and date_to and date_from > date_to:
+            raise ValueError("date_from must not be after date_to")
+        response = self._http.get(COUNTS_URL, follow_redirects=True)
+        response.raise_for_status()
+        yield from self.read_counts(
+            response.content, date_from=date_from, date_to=date_to, where=where
+        )
+
+    def read_counts(
+        self,
+        data: bytes,
+        *,
+        filename: str = "workbook",
+        date_from: date | None = None,
+        date_to: date | None = None,
+        where: Callable[[LoadProfileCount], bool] | None = None,
+    ) -> Iterator[LoadProfileCount]:
+        """Read saved count ZIPs/workbooks; filename retains the snapshot label.
+
+        Decode the underlying Data table. The workbook's filtered pivot view
+        adds no independent assignments. Empty legacy helper columns are ignored.
+        """
+        if date_from and date_to and date_from > date_to:
+            raise ValueError("date_from must not be after date_to")
+        found = False
+        for member, content in _workbooks(data):
+            member = filename if member in {"workbook.xls", "workbook.xlsx"} else member
+            match = re.fullmatch(
+                r"Profile Type Counts (\d+)(?:_corrected)?\s*\.xlsx",
+                member.rsplit("/", 1)[-1],
+            )
+            label = match[1] if match else None
+            day = None
+            if label and len(label) == 8:
+                try:
+                    day = date(int(label[:4]), int(label[4:6]), int(label[6:]))
+                except ValueError:
+                    pass
+            for sheet, rows in _sheets(content, date_columns=()):
+                if sheet != "Data":
+                    continue
+                header = next(rows, ())
+                if header[:5] != _COUNT_HEADER or any(
+                    c not in (None, "", "TDSPnmae", "TDSPName") for c in header[5:]
+                ):
+                    raise ValueError(
+                        f"{member}/{sheet}: Unsupported profile-count columns"
+                    )
+                found = True
+                if (date_from and (day is None or day < date_from)) or (
+                    date_to and (day is None or day > date_to)
+                ):
+                    continue
+                for cells in rows:
+                    if all(c in (None, "") for c in cells):
+                        continue
+                    if len(cells) < 5 or any(c not in (None, "") for c in cells[5:]):
+                        raise ValueError(
+                            f"{member}/{sheet}: Unexpected profile-count row width"
+                        )
+                    record = LoadProfileCount.model_validate(
+                        dict(
+                            zip(
+                                (
+                                    "weatherZone",
+                                    "meterDataType",
+                                    "tdsp",
+                                    "profileType",
+                                    "records",
+                                ),
+                                cells[:5],
+                                strict=True,
+                            )
+                        )
+                        | {
+                            "snapshotDate": day,
+                            "sourceDateLabel": label,
+                            "sourceMember": member,
+                            "sourceSheet": sheet,
+                        }
+                    )
+                    if where is None or where(record):
+                        yield record
+        if not found:
+            raise ValueError("Download contains no profile-count Data table")

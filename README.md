@@ -332,6 +332,29 @@ August 30; May is absent from the workbook. These source gaps remain visible.
 Format coverage and original-file comparisons are recorded in
 `tools/inputs/public-load-profiles-evidence.json`.
 
+Profile-assignment counts are available from the same service:
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    for count in ercot.load_profiles.counts(
+        date_from=date(2026, 8, 6),
+        where=lambda row: row.weatherZone == "COAST" and row.profileType == "BUSHILF",
+    ):
+        print(count.snapshotDate, count.tdsp, count.meterDataType, count.records)
+```
+
+`read_counts(data, filename=...)` accepts saved ZIPs or workbooks with the same
+filters. These are assignment counts by profile, weather zone, meter type and
+TDSP, separate from energy profiles. The direct archive contains 141 snapshots
+and 97,924 records, with valid filename dates spanning April 2013–August 2026.
+Original and corrected snapshots remain separate. `snapshotDate` is a filename
+label, not proof of public availability. Two malformed date labels remain in
+`sourceDateLabel` with `snapshotDate=None`: unbounded reads include them, while
+date bounds exclude them. Five records retain an unknown weather zone as `None`.
+
 ### Direct public hourly load archives
 
 Install `tinyercot[files]` for XLS and XLSX support. These files are downloaded

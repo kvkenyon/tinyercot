@@ -524,6 +524,25 @@ independently compared with the source workbook: 52,328 rows, 248 profiles,
 211 dates spanning January 1–August 30. All of May is absent. This is the
 published file's coverage, not a guarantee of continuous historical availability.
 
+`load_profiles.counts()` and `read_counts()` decode the underlying Data sheets in
+[the public profile-count archive](https://www.ercot.com/files/docs/2021/10/21/Profile_Type_Counts.zip).
+All 97,924 assignment records in 141 workbooks were independently compared with
+the original cells: 97,924 integer counts and 391,696 dimension values (weather
+zone, IDR/NIDR meter data type, TDSP and profile type). The pivot sheets are
+filtered aggregate views over those Data tables; they are not counted as extra
+assignments. Four header layouts differ only by an empty helper column.
+
+The 139 dated workbooks have 138 distinct filename dates from April 9, 2013
+through August 6, 2026; the original and corrected March 12, 2018 snapshots are
+both retained. These are source labels, not availability timestamps. Two other
+filenames contain `201500803` and `201605614`; their 1,382 records retain those
+labels with `snapshotDate=None`, without using workbook-modification times to
+guess dates. Unbounded reads include them; date-bounded reads exclude them.
+Five May 2024 records have blank weather zones. They remain `weatherZone=None`,
+including repeated dimension combinations with distinct counts. Blank trailing
+rows are skipped; counts are neither aggregated nor filled. Source comparisons
+and an eleven-workbook fixture are recorded in the load-profile evidence file.
+
 ## Historical four-coincident-peak allocations
 
 `Client.coincident_peaks.allocations()` reads the annual allocation tables in

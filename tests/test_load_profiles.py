@@ -8,10 +8,147 @@ import httpx
 import openpyxl
 import pytest
 
-from tinyercot import Client, LoadProfileDay
-from tinyercot._load_profiles import ADJUSTMENTS_URL, INDEX_URL
+from tinyercot import Client, LoadProfileCount, LoadProfileDay
+from tinyercot._load_profiles import ADJUSTMENTS_URL, COUNTS_URL, INDEX_URL
 
 FIXTURES = Path(__file__).resolve().parents[1] / "tools/inputs/load-profiles"
+
+
+@pytest.fixture(scope="module")
+def profile_counts():
+    with Client() as client:
+        return list(
+            client.load_profiles.read_counts((FIXTURES / "counts.zip").read_bytes())
+        )
+
+
+def test_profile_counts_use_data_tables_with_all_header_variants(profile_counts):
+    assert len(profile_counts) == 110
+    assert len({r.sourceMember for r in profile_counts}) == 11
+    assert all(
+        r.sourceSheet == "Data" and type(r.records) is int for r in profile_counts
+    )
+    row = next(r for r in profile_counts if r.snapshotDate == date(2013, 4, 9))
+    assert (
+        row.weatherZone,
+        row.meterDataType,
+        row.tdsp,
+        row.profileType,
+        row.records,
+    ) == ("COAST", "IDR", "AEP TEXAS CENTRAL", "BUSHILF", 294)
+    assert LoadProfileCount.model_validate_json(row.model_dump_json()) == row
+
+
+def test_profile_counts_keep_unknown_zones_and_repeated_dimensions(profile_counts):
+    missing = [r for r in profile_counts if r.weatherZone is None]
+    assert len(missing) == 5
+    assert sorted(r.records for r in missing) == [1, 2, 4, 17, 22]
+    assert [r.records for r in missing if r.tdsp == "WHARTON COUNTY EC"] == [17, 2]
+
+
+def test_profile_snapshot_labels_preserve_typos_and_read_valid_suffixes(profile_counts):
+    unknown = [r for r in profile_counts if r.snapshotDate is None]
+    assert len(unknown) == 20
+    assert {r.sourceDateLabel for r in unknown} == {"201500803", "201605614"}
+    corrected = next(r for r in profile_counts if "_corrected" in r.sourceMember)
+    assert corrected.snapshotDate == date(2018, 3, 12)
+    assert (
+        len(
+            {
+                r.sourceMember
+                for r in profile_counts
+                if r.snapshotDate == corrected.snapshotDate
+            }
+        )
+        == 2
+    )
+    spaced = next(r for r in profile_counts if "20220103 " in r.sourceMember)
+    assert spaced.snapshotDate == date(2022, 1, 3)
+
+
+def test_profile_counts_download_with_typed_predicate_and_date_bounds():
+    requested = []
+
+    def handler(request):
+        assert "authorization" not in request.headers
+        requested.append(str(request.url))
+        return httpx.Response(200, content=(FIXTURES / "counts.zip").read_bytes())
+
+    with (
+        httpx.Client(transport=httpx.MockTransport(handler)) as http,
+        Client(client=http) as client,
+    ):
+        rows = list(
+            client.load_profiles.counts(
+                date_from=date(2026, 8, 6),
+                date_to=date(2026, 8, 6),
+                where=lambda r: r.weatherZone == "COAST" and r.profileType == "BUSHILF",
+            )
+        )
+        assert len(rows) == 1 and rows[0].records == 943
+        with pytest.raises(ValueError, match="date_from"):
+            list(
+                client.load_profiles.counts(
+                    date_from=date(2026, 8, 7), date_to=date(2026, 8, 6)
+                )
+            )
+    assert requested == [COUNTS_URL]
+
+
+def test_profile_count_date_filters_exclude_undated_snapshots():
+    with Client() as client:
+        rows = list(
+            client.load_profiles.read_counts(
+                (FIXTURES / "counts.zip").read_bytes(), date_from=date(1900, 1, 1)
+            )
+        )
+    assert len(rows) == 90 and all(r.snapshotDate is not None for r in rows)
+
+
+def test_saved_count_filename_supplies_snapshot_label():
+    with ZipFile(FIXTURES / "counts.zip") as archive:
+        member = next(n for n in archive.namelist() if "20260806" in n)
+        data = archive.read(member)
+    with Client() as client:
+        row = next(client.load_profiles.read_counts(data, filename=member))
+        anonymous = next(client.load_profiles.read_counts(data))
+    assert row.snapshotDate == date(2026, 8, 6)
+    assert anonymous.snapshotDate is None and anonymous.sourceDateLabel is None
+
+
+@pytest.mark.parametrize("extra", [False, True])
+def test_count_reader_rejects_fractional_counts_or_nonempty_helper_column(extra):
+    book = openpyxl.Workbook()
+    sheet = book.active
+    sheet.title = "Data"
+    sheet.append(
+        [
+            "WEATHERZONE",
+            "METERDATATYPE",
+            "TDSPNAME",
+            "PROFILETYPE",
+            "RECORDS",
+            "TDSPName",
+        ]
+    )
+    sheet.append(
+        [
+            "COAST",
+            "IDR",
+            "AEP TEXAS CENTRAL",
+            "BUSHILF",
+            294 if extra else 294.5,
+            "new data" if extra else None,
+        ]
+    )
+    data = BytesIO()
+    book.save(data)
+    book.close()
+    with (
+        Client() as client,
+        pytest.raises(ValueError, match="row width" if extra else "valid integer"),
+    ):
+        list(client.load_profiles.read_counts(data.getvalue()))
 
 
 @pytest.mark.parametrize(

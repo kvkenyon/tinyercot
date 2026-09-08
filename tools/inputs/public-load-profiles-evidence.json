@@ -1406,5 +1406,237 @@
   "decoderSha256": {
     "_load.py": "f4df5148e668487c70ade3a3de8285f8b42e44ea08cb8bc159465efc6c7caa1f",
     "_load_profiles.py": "15713605c1f17ff10699fa6eb5fef2ec02346cdcfcbd8be54969379a4101ab8b"
+  },
+  "profileCounts": {
+    "checkedAt": "2026-09-08T07:49:40.464489+00:00",
+    "comparison": {
+      "archiveUrl": "https://www.ercot.com/files/docs/2021/10/21/Profile_Type_Counts.zip",
+      "archiveSha256": "a09f2d6f7907c0fc6b4e099b65b5004f9f6b58fd04b3d1e57b8cb97867479d8d",
+      "bytes": 8242657,
+      "workbooks": 141,
+      "rows": 97924,
+      "countValuesCompared": 97924,
+      "dimensionValuesCompared": 391696,
+      "datedSnapshots": 138,
+      "firstSnapshot": "2013-04-09",
+      "lastSnapshot": "2026-08-06",
+      "undatedRows": 1382,
+      "undatedMembers": [
+        "Profile_Type_Counts/Profile Type Counts 201500803.xlsx",
+        "Profile_Type_Counts/Profile Type Counts 201605614.xlsx"
+      ],
+      "meterTypes": [
+        "IDR",
+        "NIDR"
+      ],
+      "weatherZones": [
+        "COAST",
+        "EAST",
+        "FWEST",
+        "NCENT",
+        "NORTH",
+        "SCENT",
+        "SOUTH",
+        "WEST"
+      ],
+      "missingWeatherZoneRows": 5,
+      "scope": "All underlying Data records in all 141 original workbooks independently compared, including every count and four dimensions. Snapshot dates retain filename labels; two malformed filename dates remain unknown. Pivot tables are filtered aggregations over the same Data table."
+    },
+    "fixture": {
+      "path": "load-profiles/counts.zip",
+      "bytes": 81242,
+      "sha256": "739919a17d1108c0ed2653e7a37bf00f73ed522c928122eda74fcc14e46571fb",
+      "method": "Source Data header, first three records and last seven rows from eleven representative workbooks, including all four header layouts, both malformed dates, missing weather zones, original/corrected and space-suffixed names and the latest snapshot. Original pivot views retained; cell values unchanged.",
+      "workbooks": [
+        {
+          "member": "Profile Type Counts 20260806.xlsx",
+          "sourceSha256": "a323af2b0436e24b0fde28c0d1e4312eaf8530f041eeddfa2caa69586585103c",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            745,
+            746,
+            747,
+            748,
+            749,
+            750,
+            751
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20130409.xlsx",
+          "sourceSha256": "b6b447a673a790ccd8fe380ba425a6c6e7a3e9a41116b94c844e9886b816eac8",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            650,
+            651,
+            652,
+            653,
+            654,
+            655,
+            656
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 201500803.xlsx",
+          "sourceSha256": "f41d93da1f318fcd7fcb570e4cfb8e83c5b757578c99210c25f875056c436938",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            682,
+            683,
+            684,
+            685,
+            686,
+            687,
+            688
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 201605614.xlsx",
+          "sourceSha256": "eb2b15debfe6c199e3bc6387e636cf98083e78f6f9b148cfa84de11736af4c68",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            690,
+            691,
+            692,
+            693,
+            694,
+            695,
+            696
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20160812.xlsx",
+          "sourceSha256": "ff39c7aed926432fd6137a074cee46ae785355d01218e986b130c77b4e0859d9",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            695,
+            696,
+            697,
+            698,
+            699,
+            700,
+            701
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20180312.xlsx",
+          "sourceSha256": "f934b842c955bb0b3d7365442659187faaed85dc314c3d848729c0a7caac0132",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            701,
+            702,
+            703,
+            704,
+            705,
+            706,
+            707
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20180312_corrected.xlsx",
+          "sourceSha256": "443135b06ff413ffed716d90648849b47c9e9d6ff3416d6ff11e0f0c18fe4ddc",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            666,
+            667,
+            668,
+            669,
+            670,
+            671,
+            672
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20190708.xlsx",
+          "sourceSha256": "93ede402765805d7e766be560cd5d181550f4ad21ffc7e1249275e118cc7bfe0",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            656,
+            657,
+            658,
+            659,
+            660,
+            661,
+            662
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20190807.xlsx",
+          "sourceSha256": "667ece4f8f48319803705da64179d4ec501de3f41bd8d46b1653a7bb32053f85",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            662,
+            663,
+            664,
+            665,
+            666,
+            667,
+            668
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20220103 .xlsx",
+          "sourceSha256": "cddf4b286799798a0b2303f280d818958bbeb738ec6dbb1697d063f17032f508",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            676,
+            677,
+            678,
+            679,
+            680,
+            681,
+            682
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20240502.xlsx",
+          "sourceSha256": "72fab6cb540d61db3f0467a5a80e1fd1aa841db28f694391c84c0f3aea792b75",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            722,
+            723,
+            724,
+            725,
+            726,
+            727,
+            728
+          ]
+        }
+      ]
+    },
+    "decoderSha256": "2c3aa36047cc5dd9da803e9493eae5950f435a89204ca081f18f06ce32af100e"
   }
 }

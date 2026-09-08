@@ -14,6 +14,7 @@ from tinyercot import (
     LegacyHourlyLoad,
     LoadArchive,
     LoadProfileAdjustment,
+    LoadProfileCount,
     LoadProfileDay,
     MonthlyCoincidentPeak,
     Page,
@@ -421,6 +422,15 @@ with Client() as client:
     assert_type(
         client.load_profiles.read_adjustments(b""), Iterator[LoadProfileAdjustment]
     )
+    assert_type(
+        client.load_profiles.counts(where=lambda row: row.weatherZone == "COAST"),
+        Iterator[LoadProfileCount],
+    )
+    assert_type(client.load_profiles.read_counts(b""), Iterator[LoadProfileCount])
+    profile_count = next(client.load_profiles.counts())
+    assert_type(profile_count.snapshotDate, date | None)
+    assert_type(profile_count.weatherZone, str | None)
+    assert_type(profile_count.records, int)
 
 
 with Client() as client:
