@@ -1295,8 +1295,8 @@ before fixture compression) and captured index pages are retained under
 `tools/inputs/peak-forecasts/` for offline tests and excluded from the wheel.
 Source URLs distinguish identically named files in different publication paths.
 Monthly, seasonal and weekly peak workbooks use separate readers below.
-The main hourly long-term forecast workbooks and regional weather-year scenarios
-are covered below; performance workbooks remain a known coverage gap.
+The main hourly long-term forecast workbooks, regional weather-year scenarios,
+and hourly/monthly forecast-performance workbooks are covered below.
 
 
 ## Public monthly peak-demand and energy forecasts
@@ -1349,8 +1349,8 @@ forecast percentile. Original numeric totals and declared units are preserved.
 [Evidence and manifests](../tools/inputs/zonal-peaks/evidence.json) accompany
 24 unchanged original workbooks (560,216 bytes before fixture compression).
 Tests reuse the existing forecast-index captures. Fixtures remain outside the
-installed wheel. Hourly forecasts and forecast-performance workbooks remain
-separate implementation gaps.
+installed wheel. The separate hourly forecast and forecast-performance readers
+and their verified source coverage are described below.
 
 ## Public hourly long-term load forecasts
 
@@ -1392,9 +1392,9 @@ independently extracted expected values, and the existing public index snapshots
 distinguish full-source verification from the smaller offline fixtures. Fixtures
 are excluded from the installed wheel.
 
-The eight separate weather-year regional scenario files are covered below. The
-winter reliability-standard forecast and forecast-performance families remain
-additional gaps.
+The eight separate weather-year regional scenario files and the hourly/monthly
+forecast-performance families are covered below. The winter reliability-standard
+hourly forecast remains a separate gap.
 
 ## Regional hourly weather-year scenarios
 
