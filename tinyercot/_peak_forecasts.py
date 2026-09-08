@@ -2,16 +2,15 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable, Iterator
+from collections.abc import Iterator
 from decimal import Decimal
 from typing import Literal
-from urllib.parse import urlsplit
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import Field
 
 from ._legacy_load import _number
 from ._load import _sheets, _workbooks
-from ._public_tables import PublicFile, _PublicTable, _year_files
+from ._load_forecasts import _ForecastRow, _ForecastTable
 
 _SUMMARIES = {
     "Official Forecast 50/50": "p50MW",
@@ -26,10 +25,9 @@ _SUMMARIES = {
 }
 
 
-class PeakDemandForecast(BaseModel):
+class PeakDemandForecast(_ForecastRow):
     """One source forecast year/table; weather years are scenarios, not vintages."""
 
-    model_config = ConfigDict(extra="forbid")
     forecastYear: int
     demandBasis: Literal["gross", "net", "rooftop_pv", "unspecified"]
     weatherYearMW: dict[int, Decimal | None]
@@ -44,33 +42,10 @@ class PeakDemandForecast(BaseModel):
     sourceExtraValues: dict[int, Decimal | None] = Field(default_factory=dict)
     sourceTitle: str
     sourceNotes: list[str]
-    sourceMember: str
-    sourceSheet: str
-    sourceRow: int
-    sourceFile: PublicFile | None = None
 
 
-class PeakDemandForecasts(_PublicTable[PeakDemandForecast]):
-    index_url = "https://www.ercot.com/gridinfo/load/forecast"
+class PeakDemandForecasts(_ForecastTable[PeakDemandForecast]):
     title_pattern = "ERCOT Peak Demand Scenarios"
-
-    def files(self) -> list[PublicFile]:
-        return [
-            f
-            for f in _year_files(self._http, self.index_url, self.title_pattern)
-            if urlsplit(f.url).path.lower().endswith((".xls", ".xlsx"))
-        ]
-
-    def rows(
-        self, *, where: Callable[[PeakDemandForecast], bool] | None = None
-    ) -> Iterator[PeakDemandForecast]:
-        for file in self.files():
-            for row in self.read(
-                self.download(file), filename=file.url.rsplit("/", 1)[-1]
-            ):
-                row.sourceFile = file
-                if where is None or where(row):
-                    yield row
 
     def _read(self, data: bytes, filename: str) -> Iterator[PeakDemandForecast]:
         found = False

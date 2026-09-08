@@ -111,7 +111,10 @@ returns typed summer peak forecasts under historical weather years, with origina
 source-file metadata. It keeps gross/net demand, rooftop-PV impact, large-load
 assumptions and TSP/adjusted scenarios separate. See the
 [forecast workflow](usage.md#long-term-peak-demand-forecasts). These are planning
-forecasts, not realized hourly demand.
+forecasts, not realized hourly demand. `monthly_load_forecasts.rows()` adds
+monthly peak/energy values with source dates, declared units and publication
+metadata; see the [monthly forecast workflow](usage.md#monthly-peak-demand-and-energy-forecasts)
+for the 2025 source date/value ambiguity.
 
 ## Current limits
 

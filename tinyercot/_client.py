@@ -23,6 +23,7 @@ from ._fuel_mix import FuelMix
 from ._generation_profiles import GenerationProfiles
 from ._idr import IdrComplianceHistory
 from ._load import HourlyLoad
+from ._load_forecasts import MonthlyLoadForecasts
 from ._load_profiles import LoadProfiles
 from ._loss_coefficients import TransmissionLossCoefficients
 from ._loss_factors import LossFactors
@@ -355,6 +356,10 @@ class Transport:
     @property
     def coincident_peaks(self) -> CoincidentPeaks:
         return CoincidentPeaks(self._http)
+
+    @property
+    def monthly_load_forecasts(self) -> MonthlyLoadForecasts:
+        return MonthlyLoadForecasts(self._http)
 
     @property
     def peak_demand_forecasts(self) -> PeakDemandForecasts:

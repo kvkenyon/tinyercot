@@ -1177,6 +1177,42 @@ numbers in the 2023 workbook remain in `sourceExtraValues`, keyed by one-based
 source column, with no inferred weather year or unit. Source target-year labels
 are preserved even when they differ between tables in one workbook.
 
-This reader covers the peak-demand scenario workbooks. Monthly energy forecasts,
-hourly long-term forecasts, seasonal zonal peaks and forecast-performance
-workbooks are separate source families and remain to be implemented.
+This reader covers the peak-demand scenario workbooks. Monthly peak/energy
+forecasts use the reader below. Hourly long-term forecasts, seasonal zonal peaks
+and forecast-performance workbooks remain separate coverage gaps.
+
+
+## Monthly peak-demand and energy forecasts
+
+`monthly_load_forecasts` reads the public monthly forecast workbooks across
+current and linked historical indexes, using the optional `files` extra:
+
+```python
+with Client() as ercot:
+    for forecast in ercot.monthly_load_forecasts.rows(
+        where=lambda row: row.forecastYear == 2026 and row.forecastMonth == 8
+    ):
+        print(forecast.sourceFile, forecast.sourceTitle)
+        print(forecast.peakDemand, forecast.peakUnit)
+        print(forecast.energy, forecast.energyUnit)
+```
+
+Use `files()`, `download(file)` and `read(data, filename=...)` to select a
+publication explicitly or read a saved workbook. `rows()` attaches `sourceFile`
+before applying its typed predicate. File labels and upload paths do not replace
+source forecast years; all publications and overlapping target months remain.
+
+The numeric fields preserve source values. `peakUnit` and `energyUnit` are
+`"MW"` and `"MWh"` when declared in the column labels; otherwise they are `None`.
+`sourcePeakLabel` and `sourceEnergyLabel` retain the original headings.
+The 2025 publication labels its fields `Monthly Peaks` and `Annual Energy`
+without declaring units; the reader does not reinterpret that energy label or
+assign units from magnitude alone.
+
+The 2025 TSP table's first value pair shares a row with `year`/`month` headings,
+so its `forecastYear` and `forecastMonth` are `None`. Its next value pair retains
+the January 2025 date on that source row. The final December 2044 row has blank
+values and is retained. Values are never shifted to align with a neighboring
+table. `sourceRow`, one-based `sourceColumn` and `sourceTitle` locate each pair.
+The 2024 assumption note about large flexible loads and 4CP months is retained
+in `sourceNotes`. These are published planning forecasts, not actual loads.

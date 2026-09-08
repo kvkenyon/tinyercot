@@ -1322,5 +1322,29 @@ record the comparison scope. All 11 unchanged original workbooks (268,611 bytes
 before fixture compression) and captured index pages are retained under
 `tools/inputs/peak-forecasts/` for offline tests and excluded from the wheel.
 Source URLs distinguish identically named files in different publication paths.
-Monthly, hourly, seasonal and performance forecast workbooks are additional
-known coverage gaps; the peak-demand reader does not claim to decode them.
+Monthly peak/energy workbooks use the separate reader below. Hourly, seasonal
+and performance forecast workbooks remain additional known coverage gaps.
+
+
+## Public monthly peak-demand and energy forecasts
+
+`Client.monthly_load_forecasts` discovers all **11 linked monthly XLS/XLSX
+workbooks** from the public forecast index and its annual pages at the September
+8, 2026 check. The reader returns **1,705 source rows and 3,408 numeric peak/energy
+values**, with source target years spanning 2014–2044 across publications.
+These bounds are not actual-load dates or publication/retention dates.
+
+Tests compare every year/month/peak/energy cell using independently recorded
+source coordinates in complete original workbooks. They retain both side-by-side
+2025 scenarios: 240 ERCOT-adjusted rows and 241 TSP rows. The first TSP value pair
+has no date, and the final December 2044 pair has blank values. The source's
+apparent date/value offset is not repaired. All 481 rows in this workbook keep
+unknown units because its column headings omit units. Earlier explicit MW/MWh
+labels are represented in the unit fields. The 2024 large-load/4CP assumption
+note remains available with each row.
+
+[Comparison evidence](../tools/inputs/monthly-forecasts/evidence.json) and source
+manifests accompany the 11 unchanged original files (264,087 bytes before fixture
+compression). Tests reuse the peak-forecast index captures and verify discovery,
+source-file predicates and both readers after their shared discovery refactor.
+These fixtures are excluded from the installed wheel.

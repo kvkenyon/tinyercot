@@ -31,6 +31,7 @@ from ._idr import IdrCompliance as IdrCompliance
 from ._legacy_load import LegacyHourlyLoad as LegacyHourlyLoad
 from ._load import LoadArchive as LoadArchive
 from ._load import WeatherZoneLoad as WeatherZoneLoad
+from ._load_forecasts import MonthlyLoadForecast as MonthlyLoadForecast
 from ._load_profiles import LoadProfileAdjustment as LoadProfileAdjustment
 from ._load_profiles import LoadProfileCount as LoadProfileCount
 from ._load_profiles import LoadProfileDay as LoadProfileDay

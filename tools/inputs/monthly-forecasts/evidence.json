@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-09-08T15:42:44.417864+00:00",
+  "sourceIndex": "https://www.ercot.com/gridinfo/load/forecast",
+  "linkedWorkbooks": 11,
+  "liveDiscoveryMatchesSources": true,
+  "rows": 1705,
+  "numericPeakEnergyValues": 3408,
+  "missingDateRows": 1,
+  "blankValueRows": 1,
+  "unspecifiedUnitRows": 481,
+  "sourceYearBounds": [
+    2014,
+    2044
+  ],
+  "decoderSha256": "c35faad9c952d06c8345db36d50926c54b46bcfa58f638594aff039d33544642",
+  "scope": "Every source year/month/peak/energy cell in all 11 linked monthly workbooks compared using separately recorded original table coordinates. Keeps date and value columns on the same source row; no repairs or unit inference. 2025 TSP first value pair is beside year/month headers and has unknown date, while its final December 2044 row has blank values. Monthly Peaks / Annual Energy labels have no declared units in this workbook, so both unit fields remain None for both 2025 scenarios. Other workbooks explicitly label MW and MWh. Source target years are not issue dates, retention bounds or actual-load observations. Reuses peak-forecast captured index fixtures; original monthly binaries are unchanged."
+}

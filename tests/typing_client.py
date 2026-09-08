@@ -32,6 +32,7 @@ from tinyercot import (
     LoadShedShare,
     LossFactorDay,
     MonthlyCoincidentPeak,
+    MonthlyLoadForecast,
     MoraBalance,
     MoraBalanceMetric,
     MoraCapacity,
@@ -783,4 +784,16 @@ def peak_forecast_typing(client: Client) -> None:
     row = next(rows)
     assert_type(row.weatherYearMW, dict[int, Decimal | None])
     assert_type(row.p90MW, Decimal | None)
+    assert_type(row.sourceFile, PublicFile | None)
+
+
+def monthly_forecast_typing(client: Client) -> None:
+    assert_type(client.monthly_load_forecasts.files(), list[PublicFile])
+    assert_type(client.monthly_load_forecasts.read(b""), Iterator[MonthlyLoadForecast])
+    rows = client.monthly_load_forecasts.rows(where=lambda r: r.forecastYear == 2026)
+    assert_type(rows, Iterator[MonthlyLoadForecast])
+    row = next(rows)
+    assert_type(row.forecastMonth, int | None)
+    assert_type(row.energy, Decimal | None)
+    assert_type(row.energyUnit, Literal["MWh"] | None)
     assert_type(row.sourceFile, PublicFile | None)
