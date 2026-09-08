@@ -684,8 +684,40 @@ point-in-time public availability.
 
 Evidence is in `tools/inputs/public-mora-percentiles-evidence.json`. The fixture
 retains nine complete original workbooks, byte-for-byte, containing 6,006 values
-and every supported metric family. Resource-detail, capacity-summary and other
-MORA tables remain outside this percentile reader and are not counted as covered.
+and every supported metric family. Resource-detail tables have a separate reader
+described below; capacity-summary and other MORA tables remain uncovered.
+
+## MORA resource capacities
+
+`Client.resource_outlook.resources()` and `read_resources()` cover the Resource
+Details sheets in the same **37 workbooks**, December 2023–November 2026. All
+**61,949 rows** were compared against their original B–J source cells: **60,766
+unit rows and 1,183 summary rows**. Counts include repeated monthly records and
+both December 2023 versions, not distinct generating units. Summary rows include
+totals, capacity contributions and adjustments; some have identifiers in the
+source's unit-code column. Unit rows have an INR, county, zone or service field;
+the source summaries lack those fields. Original names, codes, fuel labels,
+categories, rating labels, worksheet rows and footer notes are retained.
+
+There are 60,331 service years, 280 service dates, three literal `#N/A` errors and
+1,335 blank service fields. No service date is inferred from the reporting month.
+The 87 blank installed capacities and 14 blank reported capacities remain `None`;
+zero and negative values remain numeric. The October 2025 workbook omits the
+initial category heading, so its first 402 records retain `category=None`.
+Unheaded helper cells beyond column J are excluded from the named resource table;
+they include repeated capacity values and a zero beside a section heading.
+
+These are assessment-month ratings, not measurements of generation or proof that
+planned resources are in operation. Seasonal and monthly rating labels remain
+explicit, as do planned, unavailable and mothballed categories. Footnotes explain
+that battery fleet contribution is calculated separately, and that planned
+resources approved for synchronization can be assumed available for the season.
+Summaries and their underlying unit capacities should not be added together.
+
+`tools/inputs/public-mora-resources-evidence.json` records the full source
+comparison. Tests reuse the nine complete originals in `mora-percentiles.zip`
+and add three complete originals in `mora-resources.zip` for service dates,
+missing categories and helper columns. Fixtures are excluded from the wheel.
 
 ## Historical IDR compliance summaries
 

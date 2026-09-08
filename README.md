@@ -476,7 +476,7 @@ timestamp text, repeat-hour flags and member names are retained. The source's
 `00:xx AM` clock parses as midnight, with no inferred timezone. Every SCED row
 remains separate; readings are not resampled or combined with settled prices.
 
-### Resource-outlook percentiles
+### Resource outlooks
 
 `resource_outlook.percentiles()` reads the probabilistic forecast tables in
 Monthly Outlook for Resource Adequacy (MORA) workbooks with `tinyercot[files]`:
@@ -501,7 +501,7 @@ with Client() as ercot:
 returns the original file, and `read_percentiles(data, filename=..., where=...)`
 queries saved workbooks or ZIPs. All 27,500 percentile values in 37 linked
 workbooks are supported, covering December 2023–November 2026, with both
-December 2023 versions retained. Other MORA tables are not yet parsed.
+December 2023 versions retained.
 
 These are forecast distributions for the assessment month, not realized hourly
 observations. `percentile` uses 0–1, normalizing explicit strings such as `50%`
@@ -514,6 +514,35 @@ whose table headings omit units. Report labels and file identities preserve
 revisions, without asserting when they became publicly available. Percentiles
 from different quantities should not be added or subtracted as if they were
 joint scenarios.
+
+`resource_outlook.resources()` also returns typed resource-detail rows, including
+unit capacities, planned projects and capacity summaries:
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    for row in ercot.resource_outlook.resources(
+        where=lambda r: r.reportMonth == date(2026, 11, 1) and r.kind == "unit",
+    ):
+        print(row.name, row.category, row.installedCapacityMW, row.reportedCapacityMW)
+```
+
+Use `read_resources(data, filename=..., where=...)` for saved workbooks or ZIPs.
+All 61,949 resource-table rows across the same 37 workbooks are supported.
+`kind="summary"` separates totals, capacity contributions and adjustments from
+unit rows, including summaries that have a source unit code. Avoid adding summary
+rows to their constituent units. Original categories distinguish operational,
+planned, mothballed and unavailable resources; an omitted category remains `None`.
+`inService` retains a year, date, source error such as `#N/A`, or `None`.
+
+Installed and reported capacities remain separate decimals, with their original
+rating labels and explanatory notes. A seasonal rating or planned service date
+does not establish available generation; battery fleet contribution is calculated
+separately by ERCOT. Missing capacities remain `None`, and negative adjustments
+are preserved. Other MORA capacity-summary and monthly-risk tables are not yet
+parsed.
 
 ### Historical IDR compliance summaries
 

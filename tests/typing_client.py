@@ -22,6 +22,7 @@ from tinyercot import (
     LossFactorDay,
     MonthlyCoincidentPeak,
     MoraPercentile,
+    MoraResource,
     Page,
     PolrUsage,
     Publication,
@@ -52,6 +53,16 @@ with Client() as client:
     assert_type(mora_percentile.percentile, Decimal)
     assert_type(mora_percentile.hour, int | None)
     assert_type(mora_percentile.value, Decimal | None)
+    assert_type(client.resource_outlook.read_resources(b""), Iterator[MoraResource])
+    assert_type(
+        client.resource_outlook.resources(where=lambda r: r.kind == "unit"),
+        Iterator[MoraResource],
+    )
+    mora_resource = next(client.resource_outlook.resources())
+    assert_type(mora_resource.category, str | None)
+    assert_type(mora_resource.inService, int | date | str | None)
+    assert_type(mora_resource.installedCapacityMW, Decimal | None)
+    assert_type(mora_resource.reportedCapacityMW, Decimal | None)
 
 with Client() as client:
     assert_type(client.indicative_ordc.files(), list[PublicFile])

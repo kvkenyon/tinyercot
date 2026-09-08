@@ -27,6 +27,7 @@ from ._loss_factors import LossFactorDay as LossFactorDay
 from ._loss_factors import LossFactorInterval as LossFactorInterval
 from ._mora import MoraMetric as MoraMetric
 from ._mora import MoraPercentile as MoraPercentile
+from ._mora import MoraResource as MoraResource
 from ._ordc import IndicativeOrdcPrice as IndicativeOrdcPrice
 from ._pdf import PdfArchive as PdfArchive
 from ._pdf import PdfChartArchive as PdfChartArchive

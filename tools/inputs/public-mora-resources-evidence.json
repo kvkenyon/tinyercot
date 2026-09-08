@@ -1,0 +1,446 @@
+{
+  "checkedAt": "2026-09-08T10:01:00.444902+00:00",
+  "indexUrl": "https://www.ercot.com/gridinfo/resource",
+  "sourceManifest": "public-mora-percentiles-evidence.json (same 37 original workbook URLs, byte sizes and SHA-256 hashes)",
+  "comparison": {
+    "files": [
+      {
+        "file": "MORA_Apr2024.xlsx",
+        "sha256": "d7f946ec8dfe60a0e3e693332359ee2d0cdfdf1bc9c9dcf5a346fe2e071e0ba2",
+        "reportMonth": "2024-04-01",
+        "records": 1520,
+        "kinds": {
+          "unit": 1487,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_April2025.xlsx",
+        "sha256": "a6d686843c9e82e3b26d1d77948a2f1b8f53ce11d1dbc04586a04e8a027cb10e",
+        "reportMonth": "2025-04-01",
+        "records": 1620,
+        "kinds": {
+          "unit": 1588,
+          "summary": 32
+        }
+      },
+      {
+        "file": "MORA_April2026.xlsx",
+        "sha256": "ceede0527fa894ed2cc1f84ea2269ab3f2408a13c45a894e5f83d7fc7a6d9ea5",
+        "reportMonth": "2026-04-01",
+        "records": 1820,
+        "kinds": {
+          "unit": 1790,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_August2024.xlsx",
+        "sha256": "7220ed1ce0a99f367fd0ffb2af007c087a0c9a0134ccfe71c30cc2b4f66abb3c",
+        "reportMonth": "2024-08-01",
+        "records": 1591,
+        "kinds": {
+          "unit": 1558,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_August2025.xlsx",
+        "sha256": "8828d0e39933acffcf85c0ce4869a98009dfade35694f6ff7f9c581d7ae354ca",
+        "reportMonth": "2025-08-01",
+        "records": 1665,
+        "kinds": {
+          "unit": 1634,
+          "summary": 31
+        }
+      },
+      {
+        "file": "MORA_August2026.xlsx",
+        "sha256": "4385cb7a9b0306855d7838ca10b41da47e15b940ce9f7761c2577446f3fcccd0",
+        "reportMonth": "2026-08-01",
+        "records": 1881,
+        "kinds": {
+          "unit": 1851,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_December2023.xlsx",
+        "sha256": "c51d068752de8d710574bd0ad803a5ef96a36e8dfe2e16da5d31638578a56c5d",
+        "reportMonth": "2023-12-01",
+        "records": 1432,
+        "kinds": {
+          "unit": 1390,
+          "summary": 42
+        }
+      },
+      {
+        "file": "MORA_December2023_v2.xlsx",
+        "sha256": "c09eee27ab862eb388613dfb51d83a0fcc81f783b549639cfd7ec52209884fa8",
+        "reportMonth": "2023-12-01",
+        "records": 1432,
+        "kinds": {
+          "unit": 1390,
+          "summary": 42
+        }
+      },
+      {
+        "file": "MORA_December2024.xlsx",
+        "sha256": "6dcbc33f2996efee9a49a863b76234876410b8b97a3099433b0aa618dc03b5c3",
+        "reportMonth": "2024-12-01",
+        "records": 1669,
+        "kinds": {
+          "unit": 1636,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_December2025.xlsx",
+        "sha256": "747e6143310d18277698587d5d36e65e5d078141b41101294ea15f2ebae2fcbf",
+        "reportMonth": "2025-12-01",
+        "records": 1788,
+        "kinds": {
+          "unit": 1758,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_February2024.xlsx",
+        "sha256": "27438c0ef50a25d6fcfd610213043ed93c70f928fdce490f2d6a7108b5d8177c",
+        "reportMonth": "2024-02-01",
+        "records": 1468,
+        "kinds": {
+          "unit": 1435,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_February2026.xlsx",
+        "sha256": "6d77b784cfac49ee55671dfacd037720fc8452eef0527a87328daa95189cf6b1",
+        "reportMonth": "2026-02-01",
+        "records": 1798,
+        "kinds": {
+          "unit": 1768,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_January2024.xlsx",
+        "sha256": "72be33b6341553a9e18b5a8e5340bdda37ec499ab38588213d8f401f4cf0b016",
+        "reportMonth": "2024-01-01",
+        "records": 1439,
+        "kinds": {
+          "unit": 1406,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_January2025.xlsx",
+        "sha256": "102fa1b7f8b90723fe9e1c7355147f41fee2209bd769f16c181c52cd033094e4",
+        "reportMonth": "2025-01-01",
+        "records": 1683,
+        "kinds": {
+          "unit": 1650,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_January2026.xlsx",
+        "sha256": "17faffa3b926100c242336bb4c2b72922e83f4bfa000f778847802c0fc0b6125",
+        "reportMonth": "2026-01-01",
+        "records": 1797,
+        "kinds": {
+          "unit": 1767,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_July2024.xlsx",
+        "sha256": "40dc306a5bd647f434334fddef75f7ce5f87bcc6496ab92bae2b1b689afa2b75",
+        "reportMonth": "2024-07-01",
+        "records": 1550,
+        "kinds": {
+          "unit": 1517,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_July2025.xlsx",
+        "sha256": "1096b3386aa55c55857b4846e775e28b009175b54fa05deffcd7380f687e9d67",
+        "reportMonth": "2025-07-01",
+        "records": 1656,
+        "kinds": {
+          "unit": 1625,
+          "summary": 31
+        }
+      },
+      {
+        "file": "MORA_July2026.xlsx",
+        "sha256": "5bbac07bb05360bb755aa66777aff30da772f0a0e3c51cd99296c02c012e7328",
+        "reportMonth": "2026-07-01",
+        "records": 1863,
+        "kinds": {
+          "unit": 1833,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_June2024.xlsx",
+        "sha256": "eab706971b4853602f71760d5d01108003c9bccdf63eafa3d5e458c4ef66922d",
+        "reportMonth": "2024-06-01",
+        "records": 1536,
+        "kinds": {
+          "unit": 1503,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_June2025.xlsx",
+        "sha256": "0017de75216f284bcdf1d98c58be2275fb25e0514ec215ff5b179bd9a7e47b38",
+        "reportMonth": "2025-06-01",
+        "records": 1643,
+        "kinds": {
+          "unit": 1613,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_June2026.xlsx",
+        "sha256": "c7932aaa846dbad76f5fbab8d7cf7ff9846d6fc4e7b717ac04edd4df2e023622",
+        "reportMonth": "2026-06-01",
+        "records": 1848,
+        "kinds": {
+          "unit": 1818,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_March2024.xlsx",
+        "sha256": "cb034be04a07b31c2d71660419a335916b66cb9c976c50f04242db4e7d79f80c",
+        "reportMonth": "2024-03-01",
+        "records": 1506,
+        "kinds": {
+          "unit": 1473,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_March2025.xlsx",
+        "sha256": "09e5c728158d48f5bcc7ca59428da8a3983cf4d4f9eab9c12ee475037ec45f5c",
+        "reportMonth": "2025-03-01",
+        "records": 1621,
+        "kinds": {
+          "unit": 1590,
+          "summary": 31
+        }
+      },
+      {
+        "file": "MORA_March2026.xlsx",
+        "sha256": "8e2ea66027e8feb80e6f29f05e72a5d6626ada616c953c50785b4e3cba261e61",
+        "reportMonth": "2026-03-01",
+        "records": 1805,
+        "kinds": {
+          "unit": 1775,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_May2024.xlsx",
+        "sha256": "9ebdf7954d35759902c6c7a6ff78bf84526f7157b1532a1a994a0796a8a51985",
+        "reportMonth": "2024-05-01",
+        "records": 1526,
+        "kinds": {
+          "unit": 1493,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_May2025.xlsx",
+        "sha256": "cf78cfe488c09b4ec856868d6a8b7e43558dddc91bfa91aa4650aadebcaecde7",
+        "reportMonth": "2025-05-01",
+        "records": 1623,
+        "kinds": {
+          "unit": 1591,
+          "summary": 32
+        }
+      },
+      {
+        "file": "MORA_May2026.xlsx",
+        "sha256": "2935c5ef1050c85f7ce0345aec9b045f21a560b0dc9200907d7e3a0daeb5deec",
+        "reportMonth": "2026-05-01",
+        "records": 1833,
+        "kinds": {
+          "unit": 1803,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_November2024.xlsx",
+        "sha256": "a25b8f0c32e243f08c2f82f610bc1cdb8d581530db9fe3970c4ee788aa766779",
+        "reportMonth": "2024-11-01",
+        "records": 1648,
+        "kinds": {
+          "unit": 1615,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_November2025.xlsx",
+        "sha256": "3454fca0408809b2cd53e1444852b723f3230d6ae3173833a6353fe733b915ed",
+        "reportMonth": "2025-11-01",
+        "records": 1766,
+        "kinds": {
+          "unit": 1736,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_November2026.xlsx",
+        "sha256": "c219e33a65adc4f568ef8f85f7f072322cba81d1cf64fa0bda3f0c7b78391c7d",
+        "reportMonth": "2026-11-01",
+        "records": 1900,
+        "kinds": {
+          "unit": 1870,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_October2024.xlsx",
+        "sha256": "cd1cb141a3509e55e8e96c657efece688149c0febccb21f2b6eea942caeb3fcb",
+        "reportMonth": "2024-10-01",
+        "records": 1626,
+        "kinds": {
+          "unit": 1593,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_October2025.xlsx",
+        "sha256": "63179a2b73169028586a602326ec9a4a40b3c6c1534bc76d6c2aa00b6bce749e",
+        "reportMonth": "2025-10-01",
+        "records": 1717,
+        "kinds": {
+          "unit": 1687,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_October2026.xlsx",
+        "sha256": "feb81bc87e9ef62bf4c3156f9e34dd13f126edd7564320cf8c2831037109c4d3",
+        "reportMonth": "2026-10-01",
+        "records": 1889,
+        "kinds": {
+          "unit": 1859,
+          "summary": 30
+        }
+      },
+      {
+        "file": "MORA_September2024.xlsx",
+        "sha256": "2a35f32c62b6526b9b42edcd99c1bb43f2206752c77e370c95032c606d1ccdf9",
+        "reportMonth": "2024-09-01",
+        "records": 1607,
+        "kinds": {
+          "unit": 1574,
+          "summary": 33
+        }
+      },
+      {
+        "file": "MORA_September2025.xlsx",
+        "sha256": "38fd590902826a3731c6c3fa1887b541e9090de843ebde25b7d5138c0fcdd844",
+        "reportMonth": "2025-09-01",
+        "records": 1701,
+        "kinds": {
+          "unit": 1670,
+          "summary": 31
+        }
+      },
+      {
+        "file": "MORA_September2026.xlsx",
+        "sha256": "de004e9e58ab4826ac74858ffb117568a68c06a82cbd353611def84d321574fb",
+        "reportMonth": "2026-09-01",
+        "records": 1884,
+        "kinds": {
+          "unit": 1854,
+          "summary": 30
+        }
+      },
+      {
+        "file": "mora_february2025.xlsx",
+        "sha256": "4775ab159650c637f27db0de9b5f43eec82f1182a1d1242ff448d217ffa71fff",
+        "reportMonth": "2025-02-01",
+        "records": 1598,
+        "kinds": {
+          "unit": 1566,
+          "summary": 32
+        }
+      }
+    ],
+    "records": 61949,
+    "kinds": {
+      "unit": 60766,
+      "summary": 1183
+    },
+    "inServiceTypes": {
+      "int": 60331,
+      "NoneType": 1335,
+      "str": 3,
+      "date": 280
+    },
+    "missingCapacityValues": {
+      "installedCapacityMW": 87,
+      "reportedCapacityMW": 14
+    },
+    "missingCategory": {
+      "MORA_October2025.xlsx": 402
+    },
+    "firstMonth": "2023-12-01",
+    "lastMonth": "2026-11-01",
+    "uniqueMonths": 36,
+    "comparison": "Every B:J resource field, source row, category, report month, rating label and footer note compared against original openpyxl cells. Source row selection and expected values do not use SDK parsing helpers. Unheaded K+ helper cells are outside the published table."
+  },
+  "fixtures": [
+    {
+      "path": "tools/inputs/public-tables/mora-percentiles.zip",
+      "usage": "Reuse the nine complete original workbooks already retained for percentile tests."
+    },
+    {
+      "path": "tools/inputs/public-tables/mora-resources.zip",
+      "bytes": 900290,
+      "sha256": "7e94dadd5f2e53a93aa401bb241287053fbc6bd73a9f4c238a9160cf1a04381a",
+      "files": [
+        {
+          "member": "MORA_July2025.xlsx",
+          "bytes": 317211,
+          "sha256": "1096b3386aa55c55857b4846e775e28b009175b54fa05deffcd7380f687e9d67"
+        },
+        {
+          "member": "MORA_October2025.xlsx",
+          "bytes": 344999,
+          "sha256": "63179a2b73169028586a602326ec9a4a40b3c6c1534bc76d6c2aa00b6bce749e"
+        },
+        {
+          "member": "MORA_January2026.xlsx",
+          "bytes": 405030,
+          "sha256": "17faffa3b926100c242336bb4c2b72922e83f4bfa000f778847802c0fc0b6125"
+        }
+      ],
+      "records": 5170,
+      "kinds": {
+        "unit": 5079,
+        "summary": 91
+      },
+      "selection": "Three complete original workbooks, byte-for-byte, covering service dates, a missing initial category heading and unheaded helper columns. Other resource tests reuse the complete originals in mora-percentiles.zip."
+    }
+  ],
+  "decoder": {
+    "path": "tinyercot/_mora.py",
+    "sha256": "90bc83dd6246e14bcfd25fc6adc9f555a8a71ed7c009d8b241c25b9f988b888a"
+  },
+  "limitations": [
+    "Counts are report rows, not unique units; repeated monthly records and both December 2023 versions remain separate.",
+    "Resource Details B:J only. Other MORA monthly-outlook and category-summary tables remain outside this reader.",
+    "Summary classification includes coded totals, contributions and adjustments. The original summary rows lack INR, county, zone and service fields.",
+    "Forecast capacity and service fields do not prove actual availability. Category and source rating labels retain their original meaning.",
+    "Report labels and URL dates do not establish point-in-time public availability."
+  ]
+}

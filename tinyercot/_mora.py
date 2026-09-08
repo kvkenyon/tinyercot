@@ -58,6 +58,39 @@ class MoraPercentile(BaseModel):
     sourceSheet: str
 
 
+class MoraResource(BaseModel):
+    """One unit or summary capacity row in an assessment-month outlook.
+
+    inService retains a year, date or source status such as #N/A. Category and
+    capacity labels describe the source's status and rating basis; neither
+    installed capacity nor the reported rating implies available generation.
+    Summary rows include totals, contributions and adjustments; source unit
+    codes also appear on summaries. An omitted category remains None.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+    reportMonth: date
+    kind: Literal["unit", "summary"]
+    category: str | None
+    name: str
+    interconnectionRequestNumber: str | None
+    unitCode: str | None
+    county: str | None
+    fuel: str | None
+    zone: str | None
+    inService: int | date | str | None
+    installedCapacityMW: Decimal | None
+    reportedCapacityMW: Decimal | None
+    sourceInstalledCapacityLabel: str
+    sourceCapacityLabel: str
+    sourceInServiceLabel: str
+    sourceReportLabel: str
+    sourceNotes: list[str]
+    sourceMember: str
+    sourceSheet: str
+    sourceRow: int
+
+
 class _MoraLinks(_FileLinks):
     def __init__(self, index_url: str, title_pattern: str) -> None:
         super().__init__(index_url, title_pattern)
@@ -111,6 +144,105 @@ class ResourceOutlook(_PublicFiles):
             yield from self.read_percentiles(
                 self.download(file), filename=file.url.rsplit("/", 1)[-1], where=where
             )
+
+    def resources(
+        self, *, where: Callable[[MoraResource], bool] | None = None
+    ) -> Iterator[MoraResource]:
+        """Query resource-detail tables, preserving categories and revisions."""
+        for file in self.files():
+            yield from self.read_resources(
+                self.download(file), filename=file.url.rsplit("/", 1)[-1], where=where
+            )
+
+    def read_resources(
+        self,
+        data: bytes,
+        *,
+        filename: str = "workbook",
+        where: Callable[[MoraResource], bool] | None = None,
+    ) -> Iterator[MoraResource]:
+        """Read the named B–J resource columns from saved workbooks or ZIPs."""
+        found = False
+        for member, content in _workbooks(data):
+            member = filename if member in {"workbook.xls", "workbook.xlsx"} else member
+            month, report_label = _report_month(content)
+            for sheet, source in _sheets(content, date_columns=(), preserve_types=True):
+                if sheet != "Resource Details":
+                    continue
+                rows = list(source)
+                header_index = next(
+                    (
+                        i
+                        for i, r in enumerate(rows)
+                        if len(r) > 1 and r[1] == "UNIT NAME"
+                    ),
+                    None,
+                )
+                if header_index is None:
+                    raise ValueError(f"{member}/{sheet}: Missing resource header")
+                header = rows[header_index]
+                labels = tuple(" ".join(str(v).split()) for v in header[1:10])
+                if (
+                    len(labels) != 9
+                    or labels[:1] != ("UNIT NAME",)
+                    or labels[1] not in ("INR", "INTERCONNECTION REQUEST NUMBER (INR)")
+                    or labels[2:6] != ("UNIT CODE", "COUNTY", "FUEL", "ZONE")
+                    or labels[6] not in ("IN SERVICE", "IN SERVICE YEAR")
+                    or labels[7]
+                    not in ("INSTALLED CAPACITY (MW)", "INSTALLED CAPACITY RATING (MW)")
+                ):
+                    raise ValueError(f"{member}/{sheet}: Unexpected resource columns")
+                found = True
+                table = [
+                    (i + 1, tuple(r[:10]) + (None,) * max(0, 10 - len(r)))
+                    for i, r in enumerate(rows)
+                    if i > header_index
+                ]
+                last_data = max(
+                    (i for i, r in table if any(v not in (None, "") for v in r[2:10])),
+                    default=0,
+                )
+                notes = [
+                    r[1]
+                    for i, r in table
+                    if i > last_data and isinstance(r[1], str) and r[1]
+                ]
+                category: str | None = None
+                for number, cells in table:
+                    if not any(v not in (None, "") for v in cells[2:10]):
+                        if isinstance(cells[1], str) and cells[1]:
+                            category = cells[1]
+                        continue
+                    record = MoraResource.model_validate(
+                        {
+                            "reportMonth": month,
+                            "kind": "unit"
+                            if any(cells[i] not in (None, "") for i in (2, 4, 6, 7))
+                            else "summary",
+                            "category": category,
+                            "name": cells[1],
+                            "interconnectionRequestNumber": cells[2] or None,
+                            "unitCode": cells[3] or None,
+                            "county": cells[4] or None,
+                            "fuel": cells[5] or None,
+                            "zone": cells[6] or None,
+                            "inService": cells[7] if cells[7] != "" else None,
+                            "installedCapacityMW": _number(cells[8]),
+                            "reportedCapacityMW": _number(cells[9]),
+                            "sourceInstalledCapacityLabel": header[8],
+                            "sourceCapacityLabel": header[9],
+                            "sourceInServiceLabel": header[7],
+                            "sourceReportLabel": report_label,
+                            "sourceNotes": notes,
+                            "sourceMember": member,
+                            "sourceSheet": sheet,
+                            "sourceRow": number,
+                        }
+                    )
+                    if where is None or where(record):
+                        yield record
+        if not found:
+            raise ValueError("Download contains no MORA resource tables")
 
     def read_percentiles(
         self,
