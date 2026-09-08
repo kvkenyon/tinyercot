@@ -1394,7 +1394,7 @@ are excluded from the installed wheel.
 
 The eight separate weather-year regional scenario files and the hourly/monthly
 forecast-performance families are covered below. The winter reliability-standard
-hourly forecast remains a separate gap.
+hourly forecast is covered by `winter_load_forecasts` below.
 
 ## Regional hourly weather-year scenarios
 
@@ -1651,3 +1651,27 @@ original archive posting metadata when evaluating forecasts as issued.
 records the fields, layouts, source and reader hashes, listing recheck and
 limitations. Large source downloads remain outside the repository and installed
 package.
+
+## Winter hourly load and peak forecasts
+
+`Client.winter_load_forecasts` closes the winter-workbook exclusion in the earlier
+hourly-forecast check. Live anonymous discovery finds the public 2025–2026
+reliability-standard magnitude workbook, and a fresh download matches the saved
+original byte for byte. All **2,160 hourly rows**, **one peak row**, **21 operator
+columns**, and **49,704 load values** match an independent python-calamine read;
+the runtime reuses the existing openpyxl workbook helpers.
+
+Hourly source dates run from December 1, 2025 through February 28, 2026. The
+separate peak row is January 31, 2026, hour 8. Both system-load columns remain
+separate from operator allocations, which exclude large-load additions. Only
+the peak table separately publishes the 4,817 large-load additions; its original
+note preserves the contracted/officer-letter breakdown. No hourly component is
+derived by subtraction. The 75th-percentile label comes from the source text.
+
+Rows retain original hour labels, dates, operator names, worksheet locations and
+explanatory notes. These are forecast scenarios, not actual demand observations
+or as-issued operational vintages. The peak summary must not be counted as an
+extra hourly observation. The complete original workbook is a regression fixture
+under `tools/inputs/winter-forecasts/source.zip`, excluded from the installed wheel.
+[Evidence](../tools/inputs/winter-forecasts/evidence.json) records the original URL,
+hash, source bounds and comparison scope. The reader adds no dependencies.
