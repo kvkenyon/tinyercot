@@ -10,6 +10,7 @@ from tinyercot import (
     Client,
     CoincidentPeakAllocation,
     CrrTimeOfUse,
+    DistributionLossCoefficient,
     Document,
     FuelMixArchive,
     FuelMixDay,
@@ -46,6 +47,22 @@ from tinyercot import (
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    assert_type(client.distribution_loss_coefficients.files(), list[PublicFile])
+    assert_type(
+        client.distribution_loss_coefficients.read(b""),
+        Iterator[DistributionLossCoefficient],
+    )
+    assert_type(
+        client.distribution_loss_coefficients.rows(where=lambda r: r.year == 2026),
+        Iterator[DistributionLossCoefficient],
+    )
+    distribution_coefficient = next(client.distribution_loss_coefficients.rows())
+    assert_type(distribution_coefficient.f1, Decimal | None)
+    assert_type(distribution_coefficient.kFactor, Decimal | None)
+    assert_type(distribution_coefficient.baselineFrom, date | None)
+    assert_type(distribution_coefficient.sourceFile, PublicFile | None)
 
 with Client() as client:
     assert_type(client.transmission_loss_coefficients.files(), list[PublicFile])

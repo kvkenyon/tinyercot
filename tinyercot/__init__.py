@@ -10,6 +10,9 @@ from ._coincident_peaks import CoincidentPeak as CoincidentPeak
 from ._coincident_peaks import CoincidentPeakAllocation as CoincidentPeakAllocation
 from ._coincident_peaks import MonthlyCoincidentPeak as MonthlyCoincidentPeak
 from ._coincident_peaks import PeakSettlementRun as PeakSettlementRun
+from ._distribution_losses import (
+    DistributionLossCoefficient as DistributionLossCoefficient,
+)
 from ._fuel_mix import FuelMixArchive as FuelMixArchive
 from ._fuel_mix import FuelMixDay as FuelMixDay
 from ._fuel_mix import FuelMixInterval as FuelMixInterval

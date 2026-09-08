@@ -321,11 +321,20 @@ def _sheets(
     if data.startswith(b"\xd0\xcf\x11\xe0"):
         try:
             import xlrd
+            from xlrd.biffh import XLRDError
         except ImportError as error:
             raise ImportError(
                 "Install tinyercot[files] to read XLS archives"
             ) from error
-        with xlrd.open_workbook(file_contents=data) as book:
+        try:
+            book = xlrd.open_workbook(file_contents=data)
+        except XLRDError as error:
+            if str(error) != "Workbook is encrypted":
+                raise
+            from ._office import _unprotect_excel
+
+            book = xlrd.open_workbook(file_contents=_unprotect_excel(data))
+        with book:
             for sheet in book.sheets():
 
                 def rows(

@@ -18,6 +18,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from ._capacity import CapacityChanges
 from ._coincident_peaks import CoincidentPeaks
 from ._dashboards import Dashboards
+from ._distribution_losses import DistributionLossCoefficients
 from ._fuel_mix import FuelMix
 from ._idr import IdrComplianceHistory
 from ._load import HourlyLoad
@@ -371,6 +372,10 @@ class Transport:
     @property
     def transmission_loss_coefficients(self) -> TransmissionLossCoefficients:
         return TransmissionLossCoefficients(self._http)
+
+    @property
+    def distribution_loss_coefficients(self) -> DistributionLossCoefficients:
+        return DistributionLossCoefficients(self._http)
 
     @property
     def load_shed(self) -> LoadShed:

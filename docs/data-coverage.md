@@ -981,3 +981,39 @@ ZIP therefore supplies history through 2020, not recent 4CP filings.
 The inspected UFE page provides annual PowerPoint analysis reports. No slide
 extraction was added: these reports fall outside this release's operational
 and market time-series focus.
+
+## Distribution-loss formula parameters
+
+`Client.distribution_loss_coefficients.files/download/rows/read` covers all 28
+summary workbooks linked from the [distribution methodology index](https://www.ercot.com/mktinfo/metering/dlfmethodology),
+2001–2026. Both 2007 and 2024 period variants remain separate. Discovery tolerates
+the source's 2023 “Lost Factors” title. The complete bundles remain downloadable;
+the typed reader selects the ERCOT summary, excluding narrative attachments and
+hypothetical example curves.
+
+All **466 records and 1,398 numeric parameters** were compared against direct
+spreadsheet reads: 114 legacy AAL/K/ADLF records and 352 F1/F2/F3 records. The six
+explicit nullable parameter fields retain the two formula families. Source TDSP
+names and loss codes remain unchanged. ERCOT annual MWh, interval count, average
+interval MWh and optional peak MW preserve the published cached baseline values.
+Negative parameters and rounded baseline averages are not corrected or rescaled.
+
+The filename year is a label, not an effective date. Baseline dates describe the
+load inputs. The 2026 workbook's Start title says 2025; both are retained. Formula
+text, original baseline label, member, sheet, column and optional `PublicFile`
+provide source context. No publication or coefficient applicability dates are
+inferred, and no loss formula is applied by this reader.
+
+Seventeen original XLS summaries use Excel's built-in workbook protection.
+The optional files extra uses msoffcrypto-tool to read those originals with the
+public default key; it does not require ERCOT credentials. Core-only discovery
+and downloads remain independent of spreadsheet and decryption dependencies.
+
+`tools/inputs/public-distribution-coefficients-sources.csv` records original
+archive and summary hashes. `public-distribution-coefficients-evidence.json`
+records verification and limitations. The fixture ZIP contains all 28 complete,
+unchanged summaries, including protected bytes; the original discovery HTML is
+also retained. Regression tests compare every parameter and the baseline fields
+against direct spreadsheet reads, exercise anonymous discovery, preserve both
+revisions, and check source-year conflicts and JSON round trips. Fixtures are
+included in the source distribution, excluded from the installed wheel.

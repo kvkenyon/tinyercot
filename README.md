@@ -399,6 +399,30 @@ are retained separately. No TDSP is inferred from a recorder ID. Source timestam
 have no inferred timezone and do not establish public availability. MIS feeds
 remain outside this client's scope.
 
+### Distribution-loss coefficients
+
+Read the published retail distribution-loss parameters with `tinyercot[files]`:
+
+```python
+with Client() as ercot:
+    for coefficient in ercot.distribution_loss_coefficients.rows(
+        where=lambda r: r.year == 2026 and r.tdsp == "Oncor",
+    ):
+        print(coefficient.lossCode, coefficient.f1, coefficient.f2, coefficient.f3)
+```
+
+`files()`, `download(file)` and `read(data, filename=..., where=...)` also support
+saved summaries and original ZIPs. The 28 summaries for **2001–2026** contain
+**466 records**, including both period variants in 2007 and 2024. Older summaries
+use separate `tdspAverageIntervalLoadMWh`, `kFactor` and
+`annualDistributionLossFactor` fields; `formula` identifies the family.
+
+The filename `year`, original title and load-baseline dates remain distinct.
+They do not establish coefficient effective dates or publication timestamps.
+Cached values retain their original scale and rounding. Original formula text
+and source identity accompany every record; example curves are not observations.
+The files extra handles the historical XLS summaries' built-in workbook protection.
+
 ### Seasonal loss coefficients and operator load shares
 
 Annual transmission-loss coefficients are available through the same client:
