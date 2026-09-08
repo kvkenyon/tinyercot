@@ -1,0 +1,254 @@
+{
+  "_meta": {
+    "totalRecords": 1150605589,
+    "pageSize": 1,
+    "totalPages": 1150605589,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,qseName: ASC,resourceName: ASC,hourEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "60_cop_all_updates",
+    "reportDisplayName": "60-Day COP All Updates",
+    "reportId": "15943",
+    "reportEMIL": "NP3-991-EX",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "qseName",
+      "label": "QSE Name",
+      "cardinality": 2,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceName",
+      "label": "Resource Name",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "highSustainedLimit",
+      "label": "High Sustained Limit",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "lowSustainedLimit",
+      "label": "Low Sustained Limit",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "highEmergencyLimit",
+      "label": "High Emergency Limit",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "lowEmergencyLimit",
+      "label": "Low Emergency Limit",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "REGUP",
+      "label": "Reg Up",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "REGDN",
+      "label": "Reg Down",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RRSPFR",
+      "label": "RRSPFR",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RRSFFR",
+      "label": "RRSFFR",
+      "cardinality": 13,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RRSUFR",
+      "label": "RRSUFR",
+      "cardinality": 14,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "NSPIN",
+      "label": "NSPIN",
+      "cardinality": 15,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ECRS",
+      "label": "ECRS",
+      "cardinality": 16,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "minSOC",
+      "label": "Minimum SOC",
+      "cardinality": 17,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "maxSOC",
+      "label": "Maximum SOC",
+      "cardinality": 18,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourBeginningPlannedSOC",
+      "label": "Hour Beginning Planned SOC",
+      "cardinality": 19,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "cancelFlag",
+      "label": "Cancel Flag",
+      "cardinality": 20,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "updateTime",
+      "label": "Update Time",
+      "cardinality": 21,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "submitTime",
+      "label": "Submit Time",
+      "cardinality": 22,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-07-08",
+      "QAEN",
+      "ARAGORN_UNIT1",
+      "1:00",
+      "ON",
+      14.0,
+      0.0,
+      187.2,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      false,
+      "2026-06-30T09:01:26",
+      "2026-06-30T08:01:25"
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-991-ex/60_cop_all_updates"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-991-ex"
+    }
+  }
+}

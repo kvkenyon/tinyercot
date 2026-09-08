@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "totalRecords": 6551,
+    "pageSize": 1,
+    "totalPages": 6551,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "2d_cleared_dam_as_nspnm",
+    "reportDisplayName": "2-Day Cleared DAM Ancillary Service NSPNM",
+    "reportId": "13057",
+    "reportEMIL": "NP3-911-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalClearedASNSPNM",
+      "label": "Total Cleared AS NSPNM",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-04",
+      1,
+      0.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-911-er/2d_cleared_dam_as_nspnm"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-911-er"
+    }
+  }
+}

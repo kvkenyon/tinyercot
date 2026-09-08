@@ -1,0 +1,94 @@
+{
+  "_meta": {
+    "totalRecords": 303020,
+    "pageSize": 1,
+    "totalPages": 303020,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "postedDatetime: DESC,marketType: ASC,fromEBName: ASC,priority: ASC"
+    }
+  },
+  "report": {
+    "reportName": "electrical_bus_map_heur_price",
+    "reportDisplayName": "Electrical Bus Mapping for Heuristic Pricing",
+    "reportId": "13098",
+    "reportEMIL": "NP4-231-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "marketType",
+      "label": "Market Type",
+      "cardinality": 2,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "fromEBName",
+      "label": "From EB Name",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "toEBName",
+      "label": "To EB Name",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "type",
+      "label": "Type",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "priority",
+      "label": "Prioirty",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T05:50:00",
+      "DAM",
+      "0014_EB",
+      "DOWGEN_040",
+      "Equal",
+      1.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np4-231-cd/electrical_bus_map_heur_price"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np4-231-cd"
+    }
+  }
+}

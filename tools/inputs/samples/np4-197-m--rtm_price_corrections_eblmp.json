@@ -1,0 +1,114 @@
+{
+  "_meta": {
+    "totalRecords": 29778368,
+    "pageSize": 1,
+    "totalPages": 29778368,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC,electricalBus: ASC"
+    }
+  },
+  "report": {
+    "reportName": "rtm_price_corrections_eblmp",
+    "reportDisplayName": "RTM Price Corrections for EB LMP",
+    "reportId": "13045",
+    "reportEMIL": "NP4-197-M",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "electricalBus",
+      "label": "Electrical Bus",
+      "cardinality": 2,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "cappedLMPOriginal",
+      "label": "Capped LMP Original",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "uncappedLMPOriginal",
+      "label": "Uncapped LMP Original",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "cappedLMPCorrected",
+      "label": "Capped LMP Corrected",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "uncappedLMPCorrected",
+      "label": "Uncapped LMP Corrected",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "priceCorrectionTime",
+      "label": "Price Correction Time",
+      "cardinality": 7,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatedHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 8,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-08-30T09:25:18",
+      "_AK__AK_G1",
+      15.62,
+      15.62,
+      15.75,
+      16.0,
+      "2026-09-01T16:00:00",
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np4-197-m/rtm_price_corrections_eblmp"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np4-197-m"
+    }
+  }
+}

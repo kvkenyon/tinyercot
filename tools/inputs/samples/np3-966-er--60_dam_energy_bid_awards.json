@@ -1,0 +1,104 @@
+{
+  "_meta": {
+    "totalRecords": 29754447,
+    "pageSize": 1,
+    "totalPages": 29754447,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC,settlementPointName: ASC"
+    }
+  },
+  "report": {
+    "reportName": "60_dam_energy_bid_awards",
+    "reportDisplayName": "60-Day DAM Energy Bid Awards",
+    "reportId": "13051",
+    "reportEMIL": "NP3-966-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "settlementPointName",
+      "label": "Settlement Point",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "qseName",
+      "label": "QSE",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "energyOnlyBidAwardInMW",
+      "label": "Energy Only Bid Award In MW",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "settlementPointPrice",
+      "label": "Settlement Point Price",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "bidId",
+      "label": "Bid Id",
+      "cardinality": 7,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-07-08",
+      1,
+      "7RNCHSLR_ALL",
+      "QCOMI1",
+      0.0,
+      28.46,
+      "EVDZRZVXGVRK"
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-966-er/60_dam_energy_bid_awards"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-966-er"
+    }
+  }
+}

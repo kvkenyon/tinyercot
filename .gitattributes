@@ -1,0 +1,10 @@
+# Reproducible output and captured responses are expandable in GitHub reviews.
+tinyercot/_generated.py linguist-generated=true
+api_response_fields.json linguist-generated=true
+tools/inputs/operations.json linguist-generated=true
+tools/inputs/esr-operations.json linguist-generated=true
+tools/inputs/products.json linguist-generated=true
+tools/inputs/*-sample.json linguist-generated=true
+tools/inputs/samples/** linguist-generated=true
+tools/inputs/dashboards/** linguist-generated=true
+# Hand-maintained mappings, overrides and evidence remain visible.

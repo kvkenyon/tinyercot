@@ -1,0 +1,127 @@
+[
+  {
+    "lastUpdated": "2026-09-04T15:27:00.000Z",
+    "data": {
+      "DFW": {
+        "name": "DFW",
+        "y": "-670",
+        "x": "690",
+        "low": "77",
+        "high": "97",
+        "low15yr": "75",
+        "high15yr": "94",
+        "icon": "/static-assets/data/images/dashboards/weather/partly-cloudy.svg"
+      },
+      "Austin": {
+        "name": "Austin",
+        "y": "-430",
+        "x": "720",
+        "low": "80",
+        "high": "95",
+        "low15yr": "75",
+        "high15yr": "97",
+        "icon": "/static-assets/data/images/dashboards/weather/rainy.svg"
+      },
+      "San Antonio": {
+        "name": "San Antonio",
+        "y": "-360",
+        "x": "680",
+        "low": "80",
+        "high": "96",
+        "low15yr": "75",
+        "high15yr": "96",
+        "icon": "/static-assets/data/images/dashboards/weather/rainy.svg"
+      },
+      "Houston": {
+        "name": "Houston",
+        "y": "-390",
+        "x": "860",
+        "low": "78",
+        "high": "93",
+        "low15yr": "75",
+        "high15yr": "94",
+        "icon": "/static-assets/data/images/dashboards/weather/rainy.svg"
+      },
+      "Tyler": {
+        "name": "Tyler",
+        "y": "-630",
+        "x": "830",
+        "low": "76",
+        "high": "96",
+        "low15yr": "73",
+        "high15yr": "94",
+        "icon": "/static-assets/data/images/dashboards/weather/sunny.svg"
+      },
+      "Wichita Falls": {
+        "name": "Wichita Falls",
+        "y": "-766",
+        "x": "600",
+        "low": "77",
+        "high": "103",
+        "low15yr": "70",
+        "high15yr": "95",
+        "icon": "/static-assets/data/images/dashboards/weather/sunny.svg"
+      },
+      "Lubbock": {
+        "name": "Lubbock",
+        "y": "-766",
+        "x": "380",
+        "low": "73",
+        "high": "102",
+        "low15yr": "65",
+        "high15yr": "91",
+        "icon": "/static-assets/data/images/dashboards/weather/partly-cloudy.svg"
+      },
+      "Abilene": {
+        "name": "Abilene",
+        "y": "-670",
+        "x": "490",
+        "low": "78",
+        "high": "102",
+        "low15yr": "71",
+        "high15yr": "94",
+        "icon": "/static-assets/data/images/dashboards/weather/partly-cloudy.svg"
+      },
+      "Midland": {
+        "name": "Midland",
+        "y": "-580",
+        "x": "320",
+        "low": "80",
+        "high": "102",
+        "low15yr": "69",
+        "high15yr": "92",
+        "icon": "/static-assets/data/images/dashboards/weather/partly-cloudy.svg"
+      },
+      "Corpus Christi": {
+        "name": "Corpus Christi",
+        "y": "-220",
+        "x": "700",
+        "low": "80",
+        "high": "99",
+        "low15yr": "76",
+        "high15yr": "94",
+        "icon": "/static-assets/data/images/dashboards/weather/partly-cloudy.svg"
+      },
+      "Brownsville": {
+        "name": "Brownsville",
+        "y": "-75",
+        "x": "700",
+        "low": "81",
+        "high": "100",
+        "low15yr": "77",
+        "high15yr": "94",
+        "icon": "/static-assets/data/images/dashboards/weather/partly-cloudy.svg"
+      },
+      "McAllen": {
+        "name": "McAllen",
+        "y": "-80",
+        "x": "640",
+        "low": "83",
+        "high": "105",
+        "low15yr": "78",
+        "high15yr": "98",
+        "icon": "/static-assets/data/images/dashboards/weather/partly-cloudy.svg"
+      }
+    }
+  }
+]

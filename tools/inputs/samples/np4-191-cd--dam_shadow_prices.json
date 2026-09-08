@@ -1,0 +1,184 @@
+{
+  "_meta": {
+    "totalRecords": 974840,
+    "pageSize": 1,
+    "totalPages": 974840,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC,constraintId: ASC"
+    }
+  },
+  "report": {
+    "reportName": "dam_shadow_prices",
+    "reportDisplayName": "DAM Shadow Prices",
+    "reportId": "12332",
+    "reportEMIL": "NP4-191-CD",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "constraintId",
+      "label": "Constraint Id",
+      "cardinality": 3,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "constraintName",
+      "label": "Constraint Name",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "contingencyName",
+      "label": "Contingency Name",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "constraintLimit",
+      "label": "Constraint Limit",
+      "cardinality": 6,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "constraintValue",
+      "label": "Constraint Value",
+      "cardinality": 7,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "violationAmount",
+      "label": "Violation Amount",
+      "cardinality": 8,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "shadowPrice",
+      "label": "Shadow Price",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "fromStation",
+      "label": "From Station",
+      "cardinality": 10,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "toStation",
+      "label": "To Station",
+      "cardinality": 11,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "fromStationkV",
+      "label": "From Station kV",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "toStationkV",
+      "label": "To Station kV",
+      "cardinality": 13,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryTime",
+      "label": "Delivery Time",
+      "cardinality": 14,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 15,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-07",
+      "01:00",
+      1,
+      " FTST_SOLSTI1_1",
+      "  BASE CASE",
+      190,
+      190,
+      0,
+      0.049,
+      " SOLSTICE",
+      " FTST",
+      138.0,
+      138.0,
+      "2026-09-07T00:00:00",
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np4-191-cd/dam_shadow_prices"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np4-191-cd"
+    }
+  }
+}

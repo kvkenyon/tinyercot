@@ -1,0 +1,104 @@
+{
+  "_meta": {
+    "totalRecords": 96887661,
+    "pageSize": 1,
+    "totalPages": 96887661,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,deliveryHour: ASC,deliveryInterval: ASC"
+    }
+  },
+  "report": {
+    "reportName": "spp_node_zone_hub",
+    "reportDisplayName": "Settlement Point Prices at Resource Nodes, Hubs and Load Zones",
+    "reportId": "12301",
+    "reportEMIL": "NP6-905-CD",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryHour",
+      "label": "Delivery Hour",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryInterval",
+      "label": "Delivery Interval",
+      "cardinality": 3,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "settlementPoint",
+      "label": "Settlement Point",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "settlementPointType",
+      "label": "Settlement Point Type",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "settlementPointPrice",
+      "label": "Settlement Point Price",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 7,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06",
+      1,
+      1,
+      "DDPEC_ST1",
+      "PCCRN",
+      39.21,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np6-905-cd/spp_node_zone_hub"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np6-905-cd"
+    }
+  }
+}

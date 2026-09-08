@@ -1,0 +1,144 @@
+{
+  "_meta": {
+    "totalRecords": 263900,
+    "pageSize": 1,
+    "totalPages": 263900,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "postedDatetime: DESC,operatingDate: DESC"
+    }
+  },
+  "report": {
+    "reportName": "7d_plus_avail_res_poc_margin",
+    "reportDisplayName": "Available Resource Planned Outage Capacity Margin_7 Day Plus",
+    "reportId": "22470",
+    "reportEMIL": "NP3-161-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "operatingDate",
+      "label": "Operating Date",
+      "cardinality": 2,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "nonIRRNonPUN",
+      "label": "Resource POL (Non-IRR, Non-PUN)",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ESR",
+      "label": "Resource POL (ESR)",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "aggApprvdNonIRRNonPUN",
+      "label": "Aggregate Approved Resource POL (Non-IRR, Non-PUN)",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "aggRcvdNonIRRNonPUN",
+      "label": "Aggregate Received Resource POL (Non-IRR, Non-PUN)",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "IRR",
+      "label": "Resource POL (IRR)",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "aggApprvdIRR",
+      "label": "Aggregate Approved Resource POL (IRR)",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "aggRcvdIRR",
+      "label": "Aggregate Received Resource POL (IRR)",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "aggApprvdESR",
+      "label": "Aggregate Approved Resource POL (ESR)",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "aggRcvdESR",
+      "label": "Aggregate Received Resource POL (ESR)",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T06:00:09",
+      "2031-09-06",
+      4139.0,
+      872.0,
+      0.0,
+      0.0,
+      3519.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-161-cd/7d_plus_avail_res_poc_margin"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-161-cd"
+    }
+  }
+}

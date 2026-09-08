@@ -1,0 +1,204 @@
+{
+  "_meta": {
+    "totalRecords": 149589,
+    "pageSize": 1,
+    "totalPages": 149589,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC"
+    }
+  },
+  "report": {
+    "reportName": "2d_agg_gen_summary_houston",
+    "reportDisplayName": "2-Day Aggregated Generation Summary Houston",
+    "reportId": "13056",
+    "reportEMIL": "NP3-910-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "sumBasePointNonIRR",
+      "label": "Sum Base Point Non IRR",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumBasePointWGR",
+      "label": "Sum Base Point WGR",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumBasePointPVGR",
+      "label": "Sum Base Point PVGR",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumBasePointREMRES",
+      "label": "Sum Base Point Rem Res",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumGenTelemMW",
+      "label": "Sum Gen Telem MW",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumBasePointESR",
+      "label": "Sum Base Point ESR",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumBasePointESRCharge",
+      "label": "Sum Base Point ESR Charging",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumBasePointESRDischarge",
+      "label": "Sum Base Point ESR Discharging",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumBasePointNonWGR",
+      "label": "Sum Base Point Non WGR",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "sumHaslNonWGR",
+      "label": "Sum HASL Non WGR",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "sumLaslNonWGR",
+      "label": "Sum LASL Non WGR",
+      "cardinality": 13,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "sumHaslWGR",
+      "label": "Sum HASL WGR",
+      "cardinality": 14,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "sumLaslWGR",
+      "label": "Sum LASL WGR",
+      "cardinality": 15,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "sumHaslRemRes",
+      "label": "Sum HASL Rem Res",
+      "cardinality": 16,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "sumLaslRemRes",
+      "label": "Sum LASL Rem Res",
+      "cardinality": 17,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-04T23:55:16",
+      false,
+      9725.91622427,
+      103.92779731,
+      0.02878428,
+      521.67608668,
+      10719.78359,
+      351.08647893,
+      -4.88130617,
+      355.9677851,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-910-er/2d_agg_gen_summary_houston"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-910-er"
+    }
+  }
+}

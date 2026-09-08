@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "totalRecords": 149589,
+    "pageSize": 1,
+    "totalPages": 149589,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC"
+    }
+  },
+  "report": {
+    "reportName": "2d_agg_load_summary_south",
+    "reportDisplayName": "2-Day Aggregated Load Summary South",
+    "reportId": "13056",
+    "reportEMIL": "NP3-910-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "sumTelemGenMW",
+      "label": "Sum Telemetry Generation MW",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumTelemDCtieMW",
+      "label": "Sum Telemetry DC Tie MW",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "aggLoadSummary",
+      "label": "Aggregated Load Summary",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-04T23:55:16",
+      false,
+      18003.34515,
+      69.7,
+      17933.64515
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-910-er/2d_agg_load_summary_south"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-910-er"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "np3-763-cd/st_sys_adequacy": {
+    "hourEnding": {
+      "type": "str",
+      "reason": "ERCOT declares DOUBLE but the public response returns an hour-ending label such as 01:00; preserve the source label, including 24:00.",
+      "source": "samples/np3-763-cd--st_sys_adequacy.json"
+    }
+  },
+  "np3-966-er/60_dam_energy_only_offers": {
+    "offerId": {
+      "type": "str",
+      "reason": "The source declares DOUBLE but returns an alphanumeric offer identifier, for example ZDRBMXKBN9AJ.",
+      "source": "samples/np3-966-er--60_dam_energy_only_offers.json"
+    }
+  }
+}

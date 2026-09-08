@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "totalRecords": 12872449,
+    "pageSize": 1,
+    "totalPages": 12872449,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC,repeatHourFlag: ASC"
+    }
+  },
+  "report": {
+    "reportName": "2day_agg_sced_as_offers_regup",
+    "reportDisplayName": "2-Day Aggregate SCED Ancillary Offer Curves REGUP",
+    "reportId": "25814",
+    "reportEMIL": "NP3-906-EX",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "MWOffered",
+      "label": "MW Offered",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "REGUPOfferPrice",
+      "label": "REGUP Offer Price",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-04T23:55:16",
+      false,
+      66.1,
+      0.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-906-ex/2day_agg_sced_as_offers_regup"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-906-ex"
+    }
+  }
+}

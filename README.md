@@ -1,107 +1,79 @@
 # tinyercot
 
-Fully-typed Python client for the ERCOT Public API.
+A small, fully typed client for ERCOT public data.
 
-**Why tiny?** The entire hand-written codebase is ~420 lines. Everything else is auto-generated from ERCOT's OpenAPI spec.
-
-## Install
-
-```bash
-uv add tinyercot
-```
-
-## Setup
-
-```bash
-export ERCOT_USERNAME="your-username"
-export ERCOT_PASSWORD="your-password"
-export ERCOT_SUBSCRIPTION_KEY="your-subscription-key"
-```
-
-## Usage
-
-### Single Page
+**Development status:** all 242 Public Reports endpoints have typed methods and captured-response tests. The separate ESR API is awaiting an enabled subscription key. MIS is not included.
 
 ```python
 from datetime import date
-import tinyercot
+from tinyercot import Client
 
-# Returns typed response with .data, .meta, .links
-response = tinyercot.np4_190_cd.dam_stlmnt_pnt_prices(
-    deliveryDateFrom=date(2025, 12, 29),
-    settlementPoint="HB_HOUSTON",
-)
-
-# Convert to pandas DataFrame
-df = response.to_df()
+with Client() as ercot:
+    prices = ercot.np4_190_cd.dam_stlmnt_pnt_prices_iter(
+        deliveryDateFrom=date(2026, 1, 1),
+        deliveryDateTo=date(2026, 1, 2),
+        settlementPoint="HB_HOUSTON",
+    )
+    for price in prices:
+        print(price.deliveryDate, price.settlementPointPrice)
 ```
 
-### Pagination (Sync)
+Pass `username`, `password`, and `subscription_key` to `Client`, or set
+`ERCOT_USERNAME`, `ERCOT_PASSWORD`, and `ERCOT_SUBSCRIPTION_KEY`.
+Authentication is lazy; the client refreshes tokens and retries transient failures.
+
+Each product exposes generated methods with named, typed filters and Pydantic row
+models. A method returns one `Page[Row]`; its `_iter` variant streams all pages.
+`_async` and `_iter_async` provide asynchronous access. Date and decimal values
+retain their Python types. Nullable source cells are represented by `None`.
 
 ```python
-# Iterator - yields typed rows from all pages
-for row in tinyercot.np4_190_cd.dam_stlmnt_pnt_prices_iter(
-    deliveryDateFrom=date(2025, 12, 29),
-):
-    print(row.settlementPoint, row.settlementPointPrice)
+from pathlib import Path
+from tinyercot import Client
 
-# DataFrame - fetches all pages, returns single DataFrame
-df = tinyercot.np4_190_cd.dam_stlmnt_pnt_prices_df(
-    deliveryDateFrom=date(2025, 12, 29),
-)
-```
-
-### Pagination (Async + Rate Limited)
-
-Async methods automatically rate-limit to 20 req/min with retry on 429:
-
-```python
-import asyncio
-import tinyercot
-
-async def main():
-    # Async iterator - rate-limited, non-blocking
-    async for row in tinyercot.np4_190_cd.dam_stlmnt_pnt_prices_iter_async(
-        deliveryDateFrom=date(2025, 12, 29),
-    ):
-        print(row.settlementPoint, row.settlementPointPrice)
-
-    # Async DataFrame - rate-limited, non-blocking
-    df = await tinyercot.np4_190_cd.dam_stlmnt_pnt_prices_df_async(
-        deliveryDateFrom=date(2025, 12, 29),
+with Client() as ercot:
+    products = ercot.products()
+    history = ercot.archives("np4-190-cd")
+    document = history.archives[0]
+    Path("prices.zip").write_bytes(
+        ercot.download("np4-190-cd", [document.docId])
     )
 
-asyncio.run(main())
+    bundles = ercot.bundles("np4-190-cd")
+    Path("monthly.zip").write_bytes(
+        ercot.download("np4-190-cd", [bundles.bundles[0].docId], kind="bundle")
+    )
 ```
 
-## API Pattern
-
-Every endpoint generates 5 methods:
-
-| Method | Returns | Use Case |
-|--------|---------|----------|
-| `endpoint()` | `Response` | Single page |
-| `endpoint_iter()` | `Iterator[Row]` | Stream all pages (sync) |
-| `endpoint_df()` | `DataFrame` | All pages as DataFrame (sync) |
-| `endpoint_iter_async()` | `AsyncIterator[Row]` | Stream all pages (async, rate-limited) |
-| `endpoint_df_async()` | `DataFrame` | All pages as DataFrame (async, rate-limited) |
+Archive and bundle listings expose typed metadata. Downloads return the original
+ZIP bytes. Listing metadata includes the server's total and page counts; `iter_documents()` streams all listing pages.
 
 ## Development
 
-Create a `.env` file with your credentials, then run IPython with dev deps:
+Runtime dependencies are `httpx`, `httpx-retries`, and `pydantic`. The handwritten
+core handles authentication, transport, pagination, and metadata. Product methods
+and row models are generated from saved ERCOT operation and field definitions.
 
-```bash
-uv run --env-file .env --group dev -- ipython
-```
-
-## Regenerate
-
-```bash
+```sh
+uv sync --group dev
 uv run python tools/generate_client.py
+uv run mypy tinyercot tests/typing_client.py --strict --follow-untyped-imports
+uv run pytest
+uv build
 ```
 
-With fresh response field data (requires credentials):
+Generation fails if an endpoint has no field schema. During discovery only,
+`--allow-incomplete` emits available endpoints and reports the missing count.
+Public dashboards are available through `ercot.dashboards`: fuel mix, grid
+conditions, energy storage, generation outages, DC-tie flows, system prices,
+supply/demand, combined wind/solar, system demand, ancillary services, weather,
+and the current locational price map.
 
-```bash
-uv run --env-file .env python tools/generate_client.py --refresh
-```
+Source-specific corrections live in `tools/inputs/type-overrides.json`,
+`row-fields.json`, and `query-defaults.json`. ERCOT declares hour-ending labels
+and offer identifiers as numeric on two reports. The ESR-west report includes
+two metadata-only columns absent from its rows and has an invalid default sort;
+its generated method uses `SCEDTimestamp` by default. Captured responses support
+these small corrections. Large forecasts may need a date filter or a longer
+client timeout. Specify `sort` when supplying `dir`. Tests use saved public responses and mocked
+HTTP; credentials are not part of the test suite.

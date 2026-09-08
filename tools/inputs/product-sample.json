@@ -1,0 +1,58 @@
+{
+  "emilId": "NP4-190-CD",
+  "name": "DAM Settlement Point Prices",
+  "description": "The Settlement Point Prices for all Resource Nodes, Load Zones, and Trading Hubs from the Day-Ahead Market.",
+  "status": "Active",
+  "reportTypeId": 12331,
+  "audience": "Public",
+  "generationFrequency": "Event - Per DAM Run",
+  "securityClassification": "Public",
+  "lastUpdated": "2024-07-10",
+  "firstRun": "2010-11-29",
+  "eceii": "",
+  "channel": "Public,EWS,Data Portal",
+  "userGuide": null,
+  "postingType": "Report",
+  "market": "Nodal",
+  "extractSubscriber": "",
+  "xsdName": "Current Day Reports XSD",
+  "misPostingLocation": "",
+  "certificateRole": "",
+  "fileType": "zip,csv,xml",
+  "ddlName": "",
+  "misDisplayDuration": 31,
+  "archiveDuration": 2555,
+  "notificationType": "",
+  "contentType": "DATA",
+  "downloadLimit": 500,
+  "lastPostDatetime": "2026-09-06T12:32:41",
+  "bundle": 1,
+  "protocolRules": {
+    "NP4.5.3(2)(b)": "https://www.ercot.com/mp/data-products?protocolRules=NP4.5.3(2)(b)"
+  },
+  "artifacts": [
+    {
+      "reportTypeId": 12331,
+      "displayName": "DAM Settlement Point Prices",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/np4-190-cd/dam_stlmnt_pnt_prices"
+        }
+      }
+    }
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np4-190-cd"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports"
+    },
+    "archive": {
+      "href": "https://api.ercot.com/api/public-reports/archive/np4-190-cd"
+    },
+    "bundle": {
+      "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd"
+    }
+  }
+}

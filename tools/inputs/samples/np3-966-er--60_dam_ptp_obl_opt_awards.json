@@ -1,0 +1,124 @@
+{
+  "_meta": {
+    "totalRecords": 7477236,
+    "pageSize": 1,
+    "totalPages": 7477236,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC,qseName: ASC"
+    }
+  },
+  "report": {
+    "reportName": "60_dam_ptp_obl_opt_awards",
+    "reportDisplayName": "60-Day DAM PTP Obligation Option Awards",
+    "reportId": "13051",
+    "reportEMIL": "NP3-966-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "qseName",
+      "label": "QSE",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "settlementPointSource",
+      "label": "Settlement Point Source",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "settlementPointSink",
+      "label": "Settlement Point Sink",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "MW",
+      "label": "MW",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price",
+      "label": "Price",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "offerId",
+      "label": "Offer ID",
+      "cardinality": 8,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "CRRId",
+      "label": "CRR ID",
+      "cardinality": 9,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-07-08",
+      1,
+      "QAEN",
+      "DECKER_GT",
+      "LZ_AEN",
+      0.0,
+      0.01,
+      "153586167_1",
+      "153586167"
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-966-er/60_dam_ptp_obl_opt_awards"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-966-er"
+    }
+  }
+}

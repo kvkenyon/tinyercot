@@ -1,0 +1,114 @@
+{
+  "_meta": {
+    "totalRecords": 3455561,
+    "pageSize": 1,
+    "totalPages": 3455561,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "postedDatetime: DESC,intervalEnding: DESC"
+    }
+  },
+  "report": {
+    "reportName": "wpp_actual_5min_avg_values",
+    "reportDisplayName": "Wind Power Production - Actual 5-Minute Averaged Values",
+    "reportId": "13071",
+    "reportEMIL": "NP4-733-CD",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "intervalEnding",
+      "label": "Interval Ending",
+      "cardinality": 2,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genSystemWide",
+      "label": "Generation System Wide",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "LZSouthHouston",
+      "label": "LZ South Houston",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "LZWest",
+      "label": "LZ West",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "LZNorth",
+      "label": "LZ North",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "HSLSystemWide",
+      "label": "HSL System Wide",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 8,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T17:15:29",
+      "2026-09-06T17:10:00",
+      8960.47,
+      4163.01,
+      4276.77,
+      520.69,
+      9419.19,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np4-733-cd/wpp_actual_5min_avg_values"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np4-733-cd"
+    }
+  }
+}

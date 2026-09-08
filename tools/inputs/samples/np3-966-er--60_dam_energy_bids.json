@@ -1,0 +1,304 @@
+{
+  "_meta": {
+    "totalRecords": 29753125,
+    "pageSize": 1,
+    "totalPages": 29753125,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC,settlementPointName: ASC"
+    }
+  },
+  "report": {
+    "reportName": "60_dam_energy_bids",
+    "reportDisplayName": "60-Day DAM Energy Bids",
+    "reportId": "13051",
+    "reportEMIL": "NP3-966-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "settlementPointName",
+      "label": "Settlement Point",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "qseName",
+      "label": "QSE",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "energyOnlyBidMW1",
+      "label": "Energy Only Bid MW1",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidPrice1",
+      "label": "Energy Only Bid Price1",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidMW2",
+      "label": "Energy Only Bid MW2",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidPrice2",
+      "label": "Energy Only Bid Price2",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidMW3",
+      "label": "Energy Only Bid MW3",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidPrice3",
+      "label": "Energy Only Bid Price3",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidMW4",
+      "label": "Energy Only Bid MW4",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidPrice4",
+      "label": "Energy Only Bid Price4",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidMW5",
+      "label": "Energy Only Bid MW5",
+      "cardinality": 13,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidPrice5",
+      "label": "Energy Only Bid Price5",
+      "cardinality": 14,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidMW6",
+      "label": "Energy Only Bid MW6",
+      "cardinality": 15,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidPrice6",
+      "label": "Energy Only Bid Price6",
+      "cardinality": 16,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidMW7",
+      "label": "Energy Only Bid MW7",
+      "cardinality": 17,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidPrice7",
+      "label": "Energy Only Bid Price7",
+      "cardinality": 18,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidMW8",
+      "label": "Energy Only Bid MW8",
+      "cardinality": 19,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidPrice8",
+      "label": "Energy Only Bid Price8",
+      "cardinality": 20,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidMW9",
+      "label": "Energy Only Bid MW9",
+      "cardinality": 21,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidPrice9",
+      "label": "Energy Only Bid Price9",
+      "cardinality": 22,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidMW10",
+      "label": "Energy Only Bid MW10",
+      "cardinality": 23,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "energyOnlyBidPrice10",
+      "label": "Energy Only Bid Price10",
+      "cardinality": 24,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "bidId",
+      "label": "Bid Id",
+      "cardinality": 25,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "multiHourBlock",
+      "label": "Multi Hour Block Indicator",
+      "cardinality": 26,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "blockCurve",
+      "label": "Block/Curve indicator",
+      "cardinality": 27,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-07-08",
+      1,
+      "7RNCHSLR_ALL",
+      "QTARH2",
+      10.3,
+      -237.42,
+      191.8,
+      -240.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "13298803",
+      false,
+      "C"
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-966-er/60_dam_energy_bids"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-966-er"
+    }
+  }
+}

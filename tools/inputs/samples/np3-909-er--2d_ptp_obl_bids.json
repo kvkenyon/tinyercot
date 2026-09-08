@@ -1,0 +1,94 @@
+{
+  "_meta": {
+    "totalRecords": 55164299,
+    "pageSize": 1,
+    "totalPages": 55164299,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "2d_ptp_obl_bids",
+    "reportDisplayName": "2-Day Point-to-Point Obligation Bids",
+    "reportId": "13055",
+    "reportEMIL": "NP3-909-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "settlementPointSource",
+      "label": "Settlement Point Source Location for PtP Bid",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "settlementPointSink",
+      "label": "Settlement Point Sink Location for PtP Bid",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "PTPBidPrice",
+      "label": "PtP Bid Price",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "PTPBidAwardMW",
+      "label": "PtP Bid MW",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-04",
+      1,
+      "MDANP_CT3_4",
+      "AQUI_ALL",
+      -29.03,
+      10.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-909-er/2d_ptp_obl_bids"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-909-er"
+    }
+  }
+}

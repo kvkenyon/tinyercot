@@ -1,0 +1,154 @@
+{
+  "_meta": {
+    "totalRecords": 686599,
+    "pageSize": 1,
+    "totalPages": 686599,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC,qseName: ASC"
+    }
+  },
+  "report": {
+    "reportName": "60_dam_qse_self_as",
+    "reportDisplayName": "60-Day DAM QSE Self Arranged AS",
+    "reportId": "13051",
+    "reportEMIL": "NP3-966-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "qseName",
+      "label": "QSE",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "totalSelfArrangedASREGUP",
+      "label": "Total Self-Arranged AS RegUp",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalSelfArrangedASREGDN",
+      "label": "Total Self-Arranged AS RegDown",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalSelfArrangedASNSPIN",
+      "label": "Total Self-Arranged AS NonSpin",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalSelfArrangedASNSPNM",
+      "label": "Total Self-Arranged AS NSPNM",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalSelfArrangedASRRSPFR",
+      "label": "Total Self-Arranged AS RRSPFR",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalSelfArrangedASRRSFFR",
+      "label": "Total Self-Arranged AS RRSFFR",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalSelfArrangedASRRSUFR",
+      "label": "Total Self-Arranged AS RRSUFR",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalSelfArrangedASECRSSD",
+      "label": "Total Self-Arranged AS ECRSSD",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalSelfArrangedASECRSMD",
+      "label": "Total Self-Arranged AS ECRSMD",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-07-08",
+      1,
+      "QAEN",
+      13.3,
+      0.0,
+      61.7,
+      null,
+      74.5,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-966-er/60_dam_qse_self_as"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-966-er"
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "_meta": {
+    "totalRecords": 21024,
+    "pageSize": 1,
+    "totalPages": 21024,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "weather_assumptions",
+    "reportDisplayName": "Weather Assumptions",
+    "reportId": "12325",
+    "reportEMIL": "NP4-722-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "coast",
+      "label": "Coast",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "east",
+      "label": "East",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "farWest",
+      "label": "Far West",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "north",
+      "label": "North",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "northCentral",
+      "label": "North Central",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "southCentral",
+      "label": "South Central",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "southern",
+      "label": "Southern",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "west",
+      "label": "West",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatedHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 11,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-15",
+      "00:00",
+      82.5,
+      80.0,
+      80.5,
+      80.5,
+      82.75,
+      81.5,
+      83.6,
+      80.0,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np4-722-cd/weather_assumptions"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np4-722-cd"
+    }
+  }
+}

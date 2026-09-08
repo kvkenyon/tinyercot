@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "totalRecords": 240,
+    "pageSize": 1,
+    "totalPages": 240,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "operatingDay: DESC,repeatedHourFlag: ASC"
+    }
+  },
+  "report": {
+    "reportName": "act_sys_load_by_study_area",
+    "reportDisplayName": "Actual System Load by Study Area",
+    "reportId": "15954",
+    "reportEMIL": "NP6-344-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "operatingDay",
+      "label": "Operating Day",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "valley",
+      "label": "Valley",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatedHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 4,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-05",
+      "01:00",
+      1850.25,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np6-344-cd/act_sys_load_by_study_area"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np6-344-cd"
+    }
+  }
+}

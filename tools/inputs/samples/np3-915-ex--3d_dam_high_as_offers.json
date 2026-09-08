@@ -1,0 +1,124 @@
+{
+  "_meta": {
+    "totalRecords": 216147,
+    "pageSize": 1,
+    "totalPages": 216147,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "deliveryDate: DESC,hourEnding: ASC,resourceName: ASC"
+    }
+  },
+  "report": {
+    "reportName": "3d_dam_high_as_offers",
+    "reportDisplayName": "3-Day DAM Highest Price AS Offer Selected",
+    "reportId": "13018",
+    "reportEMIL": "NP3-915-EX",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "qseName",
+      "label": "QSE",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "dmeName",
+      "label": "DME",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceName",
+      "label": "Resource Name with Highest-Priced AS Offer Selected in DAM",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "ASType",
+      "label": "AS Type",
+      "cardinality": 6,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "blockIndicator",
+      "label": "Block Indicator",
+      "cardinality": 7,
+      "dataType": "VARCHAR",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": false
+    },
+    {
+      "name": "quantity",
+      "label": "Offered Quantity",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    },
+    {
+      "name": "price",
+      "label": "Offered Price",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": false,
+      "sortable": false,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-03",
+      1,
+      "QTOTL8",
+      null,
+      null,
+      "NSPIN",
+      null,
+      55.0,
+      3.29
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-915-ex/3d_dam_high_as_offers"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-915-ex"
+    }
+  }
+}

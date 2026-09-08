@@ -1,0 +1,154 @@
+{
+  "_meta": {
+    "totalRecords": 23975,
+    "pageSize": 1,
+    "totalPages": 23975,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "operatingDay: DESC,hourEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "act_sys_load_by_wzn",
+    "reportDisplayName": "Actual System Load by Weather Zone",
+    "reportId": "13101",
+    "reportEMIL": "NP6-345-CD",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "operatingDay",
+      "label": "Operating Day",
+      "cardinality": 1,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 2,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "coast",
+      "label": "Coast",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "east",
+      "label": "East",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "farWest",
+      "label": "Far West",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "north",
+      "label": "North",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "northC",
+      "label": "NorthC",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "southern",
+      "label": "Southern",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "southC",
+      "label": "SouthC",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "west",
+      "label": "West",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "total",
+      "label": "Total",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 12,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-05",
+      "01:00",
+      15780.95,
+      2090.0,
+      7796.29,
+      1870.99,
+      19187.42,
+      5421.26,
+      10482.71,
+      1991.04,
+      64620.66,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np6-345-cd/act_sys_load_by_wzn"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np6-345-cd"
+    }
+  }
+}

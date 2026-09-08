@@ -1,0 +1,94 @@
+{
+  "_meta": {
+    "totalRecords": 769182,
+    "pageSize": 1,
+    "totalPages": 769182,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "RUCTimestamp: DESC,deliveryDate: DESC,deliveryHour: ASC,repeatHourFlag: ASC,ASType: ASC"
+    }
+  },
+  "report": {
+    "reportName": "hruc_as_deploy_factors",
+    "reportDisplayName": "HRUC Ancillary Service Deployment Factors",
+    "reportId": "24896",
+    "reportEMIL": "NP5-528-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "RUCTimestamp",
+      "label": "RUC Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 2,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryHour",
+      "label": "Delivery Hour",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "ASType",
+      "label": "AS Type",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "ASDeploymentFactors",
+      "label": "AS Deployment Factors",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 6,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T16:03:03",
+      "2026-09-07",
+      "01:00",
+      "ECRS",
+      0.05,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np5-528-cd/hruc_as_deploy_factors"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np5-528-cd"
+    }
+  }
+}

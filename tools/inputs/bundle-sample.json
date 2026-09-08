@@ -1,0 +1,1058 @@
+{
+  "_meta": {
+    "totalRecords": 103,
+    "pageSize": 1000,
+    "totalPages": 1,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "postDatetime: DESC"
+    }
+  },
+  "product": {
+    "emilId": "NP4-190-CD",
+    "name": "DAM Settlement Point Prices",
+    "reportTypeId": 12331
+  },
+  "bundles": [
+    {
+      "docId": -1257192853,
+      "friendlyName": "DAMSPNP4190_2026-08",
+      "postDatetime": "2026-08-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1257192853"
+        }
+      }
+    },
+    {
+      "docId": -1233594477,
+      "friendlyName": "DAMSPNP4190_2026-06",
+      "postDatetime": "2026-06-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1233594477"
+        }
+      }
+    },
+    {
+      "docId": -1221822399,
+      "friendlyName": "DAMSPNP4190_2026-05",
+      "postDatetime": "2026-05-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1221822399"
+        }
+      }
+    },
+    {
+      "docId": -1210457477,
+      "friendlyName": "DAMSPNP4190_2026-04",
+      "postDatetime": "2026-04-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1210457477"
+        }
+      }
+    },
+    {
+      "docId": -1199017492,
+      "friendlyName": "DAMSPNP4190_2026-03",
+      "postDatetime": "2026-03-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1199017492"
+        }
+      }
+    },
+    {
+      "docId": -1188872331,
+      "friendlyName": "DAMSPNP4190_2026-02",
+      "postDatetime": "2026-02-28T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1188872331"
+        }
+      }
+    },
+    {
+      "docId": -1177724586,
+      "friendlyName": "DAMSPNP4190_2026-01",
+      "postDatetime": "2026-01-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1177724586"
+        }
+      }
+    },
+    {
+      "docId": -1166751049,
+      "friendlyName": "DAMSPNP4190_2025-12",
+      "postDatetime": "2025-12-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1166751049"
+        }
+      }
+    },
+    {
+      "docId": -1156221915,
+      "friendlyName": "DAMSPNP4190_2025-11",
+      "postDatetime": "2025-11-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1156221915"
+        }
+      }
+    },
+    {
+      "docId": -1145974809,
+      "friendlyName": "DAMSPNP4190_2025-10",
+      "postDatetime": "2025-10-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1145974809"
+        }
+      }
+    },
+    {
+      "docId": -1136047137,
+      "friendlyName": "DAMSPNP4190_2025-09",
+      "postDatetime": "2025-09-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1136047137"
+        }
+      }
+    },
+    {
+      "docId": -1126295499,
+      "friendlyName": "DAMSPNP4190_2025-08",
+      "postDatetime": "2025-08-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1126295499"
+        }
+      }
+    },
+    {
+      "docId": -1116902653,
+      "friendlyName": "DAMSPNP4190_2025-07",
+      "postDatetime": "2025-07-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1116902653"
+        }
+      }
+    },
+    {
+      "docId": -1108107173,
+      "friendlyName": "DAMSPNP4190_2025-06",
+      "postDatetime": "2025-06-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1108107173"
+        }
+      }
+    },
+    {
+      "docId": -1099066295,
+      "friendlyName": "DAMSPNP4190_2025-05",
+      "postDatetime": "2025-05-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1099066295"
+        }
+      }
+    },
+    {
+      "docId": -1090563466,
+      "friendlyName": "DAMSPNP4190_2025-04",
+      "postDatetime": "2025-04-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1090563466"
+        }
+      }
+    },
+    {
+      "docId": -1081942620,
+      "friendlyName": "DAMSPNP4190_2025-03",
+      "postDatetime": "2025-03-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1081942620"
+        }
+      }
+    },
+    {
+      "docId": -1074117152,
+      "friendlyName": "DAMSPNP4190_2025-02",
+      "postDatetime": "2025-02-28T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1074117152"
+        }
+      }
+    },
+    {
+      "docId": -1065519626,
+      "friendlyName": "DAMSPNP4190_2025-01",
+      "postDatetime": "2025-01-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1065519626"
+        }
+      }
+    },
+    {
+      "docId": -1056999421,
+      "friendlyName": "DAMSPNP4190_2024-12",
+      "postDatetime": "2024-12-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1056999421"
+        }
+      }
+    },
+    {
+      "docId": -1048897798,
+      "friendlyName": "DAMSPNP4190_2024-11",
+      "postDatetime": "2024-11-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1048897798"
+        }
+      }
+    },
+    {
+      "docId": -1040602650,
+      "friendlyName": "DAMSPNP4190_2024-10",
+      "postDatetime": "2024-10-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1040602650"
+        }
+      }
+    },
+    {
+      "docId": -1032534792,
+      "friendlyName": "DAMSPNP4190_2024-09",
+      "postDatetime": "2024-09-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1032534792"
+        }
+      }
+    },
+    {
+      "docId": -1024358201,
+      "friendlyName": "DAMSPNP4190_2024-08",
+      "postDatetime": "2024-08-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1024358201"
+        }
+      }
+    },
+    {
+      "docId": -1016234742,
+      "friendlyName": "DAMSPNP4190_2024-07",
+      "postDatetime": "2024-07-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1016234742"
+        }
+      }
+    },
+    {
+      "docId": -1008424446,
+      "friendlyName": "DAMSPNP4190_2024-06",
+      "postDatetime": "2024-06-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1008424446"
+        }
+      }
+    },
+    {
+      "docId": -1000374995,
+      "friendlyName": "DAMSPNP4190_2024-05",
+      "postDatetime": "2024-05-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1000374995"
+        }
+      }
+    },
+    {
+      "docId": -1000105847,
+      "friendlyName": "DAMSPNP4190_2024-04",
+      "postDatetime": "2024-04-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1000105847"
+        }
+      }
+    },
+    {
+      "docId": -984863346,
+      "friendlyName": "DAMSPNP4190_2024-03",
+      "postDatetime": "2024-03-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-984863346"
+        }
+      }
+    },
+    {
+      "docId": -977630829,
+      "friendlyName": "DAMSPNP4190_2024-02",
+      "postDatetime": "2024-02-29T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-977630829"
+        }
+      }
+    },
+    {
+      "docId": -969849010,
+      "friendlyName": "DAMSPNP4190_2024-01",
+      "postDatetime": "2024-01-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-969849010"
+        }
+      }
+    },
+    {
+      "docId": -962295657,
+      "friendlyName": "DAMSPNP4190_2023-12",
+      "postDatetime": "2023-12-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-962295657"
+        }
+      }
+    },
+    {
+      "docId": -955117057,
+      "friendlyName": "DAMSPNP4190_2023-11",
+      "postDatetime": "2023-11-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-955117057"
+        }
+      }
+    },
+    {
+      "docId": -947803721,
+      "friendlyName": "DAMSPNP4190_2023-10",
+      "postDatetime": "2023-10-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-947803721"
+        }
+      }
+    },
+    {
+      "docId": -940744026,
+      "friendlyName": "DAMSPNP4190_2023-09",
+      "postDatetime": "2023-09-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-940744026"
+        }
+      }
+    },
+    {
+      "docId": -933447503,
+      "friendlyName": "DAMSPNP4190_2023-08",
+      "postDatetime": "2023-08-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-933447503"
+        }
+      }
+    },
+    {
+      "docId": -926308103,
+      "friendlyName": "DAMSPNP4190_2023-07",
+      "postDatetime": "2023-07-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-926308103"
+        }
+      }
+    },
+    {
+      "docId": -919484624,
+      "friendlyName": "DAMSPNP4190_2023-06",
+      "postDatetime": "2023-06-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-919484624"
+        }
+      }
+    },
+    {
+      "docId": -912520114,
+      "friendlyName": "DAMSPNP4190_2023-05",
+      "postDatetime": "2023-05-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-912520114"
+        }
+      }
+    },
+    {
+      "docId": -905952335,
+      "friendlyName": "DAMSPNP4190_2023-04",
+      "postDatetime": "2023-04-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-905952335"
+        }
+      }
+    },
+    {
+      "docId": -899237482,
+      "friendlyName": "DAMSPNP4190_2023-03",
+      "postDatetime": "2023-03-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-899237482"
+        }
+      }
+    },
+    {
+      "docId": -893229757,
+      "friendlyName": "DAMSPNP4190_2023-02",
+      "postDatetime": "2023-02-28T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-893229757"
+        }
+      }
+    },
+    {
+      "docId": -886666489,
+      "friendlyName": "DAMSPNP4190_2023-01",
+      "postDatetime": "2023-01-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-886666489"
+        }
+      }
+    },
+    {
+      "docId": -880199200,
+      "friendlyName": "DAMSPNP4190_2022-12",
+      "postDatetime": "2022-12-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-880199200"
+        }
+      }
+    },
+    {
+      "docId": -873998866,
+      "friendlyName": "DAMSPNP4190_2022-11",
+      "postDatetime": "2022-11-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-873998866"
+        }
+      }
+    },
+    {
+      "docId": -867655993,
+      "friendlyName": "DAMSPNP4190_2022-10",
+      "postDatetime": "2022-10-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-867655993"
+        }
+      }
+    },
+    {
+      "docId": -861572470,
+      "friendlyName": "DAMSPNP4190_2022-09",
+      "postDatetime": "2022-09-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-861572470"
+        }
+      }
+    },
+    {
+      "docId": -855333359,
+      "friendlyName": "DAMSPNP4190_2022-08",
+      "postDatetime": "2022-08-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-855333359"
+        }
+      }
+    },
+    {
+      "docId": -849116224,
+      "friendlyName": "DAMSPNP4190_2022-07",
+      "postDatetime": "2022-07-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-849116224"
+        }
+      }
+    },
+    {
+      "docId": -843154958,
+      "friendlyName": "DAMSPNP4190_2022-06",
+      "postDatetime": "2022-06-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-843154958"
+        }
+      }
+    },
+    {
+      "docId": -837094266,
+      "friendlyName": "DAMSPNP4190_2022-05",
+      "postDatetime": "2022-05-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-837094266"
+        }
+      }
+    },
+    {
+      "docId": -831484454,
+      "friendlyName": "DAMSPNP4190_2022-04",
+      "postDatetime": "2022-04-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-831484454"
+        }
+      }
+    },
+    {
+      "docId": -825787671,
+      "friendlyName": "DAMSPNP4190_2022-03",
+      "postDatetime": "2022-03-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-825787671"
+        }
+      }
+    },
+    {
+      "docId": -820676094,
+      "friendlyName": "DAMSPNP4190_2022-02",
+      "postDatetime": "2022-02-28T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-820676094"
+        }
+      }
+    },
+    {
+      "docId": -814952388,
+      "friendlyName": "DAMSPNP4190_2022-01",
+      "postDatetime": "2022-01-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-814952388"
+        }
+      }
+    },
+    {
+      "docId": -809338753,
+      "friendlyName": "DAMSPNP4190_2021-12",
+      "postDatetime": "2021-12-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-809338753"
+        }
+      }
+    },
+    {
+      "docId": -803929763,
+      "friendlyName": "DAMSPNP4190_2021-11",
+      "postDatetime": "2021-11-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-803929763"
+        }
+      }
+    },
+    {
+      "docId": -798378052,
+      "friendlyName": "DAMSPNP4190_2021-10",
+      "postDatetime": "2021-10-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-798378052"
+        }
+      }
+    },
+    {
+      "docId": -793011655,
+      "friendlyName": "DAMSPNP4190_2021-09",
+      "postDatetime": "2021-09-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-793011655"
+        }
+      }
+    },
+    {
+      "docId": -787477229,
+      "friendlyName": "DAMSPNP4190_2021-08",
+      "postDatetime": "2021-08-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-787477229"
+        }
+      }
+    },
+    {
+      "docId": -781972887,
+      "friendlyName": "DAMSPNP4190_2021-07",
+      "postDatetime": "2021-07-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-781972887"
+        }
+      }
+    },
+    {
+      "docId": -776744876,
+      "friendlyName": "DAMSPNP4190_2021-06",
+      "postDatetime": "2021-06-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-776744876"
+        }
+      }
+    },
+    {
+      "docId": -771399222,
+      "friendlyName": "DAMSPNP4190_2021-05",
+      "postDatetime": "2021-05-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-771399222"
+        }
+      }
+    },
+    {
+      "docId": -766274120,
+      "friendlyName": "DAMSPNP4190_2021-04",
+      "postDatetime": "2021-04-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-766274120"
+        }
+      }
+    },
+    {
+      "docId": -761108634,
+      "friendlyName": "DAMSPNP4190_2021-03",
+      "postDatetime": "2021-03-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-761108634"
+        }
+      }
+    },
+    {
+      "docId": -756453565,
+      "friendlyName": "DAMSPNP4190_2021-02",
+      "postDatetime": "2021-02-28T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-756453565"
+        }
+      }
+    },
+    {
+      "docId": -751382657,
+      "friendlyName": "DAMSPNP4190_2021-01",
+      "postDatetime": "2021-01-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-751382657"
+        }
+      }
+    },
+    {
+      "docId": -746350553,
+      "friendlyName": "DAMSPNP4190_2020-12",
+      "postDatetime": "2020-12-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-746350553"
+        }
+      }
+    },
+    {
+      "docId": -741618101,
+      "friendlyName": "DAMSPNP4190_2020-11",
+      "postDatetime": "2020-11-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-741618101"
+        }
+      }
+    },
+    {
+      "docId": -736726052,
+      "friendlyName": "DAMSPNP4190_2020-10",
+      "postDatetime": "2020-10-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-736726052"
+        }
+      }
+    },
+    {
+      "docId": -731930655,
+      "friendlyName": "DAMSPNP4190_2020-09",
+      "postDatetime": "2020-09-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-731930655"
+        }
+      }
+    },
+    {
+      "docId": -726935813,
+      "friendlyName": "DAMSPNP4190_2020-08",
+      "postDatetime": "2020-08-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-726935813"
+        }
+      }
+    },
+    {
+      "docId": -721999251,
+      "friendlyName": "DAMSPNP4190_2020-07",
+      "postDatetime": "2020-07-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-721999251"
+        }
+      }
+    },
+    {
+      "docId": -717285459,
+      "friendlyName": "DAMSPNP4190_2020-06",
+      "postDatetime": "2020-06-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-717285459"
+        }
+      }
+    },
+    {
+      "docId": -712520845,
+      "friendlyName": "DAMSPNP4190_2020-05",
+      "postDatetime": "2020-05-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-712520845"
+        }
+      }
+    },
+    {
+      "docId": -707963539,
+      "friendlyName": "DAMSPNP4190_2020-04",
+      "postDatetime": "2020-04-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-707963539"
+        }
+      }
+    },
+    {
+      "docId": -703274271,
+      "friendlyName": "DAMSPNP4190_2020-03",
+      "postDatetime": "2020-03-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-703274271"
+        }
+      }
+    },
+    {
+      "docId": -698905317,
+      "friendlyName": "DAMSPNP4190_2020-02",
+      "postDatetime": "2020-02-29T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-698905317"
+        }
+      }
+    },
+    {
+      "docId": -694308742,
+      "friendlyName": "DAMSPNP4190_2020-01",
+      "postDatetime": "2020-01-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-694308742"
+        }
+      }
+    },
+    {
+      "docId": -689788958,
+      "friendlyName": "DAMSPNP4190_2019-12",
+      "postDatetime": "2019-12-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-689788958"
+        }
+      }
+    },
+    {
+      "docId": -685550179,
+      "friendlyName": "DAMSPNP4190_2019-11",
+      "postDatetime": "2019-11-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-685550179"
+        }
+      }
+    },
+    {
+      "docId": -681114487,
+      "friendlyName": "DAMSPNP4190_2019-10",
+      "postDatetime": "2019-10-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-681114487"
+        }
+      }
+    },
+    {
+      "docId": -676714211,
+      "friendlyName": "DAMSPNP4190_2019-09",
+      "postDatetime": "2019-09-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-676714211"
+        }
+      }
+    },
+    {
+      "docId": -672204368,
+      "friendlyName": "DAMSPNP4190_2019-08",
+      "postDatetime": "2019-08-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-672204368"
+        }
+      }
+    },
+    {
+      "docId": -667729484,
+      "friendlyName": "DAMSPNP4190_2019-07",
+      "postDatetime": "2019-07-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-667729484"
+        }
+      }
+    },
+    {
+      "docId": -663400999,
+      "friendlyName": "DAMSPNP4190_2019-06",
+      "postDatetime": "2019-06-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-663400999"
+        }
+      }
+    },
+    {
+      "docId": -659008776,
+      "friendlyName": "DAMSPNP4190_2019-05",
+      "postDatetime": "2019-05-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-659008776"
+        }
+      }
+    },
+    {
+      "docId": -654829561,
+      "friendlyName": "DAMSPNP4190_2019-04",
+      "postDatetime": "2019-04-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-654829561"
+        }
+      }
+    },
+    {
+      "docId": -650647607,
+      "friendlyName": "DAMSPNP4190_2019-03",
+      "postDatetime": "2019-03-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-650647607"
+        }
+      }
+    },
+    {
+      "docId": -646855358,
+      "friendlyName": "DAMSPNP4190_2019-02",
+      "postDatetime": "2019-02-28T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-646855358"
+        }
+      }
+    },
+    {
+      "docId": -642588970,
+      "friendlyName": "DAMSPNP4190_2019-01",
+      "postDatetime": "2019-01-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-642588970"
+        }
+      }
+    },
+    {
+      "docId": -638360117,
+      "friendlyName": "DAMSPNP4190_2018-12",
+      "postDatetime": "2018-12-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-638360117"
+        }
+      }
+    },
+    {
+      "docId": -634325398,
+      "friendlyName": "DAMSPNP4190_2018-11",
+      "postDatetime": "2018-11-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-634325398"
+        }
+      }
+    },
+    {
+      "docId": -630130990,
+      "friendlyName": "DAMSPNP4190_2018-10",
+      "postDatetime": "2018-10-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-630130990"
+        }
+      }
+    },
+    {
+      "docId": -626006823,
+      "friendlyName": "DAMSPNP4190_2018-09",
+      "postDatetime": "2018-09-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-626006823"
+        }
+      }
+    },
+    {
+      "docId": -621676499,
+      "friendlyName": "DAMSPNP4190_2018-08",
+      "postDatetime": "2018-08-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-621676499"
+        }
+      }
+    },
+    {
+      "docId": -617324420,
+      "friendlyName": "DAMSPNP4190_2018-07",
+      "postDatetime": "2018-07-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-617324420"
+        }
+      }
+    },
+    {
+      "docId": -613170975,
+      "friendlyName": "DAMSPNP4190_2018-06",
+      "postDatetime": "2018-06-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-613170975"
+        }
+      }
+    },
+    {
+      "docId": -608939265,
+      "friendlyName": "DAMSPNP4190_2018-05",
+      "postDatetime": "2018-05-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-608939265"
+        }
+      }
+    },
+    {
+      "docId": -604906753,
+      "friendlyName": "DAMSPNP4190_2018-04",
+      "postDatetime": "2018-04-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-604906753"
+        }
+      }
+    },
+    {
+      "docId": -600817980,
+      "friendlyName": "DAMSPNP4190_2018-03",
+      "postDatetime": "2018-03-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-600817980"
+        }
+      }
+    },
+    {
+      "docId": -597110794,
+      "friendlyName": "DAMSPNP4190_2018-02",
+      "postDatetime": "2018-02-28T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-597110794"
+        }
+      }
+    },
+    {
+      "docId": -593019152,
+      "friendlyName": "DAMSPNP4190_2018-01",
+      "postDatetime": "2018-01-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-593019152"
+        }
+      }
+    }
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports"
+    }
+  }
+}

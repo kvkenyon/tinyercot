@@ -1,0 +1,184 @@
+{
+  "_meta": {
+    "totalRecords": 4606440,
+    "pageSize": 1,
+    "totalPages": 4606440,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "postedDatetime: DESC,operatingDate: DESC,hourEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "hourly_res_outage_cap",
+    "reportDisplayName": "Hourly Resource Outage Capacity",
+    "reportId": "13103",
+    "reportEMIL": "NP3-233-CD",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "operatingDate",
+      "label": "Operating Date",
+      "cardinality": 2,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 3,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalResourceMWZoneSouth",
+      "label": "Total Resource MW Zone South",
+      "cardinality": 4,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalResourceMWZoneNorth",
+      "label": "Total Resource MW Zone North",
+      "cardinality": 5,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalResourceMWZoneWest",
+      "label": "Total Resource MW Zone West",
+      "cardinality": 6,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalResourceMWZoneHouston",
+      "label": "Total Resource MW Zone Houston",
+      "cardinality": 7,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalIRRMWZoneSouth",
+      "label": "Total IRR MW Zone South",
+      "cardinality": 8,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalIRRMWZoneNorth",
+      "label": "Total IRR MW Zone North",
+      "cardinality": 9,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalIRRMWZoneWest",
+      "label": "Total IRR MW Zone West",
+      "cardinality": 10,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalIRRMWZoneHouston",
+      "label": "Total IRR MW Zone Houston",
+      "cardinality": 11,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneSouth",
+      "label": "Total New Equipment Resource MW Zone South",
+      "cardinality": 12,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneNorth",
+      "label": "Total New Equipment Resource MW Zone North",
+      "cardinality": 13,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneWest",
+      "label": "Total New Equipment Resource MW Zone West",
+      "cardinality": 14,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "totalNewEquipResourceMWZoneHouston",
+      "label": "Total New Equipment Resource MW Zone Houston",
+      "cardinality": 15,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T16:00:47",
+      "2026-09-13",
+      1,
+      1539,
+      2749,
+      135,
+      941,
+      710,
+      596,
+      1992,
+      61,
+      694,
+      1678,
+      190,
+      611
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-233-cd/hourly_res_outage_cap"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-233-cd"
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "_meta": {
+    "totalRecords": 3423813,
+    "pageSize": 1,
+    "totalPages": 3423813,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC"
+    }
+  },
+  "report": {
+    "reportName": "60_sced_qse_self_arranged_as",
+    "reportDisplayName": "60-Day QSE-specific Self-Arranged AS in SCED",
+    "reportId": "13052",
+    "reportEMIL": "NP3-965-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Time Stamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "qseName",
+      "label": "QSE",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "REGUP",
+      "label": "REGUP",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "REGDN",
+      "label": "REGDN",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "NSPIN",
+      "label": "NSPIN",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "NSPNM",
+      "label": "NSPNM",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RRSPFR",
+      "label": "RRSPFR",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RRSFFR",
+      "label": "RRSFFR",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RRSUFR",
+      "label": "RRSUFR",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ECRSS",
+      "label": "ECRSS",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ECRSM",
+      "label": "ECRSM",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-07-08T23:55:15",
+      false,
+      "QAEN",
+      10.7,
+      0.0,
+      68.0,
+      null,
+      76.3,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er/60_sced_qse_self_arranged_as"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er"
+    }
+  }
+}

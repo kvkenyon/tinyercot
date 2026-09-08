@@ -1,0 +1,244 @@
+{
+  "_meta": {
+    "totalRecords": 6966937,
+    "pageSize": 1,
+    "totalPages": 6966937,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "postedDatetime: DESC,deliveryDate: DESC,hourEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "wpp_hrly_avrg_actl_fcast",
+    "reportDisplayName": "Wind Power Production - Hourly Averaged Actual and Forecasted Values",
+    "reportId": "13028",
+    "reportEMIL": "NP4-732-CD",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 2,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "hourEnding",
+      "label": "Hour Ending",
+      "cardinality": 3,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genSystemWide",
+      "label": "Generation System Wide",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "COPHSLSystemWide",
+      "label": "COP HSL System Wide",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "STWPFSystemWide",
+      "label": "STWPF System Wide",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "WGRPPSystemWide",
+      "label": "WGRPP System Wide",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genLoadZoneSouthHouston",
+      "label": "Generation Load Zone South Houston",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "COPHSLLoadZoneSouthHouston",
+      "label": "COP HSL Load Zone South Houston",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "STWPFLoadZoneSouthHouston",
+      "label": "STWPF Load Zone South Houston",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "WGRPPLoadZoneSouthHouston",
+      "label": "WGRPP Load Zone South Houston",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genLoadZoneWest",
+      "label": "Generation Load Zone West",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "COPHSLLoadZoneWest",
+      "label": "COP HSL Load Zone West",
+      "cardinality": 13,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "STWPFLoadZoneWest",
+      "label": "STWPF Load Zone West",
+      "cardinality": 14,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "WGRPPLoadZoneWest",
+      "label": "WGRPP Load Zone West",
+      "cardinality": 15,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "genLoadZoneNorth",
+      "label": "Generation Load Zone North",
+      "cardinality": 16,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "COPHSLLoadZoneNorth",
+      "label": "COP HSL Load Zone North",
+      "cardinality": 17,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "STWPFLoadZoneNorth",
+      "label": "STWPF Load Zone North",
+      "cardinality": 18,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "WGRPPLoadZoneNorth",
+      "label": "WGRPP Load Zone North",
+      "cardinality": 19,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "HSLSystemWide",
+      "label": "HSL System Wide",
+      "cardinality": 20,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 21,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T16:55:13",
+      "2026-09-13",
+      1,
+      null,
+      22191.5,
+      24217.1,
+      19462.0,
+      null,
+      4653.4,
+      5501.2,
+      4234.4,
+      null,
+      14924.5,
+      16102.3,
+      13049.2,
+      null,
+      2613.6,
+      2613.6,
+      2178.4,
+      null,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np4-732-cd/wpp_hrly_avrg_actl_fcast"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np4-732-cd"
+    }
+  }
+}

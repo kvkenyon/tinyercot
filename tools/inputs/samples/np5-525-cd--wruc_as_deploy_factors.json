@@ -1,0 +1,104 @@
+{
+  "_meta": {
+    "totalRecords": 208188,
+    "pageSize": 1,
+    "totalPages": 208188,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "postedDatetime: DESC,RUCTimestamp: DESC,deliveryDate: DESC,deliveryHour: ASC,repeatHourFlag: ASC,ASType: ASC"
+    }
+  },
+  "report": {
+    "reportName": "wruc_as_deploy_factors",
+    "reportDisplayName": "WRUC Ancillary Service Deployment Factors",
+    "reportId": "24897",
+    "reportEMIL": "NP5-525-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "postedDatetime",
+      "label": "Posted",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RUCTimestamp",
+      "label": "RUC Timestamp",
+      "cardinality": 2,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 3,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryHour",
+      "label": "Delivery Hour",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "ASType",
+      "label": "AS Type",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "ASDeploymentFactors",
+      "label": "AS Deployment Factors",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 7,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T02:53:41",
+      "2026-09-06T01:05:26",
+      "2026-09-12",
+      "01:00",
+      "ECRS",
+      0.05,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np5-525-cd/wruc_as_deploy_factors"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np5-525-cd"
+    }
+  }
+}

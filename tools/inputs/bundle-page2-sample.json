@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "totalRecords": 103,
+    "pageSize": 2,
+    "totalPages": 52,
+    "currentPage": 2,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "postDatetime: DESC"
+    }
+  },
+  "product": {
+    "emilId": "NP4-190-CD",
+    "name": "DAM Settlement Point Prices",
+    "reportTypeId": 12331
+  },
+  "bundles": [
+    {
+      "docId": -1221822399,
+      "friendlyName": "DAMSPNP4190_2026-05",
+      "postDatetime": "2026-05-31T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1221822399"
+        }
+      }
+    },
+    {
+      "docId": -1210457477,
+      "friendlyName": "DAMSPNP4190_2026-04",
+      "postDatetime": "2026-04-30T23:59:59.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd?download=-1210457477"
+        }
+      }
+    }
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/bundle/np4-190-cd"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports"
+    }
+  }
+}

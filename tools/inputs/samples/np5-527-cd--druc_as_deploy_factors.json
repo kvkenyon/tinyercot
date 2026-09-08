@@ -1,0 +1,94 @@
+{
+  "_meta": {
+    "totalRecords": 39594,
+    "pageSize": 1,
+    "totalPages": 39594,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "RUCTimestamp: DESC,deliveryDate: DESC,deliveryHour: ASC,repeatHourFlag: ASC,ASType: ASC"
+    }
+  },
+  "report": {
+    "reportName": "druc_as_deploy_factors",
+    "reportDisplayName": "DRUC Ancillary Service Deployment Factors",
+    "reportId": "24895",
+    "reportEMIL": "NP5-527-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "RUCTimestamp",
+      "label": "RUC Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "cardinality": 2,
+      "dataType": "DATE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "deliveryHour",
+      "label": "Delivery Hour",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "ASType",
+      "label": "AS Type",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "ASDeploymentFactors",
+      "label": "AS Deployment Factors",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 6,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T14:33:04",
+      "2026-09-07",
+      "01:00",
+      "ECRS",
+      0.05,
+      false
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np5-527-cd/druc_as_deploy_factors"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np5-527-cd"
+    }
+  }
+}

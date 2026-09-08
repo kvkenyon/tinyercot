@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "totalRecords": 17838246,
+    "pageSize": 1,
+    "totalPages": 17838246,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC"
+    }
+  },
+  "report": {
+    "reportName": "60_sced_dsr_load_data",
+    "reportDisplayName": "60-Day SCED DSR Load Data",
+    "reportId": "13052",
+    "reportEMIL": "NP3-965-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Time Stamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "qseName",
+      "label": "QSE",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "totalTelemeteredDSRLoads",
+      "label": "Total Telemetered DSR Loads",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2025-12-04T23:45:11",
+      false,
+      "ERCCRE",
+      0.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er/60_sced_dsr_load_data"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er"
+    }
+  }
+}

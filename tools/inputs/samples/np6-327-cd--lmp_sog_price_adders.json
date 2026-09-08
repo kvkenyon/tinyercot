@@ -1,0 +1,134 @@
+{
+  "_meta": {
+    "totalRecords": 36080362,
+    "pageSize": 1,
+    "totalPages": 36080362,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC,repeatHourFlag: ASC,resourceType: ASC,resourceName: ASC,stationName: ASC,meterName: ASC"
+    }
+  },
+  "report": {
+    "reportName": "lmp_sog_price_adders",
+    "reportDisplayName": "LMP By SOG Including Price Adders",
+    "reportId": "21114",
+    "reportEMIL": "NP6-327-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeated Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceType",
+      "label": "Resource Type",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceName",
+      "label": "Resource Name",
+      "cardinality": 4,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "stationName",
+      "label": "Station Name",
+      "cardinality": 5,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "voltageLevel",
+      "label": "Voltage Level",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "meterName",
+      "label": "Meter Name",
+      "cardinality": 7,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "meterLMP",
+      "label": "Meter LMP",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RTRDPA",
+      "label": "RTRDPA",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "finalLMP",
+      "label": "Final LMP",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T17:15:17",
+      false,
+      "SODG",
+      "19599_1_PV_A1",
+      "BLMND",
+      138.0,
+      "10443720004133031",
+      30.63,
+      0.0,
+      30.63
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np6-327-cd/lmp_sog_price_adders"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np6-327-cd"
+    }
+  }
+}

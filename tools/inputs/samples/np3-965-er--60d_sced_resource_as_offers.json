@@ -1,0 +1,554 @@
+{
+  "_meta": {
+    "totalRecords": 335879837,
+    "pageSize": 1,
+    "totalPages": 335879837,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC,repeatHourFlag: ASC,resourceName: ASC,offerType: ASC"
+    }
+  },
+  "report": {
+    "reportName": "60d_sced_resource_as_offers",
+    "reportDisplayName": "60 Day SCED Resource AS Offers",
+    "reportId": "13052",
+    "reportEMIL": "NP3-965-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "resourceName",
+      "label": "Resource Name",
+      "cardinality": 3,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "price1REGUP",
+      "label": "PRICE1 REGUP",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1REGDN",
+      "label": "PRICE1 REGDN",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1RRSPFR",
+      "label": "PRICE1 RRSPFR",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1RRSUFR",
+      "label": "PRICE1 RRSUFR",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1RRSFFR",
+      "label": "PRICE1 RRSFFR",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1NSPIN",
+      "label": "PRICE1 NSPIN",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price1ECRS",
+      "label": "PRICE1 ECRS",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "quantityMW1",
+      "label": "QUANTITY MW1",
+      "cardinality": 11,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2REGUP",
+      "label": "PRICE2 REGUP",
+      "cardinality": 12,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2REGDN",
+      "label": "PRICE2 REGDN",
+      "cardinality": 13,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2RRSPFR",
+      "label": "PRICE2 RRSPFR",
+      "cardinality": 14,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2RRSUFR",
+      "label": "PRICE2 RRSUFR",
+      "cardinality": 15,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2RRSFFR",
+      "label": "PRICE2 RRSFFR",
+      "cardinality": 16,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2NSPIN",
+      "label": "PRICE2 NSPIN",
+      "cardinality": 17,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price2ECRS",
+      "label": "PRICE2 ECRS",
+      "cardinality": 18,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "quantityMW2",
+      "label": "QUANTITY MW2",
+      "cardinality": 19,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3REGUP",
+      "label": "PRICE3 REGUP",
+      "cardinality": 20,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3REGDN",
+      "label": "PRICE3 REGDN",
+      "cardinality": 21,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3RRSPFR",
+      "label": "PRICE3 RRSPFR",
+      "cardinality": 22,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3RRSUFR",
+      "label": "PRICE3 RRSUFR",
+      "cardinality": 23,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3RRSFFR",
+      "label": "PRICE3 RRSFFR",
+      "cardinality": 24,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3NSPIN",
+      "label": "PRICE3 NSPIN",
+      "cardinality": 25,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price3ECRS",
+      "label": "PRICE3 ECRS",
+      "cardinality": 26,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "quantityMW3",
+      "label": "QUANTITY MW3",
+      "cardinality": 27,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4REGUP",
+      "label": "PRICE4 REGUP",
+      "cardinality": 28,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4REGDN",
+      "label": "PRICE4 REGDN",
+      "cardinality": 29,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4RRSPFR",
+      "label": "PRICE4 RRSPFR",
+      "cardinality": 30,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4RRSUFR",
+      "label": "PRICE4 RRSUFR",
+      "cardinality": 31,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4RRSFFR",
+      "label": "PRICE4 RRSFFR",
+      "cardinality": 32,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4NSPIN",
+      "label": "PRICE4 NSPIN",
+      "cardinality": 33,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price4ECRS",
+      "label": "PRICE4 ECRS",
+      "cardinality": 34,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "quantityMW4",
+      "label": "QUANTITY MW4",
+      "cardinality": 35,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5REGUP",
+      "label": "PRICE5 REGUP",
+      "cardinality": 36,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5REGDN",
+      "label": "PRICE5 REGDN",
+      "cardinality": 37,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5RRSPFR",
+      "label": "PRICE5 RRSPFR",
+      "cardinality": 38,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5RRSUFR",
+      "label": "PRICE5 RRSUFR",
+      "cardinality": 39,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5RRSFFR",
+      "label": "PRICE5 RRSFFR",
+      "cardinality": 40,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5NSPIN",
+      "label": "PRICE5 NSPIN",
+      "cardinality": 41,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price5ECRS",
+      "label": "PRICE5 ECRS",
+      "cardinality": 42,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "quantityMW5",
+      "label": "QUANTITY MW5",
+      "cardinality": 43,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price6REGUP",
+      "label": "PRICE6 REGUP",
+      "cardinality": 44,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price6REGDN",
+      "label": "PRICE6 REGDN",
+      "cardinality": 45,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price6RRSPFR",
+      "label": "PRICE6 RRSPFR",
+      "cardinality": 46,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price6RRSUFR",
+      "label": "PRICE6 RRSUFR",
+      "cardinality": 47,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price6RRSFFR",
+      "label": "PRICE6 RRSFFR",
+      "cardinality": 48,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price6NSPIN",
+      "label": "PRICE6 NSPIN",
+      "cardinality": 49,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "price6ECRS",
+      "label": "PRICE6 ECRS",
+      "cardinality": 50,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "quantityMW6",
+      "label": "QUANTITY MW6",
+      "cardinality": 51,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "offerType",
+      "label": "Offer Type",
+      "cardinality": 52,
+      "dataType": "VARCHAR",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    }
+  ],
+  "data": [
+    [
+      "2026-07-08T23:55:15",
+      false,
+      "7RNCHSLR_UNIT1",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      0.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      0.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      0.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      0.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      0.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      0.0,
+      "OFFNS"
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er/60d_sced_resource_as_offers"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-965-er"
+    }
+  }
+}

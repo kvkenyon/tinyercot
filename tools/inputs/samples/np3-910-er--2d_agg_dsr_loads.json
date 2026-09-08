@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "totalRecords": 69789,
+    "pageSize": 1,
+    "totalPages": 69789,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "SCEDTimestamp: DESC"
+    }
+  },
+  "report": {
+    "reportName": "2d_agg_dsr_loads",
+    "reportDisplayName": "2-Day Aggregated DSR Loads",
+    "reportId": "13056",
+    "reportEMIL": "NP3-910-ER",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "SCEDTimestamp",
+      "label": "SCED Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "sumTelemDSRLoad",
+      "label": "Sum Telem DSR Load",
+      "cardinality": 3,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "sumTelemDSRGen",
+      "label": "Sum Telem DSR Generation",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2025-12-04T23:45:11",
+      false,
+      270.2,
+      0.0
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np3-910-er/2d_agg_dsr_loads"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np3-910-er"
+    }
+  }
+}

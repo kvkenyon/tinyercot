@@ -1,0 +1,134 @@
+{
+  "_meta": {
+    "totalRecords": 910155,
+    "pageSize": 1,
+    "totalPages": 910155,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "RTDTimestamp: DESC,intervalId: ASC,intervalEnding: ASC"
+    }
+  },
+  "report": {
+    "reportName": "rtd_ind_mcpc",
+    "reportDisplayName": "RTD Indicative Real-Time MCPC",
+    "reportId": "24889",
+    "reportEMIL": "NP6-329-CD",
+    "downloadLimit": 1000000
+  },
+  "fields": [
+    {
+      "name": "RTDTimestamp",
+      "label": "RTD Timestamp",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "repeatHourFlag",
+      "label": "Repeat Hour Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "intervalId",
+      "label": "Interval ID",
+      "cardinality": 3,
+      "dataType": "INTEGER",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "intervalEnding",
+      "label": "Interval Ending",
+      "cardinality": 4,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "intervalRepeatHourFlag",
+      "label": "Interval Ending Repeat Hour Flag",
+      "cardinality": 5,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "REGUP",
+      "label": "REGUP",
+      "cardinality": 6,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "REGDN",
+      "label": "REGDN",
+      "cardinality": 7,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "RRS",
+      "label": "RRS",
+      "cardinality": 8,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ECRS",
+      "label": "ECRS",
+      "cardinality": 9,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "NSPIN",
+      "label": "NSPIN",
+      "cardinality": 10,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2026-09-06T17:15:03",
+      false,
+      1,
+      "2026-09-06T17:20:00",
+      false,
+      1.95,
+      6.89,
+      0.02,
+      0.04,
+      0.15
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-reports/np6-329-cd/rtd_ind_mcpc"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-reports/np6-329-cd"
+    }
+  }
+}
