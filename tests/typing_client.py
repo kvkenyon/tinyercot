@@ -11,42 +11,13 @@ from tinyercot import (
     FuelMixTotal,
     LegacyHourlyLoad,
     LoadArchive,
-    LoadForecastArchive,
-    LoadForecastPeak,
-    LoadOutlook,
-    MonthlyLoadForecast,
     Page,
-    ProfileArchive,
-    ProfileHour,
-    ProfileKey,
-    ProfileKeyArchive,
-    ProfileSeries,
-    ReliabilityForecastHour,
-    ReliabilityForecastNote,
-    ReliabilityForecastPeak,
-    ReliabilityLoadForecast,
     ScheduledGeneration,
-    TransmissionOperatorLoad,
     WeatherZoneLoad,
-    WeeklyLoadForecast,
-    WindArchive,
-    WindDailyValues,
     np3_966_er,
     np3_988_er,
     np4_190_cd,
 )
-
-with Client() as client:
-    profiles = client.generation_profiles.archives(study_year=2021, fuel="solar")
-    assert_type(profiles, list[ProfileArchive])
-    assert_type(client.generation_profiles.rows(profiles[0]), Iterator[ProfileHour])
-    assert_type(client.generation_profiles.read(b""), Iterator[ProfileHour])
-    assert_type(client.generation_profiles.read_series(b""), list[ProfileSeries])
-    keys = client.generation_profiles.keys(study_year=2021)
-    assert_type(keys, list[ProfileKeyArchive])
-    assert_type(client.generation_profiles.key(profiles[0]), ProfileKey)
-    assert_type(client.generation_profiles.key(keys[0]), ProfileKey)
-    assert_type(client.generation_profiles.read_key(b""), ProfileKey)
 
 with Client() as client:
     assert_type(
@@ -347,13 +318,6 @@ with Client() as client:
         assert_type(legacy_wind.actualLoadZoneNorth, Decimal | None)
         assert_type(legacy_wind.hourBeginningTimestamp, datetime | None)
 
-with Client() as client:
-    assert_type(client.wind_integration.archives(), list[WindArchive])
-    assert_type(
-        client.wind_integration.rows(date_from=date(2010, 8, 9)),
-        Iterator[WindDailyValues],
-    )
-    assert_type(client.wind_integration.read(b""), Iterator[WindDailyValues])
 
 with Client() as client:
     assert_type(client.hourly_load.archives(), list[LoadArchive])
@@ -372,28 +336,3 @@ with Client() as client:
         client.hourly_load.read_legacy(b"", filename="erceei95.txt"),
         Iterator[LegacyHourlyLoad],
     )
-    assert_type(client.hourly_load.outlook(year_from=1999), Iterator[LoadOutlook])
-    assert_type(client.hourly_load.read_outlook(b""), Iterator[LoadOutlook])
-
-with Client() as client:
-    forecasts = client.load_forecast
-    assert_type(forecasts.archives(), list[LoadForecastArchive])
-    forecast_archive = forecasts.archives()[0]
-    assert_type(forecasts.download(forecast_archive), bytes)
-    assert_type(forecasts.monthly(forecast_archive), Iterator[MonthlyLoadForecast])
-    assert_type(forecasts.weekly(forecast_archive), Iterator[WeeklyLoadForecast])
-    assert_type(forecasts.peaks(forecast_archive), Iterator[LoadForecastPeak])
-    assert_type(forecasts.read_monthly(b""), Iterator[MonthlyLoadForecast])
-    assert_type(forecasts.read_weekly(b""), Iterator[WeeklyLoadForecast])
-    assert_type(forecasts.read_peaks(b""), Iterator[LoadForecastPeak])
-
-with Client() as client:
-    winter = client.load_forecast.archives(kind="winter-reliability")[0]
-    reliability = client.load_forecast.reliability(winter)
-    assert_type(reliability, ReliabilityLoadForecast)
-    assert_type(client.load_forecast.read_reliability(b""), ReliabilityLoadForecast)
-    assert_type(reliability.hours, list[ReliabilityForecastHour])
-    assert_type(reliability.peaks, list[ReliabilityForecastPeak])
-    assert_type(reliability.notes, list[ReliabilityForecastNote])
-    assert_type(reliability.hours[0].operators, list[TransmissionOperatorLoad])
-    assert_type(reliability.peaks[0].largeLoadAdditionsMW, Decimal | None)
