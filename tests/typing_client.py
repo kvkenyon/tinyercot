@@ -23,7 +23,6 @@ from tinyercot import (
     GenerationProfileKeySummary,
     GenerationProfileSite,
     HourlyLoadForecast,
-    IdrCompliance,
     IndicativeOrdcPrice,
     LegacyHourlyLoad,
     LoadArchive,
@@ -272,16 +271,6 @@ with Client() as client:
         ),
         Iterator[LossFactorDay],
     )
-
-with Client() as client:
-    assert_type(client.idr_compliance.archives(), list[LoadArchive])
-    assert_type(client.idr_compliance.rows(entity="Market"), Iterator[IdrCompliance])
-    assert_type(client.idr_compliance.read(b""), Iterator[IdrCompliance])
-    idr_row = next(client.idr_compliance.rows())
-    assert_type(idr_row.operatingDay, date)
-    assert_type(idr_row.reportRunDate, date)
-    assert_type(idr_row.compliance, Decimal | None)
-    assert_type(idr_row.status, str | None)
 
 with Client() as client:
     assert_type(client.historical_weather.download(), bytes)

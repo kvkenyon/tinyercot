@@ -22,7 +22,6 @@ from ._distribution_losses import DistributionLossCoefficients
 from ._fuel_mix import FuelMix
 from ._generation_profiles import GenerationProfiles
 from ._hourly_forecasts import HourlyLoadForecasts
-from ._idr import IdrComplianceHistory
 from ._load import HourlyLoad
 from ._load_forecasts import MonthlyLoadForecasts
 from ._load_profiles import LoadProfiles
@@ -390,10 +389,6 @@ class Transport:
     @property
     def historical_weather(self) -> HistoricalWeather:
         return HistoricalWeather(self._http)
-
-    @property
-    def idr_compliance(self) -> IdrComplianceHistory:
-        return IdrComplianceHistory(self._http)
 
     @property
     def loss_factors(self) -> LossFactors:

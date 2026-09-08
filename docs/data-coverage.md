@@ -874,34 +874,6 @@ same-name revisions. Fixtures and evidence are excluded from the wheel. Coverage
 here concerns the underlying project and capacity tables; it does not assert that
 every chart-specific annotation or other resource-page document is parsed.
 
-## Historical IDR compliance summaries
-
-`Client.idr_compliance` discovers and reads all seven direct filing archives
-(2003–2009) from [the public IDR history index](https://www.ercot.com/mktinfo/data_agg/idr_pcv).
-The underlying workbooks contain market/provider summary values with Date or
-Trade Day rows. Provider columns vary over time; source labels such as System,
-Market, CPL, WTU, AEP-C, TXU, ONCOR, Shrylnd and Sharyland remain unchanged.
-
-Independent comparison covers every dated summary value in all seven archives:
-894,851 records, comprising 861,901 numeric cells and 32,950 source status markers.
-Operating dates span January 1, 2002 through September 30, 2008, while printed
-report-run dates span January 2003 through February 2009. Operating dates, run
-dates, provider labels, numeric values, error/text markers and workbook identities
-were compared in source order. Overlapping annual archives and repeated vintages
-are retained. Bounds use operating dates and do not discard later filing years.
-These observed ranges do not establish continuous coverage or public availability
-at the printed run date.
-
-The 2003 files contain 519 zero-date template rows filled entirely with `#N/A`
-(5,190 error cells). They are skipped rather than becoming 1899 observations.
-The 1,510 errors attached to real dates remain `status="#N/A"` with
-`compliance=None`; 31,440 `Not MRE For Date` markers retain that same distinction.
-Excel error codes are decoded as error labels, never numeric compliance values.
-Embedded, multiline and separate Excel run-date cells are supported; absent run
-dates are not guessed from filenames. The fixture retains thirteen original XLS
-workbooks byte-for-byte, including error cells and empty companion worksheets.
-Hashes and comparison details are in `tools/inputs/public-idr-evidence.json`.
-
 ## Historical zonal weather
 
 `Client.historical_weather.rows()` and `read()` cover all eight zonal workbooks in

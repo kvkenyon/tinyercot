@@ -29,7 +29,6 @@ from ._history import Archive as Archive
 from ._history import Publication as Publication
 from ._hourly_forecasts import HourlyLoadForecast as HourlyLoadForecast
 from ._hourly_forecasts import WeatherZoneForecastValues as WeatherZoneForecastValues
-from ._idr import IdrCompliance as IdrCompliance
 from ._legacy_load import LegacyHourlyLoad as LegacyHourlyLoad
 from ._load import LoadArchive as LoadArchive
 from ._load import WeatherZoneLoad as WeatherZoneLoad

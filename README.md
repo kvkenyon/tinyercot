@@ -2,7 +2,8 @@
 
 A small, fully typed ERCOT data client for retailers, battery operators, and
 energy traders. Query recent data, stream historical archives and monthly
-bundles, or read public load and generation files.
+bundles, or read public load and generation files. Coverage focuses on data for market
+decisions, settlement and resource planning.
 
 ## Install and connect
 
@@ -85,7 +86,7 @@ history and source gaps differ by product. The separate ESR API and MIS remain
 outside the current scope.
 
 Direct public services include `hourly_load`, `fuel_mix`, `load_profiles`,
-`loss_factors`, and `dashboards`. Install `tinyercot[files]` for XLS/XLSX readers
+`loss_factors`, and `dashboards`. Install `tinyercot[files]` for XLS/XLSX/XLSB readers
 or `tinyercot[pdf]` for supported PDF tables. Detailed source-specific examples
 remain in the [usage reference](docs/usage.md).
 
