@@ -418,6 +418,39 @@ an annual per-customer usage measure. Dates come from the table headers;
 original cover notes remain in `sourceNotes`. These are the observed downloads,
 not a claim of older coverage or of realized future trading activity.
 
+### Retail transaction history
+
+`retail_transactions` reads daily transaction counts from the public monthly
+archive with `tinyercot[files]`:
+
+```python
+from tinyercot import Client
+
+with Client() as ercot:
+    for month in ercot.retail_transactions.rows(
+        where=lambda r: (
+            r.month.year == 2025
+            and r.sourceSheet == "ERCOT Inbound"
+            and r.transactionCode == "814_01"
+        ),
+    ):
+        for day in month.days:
+            print(day.operatingDay, day.count)
+```
+
+`files()`, `download(file)` and `read(data, filename=..., where=...)` also support
+discovery and saved workbooks/ZIPs. The inspected archive contains 20 months
+(January 2025–August 2026), 9,126 monthly transaction/category records and 277,433
+daily counts. Queries use the dates in the table, not the archive filename.
+
+`transactionCode=None` identifies a sheet's Grand Total row. Codes and raw sheet
+labels remain unchanged, including four sheets with unnamed categories.
+Territory, customer-class and ERCOT-wide views overlap; do not sum across those
+categories. `reportedTotal` and `reportedAveragePerDay` retain the source's
+monthly summaries, including rounded averages. Missing count cells remain
+`None`. No transaction-code business meaning or individual customer activity
+is inferred from these aggregate counts.
+
 ### Historical IDR compliance summaries
 
 `idr_compliance` exposes the public historical market/TDSP summary tables with

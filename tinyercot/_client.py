@@ -23,6 +23,7 @@ from ._load import HourlyLoad
 from ._load_profiles import LoadProfiles
 from ._loss_factors import LossFactors
 from ._public_tables import CrrHours, PolrHistory
+from ._retail import RetailTransactions
 from ._weather import HistoricalWeather
 from ._zonal_generation import ZonalGeneration
 
@@ -370,6 +371,10 @@ class Transport:
     @property
     def polr(self) -> PolrHistory:
         return PolrHistory(self._http)
+
+    @property
+    def retail_transactions(self) -> RetailTransactions:
+        return RetailTransactions(self._http)
 
     @property
     def hourly_load(self) -> HourlyLoad:
