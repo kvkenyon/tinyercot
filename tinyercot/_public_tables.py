@@ -85,7 +85,7 @@ class _PublicFiles:
         return response.content
 
 
-class _ResourceLinks(_FileLinks):
+class _YearLinks(_FileLinks):
     def __init__(self, index_url: str, title_pattern: str) -> None:
         super().__init__(index_url, title_pattern)
         self.years: set[str] = set()
@@ -98,7 +98,9 @@ class _ResourceLinks(_FileLinks):
             if (
                 parts.scheme == "https"
                 and parts.netloc == "www.ercot.com"
-                and re.fullmatch(r"/gridinfo/resource/\d{4}", parts.path)
+                and re.fullmatch(
+                    rf"{re.escape(urlsplit(self.index_url).path)}/\d{{4}}", parts.path
+                )
             ):
                 self.years.add(url)
 
@@ -109,10 +111,10 @@ class _ResourceFiles(_PublicFiles):
     def files(self) -> list[PublicFile]:
         """Discover resource workbooks in current and linked historical indexes."""
 
-        def links(url: str) -> _ResourceLinks:
+        def links(url: str) -> _YearLinks:
             response = self._http.get(url, follow_redirects=True)
             response.raise_for_status()
-            parser = _ResourceLinks(url, self.title_pattern)
+            parser = _YearLinks(url, self.title_pattern)
             parser.feed(response.text)
             return parser
 

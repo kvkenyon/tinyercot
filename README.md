@@ -373,20 +373,31 @@ with Client() as ercot:
         print(day.operatingDay, day.tdsp, day.lossCode, day.intervals[0].factor)
 ```
 
-`archives()` discovers the current direct links; `download(archive)` returns the
-original workbook; `read(data, filename=..., ...)` also accepts saved workbooks
-and ZIPs with the same inclusive operating-date bounds and typed `where` filter.
-All 100 numbered interval columns remain in order, including blank cells as
-`None`. Factors retain their original scale and are never applied to load
-implicitly. Source recorder, TDSP/loss-code labels, member and sheet are retained.
-`sourceStartTime` and `sourceLastTime` preserve STARTTIME/LSTIME without inferred
-timezones or a claim that LSTIME establishes public availability.
+`archives()` discovers files on the current page and all linked annual indexes;
+`download(archive)` returns the original workbook or ZIP. `read(data,
+filename=..., source_file=archive, ...)` accepts saved files with the same
+inclusive operating-date bounds and typed `where` filter. Overlapping files
+and sheets remain separate.
 
-The inspected direct workbook contains 7,632 series/day records spanning all
-212 days of January–July 2026, with 732,528 numeric factors. This is the coverage
-of that download; older history is not inferred from its URL or current index.
-Overlapping downloads remain separate. Current MIS loss-factor feeds are outside
-this client's scope.
+The 72 inspected downloads contain **301,829 series/day records** and **28,975,512
+numeric factors**, with source dates from July 31, 2001 through July 31, 2026.
+Coverage varies by series: actual distribution factors begin December 7, 2006.
+See the [per-file coverage manifest](tools/inputs/public-loss-history-sources.csv)
+for actual ranges; year and sheet labels do not guarantee a complete year.
+
+Interval positions preserve every value and blank, including repeated clocks
+on fall-back days. `sourceLabel` holds the legacy clock label or modern `INTV`
+column name. One 2013 row has 100 values under a 96-interval header: all values
+and its trailing timestamp survive, with interval labels set to `None`.
+Factors keep their original scale and are never applied to load implicitly.
+
+`sourceFile` retains the index link and title when supplied. Early distribution
+workbooks do not contain an actual/forecast label: live queries use the index's
+label, while saved reads without that metadata return `kind=None`. Recorder IDs,
+TDSPs and loss codes remain distinct; unlabeled secondary identifiers and markers
+are retained separately. No TDSP is inferred from a recorder ID. Source timestamps
+have no inferred timezone and do not establish public availability. MIS feeds
+remain outside this client's scope.
 
 ### CRR hours and retail counts/energy
 

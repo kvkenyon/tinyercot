@@ -545,32 +545,49 @@ and an eleven-workbook fixture are recorded in the load-profile evidence file.
 
 ## Historical settlement loss factors
 
-`Client.loss_factors` discovers the direct historical workbooks on the
-[data aggregation page](https://www.ercot.com/mktinfo/data_agg). The inspected
-download contains four tables: actual and forecast transmission loss factors,
-and actual and forecast distribution loss factors. All 7,632 source records,
-732,528 numeric factors and 30,672 blank interval cells were independently
-compared with the original workbook, including identifiers and both timestamps.
-There are 36 series across 212 consecutive operating dates, January 1–July 31,
-2026. Distribution data contains 17 TDSP/loss-code combinations for each kind.
+`Client.loss_factors` follows the [data aggregation index](https://www.ercot.com/mktinfo/data_agg)
+and its 25 linked annual pages. All **72 interval-data downloads**, totaling
+215,272,347 bytes, were independently compared with the typed reader using
+xlrd/openpyxl: **301,829 series/day rows, 28,975,512 numeric factors, and 478,576
+blank interval cells**, including every identifier, timestamp and source column.
+The [source manifest](../tools/inputs/public-loss-history-sources.csv) records each
+actual URL, SHA-256, row/value counts and operating-date coverage.
 
-Each typed record preserves all 100 numbered INTV columns as `intervals`, with
-blank factors remaining `None`. March 8 has 92 populated intervals per series;
-the other inspected days have 96. No wall-clock or UTC mapping is inferred from
-these positions. Factors are unscaled and never applied to other series
-implicitly. Original recorder and TDSP/loss-code labels stay attached.
-`sourceStartTime` and `sourceLastTime` retain STARTTIME/LSTIME without inferred
-timezones; LSTIME is not evidence of public availability. Inclusive date bounds
-use the date in STARTTIME, and `where` accepts a typed predicate over the record.
+Source dates span **July 31, 2001–July 31, 2026**. Series coverage is uneven:
+actual distribution history begins **December 7, 2006**, with 25 dates in that
+annual download. Index years, upload dates and worksheet titles are not coverage
+guarantees. The 2003 distribution sheet labeled “Jan thru Jun” also contains
+later dates; date filters use the records themselves. Files and sheets remain
+separate, including overlapping fall-back rows.
 
-The index label's version suffix differs from its actual download URL. Discovery
-uses the href and queries workbook dates, rather than constructing filenames or
-assuming label dates establish coverage. Current transmission loss-factor product
-pages NP13-14-SG and NP13-268-SG use MIS routes, excluded here. No claim of older
-direct loss-factor history is made. Overlapping saved files remain separate.
-Evidence and fixture provenance are in `tools/inputs/public-loss-factors-evidence.json`;
-the fixture retains original cell XML for all series on four dates, including
-the short day and both ends of the inspected history.
+Modern workbooks expose 100 numbered INTV positions; older XLS/XLSX workbooks
+use clock columns and separate fall-back sheets. Each interval keeps its
+position, unscaled factor and `sourceLabel`, including repeated clocks and
+24:00. Blanks remain `None`. The 2013 actual TLF annual sheet contains one
+100-interval fall-back row beneath a 96-interval header: all values and its
+trailing timestamp are retained, and its interval labels are `None`. The
+companion DST-sheet record is not silently deduplicated. Trailing 2003 orphan
+loss-code labels without dates or values are not observations.
+
+Recorder IDs, TDSP names and loss codes stay distinct. Nineteen 2014 forecast
+DLF DST rows use `DISTLOSSFACT_...` recorder IDs and an unlabeled numeric second
+column. These remain `recorder` and `sourceSecondaryIdentifier`; TDSP/loss code
+are `None`. Legacy column-four markers remain in `sourceMarker`. Other legacy
+second-column labels are also retained, alongside the typed loss code.
+
+Early distribution workbooks omit the actual/forecast distinction internally.
+Live reads retain the actual index link in `sourceFile` and use its forecast
+label. Saved reads can provide `source_file=archive`; otherwise unidentifiable
+`kind` values stay `None`. START TIME/STARTTIME and TIMESTAMP/LSTIME are parsed
+without an inferred timezone or public-availability claim. Date bounds are
+inclusive; `where` accepts a typed predicate. MIS routes remain excluded.
+
+The original 2026 comparison and four-date fixture remain in
+`tools/inputs/public-loss-factors-evidence.json`. New historical evidence is in
+`tools/inputs/public-loss-history-evidence.json`, with all 26 original index
+pages and nine complete, unchanged legacy workbooks used in tests. These cover
+header variants, timestamps, repeated intervals, missing identifiers, orphan
+labels and the misaligned 2013 row. Fixtures are excluded from the wheel.
 
 ## CRR time-of-use hours and POLR territory totals
 

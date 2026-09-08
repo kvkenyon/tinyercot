@@ -1,7 +1,7 @@
 from collections.abc import AsyncIterator, Iterator
 from datetime import date, datetime, time
 from decimal import Decimal
-from typing import assert_type
+from typing import Literal, assert_type
 
 from tinyercot import (
     Archive,
@@ -161,6 +161,18 @@ with Client() as client:
     assert_type(loss_day.sourceLastTime, datetime)
     assert_type(loss_day.tdsp, str | None)
     assert_type(loss_day.intervals[0].factor, Decimal | None)
+    assert_type(loss_day.intervals[0].sourceLabel, str | None)
+    assert_type(loss_day.kind, Literal["actual", "forecast"] | None)
+    assert_type(loss_day.recorder, str | None)
+    assert_type(loss_day.sourceFile, LoadArchive | None)
+    assert_type(loss_day.sourceSecondaryIdentifier, str | int | None)
+    assert_type(loss_day.sourceMarker, str | None)
+    assert_type(
+        client.loss_factors.read(
+            b"", source_file=LoadArchive(year=2001, title="", url="")
+        ),
+        Iterator[LossFactorDay],
+    )
 
 with Client() as client:
     assert_type(client.idr_compliance.archives(), list[LoadArchive])

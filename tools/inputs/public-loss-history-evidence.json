@@ -1,0 +1,114 @@
+{
+  "sourceIndexes": "https://www.ercot.com/mktinfo/data_agg and all 25 linked year indexes",
+  "indexFixture": {
+    "path": "tools/inputs/loss-factors/indexes.zip",
+    "sha256": "d9f4e2d2a9dbd71961d2fd82b731b1208f0655d9ec20c755809a9360b5cca5a8",
+    "pages": 26
+  },
+  "sourceManifest": "tools/inputs/public-loss-history-sources.csv",
+  "files": 72,
+  "bytes": 215272347,
+  "rows": 301829,
+  "numericCells": 28975512,
+  "blankCells": 478576,
+  "firstDay": "2001-07-31",
+  "lastDay": "2026-07-31",
+  "comparison": "All 72 original files: every dated row, interval value, timestamp, identifier, column count, interval label, source marker and archive identity compared independently with xlrd/openpyxl; no SDK parsing helpers used for expected values.",
+  "fixture": {
+    "path": "tools/inputs/loss-factors/legacy.zip",
+    "sha256": "94d30baa365f1face74f6224f2916423c45ea86d935e9a873b9d5aad691b5ebc",
+    "bytes": 20023018,
+    "selection": "Nine complete original workbooks extracted unchanged from source ZIPs, spanning legacy header variants, DST layouts, timestamps and missing identifiers.",
+    "workbooks": [
+      {
+        "member": "2001_historical_actual_losses/TLF for 2001.xls",
+        "title": "2001 TDSP Transmission Loss Factors - Actual",
+        "url": "https://www.ercot.com/files/docs/2004/05/20/2001_historical_actual_losses.zip",
+        "sourceArchiveSha256": "d625b829068458d96450877841fad46f5a92e087bc85ce348ff5e3b01e611de6",
+        "sha256": "93ce53d48a54b648763fc05f18ac5a28106719f199b6a2eb05c87d525512337b",
+        "bytes": 429568,
+        "rows": 154
+      },
+      {
+        "member": "2001_historical_distribution_loss_factors/DLF for 2001.xls",
+        "title": "2001 TDSP Distribution Loss Factors - Forecasted",
+        "url": "https://www.ercot.com/files/docs/2004/05/20/2001_historical_distribution_loss_factors.zip",
+        "sourceArchiveSha256": "67d1431f611fd8dbe00eb3132327699de0c063fc32d60cb60d76f45879a7b085",
+        "sha256": "4e5d5f35a22d0662cf30ca6ba8657772916567d944c3b611340e29ee10394be7",
+        "bytes": 7943680,
+        "rows": 2156
+      },
+      {
+        "member": "2001_historical_forecasted_losses/TLF forecasted for 2001.xls",
+        "title": "2001 TDSP Transmission Loss Factors - Forecasted",
+        "url": "https://www.ercot.com/files/docs/2004/05/20/2001_historical_forecasted_losses.zip",
+        "sourceArchiveSha256": "3e2428ff77f7874ba514fc357ead36c51212572143c39d37426d2cfbb3cc5db6",
+        "sha256": "99d12459906fb8614f686aefc84a36cbaa1b80e98f607327c80d485c6a2b98d8",
+        "bytes": 429056,
+        "rows": 154
+      },
+      {
+        "member": "2003_historical_distribution_loss_factors/DLF for 2003.xls",
+        "title": "2003 TDSP Distribution Loss Factors - Forecasted",
+        "url": "https://www.ercot.com/files/docs/2004/05/20/2003_historical_distribution_loss_factors.zip",
+        "sourceArchiveSha256": "8e1aaf7141614da1628748203fb989c7bdca31cae0e3c63ab7b31656c997be2e",
+        "sha256": "293f34121b5218d7270f8a5cf654787e915cd14a7a828ce178984808e1e5cb42",
+        "bytes": 20133888,
+        "rows": 5475
+      },
+      {
+        "member": "2004_historical_distribution_loss_factors/DLF for 2004.xls",
+        "title": "2004 TDSP Distribution Loss Factors - Forecasted",
+        "url": "https://www.ercot.com/files/docs/2005/02/01/2004_historical_distribution_loss_factors.zip",
+        "sourceArchiveSha256": "3a8e97b4476be1ec792ecbc32074fe832cadfc380f59739aeefb4b013730a39f",
+        "sha256": "c36c5231713426a2aba2dbb766ec541d336fab709d29ae3728429c632dce686c",
+        "bytes": 20635136,
+        "rows": 5612
+      },
+      {
+        "member": "dlf_actual_for_2006/DLF ACTUAL for 2006.xls",
+        "title": "2006 TDSP Distribution Loss Factors - Actual",
+        "url": "https://www.ercot.com/files/docs/2007/02/02/dlf_actual_for_2006.zip",
+        "sourceArchiveSha256": "c9214c6a6a3357ada6f4bf3f8efdbe4fd8267c5195ec02d23edcf0e695ec2acc",
+        "sha256": "8bb4bc9bdd0d14eaf37ecb9b33aa5810e925c2b2fa99420a751b56c12da47fec",
+        "bytes": 1676800,
+        "rows": 450
+      },
+      {
+        "member": "tlf_actual_for_2013/TLF actual for 2013.xls",
+        "title": "TLF actual for 2013",
+        "url": "https://www.ercot.com/files/docs/2014/01/07/tlf_actual_for_2013.zip",
+        "sourceArchiveSha256": "7f0803aa3ac75147b7675512f16aa43bd085fdf60d23040888f7255bd0ffc9cd",
+        "sha256": "7fce3737fbc96a2d3cf8bae79ba39505e2c4bbc71444e93714d60ddf70fe1809",
+        "bytes": 766464,
+        "rows": 366
+      },
+      {
+        "member": "dlf_forecasted_for_2014/DLF forecasted for 2014.xlsx",
+        "title": "DLF forecasted for 2014",
+        "url": "https://www.ercot.com/files/docs/2015/01/05/dlf_forecasted_for_2014.zip",
+        "sourceArchiveSha256": "48fd1d49f4731b5679176094ca6d959bdb90ce95b42f5196d0cf8585d8ea6dd3",
+        "sha256": "0b52e67dd1514f90e4f75857e0919ad8c5a41efe9bf0dcffc0990b48ce2072e2",
+        "bytes": 4462578,
+        "rows": 6935
+      },
+      {
+        "member": "DLF_forecasted_for_2015/DLF forecasted for 2015.xlsx",
+        "title": "DLF Forecasted for 2015",
+        "url": "https://www.ercot.com/files/docs/2016/03/09/DLF_forecasted_for_2015.zip",
+        "sourceArchiveSha256": "6cd4d3fa2b7c5e7dd841639d6e50c1c0610d92035cf47b69f5a17c4a77f50153",
+        "sha256": "e7f3912bcbfbc5a24e07f566fa1c344559d15ad074af6d85063b7ccbe2f59e02",
+        "bytes": 4327460,
+        "rows": 6935
+      }
+    ]
+  },
+  "limitations": [
+    "Year and sheet labels do not guarantee full-year coverage. Actual distribution history first appears in December 2006; per-file ranges are in the CSV manifest.",
+    "2003 DST sheet contains trailing orphan loss-code labels without dates or values; these are not observations.",
+    "2013 actual TLF workbook has a 100-interval row beneath a 96-interval header. All 100 values and its true trailing timestamp are retained; interval labels are None for that row.",
+    "2014 forecast DLF DST records use DISTLOSSFACT recorder IDs and an unlabeled numeric secondary identifier; no TDSP or loss code is inferred from that identifier.",
+    "Early distribution workbooks have no actual/forecast label internally: index metadata supplies it during live queries, otherwise kind is None.",
+    "Source timestamps have no inferred timezone and do not prove public availability; repeated clock columns and blank values remain distinct."
+  ]
+}
