@@ -9,6 +9,7 @@ from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 from decimal import Decimal
 from fnmatch import fnmatchcase
+from functools import lru_cache
 from io import BytesIO, TextIOWrapper
 from itertools import chain, islice
 from time import strptime
@@ -117,6 +118,11 @@ class Archive(Generic[T]):
 
         A mismatched schema raises instead of silently dropping historical data.
         """
+
+        @lru_cache(maxsize=128)
+        def parse_date(value: str, format: str) -> date:
+            return date(*strptime(value, format)[:3])
+
         found = False
         for filename, content in _csv_files(data, self._member):
             found = True
@@ -155,7 +161,7 @@ class Archive(Generic[T]):
                             raise ValueError("CSV row has the wrong number of cells")
                         value = value.strip()
                         converted[target] = (
-                            date(*strptime(value, self._dates[target])[:3])
+                            parse_date(value, self._dates[target])
                             if value and target in self._dates
                             else value or None
                         )

@@ -8,8 +8,9 @@ from zipfile import ZipFile
 
 import httpx
 import pytest
+from pydantic import BaseModel
 
-from tinyercot import Client
+from tinyercot import Archive, Client
 
 INPUTS = Path(__file__).resolve().parents[1] / "tools" / "inputs" / "history"
 
@@ -19,6 +20,27 @@ def zipped(name, data):
     with ZipFile(output, "w") as archive:
         archive.writestr(name, data)
     return output.getvalue()
+
+
+def test_repeated_dates_keep_field_formats_and_invalid_row_context():
+    class Dates(BaseModel):
+        us: date
+        eu: date
+
+    with Client() as client:
+        reader = Archive(
+            client,
+            "dates",
+            Dates,
+            {"US": "us", "EU": "eu"},
+            {"us": "%m/%d/%Y", "eu": "%d/%m/%Y"},
+        )
+        data = b"US,EU\n01/02/2024,01/02/2024\n01/02/2024,01/02/2024\n"
+        rows = list(reader.read(zipped("report.csv", data)))
+        assert rows == [Dates(us=date(2024, 1, 2), eu=date(2024, 2, 1))] * 2
+        invalid = b"US,EU\n01/02/2024,01/02/2024\nnot-a-date,01/02/2024\n"
+        with pytest.raises(ValueError, match=r"report.csv:3:"):
+            list(reader.read(zipped("report.csv", invalid)))
 
 
 @pytest.mark.parametrize(

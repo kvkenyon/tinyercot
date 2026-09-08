@@ -3956,5 +3956,49 @@
         }
       ]
     }
+  },
+  "dateParsingBenchmark": {
+    "scope": "Local paired CSV-reader benchmark of the same captured 26,736-row DAM report; 10 runs per variant in alternating order, with a full typed-row serialization digest comparison. Network time excluded; not a universal speedup claim.",
+    "rows": 26736,
+    "seconds": {
+      "before": [
+        0.32261935000133235,
+        0.30964967400359455,
+        0.310778016995755,
+        0.30941072999848984,
+        0.3093402749946108,
+        0.3085634910094086,
+        0.30751861399039626,
+        0.3087330909911543,
+        0.30986054199456703,
+        0.31206939899129793
+      ],
+      "after": [
+        0.12877639100770466,
+        0.12803452600201126,
+        0.1285569530009525,
+        0.129109490007977,
+        0.12776305100123864,
+        0.13109975900442805,
+        0.1271814570063725,
+        0.12504749599611387,
+        0.12519647700537462,
+        0.12780216899409425
+      ]
+    },
+    "medianSeconds": {
+      "before": 0.3095302020010422,
+      "after": 0.12791834749805275
+    },
+    "speedup": 2.4197482851766363,
+    "typedRowsSha256": "199f8874d238afbb16d443ab047aac48cc95bd2ae8372e7703a4f83140ac2e60",
+    "sourceSha256": "439316b6e7de3043a6db23d771825213bf58cbde3eccfa0f6a78e8218c16565d",
+    "baselineReaderSha256": "269558276f48c531998f97240d9cd20b3bea29bb3c1c1052a11fe2f05cb9f45c",
+    "optimizedReaderSha256": "9ff9e1243e35ca6a65f4e990bdd8d3e0568043f4590c101b67e8d32d69cf499e",
+    "pythonVersion": "3.13.15",
+    "bundleDocId": -1257192853,
+    "originalMember": "1257192853.cdr.00012331.0000000000000000.20260801.123250.DAMSPNP4190_csv.zip",
+    "cacheEntries": 128,
+    "cacheLifetime": "One Archive.read invocation; keys include date text and declared format"
   }
 }
