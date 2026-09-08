@@ -103,6 +103,12 @@ from current reliability-deployment adders. For example,
 alongside `RTRDPA`; absent source columns are `None`. The older SCED lambda report
 has `systemLambda`, while newer files have `cappedSystemLambda` and
 `uncappedSystemLambda`. Reading an older file does not invent capped values.
+Intermediate price-adder files also preserve `RTORDPA`, `RTRUCCST30HSL`,
+`RTOLLASL`, `RTOLHASL`, `RTNCLRNSCAP` and `RTNCLRECRS` as separate decimals.
+Four [original publications](../tools/inputs/history/adder-intermediate-originals.zip)
+cover the 29–34-column layouts in regression tests, with all 128 source values
+compared. [Source metadata](../tools/inputs/history/adder-intermediate-evidence.json)
+records their URLs and hashes. `RTORDPA` is not relabeled as `RTRDPA`.
 The same `_history` workflow covers RTD indicative adders, state-estimator total
 generation and DC-tie flows, HDL/LDL summaries, and SCED shadow prices. Publication
 bounds select archive files; typed predicates can select timestamps, ties, or
