@@ -15,14 +15,21 @@ import httpx
 from pydantic import BaseModel, ConfigDict
 
 from ._load import _sheets
+from ._reliability_forecast import ReliabilityLoadForecast, read_reliability
 
 INDEX_URL = "https://www.ercot.com/gridinfo/load/forecast/index.html"
-ForecastKind = Literal["monthly", "weekly-p90", "weather-year-peaks", "seasonal-peaks"]
+ForecastKind = Literal[
+    "monthly",
+    "weekly-p90",
+    "weather-year-peaks",
+    "seasonal-peaks",
+    "winter-reliability",
+]
 ForecastScenario = Literal["ERCOT Adjusted", "TSP Provided"]
 
 
 class LoadForecastArchive(BaseModel):
-    """A directly linked summary; its section identifies the published vintage."""
+    """A directly linked forecast; its section identifies the published vintage."""
 
     kind: ForecastKind
     title: str
@@ -102,7 +109,7 @@ class _Links(HTMLParser):
         self.files: dict[str, LoadForecastArchive] = {}
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        if tag == "h3":
+        if tag in ("h2", "h3"):
             self.heading, self.section = True, ""
         if tag == "a":
             self.href, self.title = dict(attrs).get("href"), ""
@@ -114,7 +121,7 @@ class _Links(HTMLParser):
             self.title += data
 
     def handle_endtag(self, tag: str) -> None:
-        if tag == "h3":
+        if tag in ("h2", "h3"):
             self.heading = False
         if tag != "a" or self.href is None:
             return
@@ -133,6 +140,10 @@ class _Links(HTMLParser):
             kind = "weather-year-peaks"
         elif title == "Summer and Winter Peaks":
             kind = "seasonal-peaks"
+        elif re.fullmatch(
+            r"ERCOT Adjusted Load Forecast Winter \d{4}-\d{4} for RS Magnitude", title
+        ):
+            kind = "winter-reliability"
         else:
             return
         if parts.path.endswith(".xlsx"):
@@ -142,11 +153,11 @@ class _Links(HTMLParser):
 
 
 class LoadForecast:
-    """Discover and query public planning summaries without API credentials.
+    """Discover and query public planning files without API credentials.
 
     XLSX decoding uses tinyercot[files]. Each query takes one archive to keep
-    published vintages distinct. Hourly forecasts and model-error reports have
-    separate layouts and are not decoded by these summary readers.
+    published vintages distinct. The winter reliability workbook has its own
+    reader; other hourly forecasts and model-error reports have separate layouts.
     """
 
     def __init__(self, client: httpx.Client) -> None:
@@ -167,6 +178,20 @@ class LoadForecast:
         response = self._http.get(archive.url, follow_redirects=True)
         response.raise_for_status()
         return response.content
+
+    def reliability(self, archive: LoadForecastArchive) -> ReliabilityLoadForecast:
+        """Read a winter reliability workbook, including all hours, peaks and notes."""
+        if archive.kind != "winter-reliability":
+            raise ValueError("Select a winter reliability forecast archive")
+        return self.read_reliability(
+            self.download(archive), filename=_filename(archive)
+        )
+
+    def read_reliability(
+        self, data: bytes, *, filename: str = "workbook"
+    ) -> ReliabilityLoadForecast:
+        """Decode a saved workbook; query its typed hours by operatingDay/operator."""
+        return read_reliability(data, filename=filename)
 
     def monthly(self, archive: LoadForecastArchive) -> Iterator[MonthlyLoadForecast]:
         """Read monthly source labels and values, including unlabelled quantities."""

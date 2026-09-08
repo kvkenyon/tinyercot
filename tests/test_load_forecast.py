@@ -146,10 +146,12 @@ def test_discovery_and_all_queries_are_anonymous():
     ):
         forecasts = client.load_forecast
         archives = forecasts.archives()
-        assert len(archives) == 4 and len({a.url for a in archives}) == 4
+        assert len(archives) == 5 and len({a.url for a in archives}) == 5
         assert all("2025" in a.section for a in archives)
         assert len(forecasts.archives(kind="monthly")) == 1
         for a in archives:
+            if a.kind == "winter-reliability":
+                continue  # exercised by test_reliability_forecast.py
             method = (
                 "monthly"
                 if a.kind == "monthly"

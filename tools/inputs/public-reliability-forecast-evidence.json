@@ -1,0 +1,14 @@
+{
+  "url": "https://www.ercot.com/files/docs/2025/10/06/ERCOT-Adjusted-Load-Forecast-Winter-2025-2026-for-RS-Magnitude-2025.10.07-.xlsx",
+  "title": "ERCOT Adjusted Load Forecast Winter 2025-2026 for RS Magnitude",
+  "filename": "ERCOT-Adjusted-Load-Forecast-Winter-2025-2026-for-RS-Magnitude-2025.10.07-.xlsx",
+  "bytes": 807051,
+  "sha256": "241ac9acd5707436793750fc2eb0e0449869a97eae7dfec3532f1e3d5aba6ece",
+  "hours": 2160,
+  "peaks": 1,
+  "operatorsPerRow": 21,
+  "notes": 7,
+  "quantityCells": 49704,
+  "nonemptyCellsAccountedFor": 60567,
+  "verification": "Every original cached quantity, date/hour/component and operator label compared; all nonempty source cells accounted for as records, notes or column headings."
+}

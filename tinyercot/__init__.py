@@ -30,6 +30,11 @@ from ._profiles import ProfileArchive as ProfileArchive
 from ._profiles import ProfileHour as ProfileHour
 from ._profiles import ProfileOutput as ProfileOutput
 from ._profiles import ProfileSeries as ProfileSeries
+from ._reliability_forecast import ReliabilityForecastHour as ReliabilityForecastHour
+from ._reliability_forecast import ReliabilityForecastNote as ReliabilityForecastNote
+from ._reliability_forecast import ReliabilityForecastPeak as ReliabilityForecastPeak
+from ._reliability_forecast import ReliabilityLoadForecast as ReliabilityLoadForecast
+from ._reliability_forecast import TransmissionOperatorLoad as TransmissionOperatorLoad
 from ._wind import WindArchive as WindArchive
 from ._wind import WindDailyValues as WindDailyValues
 from ._xlsx import WorkbookArchive as WorkbookArchive
