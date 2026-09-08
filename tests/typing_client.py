@@ -914,3 +914,23 @@ with Client() as client:
     assert_type(monthly_error.value, Decimal | None)
     assert_type(monthly_error.percent, Decimal | None)
     assert_type(monthly_error.kind, Literal["forecast", "backcast", "target"])
+
+
+with Client() as client:
+    public_prices = client.dashboards.day_ahead_prices(date(2026, 9, 3))
+    assert_type(public_prices.operatingDay, date)
+    assert_type(public_prices.lastUpdated, datetime)
+    assert_type(public_prices.data[0].periodEnding, str)
+    assert_type(public_prices.data[0].values["HB_HOUSTON"], Decimal)
+    assert_type(
+        client.dashboards.real_time_prices().data[0].values["LZ_NORTH"], Decimal
+    )
+    assert_type(
+        client.dashboards.day_ahead_ancillary_prices().data[0].values["ECRS"], Decimal
+    )
+    assert_type(
+        client.dashboards.actual_forecast_zone_load().data[0].values["HOUSTON"], Decimal
+    )
+    assert_type(
+        client.dashboards.actual_weather_zone_load().data[0].values["COAST"], Decimal
+    )

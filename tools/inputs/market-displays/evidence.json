@@ -1,0 +1,278 @@
+{
+  "checked": "2026-09-08",
+  "decoderSha256": "b144085e35b25ce88b140361248bcd6bb7ef8e4dcb0a1657956079908dde6df8",
+  "liveComparisons": [
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20260903_dam_mcpc.html",
+      "rows": 24,
+      "numericValues": 120,
+      "operatingDay": "2026-09-03",
+      "all_source_values_equal": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20260903_dam_spp.html",
+      "rows": 24,
+      "numericValues": 360,
+      "operatingDay": "2026-09-03",
+      "all_source_values_equal": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20260903_real_time_spp.html",
+      "rows": 96,
+      "numericValues": 1440,
+      "operatingDay": "2026-09-03",
+      "all_source_values_equal": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20260903_actual_loads_of_forecast_zones.html",
+      "rows": 24,
+      "numericValues": 120,
+      "operatingDay": "2026-09-03",
+      "all_source_values_equal": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20260903_actual_loads_of_weather_zones.html",
+      "rows": 24,
+      "numericValues": 216,
+      "operatingDay": "2026-09-03",
+      "all_source_values_equal": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20251102_dam_mcpc.html",
+      "wrong_day_without_table_rejected": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20251102_dam_spp.html",
+      "wrong_day_without_table_rejected": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20251102_real_time_spp.html",
+      "rows": 100,
+      "numericValues": 1500,
+      "operatingDay": "2025-11-02",
+      "all_source_values_equal": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20251102_actual_loads_of_forecast_zones.html",
+      "rows": 25,
+      "numericValues": 125,
+      "operatingDay": "2025-11-02",
+      "all_source_values_equal": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20251102_actual_loads_of_weather_zones.html",
+      "rows": 25,
+      "numericValues": 225,
+      "operatingDay": "2025-11-02",
+      "all_source_values_equal": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20260308_dam_mcpc.html",
+      "rows": 23,
+      "numericValues": 115,
+      "operatingDay": "2026-03-08",
+      "all_source_values_equal": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20260308_dam_spp.html",
+      "rows": 23,
+      "numericValues": 345,
+      "operatingDay": "2026-03-08",
+      "all_source_values_equal": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20260308_real_time_spp.html",
+      "rows": 92,
+      "numericValues": 1380,
+      "operatingDay": "2026-03-08",
+      "all_source_values_equal": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20260308_actual_loads_of_forecast_zones.html",
+      "rows": 23,
+      "numericValues": 115,
+      "operatingDay": "2026-03-08",
+      "all_source_values_equal": true
+    },
+    {
+      "url": "https://www.ercot.com/content/cdr/html/20260308_actual_loads_of_weather_zones.html",
+      "rows": 23,
+      "numericValues": 207,
+      "operatingDay": "2026-03-08",
+      "all_source_values_equal": true
+    }
+  ],
+  "olderDateProbes": [
+    {
+      "name": "20101201_dam_mcpc",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20101201_dam_spp",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20101201_real_time_spp",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20101201_actual_loads_of_forecast_zones",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20101201_actual_loads_of_weather_zones",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20140501_dam_mcpc",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20140501_dam_spp",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20140501_real_time_spp",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20140501_actual_loads_of_forecast_zones",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20140501_actual_loads_of_weather_zones",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20200101_dam_mcpc",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20200101_dam_spp",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20200101_real_time_spp",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20200101_actual_loads_of_forecast_zones",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20200101_actual_loads_of_weather_zones",
+      "status": 404,
+      "bytes": 62,
+      "operating_day": []
+    },
+    {
+      "name": "20251102_dam_mcpc",
+      "status": 200,
+      "bytes": 4533,
+      "operating_day": [
+        "11/03/2025"
+      ]
+    },
+    {
+      "name": "20251102_dam_spp",
+      "status": 200,
+      "bytes": 4522,
+      "operating_day": [
+        "11/03/2025"
+      ]
+    },
+    {
+      "name": "20251102_real_time_spp",
+      "status": 200,
+      "bytes": 79966,
+      "operating_day": [
+        "11/02/2025"
+      ]
+    },
+    {
+      "name": "20251102_actual_loads_of_forecast_zones",
+      "status": 200,
+      "bytes": 13858,
+      "operating_day": [
+        "11/02/2025"
+      ]
+    },
+    {
+      "name": "20251102_actual_loads_of_weather_zones",
+      "status": 200,
+      "bytes": 18717,
+      "operating_day": [
+        "11/02/2025"
+      ]
+    },
+    {
+      "name": "20260308_dam_mcpc",
+      "status": 200,
+      "bytes": 11883,
+      "operating_day": [
+        "03/08/2026"
+      ]
+    },
+    {
+      "name": "20260308_dam_spp",
+      "status": 200,
+      "bytes": 22411,
+      "operating_day": [
+        "03/08/2026"
+      ]
+    },
+    {
+      "name": "20260308_real_time_spp",
+      "status": 200,
+      "bytes": 74350,
+      "operating_day": [
+        "03/08/2026"
+      ]
+    },
+    {
+      "name": "20260308_actual_loads_of_forecast_zones",
+      "status": 200,
+      "bytes": 13144,
+      "operating_day": [
+        "03/08/2026"
+      ]
+    },
+    {
+      "name": "20260308_actual_loads_of_weather_zones",
+      "status": 200,
+      "bytes": 17628,
+      "operating_day": [
+        "03/08/2026"
+      ]
+    }
+  ],
+  "fullRetentionVerified": false
+}

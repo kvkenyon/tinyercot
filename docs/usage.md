@@ -986,6 +986,43 @@ and `LMP`. The interval prices include reliability deployment adders, exposed by
 remain naive; no absolute interval timestamp is inferred from a minute offset.
 For the longer historical record, use `np6_970_cd.rtd_lmp_node_zone_hub_history`.
 
+Five public market displays also accept an optional `operating_day`. They require
+no credentials and expose typed series names with exact decimal values:
+
+```python
+from datetime import date
+
+with Client() as ercot:
+    prices = ercot.dashboards.real_time_prices(date(2026, 9, 3))
+    for row in prices.data:
+        print(row.operatingDay, row.periodEnding, row.values["HB_HOUSTON"])
+
+    ancillary = ercot.dashboards.day_ahead_ancillary_prices()
+    print(ancillary.data[0].values["ECRS"])
+```
+
+Use `day_ahead_prices()` for hourly hub/load-zone settlement prices,
+`day_ahead_ancillary_prices()` for the five DAM ancillary-service prices,
+and `actual_forecast_zone_load()` or `actual_weather_zone_load()` for hourly
+load by region, including the separately published `TOTAL`. Real-time settlement
+prices include reliability deployment adders. These are separate from SCED LMPs.
+Omitting the date reads the current display, which can show tomorrow's DAM day.
+
+`MarketDisplay` contains the source `operatingDay`, naive `lastUpdated`,
+`periodType` (`"Hour Ending"` or `"Interval Ending"`) and `data`. Each row keeps
+its literal `periodEnding` label, including leading zeroes, `2400` and repeated
+hour markers such as `0100*` or `0200 *`. No UTC offset or repeat-hour flag is
+inferred, and repeated rows remain separate. `values` is a dictionary whose keys
+are typed literals for that display's published hubs, zones or ancillary services.
+
+Dated URLs can retain data beyond the five-day menu: November 2, 2025 real-time
+prices and actual loads were verified, including the fall-back hour. Retention
+is not guaranteed or continuously verified. Some historical DAM URLs return
+HTTP 200 with no market table or the wrong operating day; the client raises
+`ValueError` rather than returning misleading empty data. A recognized empty
+load table at midnight returns an empty list. Unretained URLs retain their HTTP
+error. Use the generated `_history` readers for the broader archive record.
+
 Detailed field mappings, historical layout changes and source limitations are
 recorded in [data coverage](data-coverage.md).
 

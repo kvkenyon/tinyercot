@@ -1,0 +1,138 @@
+{
+  "captured": "2026-09-08",
+  "sources": [
+    {
+      "file": "20251102_actual_loads_of_forecast_zones.html",
+      "url": "https://www.ercot.com/content/cdr/html/20251102_actual_loads_of_forecast_zones.html",
+      "sha256": "30268d4f33ad016319001f577fff22525303c6cdf9831059a3598ed2d8249a48",
+      "bytes": 13858
+    },
+    {
+      "file": "20251102_actual_loads_of_weather_zones.html",
+      "url": "https://www.ercot.com/content/cdr/html/20251102_actual_loads_of_weather_zones.html",
+      "sha256": "3cdd68967f8642314daff3bdab3ffde05fdadbdf9df6aac4244182472bc19daa",
+      "bytes": 18717
+    },
+    {
+      "file": "20251102_dam_mcpc.html",
+      "url": "https://www.ercot.com/content/cdr/html/20251102_dam_mcpc.html",
+      "sha256": "9c48308ee52efffa1400241e8de8644db7028771cdc2cfcf11da826caf76f7ca",
+      "bytes": 4533
+    },
+    {
+      "file": "20251102_dam_spp.html",
+      "url": "https://www.ercot.com/content/cdr/html/20251102_dam_spp.html",
+      "sha256": "1052234c12e08392e3e21fd6796f219506fb5293918a93c75f3991ccde3c0a64",
+      "bytes": 4522
+    },
+    {
+      "file": "20251102_real_time_spp.html",
+      "url": "https://www.ercot.com/content/cdr/html/20251102_real_time_spp.html",
+      "sha256": "cb73a2ff2cc9dc297ffc387ff9243dfe1fda90dd5a098ecaeb17009c8da90451",
+      "bytes": 79966
+    },
+    {
+      "file": "20260308_actual_loads_of_forecast_zones.html",
+      "url": "https://www.ercot.com/content/cdr/html/20260308_actual_loads_of_forecast_zones.html",
+      "sha256": "3b6715c71a9f694667951894620a0430b2350de715498ab5eec5ebafa477bfb9",
+      "bytes": 13144
+    },
+    {
+      "file": "20260308_actual_loads_of_weather_zones.html",
+      "url": "https://www.ercot.com/content/cdr/html/20260308_actual_loads_of_weather_zones.html",
+      "sha256": "d7dd1edb142b47ebfb5f1e074a3c7983be0692e297ac8a8ea8d60e38fe90d632",
+      "bytes": 17628
+    },
+    {
+      "file": "20260308_dam_mcpc.html",
+      "url": "https://www.ercot.com/content/cdr/html/20260308_dam_mcpc.html",
+      "sha256": "0585d4d2c9ec9db108540986e48c7ce6f9ad7a699069d831182fcc344e2c0dd0",
+      "bytes": 11883
+    },
+    {
+      "file": "20260308_dam_spp.html",
+      "url": "https://www.ercot.com/content/cdr/html/20260308_dam_spp.html",
+      "sha256": "d2908533a99c7424cde38591e49e661f30a808eb00c3c3415438f7d1749cd927",
+      "bytes": 22411
+    },
+    {
+      "file": "20260308_real_time_spp.html",
+      "url": "https://www.ercot.com/content/cdr/html/20260308_real_time_spp.html",
+      "sha256": "10e78d49659bfb8b898c9c1aafef7fa107110aeebd7757e96feab72c8b55fa84",
+      "bytes": 74350
+    },
+    {
+      "file": "20260809_real_time_spp.html",
+      "url": "https://www.ercot.com/content/cdr/html/20260809_real_time_spp.html",
+      "sha256": "a9b10c97ef48793c7564279a2a60c9523728d1d9aadc20828c5720bd2bd52187",
+      "bytes": 77377
+    },
+    {
+      "file": "20260902_real_time_spp.html",
+      "url": "https://www.ercot.com/content/cdr/html/20260902_real_time_spp.html",
+      "sha256": "623362561c09567a9b80e59c04ce5ac47c4e0de133d054c18100d366d5d78283",
+      "bytes": 77554
+    },
+    {
+      "file": "20260903_actual_loads_of_forecast_zones.html",
+      "url": "https://www.ercot.com/content/cdr/html/20260903_actual_loads_of_forecast_zones.html",
+      "sha256": "b5c91f3fd5d48637c78916c47c6b1862452722c9f05258cef9b21a9e618ff12c",
+      "bytes": 13521
+    },
+    {
+      "file": "20260903_actual_loads_of_weather_zones.html",
+      "url": "https://www.ercot.com/content/cdr/html/20260903_actual_loads_of_weather_zones.html",
+      "sha256": "4185805bb7297e5d0b85882a81a31e374e47b1e3a0c99c43ccf08cc066377909",
+      "bytes": 17241
+    },
+    {
+      "file": "20260903_dam_mcpc.html",
+      "url": "https://www.ercot.com/content/cdr/html/20260903_dam_mcpc.html",
+      "sha256": "f6e278f2b7712e0c53879a70c55b0fe3edd808e604d46805914da5e9fd370211",
+      "bytes": 12197
+    },
+    {
+      "file": "20260903_dam_spp.html",
+      "url": "https://www.ercot.com/content/cdr/html/20260903_dam_spp.html",
+      "sha256": "f3b334ba4351163d3e58fcd605f17a2795de1256e40f32e6d3c44607b001a8d7",
+      "bytes": 23168
+    },
+    {
+      "file": "20260903_real_time_spp.html",
+      "url": "https://www.ercot.com/content/cdr/html/20260903_real_time_spp.html",
+      "sha256": "ae1065301741fe00d3487cf84429fa4ccbe559cb28c7075bc3995ef0a3d3d0ed",
+      "bytes": 77392
+    },
+    {
+      "file": "actual_loads_of_forecast_zones.html",
+      "url": "https://www.ercot.com/content/cdr/html/actual_loads_of_forecast_zones.html",
+      "sha256": "39638270be0c5220e993a9f9fd11253df268fb8bbb5f18693f85e73f96fc25c8",
+      "bytes": 9166
+    },
+    {
+      "file": "actual_loads_of_weather_zones.html",
+      "url": "https://www.ercot.com/content/cdr/html/actual_loads_of_weather_zones.html",
+      "sha256": "c98034b68f3b0890a2d633a4b290830cc93a9c66b3123948632f3d28a7d73b64",
+      "bytes": 11595
+    },
+    {
+      "file": "dam_mcpc.html",
+      "url": "https://www.ercot.com/content/cdr/html/dam_mcpc.html",
+      "sha256": "a9afa3f493e48cc33f163a31547aaf6d8890b974cd58718bb5bec34d8dc30b3d",
+      "bytes": 12202
+    },
+    {
+      "file": "dam_spp.html",
+      "url": "https://www.ercot.com/content/cdr/html/dam_spp.html",
+      "sha256": "73ec0968ef19a6db5f3124d7acfaa3f82aa436f81cfe8615be7955ded9c7c88c",
+      "bytes": 22225
+    },
+    {
+      "file": "real_time_spp.html",
+      "url": "https://www.ercot.com/content/cdr/html/real_time_spp.html",
+      "sha256": "f265df2d58436e452df607640a104ed6f6c805eea85fa0117b7d83d89e78eb72",
+      "bytes": 44392
+    }
+  ],
+  "limits": "Sampled published dates, not continuous retention. Two November DAM responses contain no table and report the wrong operating day; these must raise rather than return an empty success."
+}

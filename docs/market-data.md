@@ -140,6 +140,12 @@ with 45 weather-year predictions per source hour. The
 [scenario workflow](usage.md#hourly-weather-year-load-scenarios) keeps predictions
 and adjustment components separate, with source target dates through 2035.
 
+Anonymous market displays support dated DAM/RT hub/load-zone prices, DAM
+ancillary-service prices, and actual load by forecast or weather zone through
+`client.dashboards`. They preserve source interval labels, including DST markers.
+These public website snapshots supplement the authenticated archive; their
+retention is not a substitute for a complete historical backfill.
+
 ## Current limits
 
 All 242 report queries in the verified Public Reports inventory have typed

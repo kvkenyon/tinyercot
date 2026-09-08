@@ -1529,3 +1529,25 @@ discovery, source metadata, scale handling and blank future values. Charts,
 external chart references, an empty Average label, and two unlabelled diagnostic
 error cells outside the monthly tables are not interpreted as additional
 observations. [Verification receipt](../tools/inputs/monthly-performance/evidence.json).
+
+
+### Anonymous dated market displays
+
+Five HTML routes now have typed `client.dashboards` methods: `dam_spp`,
+`real_time_spp`, `dam_mcpc`, `actual_loads_of_forecast_zones` and
+`actual_loads_of_weather_zones`. Optional operating dates select ERCOT's
+`YYYYMMDD_` URLs. Headers determine the finite typed series keys; values remain
+Decimals, and operating days must agree with both the requested day and the
+page heading. Literal period labels retain leading zeroes and repeated-hour
+markers. No display time is assigned an inferred UTC offset.
+
+Fixtures preserve 23 complete original HTML responses. All table cells are
+compared independently in tests. Live dated comparisons verified 6,268 numeric
+values across 13 nonempty displays plus two DAM responses correctly rejected
+for a different day and missing market table. This includes 100/92 RT intervals
+and 25/23 load hours on fall-back/spring-forward days. DAM spring-forward files
+contain 23 hours. Both November 2025 DAM URLs instead returned an unavailable
+market message for November 3; no coverage is claimed for those missing prices.
+Three older sampled dates (2010-12-01, 2014-05-01, 2020-01-01) returned 404 for
+all five routes. These observations establish neither earliest retention nor
+continuous coverage. See `tools/inputs/market-displays/evidence.json`.

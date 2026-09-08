@@ -4,7 +4,7 @@ import re
 from datetime import date, datetime
 from decimal import Decimal
 from html.parser import HTMLParser
-from typing import Literal, TypeVar, get_args
+from typing import Generic, Literal, TypeVar, get_args
 
 import httpx
 from pydantic import BaseModel, ConfigDict, Field, RootModel, model_validator
@@ -96,9 +96,43 @@ class RtdSnapshot(DashboardModel):
     data: list[RtdRun]
 
 
+DisplaySeries = TypeVar("DisplaySeries", bound=str)
+AncillaryPriceSeries = Literal["NON-SPIN", "REG-DOWN", "REG-UP", "RRS", "ECRS"]
+ForecastLoadSeries = Literal["NORTH", "SOUTH", "WEST", "HOUSTON", "TOTAL"]
+WeatherLoadSeries = Literal[
+    "COAST",
+    "EAST",
+    "FAR_WEST",
+    "NORTH",
+    "NORTH_C",
+    "SOUTHERN",
+    "SOUTH_C",
+    "WEST",
+    "TOTAL",
+]
+
+
+class MarketDisplayRow(DashboardModel, Generic[DisplaySeries]):
+    """One source period; literal ending labels retain repeated-hour markers."""
+
+    operatingDay: date
+    periodEnding: str
+    values: dict[DisplaySeries, Decimal]
+
+
+class MarketDisplay(DashboardModel, Generic[DisplaySeries]):
+    """Published table, without inferred time zone or repeated-hour flags."""
+
+    operatingDay: date
+    lastUpdated: datetime
+    periodType: Literal["Hour Ending", "Interval Ending"]
+    data: list[MarketDisplayRow[DisplaySeries]]
+
+
 class _DisplayTable(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
+        self.operating_day: date | None = None
         self.values: dict[str, str | datetime] = {}
         self.cells: list[str] = []
         self.rows: list[list[str]] = []
@@ -106,13 +140,17 @@ class _DisplayTable(HTMLParser):
         self.text = ""
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == "input" and dict(attrs).get("id") == "currentDate":
+            self.operating_day = datetime.strptime(  # noqa: DTZ007
+                dict(attrs).get("value") or "", "%m/%d/%Y"
+            ).date()
         if tag == "tr":
             self.cells = []
         if tag == "br" and self.tag:
             self.text += " "
         classes = (dict(attrs).get("class") or "").split()
         if (
-            tag == "td"
+            tag in ("td", "th")
             or (tag == "div" and "schedTime" in classes)
             or (tag == "option" and "selected" in dict(attrs))
         ):
@@ -125,7 +163,7 @@ class _DisplayTable(HTMLParser):
     def handle_endtag(self, tag: str) -> None:
         if tag == self.tag:
             text = " ".join(self.text.split())
-            if tag == "td":
+            if tag in ("td", "th"):
                 self.cells.append(text)
             elif tag == "option":
                 self.values["settlementPoint"] = text
@@ -133,11 +171,15 @@ class _DisplayTable(HTMLParser):
                 label, timestamp = text.split(": ", 1)
                 key = {
                     "Last Updated": "lastUpdated",
+                    "Last Date and Time": "lastUpdated",
                     "Last SCED Date and Time": "lastSCEDTimestamp",
                 }[label]
                 # The public display supplies no UTC offset, including at DST folds.
                 self.values[key] = datetime.strptime(  # noqa: DTZ007
-                    timestamp, "%b %d, %Y %H:%M:%S"
+                    timestamp,
+                    "%b %d, %Y %H:%M:%S"
+                    if timestamp.count(":") == 2
+                    else "%b %d, %Y %H:%M",
                 )
             self.tag = None
         if tag == "tr" and self.cells:
@@ -702,6 +744,109 @@ class Dashboards:
                 )
             )
         return RtdSnapshot.model_validate({**parser.values, "data": runs})
+
+    def _market_display(
+        self,
+        name: str,
+        operating_day: date | None,
+        model: type[MarketDisplay[DisplaySeries]],
+        series: tuple[str, ...],
+        period: Literal["Hour Ending", "Interval Ending"],
+    ) -> MarketDisplay[DisplaySeries]:
+        prefix = f"{operating_day:%Y%m%d}_" if operating_day is not None else ""
+        parser = self._html(prefix + name)
+        if operating_day is not None and parser.operating_day != operating_day:
+            raise ValueError("The display does not match the requested operating day")
+        if not parser.rows:
+            raise ValueError("No published market table in the public display")
+        headers, *rows = parser.rows
+        if (
+            headers[:2] != ["Oper Day", period]
+            or len(headers[2:]) != len(series)
+            or set(headers[2:]) != set(series)
+        ):
+            raise ValueError("Unrecognized market display columns")
+        data = []
+        for cells in rows:
+            values = dict(zip(headers, cells, strict=True))
+            day = datetime.strptime(values.pop("Oper Day"), "%m/%d/%Y").date()  # noqa: DTZ007
+            if day != parser.operating_day:
+                raise ValueError("Row operating day differs from the display heading")
+            data.append(
+                {
+                    "operatingDay": day,
+                    "periodEnding": values.pop(period),
+                    "values": values,
+                }
+            )
+        return model.model_validate(
+            {
+                "operatingDay": parser.operating_day,
+                "lastUpdated": parser.values.get("lastUpdated"),
+                "periodType": period,
+                "data": data,
+            }
+        )
+
+    def day_ahead_prices(
+        self, operating_day: date | None = None
+    ) -> MarketDisplay[HubOrLoadZone]:
+        """Hourly hub/load-zone settlement prices from the anonymous DAM display."""
+        return self._market_display(
+            "dam_spp",
+            operating_day,
+            MarketDisplay[HubOrLoadZone],
+            get_args(HubOrLoadZone),
+            "Hour Ending",
+        )
+
+    def real_time_prices(
+        self, operating_day: date | None = None
+    ) -> MarketDisplay[HubOrLoadZone]:
+        """Settlement interval prices, including reliability deployment price adders."""
+        return self._market_display(
+            "real_time_spp",
+            operating_day,
+            MarketDisplay[HubOrLoadZone],
+            get_args(HubOrLoadZone),
+            "Interval Ending",
+        )
+
+    def day_ahead_ancillary_prices(
+        self, operating_day: date | None = None
+    ) -> MarketDisplay[AncillaryPriceSeries]:
+        """Hourly DAM clearing prices for the five published ancillary services."""
+        return self._market_display(
+            "dam_mcpc",
+            operating_day,
+            MarketDisplay[AncillaryPriceSeries],
+            get_args(AncillaryPriceSeries),
+            "Hour Ending",
+        )
+
+    def actual_forecast_zone_load(
+        self, operating_day: date | None = None
+    ) -> MarketDisplay[ForecastLoadSeries]:
+        """Hourly actual load by forecast zone and the separately published total."""
+        return self._market_display(
+            "actual_loads_of_forecast_zones",
+            operating_day,
+            MarketDisplay[ForecastLoadSeries],
+            get_args(ForecastLoadSeries),
+            "Hour Ending",
+        )
+
+    def actual_weather_zone_load(
+        self, operating_day: date | None = None
+    ) -> MarketDisplay[WeatherLoadSeries]:
+        """Hourly actual load by weather zone and the separately published total."""
+        return self._market_display(
+            "actual_loads_of_weather_zones",
+            operating_day,
+            MarketDisplay[WeatherLoadSeries],
+            get_args(WeatherLoadSeries),
+            "Hour Ending",
+        )
 
     def energy_storage(self) -> EsrSnapshot:
         return self._get("energy-storage-resources", EsrSnapshot)

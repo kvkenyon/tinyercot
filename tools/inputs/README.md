@@ -15,6 +15,8 @@ client offline, without ERCOT credentials or a separately initialized submodule.
   workbooks, their source hashes and complete-table comparison results.
 - `samples/` contains captured report responses, exercised against every generated
   endpoint's typed row model and mocked HTTP retrieval.
+- `market-displays/` keeps complete anonymous dated price/load HTML responses,
+  including DST transitions and unavailable-market responses, with source hashes.
 - `dashboards/` and catalog/archive/bundle samples exercise public dashboard and
   metadata models, pagination and download requests.
 - On the history branch, `history-formats.json` supplies generated reader mappings;
