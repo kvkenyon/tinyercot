@@ -13,6 +13,7 @@ from tinyercot import (
     FuelMixDay,
     FuelMixTotal,
     IdrCompliance,
+    IndicativeOrdcPrice,
     LegacyHourlyLoad,
     LoadArchive,
     LoadProfileAdjustment,
@@ -35,6 +36,18 @@ from tinyercot import (
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    assert_type(client.indicative_ordc.files(), list[PublicFile])
+    assert_type(client.indicative_ordc.read(b""), Iterator[IndicativeOrdcPrice])
+    assert_type(
+        client.indicative_ordc.rows(where=lambda r: r.repeatedHourFlag == "Y"),
+        Iterator[IndicativeOrdcPrice],
+    )
+    indicative_price = next(client.indicative_ordc.rows())
+    assert_type(indicative_price.scedTimestamp, datetime)
+    assert_type(indicative_price.sourceTimestamp, str)
+    assert_type(indicative_price.rtorpa, Decimal | None)
 
 with Client() as client:
     assert_type(client.retail_transactions.files(), list[PublicFile])

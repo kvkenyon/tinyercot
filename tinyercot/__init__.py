@@ -25,6 +25,7 @@ from ._load_profiles import LoadProfileDay as LoadProfileDay
 from ._load_profiles import LoadProfileInterval as LoadProfileInterval
 from ._loss_factors import LossFactorDay as LossFactorDay
 from ._loss_factors import LossFactorInterval as LossFactorInterval
+from ._ordc import IndicativeOrdcPrice as IndicativeOrdcPrice
 from ._pdf import PdfArchive as PdfArchive
 from ._pdf import PdfChartArchive as PdfChartArchive
 from ._public_tables import CrrTimeOfUse as CrrTimeOfUse

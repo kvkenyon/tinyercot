@@ -633,6 +633,28 @@ covering all 30 codes, first/latest months, 28/30/31-day months and every unname
 category. It contains 2,280 records and 68,864 daily counts. No older coverage is
 inferred from the year embedded in the source URL.
 
+## Interim indicative ORDC archive
+
+`Client.indicative_ordc` reads the archive linked under the interim scarcity
+pricing section on [ERCOT's real-time market page](https://www.ercot.com/mktinfo/rtm/index.html).
+The complete original ZIP contains 34 CSVs and 9,826 records, spanning October
+17, 2013 at 00:00:16 through November 19 at 23:55:08, with all 34 calendar dates.
+The page description says November 20, but no record on that date is present.
+All 49,130 numeric fields, timestamps, repeat-hour flags and member identities
+were independently compared with the original CSVs. The entire original ZIP
+is retained as the regression fixture; provenance is in
+`tools/inputs/public-indicative-ordc-evidence.json`.
+
+Every record is explicitly `indicative=True`, separate from the generated
+realized ORDC/settlement histories. ERCOT labels this section as interim pricing
+before June 1, 2014. The fields preserve SYSTEM_LAMBDA, RTOLCAP, RTOFFCAP, RTORPA
+and RTOFFPA as decimals under their source names, without applying adders or
+constructing a combined price. Original timestamp text is retained beside the
+parsed naive timestamp. The source's `00:xx AM` notation maps to midnight;
+9,814 N flags and 12 Y flags remain literal, including the November 3 repeat
+hour. No UTC offset or uniform five-minute sampling is inferred. Nested ZIPs,
+standalone CSVs and typed predicates are supported without optional packages.
+
 ## Historical IDR compliance summaries
 
 `Client.idr_compliance` discovers and reads all seven direct filing archives

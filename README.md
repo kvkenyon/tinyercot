@@ -451,6 +451,31 @@ monthly summaries, including rounded averages. Missing count cells remain
 `None`. No transaction-code business meaning or individual customer activity
 is inferred from these aggregate counts.
 
+### Interim indicative ORDC prices
+
+`indicative_ordc` exposes ERCOT's direct interim ORDC archive without optional
+dependencies. These are indicative results from before ORDC implementation,
+with `indicative=True`; they are separate from realized settlement prices.
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    for row in ercot.indicative_ordc.rows(
+        where=lambda r: r.scedTimestamp.date() == date(2013, 11, 3)
+    ):
+        print(row.scedTimestamp, row.repeatedHourFlag, row.rtorpa, row.rtoffpa)
+```
+
+`files()`, `download(file)` and `read(data, filename=..., where=...)` support
+discovery and saved CSVs/ZIPs. All 9,826 records in the direct archive are typed,
+spanning October 17–November 19, 2013. The page description says November 20;
+the dates above come from the actual files. Original reserve/input abbreviations,
+timestamp text, repeat-hour flags and member names are retained. The source's
+`00:xx AM` clock parses as midnight, with no inferred timezone. Every SCED row
+remains separate; readings are not resampled or combined with settled prices.
+
 ### Historical IDR compliance summaries
 
 `idr_compliance` exposes the public historical market/TDSP summary tables with

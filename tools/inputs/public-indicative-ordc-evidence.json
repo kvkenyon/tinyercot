@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-09-08T09:16:37.584205+00:00",
+  "indexUrl": "https://www.ercot.com/mktinfo/rtm",
+  "files": [
+    {
+      "title": "Indicative Real-Time Reserve ORDC Price Adder",
+      "url": "https://www.ercot.com/files/docs/2018/04/20/Indicative_Real-Time_Reserve_ORDC_Price_Adder__1_.zip"
+    }
+  ],
+  "sourceBytes": 141743,
+  "sha256": "82fe413373a2c854af45c0cc546b30c9c007adad9d0776346f93887f5b0c505f",
+  "comparison": {
+    "records": 9826,
+    "numericFields": 49130,
+    "firstTimestamp": "2013-10-17 00:00:16",
+    "lastTimestamp": "2013-11-19 23:55:08",
+    "dates": 34,
+    "repeatHourFlags": {
+      "N": 9814,
+      "Y": 12
+    },
+    "nonzeroFields": {
+      "SYSTEM_LAMBDA": 9804,
+      "RTOLCAP": 9826,
+      "RTOFFCAP": 9826,
+      "RTORPA": 4292,
+      "RTOFFPA": 2540
+    },
+    "scope": "Every original timestamp, repeat-hour flag, numeric field and member identity independently compared in tests/test_indicative_ordc.py; manual clock conversion for expected dates does not use SDK parsing helpers."
+  },
+  "fixture": {
+    "path": "tools/inputs/public-tables/indicative-ordc.zip",
+    "selection": "Entire original ZIP, byte-for-byte, including all 34 CSVs."
+  },
+  "decoderSha256": "2e85e74acb859a670b3cc9f5bba87bdeec55690f8930a26f96a516c01c7d9d3f",
+  "limitations": [
+    "Interim indicative results before June 1, 2014; not realized settlement prices.",
+    "The page description ends November 20 but actual files end November 19, 2013.",
+    "Original 00:xx AM timestamp text and repeat-hour flags retained; no inferred timezone or resampling."
+  ]
+}

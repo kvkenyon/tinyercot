@@ -98,7 +98,7 @@ class _PublicTable(ABC, Generic[T]):
         filename: str = "workbook",
         where: Callable[[T], bool] | None = None,
     ) -> Iterator[T]:
-        """Read saved workbooks or ZIPs, keeping overlapping files distinct."""
+        """Read saved source files or ZIPs, keeping overlapping files distinct."""
         for record in self._read(data, filename):
             if where is None or where(record):
                 yield record
