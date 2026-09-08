@@ -20,6 +20,7 @@ from ._dashboards import Dashboards
 from ._fuel_mix import FuelMix
 from ._load import HourlyLoad
 from ._load_profiles import LoadProfiles
+from ._weather import HistoricalWeather
 from ._zonal_generation import ZonalGeneration
 
 T = TypeVar("T", bound=BaseModel)
@@ -346,6 +347,10 @@ class Transport:
     @property
     def load_profiles(self) -> LoadProfiles:
         return LoadProfiles(self._http)
+
+    @property
+    def historical_weather(self) -> HistoricalWeather:
+        return HistoricalWeather(self._http)
 
     @property
     def hourly_load(self) -> HourlyLoad:

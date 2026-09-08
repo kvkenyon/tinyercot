@@ -20,12 +20,29 @@ from tinyercot import (
     Page,
     Publication,
     ScheduledGeneration,
+    WeatherDay,
+    WeatherVariable,
+    WeatherZone,
     WeatherZoneLoad,
     np3_561_cd,
     np3_966_er,
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    assert_type(client.historical_weather.download(), bytes)
+    assert_type(
+        client.historical_weather.rows(weather_zone="COAST", variable="DRYBULB TEMP"),
+        Iterator[WeatherDay],
+    )
+    assert_type(client.historical_weather.read(b""), Iterator[WeatherDay])
+    weather_day = next(client.historical_weather.rows())
+    assert_type(weather_day.operatingDay, date)
+    assert_type(weather_day.weatherZone, WeatherZone)
+    assert_type(weather_day.variable, WeatherVariable)
+    assert_type(weather_day.hours[0].value, Decimal | None)
+    assert_type(weather_day.sourceUnit, str | None)
 
 with Client() as client:
     assert_type(

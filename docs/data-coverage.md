@@ -543,6 +543,30 @@ including repeated dimension combinations with distinct counts. Blank trailing
 rows are skipped; counts are neither aggregated nor filled. Source comparisons
 and an eleven-workbook fixture are recorded in the load-profile evidence file.
 
+## Historical zonal weather
+
+`Client.historical_weather.rows()` and `read()` cover all eight zonal workbooks in
+[ERCOT's historical weather ZIP](https://www.ercot.com/files/docs/2002/12/11/weather1996_2000.zip).
+Each contains four worksheets: CLOUDCOVER, WINDSPEED, DEWPOINT and DRYBULB TEMP.
+The source notes describe a weighted combination of weather stations. The public
+index labels the archive 1996–2000 and says additional weather data is unavailable
+under contractual limitations; the actual workbooks extend through January 10,
+2001. Bounds use those actual dates.
+
+Independent comparison covers every source cell: 58,784 variable/day records and
+1,410,816 hourly values across 32 worksheets. Each zone/variable has 1,837
+consecutive dates from January 1, 1996 to January 10, 2001, with 24 numeric cells
+per date. Dates, zone identities, variable names, hour-column numbers and source
+notes were also compared. A compact fixture retains six dates from all 32 sheets,
+including leap day, both DST transition dates and the final January 2001 date.
+Source hashes and comparison scope are in `tools/inputs/public-weather-evidence.json`.
+
+The workbooks do not state measurement units; `sourceUnit` stays `None`, and no
+scale conversion is performed. Hour numbers are the published column numbers,
+without an inferred hour-ending convention, DST flag or UTC offset. The reader
+can retain blank hourly cells as `None`, although none occur in this original
+archive. No newer or continuous present-day weather history is claimed.
+
 ## Historical four-coincident-peak allocations
 
 `Client.coincident_peaks.allocations()` reads the annual allocation tables in

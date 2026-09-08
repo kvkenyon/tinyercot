@@ -355,6 +355,38 @@ label, not proof of public availability. Two malformed date labels remain in
 `sourceDateLabel` with `snapshotDate=None`: unbounded reads include them, while
 date bounds exclude them. Five records retain an unknown weather zone as `None`.
 
+### Historical zonal weather
+
+`historical_weather` reads ERCOT's direct public archive with `tinyercot[files]`:
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    for day in ercot.historical_weather.rows(
+        date_from=date(2000, 7, 1),
+        date_to=date(2000, 7, 2),
+        weather_zone="COAST",
+        variable="DRYBULB TEMP",
+    ):
+        for hour in day.hours:
+            print(day.operatingDay, hour.hour, hour.value, day.sourceUnit)
+```
+
+All eight weather zones and four variables (`CLOUDCOVER`, `WINDSPEED`, `DEWPOINT`,
+`DRYBULB TEMP`) are typed. The source combines stations using weights; it contains
+1,837 days per zone/variable from January 1, 1996 through January 10, 2001, despite
+the archive's “1996–2000” filename. Dates are inclusive; omit filters for all data.
+The workbooks do not state measurement units, so `sourceUnit=None` and values
+retain their original scale. Hour numbers preserve the source's 24 columns
+without assuming an ending time, DST convention or UTC offset.
+
+`download()` returns the original ZIP. `read(data, ...)` accepts saved ZIPs and
+workbooks with the same filters; pass the original `filename` for a standalone
+workbook so its weather zone can be identified. Source notes and member/sheet
+names remain attached to every record.
+
 ### Direct public hourly load archives
 
 Install `tinyercot[files]` for XLS and XLSX support. These files are downloaded

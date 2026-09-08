@@ -24,5 +24,9 @@ from ._load_profiles import LoadProfileDay as LoadProfileDay
 from ._load_profiles import LoadProfileInterval as LoadProfileInterval
 from ._pdf import PdfArchive as PdfArchive
 from ._pdf import PdfChartArchive as PdfChartArchive
+from ._weather import WeatherDay as WeatherDay
+from ._weather import WeatherHour as WeatherHour
+from ._weather import WeatherVariable as WeatherVariable
+from ._weather import WeatherZone as WeatherZone
 from ._xlsx import WorkbookArchive as WorkbookArchive
 from ._zonal_generation import ScheduledGeneration as ScheduledGeneration

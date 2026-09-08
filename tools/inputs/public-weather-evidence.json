@@ -1,0 +1,129 @@
+{
+  "checkedAt": "2026-09-08T08:00:26.411601+00:00",
+  "comparison": {
+    "archiveUrl": "https://www.ercot.com/files/docs/2002/12/11/weather1996_2000.zip",
+    "archiveSha256": "fb3ba4b632043f5239ce3da9e55ac83b9f74804ca56aeb9e50cdede67429afc1",
+    "bytes": 2301804,
+    "dayVariableRows": 58784,
+    "numericCellsCompared": 1410816,
+    "firstDate": "1996-01-01",
+    "lastDate": "2001-01-10",
+    "rowsByZone": {
+      "COAST": 7348,
+      "EAST": 7348,
+      "FWEST": 7348,
+      "NCENT": 7348,
+      "NORTH": 7348,
+      "SCENT": 7348,
+      "SOUTH": 7348,
+      "WEST": 7348
+    },
+    "rowsByVariable": {
+      "CLOUDCOVER": 14696,
+      "WINDSPEED": 14696,
+      "DEWPOINT": 14696,
+      "DRYBULB TEMP": 14696
+    },
+    "daysPerZoneAndVariable": 1837,
+    "sourceDatesConsecutive": true,
+    "sourceUnits": "Not stated in workbook headings or notes; no units inferred.",
+    "scope": "All 32 original worksheets across eight weather zones independently compared by source date, variable, zone, hour-column number, every numeric cell, and source notes. All four variables retain 24 hourly columns per published date, without timezone/DST interpretation."
+  },
+  "fixture": {
+    "path": "weather/historical.zip",
+    "sha256": "405d824d1587411933a3b0d4e1a2e6f97556bfa2e4ed2658bcfe48c9aeaaa74e",
+    "bytes": 18440,
+    "method": "Original introductory notes and hour headers plus six selected dates from all 32 worksheets; cached values, filenames and worksheet names preserved with xlwt. Dates include leap day, both DST transition dates, year end and the final January 2001 date.",
+    "workbooks": [
+      {
+        "member": "Weather '96-'00 Coast.xls",
+        "sourceSha256": "311d1dc0b6ea97fb409078de82d7ee491fad6736836a709c46f7b2d3734138c2",
+        "sheets": [
+          "CLOUDCOVER",
+          "WINDSPEED",
+          "DEWPOINT",
+          "DRYBULB TEMP"
+        ]
+      },
+      {
+        "member": "Weather '96-'00 East.xls",
+        "sourceSha256": "9a9b9be0314c2b277875bfd32b4991718aea0be3911a8483f5fefe1eedf53ae7",
+        "sheets": [
+          "CLOUDCOVER",
+          "DEWPOINT",
+          "DRYBULB TEMP",
+          "WINDSPEED"
+        ]
+      },
+      {
+        "member": "Weather '96-'00 FarWest.xls",
+        "sourceSha256": "6438e5f5001d6ba79b3edeb5e0e98ee2750c6ada308c37c3b1e1271d6b234cdf",
+        "sheets": [
+          "CLOUDCOVER",
+          "DEWPOINT",
+          "WINDSPEED",
+          "DRYBULB TEMP"
+        ]
+      },
+      {
+        "member": "Weather '96-'00 North Central.xls",
+        "sourceSha256": "ca62de0b6c1f5a8996313e5a65222bc8529b7da7345f7add61fb3f2b37577df5",
+        "sheets": [
+          "CLOUDCOVER",
+          "WINDSPEED",
+          "DEWPOINT",
+          "DRYBULB TEMP"
+        ]
+      },
+      {
+        "member": "Weather '96-'00 North.xls",
+        "sourceSha256": "6c37008378e1115bbd3d74f2f6c74532a6e33122647805750caff6c9e7f7ce9c",
+        "sheets": [
+          "CLOUDCOVER",
+          "DEWPOINT",
+          "WINDSPEED",
+          "DRYBULB TEMP"
+        ]
+      },
+      {
+        "member": "Weather '96-'00 South Central.xls",
+        "sourceSha256": "e5f3a15b57a6c157249eeacb2bdc75d5f3093c449a6a45c358750756e5d552ec",
+        "sheets": [
+          "CLOUDCOVER",
+          "WINDSPEED",
+          "DEWPOINT",
+          "DRYBULB TEMP"
+        ]
+      },
+      {
+        "member": "Weather '96-'00 South.xls",
+        "sourceSha256": "1425e8cfbef09f8b454a82b32c7d3e7453dafa5565e2da86d003e359d031d9cf",
+        "sheets": [
+          "CLOUDCOVER",
+          "WINDSPEED",
+          "DEWPOINT",
+          "DRYBULB TEMP"
+        ]
+      },
+      {
+        "member": "Weather '96-'00 West.xls",
+        "sourceSha256": "5739594417e9e0c65b820fc54e64faaf02c2a571e16dc7a552455416507c38d8",
+        "sheets": [
+          "CLOUDCOVER",
+          "WINDSPEED",
+          "DEWPOINT",
+          "DRYBULB TEMP"
+        ]
+      }
+    ],
+    "selectedDates": [
+      "1996-01-01",
+      "1996-02-29",
+      "1996-04-07",
+      "1996-10-27",
+      "2000-12-31",
+      "2001-01-10"
+    ]
+  },
+  "decoderSha256": "d9d2b229ea5dd32ddbdc93a8ca13c2003f8d34dd991eb75c6b73c82a30b703d8"
+}
