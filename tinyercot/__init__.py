@@ -68,3 +68,6 @@ from ._zonal_energy import ZonalEnergyDay as ZonalEnergyDay
 from ._zonal_energy import ZonalEnergyTotal as ZonalEnergyTotal
 from ._zonal_energy import ZonalSourceNumber as ZonalSourceNumber
 from ._zonal_generation import ScheduledGeneration as ScheduledGeneration
+from ._zonal_peaks import SeasonalPeakForecast as SeasonalPeakForecast
+from ._zonal_peaks import WeatherZonePeakValues as WeatherZonePeakValues
+from ._zonal_peaks import WeeklyPeakForecast as WeeklyPeakForecast

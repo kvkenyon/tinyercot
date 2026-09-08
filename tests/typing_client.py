@@ -47,11 +47,14 @@ from tinyercot import (
     PublicFile,
     RetailTransactionMonth,
     ScheduledGeneration,
+    SeasonalPeakForecast,
     TransmissionLossCoefficient,
     WeatherDay,
     WeatherVariable,
     WeatherZone,
     WeatherZoneLoad,
+    WeatherZonePeakValues,
+    WeeklyPeakForecast,
     ZonalEnergyDay,
     ZonalEnergyTotal,
     ZonalSourceNumber,
@@ -797,3 +800,21 @@ def monthly_forecast_typing(client: Client) -> None:
     assert_type(row.energy, Decimal | None)
     assert_type(row.energyUnit, Literal["MWh"] | None)
     assert_type(row.sourceFile, PublicFile | None)
+
+
+def zonal_peak_typing(client: Client) -> None:
+    assert_type(client.seasonal_peak_forecasts.files(), list[PublicFile])
+    assert_type(
+        client.seasonal_peak_forecasts.read(b""), Iterator[SeasonalPeakForecast]
+    )
+    assert_type(client.weekly_peak_forecasts.rows(), Iterator[WeeklyPeakForecast])
+    row = next(
+        client.seasonal_peak_forecasts.rows(where=lambda r: r.kind == "historical")
+    )
+    assert_type(row.peaks, WeatherZonePeakValues)
+    assert_type(row.peaks.northCentral, Decimal | None)
+    assert_type(row.endYear, int | None)
+    assert_type(row.percentile, int | None)
+    weekly = next(client.weekly_peak_forecasts.rows())
+    assert_type(weekly.peakDate, date)
+    assert_type(weekly.peakHour, int)

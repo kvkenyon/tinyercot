@@ -1322,7 +1322,7 @@ record the comparison scope. All 11 unchanged original workbooks (268,611 bytes
 before fixture compression) and captured index pages are retained under
 `tools/inputs/peak-forecasts/` for offline tests and excluded from the wheel.
 Source URLs distinguish identically named files in different publication paths.
-Monthly peak/energy workbooks use the separate reader below. Hourly, seasonal
+Monthly, seasonal and weekly peak workbooks use separate readers below. Hourly
 and performance forecast workbooks remain additional known coverage gaps.
 
 
@@ -1348,3 +1348,33 @@ manifests accompany the 11 unchanged original files (264,087 bytes before fixtur
 compression). Tests reuse the peak-forecast index captures and verify discovery,
 source-file predicates and both readers after their shared discovery refactor.
 These fixtures are excluded from the installed wheel.
+
+
+## Seasonal and weekly weather-zone peak tables
+
+The September 8, 2026 live discovery matched **22 seasonal workbooks and two
+weekly workbooks** in the [public load-forecast indexes](https://www.ercot.com/gridinfo/load/forecast).
+Complete original-source comparisons cover **615 seasonal rows / 5,535 peak
+values**, including 352 forecast and 263 historical rows, plus **263 weekly
+forecast rows / 2,367 peak values**. Values include eight weather zones and the
+independently published total. Counts retain overlapping source publications.
+
+Historical year labels span 2002–2022 across vintages; seasonal target periods
+span 2014–2033. Weekly begin dates span August 18, 2024–August 8, 2027 and their
+end dates extend through August 14, 2027. These are source period labels, not
+publication dates or evidence of uninterrupted unique observations.
+
+Tests address every source date/year/period/hour and zone/total cell using
+recorded table coordinates. They cover regional column reordering, historical
+sections with misleading `Forecast Year` headers, separate gross/net/PV blocks,
+parallel coincident/non-coincident tables, TSP/adjusted scenarios and winter
+periods. Live download-title percentile labels are applied before filtering,
+including the 2022 P90 workbook that omits that label inside the tables; saved
+workbook reads leave such a percentile unknown. Historical rows retain no
+forecast percentile. Original numeric totals and declared units are preserved.
+
+[Evidence and manifests](../tools/inputs/zonal-peaks/evidence.json) accompany
+24 unchanged original workbooks (560,216 bytes before fixture compression).
+Tests reuse the existing forecast-index captures. Fixtures remain outside the
+installed wheel. Hourly forecasts and forecast-performance workbooks remain
+separate implementation gaps.

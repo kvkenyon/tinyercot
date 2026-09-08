@@ -114,7 +114,10 @@ assumptions and TSP/adjusted scenarios separate. See the
 forecasts, not realized hourly demand. `monthly_load_forecasts.rows()` adds
 monthly peak/energy values with source dates, declared units and publication
 metadata; see the [monthly forecast workflow](usage.md#monthly-peak-demand-and-energy-forecasts)
-for the 2025 source date/value ambiguity.
+for the 2025 source date/value ambiguity. Seasonal and weekly weather-zone
+peaks are available through `seasonal_peak_forecasts` and `weekly_peak_forecasts`.
+Their [workflow](usage.md#seasonal-and-weekly-weather-zone-peaks) keeps historical
+sections, coincident/non-coincident peaks and forecast percentiles distinct.
 
 ## Current limits
 

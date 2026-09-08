@@ -35,6 +35,7 @@ from ._retail import RetailTransactions
 from ._weather import HistoricalWeather
 from ._zonal_energy import ZonalEnergy
 from ._zonal_generation import ZonalGeneration
+from ._zonal_peaks import SeasonalPeakForecasts, WeeklyPeakForecasts
 
 T = TypeVar("T", bound=BaseModel)
 Parameter = str | int | float | bool | Decimal | date | datetime | None
@@ -356,6 +357,14 @@ class Transport:
     @property
     def coincident_peaks(self) -> CoincidentPeaks:
         return CoincidentPeaks(self._http)
+
+    @property
+    def seasonal_peak_forecasts(self) -> SeasonalPeakForecasts:
+        return SeasonalPeakForecasts(self._http)
+
+    @property
+    def weekly_peak_forecasts(self) -> WeeklyPeakForecasts:
+        return WeeklyPeakForecasts(self._http)
 
     @property
     def monthly_load_forecasts(self) -> MonthlyLoadForecasts:

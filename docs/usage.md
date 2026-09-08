@@ -1178,8 +1178,9 @@ source column, with no inferred weather year or unit. Source target-year labels
 are preserved even when they differ between tables in one workbook.
 
 This reader covers the peak-demand scenario workbooks. Monthly peak/energy
-forecasts use the reader below. Hourly long-term forecasts, seasonal zonal peaks
-and forecast-performance workbooks remain separate coverage gaps.
+forecasts use the reader below. Seasonal and weekly zonal peaks have their own
+readers. Hourly long-term forecasts and forecast-performance workbooks remain
+separate coverage gaps.
 
 
 ## Monthly peak-demand and energy forecasts
@@ -1216,3 +1217,58 @@ values and is retained. Values are never shifted to align with a neighboring
 table. `sourceRow`, one-based `sourceColumn` and `sourceTitle` locate each pair.
 The 2024 assumption note about large flexible loads and 4CP months is retained
 in `sourceNotes`. These are published planning forecasts, not actual loads.
+
+
+## Seasonal and weekly weather-zone peaks
+
+`seasonal_peak_forecasts` reads forecast and historical peak tables from the
+public seasonal workbooks. The shared `files()`, `download()`, `read()` and
+`rows(where=...)` methods use the optional `files` extra without credentials:
+
+```python
+with Client() as ercot:
+    for peak in ercot.seasonal_peak_forecasts.rows(
+        where=lambda row: (
+            row.kind == "forecast"
+            and row.year == 2026
+            and row.scenario == "ercot_adjusted"
+        )
+    ):
+        print(peak.season, peak.coincident, peak.peaks.coast, peak.peaks.total)
+        print(peak.sourceTitle, peak.sourceFile)
+```
+
+`kind` distinguishes historical sections from forecasts, including old files
+whose historical table still says `Forecast Year`. `year` and optional `endYear`
+retain winter periods such as `2025-2026`; `sourcePeriod` keeps the source label.
+`demandBasis` distinguishes gross, net, rooftop-PV impact and unspecified bases.
+`coincident` and `scenario` preserve explicitly labelled coincidence and
+TSP/adjusted assumptions. Unspecified attributes remain `None` or `unspecified`.
+A historical table that omits its season does not inherit a forecast's season.
+
+`peaks` has concrete fields for the eight weather zones plus `total`. The total
+is the published value; `sourceTotalLabel` distinguishes `Total NCP`, `Total PV`
+and `ERCOT`. These quantities should be interpreted using the table's basis and
+coincidence. Notes, source sheet/row and the one-based year-column position remain
+available. `unit` is `"MW"` only when declared in the table title, otherwise `None`.
+
+`weekly_peak_forecasts` reads the linked weekly P90 workbooks:
+
+```python
+with Client() as ercot:
+    for peak in ercot.weekly_peak_forecasts.rows(
+        where=lambda row: row.peakDate.year == 2026
+    ):
+        print(peak.beginDate, peak.endDate, peak.peakDate, peak.peakHour)
+        print(peak.peaks.northCentral, peak.peaks.total, peak.sourceFile)
+```
+
+Dates are calendar dates; `peakHour` retains the literal `Peak_Hour` number
+without assigning a time zone, DST flag or hour-ending convention. Weekly table
+headings do not declare units, so `unit` is `None`.
+
+Some sources declare a 90th percentile only in the public download title.
+`rows()` applies that label to forecast rows before `where`, preserving it in
+`sourcePercentileLabel`; historical rows never inherit it. `read()` uses only
+workbook contents, so `percentile` stays `None` when the workbook lacks the label.
+No percentile is inferred from a filename or the magnitude of its values.

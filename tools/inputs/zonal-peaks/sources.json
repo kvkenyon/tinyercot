@@ -1,0 +1,848 @@
+[
+  {
+    "url": "https://www.ercot.com/files/docs/2025/02/05/p90_peaks_may.xlsx",
+    "title": "2025 Weekly P90 Peaks",
+    "sha256": "12f93c0b81a44ea185aeac8f27f58fbb7408a6be2a8d06758440a275d87e7cac",
+    "bytes": 20492,
+    "file": "569dc5a8427a-p90_peaks_may.xlsx",
+    "kind": "weekly",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 2,
+        "lastRow": 105,
+        "headerRow": 1
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2025/04/08/Summer-and-Winter-Peaks.xlsx",
+    "title": "Summer and Winter Peaks",
+    "sha256": "34543ad92d7905a85d9edf262fd38e3e7492c52bd08e257778b3645576803369",
+    "bytes": 18193,
+    "file": "d505e9f1ef60-Summer-and-Winter-Peaks.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Summer",
+        "firstRow": 3,
+        "lastRow": 9,
+        "headerRow": 2,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Net Coincident Peak Forecast 2025-2031 TSP Provided Forecast",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Summer",
+        "firstRow": 3,
+        "lastRow": 9,
+        "headerRow": 2,
+        "column": 16,
+        "titleRow": 1,
+        "title": "Summer Net Non-Coincident Peak Forecast 2025-2031 TSP Provided Forecast",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Summer",
+        "firstRow": 16,
+        "lastRow": 22,
+        "headerRow": 15,
+        "column": 1,
+        "titleRow": 14,
+        "title": "Summer Net Coincident Peak Forecast 2025-2031 ERCOT Adjusted Forecast",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Summer",
+        "firstRow": 16,
+        "lastRow": 22,
+        "headerRow": 15,
+        "column": 16,
+        "titleRow": 14,
+        "title": "Summer Net Non-Coincident Peak Forecast 2025-2031 ERCOT Adjusted Forecast",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Winter",
+        "firstRow": 3,
+        "lastRow": 9,
+        "headerRow": 2,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Winter Net Coincident Peak Forecast 2025-2031 TSP Provided Forecast",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Winter",
+        "firstRow": 3,
+        "lastRow": 9,
+        "headerRow": 2,
+        "column": 16,
+        "titleRow": 1,
+        "title": "Winter Net Non-Coincident Peak Forecast 2025-2031 TSP Provided Forecast",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Winter",
+        "firstRow": 16,
+        "lastRow": 22,
+        "headerRow": 15,
+        "column": 1,
+        "titleRow": 14,
+        "title": "Winter Net Coincident Peak Forecast 2025-2031 ERCOT Adjusted Forecast",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Winter",
+        "firstRow": 16,
+        "lastRow": 22,
+        "headerRow": 15,
+        "column": 16,
+        "titleRow": 14,
+        "title": "Winter Net Non-Coincident Peak Forecast 2025-2031 ERCOT Adjusted Forecast",
+        "kind": "forecast",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2014/09/16/summer_ncp_forecast_by_weather_zone_090514.xls",
+    "title": "Weather Zone Non-Coincident Peak Forecast",
+    "sha256": "d6c85293dab5302e864702bf1b51b6a99efd44cbd77e38ee28797b337f20832a",
+    "bytes": 36864,
+    "file": "9f452d580001-summer_ncp_forecast_by_weather_zone_090514.xls",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Weather Zone CP",
+        "firstRow": 4,
+        "lastRow": 14,
+        "headerRow": 3,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Non-Coincident Peak Demand Forecast for 2014 - 2024",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Weather Zone CP",
+        "firstRow": 22,
+        "lastRow": 33,
+        "headerRow": 21,
+        "column": 1,
+        "titleRow": 19,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2014/06/25/90th_percentile_summer_ncp_by_weather_zone_06252014.xls",
+    "title": "90th percentile Summer NCP by weather zone",
+    "sha256": "61a020cc7761d5781b1fd42abf82235da5e87815885b0d826dcf15150fa33182",
+    "bytes": 37376,
+    "file": "ab61680af2ec-90th_percentile_summer_ncp_by_weather_zone_06252014.xls",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 5,
+        "lastRow": 20,
+        "headerRow": 4,
+        "column": 1,
+        "titleRow": 2,
+        "title": "Summer Non-Coincident Peak Demand Forecast for 2014 - 2029",
+        "kind": "forecast",
+        "percentileLabel": "90th percentile"
+      },
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 28,
+        "lastRow": 39,
+        "headerRow": 27,
+        "column": 1,
+        "titleRow": 25,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2016/01/04/summer_ncp_forecast_by_weather_zone_2016.xls",
+    "title": "Weather Zone Non-Coincident Peak Forecast",
+    "sha256": "2547f8fe7c19c57cfad67ac41c87f2b2a27f1f43c785a48b2e4d2999c000e63f",
+    "bytes": 37376,
+    "file": "03b8677ea7e0-summer_ncp_forecast_by_weather_zone_2016.xls",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 4,
+        "lastRow": 13,
+        "headerRow": 3,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Non-Coincident Peak Demand Forecast for 2016 - 2025",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 21,
+        "lastRow": 34,
+        "headerRow": 20,
+        "column": 1,
+        "titleRow": 18,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2016/01/04/90th_percentile_summer_ncp_by_weather_zone_2016.xls",
+    "title": "90th Percentile Summer Non-Coincident Peak by Weather Zone",
+    "sha256": "d860eae1200281c4c16a30dc70cd29eb946bf47a774364e63cb8039d68eda08c",
+    "bytes": 37888,
+    "file": "1061b46362a3-90th_percentile_summer_ncp_by_weather_zone_2016.xls",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 5,
+        "lastRow": 14,
+        "headerRow": 4,
+        "column": 1,
+        "titleRow": 2,
+        "title": "Summer Non-Coincident Peak Demand Forecast for 2016 - 2025",
+        "kind": "forecast",
+        "percentileLabel": "90th percentile"
+      },
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 22,
+        "lastRow": 35,
+        "headerRow": 21,
+        "column": 1,
+        "titleRow": 19,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2016/12/12/90th_percentile_Summer_NCP_by_weather_zone_2017.xls",
+    "title": "90th Percentile Summer Non-Coincident Peak by Weather Zone",
+    "sha256": "1fab09937ca685c78dbf9d265d08b2441972a540d907d0059ce3e31bcc9cfde7",
+    "bytes": 37376,
+    "file": "62956164d403-90th_percentile_Summer_NCP_by_weather_zone_2017.xls",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 5,
+        "lastRow": 14,
+        "headerRow": 4,
+        "column": 1,
+        "titleRow": 2,
+        "title": "Summer Non-Coincident Peak Demand Forecast for 2017 - 2026",
+        "kind": "forecast",
+        "percentileLabel": "90th percentile"
+      },
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 22,
+        "lastRow": 36,
+        "headerRow": 21,
+        "column": 1,
+        "titleRow": 19,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2016/12/12/Summer_NCP_forecast_by_weather_zone_2017.xls",
+    "title": "Weather Zone Non-Coincident Peak Forecast",
+    "sha256": "4e9362ca43a148652535013e0f05065f3e3cada33b4e28e999fa05c400bfaa3e",
+    "bytes": 37376,
+    "file": "47a97d9771dd-Summer_NCP_forecast_by_weather_zone_2017.xls",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 4,
+        "lastRow": 13,
+        "headerRow": 3,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Non-Coincident Peak Demand Forecast for 2017 - 2026",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 21,
+        "lastRow": 35,
+        "headerRow": 20,
+        "column": 1,
+        "titleRow": 18,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2017/12/13/90th_percentile_Summer_NCP_by_weather_zone_2018_2027.xls",
+    "title": "90th Percentile Summer Non-Coincident Peak by Weather Zone",
+    "sha256": "2db8e1ee828acea8c087d9a9210c85fa199bd5ecfcf1bd53198ceaf090f49050",
+    "bytes": 30720,
+    "file": "dacbeb74b38e-90th_percentile_Summer_NCP_by_weather_zone_2018_2027.xls",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 5,
+        "lastRow": 14,
+        "headerRow": 4,
+        "column": 1,
+        "titleRow": 2,
+        "title": "Summer Non-Coincident Peak Demand Forecast for 2018 - 2027",
+        "kind": "forecast",
+        "percentileLabel": "90th percentile"
+      },
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 22,
+        "lastRow": 37,
+        "headerRow": 21,
+        "column": 1,
+        "titleRow": 19,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2017/12/13/Summer_NCP_forecast_by_weather_zone_2018_2027.xls",
+    "title": "Weather Zone Non-Coincident Peak Forecast",
+    "sha256": "9e3d9a117a9868b45031342031b12ba3f80cb0f2af82e8ba8bc2d4bfd20e8d33",
+    "bytes": 37888,
+    "file": "da56e1b49811-Summer_NCP_forecast_by_weather_zone_2018_2027.xls",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 4,
+        "lastRow": 13,
+        "headerRow": 3,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Non-Coincident Peak Demand Forecast for 2018 - 2027",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Weather Zone NCP",
+        "firstRow": 21,
+        "lastRow": 36,
+        "headerRow": 20,
+        "column": 1,
+        "titleRow": 18,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2018/12/11/90th_Percentile_Summer_NCP_by_weather_zone_2019_2028.xlsx",
+    "title": "90th Percentile Summer Non-Coincident Peak by Weather Zone",
+    "sha256": "ece1014d24bc0380850abbdae7b9091368cffeba45422b438eab463b4dec866e",
+    "bytes": 16802,
+    "file": "f9a835b98f03-90th_Percentile_Summer_NCP_by_weather_zone_2019_2028.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 5,
+        "lastRow": 14,
+        "headerRow": 4,
+        "column": 1,
+        "titleRow": 2,
+        "title": "Summer Non-Coincident Peak Demand Forecast for 2019 - 2028",
+        "kind": "forecast",
+        "percentileLabel": "90th percentile"
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 22,
+        "lastRow": 38,
+        "headerRow": 21,
+        "column": 1,
+        "titleRow": 19,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2019/09/10/Summer_NCP_forecast_by_weather_zone_2019_2028.xlsx",
+    "title": "Weather Zone Non-Coincident Peak Forecast",
+    "sha256": "cfc92824d46630488409392b7d31415aa3fcc0d1923711fa5ce02288bef1fd31",
+    "bytes": 13993,
+    "file": "3908ee0aae9e-Summer_NCP_forecast_by_weather_zone_2019_2028.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 13,
+        "headerRow": 3,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Non-Coincident Peak Demand Forecast for 2019 - 2028",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 21,
+        "lastRow": 37,
+        "headerRow": 20,
+        "column": 1,
+        "titleRow": 18,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2019/12/10/90th_Percentile_Summer_NCP_by_weather_zone_2020_2029.xlsx",
+    "title": "90th Percentile Summer Non-Coincident Peak by Weather Zone",
+    "sha256": "c0bd993c1cc38409418ab7d762a30419732afa1216ace5040fb743b6b6e3306d",
+    "bytes": 16154,
+    "file": "a6e117ef4227-90th_Percentile_Summer_NCP_by_weather_zone_2020_2029.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 5,
+        "lastRow": 14,
+        "headerRow": 4,
+        "column": 1,
+        "titleRow": 2,
+        "title": "Summer Non-Coincident Peak Demand Forecast for 2020 - 2029",
+        "kind": "forecast",
+        "percentileLabel": "90th percentile"
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 22,
+        "lastRow": 39,
+        "headerRow": 21,
+        "column": 1,
+        "titleRow": 19,
+        "title": "Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2019/12/10/Summer_NCP_forecast_by_weather_zone_2020_2029.xlsx",
+    "title": "Weather Zone Non-Coincident Peak Forecast",
+    "sha256": "4bddd8ade45ab523285ff3708b9eb9fae37b76fd87a50e523c93f59fe8245311",
+    "bytes": 15533,
+    "file": "1ecb5aa445d3-Summer_NCP_forecast_by_weather_zone_2020_2029.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 13,
+        "headerRow": 3,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Non-Coincident Peak Demand Forecast for 2020-2029",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 21,
+        "lastRow": 38,
+        "headerRow": 20,
+        "column": 1,
+        "titleRow": 18,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2020/12/28/90th_Percentile_Summer_NCP_by_weather_zone_2021_2030.xlsx",
+    "title": "90th Percentile Summer Non-Coincident Peak by Weather Zone",
+    "sha256": "ef3b6b91b3ae98471615f3cd3467418356f15f59a96832ede7315172fa942e36",
+    "bytes": 16539,
+    "file": "61af1eb92cc5-90th_Percentile_Summer_NCP_by_weather_zone_2021_2030.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 5,
+        "lastRow": 14,
+        "headerRow": 4,
+        "column": 1,
+        "titleRow": 2,
+        "title": "Summer Gross Non-Coincident Peak Demand Forecast for 2021 - 2030",
+        "kind": "forecast",
+        "percentileLabel": "90th percentile"
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 22,
+        "lastRow": 40,
+        "headerRow": 21,
+        "column": 1,
+        "titleRow": 19,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2020/12/28/Summer_NCP_forecast_by_weather_zone_2021_2030.xlsx",
+    "title": "Weather Zone Non-Coincident Peak Forecast.",
+    "sha256": "71d70f17fbf796bca432e9001c33a9129b674490fae0d3eeff7b0388ba2256b4",
+    "bytes": 14822,
+    "file": "b180a941a376-Summer_NCP_forecast_by_weather_zone_2021_2030.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 13,
+        "headerRow": 3,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Gross Non-Coincident Peak Demand Forecast for 2021-2030",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 21,
+        "lastRow": 39,
+        "headerRow": 20,
+        "column": 1,
+        "titleRow": 18,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2022/02/24/90th_Percentile_Summer_NCP_by_weather_zone_2022_2031.xlsx",
+    "title": "90th Percentile Summer Non-Coincident Peak by Weather Zone",
+    "sha256": "8d876d9ed2bc7ed5b772ea173a9971858a93ec0d240f3020d1314297278ab108",
+    "bytes": 15946,
+    "file": "743a8aa17b06-90th_Percentile_Summer_NCP_by_weather_zone_2022_2031.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 13,
+        "headerRow": 3,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Gross Non-Coincident Peak Demand Forecast for 2022-2031",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 19,
+        "lastRow": 28,
+        "headerRow": 18,
+        "column": 1,
+        "titleRow": 16,
+        "title": "Summer Net Non-Coincident Peak Demand Forecast for 2022-2031",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 34,
+        "lastRow": 43,
+        "headerRow": 33,
+        "column": 1,
+        "titleRow": 31,
+        "title": "Rooftop PV Impact on Summer Peak Demand Forecast (MW) ",
+        "kind": "forecast",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2022/02/24/Summer_NCP_forecast_by_weather_zone_2022_2031.xlsx",
+    "title": "Weather Zone Non-Coincident Peak Forecast",
+    "sha256": "2033380a68e9b1917e74694089859042ec8107dc5dffd71de003de98c32bbb44",
+    "bytes": 18658,
+    "file": "7ad77e9edab1-Summer_NCP_forecast_by_weather_zone_2022_2031.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 13,
+        "headerRow": 3,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Gross Non-Coincident Peak Demand Forecast for 2022-2031",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 19,
+        "lastRow": 28,
+        "headerRow": 18,
+        "column": 1,
+        "titleRow": 16,
+        "title": "Summer Net Non-Coincident Peak Demand Forecast for 2022-2031",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 34,
+        "lastRow": 43,
+        "headerRow": 33,
+        "column": 1,
+        "titleRow": 31,
+        "title": "Rooftop PV Impact on Summer Peak Demand Forecast (MW) ",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 50,
+        "lastRow": 69,
+        "headerRow": 49,
+        "column": 1,
+        "titleRow": 47,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2023/01/18/Summer-NCP-forecast-by-weather-zone-2023-2032-90th-percentile-values.xlsx",
+    "title": "90th Percentile Summer Non-Coincident Peak by Weather Zone",
+    "sha256": "8b793fcd58022fc3e3a0f520e97560b016b8004890fe512d96cc0cd2a60fc55b",
+    "bytes": 17738,
+    "file": "b7ec0c0c99f4-Summer-NCP-forecast-by-weather-zone-2023-2032-90th-percentile-values.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 13,
+        "headerRow": 3,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Gross 90th Percentile Non-Coincident Peak Demand Forecast for 2023-2032",
+        "kind": "forecast",
+        "percentileLabel": "Summer Gross 90th Percentile Non-Coincident Peak Demand Forecast for 2023-2032"
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 19,
+        "lastRow": 28,
+        "headerRow": 18,
+        "column": 1,
+        "titleRow": 16,
+        "title": "Summer Net 90th Percentile Non-Coincident Peak Demand Forecast for 2023-2032",
+        "kind": "forecast",
+        "percentileLabel": "Summer Net 90th Percentile Non-Coincident Peak Demand Forecast for 2023-2032"
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 34,
+        "lastRow": 43,
+        "headerRow": 33,
+        "column": 1,
+        "titleRow": 31,
+        "title": "Rooftop PV Impact on 90th Percentile Summer Peak Demand Forecast (MW) ",
+        "kind": "forecast",
+        "percentileLabel": "Rooftop PV Impact on 90th Percentile Summer Peak Demand Forecast (MW) "
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2023/01/18/Summer-NCP-forecast-by-weather-zone-2023-2032.xlsx",
+    "title": "Weather Zone Non-Coincident Peak Forecast",
+    "sha256": "a5898b5fdb3b73959166b0da662bde917460ff5571e7ff61078a5b21d70b7c3e",
+    "bytes": 20020,
+    "file": "63241f5968a7-Summer-NCP-forecast-by-weather-zone-2023-2032.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 13,
+        "headerRow": 3,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Gross Non-Coincident Peak Demand Forecast for 2023-2032",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 18,
+        "lastRow": 27,
+        "headerRow": 17,
+        "column": 1,
+        "titleRow": 15,
+        "title": "Summer Net Non-Coincident Peak Demand Forecast for 2023-2032",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 33,
+        "lastRow": 42,
+        "headerRow": 32,
+        "column": 1,
+        "titleRow": 30,
+        "title": "Rooftop PV Impact on Summer Peak Demand Forecast (MW) ",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 49,
+        "lastRow": 69,
+        "headerRow": 48,
+        "column": 1,
+        "titleRow": 46,
+        "title": "Summer Non-Coincident Peak Demand (MW)",
+        "kind": "historical",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2024/07/18/90th-Percentile-Summer-Non-Coincident-Peak-by-Weather-Zone.xlsx",
+    "title": "90th Percentile Summer Non-Coincident Peak by Weather Zone",
+    "sha256": "2168d109d514387f3ec8b118a3192ac742df6799db633d81c2b357d41eb08f55",
+    "bytes": 13053,
+    "file": "a9d43620868a-90th-Percentile-Summer-Non-Coincident-Peak-by-Weather-Zone.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 13,
+        "headerRow": 3,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Net 90th Percentile Non-Coincident Peak Demand Forecast for 2024-2033",
+        "kind": "forecast",
+        "percentileLabel": "Summer Net 90th Percentile Non-Coincident Peak Demand Forecast for 2024-2033"
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2024/07/18/Weather-Zone-Non-Coincident-Peak-Forecast.xlsx",
+    "title": "Weather Zone Non-Coincident Peak Forecast",
+    "sha256": "dfa01b81495f7200ae038738de86515dadddc6d75a24aa4a316a677d5aea5130",
+    "bytes": 11727,
+    "file": "affc5e7ea0c9-Weather-Zone-Non-Coincident-Peak-Forecast.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 3,
+        "lastRow": 9,
+        "headerRow": 2,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Summer Net Non-Coincident Peak Forecast 2024-2030",
+        "kind": "forecast",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2024/01/18/Winter-Peak-Loads.xlsx",
+    "title": "Winter Peak Loads",
+    "sha256": "cdcdf3d9be2e5dc9415a6aff738632c93bace945bfc141098219401e6a1af2ee",
+    "bytes": 13547,
+    "file": "a2663a3e3ef0-Winter-Peak-Loads.xlsx",
+    "kind": "seasonal",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 3,
+        "lastRow": 8,
+        "headerRow": 2,
+        "column": 1,
+        "titleRow": 1,
+        "title": "Winter Non Coincident Peak Demand Forecast for 2024-2030",
+        "kind": "forecast",
+        "percentileLabel": null
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 16,
+        "lastRow": 21,
+        "headerRow": 15,
+        "column": 1,
+        "titleRow": 14,
+        "title": "Winter Coincident Peak Demand Forecast 2024-2030",
+        "kind": "forecast",
+        "percentileLabel": null
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2024/03/08/2024-Weekly-P90-Peaks.xlsx",
+    "title": "2024 Weekly P90 Peaks",
+    "sha256": "762859453b189cf61b6729d5d381c5d3851f99e9fe0045e9b56801556409319c",
+    "bytes": 24135,
+    "file": "e59dcfd30ed9-2024-Weekly-P90-Peaks.xlsx",
+    "kind": "weekly",
+    "tables": [
+      {
+        "sheet": "p902425",
+        "firstRow": 2,
+        "lastRow": 160,
+        "headerRow": 1
+      }
+    ]
+  }
+]

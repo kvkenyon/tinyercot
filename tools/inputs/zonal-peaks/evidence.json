@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-09-08T15:56:45.572484+00:00",
+  "sourceIndex": "https://www.ercot.com/gridinfo/load/forecast",
+  "decoderSha256": "3ad680410da795bb74d8ed38408a903ab4e591b17968019dd9e37c7c2aa08a2d",
+  "families": {
+    "seasonal": {
+      "linkedWorkbooks": 22,
+      "liveDiscoveryMatchesSources": true,
+      "rows": 615,
+      "numericalPeakValues": 5535,
+      "rowKinds": {
+        "forecast": 352,
+        "historical": 263
+      },
+      "historicalYearBounds": [
+        2002,
+        2022
+      ],
+      "forecastYearBounds": [
+        2014,
+        2033
+      ]
+    },
+    "weekly": {
+      "linkedWorkbooks": 2,
+      "liveDiscoveryMatchesSources": true,
+      "rows": 263,
+      "numericalPeakValues": 2367,
+      "rowKinds": {
+        "forecast": 263
+      },
+      "beginDateBounds": [
+        "2024-08-18",
+        "2027-08-08"
+      ],
+      "endDateBounds": [
+        "2024-08-24",
+        "2027-08-14"
+      ]
+    }
+  },
+  "scope": "All year/period or date/hour fields and eight weather-zone values plus published totals compared against independently addressed original source cells in complete 24 XLS/XLSX files. Historical sections remain distinct even where their column header says Forecast Year. Gross/net/PV, coincident/non-coincident, winter periods, source notes and provider scenarios remain separate. No totals are recomputed. Unit fields are populated only from explicit MW table titles. In rows(), actual download-title P90 labels enrich forecast rows before filtering; no filename-based percentile is invented for read(), and historical rows are never assigned a forecast percentile. Source counts retain overlapping vintages and are not unique observations."
+}
