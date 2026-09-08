@@ -1,0 +1,81 @@
+{
+  "url": "https://www.ercot.com/files/docs/2022/06/07/2026_Methodology_for_Determining_Minimum_AS_Reqs.zip",
+  "archiveSha256": "0c5a13c8f4558102a415daf52fea5330872a3cd2316d91877da70368bdd79d34",
+  "files": [
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2021 Effective 071221.xlsx",
+      "bytes": 43471,
+      "sha256": "4270a2eac4ecc261c9d1953b8af98316d1000bb2386db0fe3a515b96fe9c3025"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2024 Effective 01012024.xlsx",
+      "bytes": 43241,
+      "sha256": "a7a7ba0bf1a0d5a1859f5b414a956abb991da692006f62b054c97a532fc44faf"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2021 Effective 010121.xlsx",
+      "bytes": 37839,
+      "sha256": "0f28e0bb51268d7c25dd66f3f5b9b86f06643544c76f9859801f1d220e25bb73"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2019 Effective 010119.xlsx",
+      "bytes": 32177,
+      "sha256": "7abcb54114235e1f01053769af744651e85fb254d16ea6ad92c895379d280063"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2026 Effective 01012026.xlsx",
+      "bytes": 64431,
+      "sha256": "0d44b7e87e1304b8248e20f2a95ae79a90937664ea392fc63791146488db2873"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Requirements_2016 Effective 010116.xlsx",
+      "bytes": 27966,
+      "sha256": "3b276608d953b3be76881ebbfa407485fbdd0b03e27e5406ed3c33ce1b0d6db4"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2025 Effective 01012025.xlsx",
+      "bytes": 61061,
+      "sha256": "24816856d75e706106bc5588c2a5a6dc022e19d7e26add9e93571f5432dc778f"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2018 Effective 060118.xlsx",
+      "bytes": 32016,
+      "sha256": "63da36db856eb76bcbd10f1e9942b92e4c7dd28a8feacaadaf47eaf68f777ac7"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2020.xlsx",
+      "bytes": 36463,
+      "sha256": "94b52ad2afbc0d46e54cb8bbc2b6fdd3d9daf5f15cc78c1c8975af07132e4eaf"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2018 Effective 010118.xlsx",
+      "bytes": 26324,
+      "sha256": "727d9d592cea96be2f92340833acae41f934c0176af24bac396a02c997f0cf3a"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2022 Effective 01012022.xlsx",
+      "bytes": 35403,
+      "sha256": "0b8cfe5b0ecf141829fcc08db4b5dbb4e9c6e8216014f1a11bbc3f05b64704f7"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2023 Effective 01012023_v1_2.xlsx",
+      "bytes": 44788,
+      "sha256": "d2ba7ed9c5c147fd58bddee693c882c55a9acf95c10ef052752d85c8e784543a"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2017 Effective 010117.xlsx",
+      "bytes": 29296,
+      "sha256": "ef27c20b406ea853faa36d84047ed6aa510e6309d0a44e2a41b1a234cacc7513"
+    },
+    {
+      "member": "Archive ERCOT Methodologies for Determining Ancillary Service Requirements/ERCOT AS Quantities 2021 Effective 090121.xlsx",
+      "bytes": 44421,
+      "sha256": "f918dfe800286e933bb09680aa012d2a193907c69805037bc9bab361cd016689"
+    },
+    {
+      "member": "ERCOT AS Quantities 2026 Effective 09012026.xlsx",
+      "bytes": 64820,
+      "sha256": "f5a3001ffd4b8972b0ee573ef7c800c64418ead252409dd78ae95d1d44d7e88f"
+    }
+  ]
+}
