@@ -655,6 +655,38 @@ parsed naive timestamp. The source's `00:xx AM` notation maps to midnight;
 hour. No UTC offset or uniform five-minute sampling is inferred. Nested ZIPs,
 standalone CSVs and typed predicates are supported without optional packages.
 
+## MORA forecast percentiles
+
+`Client.resource_outlook.files()` discovers workbook links on the
+[resource adequacy page](https://www.ercot.com/gridinfo/resource) and its linked
+historical year indexes. All 37 downloaded workbooks have a PRRM Percentile
+Results sheet. Their reporting months span December 2023–November 2026, with
+36 distinct months and two December 2023 versions. The typed `percentiles()`
+and `read_percentiles()` readers cover **27,500 original values**: 9,240 gross
+demand, 8,228 solar, 9,592 wind, 374 thermal-outage, 33 non-extreme-weather outage
+and 33 extreme-weather outage values. Every value, percentile, hour/daily label,
+metric heading, report month, footnote and source identity was independently
+compared with the original workbooks. No selected value was blank in this capture.
+
+Source hour labels vary. December 2023 supplies solar hours 8–18 and wind hours
+7–22, with daily thermal-outage percentiles and no gross-demand table. Later
+files expand the hour coverage and introduce new demand definitions. No omitted
+hour or metric is synthesized. Daily outages retain `hour=None`; percent strings
+are normalized to fractions while original labels remain visible. Winter
+weather-outage regimes and their explanatory footnotes stay distinct.
+
+The 27,478 values whose headings specify MW retain that unit. The two earliest
+daily-outage tables omit a unit in their labels, so their 22 values retain
+`sourceUnit=None`. These are assessment-month forecast distributions, not dated
+realized observations or joint scenarios. Report-month labels and member names
+preserve the available revisions. URL dates and revision labels do not establish
+point-in-time public availability.
+
+Evidence is in `tools/inputs/public-mora-percentiles-evidence.json`. The fixture
+retains nine complete original workbooks, byte-for-byte, containing 6,006 values
+and every supported metric family. Resource-detail, capacity-summary and other
+MORA tables remain outside this percentile reader and are not counted as covered.
+
 ## Historical IDR compliance summaries
 
 `Client.idr_compliance` discovers and reads all seven direct filing archives

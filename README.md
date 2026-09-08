@@ -476,6 +476,45 @@ timestamp text, repeat-hour flags and member names are retained. The source's
 `00:xx AM` clock parses as midnight, with no inferred timezone. Every SCED row
 remains separate; readings are not resampled or combined with settled prices.
 
+### Resource-outlook percentiles
+
+`resource_outlook.percentiles()` reads the probabilistic forecast tables in
+Monthly Outlook for Resource Adequacy (MORA) workbooks with `tinyercot[files]`:
+
+```python
+from datetime import date
+from decimal import Decimal
+from tinyercot import Client
+
+with Client() as ercot:
+    for row in ercot.resource_outlook.percentiles(
+        where=lambda r: (
+            r.reportMonth == date(2026, 11, 1)
+            and r.metric == "gross_demand"
+            and r.percentile == Decimal("0.5")
+        ),
+    ):
+        print(row.hour, row.value, row.sourceUnit)
+```
+
+`files()` discovers current and archived-year workbook links, `download(file)`
+returns the original file, and `read_percentiles(data, filename=..., where=...)`
+queries saved workbooks or ZIPs. All 27,500 percentile values in 37 linked
+workbooks are supported, covering December 2023–November 2026, with both
+December 2023 versions retained. Other MORA tables are not yet parsed.
+
+These are forecast distributions for the assessment month, not realized hourly
+observations. `percentile` uses 0–1, normalizing explicit strings such as `50%`
+while retaining `sourcePercentile`. `hour=None` identifies daily outage values.
+Weather-related outages remain separate from other outages. Only published hours
+and metrics are returned; early files have fewer hours. `sourceMetric` retains
+changes in demand definitions, and `sourceNotes` retains weather-outage footnotes.
+Units are `MW` where stated and `None` for the 22 earliest daily-outage values
+whose table headings omit units. Report labels and file identities preserve
+revisions, without asserting when they became publicly available. Percentiles
+from different quantities should not be added or subtracted as if they were
+joint scenarios.
+
 ### Historical IDR compliance summaries
 
 `idr_compliance` exposes the public historical market/TDSP summary tables with

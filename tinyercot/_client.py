@@ -22,6 +22,7 @@ from ._idr import IdrComplianceHistory
 from ._load import HourlyLoad
 from ._load_profiles import LoadProfiles
 from ._loss_factors import LossFactors
+from ._mora import ResourceOutlook
 from ._ordc import IndicativeOrdcHistory
 from ._public_tables import CrrHours, PolrHistory
 from ._retail import RetailTransactions
@@ -380,6 +381,10 @@ class Transport:
     @property
     def indicative_ordc(self) -> IndicativeOrdcHistory:
         return IndicativeOrdcHistory(self._http)
+
+    @property
+    def resource_outlook(self) -> ResourceOutlook:
+        return ResourceOutlook(self._http)
 
     @property
     def hourly_load(self) -> HourlyLoad:

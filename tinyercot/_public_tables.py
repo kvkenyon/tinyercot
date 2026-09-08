@@ -62,7 +62,7 @@ class _FileLinks(HTMLParser):
         self.href = None
 
 
-class _PublicTable(ABC, Generic[T]):
+class _PublicFiles:
     index_url: str
     title_pattern: str
 
@@ -84,6 +84,8 @@ class _PublicTable(ABC, Generic[T]):
         response.raise_for_status()
         return response.content
 
+
+class _PublicTable(_PublicFiles, ABC, Generic[T]):
     def rows(self, *, where: Callable[[T], bool] | None = None) -> Iterator[T]:
         """Read every linked file with an optional typed predicate."""
         for file in self.files():

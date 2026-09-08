@@ -21,6 +21,7 @@ from tinyercot import (
     LoadProfileDay,
     LossFactorDay,
     MonthlyCoincidentPeak,
+    MoraPercentile,
     Page,
     PolrUsage,
     Publication,
@@ -36,6 +37,21 @@ from tinyercot import (
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    assert_type(client.resource_outlook.files(), list[PublicFile])
+    assert_type(client.resource_outlook.read_percentiles(b""), Iterator[MoraPercentile])
+    assert_type(
+        client.resource_outlook.percentiles(
+            where=lambda r: r.metric == "wind_generation"
+        ),
+        Iterator[MoraPercentile],
+    )
+    mora_percentile = next(client.resource_outlook.percentiles())
+    assert_type(mora_percentile.reportMonth, date)
+    assert_type(mora_percentile.percentile, Decimal)
+    assert_type(mora_percentile.hour, int | None)
+    assert_type(mora_percentile.value, Decimal | None)
 
 with Client() as client:
     assert_type(client.indicative_ordc.files(), list[PublicFile])
