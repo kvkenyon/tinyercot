@@ -226,6 +226,15 @@ the expected daily count of unique hour/DST pairs within its observed range;
 ECRS first appeared on June 10, 2023. The full-source check is also recorded in
 `tools/inputs/history/bundle-evidence.json`.
 
+A full DAM settlement-price backfill (NP4-190-CD) matched **81,236,426 rows**
+across 1,230 settlement points, spanning May 2, 2014–September 8, 2026. It included
+all 4,513 listed archives and one additional publication found only in a monthly
+bundle. Every field matched independent CSV parsing. No delivery dates were
+missing across the product; each observed point/publication had the expected
+number of unique hour/DST pairs. This does not imply that each point existed
+throughout the range. The full-source receipt and decoder version are recorded
+in `tools/inputs/history/bundle-evidence.json`.
+
 Weather-zone load forecasts had only five listed bundles, starting March 2026,
 despite archives extending to 2019. Archive access therefore matters for complete
 backfills. The oldest retrieved load-forecast publication contained 192 rows and

@@ -4000,5 +4000,60 @@
     "originalMember": "1257192853.cdr.00012331.0000000000000000.20260801.123250.DAMSPNP4190_csv.zip",
     "cacheEntries": 128,
     "cacheLifetime": "One Archive.read invocation; keys include date text and declared format"
+  },
+  "fullDamSettlementPriceBackfillCheck": {
+    "startedAt": "2026-09-08T04:48:43.819523+00:00",
+    "finishedAt": "2026-09-08T05:23:04.529689+00:00",
+    "product": "NP4-190-CD",
+    "scope": "Unbounded SDK backfill of all listed archive and bundle publications at the snapshot, all settlement points. Each emitted row compared exactly, in stream order, to an independent stdlib CSV/date/Decimal parser of original source members. Every source row must be consumed before the next download; original IDs deduplicate copies while preserving distinct publications. Memory is bounded by download/report size and compact counts, not total row count.",
+    "archivePublications": 4513,
+    "bundlePublications": 103,
+    "uniqueOriginalPublications": 4514,
+    "bundleOnlyPublications": 1,
+    "rows": 81236426,
+    "sourceCellsCompared": 406182130,
+    "settlementPoints": 1230,
+    "firstDeliveryDate": "2014-05-02",
+    "lastDeliveryDate": "2026-09-08",
+    "deliveryDates": 4513,
+    "missingDeliveryDates": [],
+    "sourceLayouts": {
+      "DeliveryDate,HourEnding,SettlementPoint,SettlementPointPrice,DSTFlag": 4514
+    },
+    "anomalousPointDays": 0,
+    "anomalyExamples": [],
+    "allListedArchivesIncluded": true,
+    "allTypedRowsMatchIndependentSource": true,
+    "sourceManifestSha256": "a359bfcd427bc088d2007679cb2684b146b5200fa40d31ee1c45ca8546fb3e0b",
+    "downloadsByKind": {
+      "bundle": 103,
+      "archive": 56
+    },
+    "remainingArchiveIdsDownloaded": 1380,
+    "bundleOnlyPublication": {
+      "docId": 1200847777,
+      "bundle": {
+        "docId": -1199017492,
+        "friendlyName": "DAMSPNP4190_2026-03",
+        "postDatetime": "2026-03-31T23:59:59"
+      },
+      "member": "1200847777.cdr.00012331.0000000000000000.20260306.123247.DAMSPNP4190_csv.zip",
+      "source": [
+        {
+          "name": "cdr.00012331.0000000000000000.20260306.123247.DAMSPNP4190.csv",
+          "bytes": 967381,
+          "firstLines": [
+            "DeliveryDate,HourEnding,SettlementPoint,SettlementPointPrice,DSTFlag",
+            "03/07/2026,01:00,7RNCHSLR_ALL, 28.92,N"
+          ]
+        }
+      ]
+    },
+    "readerProvenance": {
+      "commit": "762b3fcc6cf112a03327eb0aa4ebe0967ef710c9",
+      "historyModuleSha256": "269558276f48c531998f97240d9cd20b3bea29bb3c1c1052a11fe2f05cb9f45c",
+      "note": "The running audit retained this decoder in memory while 3adbe8d added bounded date memoization. The full corpus result applies to the pre-cache decoder; dateParsingBenchmark separately verifies unchanged typed output on a complete representative report."
+    },
+    "limits": "Continuous delivery dates across this product, not a claim that each settlement point existed throughout the range. Hour/DST pair counts were checked within each observed point/publication. Distinct publications are retained. Does not establish full historical coverage for other products."
   }
 }

@@ -1914,5 +1914,34 @@
       "generator": "242 endpoints, 113 namespaces; byte-identical output",
       "wheel": "11 runtime modules byte-identical to checkout; py.typed present; fixtures, tests, examples and tools excluded"
     }
+  },
+  "coreWheelSmokeCheck": {
+    "queryEndpointsExercised": 242,
+    "typedApiRows": 242,
+    "typedCsvRows": 3,
+    "optionalPackagesAbsent": [
+      "openpyxl",
+      "xlrd",
+      "pypdf"
+    ],
+    "optionalReaderConstructionSucceeded": true,
+    "dependencies": {
+      "httpcore": "1.0.9",
+      "pydantic": "2.13.5",
+      "annotated-types": "0.8.0",
+      "h11": "0.16.0",
+      "anyio": "4.15.1",
+      "httpx": "0.28.1",
+      "typing_extensions": "4.16.0",
+      "typing-inspection": "0.4.4",
+      "idna": "3.19",
+      "certifi": "2026.7.22",
+      "httpx-retries": "0.6.0",
+      "tinyercot": "0.2.2",
+      "pydantic_core": "2.46.5"
+    },
+    "scope": "Isolated installed wheel, captured responses through all generated query methods and a historical CSV; no live network queries or optional format decoding.",
+    "wheelSha256": "759efde4a1612d2a6690339b478309cc22555eb3779b6426857651132e683345",
+    "commit": "3adbe8d2658edbcfdba95ffd37ff2cff7411c57f"
   }
 }
