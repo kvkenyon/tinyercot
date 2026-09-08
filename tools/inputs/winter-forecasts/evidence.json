@@ -1,0 +1,31 @@
+{
+  "url": "https://www.ercot.com/files/docs/2025/10/06/ERCOT-Adjusted-Load-Forecast-Winter-2025-2026-for-RS-Magnitude-2025.10.07-.xlsx",
+  "bytes": 807051,
+  "sha256": "241ac9acd5707436793750fc2eb0e0449869a97eae7dfec3532f1e3d5aba6ece",
+  "matchesPriorDownload": true,
+  "checkedAt": "2026-09-08",
+  "discoveredFiles": [
+    {
+      "title": "ERCOT Adjusted Load Forecast Winter 2025-2026 for RS Magnitude",
+      "url": "https://www.ercot.com/files/docs/2025/10/06/ERCOT-Adjusted-Load-Forecast-Winter-2025-2026-for-RS-Magnitude-2025.10.07-.xlsx"
+    }
+  ],
+  "hourlyRows": 2160,
+  "peakRows": 1,
+  "operatorColumns": 21,
+  "numericValues": 49704,
+  "forecastDateFrom": "2025-12-01",
+  "forecastDateTo": "2026-02-28",
+  "percentile": 75,
+  "scope": "Complete original winter 2025-2026 workbook, including all 2160 hourly rows and the separate peak row; not actual demand observations or an as-issued forecast backtest.",
+  "comparison": "All 49,704 published load values, operator labels, source dates and hour labels match independent python-calamine reads; runtime uses openpyxl through existing workbook helpers.",
+  "test": "tests/test_winter_forecasts.py",
+  "sourceFixture": "source.zip/winter-2025-2026.xlsx",
+  "decoderSha256": "48af99fb764861312680e242a6e66fc15358d12883df064f2746b40404455ea6",
+  "limits": [
+    "Transmission-operator allocations exclude large-load additions; these areas are not weather zones or settlement load zones.",
+    "The hourly table does not separately publish large-load additions; that field remains null rather than being calculated.",
+    "The peak row publishes 4817 in large-load additions and retains the explanatory contracted/officer-letter breakdown.",
+    "Forecast percentile is extracted from the original explanation. Source clocks and values are not timezone-adjusted or rescaled."
+  ]
+}
