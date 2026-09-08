@@ -1,0 +1,4 @@
+"Delivery Date","Hour Ending","Settlement Point Source location for PtP Bid","Settlement Point Sink location for PtP Bid","PtP Bid  MW","PtP Bid  Price","Bid ID"
+"03/10/2014","1","AMOCO_PUN1","CTL_GT_102","5","-.01","14a9934be3fb"
+"03/10/2014","1","AMOCO_PUN1","LZ_HOUSTON","5","-.01","5a35da567d87"
+"03/10/2014","1","AMOCO_PUN1","THW_1_CCU","2.4","-.01","512908ff1d1c"

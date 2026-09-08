@@ -1,0 +1,51 @@
+{
+  "scope": "Complete original XLSX comparisons using independent openpyxl cell positions: every primary date, source clock, separate calendar date, source year, generation value and embedded site metadata. Numbers use openpyxl interpretation, not XML numeric lexemes. These are modeled scenarios, not observations.",
+  "sourceFiles": [
+    {
+      "url": "https://www.ercot.com/files/docs/2014/01/21/existing_sites_wind_shapes_120926_all_years.zip",
+      "archiveSha256": "96aa4bea385e9e95eebd3f4a15ecb10dafa2f1d1d139e6ec33ad2608d852e953",
+      "member": "new aws shapes 120926 all years.xlsx",
+      "workbookSha256": "f6a7dc047f5e267f79f22a15c176ce6898b78159d4dfdf1742730c1e6dfecfec",
+      "sites": 93,
+      "rows": 131496,
+      "values": 12229128,
+      "first": [
+        "1996-12-31",
+        1900
+      ],
+      "last": [
+        "2012-01-01",
+        1800
+      ],
+      "calendarDifferences": 0,
+      "elapsed": 114.37,
+      "decoderSha256": "055c3a734013355ad5f4deab167aac202aacb4e9b062ca2da2619560ac7d3894"
+    },
+    {
+      "decoderSha256": "9e562215e4074e5778ad32bfd142af3a9ebc3d48f08e8ab07a02bc136879e58c",
+      "url": "https://www.ercot.com/files/docs/2014/01/21/hypothetical_sites_wind_shapes_120926.zip",
+      "archiveSha256": "1504733d5c12f4a19a7019a3b77480b084d305656aca55e41e2cb264db04d98c",
+      "member": "Hypotherical sites wind shapes 120926.xlsx",
+      "workbookSha256": "6f9baca85a05aed892d071306f1d230cd515ed2e9fb202fe1809930af3b29b9f",
+      "sites": 133,
+      "rows": 131472,
+      "values": 17485776,
+      "first": [
+        "1997-01-01",
+        0
+      ],
+      "last": [
+        "2011-12-31",
+        2300
+      ],
+      "calendarDifferences": 0,
+      "elapsed": 161.44
+    }
+  ],
+  "decoderVersionNote": "The existing workbook passed before a row-width fix for the hypothetical workbook header, which stores only six cells. The existing workbook effective width remained 98 columns. The hypothetical workbook passed after that fix; each receipt retains its decoder hash.",
+  "regressionFixture": {
+    "path": "rows.json",
+    "sha256": "bb59c30bc962c8721bcbafd49d2f35a3954a04d93806b8022429022b58960fe8",
+    "scope": "Original metadata and first three existing/first two hypothetical source rows. Tests inject these source-cell excerpts at the table boundary; they do not read the complete original binary workbooks. Complete originals exceed 100 MB each and are not committed."
+  }
+}

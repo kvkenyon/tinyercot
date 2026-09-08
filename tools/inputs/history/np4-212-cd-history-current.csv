@@ -1,0 +1,4 @@
+DeliveryDate,HourEnding,ASType,DemandCurvePoint,Quantity,Price,RepeatedHourFlag
+09/06/2026,01:00,ECRS,1,0,5050,N
+09/06/2026,01:00,ECRS,2,345,5050,N
+09/06/2026,01:00,ECRS,3,346,3353.06,N

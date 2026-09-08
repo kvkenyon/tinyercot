@@ -1,0 +1,1642 @@
+{
+  "checkedAt": "2026-09-08T06:41:35.058714+00:00",
+  "indexUrl": "https://www.ercot.com/mktinfo/loadprofile/alp",
+  "indexSha256": "f8081d3e65e541657932045fe411637bf7a62f7d4cf299df9920e37302186c51",
+  "scope": "All 30 linked annual archive headers inspected. Five complete annual archives independently compared against original worksheet cells. Other years have header evidence only, not complete row-by-row verification. No MIS or credentials used.",
+  "layoutSpecification": {
+    "url": "https://www.ercot.com/files/docs/2011/08/29/fileformatsloadprofiles.xls",
+    "sha256": "75feaf01709f1b30aa1fe525d146efb79a7c09dde52ee49608621136f81d2730"
+  },
+  "formats": [
+    {
+      "id": 1,
+      "profileHeader": "PType_WZ",
+      "dateHeader": "Date",
+      "intervalHeaders": "int_kWh1..int_kWh100",
+      "hasAddTime": true
+    },
+    {
+      "id": 2,
+      "profileHeader": "PType_WZ",
+      "dateHeader": "Date",
+      "intervalHeaders": "INT001..INT100",
+      "hasAddTime": false
+    },
+    {
+      "id": 3,
+      "profileHeader": "PType_WZ",
+      "dateHeader": "Date",
+      "intervalHeaders": "int_kWh1..int_kWh100",
+      "hasAddTime": false
+    },
+    {
+      "id": 4,
+      "profileHeader": "Profile Type & Weather Zone",
+      "dateHeader": "ERC_TRADE_DATE",
+      "intervalHeaders": "INT001..INT100",
+      "hasAddTime": false
+    },
+    {
+      "id": 5,
+      "profileHeader": null,
+      "dateHeader": "Date",
+      "intervalHeaders": "INT1..INT96",
+      "hasAddTime": false
+    },
+    {
+      "id": 6,
+      "profileHeader": "PType_WZ",
+      "dateHeader": "DATE",
+      "intervalHeaders": "INT1..INT96",
+      "hasAddTime": false
+    },
+    {
+      "id": 7,
+      "profileHeader": "Profile Type and Weather Zone",
+      "dateHeader": "ERC_TRADE_DATE",
+      "intervalHeaders": "INT001..INT100",
+      "hasAddTime": false
+    }
+  ],
+  "archives": [
+    {
+      "year": 2026,
+      "title": "2026 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2026/02/03/ERCOT-Backcasted-Load-Profiles-2026.zip",
+      "sha256": "c2abc91bd2ef8505d94c44c6b52d2a4da31c05a46e8e08bc8b88d51c5409a7c7",
+      "bytes": 18716254,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "Jan",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "Feb",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "Mar",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "APR",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "June",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "JUL",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "AUG",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "title": "2025 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2025/02/04/ERCOT-Backcasted-Load-Profiles-2025.zip",
+      "sha256": "fe2b962f9d88bb813f2dc11cc5006d9b36fc883f30138a540d7ddc33053c577d",
+      "bytes": 34838908,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "January",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "February",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "March",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "April",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "June",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "May",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "July",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "August",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "September",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "Sep",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "Oct",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "Nov",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2025.xlsx",
+          "sheet": "Dec",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "title": "2024 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2024/02/06/ERCOT_Backcasted_Load_Profiles_2024.zip",
+      "sha256": "07cf7f8c49b9996d1bcab1e1445f594dea6fb86161aa6e725019881095dc9e6f",
+      "bytes": 32305533,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2024.xlsx",
+          "sheet": "January",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2024.xlsx",
+          "sheet": "February",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2024.xlsx",
+          "sheet": "March",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2024.xlsx",
+          "sheet": "April",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2024.xlsx",
+          "sheet": "May",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2024.xlsx",
+          "sheet": "June",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2024.xlsx",
+          "sheet": "July",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2024.xlsx",
+          "sheet": "August",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2024.xlsx",
+          "sheet": "September",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2024.xlsx",
+          "sheet": "October",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2024.xlsx",
+          "sheet": "November",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2024.xlsx",
+          "sheet": "December",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "title": "2023 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2023/02/06/ERCOT-Backcasted-Load-Profiles-2023.zip",
+      "sha256": "742d599de7ddc8fc3dfb07e59810a84840f89495b470f1e28cda1ac5eb56f99b",
+      "bytes": 32963364,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2023.xlsx",
+          "sheet": "January",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2023.xlsx",
+          "sheet": "February",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2023.xlsx",
+          "sheet": "March",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2023.xlsx",
+          "sheet": "April",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2023.xlsx",
+          "sheet": "May",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2023.xlsx",
+          "sheet": "June",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2023.xlsx",
+          "sheet": "July",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2023.xlsx",
+          "sheet": "August",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2023.xlsx",
+          "sheet": "September",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2023.xlsx",
+          "sheet": "October",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2023.xlsx",
+          "sheet": "November",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2023.xlsx",
+          "sheet": "December",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "title": "2022 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2022/04/04/ERCOT%20Backcasted%20Load%20Profiles%202022%20-%20Updated%20v2.zip",
+      "sha256": "f953999c1c1d6e6dfd5bf9c5ea7df3418fec4a9d8dbc72eb37c388c22c7a5d5c",
+      "bytes": 48931802,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2022 - Updated v2.xlsx",
+          "sheet": "January",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2022 - Updated v2.xlsx",
+          "sheet": "February",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2022 - Updated v2.xlsx",
+          "sheet": "March",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2022 - Updated v2.xlsx",
+          "sheet": "April",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2022 - Updated v2.xlsx",
+          "sheet": "May",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2022 - Updated v2.xlsx",
+          "sheet": "June",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2022 - Updated v2.xlsx",
+          "sheet": "July",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2022 - Updated v2.xlsx",
+          "sheet": "August",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2022 - Updated v2.xlsx",
+          "sheet": "September",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2022 - Updated v2.xlsx",
+          "sheet": "October",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2022 - Updated v2.xlsx",
+          "sheet": "November",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2022 - Updated v2.xlsx",
+          "sheet": "December",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "title": "2021 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2021/11/05/ERCOT_Backcasted_Load_Profiles_2021.zip",
+      "sha256": "d5e933f8fa9d4f28e4fe1c2c8a948cdd64258ebf4683914e31f54e49022d0573",
+      "bytes": 47304765,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2021.xlsx",
+          "sheet": "January",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2021.xlsx",
+          "sheet": "February",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2021.xlsx",
+          "sheet": "March",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2021.xlsx",
+          "sheet": "April",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2021.xlsx",
+          "sheet": "May",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2021.xlsx",
+          "sheet": "June",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2021.xlsx",
+          "sheet": "July",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2021.xlsx",
+          "sheet": "August",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2021.xlsx",
+          "sheet": "SEPTEMBER",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2021.xlsx",
+          "sheet": "OCTOBER",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2021.xlsx",
+          "sheet": "NOVEMBER",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2021.xlsx",
+          "sheet": "DECEMBER",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "title": "2020 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2021/01/07/ERCOT_Backcasted_Load_Profiles_2020.zip",
+      "sha256": "be64a5a1a6d64e68ab166acde3b366dc52be97e1b2582932361145d8c645923c",
+      "bytes": 47550211,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2020.xlsx",
+          "sheet": "January",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2020.xlsx",
+          "sheet": "February",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2020.xlsx",
+          "sheet": "March",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2020.xlsx",
+          "sheet": "April",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2020.xlsx",
+          "sheet": "May",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2020.xlsx",
+          "sheet": "June",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2020.xlsx",
+          "sheet": "July",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2020.xlsx",
+          "sheet": "August",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2020.xlsx",
+          "sheet": "September",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2020.xlsx",
+          "sheet": "October",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2020.xlsx",
+          "sheet": "November",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2020.xlsx",
+          "sheet": "December",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "title": "2019 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2020/01/03/ERCOT_Backcasted_Load_Profiles_2019.zip",
+      "sha256": "5344bd3cca88952a6700575def46fb9f59b99161c6fd8261655617e3c235c81c",
+      "bytes": 47414466,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2019.xlsx",
+          "sheet": "Jan",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2019.xlsx",
+          "sheet": "FEB",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2019.xlsx",
+          "sheet": "MAR",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2019.xlsx",
+          "sheet": "APR",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2019.xlsx",
+          "sheet": "May",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2019.xlsx",
+          "sheet": "June",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2019.xlsx",
+          "sheet": "July",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2019.xlsx",
+          "sheet": "August",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2019.xlsx",
+          "sheet": "September",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2019.xlsx",
+          "sheet": "October",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2019.xlsx",
+          "sheet": "November",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2019.xlsx",
+          "sheet": "December",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "title": "2018 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2019/01/09/ERCOT_Backcasted_Load_Profiles_2018.zip",
+      "sha256": "98d86cae8a373c57ad19b20605f9b53dc0aab0c1424cb5234119df1ead69a777",
+      "bytes": 32204813,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2018.xlsx",
+          "sheet": "Jan",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2018.xlsx",
+          "sheet": "Feb",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2018.xlsx",
+          "sheet": "Mar",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2018.xlsx",
+          "sheet": "Apr",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2018.xlsx",
+          "sheet": "May",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2018.xlsx",
+          "sheet": "June",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2018.xlsx",
+          "sheet": "July",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2018.xlsx",
+          "sheet": "Aug",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2018.xlsx",
+          "sheet": "SEP",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2018.xlsx",
+          "sheet": "OCT",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2018.xlsx",
+          "sheet": "NOV",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2018.xlsx",
+          "sheet": "DEC",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "title": "2017 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2018/01/09/ERCOT_Backcasted_Load_Profiles_2017.zip",
+      "sha256": "1e32bbba226e54218dc85ea310d6a477c386f42cb54b8718af8632b403250c11",
+      "bytes": 35434010,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2017.xlsx",
+          "sheet": "Q1_2017",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2017.xlsx",
+          "sheet": "Q2_2017",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2017.xlsx",
+          "sheet": "Q3_2017",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2017.xlsx",
+          "sheet": "Q4_2017",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "title": "2016 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2017/01/05/ERCOT_Backcasted_Load_Profiles_2016.zip",
+      "sha256": "c193c92af31e593f9f76705504b0d9b0c8d64f8b80f83101ce9b8fa30352f615",
+      "bytes": 36755178,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2016.xls",
+          "sheet": "Q1_2016",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2016.xls",
+          "sheet": "Q2_2016",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2016.xls",
+          "sheet": "Q3_2016",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2016.xls",
+          "sheet": "Q4_2016",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "title": "2015 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2016/01/05/ercot_backcasted_load_profiles_2015.zip",
+      "sha256": "1d51628130d64d55e88df2b73f1e305c3f1fde061887a3cb67c3e7d8b3cead8a",
+      "bytes": 48466878,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2015.xlsx",
+          "sheet": "Q1_2015",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2015.xlsx",
+          "sheet": "Q2_2015",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2015.xlsx",
+          "sheet": "Q3_2015",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2015.xlsx",
+          "sheet": "Q4_2015",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2014,
+      "title": "2014 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2015/02/17/ercot_backcasted_load_profiles_2014.zip",
+      "sha256": "f55f359de53622912b1a6464ea27ad709e2cc1c67b079b1b0a73499649cd7d76",
+      "bytes": 51016643,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2014.xlsx",
+          "sheet": "Q1_2014",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2014.xlsx",
+          "sheet": "Q2_2014",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2014.xlsx",
+          "sheet": "Q3_2014",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2014.xlsx",
+          "sheet": "Q4_2014",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2013,
+      "title": "2013 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2014/03/11/ercot_backcasted_loadprofiles201303.zip",
+      "sha256": "86b873c22ff72abc4550a29fc089bc1e422e21358d396fd37fa2c72493413e5b",
+      "bytes": 50365047,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2013.xlsx",
+          "sheet": "Q1_2013",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2013.xlsx",
+          "sheet": "Q2_2013",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2013.xlsx",
+          "sheet": "Q3_2013",
+          "format": 1
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2013.xlsx",
+          "sheet": "Q4_2013",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2012,
+      "title": "2012  Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2013/02/25/ercot_backcasted_load_profiles_01_01_2012_thru_12_31_2012.zip",
+      "sha256": "175e3157e2d78fab32ab64c1c67e600e7a9f73e8384ae706e3021f6bcae89521",
+      "bytes": 24763215,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2012 thru 12-31-2012.xls",
+          "sheet": "Q1 Q2 2012",
+          "format": 2
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2012 thru 12-31-2012.xls",
+          "sheet": "Q3 2012",
+          "format": 3
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2012 thru 12-31-2012.xls",
+          "sheet": "Q4 2012",
+          "format": 1
+        }
+      ]
+    },
+    {
+      "year": 2011,
+      "title": "2011 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2012/01/03/ercot_backcasted_load_profiles_01_01_2011_12_31_2011.zip",
+      "sha256": "7db52115be397b8b28e483c3e3cc3090c5f848e4f5a76ee00675d3673dda26c7",
+      "bytes": 23461697,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2011 12-31-2011.xls",
+          "sheet": "Q1 Q2 Q3 2011",
+          "format": 4
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2011 12-31-2011.xls",
+          "sheet": "Q4 2011",
+          "format": 4
+        }
+      ]
+    },
+    {
+      "year": 2010,
+      "title": "2010 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2011/01/03/ercot_backcasted_load_profiles_01_01_2010_12_31_2010.zip",
+      "sha256": "cd3fd611f736275673525b6a82b3cc84980d734645eee60d7aee887d58503c0b",
+      "bytes": 18297639,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2010 12-31-2010.xls",
+          "sheet": "2010 Q1 Q2 Q3",
+          "format": 4
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2010 12-31-2010.xls",
+          "sheet": "2010 Q4",
+          "format": 4
+        }
+      ]
+    },
+    {
+      "year": 2009,
+      "title": "2009 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2010/01/04/ercot_backcasted_load_profiles_01_01_2009_12_31_2009.zip",
+      "sha256": "5f521b252ac266466a180ff04067a7485d5622f4ffc28ff240d1b1d757eb31ed",
+      "bytes": 16275470,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2009 12-31-2009.xls",
+          "sheet": "2009 Q1 Q2 Q3",
+          "format": 4
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2009 12-31-2009.xls",
+          "sheet": "2009 Q4",
+          "format": 4
+        }
+      ]
+    },
+    {
+      "year": 2008,
+      "title": "2008  Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2010/04/22/ercot_backcasted_load_profiles_01_01_2008_12_31_2008.zip",
+      "sha256": "aa073c940e0836f498947bb38a4fd816b772ba2ef7166e8e0413a8a46311ad8a",
+      "bytes": 7090721,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2008 12-31-2008.xls",
+          "sheet": "2008",
+          "format": 4
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2008 12-31-2008.xls",
+          "sheet": "DRG 60 days",
+          "format": 4
+        },
+        {
+          "member": "Hurricane Ike Adj Factors for COAST WZone.xls",
+          "sheet": "Adjustment Factors",
+          "format": 5
+        },
+        {
+          "member": "Hurricane Ike Adj Factors for COAST WZone.xls",
+          "sheet": "Orig Backcasted Profiles",
+          "format": 6
+        }
+      ]
+    },
+    {
+      "year": 2007,
+      "title": "2007  Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2010/07/21/ercot_backcasted__including_auxiliary__load_profiles_010107_.zip",
+      "sha256": "c3be36c375e888a9c38b1278d17c958eada4ecb75a33d0f5d5f6bd3f51731613",
+      "bytes": 6184502,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles  01-01-07 thru 12-31-07.xls",
+          "sheet": "2007",
+          "format": 4
+        },
+        {
+          "member": "ERCOT Auxiliary Backcasted Load Profiles 010107 thru 111407.xls",
+          "sheet": "2007",
+          "format": 4
+        }
+      ]
+    },
+    {
+      "year": 2006,
+      "title": "2006 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2007/01/05/ercot_backcasted_load_profiles__01_01_06_thru_12_31_06.zip",
+      "sha256": "4d7c358482932127292eb943ec95919b2ff9bb841d4c06c3437fe8f1090b1799",
+      "bytes": 3374374,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles  01-01-06 thru 12-31-06.xls",
+          "sheet": "2006",
+          "format": 4
+        }
+      ]
+    },
+    {
+      "year": 2005,
+      "title": "2005 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2006/01/20/ercot_backcasted_load_profiles__01_01_05_thru_12_31_05.zip",
+      "sha256": "54c25b0f322fcd85c3017e338970ca37d279a560f195d6569474a2df13016dae",
+      "bytes": 3343363,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles  01-01-05 thru 12-31-05.xls",
+          "sheet": "2005",
+          "format": 4
+        }
+      ]
+    },
+    {
+      "year": 2004,
+      "title": "2004 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2005/01/14/ercot_backcasted_load_profiles__01_01_04_thru_12_31_04.zip",
+      "sha256": "f658c022e14708cf989bc7449ab50b276eba3d3ffedd48a923a35054dc1a94a0",
+      "bytes": 3351708,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-04 thru 12-31-04.xls",
+          "sheet": "2004",
+          "format": 4
+        }
+      ]
+    },
+    {
+      "year": 2003,
+      "title": "2003  Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2004/03/01/ercot_backcasted_load_profiles__01_01_03_thru_12_31_03.zip",
+      "sha256": "709e90903d20c8de4beb432d890c963fac6eb4535c4f83bcec0785c8c50d4e38",
+      "bytes": 3311309,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles  01-01-03 thru 12-31-03.xls",
+          "sheet": "2003",
+          "format": 4
+        }
+      ]
+    },
+    {
+      "year": 2002,
+      "title": "2002 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2004/03/01/ercot_backcasted_load_profiles__01_01_02_thru_12_31_02.zip",
+      "sha256": "0d0c865768c7fcfffdab7a6f13cd7d5b210565ffa5d06404c11b55f1c11a0776",
+      "bytes": 3376173,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles  01-01-02 thru 12-31-02.xls",
+          "sheet": "2002",
+          "format": 4
+        }
+      ]
+    },
+    {
+      "year": 2001,
+      "title": "2001 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2002/08/23/ercot_backcasted_load_profiles__01_01_01_thru_12_31_01.zip",
+      "sha256": "14df51336c03ef59a352d3a385da51f0f1678b86e72c2fe9609c324c131aae94",
+      "bytes": 2970690,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles  01-01-01 thru 12-31-01.xls",
+          "sheet": "2001",
+          "format": 7
+        }
+      ]
+    },
+    {
+      "year": 2000,
+      "title": "2000 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2002/08/23/ercot_backcasted_load_profiles__01_01_00_thru_12_31_00.zip",
+      "sha256": "43e481d196ca0086722a2484ad86de53a9923c69901559fec8713e6dfff6c410",
+      "bytes": 2998666,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles  01-01-00 thru 12-31-00.xls",
+          "sheet": "2000",
+          "format": 7
+        }
+      ]
+    },
+    {
+      "year": 1999,
+      "title": "1999 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2002/08/23/ercot_backcasted_load_profiles__01_01_99_thru_12_31_99.zip",
+      "sha256": "087068e591cff66ae393fce20dae8c93711b8559bb40ed22cd61dbe9a7ffdc1e",
+      "bytes": 2967243,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles  01-01-99 thru 12-31-99.xls",
+          "sheet": "1999",
+          "format": 7
+        }
+      ]
+    },
+    {
+      "year": 1998,
+      "title": "1998 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2002/08/23/ercot_backcasted_load_profiles__01_01_98_thru_12_31_98.zip",
+      "sha256": "e0677ae94c53c089afe02b44151621248da42ccb2fd0e40fc1f73ffd3e44433a",
+      "bytes": 2977126,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles  01-01-98 thru 12-31-98.xls",
+          "sheet": "1998",
+          "format": 7
+        }
+      ]
+    },
+    {
+      "year": 1997,
+      "title": "1997 Actual Load Profiles",
+      "url": "https://www.ercot.com/files/docs/2002/08/23/ercot_backcasted_load_profiles__01_03_97_thru_12_31_97.zip",
+      "sha256": "c241aa62deff86859a39f33f89b17b635d73ad4dc4c06cc7661fb95baf0c8fba",
+      "bytes": 2955150,
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles  01-03-97 thru 12-31-97.xls",
+          "sheet": "1997",
+          "format": 7
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "year": 1997,
+      "path": "load-profiles/1997.zip",
+      "sha256": "2e81f69333a43d0251ba9a5ed407ed4410f6d782b80fa4330bd94a3a0f71ca07",
+      "sourceSha256": "c241aa62deff86859a39f33f89b17b635d73ad4dc4c06cc7661fb95baf0c8fba",
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles  01-03-97 thru 12-31-97.xls",
+          "sheet": "1997",
+          "rowsIncludingHeaderNotes": 10
+        }
+      ]
+    },
+    {
+      "year": 2007,
+      "path": "load-profiles/2007.zip",
+      "sha256": "de4ef8ad29f1a5d8808f6168a93ff4b300cd396d39f7a035fe93b911c46ba789",
+      "sourceSha256": "c3be36c375e888a9c38b1278d17c958eada4ecb75a33d0f5d5f6bd3f51731613",
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles  01-01-07 thru 12-31-07.xls",
+          "sheet": "2007",
+          "rowsIncludingHeaderNotes": 4
+        },
+        {
+          "member": "ERCOT Auxiliary Backcasted Load Profiles 010107 thru 111407.xls",
+          "sheet": "2007",
+          "rowsIncludingHeaderNotes": 5
+        }
+      ]
+    },
+    {
+      "year": 2012,
+      "path": "load-profiles/2012.zip",
+      "sha256": "3c46a1ba5dc9034cfa2182154854c6211f7ab543a9176f282d083dbf24165993",
+      "sourceSha256": "175e3157e2d78fab32ab64c1c67e600e7a9f73e8384ae706e3021f6bcae89521",
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2012 thru 12-31-2012.xls",
+          "sheet": "Q1 Q2 2012",
+          "rowsIncludingHeaderNotes": 3
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2012 thru 12-31-2012.xls",
+          "sheet": "Q3 2012",
+          "rowsIncludingHeaderNotes": 3
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2012 thru 12-31-2012.xls",
+          "sheet": "Q4 2012",
+          "rowsIncludingHeaderNotes": 5
+        }
+      ]
+    },
+    {
+      "year": 2013,
+      "path": "load-profiles/2013.zip",
+      "sha256": "7736b9bd04dbb8d4701026aef8eb9f1bdf7587ec97912192a2c7e85174d9f47b",
+      "sourceSha256": "86b873c22ff72abc4550a29fc089bc1e422e21358d396fd37fa2c72493413e5b",
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2013.xlsx",
+          "sheet": "Q1_2013",
+          "rowsIncludingHeaderNotes": 5
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2013.xlsx",
+          "sheet": "Q2_2013",
+          "rowsIncludingHeaderNotes": 4
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2013.xlsx",
+          "sheet": "Q3_2013",
+          "rowsIncludingHeaderNotes": 3
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2013.xlsx",
+          "sheet": "Q4_2013",
+          "rowsIncludingHeaderNotes": 5
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "path": "load-profiles/2026.zip",
+      "sha256": "921293a8cdf90ba5d86ed07fdd860f12366c8ed1a2fd7264f4577ecf97714619",
+      "sourceSha256": "c2abc91bd2ef8505d94c44c6b52d2a4da31c05a46e8e08bc8b88d51c5409a7c7",
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "Jan",
+          "rowsIncludingHeaderNotes": 3
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "Feb",
+          "rowsIncludingHeaderNotes": 3
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "Mar",
+          "rowsIncludingHeaderNotes": 5
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "APR",
+          "rowsIncludingHeaderNotes": 4
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "June",
+          "rowsIncludingHeaderNotes": 3
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "JUL",
+          "rowsIncludingHeaderNotes": 3
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 2026.xlsx",
+          "sheet": "AUG",
+          "rowsIncludingHeaderNotes": 3
+        }
+      ]
+    },
+    {
+      "year": 2008,
+      "path": "load-profiles/2008.zip",
+      "sha256": "2003ba97cfbc15af2f2a9f086d1f3c65f2108037e6b84543a0a9606aca3825df",
+      "sourceSha256": "aa073c940e0836f498947bb38a4fd816b772ba2ef7166e8e0413a8a46311ad8a",
+      "sheets": [
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2008 12-31-2008.xls",
+          "sheet": "2008",
+          "rowsIncludingHeaderNotes": 3
+        },
+        {
+          "member": "ERCOT Backcasted Load Profiles 01-01-2008 12-31-2008.xls",
+          "sheet": "DRG 60 days",
+          "rowsIncludingHeaderNotes": 5
+        },
+        {
+          "member": "Hurricane Ike Adj Factors for COAST WZone.xls",
+          "sheet": "Adjustment Factors",
+          "rowsIncludingHeaderNotes": 17
+        },
+        {
+          "member": "Hurricane Ike Adj Factors for COAST WZone.xls",
+          "sheet": "Orig Backcasted Profiles",
+          "rowsIncludingHeaderNotes": 161
+        }
+      ]
+    }
+  ],
+  "fixtureMethod": "Source-derived subsets: original notes and headers, first two data rows and selected transition-date rows for the first profile in each worksheet. XLS rewritten with xlwt, XLSX with openpyxl, retaining dates and source values. Outer ZIP member names unchanged. Index fixture retains all 30 original links only.",
+  "completeFileChecks": [
+    {
+      "year": 1997,
+      "url": "https://www.ercot.com/files/docs/2002/08/23/ercot_backcasted_load_profiles__01_03_97_thru_12_31_97.zip",
+      "sha256": "c241aa62deff86859a39f33f89b17b635d73ad4dc4c06cc7661fb95baf0c8fba",
+      "rows": 26136,
+      "intervalCells": 2613600,
+      "nonemptyIntervalCells": 2509055,
+      "profiles": 72,
+      "dates": 363,
+      "dateFrom": "1997-01-03",
+      "dateTo": "1997-12-31",
+      "missingDates": [],
+      "rowsByKind": {
+        "backcast": 26136
+      },
+      "scope": "Complete annual archive; independently compared every field and numbered interval cell to xlrd source values."
+    },
+    {
+      "year": 2007,
+      "url": "https://www.ercot.com/files/docs/2010/07/21/ercot_backcasted__including_auxiliary__load_profiles_010107_.zip",
+      "sha256": "c3be36c375e888a9c38b1278d17c958eada4ecb75a33d0f5d5f6bd3f51731613",
+      "rows": 50016,
+      "intervalCells": 5001600,
+      "nonemptyIntervalCells": 4801568,
+      "profiles": 80,
+      "dates": 365,
+      "dateFrom": "2007-01-01",
+      "dateTo": "2007-12-31",
+      "missingDates": [],
+      "rowsByKind": {
+        "backcast": 27120,
+        "auxiliary": 22896
+      },
+      "scope": "Complete annual archive; independently compared every field and numbered interval cell to xlrd source values."
+    },
+    {
+      "year": 2008,
+      "url": "https://www.ercot.com/files/docs/2010/04/22/ercot_backcasted_load_profiles_01_01_2008_12_31_2008.zip",
+      "sha256": "aa073c940e0836f498947bb38a4fd816b772ba2ef7166e8e0413a8a46311ad8a",
+      "rows": 36160,
+      "intervalCells": 3615360,
+      "nonemptyIntervalCells": 3471808,
+      "profiles": 192,
+      "dates": 366,
+      "dateFrom": "2008-01-01",
+      "dateTo": "2008-12-31",
+      "missingDates": [],
+      "rowsByKind": {
+        "backcast": 36000,
+        "original": 160
+      },
+      "scope": "Complete annual archive; independently compared every field and numbered interval cell to xlrd source values."
+    },
+    {
+      "year": 2012,
+      "url": "https://www.ercot.com/files/docs/2013/02/25/ercot_backcasted_load_profiles_01_01_2012_thru_12_31_2012.zip",
+      "sha256": "175e3157e2d78fab32ab64c1c67e600e7a9f73e8384ae706e3021f6bcae89521",
+      "rows": 90768,
+      "intervalCells": 9076800,
+      "nonemptyIntervalCells": 8713728,
+      "profiles": 248,
+      "dates": 366,
+      "dateFrom": "2012-01-01",
+      "dateTo": "2012-12-31",
+      "missingDates": [],
+      "rowsByKind": {
+        "backcast": 90768
+      },
+      "scope": "Complete annual archive; independently compared every field and numbered interval cell to xlrd source values."
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2026/02/03/ERCOT-Backcasted-Load-Profiles-2026.zip",
+      "sha256": "c2abc91bd2ef8505d94c44c6b52d2a4da31c05a46e8e08bc8b88d51c5409a7c7",
+      "rows": 52328,
+      "intervalCells": 5232800,
+      "nonemptyIntervalCells": 5022496,
+      "profiles": 248,
+      "dates": 211,
+      "dateFrom": "2026-01-01",
+      "dateTo": "2026-08-30",
+      "missingDates": [
+        "2026-05-01",
+        "2026-05-02",
+        "2026-05-03",
+        "2026-05-04",
+        "2026-05-05",
+        "2026-05-06",
+        "2026-05-07",
+        "2026-05-08",
+        "2026-05-09",
+        "2026-05-10",
+        "2026-05-11",
+        "2026-05-12",
+        "2026-05-13",
+        "2026-05-14",
+        "2026-05-15",
+        "2026-05-16",
+        "2026-05-17",
+        "2026-05-18",
+        "2026-05-19",
+        "2026-05-20",
+        "2026-05-21",
+        "2026-05-22",
+        "2026-05-23",
+        "2026-05-24",
+        "2026-05-25",
+        "2026-05-26",
+        "2026-05-27",
+        "2026-05-28",
+        "2026-05-29",
+        "2026-05-30",
+        "2026-05-31"
+      ],
+      "rowsBySheet": {
+        "Jan": 7688,
+        "Feb": 6944,
+        "Mar": 7688,
+        "APR": 7440,
+        "June": 7440,
+        "JUL": 7688,
+        "AUG": 7440
+      },
+      "scope": "Complete 2026 annual archive, independently compared every typed field and all 100 numbered interval cells against openpyxl source rows; no inferred gap filling or publication timestamp."
+    }
+  ],
+  "adjustmentCheck": {
+    "url": "https://www.ercot.com/files/docs/2010/04/22/ercot_backcasted_load_profiles_01_01_2008_12_31_2008.zip",
+    "sourceSha256": "aa073c940e0836f498947bb38a4fd816b772ba2ef7166e8e0413a8a46311ad8a",
+    "member": "Hurricane Ike Adj Factors for COAST WZone.xls",
+    "rows": 1536,
+    "scope": "Every interval/date/factor compared against the complete original Adjustment Factors worksheet with independent xlrd extraction. Factors not applied to kWh."
+  },
+  "liveDiscovery": {
+    "indexUrl": "https://www.ercot.com/mktinfo/loadprofile/alp",
+    "archiveCount": 30,
+    "years": [
+      1997,
+      1998,
+      1999,
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "directAdjustmentUrl": "https://www.ercot.com/files/docs/2008/10/03/hurricane_ike_adj_factors_for_coast_wzone.xls",
+    "adjustmentSha256": "e9d45965921cbb31f63768e0ce19d92626c4dd69938d35dd57242916900d29f0",
+    "directAdjustmentBytesMatchAnnualCompanion": true
+  },
+  "decoderSha256": {
+    "_load.py": "f4df5148e668487c70ade3a3de8285f8b42e44ea08cb8bc159465efc6c7caa1f",
+    "_load_profiles.py": "15713605c1f17ff10699fa6eb5fef2ec02346cdcfcbd8be54969379a4101ab8b"
+  },
+  "profileCounts": {
+    "checkedAt": "2026-09-08T07:49:40.464489+00:00",
+    "comparison": {
+      "archiveUrl": "https://www.ercot.com/files/docs/2021/10/21/Profile_Type_Counts.zip",
+      "archiveSha256": "a09f2d6f7907c0fc6b4e099b65b5004f9f6b58fd04b3d1e57b8cb97867479d8d",
+      "bytes": 8242657,
+      "workbooks": 141,
+      "rows": 97924,
+      "countValuesCompared": 97924,
+      "dimensionValuesCompared": 391696,
+      "datedSnapshots": 138,
+      "firstSnapshot": "2013-04-09",
+      "lastSnapshot": "2026-08-06",
+      "undatedRows": 1382,
+      "undatedMembers": [
+        "Profile_Type_Counts/Profile Type Counts 201500803.xlsx",
+        "Profile_Type_Counts/Profile Type Counts 201605614.xlsx"
+      ],
+      "meterTypes": [
+        "IDR",
+        "NIDR"
+      ],
+      "weatherZones": [
+        "COAST",
+        "EAST",
+        "FWEST",
+        "NCENT",
+        "NORTH",
+        "SCENT",
+        "SOUTH",
+        "WEST"
+      ],
+      "missingWeatherZoneRows": 5,
+      "scope": "All underlying Data records in all 141 original workbooks independently compared, including every count and four dimensions. Snapshot dates retain filename labels; two malformed filename dates remain unknown. Pivot tables are filtered aggregations over the same Data table."
+    },
+    "fixture": {
+      "path": "load-profiles/counts.zip",
+      "bytes": 81242,
+      "sha256": "739919a17d1108c0ed2653e7a37bf00f73ed522c928122eda74fcc14e46571fb",
+      "method": "Source Data header, first three records and last seven rows from eleven representative workbooks, including all four header layouts, both malformed dates, missing weather zones, original/corrected and space-suffixed names and the latest snapshot. Original pivot views retained; cell values unchanged.",
+      "workbooks": [
+        {
+          "member": "Profile Type Counts 20260806.xlsx",
+          "sourceSha256": "a323af2b0436e24b0fde28c0d1e4312eaf8530f041eeddfa2caa69586585103c",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            745,
+            746,
+            747,
+            748,
+            749,
+            750,
+            751
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20130409.xlsx",
+          "sourceSha256": "b6b447a673a790ccd8fe380ba425a6c6e7a3e9a41116b94c844e9886b816eac8",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            650,
+            651,
+            652,
+            653,
+            654,
+            655,
+            656
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 201500803.xlsx",
+          "sourceSha256": "f41d93da1f318fcd7fcb570e4cfb8e83c5b757578c99210c25f875056c436938",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            682,
+            683,
+            684,
+            685,
+            686,
+            687,
+            688
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 201605614.xlsx",
+          "sourceSha256": "eb2b15debfe6c199e3bc6387e636cf98083e78f6f9b148cfa84de11736af4c68",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            690,
+            691,
+            692,
+            693,
+            694,
+            695,
+            696
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20160812.xlsx",
+          "sourceSha256": "ff39c7aed926432fd6137a074cee46ae785355d01218e986b130c77b4e0859d9",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            695,
+            696,
+            697,
+            698,
+            699,
+            700,
+            701
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20180312.xlsx",
+          "sourceSha256": "f934b842c955bb0b3d7365442659187faaed85dc314c3d848729c0a7caac0132",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            701,
+            702,
+            703,
+            704,
+            705,
+            706,
+            707
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20180312_corrected.xlsx",
+          "sourceSha256": "443135b06ff413ffed716d90648849b47c9e9d6ff3416d6ff11e0f0c18fe4ddc",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            666,
+            667,
+            668,
+            669,
+            670,
+            671,
+            672
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20190708.xlsx",
+          "sourceSha256": "93ede402765805d7e766be560cd5d181550f4ad21ffc7e1249275e118cc7bfe0",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            656,
+            657,
+            658,
+            659,
+            660,
+            661,
+            662
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20190807.xlsx",
+          "sourceSha256": "667ece4f8f48319803705da64179d4ec501de3f41bd8d46b1653a7bb32053f85",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            662,
+            663,
+            664,
+            665,
+            666,
+            667,
+            668
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20220103 .xlsx",
+          "sourceSha256": "cddf4b286799798a0b2303f280d818958bbeb738ec6dbb1697d063f17032f508",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            676,
+            677,
+            678,
+            679,
+            680,
+            681,
+            682
+          ]
+        },
+        {
+          "member": "Profile_Type_Counts/Profile Type Counts 20240502.xlsx",
+          "sourceSha256": "72fab6cb540d61db3f0467a5a80e1fd1aa841db28f694391c84c0f3aea792b75",
+          "selectedSourceRows": [
+            1,
+            2,
+            3,
+            4,
+            722,
+            723,
+            724,
+            725,
+            726,
+            727,
+            728
+          ]
+        }
+      ]
+    },
+    "decoderSha256": "2c3aa36047cc5dd9da803e9493eae5950f435a89204ca081f18f06ce32af100e"
+  }
+}

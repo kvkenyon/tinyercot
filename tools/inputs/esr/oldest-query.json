@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "totalRecords": 4087281,
+    "pageSize": 1,
+    "totalPages": 4087281,
+    "currentPage": 1,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "AGCExecTimeUTC: ASC"
+    }
+  },
+  "report": {
+    "reportProductId": "RPTESR-M",
+    "reportName": "4_sec_esr_charging_mw",
+    "reportDisplayName": "Energy Storage Resource Four Second Data",
+    "reportId": "10011001",
+    "downloadLimit": 2000000
+  },
+  "fields": [
+    {
+      "name": "AGCExecTime",
+      "label": "AGC Exec Time (CPT)",
+      "cardinality": 1,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "DSTFlag",
+      "label": "DST Flag",
+      "cardinality": 2,
+      "dataType": "BOOLEAN",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": false
+    },
+    {
+      "name": "AGCExecTimeUTC",
+      "label": "AGC Exec Time (UTC)",
+      "cardinality": 3,
+      "dataType": "DATETIME",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "systemDemand",
+      "label": "System Demand",
+      "cardinality": 4,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    },
+    {
+      "name": "ESRChargingMW",
+      "label": "ESR Charging MW",
+      "cardinality": 5,
+      "dataType": "DOUBLE",
+      "searchable": true,
+      "sortable": true,
+      "hasRange": true
+    }
+  ],
+  "data": [
+    [
+      "2025-05-29T20:20:00",
+      false,
+      "2025-05-30T01:20:00",
+      66074.6094,
+      29.1482277
+    ]
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-data/rptesr-m/4_sec_esr_charging_mw"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-data/rptesr-m"
+    }
+  }
+}

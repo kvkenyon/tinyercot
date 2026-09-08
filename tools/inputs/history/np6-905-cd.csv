@@ -1,0 +1,4 @@
+DeliveryDate,DeliveryHour,DeliveryInterval,SettlementPointName,SettlementPointType,SettlementPointPrice,DSTFlag
+04/30/2014,24,4,AMISTAD_ALL,RN,30.5,N
+04/30/2014,24,4,AMOCOOIL_CC1,LCCRN,30.5,N
+04/30/2014,24,4,AMOCOOIL_CC2,LCCRN,30.5,N

@@ -1,0 +1,4 @@
+"Delivery Date","Hour Ending","Settlement Point Source location for PtP Bid","Settlement Point Sink location for PtP Bid","PtP Bid  MW","PtP Bid  Price","Bid ID"
+"03/10/2014","1","ATK_ATKG345","ATK_ATKINSG6","25","-1","40132723"
+"03/10/2014","1","ATK_ATKG345","ATK_ATKINSG6","25","-.5","40132724"
+"03/10/2014","1","ATK_ATKG345","ATK_ATKINSG6","25","-.25","OTP_PTP"

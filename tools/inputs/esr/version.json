@@ -1,0 +1,9 @@
+{
+  "info": {
+    "title": "ERCOT API Services for Energy Storage Resources",
+    "description": "Complete API services for Energy Storage Resource (ESR) four second data",
+    "version": "1.0.1",
+    "build": "@git.commit.id.abbrev@"
+  },
+  "openapi": "3.0.1"
+}

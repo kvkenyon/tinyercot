@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "url": "https://www.ercot.com/files/docs/2026/04/02/MORA_June2026.xlsx",
+      "title": "Monthly Outlook for Resource Adequacy (MORA) June 2026",
+      "sha256": "c7932aaa846dbad76f5fbab8d7cf7ff9846d6fc4e7b717ac04edd4df2e023622",
+      "member": "MORA_June2026.xlsx",
+      "fixture": "public-tables/mora-risk.zip"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2026/08/07/MORA_October2026.xlsx",
+      "title": "Monthly Outlook for Resource Adequacy (MORA) October 2026",
+      "sha256": "feb81bc87e9ef62bf4c3156f9e34dd13f126edd7564320cf8c2831037109c4d3",
+      "member": "MORA_October2026.xlsx",
+      "fixture": "public-tables/mora-risk.zip"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2026/09/03/MORA_November2026.xlsx",
+      "title": "Monthly Outlook for Resource Adequacy (MORA) November 2026",
+      "sha256": "c219e33a65adc4f568ef8f85f7f072322cba81d1cf64fa0bda3f0c7b78391c7d",
+      "member": "MORA_November2026.xlsx",
+      "fixture": "public-tables/mora-percentiles.zip"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2024/01/04/MORA_March2024.xlsx",
+      "title": "Monthly Outlook for Resource Adequacy (MORA) March 2024",
+      "sha256": "cb034be04a07b31c2d71660419a335916b66cb9c976c50f04242db4e7d79f80c",
+      "member": "MORA_March2024.xlsx",
+      "fixture": "public-tables/mora-summaries.zip"
+    }
+  ],
+  "verification": {
+    "originalWorkbooksChecked": 37,
+    "workbooksWithNumericCurves": 3,
+    "pointRecords": 72,
+    "numericCoordinates": 144,
+    "comparison": "All original chart cache coordinates compared as Decimal with the standalone source XML inventory; chart and scenario hours, fixed BESS inputs and original context retained."
+  },
+  "limits": [
+    "Curves are conditional PRRM simulations, not realized outcomes or an unconditional market forecast.",
+    "All three scenario notes specify 10000 runs.",
+    "November chart hour 20:00 conflicts with scenario hour 19:00; both are retained.",
+    "Reports with raster-only risk profiles have no numeric curve records.",
+    "The reporting month and file link do not establish public availability."
+  ]
+}

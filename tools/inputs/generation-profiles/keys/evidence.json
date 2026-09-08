@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-09-08",
+  "scope": "Every original data-table cell in 11 site/unit tables and every numeric row in both SUMMARY worksheets compared in test_generation_keys.py against independently read original worksheet positions. All four fresh live download hashes match the fixtures. Legend flags checked for four sites and twelve unit rows. Summary counts are not recomputed.",
+  "siteRows": 1828,
+  "summaryRows": 32,
+  "files": [
+    {
+      "title": "ERCOT Solar PV Profiles 1980-2020 Key",
+      "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_SolarPVProfiles_1980-2020_Key-public.xlsx",
+      "sha256": "21d3f577aa148048a16c45d60c1065f79b1d8fdfee2dad5e3cbff1beed0f6f50",
+      "bytes": 60004,
+      "siteRows": 420,
+      "summaryRows": 22,
+      "tables": {
+        "Utility_Operational&Planned": 53,
+        "Utility_Hypothetical": 139,
+        "DGPV_metro": 12,
+        "DGPV_rural": 216
+      },
+      "queuedModelFlagTrue": 0,
+      "notes": 11
+    },
+    {
+      "title": "ERCOT Wind Profile 1980-2020 Key",
+      "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_WindProfiles_1980-2020_Key-public.xlsx",
+      "sha256": "f9dd952f82a80c32fe179192065890e07b6135820657bd7ec165f8482fd3181b",
+      "bytes": 40998,
+      "siteRows": 530,
+      "summaryRows": 0,
+      "tables": {
+        "Op&Planned_Wind-Summary": 155,
+        "Op&Planned_Wind-Unit_Codes": 227,
+        "Hypo_Wind-Summary": 148
+      },
+      "queuedModelFlagTrue": 16,
+      "notes": 4
+    },
+    {
+      "title": "ERCOT Solar PV Profiles 1980-2021 Key",
+      "url": "https://www.ercot.com/files/docs/2022/12/19/ERCOT-SolarPVProfiles-1980-2021-Key-public.xlsx",
+      "sha256": "f5c9b981a2e3920c2829c36f9e841110efc0df2378cfbd1e3f8930f4692f6a6e",
+      "bytes": 45710,
+      "siteRows": 313,
+      "summaryRows": 10,
+      "tables": {
+        "Utility_Operational&Planned": 164,
+        "Utility_Hypothetical": 149
+      },
+      "queuedModelFlagTrue": 0,
+      "notes": 3,
+      "matchingSameVintageSolarProfileColumns": 163,
+      "unmatchedProfileColumns": [
+        "TREBA_UNIT1"
+      ],
+      "unmatchedKeyUnitCodes": [
+        "TREBA_UNIT 1"
+      ]
+    },
+    {
+      "title": "ERCOT Wind Profiles 1980-2021 Key",
+      "url": "https://www.ercot.com/files/docs/2022/12/19/ERCOT-WindProfiles-1980-2021-Key-public.xlsx",
+      "sha256": "bcc685b38b64c5b6943677b5ecbe606e316dcbdc9e9de7a6b2cc12042e278fb6",
+      "bytes": 36714,
+      "siteRows": 565,
+      "summaryRows": 0,
+      "tables": {
+        "Op&Planned_Wind-Summary": 213,
+        "Op&Planned_Wind-Unit_Codes": 352
+      },
+      "queuedModelFlagTrue": 0,
+      "notes": 0
+    }
+  ],
+  "readerSha256": "a24bf5ffd6453ddde40fe2be63e141d86494f4061e81549a29826a061743d68f",
+  "limits": [
+    "No inferred joins between different profile vintages or site families.",
+    "The 1980-2020 solar SUMMARY lists 313 utility profiles; detailed scenario totals sum to 331. Both source values are preserved.",
+    "Workbook source dates are not asserted to be publication dates."
+  ]
+}

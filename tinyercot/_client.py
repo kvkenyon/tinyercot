@@ -9,13 +9,36 @@ import time
 from collections.abc import AsyncIterator, Iterator, Sequence
 from datetime import date, datetime
 from decimal import Decimal
-from typing import Any, Generic, Literal, Self, TypeVar
+from typing import Any, ClassVar, Generic, Literal, Self, TypeVar
 
 import httpx
 from httpx_retries import Retry, RetryTransport
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import AliasChoices, BaseModel, ConfigDict, Field
 
+from ._capacity import CapacityChanges
+from ._coincident_peaks import CoincidentPeaks
 from ._dashboards import Dashboards
+from ._distribution_losses import DistributionLossCoefficients
+from ._forecast_performance import LoadForecastPerformance
+from ._fuel_mix import FuelMix
+from ._generation_profiles import GenerationProfiles
+from ._hourly_forecasts import HourlyLoadForecasts
+from ._load import HourlyLoad
+from ._load_forecasts import MonthlyLoadForecasts
+from ._load_profiles import LoadProfiles
+from ._load_scenarios import HourlyLoadScenarios
+from ._loss_coefficients import TransmissionLossCoefficients
+from ._loss_factors import LossFactors
+from ._monthly_performance import MonthlyForecastPerformance
+from ._mora import ResourceOutlook
+from ._ordc import IndicativeOrdcHistory
+from ._peak_forecasts import PeakDemandForecasts
+from ._public_tables import CrrHours, LoadShed, PolrHistory
+from ._retail import RetailTransactions
+from ._weather import HistoricalWeather
+from ._zonal_energy import ZonalEnergy
+from ._zonal_generation import ZonalGeneration
+from ._zonal_peaks import SeasonalPeakForecasts, WeeklyPeakForecasts
 
 T = TypeVar("T", bound=BaseModel)
 Parameter = str | int | float | bool | Decimal | date | datetime | None
@@ -43,7 +66,7 @@ class Artifact(BaseModel):
 
 
 class Product(BaseModel):
-    emilId: str
+    emilId: str = Field(validation_alias=AliasChoices("emilId", "productId"))
     name: str
     description: str | None = None
     status: str
@@ -94,7 +117,9 @@ class Report(BaseModel):
     reportName: str
     reportDisplayName: str
     reportId: str | int
-    reportEMIL: str
+    reportEMIL: str = Field(
+        validation_alias=AliasChoices("reportEMIL", "reportProductId")
+    )
     downloadLimit: int | None = None
 
 
@@ -129,7 +154,7 @@ class Document(BaseModel):
 
 
 class ProductSummary(BaseModel):
-    emilId: str
+    emilId: str = Field(validation_alias=AliasChoices("emilId", "productId"))
     name: str
     reportTypeId: int
 
@@ -182,6 +207,9 @@ class Version(BaseModel):
 
 
 class Transport:
+    _base_url: ClassVar[str] = BASE_URL
+    _subscription_key_env: ClassVar[str] = "ERCOT_SUBSCRIPTION_KEY"
+
     def __init__(
         self,
         username: str | None = None,
@@ -194,7 +222,7 @@ class Transport:
     ) -> None:
         self._username = username or os.getenv("ERCOT_USERNAME")
         self._password = password or os.getenv("ERCOT_PASSWORD")
-        self._key = subscription_key or os.getenv("ERCOT_SUBSCRIPTION_KEY")
+        self._key = subscription_key or os.getenv(self._subscription_key_env)
         retry = Retry(
             total=5, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504]
         )
@@ -235,7 +263,8 @@ class Transport:
         with self._lock:
             if not (self._username and self._password and self._key):
                 raise ValueError(
-                    "ERCOT username, password, and subscription key are required"
+                    "ERCOT username, password, and subscription key are required "
+                    f"(subscription_key or {self._subscription_key_env})"
                 )
             if time.monotonic() >= self._expires:
                 response = self._http.post(
@@ -271,7 +300,7 @@ class Transport:
         for attempt in range(2):
             response = self._http.request(
                 method,
-                BASE_URL + "/" + path.lstrip("/"),
+                self._base_url + "/" + path.lstrip("/"),
                 headers=self._headers(),
                 params=_params(params or {}),
                 json={"docIds": list(doc_ids)} if doc_ids is not None else None,
@@ -304,7 +333,7 @@ class Transport:
         for attempt in range(2):
             headers = await asyncio.to_thread(self._headers)
             response = await self._async_http.get(
-                BASE_URL + "/" + path.lstrip("/"),
+                self._base_url + "/" + path.lstrip("/"),
                 headers=headers,
                 params=_params(params),
             )
@@ -327,6 +356,110 @@ class Transport:
             page += 1
 
     @property
+    def zonal_generation(self) -> ZonalGeneration:
+        return ZonalGeneration(self._http)
+
+    @property
+    def fuel_mix(self) -> FuelMix:
+        return FuelMix(self._http)
+
+    @property
+    def coincident_peaks(self) -> CoincidentPeaks:
+        return CoincidentPeaks(self._http)
+
+    @property
+    def seasonal_peak_forecasts(self) -> SeasonalPeakForecasts:
+        return SeasonalPeakForecasts(self._http)
+
+    @property
+    def weekly_peak_forecasts(self) -> WeeklyPeakForecasts:
+        return WeeklyPeakForecasts(self._http)
+
+    @property
+    def monthly_forecast_performance(self) -> MonthlyForecastPerformance:
+        return MonthlyForecastPerformance(self._http)
+
+    @property
+    def load_forecast_performance(self) -> LoadForecastPerformance:
+        return LoadForecastPerformance(self._http)
+
+    @property
+    def hourly_load_scenarios(self) -> HourlyLoadScenarios:
+        return HourlyLoadScenarios(self._http)
+
+    @property
+    def hourly_load_forecasts(self) -> HourlyLoadForecasts:
+        return HourlyLoadForecasts(self._http)
+
+    @property
+    def monthly_load_forecasts(self) -> MonthlyLoadForecasts:
+        return MonthlyLoadForecasts(self._http)
+
+    @property
+    def peak_demand_forecasts(self) -> PeakDemandForecasts:
+        return PeakDemandForecasts(self._http)
+
+    @property
+    def generation_profiles(self) -> GenerationProfiles:
+        return GenerationProfiles(self._http)
+
+    @property
+    def load_profiles(self) -> LoadProfiles:
+        return LoadProfiles(self._http)
+
+    @property
+    def historical_weather(self) -> HistoricalWeather:
+        return HistoricalWeather(self._http)
+
+    @property
+    def loss_factors(self) -> LossFactors:
+        return LossFactors(self._http)
+
+    @property
+    def zonal_energy(self) -> ZonalEnergy:
+        return ZonalEnergy(self._http)
+
+    @property
+    def transmission_loss_coefficients(self) -> TransmissionLossCoefficients:
+        return TransmissionLossCoefficients(self._http)
+
+    @property
+    def distribution_loss_coefficients(self) -> DistributionLossCoefficients:
+        return DistributionLossCoefficients(self._http)
+
+    @property
+    def load_shed(self) -> LoadShed:
+        return LoadShed(self._http)
+
+    @property
+    def crr_hours(self) -> CrrHours:
+        return CrrHours(self._http)
+
+    @property
+    def polr(self) -> PolrHistory:
+        return PolrHistory(self._http)
+
+    @property
+    def retail_transactions(self) -> RetailTransactions:
+        return RetailTransactions(self._http)
+
+    @property
+    def indicative_ordc(self) -> IndicativeOrdcHistory:
+        return IndicativeOrdcHistory(self._http)
+
+    @property
+    def resource_outlook(self) -> ResourceOutlook:
+        return ResourceOutlook(self._http)
+
+    @property
+    def capacity_changes(self) -> CapacityChanges:
+        return CapacityChanges(self._http)
+
+    @property
+    def hourly_load(self) -> HourlyLoad:
+        return HourlyLoad(self._http)
+
+    @property
     def dashboards(self) -> Dashboards:
         return Dashboards(self._http)
 
@@ -342,10 +475,25 @@ class Transport:
     def product(self, emil_id: str) -> Product:
         return Product.model_validate(self._request("GET", emil_id.lower()).json())
 
-    def archives(self, emil_id: str, *, page: int = 1, size: int = 1000) -> History:
+    def archives(
+        self,
+        emil_id: str,
+        *,
+        page: int = 1,
+        size: int = 1000,
+        posted_from: datetime | None = None,
+        posted_to: datetime | None = None,
+    ) -> History:
         return History.model_validate(
             self._request(
-                "GET", f"archive/{emil_id.lower()}", params={"page": page, "size": size}
+                "GET",
+                f"archive/{emil_id.lower()}",
+                params={
+                    "page": page,
+                    "size": size,
+                    "postDatetimeFrom": posted_from,
+                    "postDatetimeTo": posted_to,
+                },
             ).json()
         )
 
@@ -362,16 +510,29 @@ class Transport:
         *,
         kind: Literal["archive", "bundle"] = "archive",
         size: int = 1000,
+        posted_from: datetime | None = None,
+        posted_to: datetime | None = None,
     ) -> Iterator[Document]:
         """Iterate every page of an archive or bundle listing."""
         page = 1
         while True:
             history = (
-                self.archives(emil_id, page=page, size=size)
+                self.archives(
+                    emil_id,
+                    page=page,
+                    size=size,
+                    posted_from=posted_from,
+                    posted_to=posted_to,
+                )
                 if kind == "archive"
                 else self.bundles(emil_id, page=page, size=size)
             )
-            yield from history.archives if kind == "archive" else history.bundles
+            for document in history.archives if kind == "archive" else history.bundles:
+                if posted_from is not None and document.postDatetime < posted_from:
+                    continue
+                if posted_to is not None and document.postDatetime > posted_to:
+                    continue
+                yield document
             if page >= history.meta.totalPages:
                 return
             page += 1
@@ -384,6 +545,18 @@ class Transport:
         kind: Literal["archive", "bundle"] = "archive",
     ) -> bytes:
         """Download selected archive documents or bundles as a ZIP file."""
-        return self._request(
-            "POST", f"{kind}/{emil_id.lower()}/download", doc_ids=doc_ids
-        ).content
+        try:
+            return self._request(
+                "POST", f"{kind}/{emil_id.lower()}/download", doc_ids=doc_ids
+            ).content
+        except httpx.HTTPStatusError as error:
+            if (
+                kind != "bundle"
+                or len(doc_ids) != 1
+                or error.response.status_code != 400
+            ):
+                raise
+            # Some listed bundles reject POST but work through their published GET link.
+            return self._request(
+                "GET", f"bundle/{emil_id.lower()}", params={"download": doc_ids[0]}
+            ).content

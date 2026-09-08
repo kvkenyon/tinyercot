@@ -1,0 +1,2 @@
+DeliveryDate,DeliveryHour,DeliveryInterval,AvgRTSystemLambda,AvgRTRDPA,SumRTSysLambdaRTRDPA,HCAPforDAM,CumHrsHCAPDAM24Hrs,RepeatedHourFlag
+12/04/2025,24,4,44.32,0,44.32,5000,0,N

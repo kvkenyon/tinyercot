@@ -1,0 +1,65 @@
+{
+  "checked_at": "2026-09-08",
+  "files": {
+    "oldest": {
+      "document_id": 100500,
+      "posting": "2025-05-29T20:27:53.000",
+      "rows": 75,
+      "utc_from": "2025-05-30T01:20:00",
+      "utc_to": "2025-05-30T01:24:58",
+      "sha256": "61c986549388ca645494670691cd986fe900d4938e452779d8e86f865e30a6de",
+      "all_original_fields_equal": true,
+      "paged_query_equal": true,
+      "download_equal": true,
+      "publication_equal": true
+    },
+    "middle": {
+      "document_id": 128856,
+      "posting": "2025-09-01T10:40:10.000",
+      "rows": 75,
+      "utc_from": "2025-09-01T15:35:01",
+      "utc_to": "2025-09-01T15:39:57",
+      "sha256": "1fa67e17f7957ddd8549523619f14bc278529a3fc763f3bfc6b0476356a45ba9",
+      "all_original_fields_equal": true,
+      "paged_query_equal": true,
+      "download_equal": true,
+      "publication_equal": true
+    },
+    "recent": {
+      "document_id": 156101,
+      "posting": "2025-12-04T23:55:10.000",
+      "rows": 75,
+      "utc_from": "2025-12-05T05:50:02",
+      "utc_to": "2025-12-05T05:54:58",
+      "sha256": "ec5e40793b4023bf1b7f17ef265c3fbfa54bedb1ccb505e19700251431965d57",
+      "all_original_fields_equal": true,
+      "paged_query_equal": true,
+      "download_equal": true,
+      "publication_equal": true
+    }
+  },
+  "all_13_query_parameters_verified": true,
+  "live_async_page_and_iteration": true,
+  "full_retention_compared": false,
+  "operation_source": "https://apiexplorer.ercot.com/developer/apis/esrapi-apim-api/operations?api-version=2022-04-01-preview",
+  "api_base": "https://api.ercot.com/api/public-data",
+  "version": "1.0.1",
+  "operation_count": 8,
+  "query_count": 1,
+  "query_parameter_count": 13,
+  "archive_count": 54490,
+  "bundle_count": 0,
+  "query_row_count": 4087281,
+  "oldest_query_local": "2025-05-29T20:20:00",
+  "newest_query_local": "2025-12-04T23:54:58",
+  "normalized_metadata": {
+    "productId": "emilId",
+    "reportProductId": "reportEMIL"
+  },
+  "notes": [
+    "Source timestamps contain no offsets; local and UTC columns remain separate naive datetimes. DSTFlag is preserved without inferring its meaning from summer/winter dates.",
+    "Query formats normalized from official parameter descriptions. Response types from live field metadata.",
+    "225 rows and all five original fields compared across three complete archived CSVs; these also match live paginated queries, downloads and publications.",
+    "All retained files and intervening dates have not been compared. The newest returned data predates this verification. No bundle was available for a live download check."
+  ]
+}

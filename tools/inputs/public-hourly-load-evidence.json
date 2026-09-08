@@ -1,0 +1,872 @@
+{
+  "checkedAt": "2026-09-07T22:33:14.543626+00:00",
+  "scope": "All 25 directly linked 2002-2026 weather-zone archives downloaded. All load cells independently compared for each decoded workbook. The 2026 ZIP has stale central-directory CRC/sizes; recovery verifies the local header CRC/size and workbook contents as recorded below. Earlier hourly formats are checked separately in public-legacy-hourly-load-evidence.json; companion forecasts remain outside these hourly readers.",
+  "archives": [
+    {
+      "url": "https://www.ercot.com/files/docs/2026/02/10/Native_Load_2026.zip",
+      "title": "2026 ERCOT Hourly Load Data",
+      "file": "Native_Load_2026.zip",
+      "bytes": 722951,
+      "sha256": "3a642883ab3889c23650cde4cf6bade371c62999ee4c54bfdda6f8063422aef0",
+      "year": 2026,
+      "standardZipError": "BadZipFile: Bad CRC-32 for file 'Native_Load_2026.xlsx'",
+      "rows": 5087,
+      "firstOperatingDay": "2026-01-01",
+      "lastOperatingDay": "2026-07-31",
+      "sourceLoadValuesCompared": 45783,
+      "recoveredUsingVerifiedLocalHeader": true
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2025/02/11/Native_Load_2025.zip",
+      "title": "2025 ERCOT Hourly Load Data",
+      "file": "Native_Load_2025.zip",
+      "bytes": 1085085,
+      "sha256": "20f6699f4d1f577561e9581ce370a39b0b7af339c2c263c99c7b7fd605580854",
+      "year": 2025,
+      "rows": 8760,
+      "firstOperatingDay": "2025-01-01",
+      "lastOperatingDay": "2025-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 1,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2025-03-09": 23,
+        "2025-11-02": 25
+      },
+      "rowDigest": "1b9d24007d989715659cac5b051ab3cd41b951a89b390e68a225545ec2953bd0"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2024/02/06/Native_Load_2024.zip",
+      "title": "2024 ERCOT Hourly Load Data",
+      "file": "Native_Load_2024.zip",
+      "bytes": 1088476,
+      "sha256": "fe6dacd721ae66bdef63f9d755c4219ab6bc06361ef2044627fb45424c427198",
+      "year": 2024,
+      "rows": 8784,
+      "firstOperatingDay": "2024-01-01",
+      "lastOperatingDay": "2024-12-31",
+      "sourceLoadValuesCompared": 79056,
+      "dstLabels": 1,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2024-03-10": 23,
+        "2024-11-03": 25
+      },
+      "rowDigest": "10c54288824a5956ea27213234edf4d163c95f15cff26a38a45db00ebdaf8f97"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2023/02/09/Native_Load_2023.zip",
+      "title": "2023 ERCOT Hourly Load Data",
+      "file": "Native_Load_2023.zip",
+      "bytes": 1091030,
+      "sha256": "34e7067d3273f56be42ce469e23747cff0db736d668519070ad63674c3ddecd4",
+      "year": 2023,
+      "rows": 8760,
+      "firstOperatingDay": "2023-01-01",
+      "lastOperatingDay": "2023-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 1,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2023-03-12": 23,
+        "2023-11-05": 25
+      },
+      "rowDigest": "2b9bfe2cb07d584bed41fd9b6bfcf695c6b66e9e37cdb2d4a7b7056049bfe112"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2022/02/08/Native_Load_2022.zip",
+      "title": "2022 ERCOT Hourly Load Data ",
+      "file": "Native_Load_2022.zip",
+      "bytes": 1093481,
+      "sha256": "a90335ab621a5ad719bc885b27d7fd7ed0c90de0ad3f72736c30c26ada89a2ce",
+      "year": 2022,
+      "rows": 8760,
+      "firstOperatingDay": "2022-01-01",
+      "lastOperatingDay": "2022-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 1,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2022-03-13": 23,
+        "2022-11-06": 25
+      },
+      "rowDigest": "104a3a563a0f98796a3bf2e6b1b2944c045abe19d811386f6ac7ec982cece332"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2021/11/12/Native_Load_2021.zip",
+      "title": "2021 ERCOT Hourly Load Data",
+      "file": "Native_Load_2021.zip",
+      "bytes": 1094567,
+      "sha256": "63d77e711fbcf838aff1666df475cd86a1fa939ad8aecd60a1bfe5039c4e5b91",
+      "year": 2021,
+      "rows": 8760,
+      "firstOperatingDay": "2021-01-01",
+      "lastOperatingDay": "2021-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 1,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2021-03-14": 23,
+        "2021-11-07": 25
+      },
+      "rowDigest": "e04750938504469604a1ec06a087bca59f3d342ee6d688eca1fff91fb72275c8"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2021/01/12/Native_Load_2020.zip",
+      "title": "2020 ERCOT Hourly Load Data",
+      "file": "Native_Load_2020.zip",
+      "bytes": 1099986,
+      "sha256": "a02195b9a8b79540d78362039cca30c95922e485828908dcd25c50c2dae4489a",
+      "year": 2020,
+      "rows": 8784,
+      "firstOperatingDay": "2020-01-01",
+      "lastOperatingDay": "2020-12-31",
+      "sourceLoadValuesCompared": 79056,
+      "dstLabels": 1,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2020-03-08": 23,
+        "2020-11-01": 25
+      },
+      "rowDigest": "b8f716163759d3a18cec368d2c1349a51954331033cf470980130fb8ef3d77b9"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2020/01/09/Native_Load_2019.zip",
+      "title": "2019 ERCOT Hourly Load Data",
+      "file": "Native_Load_2019.zip",
+      "bytes": 1092646,
+      "sha256": "f99a5a9ed299523c23935487761f5e446ec4dddf0be0e1da931487be09681654",
+      "year": 2019,
+      "rows": 8760,
+      "firstOperatingDay": "2019-01-01",
+      "lastOperatingDay": "2019-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 1,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2019-03-10": 23,
+        "2019-11-03": 25
+      },
+      "rowDigest": "17c48b114b397c2529a5062a6f92763e7241197ed6b4e16fb902f4687e0fe29e"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2019/01/07/native_load_2018.zip",
+      "title": "2018 ERCOT Hourly Load Data ",
+      "file": "native_load_2018.zip",
+      "bytes": 1093121,
+      "sha256": "c57da4b5927a920eb8e160cf8927ec0e8f6a11f5e02962f4c9850787f13e2474",
+      "year": 2018,
+      "rows": 8760,
+      "firstOperatingDay": "2018-01-01",
+      "lastOperatingDay": "2018-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 1,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2018-03-11": 23,
+        "2018-11-04": 25
+      },
+      "rowDigest": "e1bc32be954cc3a6e0374fd9029b37ca9bd26c5367c8c9b6865639b71a41349a"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2018/01/09/native_load_2017.zip",
+      "title": "2017 ERCOT Hourly Load Data",
+      "file": "native_load_2017.zip",
+      "bytes": 1119759,
+      "sha256": "6daf8e47e8145a1bce2ad41aecbfcadf59b2d0441f51e1b23c252e19d1e7bd28",
+      "year": 2017,
+      "rows": 8760,
+      "firstOperatingDay": "2017-01-01",
+      "lastOperatingDay": "2017-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 1,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2017-03-12": 23,
+        "2017-11-05": 25
+      },
+      "rowDigest": "feb3632eb1573ede27912f61da55584ab0d06a9c381c7842417f96809673034a"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2017/01/10/native_Load_2016.zip",
+      "title": "2016 ERCOT Hourly Load Data",
+      "file": "native_Load_2016.zip",
+      "bytes": 1122112,
+      "sha256": "419bfd7ddb8a496273febab70e8958c0e6c51fbd638cc300e109d4e9c470d5e3",
+      "year": 2016,
+      "rows": 8784,
+      "firstOperatingDay": "2016-01-01",
+      "lastOperatingDay": "2016-12-31",
+      "sourceLoadValuesCompared": 79056,
+      "dstLabels": 0,
+      "nullLoadCells": 9,
+      "non24HourDays": {
+        "2016-03-13": 23,
+        "2016-11-06": 25
+      },
+      "rowDigest": "515af9acf76b4284b8952c25761bb5342e92964453229822f4ba761361848407"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2016/01/07/native_load_2015.xls",
+      "title": "2015 ERCOT Hourly Load Data",
+      "file": "native_load_2015.xls",
+      "bytes": 1799680,
+      "sha256": "d1ceb649236e02bc7ca08a3934c1a5f39bfc1df9c007e4d5288038e753d4dcc3",
+      "year": 2015,
+      "rows": 8760,
+      "firstOperatingDay": "2015-01-01",
+      "lastOperatingDay": "2015-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2015-03-08": 23,
+        "2015-11-01": 25
+      },
+      "rowDigest": "acf49d1b97133c73acb7302f246de07391dc83ec57d2af5be2cab24b71dbfaf6"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2014_ercot_hourly_load_data.xls",
+      "title": "2014 ERCOT Hourly Load Data",
+      "file": "2014_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "e695f6e739c4dd83e48cb61941d4818ee6b0d90ff9183c8c152ba27a688fd94f",
+      "year": 2014,
+      "rows": 8760,
+      "firstOperatingDay": "2014-01-01",
+      "lastOperatingDay": "2014-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2014-03-09": 23,
+        "2014-11-02": 25
+      },
+      "rowDigest": "e2b512679239185cab1cdebeb994dad7225efac412c196ea0bcfcadea8c11b1f"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2013_ercot_hourly_load_data.xls",
+      "title": "2013 ERCOT Hourly Load Data",
+      "file": "2013_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "d160bb43ae815a040198d172bdaa65aae155eb426d20565aed7f822a9c32ed20",
+      "year": 2013,
+      "rows": 8760,
+      "firstOperatingDay": "2013-01-01",
+      "lastOperatingDay": "2013-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2013-03-10": 23,
+        "2013-11-03": 25
+      },
+      "rowDigest": "378d8ac06f7534f261f2e107884a82dfaa3a2426a63f5948a42bc191ef640c4f"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2012_ercot_hourly_load_data.xls",
+      "title": "2012 ERCOT Hourly Load Data",
+      "file": "2012_ercot_hourly_load_data.xls",
+      "bytes": 1804288,
+      "sha256": "4fa9078ed7427345eba5e505ae7fd1c2977c15726a4feb58204f035b00af7793",
+      "year": 2012,
+      "rows": 8784,
+      "firstOperatingDay": "2012-01-01",
+      "lastOperatingDay": "2012-12-31",
+      "sourceLoadValuesCompared": 79056,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2012-03-11": 23,
+        "2012-11-04": 25
+      },
+      "rowDigest": "adadde4159b03216a731dc2ae3b0f8ab806233e931fc3b837c562b23327285e2"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2011_ercot_hourly_load_data.xls",
+      "title": "2011 ERCOT Hourly Load Data",
+      "file": "2011_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "ee695df2ef4cd3dc4204e183413a96287ff4d6b8dbb167be110c51ae7d761d8d",
+      "year": 2011,
+      "rows": 8760,
+      "firstOperatingDay": "2011-01-01",
+      "lastOperatingDay": "2011-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2011-03-13": 23,
+        "2011-11-06": 25
+      },
+      "rowDigest": "b11c605c41848b1fa002ad1eaec1f4e36e3b05bd82e7ecd0fadf398f146f05b4"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2010_ercot_hourly_load_data.xls",
+      "title": "2010 ERCOT Hourly Load Data",
+      "file": "2010_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "b7f4cacc203ac1e8416a06c0f6ad47a584412c2d4d4ff3b52462147393ccde81",
+      "year": 2010,
+      "rows": 8760,
+      "firstOperatingDay": "2010-01-01",
+      "lastOperatingDay": "2010-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2010-03-14": 23,
+        "2010-11-07": 25
+      },
+      "rowDigest": "550f247a05615d8c54008e1ec7e164e43219f0145d398f517a048a87b513f796"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2009_ercot_hourly_load_data.xls",
+      "title": "2009 ERCOT Hourly Load Data",
+      "file": "2009_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "2680fbf227bedc1adf9ee3501d1d1d2415a596d9d6e3fd78c87458244a443ad1",
+      "year": 2009,
+      "rows": 8760,
+      "firstOperatingDay": "2009-01-01",
+      "lastOperatingDay": "2009-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2009-03-08": 23,
+        "2009-11-01": 25
+      },
+      "rowDigest": "8773093bfdf8b08e706b44fddfc4c222b005a310a2dc7bc68830cd5d1707f423"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2008_ercot_hourly_load_data.xls",
+      "title": "2008 ERCOT Hourly Load Data",
+      "file": "2008_ercot_hourly_load_data.xls",
+      "bytes": 1804288,
+      "sha256": "ed0269f32cec9e32e48a104c5d0840b75e250696b9bd3f938b2c35e48bb7fb79",
+      "year": 2008,
+      "rows": 8784,
+      "firstOperatingDay": "2008-01-01",
+      "lastOperatingDay": "2008-12-31",
+      "sourceLoadValuesCompared": 79056,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2008-03-09": 23,
+        "2008-11-02": 25
+      },
+      "rowDigest": "2f9e3dc522399713ac65a0d138d3e3e7b10b6f696049a5cd272a8d96f3ecc7f4"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2007_ercot_hourly_load_data.xls",
+      "title": "2007 ERCOT Hourly Load Data",
+      "file": "2007_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "56b5697005446df62334dea97aef3753ab2f7019ad1f4cd21bbcce87fd0e2fc9",
+      "year": 2007,
+      "rows": 8760,
+      "firstOperatingDay": "2007-01-01",
+      "lastOperatingDay": "2007-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2007-03-11": 23,
+        "2007-11-04": 25
+      },
+      "rowDigest": "9fd44f5d952679a2c226873639e71a21d7271f63df5433bbd48047d9babee628"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2006_ercot_hourly_load_data.xls",
+      "title": "2006 ERCOT Hourly Load Data",
+      "file": "2006_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "f8ce4d21738105ee930e0fe8dc51b0d4d28b8e9fb839bc2a9127f08e064a3fee",
+      "year": 2006,
+      "rows": 8760,
+      "firstOperatingDay": "2006-01-01",
+      "lastOperatingDay": "2006-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2006-04-02": 23,
+        "2006-10-29": 25
+      },
+      "rowDigest": "4d9b5dd451fa4424b8b71cb9b3b568d203d0e15333ec6ff94bf906d5517cd73e"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2005_ercot_hourly_load_data.xls",
+      "title": "2005 ERCOT Hourly Load Data",
+      "file": "2005_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "82bd7d426592de3386e0bba7cc8383dd63c9dce0893b253577d3c6a65427898c",
+      "year": 2005,
+      "rows": 8760,
+      "firstOperatingDay": "2005-01-01",
+      "lastOperatingDay": "2005-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2005-04-03": 23,
+        "2005-10-30": 25
+      },
+      "rowDigest": "be5a80850b9b6e69b6543f246e1d04f2728c1e7f5444068dc4b0af377d93e0aa"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2004_ercot_hourly_load_data.xls",
+      "title": "2004 ERCOT Hourly Load Data",
+      "file": "2004_ercot_hourly_load_data.xls",
+      "bytes": 1804288,
+      "sha256": "aa3f4f0bb0255452a2dd8aa2af0e1925160054674a590e502b1f4b706c97b2ce",
+      "year": 2004,
+      "rows": 8784,
+      "firstOperatingDay": "2004-01-01",
+      "lastOperatingDay": "2004-12-31",
+      "sourceLoadValuesCompared": 79056,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2004-04-04": 23,
+        "2004-10-31": 25
+      },
+      "rowDigest": "e9237e0406446ddf6c0a50f7ca358bd8fab7418fb478e43e82b5dc2935bebf86"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2003_ercot_hourly_load_data.xls",
+      "title": "2003 ERCOT Hourly Load Data",
+      "file": "2003_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "8db2d51ae30acbbddebd8409e1c8ac5c0ed53a271c60cdc3905ea30f4823bd8d",
+      "year": 2003,
+      "rows": 8760,
+      "firstOperatingDay": "2003-01-01",
+      "lastOperatingDay": "2003-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2003-04-06": 23,
+        "2003-10-26": 25
+      },
+      "rowDigest": "96b23ee11cfd4102da68bdb1d07566cfff47448dfdb8da1355b9bde7d147f390"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2002_ercot_hourly_load_data.xls",
+      "title": "2002 ERCOT Hourly Load Data",
+      "file": "2002_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "c0aad42d4418b2341ed4b66d277dff8913afc77b16d71eb7eb95e59853ebd403",
+      "year": 2002,
+      "rows": 8760,
+      "firstOperatingDay": "2002-01-01",
+      "lastOperatingDay": "2002-12-31",
+      "sourceLoadValuesCompared": 78840,
+      "dstLabels": 0,
+      "nullLoadCells": 0,
+      "non24HourDays": {
+        "2002-04-07": 23,
+        "2002-10-27": 25
+      },
+      "rowDigest": "b126209b161010f8b8feabf4cc70b64e1458e3f026f32bf1f86870c04458b371"
+    }
+  ],
+  "indexUrl": "https://www.ercot.com/gridinfo/load/load_hist",
+  "indexSha256": "0c877610c38db54f85a35c11f7efffd5a1387892b60285b7cbc1e1d983bde442",
+  "allLinkedFiles": [
+    {
+      "url": "https://www.ercot.com/files/docs/2026/02/10/Native_Load_2026.zip",
+      "title": "2026 ERCOT Hourly Load Data",
+      "file": "Native_Load_2026.zip",
+      "bytes": 722951,
+      "sha256": "3a642883ab3889c23650cde4cf6bade371c62999ee4c54bfdda6f8063422aef0"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2025/02/11/Native_Load_2025.zip",
+      "title": "2025 ERCOT Hourly Load Data",
+      "file": "Native_Load_2025.zip",
+      "bytes": 1085085,
+      "sha256": "20f6699f4d1f577561e9581ce370a39b0b7af339c2c263c99c7b7fd605580854"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2024/02/06/Native_Load_2024.zip",
+      "title": "2024 ERCOT Hourly Load Data",
+      "file": "Native_Load_2024.zip",
+      "bytes": 1088476,
+      "sha256": "fe6dacd721ae66bdef63f9d755c4219ab6bc06361ef2044627fb45424c427198"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2023/02/09/Native_Load_2023.zip",
+      "title": "2023 ERCOT Hourly Load Data",
+      "file": "Native_Load_2023.zip",
+      "bytes": 1091030,
+      "sha256": "34e7067d3273f56be42ce469e23747cff0db736d668519070ad63674c3ddecd4"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2022/02/08/Native_Load_2022.zip",
+      "title": "2022 ERCOT Hourly Load Data ",
+      "file": "Native_Load_2022.zip",
+      "bytes": 1093481,
+      "sha256": "a90335ab621a5ad719bc885b27d7fd7ed0c90de0ad3f72736c30c26ada89a2ce"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2021/11/12/Native_Load_2021.zip",
+      "title": "2021 ERCOT Hourly Load Data",
+      "file": "Native_Load_2021.zip",
+      "bytes": 1094567,
+      "sha256": "63d77e711fbcf838aff1666df475cd86a1fa939ad8aecd60a1bfe5039c4e5b91"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2021/01/12/Native_Load_2020.zip",
+      "title": "2020 ERCOT Hourly Load Data",
+      "file": "Native_Load_2020.zip",
+      "bytes": 1099986,
+      "sha256": "a02195b9a8b79540d78362039cca30c95922e485828908dcd25c50c2dae4489a"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2020/01/09/Native_Load_2019.zip",
+      "title": "2019 ERCOT Hourly Load Data",
+      "file": "Native_Load_2019.zip",
+      "bytes": 1092646,
+      "sha256": "f99a5a9ed299523c23935487761f5e446ec4dddf0be0e1da931487be09681654"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2019/01/07/native_load_2018.zip",
+      "title": "2018 ERCOT Hourly Load Data ",
+      "file": "native_load_2018.zip",
+      "bytes": 1093121,
+      "sha256": "c57da4b5927a920eb8e160cf8927ec0e8f6a11f5e02962f4c9850787f13e2474"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2018/01/09/native_load_2017.zip",
+      "title": "2017 ERCOT Hourly Load Data",
+      "file": "native_load_2017.zip",
+      "bytes": 1119759,
+      "sha256": "6daf8e47e8145a1bce2ad41aecbfcadf59b2d0441f51e1b23c252e19d1e7bd28"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2017/01/10/native_Load_2016.zip",
+      "title": "2016 ERCOT Hourly Load Data",
+      "file": "native_Load_2016.zip",
+      "bytes": 1122112,
+      "sha256": "419bfd7ddb8a496273febab70e8958c0e6c51fbd638cc300e109d4e9c470d5e3"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2016/01/07/native_load_2015.xls",
+      "title": "2015 ERCOT Hourly Load Data",
+      "file": "native_load_2015.xls",
+      "bytes": 1799680,
+      "sha256": "d1ceb649236e02bc7ca08a3934c1a5f39bfc1df9c007e4d5288038e753d4dcc3"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2014_ercot_hourly_load_data.xls",
+      "title": "2014 ERCOT Hourly Load Data",
+      "file": "2014_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "e695f6e739c4dd83e48cb61941d4818ee6b0d90ff9183c8c152ba27a688fd94f"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2013_ercot_hourly_load_data.xls",
+      "title": "2013 ERCOT Hourly Load Data",
+      "file": "2013_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "d160bb43ae815a040198d172bdaa65aae155eb426d20565aed7f822a9c32ed20"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2012_ercot_hourly_load_data.xls",
+      "title": "2012 ERCOT Hourly Load Data",
+      "file": "2012_ercot_hourly_load_data.xls",
+      "bytes": 1804288,
+      "sha256": "4fa9078ed7427345eba5e505ae7fd1c2977c15726a4feb58204f035b00af7793"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2011_ercot_hourly_load_data.xls",
+      "title": "2011 ERCOT Hourly Load Data",
+      "file": "2011_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "ee695df2ef4cd3dc4204e183413a96287ff4d6b8dbb167be110c51ae7d761d8d"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2010_ercot_hourly_load_data.xls",
+      "title": "2010 ERCOT Hourly Load Data",
+      "file": "2010_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "b7f4cacc203ac1e8416a06c0f6ad47a584412c2d4d4ff3b52462147393ccde81"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2009_ercot_hourly_load_data.xls",
+      "title": "2009 ERCOT Hourly Load Data",
+      "file": "2009_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "2680fbf227bedc1adf9ee3501d1d1d2415a596d9d6e3fd78c87458244a443ad1"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2008_ercot_hourly_load_data.xls",
+      "title": "2008 ERCOT Hourly Load Data",
+      "file": "2008_ercot_hourly_load_data.xls",
+      "bytes": 1804288,
+      "sha256": "ed0269f32cec9e32e48a104c5d0840b75e250696b9bd3f938b2c35e48bb7fb79"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2007_ercot_hourly_load_data.xls",
+      "title": "2007 ERCOT Hourly Load Data",
+      "file": "2007_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "56b5697005446df62334dea97aef3753ab2f7019ad1f4cd21bbcce87fd0e2fc9"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2006_ercot_hourly_load_data.xls",
+      "title": "2006 ERCOT Hourly Load Data",
+      "file": "2006_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "f8ce4d21738105ee930e0fe8dc51b0d4d28b8e9fb839bc2a9127f08e064a3fee"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2005_ercot_hourly_load_data.xls",
+      "title": "2005 ERCOT Hourly Load Data",
+      "file": "2005_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "82bd7d426592de3386e0bba7cc8383dd63c9dce0893b253577d3c6a65427898c"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2004_ercot_hourly_load_data.xls",
+      "title": "2004 ERCOT Hourly Load Data",
+      "file": "2004_ercot_hourly_load_data.xls",
+      "bytes": 1804288,
+      "sha256": "aa3f4f0bb0255452a2dd8aa2af0e1925160054674a590e502b1f4b706c97b2ce"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2003_ercot_hourly_load_data.xls",
+      "title": "2003 ERCOT Hourly Load Data",
+      "file": "2003_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "8db2d51ae30acbbddebd8409e1c8ac5c0ed53a271c60cdc3905ea30f4823bd8d"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2015/10/22/2002_ercot_hourly_load_data.xls",
+      "title": "2002 ERCOT Hourly Load Data",
+      "file": "2002_ercot_hourly_load_data.xls",
+      "bytes": 1799680,
+      "sha256": "c0aad42d4418b2341ed4b66d277dff8913afc77b16d71eb7eb95e59853ebd403"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2005/11/10/2000ferc714.zip",
+      "title": "2000 ERCOT Hourly Load Data",
+      "file": "2000ferc714.zip",
+      "bytes": 381423,
+      "sha256": "52ab74e4f82b630c05152f781088eaca1a60f111dae2bf674a7380f62b6fb8b7"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2002/12/11/1999ferc714.zip",
+      "title": "1999 ERCOT Hourly Load Data",
+      "file": "1999ferc714.zip",
+      "bytes": 380990,
+      "sha256": "33462ad69c7c85298f67cf248024285f86c2776cd9c5c711f70bc6d3c2dfdfa5"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2002/12/11/ferc714.zip",
+      "title": "1998 ERCOT Hourly Load Data",
+      "file": "ferc714.zip",
+      "bytes": 1090738,
+      "sha256": "54cb33600a6f46fafbc9992afe74efb22394ecc85d733b41859b182acc8a5b79"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2002/12/11/97frc714.zip",
+      "title": "1997 ERCOT Hourly Load Data",
+      "file": "97frc714.zip",
+      "bytes": 211568,
+      "sha256": "0ccbbfea1c52b25156e071a28b96e63631fe7e94c677885698e4901fd8a15f7a"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2004/07/26/erceei97.xls",
+      "title": "1997 ERCOT Hourly Load Data",
+      "file": "erceei97.xls",
+      "bytes": 109056,
+      "sha256": "4c163bfc487661e9c7041c19be5f0fb6607114612bfab469799342479ff359c0"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2004/07/26/erceei97.txt",
+      "title": "1997 ERCOT Hourly Load Data (Raw)",
+      "file": "erceei97.txt",
+      "bytes": 59860,
+      "sha256": "268fe421e99cf55a3551dc2f63cca12791f5201baa8f18a6af9c5918a7ab9b8d"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2004/07/26/96load.txt",
+      "title": "1996 ERCOT Hourly Load Data",
+      "file": "96load.txt",
+      "bytes": 213966,
+      "sha256": "4eb15e58662c8b94ac8d402ee4b378524ad1ef62eb65af70dc1be979bd6554ae"
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2004/07/26/erceei95.txt",
+      "title": "1995 ERCOT Hourly Load Data",
+      "file": "erceei95.txt",
+      "bytes": 59860,
+      "sha256": "e388c19653b9cfd36c64fbd826e5255b7ce071944322250a456d250031ef7703"
+    }
+  ],
+  "liveWorkflow": {
+    "checkedAt": "2026-09-07T22:35:39.571687+00:00",
+    "links": 33,
+    "requests": [
+      {
+        "url": "https://www.ercot.com/gridinfo/load/load_hist",
+        "status": 200
+      },
+      {
+        "url": "https://www.ercot.com/gridinfo/load/load_hist",
+        "status": 200
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2015/10/22/2002_ercot_hourly_load_data.xls",
+        "status": 200
+      }
+    ],
+    "rowCount": 24,
+    "firstRow": {
+      "operatingDay": "2002-01-01",
+      "hourEnding": 1,
+      "dstLabel": null,
+      "sourceHourEnding": "2002-01-01 01:00:00.003000",
+      "sourceMember": "workbook.xls",
+      "sourceSheet": "native_Load_2002",
+      "coast": "8331.469266026934",
+      "east": "1111.0965494424045",
+      "farWest": "1094.045495798935",
+      "north": "995.2983921124664",
+      "northC": "10336.304899346236",
+      "southern": "2165.0075712469265",
+      "southC": "4793.193560266372",
+      "west": "843.747177253755",
+      "total": "29670.162911494022"
+    },
+    "lastRow": {
+      "operatingDay": "2002-01-01",
+      "hourEnding": 24,
+      "dstLabel": null,
+      "sourceHourEnding": "2002-01-02 00:00:00",
+      "sourceMember": "workbook.xls",
+      "sourceSheet": "native_Load_2002",
+      "coast": "8848.8733",
+      "east": "1152.81051",
+      "farWest": "1128.06221",
+      "north": "988.38027",
+      "northC": "10704.9127",
+      "southern": "2372.1155",
+      "southC": "5184.816289999999",
+      "west": "881.2104899999998",
+      "total": "31261.18127000001"
+    },
+    "authenticationHeadersSent": false
+  },
+  "sourceCaveats": [
+    "The index says 2001 is unavailable. No 2001 file is linked.",
+    "The republished 2002 and 2003 workbooks already contain the eight weather-zone columns, despite the older index description of a 2003 transition.",
+    "The source-labelled 1997 ZIP 97frc714.zip actually contains 1996 EEI load files and companion forecasts. Do not infer operating dates from index year labels.",
+    "The 1998 workbook contains load-serving-entity columns plus control-area mappings; it reports kW, not the same weather-zone table shape.",
+    "The 2026 ZIP repeatedly fails standard central-directory CRC validation. Its complete local member has valid sizes/CRC; the workbook reader now recovers it using those checked local fields, as documented in localHeaderRecovery.",
+    "Native Load 2016 contains a timestamp for November 6 hour 24 with all nine load values absent. These are None, not zero."
+  ],
+  "fixtures": [
+    {
+      "path": "tools/inputs/history/hourly-load-2002.zip",
+      "sha256": "168b17ca1ea260068301123726ad8f68ca7a1cd31d0bfe7402c5cc01a0917113",
+      "note": "Original source bytes; the directly published XLS for 2002 is wrapped in a ZIP for storage."
+    },
+    {
+      "path": "tools/inputs/history/hourly-load-2016.zip",
+      "sha256": "419bfd7ddb8a496273febab70e8958c0e6c51fbd638cc300e109d4e9c470d5e3",
+      "note": "Original source bytes; the directly published XLS for 2002 is wrapped in a ZIP for storage."
+    },
+    {
+      "path": "tools/inputs/history/hourly-load-2022.zip",
+      "sha256": "a90335ab621a5ad719bc885b27d7fd7ed0c90de0ad3f72736c30c26ada89a2ce",
+      "note": "Original source bytes; the directly published XLS for 2002 is wrapped in a ZIP for storage."
+    }
+  ],
+  "legacyReaderEvidence": "public-legacy-hourly-load-evidence.json",
+  "apiArchiveComparison": {
+    "scope": "January 2018 API archive publications compared against January rows in the annual Native Load 2018 workbook. Joined on operating day and hour ending; January avoids DST ambiguity. This comparison tests source equivalence, not parser correctness.",
+    "apiRows": 744,
+    "matchedHours": 720,
+    "cellsCompared": 6480,
+    "exactEqualCells": 0,
+    "equalAfterAnnualRoundedToHundredth": 0,
+    "differentValueExamples": [
+      {
+        "day": "2018-01-01",
+        "hour": 1,
+        "zone": "coast",
+        "api": "10964.93",
+        "annual": "11425.979115"
+      },
+      {
+        "day": "2018-01-01",
+        "hour": 1,
+        "zone": "east",
+        "api": "2076.80",
+        "annual": "1852.663959"
+      },
+      {
+        "day": "2018-01-01",
+        "hour": 1,
+        "zone": "farWest",
+        "api": "2738.81",
+        "annual": "2823.409245"
+      },
+      {
+        "day": "2018-01-01",
+        "hour": 1,
+        "zone": "north",
+        "api": "1410.78",
+        "annual": "1135.360907"
+      }
+    ],
+    "checkedAt": "2026-09-08T04:12:32.836046+00:00",
+    "sources": [
+      {
+        "kind": "API archive publications posted during January 2018",
+        "product": "NP6-345-CD",
+        "sha256": "9e69d1a0cc530f667eae86334b0a375f44ee343c8f0c7c4c6144d929ca84a317"
+      },
+      {
+        "kind": "Annual hourly load workbook",
+        "url": "https://www.ercot.com/files/docs/2019/01/07/native_load_2018.zip",
+        "sha256": "c57da4b5927a920eb8e160cf8927ec0e8f6a11f5e02962f4c9850787f13e2474"
+      }
+    ],
+    "conclusion": "These published series are not numerically interchangeable for the compared intervals; no cause for the differences is inferred and no automatic substitution is performed.",
+    "apiFirstOperatingDay": "2017-12-31",
+    "apiLastOperatingDay": "2018-01-30",
+    "independentRawComparison": "The same 720-hour/6480-cell result was reproduced directly from CSV dictionaries and openpyxl worksheet cells, without SDK models or readers."
+  },
+  "localHeaderRecovery": {
+    "checkedAt": "2026-09-08T04:31:16.239096+00:00",
+    "url": "https://www.ercot.com/files/docs/2026/02/10/Native_Load_2026.zip",
+    "originalBytes": 722951,
+    "originalSha256": "3a642883ab3889c23650cde4cf6bade371c62999ee4c54bfdda6f8063422aef0",
+    "centralDirectory": {
+      "crc": "0x9e502d59",
+      "compressedBytes": 722755,
+      "uncompressedBytes": 731861
+    },
+    "localHeader": {
+      "crc": "0x46e4b781",
+      "compressedBytes": 632827,
+      "uncompressedBytes": 641533
+    },
+    "localCrcAndSizeVerified": true,
+    "innerMembersWithValidCrc": 11,
+    "rows": 5087,
+    "loadCellsCompared": 45783,
+    "firstOperatingDay": "2026-01-01",
+    "lastOperatingDay": "2026-07-31",
+    "firstTotal": "46299.897428",
+    "lastTotal": "71506.161665",
+    "allRowsMatchIndependentSource": true,
+    "scope": "Live anonymous weather_zones retrieval; every emitted date/hour/DST/provenance field and all nine load cells compared to openpyxl source values after independent local-header decompression. Local sizes/CRC and every inner XLSX member CRC verified; source bytes remain unchanged. No API substitution or inferred values."
+  }
+}

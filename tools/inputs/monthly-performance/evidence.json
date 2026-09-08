@@ -1,0 +1,292 @@
+{
+  "checkedAt": "2026-09-08",
+  "files": [
+    {
+      "title": "DayAhead Backcast Report August 2026",
+      "url": "https://www.ercot.com/files/docs/2026/09/02/DayAhead-Backcast-Report-Aug26.xlsx",
+      "bytes": 31454,
+      "sha256": "56c5c02cab3124b4b6bf8951be579940257ec78421e036a27d4712737d267c7e",
+      "member": "b6ddae1d4ee5-DayAhead-Backcast-Report-Aug26.xlsx",
+      "rows": 222,
+      "numericValues": 218,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2021-01-01",
+      "lastMonth": "2026-12-01",
+      "lastNonemptyMonth": "2026-08-01"
+    },
+    {
+      "title": "DayAhead Backcast Report July 2026",
+      "url": "https://www.ercot.com/files/docs/2026/08/07/DayAhead-Backcast-Report-July26.xlsx",
+      "bytes": 30295,
+      "sha256": "b95bc46e25f9eb641c96a716595edb1b59564cf306c00fb15b0c660033576b4c",
+      "member": "ea5c3cea1e03-DayAhead-Backcast-Report-July26.xlsx",
+      "rows": 222,
+      "numericValues": 217,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2021-01-01",
+      "lastMonth": "2026-12-01",
+      "lastNonemptyMonth": "2026-07-01"
+    },
+    {
+      "title": "DayAhead Backcast Report June 2026",
+      "url": "https://www.ercot.com/files/docs/2026/07/13/DayAhead-Backcast-Report-June26.xlsx",
+      "bytes": 29993,
+      "sha256": "c813b1b34c1ecbbe847075eaf473af73d578c1f3e87c8c14f575637082f9ce28",
+      "member": "9d10dc854e34-DayAhead-Backcast-Report-June26.xlsx",
+      "rows": 222,
+      "numericValues": 216,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2021-01-01",
+      "lastMonth": "2026-12-01",
+      "lastNonemptyMonth": "2026-06-01"
+    },
+    {
+      "title": "DayAhead Backcast Report May 2026",
+      "url": "https://www.ercot.com/files/docs/2026/06/03/DayAhead-Backcast-Report-May26.xlsx",
+      "bytes": 29699,
+      "sha256": "39433f58103b3f63674a5ffb1d425504b7857c840d53297681de3677e81a6d33",
+      "member": "6e0099a97f4e-DayAhead-Backcast-Report-May26.xlsx",
+      "rows": 222,
+      "numericValues": 215,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2021-01-01",
+      "lastMonth": "2026-12-01",
+      "lastNonemptyMonth": "2026-05-01"
+    },
+    {
+      "title": "DayAhead Backcast Report April 2026",
+      "url": "https://www.ercot.com/files/docs/2026/05/05/DayAhead-Backcast-Report-Apr26.xlsx",
+      "bytes": 29688,
+      "sha256": "d47b79ec29a1eff4df5875fc663ccd7792e259fec1fbd1671a6666142e922503",
+      "member": "47d0ab2c33e6-DayAhead-Backcast-Report-Apr26.xlsx",
+      "rows": 222,
+      "numericValues": 214,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2021-01-01",
+      "lastMonth": "2026-12-01",
+      "lastNonemptyMonth": "2026-04-01"
+    },
+    {
+      "title": "DayAhead Backcast Report March 2026",
+      "url": "https://www.ercot.com/files/docs/2026/04/10/DayAhead-Backcast-Report-Mar26.xlsx",
+      "bytes": 29703,
+      "sha256": "2335beefa0f84f7da085a8988de43a640c965d1d8abac03542946d1d9ea8aeff",
+      "member": "8cbfb296c145-DayAhead-Backcast-Report-Mar26.xlsx",
+      "rows": 222,
+      "numericValues": 213,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2021-01-01",
+      "lastMonth": "2026-12-01",
+      "lastNonemptyMonth": "2026-03-01"
+    },
+    {
+      "title": "Day-Ahead Backcast Report December 2025",
+      "url": "https://www.ercot.com/files/docs/2026/03/27/DayAhead-Backcast-Report-Dec25.xlsx",
+      "bytes": 29822,
+      "sha256": "85a29b8985a491bc613e76888cabfe55c07f6e4e923226a9798b5bd4bb0e141d",
+      "member": "8d20bbf5b746-DayAhead-Backcast-Report-Dec25.xlsx",
+      "rows": 222,
+      "numericValues": 222,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2020-01-01",
+      "lastMonth": "2025-12-01",
+      "lastNonemptyMonth": "2025-12-01"
+    },
+    {
+      "title": "Day-Ahead Backcast Report November 2025",
+      "url": "https://www.ercot.com/files/docs/2025/12/03/DayAhead-Backcast-ReportNov25.xlsx",
+      "bytes": 39009,
+      "sha256": "8fb8e7004886945e051bf610b2a83f7cbdbad22d3670cbe833b9da7dbe03dbfd",
+      "member": "d8519c31f962-DayAhead-Backcast-ReportNov25.xlsx",
+      "rows": 222,
+      "numericValues": 221,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2020-01-01",
+      "lastMonth": "2025-12-01",
+      "lastNonemptyMonth": "2025-11-01"
+    },
+    {
+      "title": "Day-Ahead Backcast Report October 2025",
+      "url": "https://www.ercot.com/files/docs/2025/11/05/DayAhead-Backcast-ReportOct25.xlsx",
+      "bytes": 39295,
+      "sha256": "e8ce2ca39640ae664319a5b56ed6a6197d2f8b99a2a52dae39c4496e29958a2a",
+      "member": "9c05bc97f3a3-DayAhead-Backcast-ReportOct25.xlsx",
+      "rows": 222,
+      "numericValues": 220,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2020-01-01",
+      "lastMonth": "2025-12-01",
+      "lastNonemptyMonth": "2025-10-01"
+    },
+    {
+      "title": "Day-Ahead Backcast Report September 2025",
+      "url": "https://www.ercot.com/files/docs/2025/10/03/DayAhead-Backcast-ReportSep25.xlsx",
+      "bytes": 39040,
+      "sha256": "f91e671b3002cb8d53c8dbcd3cd0e78b36c9fe827762600f370f4180082e8cce",
+      "member": "3470dd93bd83-DayAhead-Backcast-ReportSep25.xlsx",
+      "rows": 222,
+      "numericValues": 219,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2020-01-01",
+      "lastMonth": "2025-12-01",
+      "lastNonemptyMonth": "2025-09-01"
+    },
+    {
+      "title": "Day-Ahead Backcast Report August 2025",
+      "url": "https://www.ercot.com/files/docs/2025/09/08/DayAhead-Backcast-ReportAug25.xlsx",
+      "bytes": 39026,
+      "sha256": "6407d1a591ef0ccbb5703a4893503189ec2f51d2e9c1cc56cc63bfe455b6869b",
+      "member": "7c588414b54d-DayAhead-Backcast-ReportAug25.xlsx",
+      "rows": 222,
+      "numericValues": 218,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2020-01-01",
+      "lastMonth": "2025-12-01",
+      "lastNonemptyMonth": "2025-08-01"
+    },
+    {
+      "title": "Day-Ahead Backcast Report July 2025",
+      "url": "https://www.ercot.com/files/docs/2025/08/06/DayAhead-Backcast-ReportJul25.xlsx",
+      "bytes": 39022,
+      "sha256": "974170e626faa417dc0fa67a355132cb7bc1732989fdae3b774d8ddc7baffba9",
+      "member": "6bd62e74c0a3-DayAhead-Backcast-ReportJul25.xlsx",
+      "rows": 222,
+      "numericValues": 217,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2020-01-01",
+      "lastMonth": "2025-12-01",
+      "lastNonemptyMonth": "2025-07-01"
+    },
+    {
+      "title": "Day-Ahead Backcast Report June 2025",
+      "url": "https://www.ercot.com/files/docs/2025/08/06/DayAhead-Backcast-ReportJun25.xlsx",
+      "bytes": 38977,
+      "sha256": "8da367d7fc3bda1473886592b502fa5b0a48eeb32e5e46bade0d319e132decab",
+      "member": "2dab7f9356ab-DayAhead-Backcast-ReportJun25.xlsx",
+      "rows": 222,
+      "numericValues": 216,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2020-01-01",
+      "lastMonth": "2025-12-01",
+      "lastNonemptyMonth": "2025-06-01"
+    },
+    {
+      "title": "Day-Ahead Backcast Report May 2025",
+      "url": "https://www.ercot.com/files/docs/2025/06/12/DayAhead-Backcast-ReportMay25.xlsb.xlsx",
+      "bytes": 38906,
+      "sha256": "d598836a7de9103530d0537a27c5275476ec9f5ddd77fa2f81793c9c62a6aac8",
+      "member": "1cc4189567ea-DayAhead-Backcast-ReportMay25.xlsb.xlsx",
+      "rows": 222,
+      "numericValues": 215,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2020-01-01",
+      "lastMonth": "2025-12-01",
+      "lastNonemptyMonth": "2025-05-01"
+    },
+    {
+      "title": "Day-Ahead Backcast Report April 2025",
+      "url": "https://www.ercot.com/files/docs/2024/07/01/DayAhead-Backcast-Report.xlsb.xlsx",
+      "bytes": 38924,
+      "sha256": "99d73d62cfa710ca573ce67124ae7e8259a54b0c3d6946e310dc00e7e4288647",
+      "member": "e9b84faff61e-DayAhead-Backcast-Report.xlsb.xlsx",
+      "rows": 222,
+      "numericValues": 214,
+      "explicitPercentValues": 150,
+      "kinds": {
+        "forecast": 75,
+        "target": 50,
+        "backcast": 97
+      },
+      "firstMonth": "2020-01-01",
+      "lastMonth": "2025-12-01",
+      "lastNonemptyMonth": "2025-04-01"
+    }
+  ],
+  "liveOriginalsByteEqual": true,
+  "rows": 3330,
+  "numericValues": 3255,
+  "explicitPercentValues": 2250,
+  "index": "https://www.ercot.com/gridinfo/load/forecast",
+  "decoderSha256": "e247154645a2aae089b16c1c62614d5adf8a549f9dc7354b0e65b80ac59cdda8",
+  "allMonthlyTableCellsCompared": true,
+  "regressionTest": "tests/test_monthly_performance.py",
+  "notes": [
+    "All15 complete original workbooks are regression fixtures and were freshly downloaded with byte-identical SHA256 hashes.",
+    "Each workbook has125 forecast/target cells,72 year/month backcast cells and25 rolling backcast cells; all222 values and their dates/formats/labels match originalcells.",
+    "3330 records include75 blank future values.2250 values explicitly use Excel percentage formatting and support the percent property; unlabelled numeric scales return percent=None.",
+    "Original date days20/24/25/26 are retained as sourceDate; month is explicitly normalized to its calendar first day.",
+    "Forecast errors, backcasts and Goal/Stretch targets have distinct kinds. Backcast and Day-Ahead Backcast series remain distinct, including overlapping months and publication vintages.",
+    "Charts, external chart references, the empty Average label and two unlabelled diagnostic #DIV/0! cells outside monthly tables are not treated as monthly observations.",
+    "Backcasts use retrospectively supplied inputs and do not establish forecasts available at a historical decision time. No issuance times are inferred."
+  ]
+}

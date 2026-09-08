@@ -1,0 +1,31 @@
+{
+  "source": "https://www.ercot.com/mktinfo/data_agg",
+  "files": 10,
+  "fileYears": [
+    2001,
+    2005
+  ],
+  "counts": {
+    "days": 13886,
+    "intervalCells": 1361260,
+    "numericIntervals": 1332244,
+    "sourceNumbers": 1170,
+    "unlabelledIntervalRows": 9,
+    "totals": 88,
+    "summaryTotals": 52,
+    "totalIntervalCells": 96,
+    "totalSourceNumbers": 1
+  },
+  "fixtures": "All ten complete original workbooks, unchanged, including summaries and duplicate raw sheets. Discovery reuses the 26 original aggregation index fixtures.",
+  "limits": [
+    "2001 generation starts July 31; load starts August 1.",
+    "2005 generation is missing June 22 through July 28 in all five zones.",
+    "Raw generation sheets for 2001-2004 duplicate the reported daily interval values; only the reported daily tables are emitted.",
+    "Nine load rows have 100 values under 96 interval headers; all values remain, with unknown clock labels.",
+    "805 additional generation numbers are not treated as interval energy.",
+    "2003 W03 uses an ORIGIN header over numeric values; they remain sourceNumbers, not silently relabeled totals.",
+    "Source cached totals and shares are not recalculated or reconciled.",
+    "Numeric energy cells with accidental Excel date formats remain their original numbers.",
+    "Vintage zone codes, clock positions and source timestamps do not establish modern-zone mappings or public availability."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-09-08T15:18:09.065666+00:00",
+  "product": "NP6-905-CD",
+  "scope": "First 1000 rows of a live unbounded backfill, independently compared with original CSV fields. Proves bundle rows are available before any archive-listing requests; not a full-history comparison or latency guarantee.",
+  "rowsCompared": 1000,
+  "firstRowSeconds": 11.757,
+  "firstDeliveryDate": "2026-08-11",
+  "archiveRequestsBeforeRows": 0,
+  "bundleBytes": 23434293,
+  "bundleSha256": "fd59ec7ae3de4a8543d0c1bdbc0944ea388779a04943a0c7687172c2ec8dbfd7",
+  "historyDecoderSha256": "a9a2fcc790495bc8a6b7c643fd3a678ca23734c33f1563ce85f4264defa1f400",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/public-reports/bundle/np6-905-cd",
+      "query": "page=1&size=1000"
+    },
+    {
+      "method": "POST",
+      "path": "/api/public-reports/bundle/np6-905-cd/download",
+      "query": ""
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+[
+  {
+    "endpoint": "np4-212-cd/dam_sced_as_demand_curves",
+    "fixture": "np4-212-cd-history-current.csv",
+    "file": "cdr.00024893.0000000000000000.20260906.045541.DAMSCEDASDCNP4212.csv",
+    "csv_rows": 370224,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-06",
+      "hourEnding": "01:00",
+      "ASType": "ECRS",
+      "demandCurvePoint": "1",
+      "quantity": "0",
+      "price": "5050",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 370224
+  },
+  {
+    "endpoint": "np4-212-cd/dam_sced_as_demand_curves",
+    "fixture": "np4-212-cd-history-samples.csv",
+    "file": "cdr.00024893.0000000000000000.20251205.045603.DAMSCEDASDCNP4212.csv",
+    "csv_rows": 370224,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2025-12-05",
+      "hourEnding": "01:00",
+      "ASType": "ECRS",
+      "demandCurvePoint": "1",
+      "quantity": "0",
+      "price": "5050",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 370224
+  },
+  {
+    "endpoint": "np4-213-cd/hruc_as_demand_curves",
+    "fixture": "np4-213-cd-history-current.csv",
+    "file": "cdr.00026382.0000000000000000.20260907.121843.HRUCASDCNP4213.csv",
+    "csv_rows": 40459,
+    "first_row": {
+      "ASType": "ECRS",
+      "RUCTimestamp": "2026-09-07T12:03:03",
+      "deliveryDate": "2026-09-07",
+      "demandCurvePoint": "1",
+      "hourEnding": "14:00",
+      "price": "5050",
+      "quantity": "0",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 40459
+  },
+  {
+    "endpoint": "np4-213-cd/hruc_as_demand_curves",
+    "fixture": "np4-213-cd-history-samples.csv",
+    "file": "cdr.00026382.0000000000000000.20260226.152002.HRUCASDCNP4213.csv",
+    "csv_rows": 52443,
+    "first_row": {
+      "ASType": "ECRS",
+      "RUCTimestamp": "2026-02-26T15:03:03",
+      "deliveryDate": "2026-02-26",
+      "demandCurvePoint": "1",
+      "hourEnding": "17:00",
+      "price": "5050",
+      "quantity": "0",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 52443
+  },
+  {
+    "endpoint": "np4-214-cd/druc_as_demand_curves",
+    "fixture": "np4-214-cd-history-current.csv",
+    "file": "cdr.00026383.0000000000000000.20260906.145756.DRUCASDCNP4214.csv",
+    "csv_rows": 93627,
+    "first_row": {
+      "ASType": "ECRS",
+      "RUCTimestamp": "2026-09-06T14:33:04",
+      "deliveryDate": "2026-09-07",
+      "demandCurvePoint": "1",
+      "hourEnding": "01:00",
+      "price": "5050",
+      "quantity": "0",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 93627
+  },
+  {
+    "endpoint": "np4-214-cd/druc_as_demand_curves",
+    "fixture": "np4-214-cd-history-samples.csv",
+    "file": "cdr.00026383.0000000000000000.20260227.145758.DRUCASDCNP4214.csv",
+    "csv_rows": 142727,
+    "first_row": {
+      "ASType": "ECRS",
+      "RUCTimestamp": "2026-02-27T14:33:01",
+      "deliveryDate": "2026-02-28",
+      "demandCurvePoint": "1",
+      "hourEnding": "01:00",
+      "price": "5050",
+      "quantity": "0",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 142727
+  },
+  {
+    "endpoint": "np4-215-cd/wruc_as_demand_curves",
+    "fixture": "np4-215-cd-history-current.csv",
+    "file": "cdr.00026384.0000000000000000.20260906.025437.WRUCASDCNP4215.csv",
+    "csv_rows": 655389,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "01:00",
+      "RUCTimestamp": "2026-09-06T01:05:26",
+      "ASType": "ECRS",
+      "demandCurvePoint": "1",
+      "quantity": "0",
+      "price": "5050",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 655389
+  },
+  {
+    "endpoint": "np4-215-cd/wruc_as_demand_curves",
+    "fixture": "np4-215-cd-history-samples.csv",
+    "file": "cdr.00026384.0000000000000000.20260227.024604.WRUCASDCNP4215.csv",
+    "csv_rows": 831845,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-02-28",
+      "hourEnding": "01:00",
+      "RUCTimestamp": "2026-02-27T01:10:53",
+      "ASType": "ECRS",
+      "demandCurvePoint": "1",
+      "quantity": "0",
+      "price": "5050",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 831845
+  }
+]

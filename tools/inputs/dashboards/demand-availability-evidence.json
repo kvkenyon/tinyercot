@@ -1,0 +1,33 @@
+{
+  "checked": "2026-09-08",
+  "url": "https://www.ercot.com/api/1/services/read/dashboards/system-wide-demand.json",
+  "fixture": "system-wide-demand-before-day-ahead.json",
+  "sha256": "81d8de96f0e12263b4eeecda6bfb304cb2dfdb3a8833a13cd30e89cd44a4f996",
+  "nextDayRowsWithAbsentDayAheadForecastAndHsl": 24,
+  "currentDayFirstSystemLoad": "66748.26",
+  "graphicsComparisons": [
+    {
+      "html": "loadForecastVsActualCurrentDay.html",
+      "sourceSha256": "82db245e8c6493df08b7b50018e59968f9382289f062c4eabd8c6f6096699d03",
+      "chartPoints": 97,
+      "matchingRoundedJsonValues": 97,
+      "differences": []
+    },
+    {
+      "html": "loadForecastVsActualPreviousDay.html",
+      "sourceSha256": "e36b5f4b2f0c3f6ad3bbbc7d0a6fc4e6ab5a23d9215833d974cff2ce31b04f33",
+      "chartPoints": 120,
+      "matchingRoundedJsonValues": 120,
+      "differences": []
+    }
+  ],
+  "roundingComparison": "Whole MW, ties to even. SDK retains full source decimal precision. No graphic pixels were decoded.",
+  "limits": "Two graphics snapshots and one pre-publication JSON response; not a guarantee about all historical schemas or issuance times.",
+  "combinedWindSolar": {
+    "url": "https://www.ercot.com/api/1/services/read/dashboards/combine-wind-solar.json",
+    "fixture": "combine-wind-solar-before-day-ahead.json",
+    "sha256": "f583b1d9b180a41114b33afdf91bd3a090af0afa2f77700d01b6bd872acd2ca5",
+    "nextDayRows": 24,
+    "nullDayAheadValues": 144
+  }
+}

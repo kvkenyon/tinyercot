@@ -1,0 +1,130 @@
+[
+  {
+    "endpoint": "np5-754-cd/daily_ruc_act_and_bind_tran_const",
+    "fixture": "np5-754-cd-history-current.csv",
+    "file": "cdr.00012338.0000000000000000.20260906.145705.DRUCAPROVABINDTRANSNP5754.csv",
+    "csv_rows": 77,
+    "first_row": {
+      "RUCTimestamp": "2026-09-06T14:33:04",
+      "constraintID": 2,
+      "constraintName": "6945__A",
+      "contingencyName": "SRGRMGS5",
+      "deliveryDate": "2026-09-07",
+      "fromStation": "MGSES",
+      "fromStationkV": "345",
+      "hourEnding": "01:00",
+      "limit": "1200",
+      "repeatedHourFlag": false,
+      "toStation": "CATSW",
+      "toStationkV": "345",
+      "value": "1200",
+      "violationAmount": "0"
+    },
+    "rows_decoded": 77
+  },
+  {
+    "endpoint": "np5-754-cd/daily_ruc_act_and_bind_tran_const",
+    "fixture": "np5-754-cd-history-samples.csv",
+    "file": "cdr.00012338.0000000000000000.20260828.145900.DRUCAPROVABINDTRANSNP5754.csv",
+    "csv_rows": 84,
+    "first_row": {
+      "RUCTimestamp": "2026-08-28T14:33:21",
+      "constraintID": 1,
+      "constraintName": "LPLMK_LPLNE_1",
+      "contingencyName": "SBWDDBM5",
+      "deliveryDate": "2026-08-29",
+      "fromStation": "LPLMK",
+      "fromStationkV": "115",
+      "hourEnding": "01:00",
+      "limit": "218",
+      "repeatedHourFlag": false,
+      "toStation": "LPLNE",
+      "toStationkV": "115",
+      "value": "218",
+      "violationAmount": "0"
+    },
+    "rows_decoded": 84
+  },
+  {
+    "endpoint": "np5-755-cd/hrly_ruc_act_and_bind_tran_const",
+    "fixture": "np5-755-cd-history-current.csv",
+    "file": "cdr.00012336.0000000000000000.20260907.121750.HRUCAPROVABINDTRANSNP5755.csv",
+    "csv_rows": 61,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "14:00",
+      "RUCTimestamp": "2026-09-07T12:03:03",
+      "constraintID": 1,
+      "constraintName": "SEA_AAT1",
+      "contingencyName": "DFRYBC58",
+      "limit": "100",
+      "value": "100",
+      "violationAmount": "0",
+      "fromStation": "SEA",
+      "toStation": "SEA",
+      "fromStationkV": "138",
+      "toStationkV": "69",
+      "DSTFlag": false
+    },
+    "rows_decoded": 61
+  },
+  {
+    "endpoint": "np5-755-cd/hrly_ruc_act_and_bind_tran_const",
+    "fixture": "np5-755-cd-history-samples.csv",
+    "file": "cdr.00012336.0000000000000000.20260430.112107.HRUCAPROVABINDTRANSNP5755.csv",
+    "csv_rows": 22,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-04-30",
+      "hourEnding": "13:00",
+      "RUCTimestamp": "2026-04-30T11:03:03",
+      "constraintID": 2,
+      "constraintName": "940__A",
+      "contingencyName": "SPEBTRU8",
+      "limit": "263",
+      "value": "263",
+      "violationAmount": "0",
+      "fromStation": "ENWSW",
+      "toStation": "TMPTN",
+      "fromStationkV": "138",
+      "toStationkV": "138",
+      "DSTFlag": false
+    },
+    "rows_decoded": 22
+  },
+  {
+    "endpoint": "np6-970-cd/rtd_lmp_node_zone_hub",
+    "fixture": "np6-970-cd-history-current.csv",
+    "file": "cdr.00013073.0000000000000000.20260907.125642.RTDLMPRNLZHUBNP6970_20260907_125503.csv",
+    "csv_rows": 26952,
+    "first_row": {
+      "LMP": "33.86",
+      "RTDTimestamp": "2026-09-07T12:55:03",
+      "intervalEnding": "2026-09-07T13:00:00",
+      "intervalId": 1,
+      "intervalRepeatHourFlag": false,
+      "repeatHourFlag": false,
+      "settlementPoint": "7RNCHSLR_ALL",
+      "settlementPointType": "RN"
+    },
+    "rows_decoded": 26952
+  },
+  {
+    "endpoint": "np6-970-cd/rtd_lmp_node_zone_hub",
+    "fixture": "np6-970-cd-history-samples.csv",
+    "file": "cdr.00013073.0000000000000000.20140501.000012.RTDLMPRNLZHUBNP6970_20140501_000001.csv",
+    "csv_rows": 6259,
+    "first_row": {
+      "LMP": "28.71",
+      "RTDTimestamp": "2014-05-01T00:00:01",
+      "intervalEnding": "2014-05-01T00:05:00",
+      "intervalId": 1,
+      "intervalRepeatHourFlag": false,
+      "repeatHourFlag": false,
+      "settlementPoint": "AMISTAD_ALL",
+      "settlementPointType": "RN"
+    },
+    "rows_decoded": 6259
+  }
+]

@@ -1,0 +1,4 @@
+RTDTimestamp,RepeatedHourFlag,IntervalId,IntervalEnding,IntervalRepeatedHourFlag,SettlementPoint,SettlementPointType,LMP
+09/07/2026 12:55:03,N,1,09/07/2026 13:00:00,N,7RNCHSLR_ALL,RN,33.86
+09/07/2026 12:55:03,N,1,09/07/2026 13:00:00,N,A4_DGR1_RN,RN,33.89
+09/07/2026 12:55:03,N,1,09/07/2026 13:00:00,N,A4_DGR2_RN,RN,33.89

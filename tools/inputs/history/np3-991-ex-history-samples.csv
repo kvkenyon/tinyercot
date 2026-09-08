@@ -1,0 +1,4 @@
+Delivery Date,QSE Name,Resource Name,Hour Ending,Status,High Sustained Limit,Low Sustained Limit,High Emergency Limit,Low Emergency Limit,Reg Up,Reg Down,RRS,NSPIN,Cancel Flag,Update Time,Submit Time
+12/10/2018,QAEN,BOOTLEG_UNIT1,7:00,ON,0,0,121.1,0,0,0,0,0,N,12/3/2018 11:41,12/3/2018 11:41
+12/10/2018,QAEN,BOOTLEG_UNIT1,7:00,ON,0,0,0,0,0,0,0,0,N,12/3/2018 12:10,12/3/2018 11:41
+12/10/2018,QAEN,BOOTLEG_UNIT1,7:00,ON,0,0,121.1,0,0,0,0,0,N,12/5/2018 11:43,12/5/2018 11:43

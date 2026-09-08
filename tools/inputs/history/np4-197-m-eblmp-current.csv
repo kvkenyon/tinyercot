@@ -1,0 +1,4 @@
+SCEDTimestamp,ElectricalBus,CappedLMPOriginal,UncappedLMPOriginal,CappedLMPCorrected,UncappedLMPCorrected,PriceCorrectionTime,RepeatedHourFlag
+08/30/2026 09:25:18,0001,15.9,15.9,15.66,16,09/01/2026 16:00:00,N
+08/30/2026 09:25:18,0001DUPV1_,15.92,15.92,15.65,16,09/01/2026 16:00:00,N
+08/30/2026 09:25:18,0001HWFG1,15.35,15.35,15.67,16,09/01/2026 16:00:00,N

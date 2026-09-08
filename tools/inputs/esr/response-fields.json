@@ -1,0 +1,9 @@
+{
+  "rptesr-m/4_sec_esr_charging_mw": {
+    "AGCExecTime": "DATETIME",
+    "DSTFlag": "BOOLEAN",
+    "AGCExecTimeUTC": "DATETIME",
+    "systemDemand": "DOUBLE",
+    "ESRChargingMW": "DOUBLE"
+  }
+}

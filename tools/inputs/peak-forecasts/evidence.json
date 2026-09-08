@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-09-08T15:31:30.879064+00:00",
+  "sourceIndex": "https://www.ercot.com/gridinfo/load/forecast",
+  "linkedWorkbooks": 11,
+  "liveDiscoveryMatchesSources": true,
+  "forecastRows": 155,
+  "weatherScenarioValues": 2276,
+  "summaryValues": 286,
+  "unlabelledAuxiliaryValues": 150,
+  "forecastYearBounds": [
+    2014,
+    2033
+  ],
+  "weatherYearBounds": [
+    2002,
+    2023
+  ],
+  "decoderSha256": "6caff9fcc60781fed3c6cb72bd412a7ec0ac8f43bc5125f408d20b9713ae1ce2",
+  "scope": "Every numerical cell on the forecast-year rows of all labelled forecast tables in 11 linked XLS/XLSX files compared in regression tests with independently addressed original source cells. Includes separate gross/net/rooftop PV tables, TSP/adjusted sheets, large-load summaries and unlabelled numeric cells with original one-based column positions. Excludes Excel Compatibility Report. Forecasts are scenarios, not actual loads or point-in-time hourly forecasts. Forecast year bounds are source target years, not issue dates. Monthly/hourly/seasonal and forecast-performance workbook families are not covered by this reader."
+}

@@ -1,0 +1,4 @@
+"Delivery Date","Hour Ending","Settlement Point Source location for PtP Bid","Settlement Point Sink location for PtP Bid","PtP Bid  MW","PtP Bid  Price","Bid ID"
+"03/10/2014","1","BLSMT1_5_A_6","BULLCRK_1_2","1","-999","M111933"
+"03/10/2014","1","BLSMT1_5_A_6","BULLCRK_1_2","7","-200","M112669"
+"03/10/2014","1","BLSMT1_5_A_6","CSC_CSECG1_2","1","-999","M111787"

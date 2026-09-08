@@ -1,0 +1,4 @@
+Delivery Date,Hour Ending,Settlement Point Source Location for PtP Bid,Settlement Point Sink Location for PtP Bid,PtP Bid Price,PtP Bid MW
+09/05/2026,1,AGUAYO_UNIT1,CNLY_ESS_RN,100,10
+09/05/2026,1,AGUAYO_UNIT1,PANDA_T2_ST1,-.58,3
+09/05/2026,1,AGUAYO_UNIT1,RADN_SLR_ALL,-6.25,1

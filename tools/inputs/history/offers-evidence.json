@@ -1,0 +1,32 @@
+[
+  {
+    "endpoint": "np4-19-cd/dam_agg_as_offer_curve",
+    "fixture": "np4-19-cd-history-current.csv",
+    "file": "cdr.00012330.0000000000000000.20260907.123434.DAMASAGGNP419.csv",
+    "csv_rows": 20778,
+    "first_row": {
+      "DSTFlag": false,
+      "ancillaryType": "ECRSM",
+      "deliveryDate": "2026-09-08",
+      "hourEnding": "01:00",
+      "price": "0",
+      "quantity": "124"
+    },
+    "rows_decoded": 20778
+  },
+  {
+    "endpoint": "np4-19-cd/dam_agg_as_offer_curve",
+    "fixture": "np4-19-cd-history-samples.csv",
+    "file": "cdr.00012330.0000000000000000.20140312.131116.DAMASAGGNP419.csv",
+    "csv_rows": 5726,
+    "first_row": {
+      "DSTFlag": false,
+      "ancillaryType": "OFFNS",
+      "deliveryDate": "2014-03-13",
+      "hourEnding": "01:00",
+      "price": "400",
+      "quantity": "1757"
+    },
+    "rows_decoded": 5726
+  }
+]

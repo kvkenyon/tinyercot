@@ -1,0 +1,158 @@
+{
+  "checkedOn": "2026-09-08",
+  "scope": "Six main public hourly long-term load forecast workbooks, 2021-2025 publication vintages. Complete original numeric/time comparisons, not unique actual demand observations.",
+  "discovery": [
+    {
+      "title": "2021 ERCOT Hourly Forecast",
+      "url": "https://www.ercot.com/files/docs/2021/02/05/2021_LTLF_-_Hourly.xlsx"
+    },
+    {
+      "title": "2022 ERCOT Hourly Forecast",
+      "url": "https://www.ercot.com/files/docs/2022/02/10/2022_LTLF_Hourly.xlsx"
+    },
+    {
+      "title": "2023 ERCOT Hourly Forecast",
+      "url": "https://www.ercot.com/files/docs/2023/01/18/2023_LTLF_Hourly.xlsx"
+    },
+    {
+      "title": "2024 ERCOT Hourly Forecast",
+      "url": "https://www.ercot.com/files/docs/2024/07/19/2024-ERCOT-Hourly-Forecast.xlsb"
+    },
+    {
+      "title": "ERCOT Adjusted Forecast",
+      "url": "https://www.ercot.com/files/docs/2025/04/08/ErcotAdjustedForecast.xlsb"
+    },
+    {
+      "title": "TSP Provided Hourly Forecast",
+      "url": "https://www.ercot.com/files/docs/2025/04/08/TSP-Provided-Hourly-Forecast.xlsb"
+    }
+  ],
+  "rows": 701294,
+  "numericValues": 32084130,
+  "verification": "Every published component cell and date/hour compared with an independent reader: openpyxl for XLSX, pyxlsb for XLSB. Runtime uses python-calamine. Nonempty original rows only; formatted trailing blanks in the 2024 workbook are excluded. Original totals, negative PV, repeated hours and differing Date/YMD columns are preserved.",
+  "decoderSha256": "8b7a6a8c201d902995aea1df638a11d4e33b5406ac0d83569c6f7c8f0bfc5461",
+  "comparisonScriptSha256": "f7fd3169d4c68c2d6d300b7cb87a9e4e40d873b712c404a5d55e8bf55afe3d31",
+  "fixtureScope": "Offline tests use first 49 original worksheet rows, including headers (48 hourly records, or 47 in 2023). Later XML row elements or XLSB row records were removed; retained row bytes and other ZIP members were not changed. Expected cells were extracted with the independent reader. These are excerpts, not full original workbooks.",
+  "fixtureScriptSha256": "7f2bc00b2e8ce54ecb786ba1f8b5ae37b0760289a500b8d150c3d3eb49980f2d",
+  "exclusions": [
+    "Eight separate weather-year regional hourly scenario workbooks. Coast original downloaded and its layout inspected only.",
+    "Winter 2025-2026 reliability-standard magnitude workbook: original downloaded and its layout inspected only.",
+    "Forecast-performance workbook families.",
+    "MIS and separate ESR API."
+  ],
+  "files": [
+    {
+      "title": "TSP Provided Hourly Forecast",
+      "url": "https://www.ercot.com/files/docs/2025/04/08/TSP-Provided-Hourly-Forecast.xlsb",
+      "bytes": 48732718,
+      "sha256": "fa568bfcf146ae2694f3889674d73367292336ddb64886fc7904585a6d8870ba",
+      "rows": 175320,
+      "numericValues": 10168560,
+      "dateFrom": "2025-01-01",
+      "dateTo": "2044-12-31",
+      "sourceDateDifferences": 0,
+      "duplicateHourLabels": 20,
+      "hoursPerDay": {
+        "23": 20,
+        "24": 7265,
+        "25": 20
+      },
+      "elapsedSeconds": 71.79,
+      "firstRow": 2
+    },
+    {
+      "title": "ERCOT Adjusted Forecast",
+      "url": "https://www.ercot.com/files/docs/2025/04/08/ErcotAdjustedForecast.xlsb",
+      "bytes": 48422999,
+      "sha256": "05f3cc81aa17a1f91a2270088a07a911e65f83764809c4fe6cea7524a41300d1",
+      "rows": 175320,
+      "numericValues": 10519200,
+      "dateFrom": "2025-01-01",
+      "dateTo": "2044-12-31",
+      "sourceDateDifferences": 0,
+      "duplicateHourLabels": 20,
+      "hoursPerDay": {
+        "23": 20,
+        "24": 7265,
+        "25": 20
+      },
+      "elapsedSeconds": 73.63,
+      "firstRow": 2
+    },
+    {
+      "title": "2021 ERCOT Hourly Forecast",
+      "url": "https://www.ercot.com/files/docs/2021/02/05/2021_LTLF_-_Hourly.xlsx",
+      "bytes": 12545658,
+      "sha256": "4c5041d5eea3fad0f8b0a80e9c1bf81cdc198185c136733221082867014751e5",
+      "rows": 87648,
+      "numericValues": 788832,
+      "dateFrom": "2021-01-01",
+      "dateTo": "2030-12-31",
+      "sourceDateDifferences": 9,
+      "duplicateHourLabels": 10,
+      "hoursPerDay": {
+        "23": 10,
+        "24": 3632,
+        "25": 10
+      },
+      "elapsedSeconds": 10.43,
+      "firstRow": 2
+    },
+    {
+      "title": "2022 ERCOT Hourly Forecast",
+      "url": "https://www.ercot.com/files/docs/2022/02/10/2022_LTLF_Hourly.xlsx",
+      "bytes": 31999424,
+      "sha256": "5b0505bf3580dca9ff58fcf961ec209815f91e799461f21df77b75b211ad8e45",
+      "rows": 87664,
+      "numericValues": 2366640,
+      "dateFrom": "2022-01-01",
+      "dateTo": "2031-12-31",
+      "sourceDateDifferences": 8,
+      "duplicateHourLabels": 18,
+      "hoursPerDay": {
+        "23": 2,
+        "24": 3632,
+        "25": 18
+      },
+      "elapsedSeconds": 21.28,
+      "firstRow": 2
+    },
+    {
+      "title": "2023 ERCOT Hourly Forecast",
+      "url": "https://www.ercot.com/files/docs/2023/01/18/2023_LTLF_Hourly.xlsx",
+      "bytes": 31400184,
+      "sha256": "a2264d0eeb828756feddffb2ada8f98b83d17abc19b6984900574ef135d7e1b7",
+      "rows": 87670,
+      "numericValues": 2366874,
+      "dateFrom": "2023-01-01",
+      "dateTo": "2032-12-31",
+      "sourceDateDifferences": 8,
+      "duplicateHourLabels": 0,
+      "hoursPerDay": {
+        "23": 2,
+        "24": 3651
+      },
+      "elapsedSeconds": 21.19,
+      "firstRow": 3
+    },
+    {
+      "title": "2024 ERCOT Hourly Forecast",
+      "url": "https://www.ercot.com/files/docs/2024/07/19/2024-ERCOT-Hourly-Forecast.xlsb",
+      "bytes": 29792835,
+      "sha256": "63ad0b2af38496452ac5fe81e7803c605beab064d6f4422aa65c84833a2ce079",
+      "rows": 87672,
+      "numericValues": 5874024,
+      "dateFrom": "2024-01-01",
+      "dateTo": "2033-12-31",
+      "sourceDateDifferences": 8,
+      "duplicateHourLabels": 10,
+      "hoursPerDay": {
+        "23": 10,
+        "24": 3633,
+        "25": 10
+      },
+      "elapsedSeconds": 42.93,
+      "firstRow": 2
+    }
+  ]
+}

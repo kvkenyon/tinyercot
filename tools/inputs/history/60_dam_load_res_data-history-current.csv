@@ -1,0 +1,4 @@
+Delivery Date,Hour Ending,Load Resource Name,Max Power Consumption for Load Resource,Low Power Consumption for Load Resource,RegUp Awarded,RegUp MCPC,RegDown Awarded,RegDown MCPC,RRSPFR Awarded,RRSFFR Awarded,RRSUFR Awarded,RRS MCPC,ECRSSD Awarded,ECRSMD Awarded,ECRS MCPC,NonSpin Awarded,NonSpin MCPC
+07/09/2026,1,AAPIPLNC_LD3,24,0,0,.38,0,.49,0,0,2.6,.21,0,0,.3,0,2
+07/09/2026,1,AAPIPLNC_LD4,15,0,0,.38,0,.49,0,0,8,.21,0,0,.3,0,2
+07/09/2026,1,AIRPRTRD_LD1,10,0,,,,,,,,,,,,,

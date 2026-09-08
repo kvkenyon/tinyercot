@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_WindProfiles_1980-2020_Key-public.xlsx",
+    "title": "ERCOT Wind Profile 1980-2020 Key",
+    "bytes": 40998,
+    "sha256": "f9dd952f82a80c32fe179192065890e07b6135820657bd7ec165f8482fd3181b"
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2022/12/19/ERCOT-SolarPVProfiles-1980-2021-Key-public.xlsx",
+    "title": "ERCOT Solar PV Profiles 1980-2021 Key",
+    "bytes": 45710,
+    "sha256": "f5c9b981a2e3920c2829c36f9e841110efc0df2378cfbd1e3f8930f4692f6a6e"
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2022/12/19/ERCOT-WindProfiles-1980-2021-Key-public.xlsx",
+    "title": "ERCOT Wind Profiles 1980-2021 Key",
+    "bytes": 36714,
+    "sha256": "bcc685b38b64c5b6943677b5ecbe606e316dcbdc9e9de7a6b2cc12042e278fb6"
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_SolarPVProfiles_1980-2020_Key-public.xlsx",
+    "title": "ERCOT Solar PV Profiles 1980-2020 Key",
+    "bytes": 60004,
+    "sha256": "21d3f577aa148048a16c45d60c1065f79b1d8fdfee2dad5e3cbff1beed0f6f50"
+  }
+]

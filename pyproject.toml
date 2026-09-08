@@ -15,6 +15,15 @@ dependencies = [
     "pydantic>=2.10.0",
 ]
 
+[project.optional-dependencies]
+files = [
+    "openpyxl>=3.1.5",
+    "xlrd>=2.0.2",
+    "msoffcrypto-tool>=6.0.0",
+    "python-calamine>=0.8.2",
+]
+pdf = ["pypdf>=6.12.0"]
+
 [project.urls]
 Homepage = "https://github.com/kvkenyon/tinyercot"
 Repository = "https://github.com/kvkenyon/tinyercot"
@@ -22,11 +31,18 @@ Issues = "https://github.com/kvkenyon/tinyercot/issues"
 
 [dependency-groups]
 dev = [
+    "pypdf>=6.12.0",
+    "openpyxl>=3.1.5",
     "mypy>=2.3.1",
+    "types-openpyxl>=3.1.5",
     "pytest>=9.1.1",
     "ruff>=0.16.6",
+    "types-xlrd>=2.0.0.20260518",
+    "xlrd>=2.0.2",
+    "msoffcrypto-tool>=6.0.0",
+    "python-calamine>=0.8.2",
 ]
 
 
 [tool.ruff]
-extend-exclude = ["tinyercot/_generated.py"]
+extend-exclude = ["tinyercot/_generated.py", "tinyercot/_generated_esr.py"]

@@ -1,0 +1,4059 @@
+{
+  "note": "Point-in-time listings and complete downloaded-file checks. Bundle publication timestamps do not bound source row dates. The listed DAM bundle initially failed POST; its GET link subsequently succeeded, and the client fallback decoded every row. Missing listed months remain unresolved.",
+  "listings": [
+    {
+      "product": "NP4-190-CD",
+      "checkedAt": "2026-09-07T19:53:20.070724+00:00",
+      "bundleMeta": null,
+      "bundles": [
+        {
+          "docId": -1257192853,
+          "friendlyName": "DAMSPNP4190_2026-08",
+          "postDatetime": "2026-08-31T23:59:59"
+        },
+        {
+          "docId": -1233594477,
+          "friendlyName": "DAMSPNP4190_2026-06",
+          "postDatetime": "2026-06-30T23:59:59"
+        },
+        {
+          "docId": -1221822399,
+          "friendlyName": "DAMSPNP4190_2026-05",
+          "postDatetime": "2026-05-31T23:59:59"
+        },
+        {
+          "docId": -1210457477,
+          "friendlyName": "DAMSPNP4190_2026-04",
+          "postDatetime": "2026-04-30T23:59:59"
+        },
+        {
+          "docId": -1199017492,
+          "friendlyName": "DAMSPNP4190_2026-03",
+          "postDatetime": "2026-03-31T23:59:59"
+        },
+        {
+          "docId": -1188872331,
+          "friendlyName": "DAMSPNP4190_2026-02",
+          "postDatetime": "2026-02-28T23:59:59"
+        },
+        {
+          "docId": -1177724586,
+          "friendlyName": "DAMSPNP4190_2026-01",
+          "postDatetime": "2026-01-31T23:59:59"
+        },
+        {
+          "docId": -1166751049,
+          "friendlyName": "DAMSPNP4190_2025-12",
+          "postDatetime": "2025-12-31T23:59:59"
+        },
+        {
+          "docId": -1156221915,
+          "friendlyName": "DAMSPNP4190_2025-11",
+          "postDatetime": "2025-11-30T23:59:59"
+        },
+        {
+          "docId": -1145974809,
+          "friendlyName": "DAMSPNP4190_2025-10",
+          "postDatetime": "2025-10-31T23:59:59"
+        },
+        {
+          "docId": -1136047137,
+          "friendlyName": "DAMSPNP4190_2025-09",
+          "postDatetime": "2025-09-30T23:59:59"
+        },
+        {
+          "docId": -1126295499,
+          "friendlyName": "DAMSPNP4190_2025-08",
+          "postDatetime": "2025-08-31T23:59:59"
+        },
+        {
+          "docId": -1116902653,
+          "friendlyName": "DAMSPNP4190_2025-07",
+          "postDatetime": "2025-07-31T23:59:59"
+        },
+        {
+          "docId": -1108107173,
+          "friendlyName": "DAMSPNP4190_2025-06",
+          "postDatetime": "2025-06-30T23:59:59"
+        },
+        {
+          "docId": -1099066295,
+          "friendlyName": "DAMSPNP4190_2025-05",
+          "postDatetime": "2025-05-31T23:59:59"
+        },
+        {
+          "docId": -1090563466,
+          "friendlyName": "DAMSPNP4190_2025-04",
+          "postDatetime": "2025-04-30T23:59:59"
+        },
+        {
+          "docId": -1081942620,
+          "friendlyName": "DAMSPNP4190_2025-03",
+          "postDatetime": "2025-03-31T23:59:59"
+        },
+        {
+          "docId": -1074117152,
+          "friendlyName": "DAMSPNP4190_2025-02",
+          "postDatetime": "2025-02-28T23:59:59"
+        },
+        {
+          "docId": -1065519626,
+          "friendlyName": "DAMSPNP4190_2025-01",
+          "postDatetime": "2025-01-31T23:59:59"
+        },
+        {
+          "docId": -1056999421,
+          "friendlyName": "DAMSPNP4190_2024-12",
+          "postDatetime": "2024-12-31T23:59:59"
+        },
+        {
+          "docId": -1048897798,
+          "friendlyName": "DAMSPNP4190_2024-11",
+          "postDatetime": "2024-11-30T23:59:59"
+        },
+        {
+          "docId": -1040602650,
+          "friendlyName": "DAMSPNP4190_2024-10",
+          "postDatetime": "2024-10-31T23:59:59"
+        },
+        {
+          "docId": -1032534792,
+          "friendlyName": "DAMSPNP4190_2024-09",
+          "postDatetime": "2024-09-30T23:59:59"
+        },
+        {
+          "docId": -1024358201,
+          "friendlyName": "DAMSPNP4190_2024-08",
+          "postDatetime": "2024-08-31T23:59:59"
+        },
+        {
+          "docId": -1016234742,
+          "friendlyName": "DAMSPNP4190_2024-07",
+          "postDatetime": "2024-07-31T23:59:59"
+        },
+        {
+          "docId": -1008424446,
+          "friendlyName": "DAMSPNP4190_2024-06",
+          "postDatetime": "2024-06-30T23:59:59"
+        },
+        {
+          "docId": -1000374995,
+          "friendlyName": "DAMSPNP4190_2024-05",
+          "postDatetime": "2024-05-31T23:59:59"
+        },
+        {
+          "docId": -1000105847,
+          "friendlyName": "DAMSPNP4190_2024-04",
+          "postDatetime": "2024-04-30T23:59:59"
+        },
+        {
+          "docId": -984863346,
+          "friendlyName": "DAMSPNP4190_2024-03",
+          "postDatetime": "2024-03-31T23:59:59"
+        },
+        {
+          "docId": -977630829,
+          "friendlyName": "DAMSPNP4190_2024-02",
+          "postDatetime": "2024-02-29T23:59:59"
+        },
+        {
+          "docId": -969849010,
+          "friendlyName": "DAMSPNP4190_2024-01",
+          "postDatetime": "2024-01-31T23:59:59"
+        },
+        {
+          "docId": -962295657,
+          "friendlyName": "DAMSPNP4190_2023-12",
+          "postDatetime": "2023-12-31T23:59:59"
+        },
+        {
+          "docId": -955117057,
+          "friendlyName": "DAMSPNP4190_2023-11",
+          "postDatetime": "2023-11-30T23:59:59"
+        },
+        {
+          "docId": -947803721,
+          "friendlyName": "DAMSPNP4190_2023-10",
+          "postDatetime": "2023-10-31T23:59:59"
+        },
+        {
+          "docId": -940744026,
+          "friendlyName": "DAMSPNP4190_2023-09",
+          "postDatetime": "2023-09-30T23:59:59"
+        },
+        {
+          "docId": -933447503,
+          "friendlyName": "DAMSPNP4190_2023-08",
+          "postDatetime": "2023-08-31T23:59:59"
+        },
+        {
+          "docId": -926308103,
+          "friendlyName": "DAMSPNP4190_2023-07",
+          "postDatetime": "2023-07-31T23:59:59"
+        },
+        {
+          "docId": -919484624,
+          "friendlyName": "DAMSPNP4190_2023-06",
+          "postDatetime": "2023-06-30T23:59:59"
+        },
+        {
+          "docId": -912520114,
+          "friendlyName": "DAMSPNP4190_2023-05",
+          "postDatetime": "2023-05-31T23:59:59"
+        },
+        {
+          "docId": -905952335,
+          "friendlyName": "DAMSPNP4190_2023-04",
+          "postDatetime": "2023-04-30T23:59:59"
+        },
+        {
+          "docId": -899237482,
+          "friendlyName": "DAMSPNP4190_2023-03",
+          "postDatetime": "2023-03-31T23:59:59"
+        },
+        {
+          "docId": -893229757,
+          "friendlyName": "DAMSPNP4190_2023-02",
+          "postDatetime": "2023-02-28T23:59:59"
+        },
+        {
+          "docId": -886666489,
+          "friendlyName": "DAMSPNP4190_2023-01",
+          "postDatetime": "2023-01-31T23:59:59"
+        },
+        {
+          "docId": -880199200,
+          "friendlyName": "DAMSPNP4190_2022-12",
+          "postDatetime": "2022-12-31T23:59:59"
+        },
+        {
+          "docId": -873998866,
+          "friendlyName": "DAMSPNP4190_2022-11",
+          "postDatetime": "2022-11-30T23:59:59"
+        },
+        {
+          "docId": -867655993,
+          "friendlyName": "DAMSPNP4190_2022-10",
+          "postDatetime": "2022-10-31T23:59:59"
+        },
+        {
+          "docId": -861572470,
+          "friendlyName": "DAMSPNP4190_2022-09",
+          "postDatetime": "2022-09-30T23:59:59"
+        },
+        {
+          "docId": -855333359,
+          "friendlyName": "DAMSPNP4190_2022-08",
+          "postDatetime": "2022-08-31T23:59:59"
+        },
+        {
+          "docId": -849116224,
+          "friendlyName": "DAMSPNP4190_2022-07",
+          "postDatetime": "2022-07-31T23:59:59"
+        },
+        {
+          "docId": -843154958,
+          "friendlyName": "DAMSPNP4190_2022-06",
+          "postDatetime": "2022-06-30T23:59:59"
+        },
+        {
+          "docId": -837094266,
+          "friendlyName": "DAMSPNP4190_2022-05",
+          "postDatetime": "2022-05-31T23:59:59"
+        },
+        {
+          "docId": -831484454,
+          "friendlyName": "DAMSPNP4190_2022-04",
+          "postDatetime": "2022-04-30T23:59:59"
+        },
+        {
+          "docId": -825787671,
+          "friendlyName": "DAMSPNP4190_2022-03",
+          "postDatetime": "2022-03-31T23:59:59"
+        },
+        {
+          "docId": -820676094,
+          "friendlyName": "DAMSPNP4190_2022-02",
+          "postDatetime": "2022-02-28T23:59:59"
+        },
+        {
+          "docId": -814952388,
+          "friendlyName": "DAMSPNP4190_2022-01",
+          "postDatetime": "2022-01-31T23:59:59"
+        },
+        {
+          "docId": -809338753,
+          "friendlyName": "DAMSPNP4190_2021-12",
+          "postDatetime": "2021-12-31T23:59:59"
+        },
+        {
+          "docId": -803929763,
+          "friendlyName": "DAMSPNP4190_2021-11",
+          "postDatetime": "2021-11-30T23:59:59"
+        },
+        {
+          "docId": -798378052,
+          "friendlyName": "DAMSPNP4190_2021-10",
+          "postDatetime": "2021-10-31T23:59:59"
+        },
+        {
+          "docId": -793011655,
+          "friendlyName": "DAMSPNP4190_2021-09",
+          "postDatetime": "2021-09-30T23:59:59"
+        },
+        {
+          "docId": -787477229,
+          "friendlyName": "DAMSPNP4190_2021-08",
+          "postDatetime": "2021-08-31T23:59:59"
+        },
+        {
+          "docId": -781972887,
+          "friendlyName": "DAMSPNP4190_2021-07",
+          "postDatetime": "2021-07-31T23:59:59"
+        },
+        {
+          "docId": -776744876,
+          "friendlyName": "DAMSPNP4190_2021-06",
+          "postDatetime": "2021-06-30T23:59:59"
+        },
+        {
+          "docId": -771399222,
+          "friendlyName": "DAMSPNP4190_2021-05",
+          "postDatetime": "2021-05-31T23:59:59"
+        },
+        {
+          "docId": -766274120,
+          "friendlyName": "DAMSPNP4190_2021-04",
+          "postDatetime": "2021-04-30T23:59:59"
+        },
+        {
+          "docId": -761108634,
+          "friendlyName": "DAMSPNP4190_2021-03",
+          "postDatetime": "2021-03-31T23:59:59"
+        },
+        {
+          "docId": -756453565,
+          "friendlyName": "DAMSPNP4190_2021-02",
+          "postDatetime": "2021-02-28T23:59:59"
+        },
+        {
+          "docId": -751382657,
+          "friendlyName": "DAMSPNP4190_2021-01",
+          "postDatetime": "2021-01-31T23:59:59"
+        },
+        {
+          "docId": -746350553,
+          "friendlyName": "DAMSPNP4190_2020-12",
+          "postDatetime": "2020-12-31T23:59:59"
+        },
+        {
+          "docId": -741618101,
+          "friendlyName": "DAMSPNP4190_2020-11",
+          "postDatetime": "2020-11-30T23:59:59"
+        },
+        {
+          "docId": -736726052,
+          "friendlyName": "DAMSPNP4190_2020-10",
+          "postDatetime": "2020-10-31T23:59:59"
+        },
+        {
+          "docId": -731930655,
+          "friendlyName": "DAMSPNP4190_2020-09",
+          "postDatetime": "2020-09-30T23:59:59"
+        },
+        {
+          "docId": -726935813,
+          "friendlyName": "DAMSPNP4190_2020-08",
+          "postDatetime": "2020-08-31T23:59:59"
+        },
+        {
+          "docId": -721999251,
+          "friendlyName": "DAMSPNP4190_2020-07",
+          "postDatetime": "2020-07-31T23:59:59"
+        },
+        {
+          "docId": -717285459,
+          "friendlyName": "DAMSPNP4190_2020-06",
+          "postDatetime": "2020-06-30T23:59:59"
+        },
+        {
+          "docId": -712520845,
+          "friendlyName": "DAMSPNP4190_2020-05",
+          "postDatetime": "2020-05-31T23:59:59"
+        },
+        {
+          "docId": -707963539,
+          "friendlyName": "DAMSPNP4190_2020-04",
+          "postDatetime": "2020-04-30T23:59:59"
+        },
+        {
+          "docId": -703274271,
+          "friendlyName": "DAMSPNP4190_2020-03",
+          "postDatetime": "2020-03-31T23:59:59"
+        },
+        {
+          "docId": -698905317,
+          "friendlyName": "DAMSPNP4190_2020-02",
+          "postDatetime": "2020-02-29T23:59:59"
+        },
+        {
+          "docId": -694308742,
+          "friendlyName": "DAMSPNP4190_2020-01",
+          "postDatetime": "2020-01-31T23:59:59"
+        },
+        {
+          "docId": -689788958,
+          "friendlyName": "DAMSPNP4190_2019-12",
+          "postDatetime": "2019-12-31T23:59:59"
+        },
+        {
+          "docId": -685550179,
+          "friendlyName": "DAMSPNP4190_2019-11",
+          "postDatetime": "2019-11-30T23:59:59"
+        },
+        {
+          "docId": -681114487,
+          "friendlyName": "DAMSPNP4190_2019-10",
+          "postDatetime": "2019-10-31T23:59:59"
+        },
+        {
+          "docId": -676714211,
+          "friendlyName": "DAMSPNP4190_2019-09",
+          "postDatetime": "2019-09-30T23:59:59"
+        },
+        {
+          "docId": -672204368,
+          "friendlyName": "DAMSPNP4190_2019-08",
+          "postDatetime": "2019-08-31T23:59:59"
+        },
+        {
+          "docId": -667729484,
+          "friendlyName": "DAMSPNP4190_2019-07",
+          "postDatetime": "2019-07-31T23:59:59"
+        },
+        {
+          "docId": -663400999,
+          "friendlyName": "DAMSPNP4190_2019-06",
+          "postDatetime": "2019-06-30T23:59:59"
+        },
+        {
+          "docId": -659008776,
+          "friendlyName": "DAMSPNP4190_2019-05",
+          "postDatetime": "2019-05-31T23:59:59"
+        },
+        {
+          "docId": -654829561,
+          "friendlyName": "DAMSPNP4190_2019-04",
+          "postDatetime": "2019-04-30T23:59:59"
+        },
+        {
+          "docId": -650647607,
+          "friendlyName": "DAMSPNP4190_2019-03",
+          "postDatetime": "2019-03-31T23:59:59"
+        },
+        {
+          "docId": -646855358,
+          "friendlyName": "DAMSPNP4190_2019-02",
+          "postDatetime": "2019-02-28T23:59:59"
+        },
+        {
+          "docId": -642588970,
+          "friendlyName": "DAMSPNP4190_2019-01",
+          "postDatetime": "2019-01-31T23:59:59"
+        },
+        {
+          "docId": -638360117,
+          "friendlyName": "DAMSPNP4190_2018-12",
+          "postDatetime": "2018-12-31T23:59:59"
+        },
+        {
+          "docId": -634325398,
+          "friendlyName": "DAMSPNP4190_2018-11",
+          "postDatetime": "2018-11-30T23:59:59"
+        },
+        {
+          "docId": -630130990,
+          "friendlyName": "DAMSPNP4190_2018-10",
+          "postDatetime": "2018-10-31T23:59:59"
+        },
+        {
+          "docId": -626006823,
+          "friendlyName": "DAMSPNP4190_2018-09",
+          "postDatetime": "2018-09-30T23:59:59"
+        },
+        {
+          "docId": -621676499,
+          "friendlyName": "DAMSPNP4190_2018-08",
+          "postDatetime": "2018-08-31T23:59:59"
+        },
+        {
+          "docId": -617324420,
+          "friendlyName": "DAMSPNP4190_2018-07",
+          "postDatetime": "2018-07-31T23:59:59"
+        },
+        {
+          "docId": -613170975,
+          "friendlyName": "DAMSPNP4190_2018-06",
+          "postDatetime": "2018-06-30T23:59:59"
+        },
+        {
+          "docId": -608939265,
+          "friendlyName": "DAMSPNP4190_2018-05",
+          "postDatetime": "2018-05-31T23:59:59"
+        },
+        {
+          "docId": -604906753,
+          "friendlyName": "DAMSPNP4190_2018-04",
+          "postDatetime": "2018-04-30T23:59:59"
+        },
+        {
+          "docId": -600817980,
+          "friendlyName": "DAMSPNP4190_2018-03",
+          "postDatetime": "2018-03-31T23:59:59"
+        },
+        {
+          "docId": -597110794,
+          "friendlyName": "DAMSPNP4190_2018-02",
+          "postDatetime": "2018-02-28T23:59:59"
+        },
+        {
+          "docId": -593019152,
+          "friendlyName": "DAMSPNP4190_2018-01",
+          "postDatetime": "2018-01-31T23:59:59"
+        }
+      ],
+      "missingBundleMonths": [
+        "2026-07"
+      ],
+      "oldestArchivePage": {
+        "meta": {
+          "totalRecords": 4513,
+          "pageSize": 1,
+          "totalPages": 4513,
+          "currentPage": 4513,
+          "query": {
+            "parameterCount": 0,
+            "parameters": {},
+            "sortedBy": "postDatetime: DESC"
+          }
+        },
+        "product": {
+          "emilId": "NP4-190-CD",
+          "name": "DAM Settlement Point Prices",
+          "reportTypeId": 12331
+        },
+        "archives": [
+          {
+            "docId": 446428304,
+            "friendlyName": "DAMSPNP4190_csv",
+            "postDatetime": "2014-05-01T12:59:25",
+            "links": {
+              "endpoint": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np4-190-cd?download=446428304",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          }
+        ],
+        "bundles": [],
+        "links": {
+          "self": {
+            "href": "https://api.ercot.com/api/public-reports/archive/np4-190-cd",
+            "rel": null,
+            "title": null,
+            "type": null,
+            "hreflang": null,
+            "media": null,
+            "deprecation": null,
+            "profile": null,
+            "name": null
+          },
+          "parent": {
+            "href": "https://api.ercot.com/api/public-reports",
+            "rel": null,
+            "title": null,
+            "type": null,
+            "hreflang": null,
+            "media": null,
+            "deprecation": null,
+            "profile": null,
+            "name": null
+          }
+        }
+      }
+    },
+    {
+      "product": "NP6-345-CD",
+      "checkedAt": "2026-09-07T19:53:32.689316+00:00",
+      "bundleMeta": null,
+      "bundles": [
+        {
+          "docId": -1233471327,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2026-06",
+          "postDatetime": "2026-06-30T23:59:59"
+        },
+        {
+          "docId": -1221703513,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2026-05",
+          "postDatetime": "2026-05-31T23:59:59"
+        },
+        {
+          "docId": -1210341453,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2026-04",
+          "postDatetime": "2026-04-30T23:59:59"
+        },
+        {
+          "docId": -1198898866,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2026-03",
+          "postDatetime": "2026-03-31T23:59:59"
+        },
+        {
+          "docId": -1188767998,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2026-02",
+          "postDatetime": "2026-02-28T23:59:59"
+        },
+        {
+          "docId": -1177619709,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2026-01",
+          "postDatetime": "2026-01-31T23:59:59"
+        },
+        {
+          "docId": -1166628762,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2025-12",
+          "postDatetime": "2025-12-31T23:59:59"
+        },
+        {
+          "docId": -1156129795,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2025-11",
+          "postDatetime": "2025-11-30T23:59:59"
+        },
+        {
+          "docId": -1145875415,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2025-10",
+          "postDatetime": "2025-10-31T23:59:59"
+        },
+        {
+          "docId": -1135948523,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2025-09",
+          "postDatetime": "2025-09-30T23:59:59"
+        },
+        {
+          "docId": -1126197733,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2025-08",
+          "postDatetime": "2025-08-31T23:59:59"
+        },
+        {
+          "docId": -1116806074,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2025-07",
+          "postDatetime": "2025-07-31T23:59:59"
+        },
+        {
+          "docId": -1108020966,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2025-06",
+          "postDatetime": "2025-06-30T23:59:59"
+        },
+        {
+          "docId": -1098974831,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2025-05",
+          "postDatetime": "2025-05-31T23:59:59"
+        },
+        {
+          "docId": -1090471728,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2025-04",
+          "postDatetime": "2025-04-30T23:59:59"
+        },
+        {
+          "docId": -1081861185,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2025-03",
+          "postDatetime": "2025-03-31T23:59:59"
+        },
+        {
+          "docId": -1074034482,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2025-02",
+          "postDatetime": "2025-02-28T23:59:59"
+        },
+        {
+          "docId": -1065440007,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2025-01",
+          "postDatetime": "2025-01-31T23:59:59"
+        },
+        {
+          "docId": -1056918098,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2024-12",
+          "postDatetime": "2024-12-31T23:59:59"
+        },
+        {
+          "docId": -1048811748,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2024-11",
+          "postDatetime": "2024-11-30T23:59:59"
+        },
+        {
+          "docId": -1040515540,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2024-10",
+          "postDatetime": "2024-10-31T23:59:59"
+        },
+        {
+          "docId": -1032458361,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2024-09",
+          "postDatetime": "2024-09-30T23:59:59"
+        },
+        {
+          "docId": -1024277424,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2024-08",
+          "postDatetime": "2024-08-31T23:59:59"
+        },
+        {
+          "docId": -1016148744,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2024-07",
+          "postDatetime": "2024-07-31T23:59:59"
+        },
+        {
+          "docId": -1008348874,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2024-06",
+          "postDatetime": "2024-06-30T23:59:59"
+        },
+        {
+          "docId": -1000285179,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2024-05",
+          "postDatetime": "2024-05-31T23:59:59"
+        },
+        {
+          "docId": -1000019913,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2024-04",
+          "postDatetime": "2024-04-30T23:59:59"
+        },
+        {
+          "docId": -984782994,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2024-03",
+          "postDatetime": "2024-03-31T23:59:59"
+        },
+        {
+          "docId": -977548657,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2024-02",
+          "postDatetime": "2024-02-29T23:59:59"
+        },
+        {
+          "docId": -969776640,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2024-01",
+          "postDatetime": "2024-01-31T23:59:59"
+        },
+        {
+          "docId": -962214924,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2023-12",
+          "postDatetime": "2023-12-31T23:59:59"
+        },
+        {
+          "docId": -955035870,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2023-11",
+          "postDatetime": "2023-11-30T23:59:59"
+        },
+        {
+          "docId": -947733335,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2023-10",
+          "postDatetime": "2023-10-31T23:59:59"
+        },
+        {
+          "docId": -940665813,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2023-09",
+          "postDatetime": "2023-09-30T23:59:59"
+        },
+        {
+          "docId": -933370224,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2023-08",
+          "postDatetime": "2023-08-31T23:59:59"
+        },
+        {
+          "docId": -926241239,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2023-07",
+          "postDatetime": "2023-07-31T23:59:59"
+        },
+        {
+          "docId": -919409323,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2023-06",
+          "postDatetime": "2023-06-30T23:59:59"
+        },
+        {
+          "docId": -912445673,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2023-05",
+          "postDatetime": "2023-05-31T23:59:59"
+        },
+        {
+          "docId": -905885485,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2023-04",
+          "postDatetime": "2023-04-30T23:59:59"
+        },
+        {
+          "docId": -899168317,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2023-03",
+          "postDatetime": "2023-03-31T23:59:59"
+        },
+        {
+          "docId": -893161174,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2023-02",
+          "postDatetime": "2023-02-28T23:59:59"
+        },
+        {
+          "docId": -886604771,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2023-01",
+          "postDatetime": "2023-01-31T23:59:59"
+        },
+        {
+          "docId": -880133348,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2022-12",
+          "postDatetime": "2022-12-31T23:59:59"
+        },
+        {
+          "docId": -873936680,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2022-11",
+          "postDatetime": "2022-11-30T23:59:59"
+        },
+        {
+          "docId": -867595702,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2022-10",
+          "postDatetime": "2022-10-31T23:59:59"
+        },
+        {
+          "docId": -861507644,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2022-09",
+          "postDatetime": "2022-09-30T23:59:59"
+        },
+        {
+          "docId": -855267771,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2022-08",
+          "postDatetime": "2022-08-31T23:59:59"
+        },
+        {
+          "docId": -849049600,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2022-07",
+          "postDatetime": "2022-07-31T23:59:59"
+        },
+        {
+          "docId": -843070216,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2022-06",
+          "postDatetime": "2022-06-30T23:59:59"
+        },
+        {
+          "docId": -837036936,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2022-05",
+          "postDatetime": "2022-05-31T23:59:59"
+        },
+        {
+          "docId": -831424291,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2022-04",
+          "postDatetime": "2022-04-30T23:59:59"
+        },
+        {
+          "docId": -825725773,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2022-03",
+          "postDatetime": "2022-03-31T23:59:59"
+        },
+        {
+          "docId": -820579236,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2022-02",
+          "postDatetime": "2022-02-28T23:59:59"
+        },
+        {
+          "docId": -814899937,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2022-01",
+          "postDatetime": "2022-01-31T23:59:59"
+        },
+        {
+          "docId": -809278573,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2021-12",
+          "postDatetime": "2021-12-31T23:59:59"
+        },
+        {
+          "docId": -803868801,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2021-11",
+          "postDatetime": "2021-11-30T23:59:59"
+        },
+        {
+          "docId": -798320769,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2021-10",
+          "postDatetime": "2021-10-31T23:59:59"
+        },
+        {
+          "docId": -792954011,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2021-09",
+          "postDatetime": "2021-09-30T23:59:59"
+        },
+        {
+          "docId": -787424235,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2021-08",
+          "postDatetime": "2021-08-31T23:59:59"
+        },
+        {
+          "docId": -781914641,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2021-07",
+          "postDatetime": "2021-07-31T23:59:59"
+        },
+        {
+          "docId": -776685301,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2021-06",
+          "postDatetime": "2021-06-30T23:59:59"
+        },
+        {
+          "docId": -771347958,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2021-05",
+          "postDatetime": "2021-05-31T23:59:59"
+        },
+        {
+          "docId": -766219109,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2021-04",
+          "postDatetime": "2021-04-30T23:59:59"
+        },
+        {
+          "docId": -761052904,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2021-03",
+          "postDatetime": "2021-03-31T23:59:59"
+        },
+        {
+          "docId": -756398270,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2021-02",
+          "postDatetime": "2021-02-28T23:59:59"
+        },
+        {
+          "docId": -751335629,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2021-01",
+          "postDatetime": "2021-01-31T23:59:59"
+        },
+        {
+          "docId": -746297498,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2020-12",
+          "postDatetime": "2020-12-31T23:59:59"
+        },
+        {
+          "docId": -741573771,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2020-11",
+          "postDatetime": "2020-11-30T23:59:59"
+        },
+        {
+          "docId": -736667211,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2020-10",
+          "postDatetime": "2020-10-31T23:59:59"
+        },
+        {
+          "docId": -731879168,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2020-09",
+          "postDatetime": "2020-09-30T23:59:59"
+        },
+        {
+          "docId": -726889805,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2020-08",
+          "postDatetime": "2020-08-31T23:59:59"
+        },
+        {
+          "docId": -721946832,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2020-07",
+          "postDatetime": "2020-07-31T23:59:59"
+        },
+        {
+          "docId": -717231661,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2020-06",
+          "postDatetime": "2020-06-30T23:59:59"
+        },
+        {
+          "docId": -712469953,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2020-05",
+          "postDatetime": "2020-05-31T23:59:59"
+        },
+        {
+          "docId": -707913468,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2020-04",
+          "postDatetime": "2020-04-30T23:59:59"
+        },
+        {
+          "docId": -703231335,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2020-03",
+          "postDatetime": "2020-03-31T23:59:59"
+        },
+        {
+          "docId": -698862012,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2020-02",
+          "postDatetime": "2020-02-29T23:59:59"
+        },
+        {
+          "docId": -694269085,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2020-01",
+          "postDatetime": "2020-01-31T23:59:59"
+        },
+        {
+          "docId": -689747631,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2019-12",
+          "postDatetime": "2019-12-31T23:59:59"
+        },
+        {
+          "docId": -685504004,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2019-11",
+          "postDatetime": "2019-11-30T23:59:59"
+        },
+        {
+          "docId": -681067301,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2019-10",
+          "postDatetime": "2019-10-31T23:59:59"
+        },
+        {
+          "docId": -676672084,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2019-09",
+          "postDatetime": "2019-09-30T23:59:59"
+        },
+        {
+          "docId": -672157402,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2019-08",
+          "postDatetime": "2019-08-31T23:59:59"
+        },
+        {
+          "docId": -667679680,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2019-07",
+          "postDatetime": "2019-07-31T23:59:59"
+        },
+        {
+          "docId": -663358487,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2019-06",
+          "postDatetime": "2019-06-30T23:59:59"
+        },
+        {
+          "docId": -658961643,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2019-05",
+          "postDatetime": "2019-05-31T23:59:59"
+        },
+        {
+          "docId": -654781991,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2019-04",
+          "postDatetime": "2019-04-30T23:59:59"
+        },
+        {
+          "docId": -650600106,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2019-03",
+          "postDatetime": "2019-03-31T23:59:59"
+        },
+        {
+          "docId": -646809566,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2019-02",
+          "postDatetime": "2019-02-28T23:59:59"
+        },
+        {
+          "docId": -642551851,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2019-01",
+          "postDatetime": "2019-01-31T23:59:59"
+        },
+        {
+          "docId": -638322112,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2018-12",
+          "postDatetime": "2018-12-31T23:59:59"
+        },
+        {
+          "docId": -634280119,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2018-11",
+          "postDatetime": "2018-11-30T23:59:59"
+        },
+        {
+          "docId": -630081685,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2018-10",
+          "postDatetime": "2018-10-31T23:59:59"
+        },
+        {
+          "docId": -625963654,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2018-09",
+          "postDatetime": "2018-09-30T23:59:59"
+        },
+        {
+          "docId": -621629352,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2018-08",
+          "postDatetime": "2018-08-31T23:59:59"
+        },
+        {
+          "docId": -617283042,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2018-07",
+          "postDatetime": "2018-07-31T23:59:59"
+        },
+        {
+          "docId": -613123168,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2018-06",
+          "postDatetime": "2018-06-30T23:59:59"
+        },
+        {
+          "docId": -608892206,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2018-05",
+          "postDatetime": "2018-05-31T23:59:59"
+        },
+        {
+          "docId": -604869459,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2018-04",
+          "postDatetime": "2018-04-30T23:59:59"
+        },
+        {
+          "docId": -600771483,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2018-03",
+          "postDatetime": "2018-03-31T23:59:59"
+        },
+        {
+          "docId": -597066015,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2018-02",
+          "postDatetime": "2018-02-28T23:59:59"
+        },
+        {
+          "docId": -592978227,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_2018-01",
+          "postDatetime": "2018-01-31T23:59:59"
+        }
+      ],
+      "missingBundleMonths": [],
+      "oldestArchivePage": {
+        "meta": {
+          "totalRecords": 4512,
+          "pageSize": 1,
+          "totalPages": 4512,
+          "currentPage": 4512,
+          "query": {
+            "parameterCount": 0,
+            "parameters": {},
+            "sortedBy": "postDatetime: DESC"
+          }
+        },
+        "product": {
+          "emilId": "NP6-345-CD",
+          "name": "Actual System Load by Weather Zone",
+          "reportTypeId": 13101
+        },
+        "archives": [
+          {
+            "docId": 446396866,
+            "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+            "postDatetime": "2014-05-01T05:50:00",
+            "links": {
+              "endpoint": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np6-345-cd?download=446396866",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          }
+        ],
+        "bundles": [],
+        "links": {
+          "self": {
+            "href": "https://api.ercot.com/api/public-reports/archive/np6-345-cd",
+            "rel": null,
+            "title": null,
+            "type": null,
+            "hreflang": null,
+            "media": null,
+            "deprecation": null,
+            "profile": null,
+            "name": null
+          },
+          "parent": {
+            "href": "https://api.ercot.com/api/public-reports",
+            "rel": null,
+            "title": null,
+            "type": null,
+            "hreflang": null,
+            "media": null,
+            "deprecation": null,
+            "profile": null,
+            "name": null
+          }
+        }
+      }
+    },
+    {
+      "product": "NP6-915-CD",
+      "checkedAt": "2026-09-07T19:53:45.347674+00:00",
+      "bundleMeta": null,
+      "bundles": [
+        {
+          "docId": -1233380966,
+          "friendlyName": "SUMHDLLDLNP6915_2026-06",
+          "postDatetime": "2026-06-30T23:59:59"
+        },
+        {
+          "docId": -1221612214,
+          "friendlyName": "SUMHDLLDLNP6915_2026-05",
+          "postDatetime": "2026-05-31T23:59:59"
+        },
+        {
+          "docId": -1221417052,
+          "friendlyName": "SUMHDLLDLNP6915_2026-04",
+          "postDatetime": "2026-04-30T23:59:59"
+        }
+      ],
+      "missingBundleMonths": [],
+      "oldestArchivePage": {
+        "meta": {
+          "totalRecords": 37727,
+          "pageSize": 1,
+          "totalPages": 37727,
+          "currentPage": 37727,
+          "query": {
+            "parameterCount": 0,
+            "parameters": {},
+            "sortedBy": "postDatetime: DESC"
+          }
+        },
+        "product": {
+          "emilId": "NP6-915-CD",
+          "name": "Summary Report of HDL and LDL",
+          "reportTypeId": 13081
+        },
+        "archives": [
+          {
+            "docId": 1221417052,
+            "friendlyName": "SUMHDLLDLNP6915_20260430_111019_csv",
+            "postDatetime": "2026-04-30T11:10:21",
+            "links": {
+              "endpoint": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np6-915-cd?download=1221417052",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          }
+        ],
+        "bundles": [],
+        "links": {
+          "self": {
+            "href": "https://api.ercot.com/api/public-reports/archive/np6-915-cd",
+            "rel": null,
+            "title": null,
+            "type": null,
+            "hreflang": null,
+            "media": null,
+            "deprecation": null,
+            "profile": null,
+            "name": null
+          },
+          "parent": {
+            "href": "https://api.ercot.com/api/public-reports",
+            "rel": null,
+            "title": null,
+            "type": null,
+            "hreflang": null,
+            "media": null,
+            "deprecation": null,
+            "profile": null,
+            "name": null
+          }
+        }
+      }
+    },
+    {
+      "product": "NP6-325-CD",
+      "checkedAt": "2026-09-07T19:53:58.259634+00:00",
+      "bundleMeta": null,
+      "bundles": [
+        {
+          "docId": -1233381447,
+          "friendlyName": "RTDPriceAddersNP6325_2026-06",
+          "postDatetime": "2026-06-30T23:59:59"
+        },
+        {
+          "docId": -1218892380,
+          "friendlyName": "RTDPriceAddersNP6325_2026-05",
+          "postDatetime": "2026-05-31T23:59:59"
+        },
+        {
+          "docId": -1207608744,
+          "friendlyName": "RTDPriceAddersNP6325_2026-04",
+          "postDatetime": "2026-04-30T23:59:59"
+        },
+        {
+          "docId": -1198814224,
+          "friendlyName": "RTDPriceAddersNP6325_2026-03",
+          "postDatetime": "2026-03-31T23:59:59"
+        },
+        {
+          "docId": -1188683380,
+          "friendlyName": "RTDPriceAddersNP6325_2026-02",
+          "postDatetime": "2026-02-28T23:59:59"
+        },
+        {
+          "docId": -1177535802,
+          "friendlyName": "RTDPriceAddersNP6325_2026-01",
+          "postDatetime": "2026-01-31T23:59:59"
+        },
+        {
+          "docId": -1167880920,
+          "friendlyName": "RTDPriceAddersNP6325_2025-12",
+          "postDatetime": "2025-12-31T23:59:59"
+        },
+        {
+          "docId": -1000716037,
+          "friendlyName": "RTDPriceAddersNP6325_2025-11",
+          "postDatetime": "2025-11-30T23:59:59"
+        },
+        {
+          "docId": -1002811349,
+          "friendlyName": "RTDPriceAddersNP6325_2025-10",
+          "postDatetime": "2025-10-31T23:59:59"
+        },
+        {
+          "docId": -1001229296,
+          "friendlyName": "RTDPriceAddersNP6325_2025-09",
+          "postDatetime": "2025-09-30T23:59:59"
+        },
+        {
+          "docId": -1018941415,
+          "friendlyName": "RTDPriceAddersNP6325_2025-08",
+          "postDatetime": "2025-08-31T23:59:59"
+        },
+        {
+          "docId": -1116809010,
+          "friendlyName": "RTDPriceAddersNP6325_2025-07",
+          "postDatetime": "2025-07-31T23:59:59"
+        },
+        {
+          "docId": -1108029434,
+          "friendlyName": "RTDPriceAddersNP6325_2025-06",
+          "postDatetime": "2025-06-30T23:59:59"
+        },
+        {
+          "docId": -1098911176,
+          "friendlyName": "RTDPriceAddersNP6325_2025-05",
+          "postDatetime": "2025-05-31T23:59:59"
+        },
+        {
+          "docId": -1090515806,
+          "friendlyName": "RTDPriceAddersNP6325_2025-04",
+          "postDatetime": "2025-04-30T23:59:59"
+        },
+        {
+          "docId": -1081828620,
+          "friendlyName": "RTDPriceAddersNP6325_2025-03",
+          "postDatetime": "2025-03-31T23:59:59"
+        },
+        {
+          "docId": -1074097857,
+          "friendlyName": "RTDPriceAddersNP6325_2025-02",
+          "postDatetime": "2025-02-28T23:59:59"
+        },
+        {
+          "docId": -1065447223,
+          "friendlyName": "RTDPriceAddersNP6325_2025-01",
+          "postDatetime": "2025-01-31T23:59:59"
+        },
+        {
+          "docId": -1056855156,
+          "friendlyName": "RTDPriceAddersNP6325_2024-12",
+          "postDatetime": "2024-12-31T23:59:59"
+        },
+        {
+          "docId": -1048849233,
+          "friendlyName": "RTDPriceAddersNP6325_2024-11",
+          "postDatetime": "2024-11-30T23:59:59"
+        },
+        {
+          "docId": -1040586618,
+          "friendlyName": "RTDPriceAddersNP6325_2024-10",
+          "postDatetime": "2024-10-31T23:59:59"
+        },
+        {
+          "docId": -1032397632,
+          "friendlyName": "RTDPriceAddersNP6325_2024-09",
+          "postDatetime": "2024-09-30T23:59:59"
+        },
+        {
+          "docId": -1024294560,
+          "friendlyName": "RTDPriceAddersNP6325_2024-08",
+          "postDatetime": "2024-08-31T23:59:59"
+        },
+        {
+          "docId": -1016095595,
+          "friendlyName": "RTDPriceAddersNP6325_2024-07",
+          "postDatetime": "2024-07-31T23:59:59"
+        },
+        {
+          "docId": -1008379242,
+          "friendlyName": "RTDPriceAddersNP6325_2024-06",
+          "postDatetime": "2024-06-30T23:59:59"
+        },
+        {
+          "docId": -1000235484,
+          "friendlyName": "RTDPriceAddersNP6325_2024-05",
+          "postDatetime": "2024-05-31T23:59:59"
+        },
+        {
+          "docId": -992562652,
+          "friendlyName": "RTDPriceAddersNP6325_2024-04",
+          "postDatetime": "2024-04-30T23:59:59"
+        },
+        {
+          "docId": -984777347,
+          "friendlyName": "RTDPriceAddersNP6325_2024-03",
+          "postDatetime": "2024-03-31T23:59:59"
+        },
+        {
+          "docId": -977533882,
+          "friendlyName": "RTDPriceAddersNP6325_2024-02",
+          "postDatetime": "2024-02-29T23:59:59"
+        },
+        {
+          "docId": -969719742,
+          "friendlyName": "RTDPriceAddersNP6325_2024-01",
+          "postDatetime": "2024-01-31T23:59:59"
+        },
+        {
+          "docId": -962166582,
+          "friendlyName": "RTDPriceAddersNP6325_2023-12",
+          "postDatetime": "2023-12-31T23:59:59"
+        },
+        {
+          "docId": -955014200,
+          "friendlyName": "RTDPriceAddersNP6325_2023-11",
+          "postDatetime": "2023-11-30T23:59:59"
+        },
+        {
+          "docId": -951100129,
+          "friendlyName": "RTDPriceAddersNP6325_2023-10",
+          "postDatetime": "2023-10-31T23:59:59"
+        },
+        {
+          "docId": -940725005,
+          "friendlyName": "RTDPriceAddersNP6325_2023-09",
+          "postDatetime": "2023-09-30T23:59:59"
+        },
+        {
+          "docId": -933338704,
+          "friendlyName": "RTDPriceAddersNP6325_2023-08",
+          "postDatetime": "2023-08-31T23:59:59"
+        },
+        {
+          "docId": -926227816,
+          "friendlyName": "RTDPriceAddersNP6325_2023-07",
+          "postDatetime": "2023-07-31T23:59:59"
+        },
+        {
+          "docId": -919455057,
+          "friendlyName": "RTDPriceAddersNP6325_2023-06",
+          "postDatetime": "2023-06-30T23:59:59"
+        },
+        {
+          "docId": -912424651,
+          "friendlyName": "RTDPriceAddersNP6325_2023-05",
+          "postDatetime": "2023-05-31T23:59:59"
+        },
+        {
+          "docId": -905902137,
+          "friendlyName": "RTDPriceAddersNP6325_2023-04",
+          "postDatetime": "2023-04-30T23:59:59"
+        },
+        {
+          "docId": -899159173,
+          "friendlyName": "RTDPriceAddersNP6325_2023-03",
+          "postDatetime": "2023-03-31T23:59:59"
+        },
+        {
+          "docId": -893122783,
+          "friendlyName": "RTDPriceAddersNP6325_2023-02",
+          "postDatetime": "2023-02-28T23:59:59"
+        },
+        {
+          "docId": -886617002,
+          "friendlyName": "RTDPriceAddersNP6325_2023-01",
+          "postDatetime": "2023-01-31T23:59:59"
+        },
+        {
+          "docId": -880164188,
+          "friendlyName": "RTDPriceAddersNP6325_2022-12",
+          "postDatetime": "2022-12-31T23:59:59"
+        },
+        {
+          "docId": -873894418,
+          "friendlyName": "RTDPriceAddersNP6325_2022-11",
+          "postDatetime": "2022-11-30T23:59:59"
+        },
+        {
+          "docId": -867576965,
+          "friendlyName": "RTDPriceAddersNP6325_2022-10",
+          "postDatetime": "2022-10-31T23:59:59"
+        },
+        {
+          "docId": -861522940,
+          "friendlyName": "RTDPriceAddersNP6325_2022-09",
+          "postDatetime": "2022-09-30T23:59:59"
+        },
+        {
+          "docId": -855278211,
+          "friendlyName": "RTDPriceAddersNP6325_2022-08",
+          "postDatetime": "2022-08-31T23:59:59"
+        },
+        {
+          "docId": -849091050,
+          "friendlyName": "RTDPriceAddersNP6325_2022-07",
+          "postDatetime": "2022-07-31T23:59:59"
+        },
+        {
+          "docId": -843029568,
+          "friendlyName": "RTDPriceAddersNP6325_2022-06",
+          "postDatetime": "2022-06-30T23:59:59"
+        },
+        {
+          "docId": -837004541,
+          "friendlyName": "RTDPriceAddersNP6325_2022-05",
+          "postDatetime": "2022-05-31T23:59:59"
+        },
+        {
+          "docId": -831465051,
+          "friendlyName": "RTDPriceAddersNP6325_2022-04",
+          "postDatetime": "2022-04-30T23:59:59"
+        },
+        {
+          "docId": -825710956,
+          "friendlyName": "RTDPriceAddersNP6325_2022-03",
+          "postDatetime": "2022-03-31T23:59:59"
+        },
+        {
+          "docId": -820547418,
+          "friendlyName": "RTDPriceAddersNP6325_2022-02",
+          "postDatetime": "2022-02-28T23:59:59"
+        },
+        {
+          "docId": -814911911,
+          "friendlyName": "RTDPriceAddersNP6325_2022-01",
+          "postDatetime": "2022-01-31T23:59:59"
+        },
+        {
+          "docId": -809324096,
+          "friendlyName": "RTDPriceAddersNP6325_2021-12",
+          "postDatetime": "2021-12-31T23:59:59"
+        },
+        {
+          "docId": -449098042,
+          "friendlyName": "RTDPriceAddersNP6325_2021-11",
+          "postDatetime": "2021-11-30T23:59:59"
+        },
+        {
+          "docId": -798335817,
+          "friendlyName": "RTDPriceAddersNP6325_2021-10",
+          "postDatetime": "2021-10-31T23:59:59"
+        },
+        {
+          "docId": -792967134,
+          "friendlyName": "RTDPriceAddersNP6325_2021-09",
+          "postDatetime": "2021-09-30T23:59:59"
+        },
+        {
+          "docId": -787455015,
+          "friendlyName": "RTDPriceAddersNP6325_2021-08",
+          "postDatetime": "2021-08-31T23:59:59"
+        },
+        {
+          "docId": -781948475,
+          "friendlyName": "RTDPriceAddersNP6325_2021-07",
+          "postDatetime": "2021-07-31T23:59:59"
+        },
+        {
+          "docId": -776649316,
+          "friendlyName": "RTDPriceAddersNP6325_2021-06",
+          "postDatetime": "2021-06-30T23:59:59"
+        },
+        {
+          "docId": -577799295,
+          "friendlyName": "RTDPriceAddersNP6325_2021-05",
+          "postDatetime": "2021-05-31T23:59:59"
+        },
+        {
+          "docId": -524213579,
+          "friendlyName": "RTDPriceAddersNP6325_2021-04",
+          "postDatetime": "2021-04-30T23:59:59"
+        },
+        {
+          "docId": -533917955,
+          "friendlyName": "RTDPriceAddersNP6325_2021-03",
+          "postDatetime": "2021-03-31T23:59:59"
+        },
+        {
+          "docId": -756383413,
+          "friendlyName": "RTDPriceAddersNP6325_2021-02",
+          "postDatetime": "2021-02-28T23:59:59"
+        },
+        {
+          "docId": -531567498,
+          "friendlyName": "RTDPriceAddersNP6325_2021-01",
+          "postDatetime": "2021-01-31T23:59:59"
+        },
+        {
+          "docId": -1000451979,
+          "friendlyName": "RTDPriceAddersNP6325_2020-12",
+          "postDatetime": "2020-12-31T23:59:59"
+        },
+        {
+          "docId": -999923151,
+          "friendlyName": "RTDPriceAddersNP6325_2020-11",
+          "postDatetime": "2020-11-30T23:59:59"
+        },
+        {
+          "docId": -1010570477,
+          "friendlyName": "RTDPriceAddersNP6325_2020-10",
+          "postDatetime": "2020-10-31T23:59:59"
+        },
+        {
+          "docId": -1000715366,
+          "friendlyName": "RTDPriceAddersNP6325_2020-09",
+          "postDatetime": "2020-09-30T23:59:59"
+        },
+        {
+          "docId": -1033967615,
+          "friendlyName": "RTDPriceAddersNP6325_2020-08",
+          "postDatetime": "2020-08-31T23:59:59"
+        },
+        {
+          "docId": -721959791,
+          "friendlyName": "RTDPriceAddersNP6325_2020-07",
+          "postDatetime": "2020-07-31T23:59:59"
+        },
+        {
+          "docId": -717269495,
+          "friendlyName": "RTDPriceAddersNP6325_2020-06",
+          "postDatetime": "2020-06-30T23:59:59"
+        },
+        {
+          "docId": -712509922,
+          "friendlyName": "RTDPriceAddersNP6325_2020-05",
+          "postDatetime": "2020-05-31T23:59:59"
+        },
+        {
+          "docId": -707943119,
+          "friendlyName": "RTDPriceAddersNP6325_2020-04",
+          "postDatetime": "2020-04-30T23:59:59"
+        },
+        {
+          "docId": -703212833,
+          "friendlyName": "RTDPriceAddersNP6325_2020-03",
+          "postDatetime": "2020-03-31T23:59:59"
+        },
+        {
+          "docId": -698860689,
+          "friendlyName": "RTDPriceAddersNP6325_2020-02",
+          "postDatetime": "2020-02-29T23:59:59"
+        },
+        {
+          "docId": -694294108,
+          "friendlyName": "RTDPriceAddersNP6325_2020-01",
+          "postDatetime": "2020-01-31T23:59:59"
+        },
+        {
+          "docId": -689756154,
+          "friendlyName": "RTDPriceAddersNP6325_2019-12",
+          "postDatetime": "2019-12-31T23:59:59"
+        },
+        {
+          "docId": -685470022,
+          "friendlyName": "RTDPriceAddersNP6325_2019-11",
+          "postDatetime": "2019-11-30T23:59:59"
+        },
+        {
+          "docId": -681067007,
+          "friendlyName": "RTDPriceAddersNP6325_2019-10",
+          "postDatetime": "2019-10-31T23:59:59"
+        },
+        {
+          "docId": -676670930,
+          "friendlyName": "RTDPriceAddersNP6325_2019-09",
+          "postDatetime": "2019-09-30T23:59:59"
+        },
+        {
+          "docId": -672191483,
+          "friendlyName": "RTDPriceAddersNP6325_2019-08",
+          "postDatetime": "2019-08-31T23:59:59"
+        },
+        {
+          "docId": -667697320,
+          "friendlyName": "RTDPriceAddersNP6325_2019-07",
+          "postDatetime": "2019-07-31T23:59:59"
+        },
+        {
+          "docId": -663372764,
+          "friendlyName": "RTDPriceAddersNP6325_2019-06",
+          "postDatetime": "2019-06-30T23:59:59"
+        },
+        {
+          "docId": -658997882,
+          "friendlyName": "RTDPriceAddersNP6325_2019-05",
+          "postDatetime": "2019-05-31T23:59:59"
+        },
+        {
+          "docId": -654818327,
+          "friendlyName": "RTDPriceAddersNP6325_2019-04",
+          "postDatetime": "2019-04-30T23:59:59"
+        },
+        {
+          "docId": -650572960,
+          "friendlyName": "RTDPriceAddersNP6325_2019-03",
+          "postDatetime": "2019-03-31T23:59:59"
+        },
+        {
+          "docId": -646800598,
+          "friendlyName": "RTDPriceAddersNP6325_2019-02",
+          "postDatetime": "2019-02-28T23:59:59"
+        },
+        {
+          "docId": -642536875,
+          "friendlyName": "RTDPriceAddersNP6325_2019-01",
+          "postDatetime": "2019-01-31T23:59:59"
+        }
+      ],
+      "missingBundleMonths": [],
+      "oldestArchivePage": {
+        "meta": {
+          "totalRecords": 1290225,
+          "pageSize": 1,
+          "totalPages": 1290225,
+          "currentPage": 1290225,
+          "query": {
+            "parameterCount": 0,
+            "parameters": {},
+            "sortedBy": "postDatetime: DESC"
+          }
+        },
+        "product": {
+          "emilId": "NP6-325-CD",
+          "name": "RTD Indicative Price Adders",
+          "reportTypeId": 13222
+        },
+        "archives": [
+          {
+            "docId": 449026337,
+            "friendlyName": "RTDPriceAdderORDCNP6325_20140601_001001_csv",
+            "postDatetime": "2014-06-01T00:10:15.208000",
+            "links": {
+              "endpoint": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np6-325-cd?download=449026337",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          }
+        ],
+        "bundles": [],
+        "links": {
+          "self": {
+            "href": "https://api.ercot.com/api/public-reports/archive/np6-325-cd",
+            "rel": null,
+            "title": null,
+            "type": null,
+            "hreflang": null,
+            "media": null,
+            "deprecation": null,
+            "profile": null,
+            "name": null
+          },
+          "parent": {
+            "href": "https://api.ercot.com/api/public-reports",
+            "rel": null,
+            "title": null,
+            "type": null,
+            "hreflang": null,
+            "media": null,
+            "deprecation": null,
+            "profile": null,
+            "name": null
+          }
+        }
+      }
+    },
+    {
+      "product": "NP4-765-ER",
+      "checkedAt": "2026-09-07T19:54:31.738520+00:00",
+      "bundleMeta": null,
+      "bundles": [
+        {
+          "docId": -1257138158,
+          "friendlyName": "ESRIntegrationReport_2026-08",
+          "postDatetime": "2026-08-31T23:59:59"
+        },
+        {
+          "docId": -1233527832,
+          "friendlyName": "ESRIntegrationReport_2026-06",
+          "postDatetime": "2026-06-30T23:59:59"
+        },
+        {
+          "docId": -1221792715,
+          "friendlyName": "ESRIntegrationReport_2026-05",
+          "postDatetime": "2026-05-31T23:59:59"
+        },
+        {
+          "docId": -1210470042,
+          "friendlyName": "ESRIntegrationReport_2026-04",
+          "postDatetime": "2026-04-30T23:59:59"
+        },
+        {
+          "docId": -1198946797,
+          "friendlyName": "ESRIntegrationReport_2026-03",
+          "postDatetime": "2026-03-31T23:59:59"
+        },
+        {
+          "docId": -1188813730,
+          "friendlyName": "ESRIntegrationReport_2026-02",
+          "postDatetime": "2026-02-28T23:59:59"
+        },
+        {
+          "docId": -1177669229,
+          "friendlyName": "ESRIntegrationReport_2026-01",
+          "postDatetime": "2026-01-31T23:59:59"
+        },
+        {
+          "docId": -1166667917,
+          "friendlyName": "ESRIntegrationReport_2025-12",
+          "postDatetime": "2025-12-31T23:59:59"
+        },
+        {
+          "docId": -1156159631,
+          "friendlyName": "ESRIntegrationReport_2025-11",
+          "postDatetime": "2025-11-30T23:59:59"
+        },
+        {
+          "docId": -1145907249,
+          "friendlyName": "ESRIntegrationReport_2025-10",
+          "postDatetime": "2025-10-31T23:59:59"
+        },
+        {
+          "docId": -1135982111,
+          "friendlyName": "ESRIntegrationReport_2025-09",
+          "postDatetime": "2025-09-30T23:59:59"
+        },
+        {
+          "docId": -1126227694,
+          "friendlyName": "ESRIntegrationReport_2025-08",
+          "postDatetime": "2025-08-31T23:59:59"
+        },
+        {
+          "docId": -1116834904,
+          "friendlyName": "ESRIntegrationReport_2025-07",
+          "postDatetime": "2025-07-31T23:59:59"
+        },
+        {
+          "docId": -1108051081,
+          "friendlyName": "ESRIntegrationReport_2025-06",
+          "postDatetime": "2025-06-30T23:59:59"
+        },
+        {
+          "docId": -1099004577,
+          "friendlyName": "ESRIntegrationReport_2025-05",
+          "postDatetime": "2025-05-31T23:59:59"
+        },
+        {
+          "docId": -1090500908,
+          "friendlyName": "ESRIntegrationReport_2025-04",
+          "postDatetime": "2025-04-30T23:59:59"
+        },
+        {
+          "docId": -1085494646,
+          "friendlyName": "ESRIntegrationReport_2025-03",
+          "postDatetime": "2025-03-31T23:59:59"
+        },
+        {
+          "docId": -1074063100,
+          "friendlyName": "ESRIntegrationReport_2025-02",
+          "postDatetime": "2025-02-28T23:59:59"
+        },
+        {
+          "docId": -1065467624,
+          "friendlyName": "ESRIntegrationReport_2025-01",
+          "postDatetime": "2025-01-31T23:59:59"
+        },
+        {
+          "docId": -1056947247,
+          "friendlyName": "ESRIntegrationReport_2024-12",
+          "postDatetime": "2024-12-31T23:59:59"
+        },
+        {
+          "docId": -1050466843,
+          "friendlyName": "ESRIntegrationReport_2024-11",
+          "postDatetime": "2024-11-30T23:59:59"
+        },
+        {
+          "docId": -1040542909,
+          "friendlyName": "ESRIntegrationReport_2024-10",
+          "postDatetime": "2024-10-31T23:59:59"
+        },
+        {
+          "docId": -1032484127,
+          "friendlyName": "ESRIntegrationReport_2024-09",
+          "postDatetime": "2024-09-30T23:59:59"
+        },
+        {
+          "docId": -1024302541,
+          "friendlyName": "ESRIntegrationReport_2024-08",
+          "postDatetime": "2024-08-31T23:59:59"
+        },
+        {
+          "docId": -1016710095,
+          "friendlyName": "ESRIntegrationReport_2024-07",
+          "postDatetime": "2024-07-31T23:59:59"
+        },
+        {
+          "docId": -1008374431,
+          "friendlyName": "ESRIntegrationReport_2024-06",
+          "postDatetime": "2024-06-30T23:59:59"
+        },
+        {
+          "docId": -1000312012,
+          "friendlyName": "ESRIntegrationReport_2024-05",
+          "postDatetime": "2024-05-31T23:59:59"
+        },
+        {
+          "docId": -993407996,
+          "friendlyName": "ESRIntegrationReport_2024-04",
+          "postDatetime": "2024-04-30T23:59:59"
+        },
+        {
+          "docId": -985553472,
+          "friendlyName": "ESRIntegrationReport_2024-03",
+          "postDatetime": "2024-03-31T23:59:59"
+        },
+        {
+          "docId": -977646182,
+          "friendlyName": "ESRIntegrationReport_2024-02",
+          "postDatetime": "2024-02-29T23:59:59"
+        },
+        {
+          "docId": -970799651,
+          "friendlyName": "ESRIntegrationReport_2024-01",
+          "postDatetime": "2024-01-31T23:59:59"
+        },
+        {
+          "docId": -963449156,
+          "friendlyName": "ESRIntegrationReport_2023-12",
+          "postDatetime": "2023-12-31T23:59:59"
+        }
+      ],
+      "missingBundleMonths": [
+        "2026-07"
+      ],
+      "oldestArchivePage": {
+        "meta": {
+          "totalRecords": 1006,
+          "pageSize": 1,
+          "totalPages": 1006,
+          "currentPage": 1006,
+          "query": {
+            "parameterCount": 0,
+            "parameters": {},
+            "sortedBy": "postDatetime: DESC"
+          }
+        },
+        "product": {
+          "emilId": "NP4-765-ER",
+          "name": "ESR Integration Report",
+          "reportTypeId": 23794
+        },
+        "archives": [
+          {
+            "docId": 963449156,
+            "friendlyName": "ESRIntegrationReport 12-05-23",
+            "postDatetime": "2023-12-06T08:02:21",
+            "links": {
+              "endpoint": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np4-765-er?download=963449156",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          }
+        ],
+        "bundles": [],
+        "links": {
+          "self": {
+            "href": "https://api.ercot.com/api/public-reports/archive/np4-765-er",
+            "rel": null,
+            "title": null,
+            "type": null,
+            "hreflang": null,
+            "media": null,
+            "deprecation": null,
+            "profile": null,
+            "name": null
+          },
+          "parent": {
+            "href": "https://api.ercot.com/api/public-reports",
+            "rel": null,
+            "title": null,
+            "type": null,
+            "hreflang": null,
+            "media": null,
+            "deprecation": null,
+            "profile": null,
+            "name": null
+          }
+        }
+      }
+    },
+    {
+      "product": "NP3-987-EX",
+      "checkedAt": "2026-09-07T19:54:44.281527+00:00",
+      "bundleMeta": null,
+      "bundles": [
+        {
+          "docId": -1256994285,
+          "friendlyName": "7day_Event_Trigger_2026-08",
+          "postDatetime": "2026-08-31T23:59:59"
+        },
+        {
+          "docId": -1233778572,
+          "friendlyName": "7day_Event_Trigger_2026-06",
+          "postDatetime": "2026-06-30T23:59:59"
+        },
+        {
+          "docId": -1221622105,
+          "friendlyName": "7day_Event_Trigger_2026-05",
+          "postDatetime": "2026-05-31T23:59:59"
+        },
+        {
+          "docId": -1210259023,
+          "friendlyName": "7day_Event_Trigger_2026-04",
+          "postDatetime": "2026-04-30T23:59:59"
+        },
+        {
+          "docId": -1198821671,
+          "friendlyName": "7day_Event_Trigger_2026-03",
+          "postDatetime": "2026-03-31T23:59:59"
+        },
+        {
+          "docId": -1188688595,
+          "friendlyName": "7day_Event_Trigger_2026-02",
+          "postDatetime": "2026-02-28T23:59:59"
+        },
+        {
+          "docId": -1177885963,
+          "friendlyName": "7day_Event_Trigger_2026-01",
+          "postDatetime": "2026-01-31T23:59:59"
+        },
+        {
+          "docId": -1168232826,
+          "friendlyName": "7day_Event_Trigger_2025-12",
+          "postDatetime": "2025-12-31T23:59:59"
+        },
+        {
+          "docId": -1156057942,
+          "friendlyName": "7day_Event_Trigger_2025-11",
+          "postDatetime": "2025-11-30T23:59:59"
+        },
+        {
+          "docId": -1145805698,
+          "friendlyName": "7day_Event_Trigger_2025-10",
+          "postDatetime": "2025-10-31T23:59:59"
+        },
+        {
+          "docId": -1145457602,
+          "friendlyName": "7day_Event_Trigger_2025-09",
+          "postDatetime": "2025-09-30T23:59:59"
+        },
+        {
+          "docId": -1126128266,
+          "friendlyName": "7day_Event_Trigger_2025-08",
+          "postDatetime": "2025-08-31T23:59:59"
+        },
+        {
+          "docId": -1116738980,
+          "friendlyName": "7day_Event_Trigger_2025-07",
+          "postDatetime": "2025-07-31T23:59:59"
+        },
+        {
+          "docId": -1107953357,
+          "friendlyName": "7day_Event_Trigger_2025-06",
+          "postDatetime": "2025-06-30T23:59:59"
+        },
+        {
+          "docId": -1105913716,
+          "friendlyName": "7day_Event_Trigger_2025-05",
+          "postDatetime": "2025-05-31T23:59:59"
+        },
+        {
+          "docId": -1090409309,
+          "friendlyName": "7day_Event_Trigger_2025-04",
+          "postDatetime": "2025-04-30T23:59:59"
+        },
+        {
+          "docId": -1081800030,
+          "friendlyName": "7day_Event_Trigger_2025-03",
+          "postDatetime": "2025-03-31T23:59:59"
+        },
+        {
+          "docId": -1073974996,
+          "friendlyName": "7day_Event_Trigger_2025-02",
+          "postDatetime": "2025-02-28T23:59:59"
+        },
+        {
+          "docId": -1068667902,
+          "friendlyName": "7day_Event_Trigger_2025-01",
+          "postDatetime": "2025-01-31T23:59:59"
+        },
+        {
+          "docId": -1056857725,
+          "friendlyName": "7day_Event_Trigger_2024-12",
+          "postDatetime": "2024-12-31T23:59:59"
+        },
+        {
+          "docId": -1048751796,
+          "friendlyName": "7day_Event_Trigger_2024-11",
+          "postDatetime": "2024-11-30T23:59:59"
+        },
+        {
+          "docId": -1040455200,
+          "friendlyName": "7day_Event_Trigger_2024-10",
+          "postDatetime": "2024-10-31T23:59:59"
+        },
+        {
+          "docId": -1033191947,
+          "friendlyName": "7day_Event_Trigger_2024-09",
+          "postDatetime": "2024-09-30T23:59:59"
+        },
+        {
+          "docId": -1024218583,
+          "friendlyName": "7day_Event_Trigger_2024-08",
+          "postDatetime": "2024-08-31T23:59:59"
+        },
+        {
+          "docId": -1016089531,
+          "friendlyName": "7day_Event_Trigger_2024-07",
+          "postDatetime": "2024-07-31T23:59:59"
+        },
+        {
+          "docId": -1008291329,
+          "friendlyName": "7day_Event_Trigger_2024-06",
+          "postDatetime": "2024-06-30T23:59:59"
+        },
+        {
+          "docId": -1000227495,
+          "friendlyName": "7day_Event_Trigger_2024-05",
+          "postDatetime": "2024-05-31T23:59:59"
+        },
+        {
+          "docId": -999695095,
+          "friendlyName": "7day_Event_Trigger_2024-04",
+          "postDatetime": "2024-04-30T23:59:59"
+        },
+        {
+          "docId": -984726205,
+          "friendlyName": "7day_Event_Trigger_2024-03",
+          "postDatetime": "2024-03-31T23:59:59"
+        },
+        {
+          "docId": -977494634,
+          "friendlyName": "7day_Event_Trigger_2024-02",
+          "postDatetime": "2024-02-29T23:59:59"
+        },
+        {
+          "docId": -969719521,
+          "friendlyName": "7day_Event_Trigger_2024-01",
+          "postDatetime": "2024-01-31T23:59:59"
+        },
+        {
+          "docId": -966543327,
+          "friendlyName": "7day_Event_Trigger_2023-12",
+          "postDatetime": "2023-12-31T23:59:59"
+        },
+        {
+          "docId": -954983167,
+          "friendlyName": "7day_Event_Trigger_2023-11",
+          "postDatetime": "2023-11-30T23:59:59"
+        },
+        {
+          "docId": -947683655,
+          "friendlyName": "7day_Event_Trigger_2023-10",
+          "postDatetime": "2023-10-31T23:59:59"
+        },
+        {
+          "docId": -940611835,
+          "friendlyName": "7day_Event_Trigger_2023-09",
+          "postDatetime": "2023-09-30T23:59:59"
+        },
+        {
+          "docId": -935426076,
+          "friendlyName": "7day_Event_Trigger_2023-08",
+          "postDatetime": "2023-08-31T23:59:59"
+        },
+        {
+          "docId": -926192089,
+          "friendlyName": "7day_Event_Trigger_2023-07",
+          "postDatetime": "2023-07-31T23:59:59"
+        },
+        {
+          "docId": -919816456,
+          "friendlyName": "7day_Event_Trigger_2023-06",
+          "postDatetime": "2023-06-30T23:59:59"
+        },
+        {
+          "docId": -912386446,
+          "friendlyName": "7day_Event_Trigger_2023-05",
+          "postDatetime": "2023-05-31T23:59:59"
+        },
+        {
+          "docId": -905837683,
+          "friendlyName": "7day_Event_Trigger_2023-04",
+          "postDatetime": "2023-04-30T23:59:59"
+        },
+        {
+          "docId": -904733010,
+          "friendlyName": "7day_Event_Trigger_2023-03",
+          "postDatetime": "2023-03-31T23:59:59"
+        },
+        {
+          "docId": -893114936,
+          "friendlyName": "7day_Event_Trigger_2023-02",
+          "postDatetime": "2023-02-28T23:59:59"
+        },
+        {
+          "docId": -886559209,
+          "friendlyName": "7day_Event_Trigger_2023-01",
+          "postDatetime": "2023-01-31T23:59:59"
+        },
+        {
+          "docId": -880087584,
+          "friendlyName": "7day_Event_Trigger_2022-12",
+          "postDatetime": "2022-12-31T23:59:59"
+        },
+        {
+          "docId": -875980518,
+          "friendlyName": "7day_Event_Trigger_2022-11",
+          "postDatetime": "2022-11-30T23:59:59"
+        },
+        {
+          "docId": -867550429,
+          "friendlyName": "7day_Event_Trigger_2022-10",
+          "postDatetime": "2022-10-31T23:59:59"
+        },
+        {
+          "docId": -861863980,
+          "friendlyName": "7day_Event_Trigger_2022-09",
+          "postDatetime": "2022-09-30T23:59:59"
+        },
+        {
+          "docId": -855222781,
+          "friendlyName": "7day_Event_Trigger_2022-08",
+          "postDatetime": "2022-08-31T23:59:59"
+        },
+        {
+          "docId": -849004185,
+          "friendlyName": "7day_Event_Trigger_2022-07",
+          "postDatetime": "2022-07-31T23:59:59"
+        },
+        {
+          "docId": -843025266,
+          "friendlyName": "7day_Event_Trigger_2022-06",
+          "postDatetime": "2022-06-30T23:59:59"
+        },
+        {
+          "docId": -840676777,
+          "friendlyName": "7day_Event_Trigger_2022-05",
+          "postDatetime": "2022-05-31T23:59:59"
+        },
+        {
+          "docId": -831567320,
+          "friendlyName": "7day_Event_Trigger_2022-04",
+          "postDatetime": "2022-04-30T23:59:59"
+        },
+        {
+          "docId": -825873803,
+          "friendlyName": "7day_Event_Trigger_2022-03",
+          "postDatetime": "2022-03-31T23:59:59"
+        },
+        {
+          "docId": -820537218,
+          "friendlyName": "7day_Event_Trigger_2022-02",
+          "postDatetime": "2022-02-28T23:59:59"
+        },
+        {
+          "docId": -815210955,
+          "friendlyName": "7day_Event_Trigger_2022-01",
+          "postDatetime": "2022-01-31T23:59:59"
+        },
+        {
+          "docId": -809238318,
+          "friendlyName": "7day_Event_Trigger_2021-12",
+          "postDatetime": "2021-12-31T23:59:59"
+        },
+        {
+          "docId": -805837357,
+          "friendlyName": "7day_Event_Trigger_2021-11",
+          "postDatetime": "2021-11-30T23:59:59"
+        },
+        {
+          "docId": -798634023,
+          "friendlyName": "7day_Event_Trigger_2021-10",
+          "postDatetime": "2021-10-31T23:59:59"
+        },
+        {
+          "docId": -793628834,
+          "friendlyName": "7day_Event_Trigger_2021-09",
+          "postDatetime": "2021-09-30T23:59:59"
+        },
+        {
+          "docId": -787557886,
+          "friendlyName": "7day_Event_Trigger_2021-08",
+          "postDatetime": "2021-08-31T23:59:59"
+        },
+        {
+          "docId": -783292171,
+          "friendlyName": "7day_Event_Trigger_2021-07",
+          "postDatetime": "2021-07-31T23:59:59"
+        },
+        {
+          "docId": -776645225,
+          "friendlyName": "7day_Event_Trigger_2021-06",
+          "postDatetime": "2021-06-30T23:59:59"
+        },
+        {
+          "docId": -771309333,
+          "friendlyName": "7day_Event_Trigger_2021-05",
+          "postDatetime": "2021-05-31T23:59:59"
+        },
+        {
+          "docId": -766184160,
+          "friendlyName": "7day_Event_Trigger_2021-04",
+          "postDatetime": "2021-04-30T23:59:59"
+        },
+        {
+          "docId": -764164640,
+          "friendlyName": "7day_Event_Trigger_2021-03",
+          "postDatetime": "2021-03-31T23:59:59"
+        },
+        {
+          "docId": -756358998,
+          "friendlyName": "7day_Event_Trigger_2021-02",
+          "postDatetime": "2021-02-28T23:59:59"
+        },
+        {
+          "docId": -752436041,
+          "friendlyName": "7day_Event_Trigger_2021-01",
+          "postDatetime": "2021-01-31T23:59:59"
+        },
+        {
+          "docId": -746260953,
+          "friendlyName": "7day_Event_Trigger_2020-12",
+          "postDatetime": "2020-12-31T23:59:59"
+        },
+        {
+          "docId": -741728217,
+          "friendlyName": "7day_Event_Trigger_2020-11",
+          "postDatetime": "2020-11-30T23:59:59"
+        },
+        {
+          "docId": -736632402,
+          "friendlyName": "7day_Event_Trigger_2020-10",
+          "postDatetime": "2020-10-31T23:59:59"
+        },
+        {
+          "docId": -732169667,
+          "friendlyName": "7day_Event_Trigger_2020-09",
+          "postDatetime": "2020-09-30T23:59:59"
+        },
+        {
+          "docId": -730073913,
+          "friendlyName": "7day_Event_Trigger_2020-08",
+          "postDatetime": "2020-08-31T23:59:59"
+        },
+        {
+          "docId": -721912278,
+          "friendlyName": "7day_Event_Trigger_2020-07",
+          "postDatetime": "2020-07-31T23:59:59"
+        },
+        {
+          "docId": -717362354,
+          "friendlyName": "7day_Event_Trigger_2020-06",
+          "postDatetime": "2020-06-30T23:59:59"
+        },
+        {
+          "docId": -712435727,
+          "friendlyName": "7day_Event_Trigger_2020-05",
+          "postDatetime": "2020-05-31T23:59:59"
+        },
+        {
+          "docId": -707881546,
+          "friendlyName": "7day_Event_Trigger_2020-04",
+          "postDatetime": "2020-04-30T23:59:59"
+        },
+        {
+          "docId": -703340977,
+          "friendlyName": "7day_Event_Trigger_2020-03",
+          "postDatetime": "2020-03-31T23:59:59"
+        },
+        {
+          "docId": -699425681,
+          "friendlyName": "7day_Event_Trigger_2020-02",
+          "postDatetime": "2020-02-29T23:59:59"
+        },
+        {
+          "docId": -694236662,
+          "friendlyName": "7day_Event_Trigger_2020-01",
+          "postDatetime": "2020-01-31T23:59:59"
+        },
+        {
+          "docId": -689850766,
+          "friendlyName": "7day_Event_Trigger_2019-12",
+          "postDatetime": "2019-12-31T23:59:59"
+        },
+        {
+          "docId": -685462160,
+          "friendlyName": "7day_Event_Trigger_2019-11",
+          "postDatetime": "2019-11-30T23:59:59"
+        },
+        {
+          "docId": -681023813,
+          "friendlyName": "7day_Event_Trigger_2019-10",
+          "postDatetime": "2019-10-31T23:59:59"
+        },
+        {
+          "docId": -676641003,
+          "friendlyName": "7day_Event_Trigger_2019-09",
+          "postDatetime": "2019-09-30T23:59:59"
+        },
+        {
+          "docId": -676355059,
+          "friendlyName": "7day_Event_Trigger_2019-08",
+          "postDatetime": "2019-08-31T23:59:59"
+        },
+        {
+          "docId": -667646488,
+          "friendlyName": "7day_Event_Trigger_2019-07",
+          "postDatetime": "2019-07-31T23:59:59"
+        },
+        {
+          "docId": -664045088,
+          "friendlyName": "7day_Event_Trigger_2019-06",
+          "postDatetime": "2019-06-30T23:59:59"
+        },
+        {
+          "docId": -658929924,
+          "friendlyName": "7day_Event_Trigger_2019-05",
+          "postDatetime": "2019-05-31T23:59:59"
+        },
+        {
+          "docId": -654750939,
+          "friendlyName": "7day_Event_Trigger_2019-04",
+          "postDatetime": "2019-04-30T23:59:59"
+        },
+        {
+          "docId": -651530753,
+          "friendlyName": "7day_Event_Trigger_2019-03",
+          "postDatetime": "2019-03-31T23:59:59"
+        },
+        {
+          "docId": -646779607,
+          "friendlyName": "7day_Event_Trigger_2019-02",
+          "postDatetime": "2019-02-28T23:59:59"
+        },
+        {
+          "docId": -642939786,
+          "friendlyName": "7day_Event_Trigger_2019-01",
+          "postDatetime": "2019-01-31T23:59:59"
+        },
+        {
+          "docId": -638291882,
+          "friendlyName": "7day_Event_Trigger_2018-12",
+          "postDatetime": "2018-12-31T23:59:59"
+        }
+      ],
+      "missingBundleMonths": [
+        "2026-07"
+      ],
+      "oldestArchivePage": {
+        "meta": {
+          "totalRecords": 3118,
+          "pageSize": 1,
+          "totalPages": 3118,
+          "currentPage": 3118,
+          "query": {
+            "parameterCount": 0,
+            "parameters": {},
+            "sortedBy": "postDatetime: DESC"
+          }
+        },
+        "product": {
+          "emilId": "NP3-987-EX",
+          "name": "7-Day Event Trigger Posting",
+          "reportTypeId": 10047
+        },
+        "archives": [
+          {
+            "docId": 414522240,
+            "friendlyName": "7day_Event_Trigger",
+            "postDatetime": "2014-03-19T18:16:54",
+            "links": {
+              "endpoint": {
+                "href": "https://api.ercot.com/api/public-reports/archive/np3-987-ex?download=414522240",
+                "rel": null,
+                "title": null,
+                "type": null,
+                "hreflang": null,
+                "media": null,
+                "deprecation": null,
+                "profile": null,
+                "name": null
+              }
+            }
+          }
+        ],
+        "bundles": [],
+        "links": {
+          "self": {
+            "href": "https://api.ercot.com/api/public-reports/archive/np3-987-ex",
+            "rel": null,
+            "title": null,
+            "type": null,
+            "hreflang": null,
+            "media": null,
+            "deprecation": null,
+            "profile": null,
+            "name": null
+          },
+          "parent": {
+            "href": "https://api.ercot.com/api/public-reports",
+            "rel": null,
+            "title": null,
+            "type": null,
+            "hreflang": null,
+            "media": null,
+            "deprecation": null,
+            "profile": null,
+            "name": null
+          }
+        }
+      }
+    }
+  ],
+  "downloads": [
+    {
+      "product": "np4-190-cd",
+      "reader": "dam_stlmnt_pnt_prices",
+      "checkedAt": "2026-09-07T19:55:13.645879+00:00",
+      "error": "Client error '400 Bad Request' for url 'https://api.ercot.com/api/public-reports/bundle/np4-190-cd/download'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+    },
+    {
+      "product": "np6-345-cd",
+      "reader": "act_sys_load_by_wzn",
+      "checkedAt": "2026-09-07T19:55:18.035640+00:00",
+      "rows": 744,
+      "firstRow": {
+        "DSTFlag": false,
+        "coast": "9176.18",
+        "east": "1586.44",
+        "farWest": "2668.04",
+        "hourEnding": "01:00",
+        "north": "1233.95",
+        "northC": "14159.14",
+        "operatingDay": "2017-12-31",
+        "southC": "5515.79",
+        "southern": "2704.64",
+        "total": "38540.64",
+        "west": "1496.46"
+      },
+      "minDataDate": "2017-12-31",
+      "maxDataDate": "2018-01-30",
+      "dataDates": [
+        "2017-12-31",
+        "2018-01-01",
+        "2018-01-02",
+        "2018-01-03",
+        "2018-01-04",
+        "2018-01-05",
+        "2018-01-06",
+        "2018-01-07",
+        "2018-01-08",
+        "2018-01-09",
+        "2018-01-10",
+        "2018-01-11",
+        "2018-01-12",
+        "2018-01-13",
+        "2018-01-14",
+        "2018-01-15",
+        "2018-01-16",
+        "2018-01-17",
+        "2018-01-18",
+        "2018-01-19",
+        "2018-01-20",
+        "2018-01-21",
+        "2018-01-22",
+        "2018-01-23",
+        "2018-01-24",
+        "2018-01-25",
+        "2018-01-26",
+        "2018-01-27",
+        "2018-01-28",
+        "2018-01-29",
+        "2018-01-30"
+      ],
+      "zipBytes": 51209,
+      "zipSha256": "fbed23aa166597b4624aaa8fee594e284931923fb6642e9712698accd9542009",
+      "members": [
+        {
+          "name": "cdr.00013101.0000000000000000.20180101.055001.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2336,
+          "sha256": "1560aa6bbeb3060a35f27322f39f211be9db7c18968351851d86d699184777fc"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180102.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2351,
+          "sha256": "3aae73c4b6b3ca2891c3ca8a4ee9f718c6b6bd6934a9eaeb41d8b7227042089b"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180103.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2354,
+          "sha256": "312930d4cdc37951b5e2c7c562ec1df44c70e5620358111b3b866c09e68aed1c"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180104.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2350,
+          "sha256": "413980677bf99a90e40b32270404ddb9df0fc9633f2f10c2dda38b094492ab54"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180105.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2345,
+          "sha256": "4db48f3e1889efc524978cae6336a4d29cf525c2207746916ffdbe7c41f4a51d"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180106.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2342,
+          "sha256": "8ae888eb1f23e0d10b6faeeb942b6b2913beb1a9eb51b1b9e8962e8dd6504037"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180107.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2326,
+          "sha256": "4d9bc8ccb8bc8247a2eef822752c999ef5d8da3e3aca58fe0ccf26f78f416c05"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180108.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2299,
+          "sha256": "d81e6e4f78696d21b4c8a3a4c4aa5d70f456375f49caea607314d3b5b72c6436"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180109.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2322,
+          "sha256": "0e46ff560c25f49b926eb45fd87421c4095193d0e3cff967fe7b0a096409c706"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180110.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2332,
+          "sha256": "c0a208c6028fee858d7c331e3c8510c95fa0981609b6cf6e2ba16e14db982985"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180111.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2328,
+          "sha256": "56a25be0cfced33a35b79b9479431c466e29992931a840bf4e265273e256c474"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180112.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2327,
+          "sha256": "2a2ea41504ec3b52125099f7c401344cd29b7e0a6b830075af2c26c4aa9e513a"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180113.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2345,
+          "sha256": "e89b41f48c079cb41aa10922702c719b6398733c6648d178b9aadcb482678fa6"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180114.055001.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2345,
+          "sha256": "c3a06906070d8d59a03315495fd55cdb6d1b0495b163cbc2af95e59d51fb41f4"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180115.055001.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2342,
+          "sha256": "205b0f330cf298d2a26ffdf740ecb3994fea02e749dffa9548647701df6e62a2"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180116.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2343,
+          "sha256": "cb633bf247151634c63fbd5584d269461171453488d3fd0c2ddc52cb73dc8967"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180117.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2354,
+          "sha256": "6d2b561b26d3c9a4e384a3b1ad2e9c27d55756922068f3946a29a20fe403c771"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180118.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2353,
+          "sha256": "72fa65b087e5b3297e1a328514c8e02a185106d8e43c1a0541eda663d0bd6f85"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180119.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2345,
+          "sha256": "9d9cc07433b41203040e9fc4d22c4685626393b03f1eb8268d724109c2fef0be"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180120.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2342,
+          "sha256": "88306052557369783430f2da4cd8652dcbf2e77efe7dce1dc5248bc7b77c2f8c"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180121.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2300,
+          "sha256": "ec7ad098ad7fe6475140bc7aa9e36973db3c331c83c13ee2e4a9a5628b07f25a"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180122.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2288,
+          "sha256": "c7a2190533f967c02976ef78eaed810acb0f39764c50b271bd324bd33c5895c0"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180123.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2311,
+          "sha256": "c43d15ed4136cd786d72a83c083c1b710ed4acbd8dcf522eb523dc5f8ff33630"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180124.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2325,
+          "sha256": "8d652089db6fa22bcf9a193b94cfb97f57148ae13c11791f4ca04b13510bb945"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180125.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2331,
+          "sha256": "cebb0436a72d23fb7ad85f48eeac68e752a63a1ba29041df54e8d3f83da57da0"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180126.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2326,
+          "sha256": "f5851f53d6d957aa5b07ae00ae238331d6246825dd9210a2d13a94c6dae85f90"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180127.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2315,
+          "sha256": "4cbea0def521da7cdbbe5e24fdca9dceec482179d253e30677850279c2377b92"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180128.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2289,
+          "sha256": "467085436b4a6283f7759d196b60521051c657e6fa5dcc80f98d95667384f698"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180129.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2305,
+          "sha256": "847a908c8c2de2dcdd45d97820c9de0538b612575667cc7b5d40100590b2755d"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180130.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2326,
+          "sha256": "dddc3f8aa2970b2e6c46d0e5b3bdc97c6bc54e8e9c1c03d2b50aea02f0d28764"
+        },
+        {
+          "name": "cdr.00013101.0000000000000000.20180131.055000.ACTUALSYSLOADWZNP6345.csv",
+          "bytes": 2333,
+          "sha256": "f6f6526096084b773c62c466e56f629481b8a07bb389c2963fa6525e88b21219"
+        }
+      ],
+      "independentCsvRows": 744
+    },
+    {
+      "product": "np4-765-er",
+      "docId": -963449156,
+      "rows": 26,
+      "pdfMembers": 26,
+      "minReportDate": "2023-12-05",
+      "maxReportDate": "2023-12-30",
+      "firstRow": {
+        "reportDate": "2023-12-14",
+        "installedDischargeCapacityMW": "5036",
+        "totalDischargeCapacityMW": "7041",
+        "installedChargeCapacityMW": "7022",
+        "totalChargeCapacityMW": "7022",
+        "peakLoadMW": "49356",
+        "peakLoadHourEnding": 8,
+        "dischargeAtPeakLoadMW": "95",
+        "chargeAtPeakLoadMW": "49",
+        "netOutputAtPeakLoadMW": "46",
+        "maxDischargeMW": "492",
+        "maxDischargeTime": "19:29:00",
+        "penetrationAtMaxDischargePercent": "1.03",
+        "maxChargeMW": "619",
+        "maxChargeTime": "11:59:00",
+        "penetrationAtMaxChargePercent": "1.33",
+        "maxDischargePenetrationPercent": "1.04",
+        "maxDischargePenetrationTime": "19:29:00",
+        "dischargeAtMaxPenetrationMW": "492",
+        "maxChargePenetrationPercent": "1.33",
+        "maxChargePenetrationTime": "11:59:00",
+        "chargeAtMaxPenetrationMW": "619",
+        "sourceNotes": "* Sum of maximum capacity (i.e. seasonal max. reasonability limit in RIOO) of all ESR generators modeled in ERCOT\u2019s network operations model and are commercially operable (estimated based on commercial operations date in RIOO). ** Sum of maximum capacity (i.e. seasonal max. reasonability limit in RIOO) of all ESR generators modeled in ERCOT\u2019s network operations model. + Sum of maximum capacity (i.e. max. power consumption in RIOO) of all ESR CLRs that are modeled in ERCOT's network operations model and are commercially operable (estimated based on commercial operations date in RIOO). ++ Sum of maximum capacity (i.e. max. power consumption in RIOO) of all ESR CLRs that are modeled in ERCOT's network operations model. ^ ESR Net Charge/Discharge = Total Discharging from ESR generators - Total Charging from ESR CLRs. Positive represents Net Discharge; negative represents Net Charge. Note that generation, generation record, and generator capacity values in following pages of this report are based on units modeled in ERCOT\u2019s network operations model."
+      },
+      "zipSha256": "68421fd18547e7bd03ba8bc85c32beeb140ea78f04c127b60ed036614d17e697",
+      "members": [
+        {
+          "name": "965641539.rpt.00023794.0000000000000000.20231215.080213844.ESRIntegrationReport 12-14-23.pdf",
+          "sha256": "ce46e07946b9f2b6218f351b28386e49521982ec08de8f4197970b43f124b9dd"
+        },
+        {
+          "name": "967613046.rpt.00023794.0000000000000000.20231223.080215413.ESRIntegrationReport 12-22-23.pdf",
+          "sha256": "8b32a173cb0897dde0838b2bc2d6674b27e01691152091eb5935bb5c9e44ddc1"
+        },
+        {
+          "name": "968826018.rpt.00023794.0000000000000000.20231228.080203191.ESRIntegrationReport 12-27-23.pdf",
+          "sha256": "63ce32916ae4f8831a5ef8c52ed2db7b241e47b4ef649cd21118f969317a3272"
+        },
+        {
+          "name": "963691859.rpt.00023794.0000000000000000.20231207.080216985.ESRIntegrationReport 12-06-23.pdf",
+          "sha256": "3ec9cd34dca43bc93adaf5b2e2e30e02e5a4dd50fd29473ce7bb5dad96793429"
+        },
+        {
+          "name": "966867987.rpt.00023794.0000000000000000.20231220.080215152.ESRIntegrationReport 12-19-23.pdf",
+          "sha256": "3652e228e73d146430b5e36ef32c7268a988baf3b60f43996ad9f1b4d5bf6f3d"
+        },
+        {
+          "name": "966368925.rpt.00023794.0000000000000000.20231218.080219451.ESRIntegrationReport 12-17-23.pdf",
+          "sha256": "5837a52ab242335cb3e57a21c096b05ac6e8760bdd58e2d5ba1aae6b8fc72564"
+        },
+        {
+          "name": "963934709.rpt.00023794.0000000000000000.20231208.080216322.ESRIntegrationReport 12-07-23.pdf",
+          "sha256": "07332184a14f1b2cdfd21c67856b8e5d2fac354d66750fdcdde007c4e4f37895"
+        },
+        {
+          "name": "964899714.rpt.00023794.0000000000000000.20231212.080217984.ESRIntegrationReport 12-11-23.pdf",
+          "sha256": "1d8671491d80949e76ed770a8d165af7e4c496b6f44dd127d6f024d672772901"
+        },
+        {
+          "name": "964644082.rpt.00023794.0000000000000000.20231211.080218993.ESRIntegrationReport 12-10-23.pdf",
+          "sha256": "7a1518c63a76d759e15188914fa0ee31198fbad447ec9d8f9c6e1b82bcf16807"
+        },
+        {
+          "name": "965392663.rpt.00023794.0000000000000000.20231214.080233675.ESRIntegrationReport 12-13-23.pdf",
+          "sha256": "1eca7c906d14727c3be753b8203cb688fa29ff765fcf4173187e36ab617f549d"
+        },
+        {
+          "name": "967364854.rpt.00023794.0000000000000000.20231222.080214742.ESRIntegrationReport 12-21-23.pdf",
+          "sha256": "d11183fd65887b70cf35d77ea836ac2dbbdfb3cac36262ff9fac328407065326"
+        },
+        {
+          "name": "964176617.rpt.00023794.0000000000000000.20231209.080221220.ESRIntegrationReport 12-08-23.pdf",
+          "sha256": "fd1ee35f9265cec282ab4a6e2785cfed21ddbea385528ad500e3bfb165ea10d3"
+        },
+        {
+          "name": "969564820.rpt.00023794.0000000000000000.20231231.080226626.ESRIntegrationReport 12-30-23.pdf",
+          "sha256": "10896a150096d202e3f7c036517ed8dcc86450137e5db3334879ea346c062bcb"
+        },
+        {
+          "name": "967849886.rpt.00023794.0000000000000000.20231224.080227641.ESRIntegrationReport 12-23-23.pdf",
+          "sha256": "d70a706e590706d2ef13376610f0fd2ae0f942d23c9ab41483309c81d4108f55"
+        },
+        {
+          "name": "968312380.rpt.00023794.0000000000000000.20231226.080207839.ESRIntegrationReport 12-25-23.pdf",
+          "sha256": "dfa73589aef8bb094c018cd24915f8563cf9fb3b429e10667bf91c8faff516f1"
+        },
+        {
+          "name": "965890275.rpt.00023794.0000000000000000.20231216.080217527.ESRIntegrationReport 12-15-23.pdf",
+          "sha256": "d54f61ecd147877840059b421220f863eb379cec336d6897459fe0e97ff059b4"
+        },
+        {
+          "name": "969079755.rpt.00023794.0000000000000000.20231229.080205414.ESRIntegrationReport 12-28-23.pdf",
+          "sha256": "5524ee9eaac44ba56d6cd871be5c2be68b53ddfdcaf7ce1af9ea82c7bad7496c"
+        },
+        {
+          "name": "968079959.rpt.00023794.0000000000000000.20231225.080212966.ESRIntegrationReport 12-24-23.pdf",
+          "sha256": "72b2bc016bd800fff15eaa4865cff6304aaad83ae6ccce515cb2d3720b8efffd"
+        },
+        {
+          "name": "964407639.rpt.00023794.0000000000000000.20231210.080451892.ESRIntegrationReport 12-09-23.pdf",
+          "sha256": "a8a89334c85be9630bb7ee699ee245b91b0bdf43bc9e5f96b69d2826790b4252"
+        },
+        {
+          "name": "965147006.rpt.00023794.0000000000000000.20231213.080205389.ESRIntegrationReport 12-12-23.pdf",
+          "sha256": "d02de0c2d2167b2f2746e05c7c6db6c2f97d8ca422852e4ba192422e311163dd"
+        },
+        {
+          "name": "966128938.rpt.00023794.0000000000000000.20231217.080230967.ESRIntegrationReport 12-16-23.pdf",
+          "sha256": "e4f9318032c7e9cabfed501b2b592c6fac867468e24f208c51e33653fe9e5491"
+        },
+        {
+          "name": "963449156.rpt.00023794.0000000000000000.20231206.080221290.ESRIntegrationReport 12-05-23.pdf",
+          "sha256": "0ef80712cb83a13d67285a58d7154139c70cec390ade961f9f5532fd5005203c"
+        },
+        {
+          "name": "966625339.rpt.00023794.0000000000000000.20231219.080210074.ESRIntegrationReport 12-18-23.pdf",
+          "sha256": "9041ae311c37bcd06547a30c77d6a47558019331b02376b99fcbcd589b862240"
+        },
+        {
+          "name": "968565068.rpt.00023794.0000000000000000.20231227.080212872.ESRIntegrationReport 12-26-23.pdf",
+          "sha256": "709d54ed4dddb81bb2c5698b2f78de495ad49b45ddd4a518ebd6bd52dca288b7"
+        },
+        {
+          "name": "969324580.rpt.00023794.0000000000000000.20231230.080213816.ESRIntegrationReport 12-29-23.pdf",
+          "sha256": "9c5a7c084be082e47879295caec87260d8494aba00165f93e58cbf3de1f1d087"
+        },
+        {
+          "name": "967113627.rpt.00023794.0000000000000000.20231221.080217107.ESRIntegrationReport 12-20-23.pdf",
+          "sha256": "6576549f0c1b05782c021cf06dcef9275e0a95b92b4dda224618328952fc457a"
+        }
+      ]
+    }
+  ],
+  "rechecks": [
+    {
+      "product": "np4-190-cd",
+      "docId": -593019152,
+      "status": 400,
+      "body": "{\"timestamp\":\"2026-09-07 02:57:01\",\"code\":400,\"status\":\"BAD_REQUEST\",\"message\":\"Your request could not be processed. The request may be malformed or the URL does not exist.\"}"
+    },
+    {
+      "product": "np4-765-er",
+      "docId": -963449156,
+      "bytes": 4006121
+    }
+  ],
+  "alternateDownloadCheck": [
+    {
+      "product": "np4-190-cd",
+      "docId": -593019152,
+      "status": 200,
+      "contentType": "application/zip",
+      "bytes": 2119218,
+      "isZip": true
+    }
+  ],
+  "recoveredDamBundle": {
+    "product": "NP4-190-CD",
+    "docId": -593019152,
+    "checkedAt": "2026-09-07T20:03:45.258824+00:00",
+    "requests": [
+      {
+        "method": "POST",
+        "path": "/api/public-reports/bundle/np4-190-cd/download",
+        "status": 400,
+        "query": ""
+      },
+      {
+        "method": "GET",
+        "path": "/api/public-reports/bundle/np4-190-cd",
+        "status": 200,
+        "query": "download=-593019152"
+      }
+    ],
+    "rows": 473256,
+    "independentCsvRows": 473256,
+    "firstRow": {
+      "DSTFlag": false,
+      "deliveryDate": "2018-01-02",
+      "hourEnding": "01:00",
+      "settlementPoint": "AEEC",
+      "settlementPointPrice": "36.08"
+    },
+    "minDeliveryDate": "2018-01-02",
+    "maxDeliveryDate": "2018-02-01",
+    "zipSha256": "658c40c7f7ea43d06ab629ee608c42eead0db8ccf94d219e4c8af90249f2ab3a",
+    "members": [
+      {
+        "name": "cdr.00012331.0000000000000000.20180101.123343.DAMSPNP4190.csv",
+        "rows": 15288,
+        "sha256": "2fbb34844e0f3bcfeb58fdd72c3f2fd761e926c6a680133a40654d6d5fb11766"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180102.125150.DAMSPNP4190.csv",
+        "rows": 15288,
+        "sha256": "110db05260ed56cff8d126dcaf51605baed35c89fafe8904fec93bc2c0e1a0ad"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180103.123151.DAMSPNP4190.csv",
+        "rows": 15288,
+        "sha256": "47ac3c76e7b5340e105403b4cd129a1b5e0b488ddbc4097d7435ab9c0fef023b"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180104.122808.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "0ddf50a5366ec074e1ea878e3342860c5d60da12fa95b9a29fb243e51a4dae08"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180105.122557.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "21e07736822fc28048caa8a31e127575156968a34b40640369076710324a29f5"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180106.122455.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "516ed567a0596fd245b4a6e17bb0b4e26cad8120a8ffb220631fef1cb34fd01a"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180107.122257.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "c4ee6fdc962cb6d69d6328e03e0127a059388e5a72cb1594980ea1b94150888d"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180108.122938.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "dd4ac66beaa3241c92f41f9288cdbb43e0e036942082ebb06d62ba5a77685455"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180109.123143.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "5989ac7fc8c31c27221c619def8f9f78e2461e1a60142c632bf6a4ef5735b674"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180110.122754.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "7fd2422d22038ac5cf4c1265a1c15e5043a40f7f4891a926d80e55a0a7fec04b"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180111.123653.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "f244737e7ac56f33793812ca2fa3c435e6a4eb514777adc8dc6058966ee99951"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180112.123717.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "ea98da5788abb15c02b0265bdadd2a6c8acbea64583496372b5820b60b1fc714"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180113.122654.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "f58b8700a0349ba7bfa49c3ad3caf8416b163609758391429d3e64189ae88c98"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180114.122630.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "33dab3f069a591346e471801dfcf5f89f379f0985134094e8a5c330108284370"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180115.123747.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "2d151a88f9068deb2152271b3afa350d5ae14e3801b9cdde9040e49d0a3e3148"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180116.132811.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "eca597a50e32b5a31dea2db817a94f9b7d68c22bb443dfc5ddd5d78e586db628"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180117.123905.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "f04f1299f83b7fcc63149ec5672842625e4a317fd3a7d8f682e358cfd8c907aa"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180118.124817.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "f5594372fffdc4a8d6d646d0e377954bd3342d9727ae78de90b1b2c9500d854a"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180119.122736.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "9ef663dcba32f5bbbb046358dfba2abfbc0f0fd44d55a18c804bc768fc61336e"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180120.122945.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "72abdc7fd95beb82add7b829572d7ed055d71cb600d93ceb938344e6ddfbe73f"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180121.122258.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "a584d8ba716741ec7bcb9dbfdc4890cf9351f10308dd82d6234fb4a62f0f6803"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180122.173921.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "8577c8c2e66eab7156c07c66886621c0a59ff88a83b244d4d85a33f1ff88dc1b"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180123.124909.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "76612ef0df3a48b055d2a5796ca963b5e65a69bcde5fdbf4c7352de5843153cc"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180124.124834.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "6c1cbe17aa2e2ce416dd8dda46a61710bead831d5fdbe07de6499216e840e7f4"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180125.123629.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "1d29744ec79cba0b1177dc80487c457f476c45b39f11e647b5bfa219b0ed9d75"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180126.122802.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "6b835e11626dc0ae40fa6450532cdf08826eee6f62782e55d49deff70aed6751"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180127.122710.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "dc47b418f49a15ba74a9ea3f2d9a765877140cc0b354b8e74fd7219c9386d4e7"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180128.122910.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "c8706026ce57398432c7ce3dd628fd3abeb4a95615f516a02843878fb17707b0"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180129.125605.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "3592fd249dc1bcb5c732fb97fb6edd9c0a3c44d773d2afb998a1988e32da3413"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180130.123444.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "0e50b386f9dbdf706120e4277a62e1d903f7190f4d0013474dca3faf173a0536"
+      },
+      {
+        "name": "cdr.00012331.0000000000000000.20180131.123437.DAMSPNP4190.csv",
+        "rows": 15264,
+        "sha256": "8086d0a53c450601a1af80ab41fb8c863fd6ad6536336df32e22c220a783b1af"
+      }
+    ]
+  },
+  "archiveOverlapChecks": [
+    {
+      "product": "np4-190-cd",
+      "checkedAt": "2026-09-07T20:19:14.292699+00:00",
+      "publicationBounds": [
+        "2018-01-01T00:00:00",
+        "2018-01-31T23:59:59"
+      ],
+      "archiveMeta": {
+        "totalRecords": 31,
+        "pageSize": 1000,
+        "totalPages": 1,
+        "currentPage": 1,
+        "query": {
+          "parameterCount": 2,
+          "parameters": {
+            "postDatetimeFrom": "2018-01-01T00:00:00",
+            "postDatetimeTo": "2018-01-31T23:59:59"
+          },
+          "sortedBy": "postDatetime: DESC"
+        }
+      },
+      "archiveDocuments": [
+        {
+          "docId": 596980574,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-31T12:34:38"
+        },
+        {
+          "docId": 596849986,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-30T12:34:45"
+        },
+        {
+          "docId": 596717785,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-29T12:56:06"
+        },
+        {
+          "docId": 596581954,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-28T12:29:11"
+        },
+        {
+          "docId": 596460407,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-27T12:27:11"
+        },
+        {
+          "docId": 596334632,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-26T12:28:03"
+        },
+        {
+          "docId": 596204356,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-25T12:36:30"
+        },
+        {
+          "docId": 596073611,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-24T12:48:35"
+        },
+        {
+          "docId": 595940090,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-23T12:49:10"
+        },
+        {
+          "docId": 595830910,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-22T17:39:22"
+        },
+        {
+          "docId": 595669650,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-21T12:22:59"
+        },
+        {
+          "docId": 595547176,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-20T12:29:45"
+        },
+        {
+          "docId": 595420681,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-19T12:27:37"
+        },
+        {
+          "docId": 595287760,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-18T12:48:18"
+        },
+        {
+          "docId": 595149386,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-17T12:39:05"
+        },
+        {
+          "docId": 595014349,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-16T13:28:12"
+        },
+        {
+          "docId": 594869025,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-15T12:37:48"
+        },
+        {
+          "docId": 594734822,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-14T12:26:31"
+        },
+        {
+          "docId": 594608286,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-13T12:26:55"
+        },
+        {
+          "docId": 594479664,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-12T12:37:17"
+        },
+        {
+          "docId": 594346190,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-11T12:36:53"
+        },
+        {
+          "docId": 594215170,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-10T12:27:55"
+        },
+        {
+          "docId": 594085534,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-09T12:31:44"
+        },
+        {
+          "docId": 593948498,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-08T12:29:38"
+        },
+        {
+          "docId": 593816307,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-07T12:22:58"
+        },
+        {
+          "docId": 593693158,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-06T12:24:55"
+        },
+        {
+          "docId": 593567432,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-05T12:25:58"
+        },
+        {
+          "docId": 593434284,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-04T12:28:09"
+        },
+        {
+          "docId": 593295228,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-03T12:31:52"
+        },
+        {
+          "docId": 593156958,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-02T12:51:50"
+        },
+        {
+          "docId": 593019152,
+          "friendlyName": "DAMSPNP4190_csv",
+          "postDatetime": "2018-01-01T12:33:44"
+        }
+      ],
+      "archiveZipSha256": "52a19e7e30ebc99202837c385bd02f2a6fd5bf5f186129bc302d727218d407bc",
+      "archiveCsvFiles": 31,
+      "bundleCsvFiles": 31,
+      "identicalNameAndContentPairs": 31,
+      "archiveOnlyFiles": [],
+      "bundleOnlyFiles": [],
+      "fileTimestampSetMatchesApiToSecond": false,
+      "matchingTimestampsToSecond": 7,
+      "fileTimestamps": [
+        "20180101123343",
+        "20180102125150",
+        "20180103123151",
+        "20180104122808",
+        "20180105122557",
+        "20180106122455",
+        "20180107122257",
+        "20180108122938",
+        "20180109123143",
+        "20180110122754",
+        "20180111123653",
+        "20180112123717",
+        "20180113122654",
+        "20180114122630",
+        "20180115123747",
+        "20180116132811",
+        "20180117123905",
+        "20180118124817",
+        "20180119122736",
+        "20180120122945",
+        "20180121122258",
+        "20180122173921",
+        "20180123124909",
+        "20180124124834",
+        "20180125123629",
+        "20180126122802",
+        "20180127122710",
+        "20180128122910",
+        "20180129125605",
+        "20180130123444",
+        "20180131123437"
+      ],
+      "apiPublicationTimestampsToSecond": [
+        "20180101123344",
+        "20180102125150",
+        "20180103123152",
+        "20180104122809",
+        "20180105122558",
+        "20180106122455",
+        "20180107122258",
+        "20180108122938",
+        "20180109123144",
+        "20180110122755",
+        "20180111123653",
+        "20180112123717",
+        "20180113122655",
+        "20180114122631",
+        "20180115123748",
+        "20180116132812",
+        "20180117123905",
+        "20180118124818",
+        "20180119122737",
+        "20180120122945",
+        "20180121122259",
+        "20180122173922",
+        "20180123124910",
+        "20180124124835",
+        "20180125123630",
+        "20180126122803",
+        "20180127122711",
+        "20180128122911",
+        "20180129125606",
+        "20180130123445",
+        "20180131123438"
+      ]
+    },
+    {
+      "product": "np6-345-cd",
+      "checkedAt": "2026-09-07T20:19:24.960550+00:00",
+      "publicationBounds": [
+        "2018-01-01T00:00:00",
+        "2018-01-31T23:59:59"
+      ],
+      "archiveMeta": {
+        "totalRecords": 31,
+        "pageSize": 1000,
+        "totalPages": 1,
+        "currentPage": 1,
+        "query": {
+          "parameterCount": 2,
+          "parameters": {
+            "postDatetimeFrom": "2018-01-01T00:00:00",
+            "postDatetimeTo": "2018-01-31T23:59:59"
+          },
+          "sortedBy": "postDatetime: DESC"
+        }
+      },
+      "archiveDocuments": [
+        {
+          "docId": 596936905,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-31T05:50:00"
+        },
+        {
+          "docId": 596804259,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-30T05:50:00"
+        },
+        {
+          "docId": 596668014,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-29T05:50:00"
+        },
+        {
+          "docId": 596543614,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-28T05:50:00"
+        },
+        {
+          "docId": 596421539,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-27T05:50:00"
+        },
+        {
+          "docId": 596291164,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-26T05:50:00"
+        },
+        {
+          "docId": 596159111,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-25T05:50:01"
+        },
+        {
+          "docId": 596026800,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-24T05:50:00"
+        },
+        {
+          "docId": 595892033,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-23T05:50:00"
+        },
+        {
+          "docId": 595755570,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-22T05:50:00"
+        },
+        {
+          "docId": 595631236,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-21T05:50:00"
+        },
+        {
+          "docId": 595507696,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-20T05:50:00"
+        },
+        {
+          "docId": 595376321,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-19T05:50:00"
+        },
+        {
+          "docId": 595240247,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-18T05:50:00"
+        },
+        {
+          "docId": 595102314,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-17T05:50:00"
+        },
+        {
+          "docId": 594961829,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-16T05:50:00"
+        },
+        {
+          "docId": 594821924,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-15T05:50:01"
+        },
+        {
+          "docId": 594694910,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-14T05:50:01"
+        },
+        {
+          "docId": 594567567,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-13T05:50:00"
+        },
+        {
+          "docId": 594433261,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-12T05:50:01"
+        },
+        {
+          "docId": 594301440,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-11T05:50:00"
+        },
+        {
+          "docId": 594171312,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-10T05:50:01"
+        },
+        {
+          "docId": 594039647,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-09T05:50:00"
+        },
+        {
+          "docId": 593901749,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-08T05:50:00"
+        },
+        {
+          "docId": 593778129,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-07T05:50:00"
+        },
+        {
+          "docId": 593654338,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-06T05:50:00"
+        },
+        {
+          "docId": 593522617,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-05T05:50:00"
+        },
+        {
+          "docId": 593388176,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-04T05:50:01"
+        },
+        {
+          "docId": 593250406,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-03T05:50:00"
+        },
+        {
+          "docId": 593106759,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-02T05:50:00"
+        },
+        {
+          "docId": 592978227,
+          "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+          "postDatetime": "2018-01-01T05:50:01"
+        }
+      ],
+      "archiveZipSha256": "9e69d1a0cc530f667eae86334b0a375f44ee343c8f0c7c4c6144d929ca84a317",
+      "archiveCsvFiles": 31,
+      "bundleCsvFiles": 31,
+      "identicalNameAndContentPairs": 31,
+      "archiveOnlyFiles": [],
+      "bundleOnlyFiles": [],
+      "fileTimestampSetMatchesApiToSecond": false,
+      "matchingTimestampsToSecond": 27,
+      "fileTimestamps": [
+        "20180101055001",
+        "20180102055000",
+        "20180103055000",
+        "20180104055000",
+        "20180105055000",
+        "20180106055000",
+        "20180107055000",
+        "20180108055000",
+        "20180109055000",
+        "20180110055000",
+        "20180111055000",
+        "20180112055000",
+        "20180113055000",
+        "20180114055001",
+        "20180115055001",
+        "20180116055000",
+        "20180117055000",
+        "20180118055000",
+        "20180119055000",
+        "20180120055000",
+        "20180121055000",
+        "20180122055000",
+        "20180123055000",
+        "20180124055000",
+        "20180125055000",
+        "20180126055000",
+        "20180127055000",
+        "20180128055000",
+        "20180129055000",
+        "20180130055000",
+        "20180131055000"
+      ],
+      "apiPublicationTimestampsToSecond": [
+        "20180101055001",
+        "20180102055000",
+        "20180103055000",
+        "20180104055001",
+        "20180105055000",
+        "20180106055000",
+        "20180107055000",
+        "20180108055000",
+        "20180109055000",
+        "20180110055001",
+        "20180111055000",
+        "20180112055001",
+        "20180113055000",
+        "20180114055001",
+        "20180115055001",
+        "20180116055000",
+        "20180117055000",
+        "20180118055000",
+        "20180119055000",
+        "20180120055000",
+        "20180121055000",
+        "20180122055000",
+        "20180123055000",
+        "20180124055000",
+        "20180125055001",
+        "20180126055000",
+        "20180127055000",
+        "20180128055000",
+        "20180129055000",
+        "20180130055000",
+        "20180131055000"
+      ]
+    }
+  ],
+  "originalDocumentIdChecks": [
+    {
+      "product": "np4-190-cd",
+      "archiveDocuments": 31,
+      "matchedBundleMemberIds": 31,
+      "identicalOriginalPayloads": 31,
+      "example": {
+        "docId": 593019152,
+        "bundleMember": "593019152.cdr.00012331.0000000000000000.20180101.123344143.DAMSPNP4190_csv.zip"
+      },
+      "archiveSha256": "52a19e7e30ebc99202837c385bd02f2a6fd5bf5f186129bc302d727218d407bc",
+      "bundleSha256": "658c40c7f7ea43d06ab629ee608c42eead0db8ccf94d219e4c8af90249f2ab3a"
+    },
+    {
+      "product": "np6-345-cd",
+      "archiveDocuments": 31,
+      "matchedBundleMemberIds": 31,
+      "identicalOriginalPayloads": 31,
+      "example": {
+        "docId": 592978227,
+        "bundleMember": "592978227.cdr.00013101.0000000000000000.20180101.055001214.ACTUALSYSLOADWZNP6345_csv.zip"
+      },
+      "archiveSha256": "9e69d1a0cc530f667eae86334b0a375f44ee343c8f0c7c4c6144d929ca84a317",
+      "bundleSha256": "fbed23aa166597b4624aaa8fee594e284931923fb6642e9712698accd9542009"
+    }
+  ],
+  "combinedBackfillChecks": [
+    {
+      "product": "np4-190-cd",
+      "checkedAt": "2026-09-08T03:15:42.179621+00:00",
+      "postedFrom": "2018-01-01T00:00:00",
+      "postedTo": "2018-01-31T23:59:59",
+      "rows": 473256,
+      "matchesRecordedArchiveRowMultiset": true,
+      "comparison": "SHA256 of every typed row serialized with model_dump_json, counted with multiplicity; order ignored.",
+      "referenceArchiveSha256": "52a19e7e30ebc99202837c385bd02f2a6fd5bf5f186129bc302d727218d407bc",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/public-reports/archive/np4-190-cd",
+          "query": "page=1&size=1000&postDatetimeFrom=2018-01-01T00%3A00%3A00&postDatetimeTo=2018-01-31T23%3A59%3A59"
+        },
+        {
+          "method": "GET",
+          "path": "/api/public-reports/bundle/np4-190-cd",
+          "query": "page=1&size=1000"
+        },
+        {
+          "method": "POST",
+          "path": "/api/public-reports/bundle/np4-190-cd/download",
+          "query": ""
+        },
+        {
+          "method": "GET",
+          "path": "/api/public-reports/bundle/np4-190-cd",
+          "query": "download=-593019152"
+        }
+      ]
+    },
+    {
+      "product": "np6-345-cd",
+      "checkedAt": "2026-09-08T03:15:50.780096+00:00",
+      "postedFrom": "2018-01-01T00:00:00",
+      "postedTo": "2018-01-31T23:59:59",
+      "rows": 744,
+      "matchesRecordedArchiveRowMultiset": true,
+      "comparison": "SHA256 of every typed row serialized with model_dump_json, counted with multiplicity; order ignored.",
+      "referenceArchiveSha256": "9e69d1a0cc530f667eae86334b0a375f44ee343c8f0c7c4c6144d929ca84a317",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/public-reports/archive/np6-345-cd",
+          "query": "page=1&size=1000&postDatetimeFrom=2018-01-01T00%3A00%3A00&postDatetimeTo=2018-01-31T23%3A59%3A59"
+        },
+        {
+          "method": "GET",
+          "path": "/api/public-reports/bundle/np6-345-cd",
+          "query": "page=1&size=1000"
+        },
+        {
+          "method": "POST",
+          "path": "/api/public-reports/bundle/np6-345-cd/download",
+          "query": ""
+        }
+      ]
+    }
+  ],
+  "retentionBoundaryBackfillCheck": {
+    "product": "np4-190-cd",
+    "checkedAt": "2026-09-08T03:17:43.985310+00:00",
+    "postedFrom": "2017-12-31T00:00:00",
+    "postedTo": "2018-01-01T23:59:59",
+    "archiveDocuments": [
+      {
+        "docId": 593019152,
+        "friendlyName": "DAMSPNP4190_csv",
+        "postDatetime": "2018-01-01T12:33:44"
+      },
+      {
+        "docId": 592891494,
+        "friendlyName": "DAMSPNP4190_csv",
+        "postDatetime": "2017-12-31T12:32:34"
+      }
+    ],
+    "rows": 30576,
+    "matchesFreshArchiveRowMultiset": true,
+    "comparison": "SHA256 of every typed row model_dump_json, counted with multiplicity; order ignored.",
+    "referenceArchiveSha256": "b3ba8ac856206aab9ae49b68b394a813401351f3a594c4993b3482a0521aeeab",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/api/public-reports/archive/np4-190-cd",
+        "query": "page=1&size=1000&postDatetimeFrom=2017-12-31T00%3A00%3A00&postDatetimeTo=2018-01-01T23%3A59%3A59"
+      },
+      {
+        "method": "GET",
+        "path": "/api/public-reports/bundle/np4-190-cd",
+        "query": "page=1&size=1000"
+      },
+      {
+        "method": "POST",
+        "path": "/api/public-reports/bundle/np4-190-cd/download",
+        "query": ""
+      },
+      {
+        "method": "GET",
+        "path": "/api/public-reports/bundle/np4-190-cd",
+        "query": "download=-593019152"
+      },
+      {
+        "method": "POST",
+        "path": "/api/public-reports/archive/np4-190-cd/download",
+        "query": ""
+      }
+    ]
+  },
+  "fullLoadBackfillCheck": {
+    "startedAt": "2026-09-08T04:08:33.620310+00:00",
+    "finishedAt": "2026-09-08T04:17:01.657722+00:00",
+    "product": "NP6-345-CD",
+    "scope": "Unbounded SDK backfill of every listed archive and bundle publication at this snapshot, with every typed row independently compared to downloaded source CSV fields using stdlib CSV/date/Decimal. Original document IDs deduplicate exact source copies; distinct publications and repeated rows are preserved. No claim about other products or availability before the first retained source row.",
+    "archivePublications": 4512,
+    "bundlePublications": 102,
+    "uniqueOriginalPublications": 4512,
+    "bundleOnlyPublications": 0,
+    "rows": 108285,
+    "sourceCellsCompared": 1299420,
+    "firstOperatingDay": "2014-04-30",
+    "lastOperatingDay": "2026-09-06",
+    "operatingDays": 4512,
+    "missingOperatingDays": [
+      "2025-12-04"
+    ],
+    "rowsPerDayHistogram": {
+      "24": 4485,
+      "23": 15,
+      "25": 12
+    },
+    "sourceLayouts": {
+      "OperDay,HourEnding,COAST,EAST,FAR_WEST,NORTH,NORTH_C,SOUTHERN,SOUTH_C,WEST,TOTAL,DSTFlag": 4512
+    },
+    "allListedArchivesIncluded": true,
+    "allTypedRowsMatchIndependentSource": true,
+    "sourceManifestSha256": "c03cc098a78fdab8892ac1f019b509801a0a07bbf7a458babcf91ff014f861a7",
+    "downloadSummary": {
+      "bundles": 102,
+      "archiveBatches": 2,
+      "individualArchivePublications": 1410,
+      "bytes": 7314764,
+      "manifestSha256": "11da34943e56c8865033d39b07cde0a03a313a0e88fb1288ee7fee097af135d3"
+    },
+    "missingHours": [
+      {
+        "operatingDay": "2014-11-04",
+        "expectedClockHours": 24,
+        "sourceRows": 23,
+        "absentHourLabels": [
+          "24:00"
+        ]
+      },
+      {
+        "operatingDay": "2015-08-04",
+        "expectedClockHours": 24,
+        "sourceRows": 23,
+        "absentHourLabels": [
+          "24:00"
+        ]
+      },
+      {
+        "operatingDay": "2016-03-15",
+        "expectedClockHours": 24,
+        "sourceRows": 23,
+        "absentHourLabels": [
+          "24:00"
+        ]
+      }
+    ],
+    "gapQueryCheck": {
+      "checkedAt": "2026-09-08T04:19:45.077506+00:00",
+      "missingDay": "2025-12-04",
+      "missingDayRows": 0,
+      "controls": [
+        {
+          "operatingDay": "2025-12-03",
+          "totalRecords": 24,
+          "rows": 24
+        },
+        {
+          "operatingDay": "2025-12-05",
+          "totalRecords": 24,
+          "rows": 24
+        },
+        {
+          "operatingDay": "2014-11-03",
+          "totalRecords": 0,
+          "rows": 0
+        },
+        {
+          "operatingDay": "2014-11-04",
+          "totalRecords": 0,
+          "rows": 0
+        },
+        {
+          "operatingDay": "2015-08-03",
+          "totalRecords": 0,
+          "rows": 0
+        },
+        {
+          "operatingDay": "2015-08-04",
+          "totalRecords": 0,
+          "rows": 0
+        },
+        {
+          "operatingDay": "2016-03-14",
+          "totalRecords": 0,
+          "rows": 0
+        },
+        {
+          "operatingDay": "2016-03-15",
+          "totalRecords": 0,
+          "rows": 0
+        }
+      ],
+      "conclusion": "The missing December 2025 day is also absent from the report query, while both adjacent days return 24 rows. Queries for the three older short days and their adjacent control dates all return zero rows, so query access did not recover their missing hours; this does not establish a retention cutoff."
+    }
+  },
+  "fullAncillaryPriceBackfillCheck": {
+    "startedAt": "2026-09-08T04:24:34.767263+00:00",
+    "finishedAt": "2026-09-08T04:38:36.933901+00:00",
+    "product": "NP4-188-CD",
+    "scope": "Unbounded SDK backfill of every listed archive and bundle publication at this snapshot, with every typed row independently compared to downloaded source CSV fields using stdlib CSV/date/Decimal. Original document IDs deduplicate exact source copies; distinct publications and repeated rows are preserved. No claim about other products or availability before the first retained source row.",
+    "archivePublications": 4513,
+    "bundlePublications": 103,
+    "uniqueOriginalPublications": 4513,
+    "bundleOnlyPublications": 0,
+    "rows": 461736,
+    "sourceCellsCompared": 2308680,
+    "firstDeliveryDate": "2014-05-02",
+    "lastDeliveryDate": "2026-09-08",
+    "deliveryDates": 4513,
+    "missingDeliveryDates": [],
+    "rowsPerDayHistogram": {
+      "120": 1181,
+      "115": 3,
+      "125": 3,
+      "96": 3308,
+      "92": 9,
+      "100": 9
+    },
+    "serviceRows": {
+      "RRS": 108312,
+      "ECRS": 28488,
+      "REGDN": 108312,
+      "NSPIN": 108312,
+      "REGUP": 108312
+    },
+    "sourceLayouts": {
+      "DeliveryDate,HourEnding,AncillaryType,MCPC,DSTFlag": 4513
+    },
+    "allListedArchivesIncluded": true,
+    "allTypedRowsMatchIndependentSource": true,
+    "sourceManifestSha256": "81e0b03b7b6e2bf1bf58df8306fe552d6228189bbe7956c3bac53e0f150aee1d",
+    "downloadSummary": {
+      "bundles": 103,
+      "archiveBatches": 2,
+      "individualArchivePublications": 1379,
+      "bytes": 4703288,
+      "manifestSha256": "999978f615be37f70c604c5570606d120a60a8bb5e96e6275c3747602998b169"
+    },
+    "serviceIntervals": {
+      "scope": "Each source delivery date/service has the expected number of unique hour-ending/DST-flag pairs for the America/Chicago clock day. Service date continuity is checked within its observed first/last dates; no availability before first observation is inferred.",
+      "anomalies": [],
+      "serviceAvailability": [
+        {
+          "service": "ECRS",
+          "firstDeliveryDate": "2023-06-10",
+          "lastDeliveryDate": "2026-09-08",
+          "deliveryDates": 1187,
+          "missingDatesWithinObservedRange": []
+        },
+        {
+          "service": "NSPIN",
+          "firstDeliveryDate": "2014-05-02",
+          "lastDeliveryDate": "2026-09-08",
+          "deliveryDates": 4513,
+          "missingDatesWithinObservedRange": []
+        },
+        {
+          "service": "REGDN",
+          "firstDeliveryDate": "2014-05-02",
+          "lastDeliveryDate": "2026-09-08",
+          "deliveryDates": 4513,
+          "missingDatesWithinObservedRange": []
+        },
+        {
+          "service": "REGUP",
+          "firstDeliveryDate": "2014-05-02",
+          "lastDeliveryDate": "2026-09-08",
+          "deliveryDates": 4513,
+          "missingDatesWithinObservedRange": []
+        },
+        {
+          "service": "RRS",
+          "firstDeliveryDate": "2014-05-02",
+          "lastDeliveryDate": "2026-09-08",
+          "deliveryDates": 4513,
+          "missingDatesWithinObservedRange": []
+        }
+      ]
+    }
+  },
+  "dateParsingBenchmark": {
+    "scope": "Local paired CSV-reader benchmark of the same captured 26,736-row DAM report; 10 runs per variant in alternating order, with a full typed-row serialization digest comparison. Network time excluded; not a universal speedup claim.",
+    "rows": 26736,
+    "seconds": {
+      "before": [
+        0.32261935000133235,
+        0.30964967400359455,
+        0.310778016995755,
+        0.30941072999848984,
+        0.3093402749946108,
+        0.3085634910094086,
+        0.30751861399039626,
+        0.3087330909911543,
+        0.30986054199456703,
+        0.31206939899129793
+      ],
+      "after": [
+        0.12877639100770466,
+        0.12803452600201126,
+        0.1285569530009525,
+        0.129109490007977,
+        0.12776305100123864,
+        0.13109975900442805,
+        0.1271814570063725,
+        0.12504749599611387,
+        0.12519647700537462,
+        0.12780216899409425
+      ]
+    },
+    "medianSeconds": {
+      "before": 0.3095302020010422,
+      "after": 0.12791834749805275
+    },
+    "speedup": 2.4197482851766363,
+    "typedRowsSha256": "199f8874d238afbb16d443ab047aac48cc95bd2ae8372e7703a4f83140ac2e60",
+    "sourceSha256": "439316b6e7de3043a6db23d771825213bf58cbde3eccfa0f6a78e8218c16565d",
+    "baselineReaderSha256": "269558276f48c531998f97240d9cd20b3bea29bb3c1c1052a11fe2f05cb9f45c",
+    "optimizedReaderSha256": "9ff9e1243e35ca6a65f4e990bdd8d3e0568043f4590c101b67e8d32d69cf499e",
+    "pythonVersion": "3.13.15",
+    "bundleDocId": -1257192853,
+    "originalMember": "1257192853.cdr.00012331.0000000000000000.20260801.123250.DAMSPNP4190_csv.zip",
+    "cacheEntries": 128,
+    "cacheLifetime": "One Archive.read invocation; keys include date text and declared format"
+  },
+  "fullDamSettlementPriceBackfillCheck": {
+    "startedAt": "2026-09-08T04:48:43.819523+00:00",
+    "finishedAt": "2026-09-08T05:23:04.529689+00:00",
+    "product": "NP4-190-CD",
+    "scope": "Unbounded SDK backfill of all listed archive and bundle publications at the snapshot, all settlement points. Each emitted row compared exactly, in stream order, to an independent stdlib CSV/date/Decimal parser of original source members. Every source row must be consumed before the next download; original IDs deduplicate copies while preserving distinct publications. Memory is bounded by download/report size and compact counts, not total row count.",
+    "archivePublications": 4513,
+    "bundlePublications": 103,
+    "uniqueOriginalPublications": 4514,
+    "bundleOnlyPublications": 1,
+    "rows": 81236426,
+    "sourceCellsCompared": 406182130,
+    "settlementPoints": 1230,
+    "firstDeliveryDate": "2014-05-02",
+    "lastDeliveryDate": "2026-09-08",
+    "deliveryDates": 4513,
+    "missingDeliveryDates": [],
+    "sourceLayouts": {
+      "DeliveryDate,HourEnding,SettlementPoint,SettlementPointPrice,DSTFlag": 4514
+    },
+    "anomalousPointDays": 0,
+    "anomalyExamples": [],
+    "allListedArchivesIncluded": true,
+    "allTypedRowsMatchIndependentSource": true,
+    "sourceManifestSha256": "a359bfcd427bc088d2007679cb2684b146b5200fa40d31ee1c45ca8546fb3e0b",
+    "downloadsByKind": {
+      "bundle": 103,
+      "archive": 56
+    },
+    "remainingArchiveIdsDownloaded": 1380,
+    "bundleOnlyPublication": {
+      "docId": 1200847777,
+      "bundle": {
+        "docId": -1199017492,
+        "friendlyName": "DAMSPNP4190_2026-03",
+        "postDatetime": "2026-03-31T23:59:59"
+      },
+      "member": "1200847777.cdr.00012331.0000000000000000.20260306.123247.DAMSPNP4190_csv.zip",
+      "source": [
+        {
+          "name": "cdr.00012331.0000000000000000.20260306.123247.DAMSPNP4190.csv",
+          "bytes": 967381,
+          "firstLines": [
+            "DeliveryDate,HourEnding,SettlementPoint,SettlementPointPrice,DSTFlag",
+            "03/07/2026,01:00,7RNCHSLR_ALL, 28.92,N"
+          ]
+        }
+      ]
+    },
+    "readerProvenance": {
+      "commit": "762b3fcc6cf112a03327eb0aa4ebe0967ef710c9",
+      "historyModuleSha256": "269558276f48c531998f97240d9cd20b3bea29bb3c1c1052a11fe2f05cb9f45c",
+      "note": "The running audit retained this decoder in memory while 3adbe8d added bounded date memoization. The full corpus result applies to the pre-cache decoder; dateParsingBenchmark separately verifies unchanged typed output on a complete representative report."
+    },
+    "limits": "Continuous delivery dates across this product, not a claim that each settlement point existed throughout the range. Hour/DST pair counts were checked within each observed point/publication. Distinct publications are retained. Does not establish full historical coverage for other products."
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "checkedAt": "2026-09-08T09:02:36.579568+00:00",
+  "indexUrl": "https://www.ercot.com/mktinfo/retail",
+  "files": [
+    {
+      "title": "Retail Monthly Transaction Totals",
+      "url": "https://www.ercot.com/files/docs/2025/01/02/August-2026-Retail-Monthly-Transaction-Totals.zip"
+    }
+  ],
+  "comparison": {
+    "source": "August-2026-Retail-Monthly-Transaction-Totals.zip",
+    "bytes": 2050726,
+    "sha256": "ba854c65782b91ae5f75c25d18329d04c656ce765caa127866bcc98c3821d8df",
+    "counts": {
+      "workbooks": 20,
+      "sheets": 444,
+      "records": 9126,
+      "dailyCounts": 277433,
+      "reportedTotals": 9126,
+      "reportedAverages": 9126,
+      "grandTotalRows": 444,
+      "unnamedCategoryRows": 8
+    },
+    "firstDay": "2025-01-01",
+    "lastDay": "2026-08-31",
+    "uniqueDays": 608,
+    "months": 20,
+    "categories": 24,
+    "transactionCodes": 30,
+    "comparison": "Every original daily count, reported total/average, header date, transaction code and member/sheet identity independently compared using openpyxl without SDK helpers for expected values."
+  },
+  "sourceSummaryChecks": {
+    "stats": {
+      "dailyCells": 277433,
+      "totalCells": 9126,
+      "averageCells": 9126,
+      "averageRounded": 8848
+    },
+    "anomalies": [],
+    "totalMismatchExamples": []
+  },
+  "fixture": {
+    "path": "tools/inputs/public-tables/retail-transactions.zip",
+    "bytes": 507708,
+    "sha256": "270ff805ad1372d722ba7c334ac365f2e8a66fcb6aec9e53065dcd59eacada76",
+    "members": [
+      {
+        "member": "2025 Retail Monthly Total Reports/1_2025 Monthly Retail Totals.xlsx",
+        "bytes": 111445,
+        "sha256": "2bb6f375f8756be49fd8c49fefeffbc4d55b2e15ab3916e1d21e536aa3f38a93"
+      },
+      {
+        "member": "2025 Retail Monthly Total Reports/4_2025 Monthly Retail Totals.xlsx",
+        "bytes": 111712,
+        "sha256": "3defc7d324fac9189fc089ff98bd8b1716d1cb37b71d388c32ce1146372861ee"
+      },
+      {
+        "member": "2025 Retail Monthly Total Reports/2_2025 Monthly Retail Totals.xlsx",
+        "bytes": 102693,
+        "sha256": "710cb9933cb3f33bf64a99444c4784bee9622d29ba370ebe8d5b26de072ff07b"
+      },
+      {
+        "member": "8_2026 Monthly Retail Totals.xlsx",
+        "bytes": 113735,
+        "sha256": "9728174c72ea5ebc82a21a4e30445f098540558abcfac4c06891ec99e5ac9ac1"
+      },
+      {
+        "member": "1_2026 Monthly Retail Totals.xlsx",
+        "bytes": 113100,
+        "sha256": "78924451c1ba9abf1b66c60073678832561b43ac77cdba397ff03d2dfceb867e"
+      }
+    ],
+    "records": 2280,
+    "sheets": 114,
+    "dailyCounts": 68864,
+    "unnamedCategoryRows": 8,
+    "transactionCodes": [
+      "814_01",
+      "814_02",
+      "814_03",
+      "814_04",
+      "814_05",
+      "814_06_MVI",
+      "814_06_SW",
+      "814_08",
+      "814_09",
+      "814_10",
+      "814_11",
+      "814_12",
+      "814_13",
+      "814_16",
+      "814_17",
+      "814_18",
+      "814_19",
+      "814_20",
+      "814_21",
+      "814_22",
+      "814_24",
+      "814_25",
+      "814_26",
+      "814_27",
+      "814_28",
+      "814_29",
+      "824_02",
+      "867_02",
+      "867_03F",
+      "867_04"
+    ],
+    "selection": "Five complete original workbooks, byte-for-byte, preserving member names: first/latest months, February, 30-day April, and both months with unnamed categories."
+  },
+  "decoderSha256": "57ef57266a352b2d69f0bfb3a5368494b5271dc8086e2a06b36b5d1e015bb285",
+  "limitations": [
+    "Aggregate transaction counts; no inferred transaction-code semantics or individual customer activity.",
+    "Source categories overlap. Four unnamed category sheets retain their exact labels.",
+    "Reported averages retain the source rounding; missing cells remain None.",
+    "Observed archive dates only; no older coverage inferred from URL dates."
+  ]
+}

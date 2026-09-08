@@ -1,0 +1,4 @@
+Delivery Date,QSE Name,Resource Name,Hour Ending,Status,High Sustained Limit,Low Sustained Limit,High Emergency Limit,Low Emergency Limit,Reg Up,Reg Down,RRSPFR,RRSFFR,RRSUFR,NSPIN,ECRS,Minimum SOC,Maximum SOC,Hour Beginning Planned SOC
+07/09/2026,QAEN,ARAGORN_UNIT1,01:00,ON,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+07/09/2026,QAEN,ARAGORN_UNIT1,02:00,ON,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+07/09/2026,QAEN,ARAGORN_UNIT1,03:00,ON,0,0,0,0,0,0,0,0,0,0,0,0,0,0

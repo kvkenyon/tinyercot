@@ -1,0 +1,2083 @@
+{
+  "checkedAt": "2026-09-07T21:53:22.371002+00:00",
+  "scope": "Live public developer-portal operation list, all operation detail responses, authenticated product catalog, and generated method signatures. Compares parameter names, types, formats, values, required flags and defaults against saved inputs; checks all four generated variants against live names/types. Does not refresh every report response schema or prove historical file layouts.",
+  "operationListUrl": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api/operations?api-version=2022-04-01-preview",
+  "operationDetailUrlTemplate": "https://apiexplorer.ercot.com/developer/apis/pubapi-apim-api/operations/{id}?api-version=2022-04-01-preview",
+  "operationListPageSizes": [
+    100,
+    100,
+    49
+  ],
+  "operations": 249,
+  "generatedReportQueries": 242,
+  "sharedOperations": 7,
+  "catalogProducts": 116,
+  "catalogArtifactPaths": 242,
+  "queryParameterDefinitions": 5973,
+  "generatedMethods": 968,
+  "generatedParameterAnnotations": 23408,
+  "addedOperations": [],
+  "removedOperations": [],
+  "changedParameters": [],
+  "missingCatalogArtifacts": [],
+  "retryRecoveredOperations": [
+    "getData_2d_self_arranged_as_rrspfr"
+  ],
+  "operationsInputSha256": "49244f7c16e377af7bf0cb03b247207c1b6205fc6f9b0079630b4ec4d0cb35c0",
+  "generatedFileSha256": "4add31219447d92ec33bf16f4096a6745799d61c36b272ab2edba095e0c836c2",
+  "catalogSha256": "a847cab14476319d13782a6840a7fbcd402b0eaa9146d2092ab01fc6e1083ccc",
+  "operationDetails": [
+    {
+      "id": "getData_2d_agg_edc",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_edc",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "3d5cf5724463bc2f887337bce053b1927922bbb45fd20de3e3023487cd7adb6a"
+    },
+    {
+      "id": "getData_2d_agg_edc_houston",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_edc_houston",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "a2ef3f278a4ac25f25c09bf854559fb02b434f6143948f22115132178f72c945"
+    },
+    {
+      "id": "getData_2d_agg_edc_north",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_edc_north",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "35d9b702ed3882d1602004487bfa8877457e82551775c811a51cc892a5e457e6"
+    },
+    {
+      "id": "getData_2d_agg_edc_south",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_edc_south",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "90625bda79263f73720b54dafe78029ffa30bcfd1fb6544e6091fa6aa13546d8"
+    },
+    {
+      "id": "getData_2d_agg_edc_west",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_edc_west",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "e073b70b32bfe544a88f9468b23f0dc049d35def429a32a41f76b369353bf9e4"
+    },
+    {
+      "id": "getData_2d_agg_esc",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_esc",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "721efda7f80fafeab714cffa08318044217f49eb5737308d532bcb2a1c42fda8"
+    },
+    {
+      "id": "getData_2d_agg_esc_houston",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_esc_houston",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "38c979b8913d0fb0a0cede71b53154f93b69c50c10ed671b36337cfd44103ba1"
+    },
+    {
+      "id": "getData_2d_agg_esc_north",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_esc_north",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "f9e00dd97ada5c02b6c7f4ff4f5132620491d9d63ef087cced577c47f5317937"
+    },
+    {
+      "id": "getData_2d_agg_esc_south",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_esc_south",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "d830c54133045612df2176afcf7f0f8ce3607bc6d2c3573f419d658aa15d24c4"
+    },
+    {
+      "id": "getData_2d_agg_esc_west",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_esc_west",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "e48de52337f04ca58f998d87ecba1cc0a6c6794859da4340a5d14b1125d6cc93"
+    },
+    {
+      "id": "getData_2d_agg_min_esc",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_min_esc",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "16d677346dac4c9babb09b1e23315721ec73d66ea0a21cc832d3020547baa6bb"
+    },
+    {
+      "id": "getData_2d_agg_min_esc_houston",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_min_esc_houston",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "edada6f91edb6b33aeac306a4b8bf0dd5a2e4ccf15d35d722c136e470f57d8d9"
+    },
+    {
+      "id": "getData_2d_agg_min_esc_north",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_min_esc_north",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "cd0d9a7c08d3e8968b9060079ec4a40d7564585d98b63041f3b47762ad66b292"
+    },
+    {
+      "id": "getData_2d_agg_min_esc_south",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_min_esc_south",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "7f0626c9e97327269cb38f4310931da15dafc6a5237671e096eb8709dcae5354"
+    },
+    {
+      "id": "getData_2d_agg_min_esc_west",
+      "method": "GET",
+      "path": "/np3-907-ex/2d_agg_min_esc_west",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "0ca1619a3c8f50a8250f5a5a333a2e955c6210971f536b185afac3bd5fca5df1"
+    },
+    {
+      "id": "getData_2day_agg_sced_as_offers_ecrsm",
+      "method": "GET",
+      "path": "/np3-906-ex/2day_agg_sced_as_offers_ecrsm",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "72f3e6ba4ab2529f61a543854653b9e64cd9869b0593256711ef99a95dbce43f"
+    },
+    {
+      "id": "getData_2day_agg_sced_as_offers_ecrss",
+      "method": "GET",
+      "path": "/np3-906-ex/2day_agg_sced_as_offers_ecrss",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "2c7a00564c310f0b90313b7b133d39831f9fd00612f3c8976d4d0bb5401f7d8d"
+    },
+    {
+      "id": "getData_2day_agg_sced_as_offers_nspin",
+      "method": "GET",
+      "path": "/np3-906-ex/2day_agg_sced_as_offers_nspin",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "76f9208a287efb807ebe54bf53bca8a6c333c099660d73fba423c3a0fd08bed4"
+    },
+    {
+      "id": "getData_2day_agg_sced_as_offers_nspnm",
+      "method": "GET",
+      "path": "/np3-906-ex/2day_agg_sced_as_offers_nspnm",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "a4986b31adda13f002215735a096b1fa6379a55ab946810f83f778afc3fe7d49"
+    },
+    {
+      "id": "getData_2day_agg_sced_as_offers_regdn",
+      "method": "GET",
+      "path": "/np3-906-ex/2day_agg_sced_as_offers_regdn",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "0acb07ab16a0931a4fe80d5ef56350aedc805779faa0da94ec157a60bf9814b6"
+    },
+    {
+      "id": "getData_2day_agg_sced_as_offers_regup",
+      "method": "GET",
+      "path": "/np3-906-ex/2day_agg_sced_as_offers_regup",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "8c3539104ed484cc87f9f28e19860109edebf811157fb9ced7098b656459cf87"
+    },
+    {
+      "id": "getData_2day_agg_sced_as_offers_rrsffr",
+      "method": "GET",
+      "path": "/np3-906-ex/2day_agg_sced_as_offers_rrsffr",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "d6de205242002ba5da2eee9d7e9bd758f8a7a5bf67cb9c1e996ee28aa7d49f1d"
+    },
+    {
+      "id": "getData_2day_agg_sced_as_offers_rrspfr",
+      "method": "GET",
+      "path": "/np3-906-ex/2day_agg_sced_as_offers_rrspfr",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "61d8864ce1583f8016693cad26becc54e494de21bbf3d229dbfab7f4a0d5d388"
+    },
+    {
+      "id": "getData_2day_agg_sced_as_offers_rrsufr",
+      "method": "GET",
+      "path": "/np3-906-ex/2day_agg_sced_as_offers_rrsufr",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "88badd782720259d42cc4f5457359392984035120bbf005a1454dca7418b3a4e"
+    },
+    {
+      "id": "getData_2d_agg_esc_esr",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_esr",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "29ac324040aa9302cc66c79ced956443a3f0e8f33ec241b6bd9609a21c4be1c9"
+    },
+    {
+      "id": "getData_2d_agg_esc_esr_houston",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_esr_houston",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "53afac4884778b0da64bdd4175e34479554e5474634f70b828545f03f7532406"
+    },
+    {
+      "id": "getData_2d_agg_esc_esr_north",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_esr_north",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "4237b36b8ccfa05696ffc4ee82bfd3b196ef961f84d2ba8b1ca4957814d7ad3b"
+    },
+    {
+      "id": "getData_2d_agg_esc_esr_south",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_esr_south",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "788529da4f19082d30b20eca6106ff22a3ba61bd9d5e2d428b74c94b1dde780a"
+    },
+    {
+      "id": "getData_2d_agg_esc_esr_west",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_esr_west",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "9f8cd3e8a7f79de532feaec9ef1ac8ebdc64ad5d1bc5023c10802ef13b70fabe"
+    },
+    {
+      "id": "getData_2d_agg_esc_nonirr_houston",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_nonirr_houston",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "4257342efbc38e7a36bc2f538a0a970e2c60fd01fdb808c62044eb4d4553f141"
+    },
+    {
+      "id": "getData_2d_agg_esc_nonirr_north",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_nonirr_north",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "29c17f65e24b068c2599526ed3886651e6cba08e98e03033cc9edc085dc562b3"
+    },
+    {
+      "id": "getData_2d_agg_esc_nonirr_south",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_nonirr_south",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "a0b58155648f1eae9ed1930ecedf1f6c0f7f737f88cc714ec34199828456571e"
+    },
+    {
+      "id": "getData_2d_agg_esc_nonirr_west",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_nonirr_west",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "817d03dc9a7c9b7aa583f910c5b04e31ee2f75f72ac1c1d0a76b62f36eeb03e4"
+    },
+    {
+      "id": "getData_2d_agg_esc_pvgr",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_pvgr",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "b61be0fff4cc2abf81f81d4b168639da5476adb076419f3b2ad9cdc5653cb750"
+    },
+    {
+      "id": "getData_2d_agg_esc_pvgr_houston",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_pvgr_houston",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "6cf59a6e7ac218d9a5edf9634df74e9579cfb1322ac49c567d8585b9c9d146f7"
+    },
+    {
+      "id": "getData_2d_agg_esc_pvgr_north",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_pvgr_north",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "9e87380da79a4b8dd9bf21812618082e7f984e5ce3d0a6c64814354b51513c36"
+    },
+    {
+      "id": "getData_2d_agg_esc_pvgr_south",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_pvgr_south",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "595376388e9861667780bbeb1662f2d4e510c5e5bbc46210d2bfacfbcc02582d"
+    },
+    {
+      "id": "getData_2d_agg_esc_pvgr_west",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_pvgr_west",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "13069a65f15f61194935d202da63859b87fe310eb8224a3c315297827285c7cd"
+    },
+    {
+      "id": "getData_2d_agg_esc_wind",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_wind",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "d8613349d705b2aea2d3a5d10e08b0fa765ccabf5c6e81feb67309de5a7787df"
+    },
+    {
+      "id": "getData_2d_agg_esc_wind_houston",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_wind_houston",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "ebb7e6a3f49a6a2b68ad6d7821b01824f3be29759c3b0a9b1d71d355206650b0"
+    },
+    {
+      "id": "getData_2d_agg_esc_wind_north",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_wind_north",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "3c5907daec8f73e790a4510800939351b6299c377352038f6dfe91de77c4ec35"
+    },
+    {
+      "id": "getData_2d_agg_esc_wind_south",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_wind_south",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "05bbafb21967a17cd2da4d108674aa10a92ab6e0acbadf124b6052b4fb230e1f"
+    },
+    {
+      "id": "getData_2d_agg_esc_wind_west",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_wind_west",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "27035ef32c72cf670e9c57f9d872bc5d664a7df9c58cebf5d8d22e6dbdf81116"
+    },
+    {
+      "id": "getData_2d_agg_esc_nonirr",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_esc_nonirr",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "8a37b1198788830963ccffe51c696388b8a89b190c0a04096f8e4600b159a0a9"
+    },
+    {
+      "id": "getData_2d_agg_as_offers_ecrsm",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_as_offers_ecrsm",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "1a489c857ae696f71a4064e11f493c2852ee56245e297f26ec9917d77a9b2858"
+    },
+    {
+      "id": "getData_2d_agg_as_offers_ecrss",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_as_offers_ecrss",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "471593e6921377d8c4057ac699f9d5787924c849c7c4dbf3072032988dafd890"
+    },
+    {
+      "id": "getData_2d_agg_as_offers_offns",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_as_offers_offns",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "7a713aca508849dbd02416d5fab56c0ec71ff8c5019f1b5da4381cee4e4b9ab5"
+    },
+    {
+      "id": "getData_2d_agg_as_offers_onns",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_as_offers_onns",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "c2f10d8ab82492a9553514c275bf30cec7cb63ffb4f07b23e53ef4119a527e21"
+    },
+    {
+      "id": "getData_2d_agg_as_offers_regdn",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_as_offers_regdn",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "c1b0fa45bd5d37e2baa5aaf0ac4a90c7d904d5909eb1333633a8510935b866d2"
+    },
+    {
+      "id": "getData_2d_agg_as_offers_regup",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_as_offers_regup",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "ab4030e54a953a2536df348385b9600ffd227ec600e06f93caeac675183278ab"
+    },
+    {
+      "id": "getData_2d_agg_as_offers_rrsffr",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_as_offers_rrsffr",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "f50b4c152aeb62f1eb3c2af88bd8cfcdd8023b7120d20672ffe9937fefcc7b42"
+    },
+    {
+      "id": "getData_2d_agg_as_offers_rrspfr",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_as_offers_rrspfr",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "1bfd13599e0b19911bad14d9fb10b80b8faa514a8412d239c9e3309d1d54d754"
+    },
+    {
+      "id": "getData_2d_agg_as_offers_rrsufr",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_as_offers_rrsufr",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "55ba1f5e61baa4df25bcab9f06c10dc6ebaa9d0a5d1614603651e1f20529a083"
+    },
+    {
+      "id": "getData_2d_agg_dam_as_offers_ecrsm",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_dam_as_offers_ecrsm",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "35b552822dc09553b120dea0f868fae834b2b8d2fbf828d854fbb7f24f5d5963"
+    },
+    {
+      "id": "getData_2d_agg_dam_as_offers_ecrss",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_dam_as_offers_ecrss",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "96a0894e7fce4924765cd7f1a73ba88a11baf9b74ee89db855d8d5f7e72844bd"
+    },
+    {
+      "id": "getData_2d_agg_dam_as_offers_nspin",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_dam_as_offers_nspin",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "d51d8d66a1e2ca0f8042bb84b8f52e83183b5d276e59067b1899270e0b1b0490"
+    },
+    {
+      "id": "getData_2d_agg_dam_as_offers_nspnm",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_dam_as_offers_nspnm",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "991e5e76e1fbb9a515193a7afdf663362a599d1883d21a35ed9645013472b8be"
+    },
+    {
+      "id": "getData_2d_agg_dam_as_offers_regdn",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_dam_as_offers_regdn",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "49b721d69e465a72f4dee144b05362add4aa9ac8d6671956c41816726b1653b5"
+    },
+    {
+      "id": "getData_2d_agg_dam_as_offers_regup",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_dam_as_offers_regup",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "a0cc417751fcb7a2081e37db8e2a2d7d5022bdf812d763fafadfcd53a06c41d1"
+    },
+    {
+      "id": "getData_2d_agg_dam_as_offers_rrsffr",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_dam_as_offers_rrsffr",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "f975f2567c0fa96de846d84c3ee49c5a7911b8c5f8a69ea720ef6cd857d9e048"
+    },
+    {
+      "id": "getData_2d_agg_dam_as_offers_rrspfr",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_dam_as_offers_rrspfr",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "55d11d4b15c48c0cc81436ed403b38c6beff23ddf880dc1b8ba4f0f859086617"
+    },
+    {
+      "id": "getData_2d_agg_dam_as_offers_rrsufr",
+      "method": "GET",
+      "path": "/np3-911-er/2d_agg_dam_as_offers_rrsufr",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "569cf4249f5e573ff224210ffc63b98409b73e39a36c89f03bd8e858065cace6"
+    },
+    {
+      "id": "getData_2d_agg_dsr_loads",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_dsr_loads",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "c189a83129df57f6b0f32142a06b8cf67c99d82765ae8847cc3725be37825a0d"
+    },
+    {
+      "id": "getData_2d_agg_edc_clr",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_edc_clr",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "ff14a1fed53b5f0d22f86d9b5d914447c2b53df54c170b97fe9de544af967a1b"
+    },
+    {
+      "id": "getData_2d_agg_edc_clr_houston",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_edc_clr_houston",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "98a669b0653f06afb31bd8267c34b83457ae2d0fae5a44f2869c12ad81e456b3"
+    },
+    {
+      "id": "getData_2d_agg_edc_clr_north",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_edc_clr_north",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "25e0590a93083e4e48801f43d241245d7aaab693684ee2220e33b9c84edeef57"
+    },
+    {
+      "id": "getData_2d_agg_edc_clr_south",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_edc_clr_south",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "0404f5ba20904df1afdd779aa0a117c1ae01667cd6a3acd1f0c644424b8f4d30"
+    },
+    {
+      "id": "getData_2d_agg_edc_clr_west",
+      "method": "GET",
+      "path": "/np3-908-er/2d_agg_edc_clr_west",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "ce862a922574547a66aef85b084be9b024f3f3ea559feab378d89d3b957eff62"
+    },
+    {
+      "id": "getData_2d_agg_gen_summary",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_gen_summary",
+      "queryParameterDefinitions": 23,
+      "detailSha256": "b2ca4673501bcd8b3d248c6cc5d012f755a1fc5dd984550628b0d41d02e05da6"
+    },
+    {
+      "id": "getData_2d_agg_gen_summary_houston",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_gen_summary_houston",
+      "queryParameterDefinitions": 23,
+      "detailSha256": "78ce2ba7ee6b4c2e0c2546a4fb2e1f9d2eae6c454cc41668685e0a22cb8a326c"
+    },
+    {
+      "id": "getData_2d_agg_gen_summary_north",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_gen_summary_north",
+      "queryParameterDefinitions": 23,
+      "detailSha256": "8c37f1a42ccf1d399c95cadc3bbe2dfeafbef721626b520c6b0e34749dd3a47a"
+    },
+    {
+      "id": "getData_2d_agg_gen_summary_south",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_gen_summary_south",
+      "queryParameterDefinitions": 23,
+      "detailSha256": "b150f9ae987399e529d9727366052bdf71e7f14a05dd71e83ff4b0fce7d87fcb"
+    },
+    {
+      "id": "getData_2d_agg_gen_summary_west",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_gen_summary_west",
+      "queryParameterDefinitions": 23,
+      "detailSha256": "a454c1a4779508a2751d1bd60e602393aaf8391000dd8c8604c07f22e0760af5"
+    },
+    {
+      "id": "getData_2d_agg_load_summary",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_load_summary",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "3a3bd174797d38f79bfcb382e2d9eaa55ebf376a4e85b95fa9b1d0f987806b6c"
+    },
+    {
+      "id": "getData_2d_agg_load_summary_houston",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_load_summary_houston",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "9334126c9d1098d41c550bd9540498aa9c718ca012f04bec7cd912ab1e5395aa"
+    },
+    {
+      "id": "getData_2d_agg_load_summary_north",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_load_summary_north",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "c21602f0892fb625e5a2bc6c87d4b3f4299c64f6710f7721afb6796f612db03a"
+    },
+    {
+      "id": "getData_2d_agg_load_summary_south",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_load_summary_south",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "c679821b69115bca7261136ad8aee4e39ef43c59b3bfb33e9b9dc7a2c7c418d9"
+    },
+    {
+      "id": "getData_2d_agg_load_summary_west",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_load_summary_west",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "25014f9ccf9963b3356da30a234268433f6dc7f42a6e5e756689ed7f503a3c74"
+    },
+    {
+      "id": "getData_2d_agg_out_sched",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_out_sched",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "fd6068f075e521598557dfc8d597f222e669854c3f8d24e33db6b29c0b4c7b41"
+    },
+    {
+      "id": "getData_2d_agg_out_sched_houston",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_out_sched_houston",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "10499f8c5702bc7d07c8894d945d2616d4759400597d55c18d422e78d4e2d058"
+    },
+    {
+      "id": "getData_2d_agg_out_sched_north",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_out_sched_north",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "e3cc8af6ad14f89f7a002421ec2604f037934e95e1a26026fefab47ec7c60ca0"
+    },
+    {
+      "id": "getData_2d_agg_out_sched_south",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_out_sched_south",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "73ff8a9a1e076e378e74021a0794cb928b182eec1ef68ca3ddb4ea30ae2650a4"
+    },
+    {
+      "id": "getData_2d_agg_out_sched_west",
+      "method": "GET",
+      "path": "/np3-910-er/2d_agg_out_sched_west",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "6818da590cc95e640c56d42970883b0ece745f082536cfd747f15c154b14c658"
+    },
+    {
+      "id": "getData_2d_cleared_dam_as_ecrsm",
+      "method": "GET",
+      "path": "/np3-911-er/2d_cleared_dam_as_ecrsm",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "217dc13d3e6a44f121d6ee0aaddaac812891b9ed34882cebb53d82e13761ba72"
+    },
+    {
+      "id": "getData_2d_cleared_dam_as_ecrss",
+      "method": "GET",
+      "path": "/np3-911-er/2d_cleared_dam_as_ecrss",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "0007aca911355d115c28af2157624ecfad2469d7d462880d65a59d52e50afd27"
+    },
+    {
+      "id": "getData_2d_cleared_dam_as_nspin",
+      "method": "GET",
+      "path": "/np3-911-er/2d_cleared_dam_as_nspin",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "91a60d5f385fddbbefba0227526bb23dfd8c658ebfdceb2699dbdb225644c7ac"
+    },
+    {
+      "id": "getData_2d_cleared_dam_as_nspnm",
+      "method": "GET",
+      "path": "/np3-911-er/2d_cleared_dam_as_nspnm",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "a0aaea88128af8c056d2aa8bce253cd56279aa251e1ef68f35f5a9c6607dba0c"
+    },
+    {
+      "id": "getData_2d_cleared_dam_as_regdn",
+      "method": "GET",
+      "path": "/np3-911-er/2d_cleared_dam_as_regdn",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "ee5d97753677b32b6011437ea98d7b427129aef593a6a58ba1f3a7df5e302f85"
+    },
+    {
+      "id": "getData_2d_cleared_dam_as_regup",
+      "method": "GET",
+      "path": "/np3-911-er/2d_cleared_dam_as_regup",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "a76857608cef710c5bd321354e9d5e4661fccb258771a88ccff3248356d75b5b"
+    },
+    {
+      "id": "getData_2d_cleared_dam_as_rrsffr",
+      "method": "GET",
+      "path": "/np3-911-er/2d_cleared_dam_as_rrsffr",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "ae569f761076d7bc97199ad0f74ec58d97b0f0a912048687cc01d7a3abac531c"
+    },
+    {
+      "id": "getData_2d_cleared_dam_as_rrspfr",
+      "method": "GET",
+      "path": "/np3-911-er/2d_cleared_dam_as_rrspfr",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "262dee1390ba373ed06f33b96bc5fb50c57efd37ca14c5a976f62c1033d76f68"
+    },
+    {
+      "id": "getData_2d_cleared_dam_as_rrsufr",
+      "method": "GET",
+      "path": "/np3-911-er/2d_cleared_dam_as_rrsufr",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "bb97334b6198d22a1e04d705eb18e0a3b573660252181dec75ceccf90a7e51cc"
+    },
+    {
+      "id": "getData_2d_ptp_obl_bids",
+      "method": "GET",
+      "path": "/np3-909-er/2d_ptp_obl_bids",
+      "queryParameterDefinitions": 14,
+      "detailSha256": "9152a23dddd9b3d77269bd1104eb1d483552bf9bc371f809ef2b33f358a4c4a3"
+    },
+    {
+      "id": "getData_2d_ptp_obl_bids_houston",
+      "method": "GET",
+      "path": "/np3-909-er/2d_ptp_obl_bids_houston",
+      "queryParameterDefinitions": 14,
+      "detailSha256": "5da8350f775855b275ee8a301cd9b285690c1082f5f6fd0922c9684be1cb57b0"
+    },
+    {
+      "id": "getData_2d_ptp_obl_bids_north",
+      "method": "GET",
+      "path": "/np3-909-er/2d_ptp_obl_bids_north",
+      "queryParameterDefinitions": 14,
+      "detailSha256": "6f9e02d9c2f29dcc9f7b1e84b6f183b4ee6a44797814fbacbf49364e2c08a78c"
+    },
+    {
+      "id": "getData_2d_ptp_obl_bids_south",
+      "method": "GET",
+      "path": "/np3-909-er/2d_ptp_obl_bids_south",
+      "queryParameterDefinitions": 14,
+      "detailSha256": "717c5359b3f346de394c248728e1e14de5cfb39a0823e524bf691c19c3a93995"
+    },
+    {
+      "id": "getData_2d_ptp_obl_bids_west",
+      "method": "GET",
+      "path": "/np3-909-er/2d_ptp_obl_bids_west",
+      "queryParameterDefinitions": 14,
+      "detailSha256": "afc0e8abf57fa7881beb614bcea661e67bfc11dd80cc782323f141c39ec132a8"
+    },
+    {
+      "id": "getData_2d_self_arranged_as_ecrsm",
+      "method": "GET",
+      "path": "/np3-911-er/2d_self_arranged_as_ecrsm",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "3bfac460aec94611c77ac9c152ed887bfb42f36d9fbf19c5ab3ec20f397179e8"
+    },
+    {
+      "id": "getData_2d_self_arranged_as_ecrss",
+      "method": "GET",
+      "path": "/np3-911-er/2d_self_arranged_as_ecrss",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "44ad2ad01ffac0e46bad342f8579486af79f1b7d068bf2bfdec7e7304ab472e6"
+    },
+    {
+      "id": "getData_2d_self_arranged_as_nspin",
+      "method": "GET",
+      "path": "/np3-911-er/2d_self_arranged_as_nspin",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "0a61012dfcf5a2eecfa6dbf8f5b6ffe316de18ec0c685149a7c271865b2f3061"
+    },
+    {
+      "id": "getData_2d_self_arranged_as_nspnm",
+      "method": "GET",
+      "path": "/np3-911-er/2d_self_arranged_as_nspnm",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "b04cd0cf371201492ab46367479070fe955c49fa00e7f7bb498dfd947dd2080a"
+    },
+    {
+      "id": "getData_2d_self_arranged_as_regdn",
+      "method": "GET",
+      "path": "/np3-911-er/2d_self_arranged_as_regdn",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "8751577e038d84dbfc76011340cacc072893ce65aac39fd0a9ba035bdad9eac2"
+    },
+    {
+      "id": "getData_2d_self_arranged_as_regup",
+      "method": "GET",
+      "path": "/np3-911-er/2d_self_arranged_as_regup",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "740c74a62a5fbf05497df7044e6b71f7a8b2473eee42d5ce710e751384d1f256"
+    },
+    {
+      "id": "getData_2d_self_arranged_as_rrsffr",
+      "method": "GET",
+      "path": "/np3-911-er/2d_self_arranged_as_rrsffr",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "8bfa165f24385959cbf10c086fdc9868be04758e403767827d803288df6e0f63"
+    },
+    {
+      "id": "getData_2d_self_arranged_as_rrspfr",
+      "method": "GET",
+      "path": "/np3-911-er/2d_self_arranged_as_rrspfr",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "c56595df80380318a6ace2c946b82dc415a302bd81f3fba7124e25ff389d613e"
+    },
+    {
+      "id": "getData_2d_self_arranged_as_rrsufr",
+      "method": "GET",
+      "path": "/np3-911-er/2d_self_arranged_as_rrsufr",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "292492cac2549bc1d96234f9b0d3ee4387abace423dc29b439fa2b06af5dd4b0"
+    },
+    {
+      "id": "getData_2d_total_cleared_energy_bids_offers",
+      "method": "GET",
+      "path": "/np3-909-er/2d_total_cleared_energy_bids_offers",
+      "queryParameterDefinitions": 18,
+      "detailSha256": "71f9aa305b8557d57368f4f2a482cd4e57707dcfc77a1bc9cfc5a09d353a9bfc"
+    },
+    {
+      "id": "getData_2d_total_cleared_energy_bids_offers_houston",
+      "method": "GET",
+      "path": "/np3-909-er/2d_total_cleared_energy_bids_offers_houston",
+      "queryParameterDefinitions": 18,
+      "detailSha256": "64b0bf3c775ed933fe5f62d6d0a7dd38c6bd28406460106db5704a2185717adf"
+    },
+    {
+      "id": "getData_2d_total_cleared_energy_bids_offers_north",
+      "method": "GET",
+      "path": "/np3-909-er/2d_total_cleared_energy_bids_offers_north",
+      "queryParameterDefinitions": 18,
+      "detailSha256": "121fcb1759db7c2d5b88090436cfae078d73d9c04008ed2a6a62c4d34a3b9260"
+    },
+    {
+      "id": "getData_2d_total_cleared_energy_bids_offers_south",
+      "method": "GET",
+      "path": "/np3-909-er/2d_total_cleared_energy_bids_offers_south",
+      "queryParameterDefinitions": 18,
+      "detailSha256": "8a25669ecf29310775e3ad8342caa5e55c63e5d18750f441ddac6be2ad8b6ea4"
+    },
+    {
+      "id": "getData_2d_total_cleared_energy_bids_offers_west",
+      "method": "GET",
+      "path": "/np3-909-er/2d_total_cleared_energy_bids_offers_west",
+      "queryParameterDefinitions": 18,
+      "detailSha256": "40d34e50d74a745fb5fb4a2ce5c5ddfc4583d35e2cbb95efebb9953f341b334b"
+    },
+    {
+      "id": "getData_3d_dam_high_as_offers",
+      "method": "GET",
+      "path": "/np3-915-ex/3d_dam_high_as_offers",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "75f5936b64716d30a2909bfe6be29b9a34955b8f13821eefb6c7b9d510b19c3b"
+    },
+    {
+      "id": "getData_3d_high_price_bids_sel_disp_sced",
+      "method": "GET",
+      "path": "/np3-257-ex/3d_high_price_bids_sel_disp_sced",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "8f9343c1674ce67a69373a343087046b2ea95da1d15f5b018c758e4a7087ef4c"
+    },
+    {
+      "id": "getData_3d_highest_price_offer_sced",
+      "method": "GET",
+      "path": "/np3-916-ex/3d_highest_price_offer_sced",
+      "queryParameterDefinitions": 14,
+      "detailSha256": "6e93fceb07641551b9e190cf4a048aad7b6edcf62ee3fbdf4d21bb4f3c113155"
+    },
+    {
+      "id": "getData_3d_sced_high_as_offers",
+      "method": "GET",
+      "path": "/np3-914-ex/3d_sced_high_as_offers",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "42a057e9ddca2a04a3dad54115424dd98ac4c7e27b47a6009d7a91a73e9e0d5e"
+    },
+    {
+      "id": "getData_60d_sced_resource_as_offers",
+      "method": "GET",
+      "path": "/np3-965-er/60d_sced_resource_as_offers",
+      "queryParameterDefinitions": 105,
+      "detailSha256": "5a9723c06515b5227da021fceff11f82ef7695e2a3a6f0083558627ebf501ac5"
+    },
+    {
+      "id": "getData_60d_sced_as_cap_man_override",
+      "method": "GET",
+      "path": "/np3-965-er/60d_sced_as_cap_man_override",
+      "queryParameterDefinitions": 19,
+      "detailSha256": "d1ae38301fbae7d1ccbcc2854eddd75cb8b78d140f45d02b75ef5fbde5872f15"
+    },
+    {
+      "id": "getData_60_cop_adj_period_snapshot",
+      "method": "GET",
+      "path": "/np1-301/60_cop_adj_period_snapshot",
+      "queryParameterDefinitions": 38,
+      "detailSha256": "c6a7d5f87b951640488b97356a85a1284b403f4b74dded99c10308cafe18436e"
+    },
+    {
+      "id": "getData_60_cop_all_updates",
+      "method": "GET",
+      "path": "/np3-991-ex/60_cop_all_updates",
+      "queryParameterDefinitions": 43,
+      "detailSha256": "de680ca9bfbd92b3290fc820ec88547c5afb7c84a52b0f301f4fd9cbd84e9bc9"
+    },
+    {
+      "id": "getData_60d_dam_as_only_awards",
+      "method": "GET",
+      "path": "/np3-966-er/60d_dam_as_only_awards",
+      "queryParameterDefinitions": 25,
+      "detailSha256": "791155a54b06d7499bffe2e4e035eeda60c3b175457da80e116d8fd2f7be1b66"
+    },
+    {
+      "id": "getData_60d_dam_as_only_offers",
+      "method": "GET",
+      "path": "/np3-966-er/60d_dam_as_only_offers",
+      "queryParameterDefinitions": 31,
+      "detailSha256": "da72a306383b0b099fba3b3991ebceba0aab8cd11fb264afb9bb395c594f0976"
+    },
+    {
+      "id": "getData_60_dam_energy_bid_awards",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_energy_bid_awards",
+      "queryParameterDefinitions": 15,
+      "detailSha256": "bb666a31b23f01ea6b6bc1bd01fff038bffdab027e80efba14bfc247cee4041a"
+    },
+    {
+      "id": "getData_60_dam_energy_bids",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_energy_bids",
+      "queryParameterDefinitions": 54,
+      "detailSha256": "11956c8707b309852224754b2f76f4477a9d965c08b23e85b8ef23ab81c19f7e"
+    },
+    {
+      "id": "getData_60_dam_energy_only_offer_awards",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_energy_only_offer_awards",
+      "queryParameterDefinitions": 15,
+      "detailSha256": "c0cce25de8a1c28e81584be26e6c30ea6a1f1fdb3b5d722ab6f16d9b7a44194b"
+    },
+    {
+      "id": "getData_60_dam_energy_only_offers",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_energy_only_offers",
+      "queryParameterDefinitions": 54,
+      "detailSha256": "b1e5a02fe7f28b89645f4ee126aa07471b91bb96886aa14ffe661adb12c62098"
+    },
+    {
+      "id": "getData_60d_dam_esr_as_offers",
+      "method": "GET",
+      "path": "/np3-966-er/60d_dam_esr_as_offers",
+      "queryParameterDefinitions": 117,
+      "detailSha256": "e73b394fa064c2c677a4d17b14e2dae156cd599d72567216eadc25f68bbbc0a4"
+    },
+    {
+      "id": "getData_60d_dam_esr_data",
+      "method": "GET",
+      "path": "/np3-966-er/60d_dam_esr_data",
+      "queryParameterDefinitions": 94,
+      "detailSha256": "05a75ca6dd7e0b92856c9933da789a45156f7e6b36a265ab149393c613646bbf"
+    },
+    {
+      "id": "getData_60_dam_gen_res_data",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_gen_res_data",
+      "queryParameterDefinitions": 94,
+      "detailSha256": "3f1be08d80a371e29a0f536814a0c5dfe744079a6c596f67dd8b203c06512c9d"
+    },
+    {
+      "id": "getData_60_dam_gen_res_as_offers",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_gen_res_as_offers",
+      "queryParameterDefinitions": 117,
+      "detailSha256": "2b2943060dbcbf5f7d2aefa557b927834d1a243fae48c962ffddaa4dcbbd2059"
+    },
+    {
+      "id": "getData_60_dam_load_res_data",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_load_res_data",
+      "queryParameterDefinitions": 39,
+      "detailSha256": "5cfcddde3b3d2e744d90ebf083066b47b4ab7b365cbeb1623c4ae14d4890fdb6"
+    },
+    {
+      "id": "getData_60_dam_load_res_as_offers",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_load_res_as_offers",
+      "queryParameterDefinitions": 118,
+      "detailSha256": "d4ed44b425ab9f79254454b76421cd8919de569754ab428c6f107d8dc18f884d"
+    },
+    {
+      "id": "getData_60_dam_ptp_obl_bid_awards",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_ptp_obl_bid_awards",
+      "queryParameterDefinitions": 16,
+      "detailSha256": "42710c75da74a11fec418c9db65289719bc8b06f6ff51aabcd319bbe052e1b77"
+    },
+    {
+      "id": "getData_60_dam_ptp_obl_bids",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_ptp_obl_bids",
+      "queryParameterDefinitions": 17,
+      "detailSha256": "fd2ebbaafcc5e40a7a27efca001dff8fd26c16fd1aa051b87f1495366e0365b7"
+    },
+    {
+      "id": "getData_60_dam_ptp_obl_opt",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_ptp_obl_opt",
+      "queryParameterDefinitions": 18,
+      "detailSha256": "8bba077c855fc7a1ddbb9b79295589de40ad763c1bfc018ddd6a767d6fa75f6c"
+    },
+    {
+      "id": "getData_60_dam_ptp_obl_opt_awards",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_ptp_obl_opt_awards",
+      "queryParameterDefinitions": 17,
+      "detailSha256": "4f715cfe3de1b0f0adc660465cc359590b6d20ebd7e42fd8d2bfd69c0edabcb7"
+    },
+    {
+      "id": "getData_60_dam_qse_self_as",
+      "method": "GET",
+      "path": "/np3-966-er/60_dam_qse_self_as",
+      "queryParameterDefinitions": 27,
+      "detailSha256": "1d62aa5f71e5201058c5832faede063ce779ab08c77b2dd1f35d265e1cad8338"
+    },
+    {
+      "id": "getData_60d_sced_esr_data",
+      "method": "GET",
+      "path": "/np3-965-er/60d_sced_esr_data",
+      "queryParameterDefinitions": 392,
+      "detailSha256": "b7325296e32ae57b1e5eb8d7d6cfe306083db3b95a32a52f75f736ac4bf45917"
+    },
+    {
+      "id": "getData_60_hdl_ldl_man_override",
+      "method": "GET",
+      "path": "/np3-965-er/60_hdl_ldl_man_override",
+      "queryParameterDefinitions": 22,
+      "detailSha256": "f57689e028328521fdd2ee43ca2949baf9d84ed151b775bff84c21689dd149b1"
+    },
+    {
+      "id": "getData_60_load_res_data_in_sced",
+      "method": "GET",
+      "path": "/np3-965-er/60_load_res_data_in_sced",
+      "queryParameterDefinitions": 101,
+      "detailSha256": "6db99bbb220fa4d83e0f8b303e085fc5becbc66cccac4cbb11bd5824cf280828"
+    },
+    {
+      "id": "getData_60_sced_qse_self_arranged_as",
+      "method": "GET",
+      "path": "/np3-965-er/60_sced_qse_self_arranged_as",
+      "queryParameterDefinitions": 26,
+      "detailSha256": "585c5e210cb08ec11005e53101a833abf2f7e0546f4d15ac67d701529e1d51ae"
+    },
+    {
+      "id": "getData_60_sasm_gen_res_as_offer_awards",
+      "method": "GET",
+      "path": "/np3-990-ex/60_sasm_gen_res_as_offer_awards",
+      "queryParameterDefinitions": 38,
+      "detailSha256": "887738c7dd9f7ca274394f286965bd6af962e6e92b05d063c19399564bc77c0b"
+    },
+    {
+      "id": "getData_60_sasm_gen_res_as_offers",
+      "method": "GET",
+      "path": "/np3-990-ex/60_sasm_gen_res_as_offers",
+      "queryParameterDefinitions": 119,
+      "detailSha256": "7fcf1d0268267b99cecdd643575a0e1ed68cc91b782e31b8f17f12f72f31e32d"
+    },
+    {
+      "id": "getData_60_sasm_load_res_as_offer_awards",
+      "method": "GET",
+      "path": "/np3-990-ex/60_sasm_load_res_as_offer_awards",
+      "queryParameterDefinitions": 38,
+      "detailSha256": "b6e641cc0861264e12045a2bed422ba5d83073ef8ab8c6178024b934661f9177"
+    },
+    {
+      "id": "getData_60_sasm_load_res_as_offers",
+      "method": "GET",
+      "path": "/np3-990-ex/60_sasm_load_res_as_offers",
+      "queryParameterDefinitions": 119,
+      "detailSha256": "e6e32bdcea7ddbd3baa142ce1f22b16660477100e23571fcb6616ab7eb64d427"
+    },
+    {
+      "id": "getData_60d_sced_as_offer_updates",
+      "method": "GET",
+      "path": "/np3-965-er/60d_sced_as_offer_updates",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "2f6f122c6eee71f352386f93b4dadffd2e8de69f661721711872330ceb1f199b"
+    },
+    {
+      "id": "getData_60_sced_dsr_load_data",
+      "method": "GET",
+      "path": "/np3-965-er/60_sced_dsr_load_data",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "2c801d944a566a2ba2efd333331e5b8b0a7aedc673884308f9b986cfd7e43663"
+    },
+    {
+      "id": "getData_60_sced_eoc_updates_in_ophour",
+      "method": "GET",
+      "path": "/np3-965-er/60_sced_eoc_updates_in_ophour",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "340a4c932527b052141e752c6fa992befa2fabba7ab4a0b78d5f8d0d12f8726e"
+    },
+    {
+      "id": "getData_60_sced_gen_res_data",
+      "method": "GET",
+      "path": "/np3-965-er/60_sced_gen_res_data",
+      "queryParameterDefinitions": 386,
+      "detailSha256": "504a840c28c3895f5161b2f3fe3b52b96d2e58f2b1b96d234326e51f0e700b2c"
+    },
+    {
+      "id": "getData_60_sced_smne_gen_res",
+      "method": "GET",
+      "path": "/np3-965-er/60_sced_smne_gen_res",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "b02778f0444c60967233eae0d57d43e50fa51954445e7f01becf2d6d5640c55d"
+    },
+    {
+      "id": "getData_7d_trig_mcpc_50xfip",
+      "method": "GET",
+      "path": "/np3-987-ex/7d_trig_mcpc_50xfip",
+      "queryParameterDefinitions": 121,
+      "detailSha256": "29a71cd02c09ce1bd67f4996e3aeb6d6d644141ef33399bf392dd1d276408121"
+    },
+    {
+      "id": "getData_7d_trig_lmp_50xfip",
+      "method": "GET",
+      "path": "/np3-987-ex/7d_trig_lmp_50xfip",
+      "queryParameterDefinitions": 194,
+      "detailSha256": "6dc873df601615da421d67c2f1260c2f53b5c40523f48d7f71889ddce04be556"
+    },
+    {
+      "id": "getData_7d_trig_rtm_mcpc_50xfip",
+      "method": "GET",
+      "path": "/np3-987-ex/7d_trig_rtm_mcpc_50xfip",
+      "queryParameterDefinitions": 92,
+      "detailSha256": "5c14f2c342eb64fff6e0867dc61cc99e3150a8e2b3a08d0092096ed3a071b3c7"
+    },
+    {
+      "id": "getData_act_sys_load_by_fzn",
+      "method": "GET",
+      "path": "/np6-346-cd/act_sys_load_by_fzn",
+      "queryParameterDefinitions": 18,
+      "detailSha256": "ebbf0541547029237d178697bf2eb950297e5e205ebdac5188f3e1336b711e90"
+    },
+    {
+      "id": "getData_act_sys_load_by_study_area",
+      "method": "GET",
+      "path": "/np6-344-cd/act_sys_load_by_study_area",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "332581a78ef163309c289972b0e8e9692b1535ac247006f5b54712e01a2c0b6b"
+    },
+    {
+      "id": "getData_act_sys_load_by_wzn",
+      "method": "GET",
+      "path": "/np6-345-cd/act_sys_load_by_wzn",
+      "queryParameterDefinitions": 26,
+      "detailSha256": "10a8dca4d628ce61226925f75c90ff9c161cc3fa9130fb7444acb07f3c55ab8e"
+    },
+    {
+      "id": "getListForProducts",
+      "method": "GET",
+      "path": "/",
+      "queryParameterDefinitions": 0,
+      "detailSha256": "0f92e8368c8be7fce8141bc005cbcd8c0d01cdfab49acda21dc1c9eb30136580"
+    },
+    {
+      "id": "getData_as_obligation",
+      "method": "GET",
+      "path": "/np1-302/as_obligation",
+      "queryParameterDefinitions": 28,
+      "detailSha256": "0c9a915899365eb22dbf858cba3455c512105f1cbbed65f6c2401c8d0bce6fff"
+    },
+    {
+      "id": "getData_approved_dctie_schedules",
+      "method": "GET",
+      "path": "/np3-765-cd/approved_dctie_schedules",
+      "queryParameterDefinitions": 15,
+      "detailSha256": "66722ced0ba2eab405f4f7ba3351b95f96bbaa566d66c371b8e0774dffaee6ea"
+    },
+    {
+      "id": "getProductHistoryBundles",
+      "method": "GET",
+      "path": "/bundle/{emilId}",
+      "queryParameterDefinitions": 0,
+      "detailSha256": "a515bdb92a45889782f1d415d0b030322d105d5d4cce871059dd6e95e976485d"
+    },
+    {
+      "id": "getProductHistory",
+      "method": "GET",
+      "path": "/archive/{emilId}",
+      "queryParameterDefinitions": 0,
+      "detailSha256": "8a50c478aae63a61070350417b9605d0c662ea8e211f2c02e1ee053b4e87969e"
+    },
+    {
+      "id": "getProduct",
+      "method": "GET",
+      "path": "/{emilId}",
+      "queryParameterDefinitions": 0,
+      "detailSha256": "2db141349c77f169abdf1b783b94720df0801b86c700442c3d8690df3debe04d"
+    },
+    {
+      "id": "getData_7d_avail_res_poc_margin",
+      "method": "GET",
+      "path": "/np3-162-cd/7d_avail_res_poc_margin",
+      "queryParameterDefinitions": 29,
+      "detailSha256": "057851677b25a5242d0e026a85853319c0f8d78305bf3dfb4662cf8743481eb9"
+    },
+    {
+      "id": "getData_7d_plus_avail_res_poc_margin",
+      "method": "GET",
+      "path": "/np3-161-cd/7d_plus_avail_res_poc_margin",
+      "queryParameterDefinitions": 26,
+      "detailSha256": "03fa9877bae1202e81109f73b73f378aac0c021d09e11ca280db8fd7e86d65a9"
+    },
+    {
+      "id": "getData_daily_ruc_act_and_bind_tran_const",
+      "method": "GET",
+      "path": "/np5-754-cd/daily_ruc_act_and_bind_tran_const",
+      "queryParameterDefinitions": 26,
+      "detailSha256": "ea60a9d850ee0647eddd064defc9e26a111289ee290ab10fbaf1e69e35447e7e"
+    },
+    {
+      "id": "getData_druc_as_demand_curves",
+      "method": "GET",
+      "path": "/np4-214-cd/druc_as_demand_curves",
+      "queryParameterDefinitions": 17,
+      "detailSha256": "65997c24896c1669434b6bb55ec680ba75169ebd51cb0639aa0fd5f32508eee4"
+    },
+    {
+      "id": "getData_dam_agg_as_offer_curve",
+      "method": "GET",
+      "path": "/np4-19-cd/dam_agg_as_offer_curve",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "de8687c1aabe1e50fc1094a0700ff66115bed0f900a11d066a050bbcdfcee223"
+    },
+    {
+      "id": "getData_dam_as_plan",
+      "method": "GET",
+      "path": "/np4-33-cd/dam_as_plan",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "fb04a0a7e234f3ef43a1418ffa6e03692bbd0c57e546fc515dade25855c2b0e2"
+    },
+    {
+      "id": "getData_dam_sced_as_demand_curves",
+      "method": "GET",
+      "path": "/np4-212-cd/dam_sced_as_demand_curves",
+      "queryParameterDefinitions": 17,
+      "detailSha256": "fdf8a6a294600e233c5e1ee7d898730fa76342528621951a9cd26065236b9dc8"
+    },
+    {
+      "id": "getData_dam_clear_price_for_cap",
+      "method": "GET",
+      "path": "/np4-188-cd/dam_clear_price_for_cap",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "fc432305d4f88b8e6c6f6196685b5374794c769e2793580899c6f044dff2451c"
+    },
+    {
+      "id": "getData_dam_de_energized_spbc",
+      "method": "GET",
+      "path": "/np4-200-cd/dam_de_energized_spbc",
+      "queryParameterDefinitions": 9,
+      "detailSha256": "72d7de72ac9e9036d64256f57b56cf5e1d5b120114dedd6e4a51b03ab3f36976"
+    },
+    {
+      "id": "getData_dam_essps",
+      "method": "GET",
+      "path": "/np4-158-sg/dam_essps",
+      "queryParameterDefinitions": 15,
+      "detailSha256": "98cabb16e84cfdfadf01f329df24872e2ed4a840cacf20eb843f7c99ebffbac6"
+    },
+    {
+      "id": "getData_dam_hourly_lmp",
+      "method": "GET",
+      "path": "/np4-183-cd/dam_hourly_lmp",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "f1c0aad974d384b31436afdc10d41787e6bc6f6ee1d24dd9eebcbe6858e68efa"
+    },
+    {
+      "id": "getData_dam_price_corrections_eblmp",
+      "method": "GET",
+      "path": "/np4-196-m/dam_price_corrections_eblmp",
+      "queryParameterDefinitions": 16,
+      "detailSha256": "bfc2d218ed11a251f1a2f262fb966d0f431f2180d1e5f72faf499215cb463150"
+    },
+    {
+      "id": "getData_dam_price_corrections_mcpc",
+      "method": "GET",
+      "path": "/np4-196-m/dam_price_corrections_mcpc",
+      "queryParameterDefinitions": 16,
+      "detailSha256": "e69121ade2936d0f2347440d205558db1adcabb44b587d65b50f87ed99e382f7"
+    },
+    {
+      "id": "getData_dam_price_corrections_spp",
+      "method": "GET",
+      "path": "/np4-196-m/dam_price_corrections_spp",
+      "queryParameterDefinitions": 16,
+      "detailSha256": "23163b686df47af976c4a2ef471666e8ee97483bbf21e1c3579fe8c81b52e332"
+    },
+    {
+      "id": "getData_dam_ptp_obligation_sp_results",
+      "method": "GET",
+      "path": "/np4-194-cd/dam_ptp_obligation_sp_results",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "1c0d319b70886b7ef9f59e16441641e2061e168729a2105ece21528b3fc7ddbf"
+    },
+    {
+      "id": "getData_dam_stlmnt_pnt_prices",
+      "method": "GET",
+      "path": "/np4-190-cd/dam_stlmnt_pnt_prices",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "331a037306837047aaa30fcc4a4be698105fbee02fb535f943637633b9aecbbf"
+    },
+    {
+      "id": "getData_dam_shadow_prices",
+      "method": "GET",
+      "path": "/np4-191-cd/dam_shadow_prices",
+      "queryParameterDefinitions": 28,
+      "detailSha256": "9baacf9a8bb8cc8cbaebd75191891595548265da01306c9c65b09517644d41e5"
+    },
+    {
+      "id": "getData_dam_system_lambda",
+      "method": "GET",
+      "path": "/np4-523-cd/dam_system_lambda",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "5dec796b56e31069fffa25836efacba6ba85933afc33367747013035a5292ffd"
+    },
+    {
+      "id": "getData_dam_as_sold",
+      "method": "GET",
+      "path": "/np4-532-cd/dam_as_sold",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "5ce86063855b24c9ee89371e62f09c5f91f2b72ad8f21743388e9e4408070ba3"
+    },
+    {
+      "id": "getData_dam_total_energy_purchased",
+      "method": "GET",
+      "path": "/np4-192-cd/dam_total_energy_purchased",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "c630958edbabd7d971b82c0bc1fc842bfe20ea29c50b23d423183af3959fc8c8"
+    },
+    {
+      "id": "getData_total_dam_energy_sold",
+      "method": "GET",
+      "path": "/np4-193-cd/total_dam_energy_sold",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "f9d6ce3a24ea0ef67a65d05b88eef879e108ba965f72b040176daf4628ce1fc9"
+    },
+    {
+      "id": "getData_dam_ptp_option_price_report",
+      "method": "GET",
+      "path": "/np7-464-cd/dam_ptp_option_price_report",
+      "queryParameterDefinitions": 14,
+      "detailSha256": "d90eabe45ceeffa8b0effa0a3167e556638bb010c5c0b2311c0b20acf94c29e6"
+    },
+    {
+      "id": "getData_da_sw_offer_caps",
+      "method": "GET",
+      "path": "/np4-791-cd/da_sw_offer_caps",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "6de90230712e3366614827d55c58f3a9a3e7a7a120ccce2025dcfbba8dc43b20"
+    },
+    {
+      "id": "getProductArchives",
+      "method": "POST",
+      "path": "/archive/{emilId}/download",
+      "queryParameterDefinitions": 0,
+      "detailSha256": "a4d39f2fbd8708decc47c6bba1e87e0f6ac16ba4e62902cd317a57b40fd3f000"
+    },
+    {
+      "id": "getProductBundle",
+      "method": "POST",
+      "path": "/bundle/{emilId}/download",
+      "queryParameterDefinitions": 0,
+      "detailSha256": "842d46909c9a2a326c1177b0b4c0752d3068b1477d01e3fef9d5e19f4d4cd4be"
+    },
+    {
+      "id": "getData_druc_as_deploy_factors",
+      "method": "GET",
+      "path": "/np5-527-cd/druc_as_deploy_factors",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "aa67d22b1468c73779ba7d20d54afbb3025d916057e6f222462a24eccbd959dc"
+    },
+    {
+      "id": "getData_electrical_bus_map_heur_price",
+      "method": "GET",
+      "path": "/np4-231-cd/electrical_bus_map_heur_price",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "9fd8dfeb390d2e99289f3367a6abbf6a887ac6f3899817ef5880ef97d022416a"
+    },
+    {
+      "id": "getData_epp_cumulative_hours",
+      "method": "GET",
+      "path": "/np4-412-cd/epp_cumulative_hours",
+      "queryParameterDefinitions": 21,
+      "detailSha256": "b37e7e384318845d6f3a0322fa404622c826cad0c638e4108003a9544ee922bf"
+    },
+    {
+      "id": "getData_241",
+      "method": "GET",
+      "path": "/gen-55-cd/hrly_rt_load_fcast_actual",
+      "queryParameterDefinitions": 19,
+      "detailSha256": "348355dc80a9bddcddf2a6c09cd97a3ba335c3c5c417c8ce97da08a13fcd5fc8"
+    },
+    {
+      "id": "getData_hourly_res_outage_cap",
+      "method": "GET",
+      "path": "/np3-233-cd/hourly_res_outage_cap",
+      "queryParameterDefinitions": 34,
+      "detailSha256": "3bd00cd14c5a801e83d4fbca87b8167e6c6aefd4089824021c8f046d396223f2"
+    },
+    {
+      "id": "getData_hrly_rmr_services_deployed",
+      "method": "GET",
+      "path": "/np5-108-cd/hrly_rmr_services_deployed",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "790a97a1a093645b8c20eac9268017b11ac795400e98d45af6313532e2822831"
+    },
+    {
+      "id": "getData_hrly_ruc_act_and_bind_tran_const",
+      "method": "GET",
+      "path": "/np5-755-cd/hrly_ruc_act_and_bind_tran_const",
+      "queryParameterDefinitions": 28,
+      "detailSha256": "c1996a5d966d2b9cf7580296e33ff5269865967317335fb4a0ad579eea9056cf"
+    },
+    {
+      "id": "getData_hruc_as_demand_curves",
+      "method": "GET",
+      "path": "/np4-213-cd/hruc_as_demand_curves",
+      "queryParameterDefinitions": 17,
+      "detailSha256": "5d829ab8a8bdcc00cf5396970e409aa7abb9e035d40632ca5e64913b7e12c2c2"
+    },
+    {
+      "id": "getData_hrly_ruc_online_sced_offline_cop",
+      "method": "GET",
+      "path": "/np3-764-cd/hrly_ruc_online_sced_offline_cop",
+      "queryParameterDefinitions": 20,
+      "detailSha256": "d1c72e54fdaf4b4cf3efd686942b4772789a8232174f379059b760aac6c37878"
+    },
+    {
+      "id": "getData_hrly_sys_reg_solar_fcast_model",
+      "method": "GET",
+      "path": "/np4-443-cd/hrly_sys_reg_solar_fcast_model",
+      "queryParameterDefinitions": 16,
+      "detailSha256": "233c4683510997ab0cc082416aed57868b701c3de402b1c6abb473005990cb7d"
+    },
+    {
+      "id": "getData_hrly_sys_reg_wind_fcast_model",
+      "method": "GET",
+      "path": "/np4-442-cd/hrly_sys_reg_wind_fcast_model",
+      "queryParameterDefinitions": 16,
+      "detailSha256": "dfcb6bec5cbf0ba4bb0742213a74de84a1438a3758bebcaa8ccfefa28b076bd7"
+    },
+    {
+      "id": "getData_hruc_as_deploy_factors",
+      "method": "GET",
+      "path": "/np5-528-cd/hruc_as_deploy_factors",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "ac3e1e8710b238b5bad7d886b557bbd52491b88088e52191417b4a571dc2925a"
+    },
+    {
+      "id": "getData_ih_load_fcast_by_wzn",
+      "method": "GET",
+      "path": "/np3-562-cd/ih_load_fcast_by_wzn",
+      "queryParameterDefinitions": 29,
+      "detailSha256": "f8acd4396e75645afaef3a27171811563a47d06948282fe41890ad6fb99c1655"
+    },
+    {
+      "id": "getData_ih_solar_fcast_geo",
+      "method": "GET",
+      "path": "/np4-752-cd/ih_solar_fcast_geo",
+      "queryParameterDefinitions": 14,
+      "detailSha256": "9cc9b44cab9c94c147ab423fb2bfcddf032715452ddaf2498f5ec98b66d7c45d"
+    },
+    {
+      "id": "getData_ih_wind_fcast_geo",
+      "method": "GET",
+      "path": "/np4-751-cd/ih_wind_fcast_geo",
+      "queryParameterDefinitions": 14,
+      "detailSha256": "f7bde0686f8a1c003306be9b74a13df9227f733195a281ac7c9babcf19b7bd25"
+    },
+    {
+      "id": "getData_lmp_electrical_bus",
+      "method": "GET",
+      "path": "/np6-787-cd/lmp_electrical_bus",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "aef751a5d35f7825504b749024355856b313588c65303276beb0ceb030ee4b28"
+    },
+    {
+      "id": "getData_lmp_sog_price_adders",
+      "method": "GET",
+      "path": "/np6-327-cd/lmp_sog_price_adders",
+      "queryParameterDefinitions": 19,
+      "detailSha256": "7a5df149cca2e9ac2fbaa78729a265b16570c19a9ea073720dcc0f05c86194ca"
+    },
+    {
+      "id": "getData_lmp_node_zone_hub",
+      "method": "GET",
+      "path": "/np6-788-cd/lmp_node_zone_hub",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "1865836ceefee0cba666c9e9993c32373e31c361228377f6d7a1904653456694"
+    },
+    {
+      "id": "getData_load_distribution_factors",
+      "method": "GET",
+      "path": "/np4-159-cd/load_distribution_factors",
+      "queryParameterDefinitions": 17,
+      "detailSha256": "9a5b22b9670fb70e610c16ba712ddf1ebaecd3810ad3e352869112e2a36b81fc"
+    },
+    {
+      "id": "getData_peaker_net_margin",
+      "method": "GET",
+      "path": "/np4-790-cd/peaker_net_margin",
+      "queryParameterDefinitions": 8,
+      "detailSha256": "5f2560d170d0c8b844cd1ab64c2b10e3ea26b000414ddac93a9496c8548d47b1"
+    },
+    {
+      "id": "getData_proj_as_deploy_factor",
+      "method": "GET",
+      "path": "/np5-526-cd/proj_as_deploy_factor",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "630529b45f5d65488e2671d5f32f4389d81cb26e3a35ea389676a23b7822277d"
+    },
+    {
+      "id": "getData_rt_clear_price_cap_sced",
+      "method": "GET",
+      "path": "/np6-332-cd/rt_clear_price_cap_sced",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "340ce7d07ce3483e7e6fc97140087515a774b39d35b2c841fbe5b851d858f215"
+    },
+    {
+      "id": "getData_rt_clear_price_cap",
+      "method": "GET",
+      "path": "/np6-331-cd/rt_clear_price_cap",
+      "queryParameterDefinitions": 14,
+      "detailSha256": "386a57c08f45b370c378a89a4e008a6f71d6e86374cf5d5a6e7944bd7bab3f36"
+    },
+    {
+      "id": "getData_rt_price_adder_sced",
+      "method": "GET",
+      "path": "/np6-323-cd/rt_price_adder_sced",
+      "queryParameterDefinitions": 43,
+      "detailSha256": "7531b729efd8ab572189304524f1b5073bc2af024801e2d82cf6c36b333c09d9"
+    },
+    {
+      "id": "getData_rt_15min_price_adders",
+      "method": "GET",
+      "path": "/np6-324-cd/rt_15min_price_adders",
+      "queryParameterDefinitions": 23,
+      "detailSha256": "751516d187eb0dd0afbf4e29046ca3d8f07f26cb45444c4276f9a21078f5262d"
+    },
+    {
+      "id": "getData_rt_price_sog",
+      "method": "GET",
+      "path": "/np6-326-cd/rt_price_sog",
+      "queryParameterDefinitions": 16,
+      "detailSha256": "b6bf00fbb1fdc2fce02a83159ec4dbd0d576da8d3ff19ee4fb502f9f43a47db9"
+    },
+    {
+      "id": "getVersion",
+      "method": "GET",
+      "path": "/version",
+      "queryParameterDefinitions": 0,
+      "detailSha256": "842964d97c2bf4ee61e8ff31a406d2f4f31e2a0a03061bb0818b8d5a833b4363"
+    },
+    {
+      "id": "getData_rtd_lmp_node_zone_hub",
+      "method": "GET",
+      "path": "/np6-970-cd/rtd_lmp_node_zone_hub",
+      "queryParameterDefinitions": 16,
+      "detailSha256": "1b78a9640c0596ef180ec901d21c6c58c86f2f79147cc345e268dbad200800b3"
+    },
+    {
+      "id": "getData_rtd_price_adders",
+      "method": "GET",
+      "path": "/np6-325-cd/rtd_price_adders",
+      "queryParameterDefinitions": 48,
+      "detailSha256": "e7758bb6df130beb50d8f349e4f47e64eef792e01219d3aa5f9eceae71d77390"
+    },
+    {
+      "id": "getData_rtd_ind_mcpc",
+      "method": "GET",
+      "path": "/np6-329-cd/rtd_ind_mcpc",
+      "queryParameterDefinitions": 22,
+      "detailSha256": "4fb77c48440567b4f74897075de68435a14fef42d90ec8d1c41a0c99c7cd4298"
+    },
+    {
+      "id": "getData_rtm_price_corrections_eblmp",
+      "method": "GET",
+      "path": "/np4-197-m/rtm_price_corrections_eblmp",
+      "queryParameterDefinitions": 18,
+      "detailSha256": "6351d6e8a7cd437601375b62065c2009d902b89ffe980ed8a71ecd7fb7f042f2"
+    },
+    {
+      "id": "getData_rtm_price_corrections_mcpc_spp",
+      "method": "GET",
+      "path": "/np4-197-m/rtm_price_corrections_mcpc_spp",
+      "queryParameterDefinitions": 18,
+      "detailSha256": "0339ccd62651596d1cc0b6add3d15dac9aa7e0e0d11d8ae697d7c82457b7bd07"
+    },
+    {
+      "id": "getData_rtm_price_corrections_mcpc_sced",
+      "method": "GET",
+      "path": "/np4-197-m/rtm_price_corrections_mcpc_sced",
+      "queryParameterDefinitions": 18,
+      "detailSha256": "c67aef5447d0a085447689c7cb1fa70512173a1a2d13fda9cb57f1fb28ae0275"
+    },
+    {
+      "id": "getData_rtm_price_corrections_shadow",
+      "method": "GET",
+      "path": "/np4-197-m/rtm_price_corrections_shadow",
+      "queryParameterDefinitions": 25,
+      "detailSha256": "361dfb8e584832fc21e2da5e08d671efff9bdde7bc9e5a31934e59d3a8be66c3"
+    },
+    {
+      "id": "getData_rtm_price_corrections_soglmp",
+      "method": "GET",
+      "path": "/np4-197-m/rtm_price_corrections_soglmp",
+      "queryParameterDefinitions": 24,
+      "detailSha256": "70c0b325d7e99db850855324b27205d46c33052f8fd49f292b9345216371100c"
+    },
+    {
+      "id": "getData_rtm_price_corrections_sogprice",
+      "method": "GET",
+      "path": "/np4-197-m/rtm_price_corrections_sogprice",
+      "queryParameterDefinitions": 20,
+      "detailSha256": "aa7377a36f8489bdebca5b32dfa8430dcc3e4ecb008d9d249831675613eea16d"
+    },
+    {
+      "id": "getData_rtm_price_corrections_spp",
+      "method": "GET",
+      "path": "/np4-197-m/rtm_price_corrections_spp",
+      "queryParameterDefinitions": 19,
+      "detailSha256": "208912a44f5da7d9732144a4a899b3b3835bf1290b93ec79186eeb9337338706"
+    },
+    {
+      "id": "getData_rtm_price_corrections_splmp",
+      "method": "GET",
+      "path": "/np4-197-m/rtm_price_corrections_splmp",
+      "queryParameterDefinitions": 14,
+      "detailSha256": "c8c3608974179300ff768509bc779fd30bf27494ba51f3e5ba589e9b8debbd6a"
+    },
+    {
+      "id": "getData_shdw_prices_bnd_trns_const",
+      "method": "GET",
+      "path": "/np6-86-cd/shdw_prices_bnd_trns_const",
+      "queryParameterDefinitions": 28,
+      "detailSha256": "d06f45815c01a52a543a32f5b4f49e308a52bf8d8b4ea9e08a695975ac0b80b1"
+    },
+    {
+      "id": "getData_sced_system_lambda",
+      "method": "GET",
+      "path": "/np6-322-cd/sced_system_lambda",
+      "queryParameterDefinitions": 11,
+      "detailSha256": "34153a2c4115d5201b91e15463c54abf0bb08dc994075d1016741661954daf67"
+    },
+    {
+      "id": "getData_spp_node_zone_hub",
+      "method": "GET",
+      "path": "/np6-905-cd/spp_node_zone_hub",
+      "queryParameterDefinitions": 15,
+      "detailSha256": "1c9be63e74d472e7b6f0ce81405505ea8b0a72c3980a3ac61be38123612b9db8"
+    },
+    {
+      "id": "getData_7d_load_fcast_by_fzn",
+      "method": "GET",
+      "path": "/np3-560-cd/7d_load_fcast_by_fzn",
+      "queryParameterDefinitions": 20,
+      "detailSha256": "1d9b676535b99cb835720e6d4a53bb0d7753f3b813cd5517ea7d67d5c56e1e7e"
+    },
+    {
+      "id": "getData_lf_by_model_study_area",
+      "method": "GET",
+      "path": "/np3-566-cd/lf_by_model_study_area",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "4fb2e8ee17e4069db8bdc13965b52c7e040678edca874bf1341e07a7bc399fd4"
+    },
+    {
+      "id": "getData_lf_by_model_weather_zone",
+      "method": "GET",
+      "path": "/np3-565-cd/lf_by_model_weather_zone",
+      "queryParameterDefinitions": 30,
+      "detailSha256": "a332ca2467cd0ecd93e42ee0267a71072c8f95b4aaf60004c6f947aaf8e48ea4"
+    },
+    {
+      "id": "getData_7d_load_fcast_by_wzn",
+      "method": "GET",
+      "path": "/np3-561-cd/7d_load_fcast_by_wzn",
+      "queryParameterDefinitions": 28,
+      "detailSha256": "63e97313018d46c47b21e6cbb76e812324151a649551ba629240857b60b33216"
+    },
+    {
+      "id": "getData_st_sys_adequacy",
+      "method": "GET",
+      "path": "/np3-763-cd/st_sys_adequacy",
+      "queryParameterDefinitions": 61,
+      "detailSha256": "ca057f136ab6a873f407e07114d9eb5b6dcee4cf1902a314de47e5be24b853f9"
+    },
+    {
+      "id": "getData_spp_actual_5min_avg_values",
+      "method": "GET",
+      "path": "/np4-738-cd/spp_actual_5min_avg_values",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "f46285e293a8b23742e6de61372fad10f2ad0cbfe9db51d8f3492ea68d25f9fe"
+    },
+    {
+      "id": "getData_spp_actual_5min_avg_values_geo",
+      "method": "GET",
+      "path": "/np4-746-cd/spp_actual_5min_avg_values_geo",
+      "queryParameterDefinitions": 25,
+      "detailSha256": "f0944f2b9380d90b65dd5b95f5edb9f0624ae55775c5c24cf71be8e3aec9ea07"
+    },
+    {
+      "id": "getData_spp_hrly_avrg_actl_fcast",
+      "method": "GET",
+      "path": "/np4-737-cd/spp_hrly_avrg_actl_fcast",
+      "queryParameterDefinitions": 21,
+      "detailSha256": "4ba5eee3089cd60345c31a61b023d7b0145b1a080d5e8018aa0621d0c43150e2"
+    },
+    {
+      "id": "getData_spp_hrly_actual_fcast_geo",
+      "method": "GET",
+      "path": "/np4-745-cd/spp_hrly_actual_fcast_geo",
+      "queryParameterDefinitions": 69,
+      "detailSha256": "ab42d0e52a0e457eb71e26274a908a86aab5b0113ce26335f9748d5dfa91a33b"
+    },
+    {
+      "id": "getData_se_load_dcties_flows",
+      "method": "GET",
+      "path": "/np6-626-cd/se_load_dcties_flows",
+      "queryParameterDefinitions": 12,
+      "detailSha256": "12f09f65673f957e05536a1a397b185e3a81ebb62391bc58719843dae7e68679"
+    },
+    {
+      "id": "getData_se_ld_rpt_ercot_gen",
+      "method": "GET",
+      "path": "/np6-625-cd/se_ld_rpt_ercot_gen",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "1e88f4c314a81e106f5187a40d15cc270db01932245a80f11688cbeaaeeeec94"
+    },
+    {
+      "id": "getData_sum_hdl_ldl",
+      "method": "GET",
+      "path": "/np6-915-cd/sum_hdl_ldl",
+      "queryParameterDefinitions": 13,
+      "detailSha256": "e038dd86959e56b02ed8c219a6d06684a7136bf59de4192686fe54614501fd97"
+    },
+    {
+      "id": "getData_system_wide_demand",
+      "method": "GET",
+      "path": "/np6-235-cd/system_wide_demand",
+      "queryParameterDefinitions": 10,
+      "detailSha256": "6d12e2b1177df60a35627fc0e7ab7708f1122b5fb40da8f02c46a38a0e56ca2d"
+    },
+    {
+      "id": "getData_total_as_service_offers",
+      "method": "GET",
+      "path": "/np4-179-cd/total_as_service_offers",
+      "queryParameterDefinitions": 24,
+      "detailSha256": "4dbbdc480839f339ac51d7b7a27ed46102f01d7b9db189cf0062f3ddda718c2c"
+    },
+    {
+      "id": "getData_tot_as_res_cap",
+      "method": "GET",
+      "path": "/np6-328-cd/tot_as_res_cap",
+      "queryParameterDefinitions": 23,
+      "detailSha256": "600e0eb7067de26167e17dd13baa8bf7ef8d275a20c3f3f41c13f5702fb3f8a2"
+    },
+    {
+      "id": "getData_weather_assumptions",
+      "method": "GET",
+      "path": "/np4-722-cd/weather_assumptions",
+      "queryParameterDefinitions": 24,
+      "detailSha256": "43bc5ef34be13602a67eab6f7d16df704aeeab797b851492c19d96c4f47080d3"
+    },
+    {
+      "id": "getData_wruc_as_demand_curves",
+      "method": "GET",
+      "path": "/np4-215-cd/wruc_as_demand_curves",
+      "queryParameterDefinitions": 19,
+      "detailSha256": "06456bcc1de58b404e045b77d9114f1406ff283ae99faf63c494a7c8771d5687"
+    },
+    {
+      "id": "getData_wpp_actual_5min_avg_values",
+      "method": "GET",
+      "path": "/np4-733-cd/wpp_actual_5min_avg_values",
+      "queryParameterDefinitions": 19,
+      "detailSha256": "353d3e6969f79646c2bdcff6ea07bbeee91643a047664fe084d0d18925c8ebac"
+    },
+    {
+      "id": "getData_wpp_actual_5min_avg_values_geo",
+      "method": "GET",
+      "path": "/np4-743-cd/wpp_actual_5min_avg_values_geo",
+      "queryParameterDefinitions": 23,
+      "detailSha256": "0269df3f10e04ccee6de31b1ed46038e97833121963df6ec9a46a521aeec89cb"
+    },
+    {
+      "id": "getData_wpp_hrly_avrg_actl_fcast",
+      "method": "GET",
+      "path": "/np4-732-cd/wpp_hrly_avrg_actl_fcast",
+      "queryParameterDefinitions": 45,
+      "detailSha256": "f4bc89ca00241ab744e8564ce4040546ce98e9a63d469f94d0788a082922dc93"
+    },
+    {
+      "id": "getData_wpp_hrly_actual_fcast_geo",
+      "method": "GET",
+      "path": "/np4-742-cd/wpp_hrly_actual_fcast_geo",
+      "queryParameterDefinitions": 61,
+      "detailSha256": "98dd97fc3edcf02025f1a05da1f663885b2d723cc0e94f1386d24645e2f0fa8f"
+    },
+    {
+      "id": "getData_wruc_as_deploy_factors",
+      "method": "GET",
+      "path": "/np5-525-cd/wruc_as_deploy_factors",
+      "queryParameterDefinitions": 15,
+      "detailSha256": "f0f463f13e6ddd059e2a7f0d394b63a45fe6ae3d4c11d13231e4cc7a47254cfc"
+    }
+  ],
+  "releaseAudit": {
+    "checkedAt": "2026-09-08T04:00:06.399876+00:00",
+    "runtimeCommit": "a45bcf33d1ef0ed1932f4706652bb574330a4402",
+    "scope": "Rechecked live operation methods/paths, catalog artifacts, all 11 typed dashboard methods, the three empty products, and direct public file indexes. Statically checked every generated history property has a concrete Pydantic row type and all report queries have historical contracts. Full current test suite and required mechanical checks passed. Parameter-detail evidence above retains its original check date. Historical source comparisons remain sampled as described in their own evidence files; this is not an exhaustive download of every retained publication or a claim of gap-free history.",
+    "operations": {
+      "pageSizes": [
+        100,
+        100,
+        49
+      ],
+      "count": 249,
+      "added": [],
+      "removed": []
+    },
+    "catalog": {
+      "products": 116,
+      "artifacts": 242,
+      "missingGeneratedQueries": [],
+      "queriesAbsentFromCatalog": []
+    },
+    "dashboards": [
+      {
+        "method": "fuel_mix",
+        "status": "pass",
+        "type": "FuelMixSnapshot"
+      },
+      {
+        "method": "grid_conditions",
+        "status": "pass",
+        "type": "GridConditionsSnapshot"
+      },
+      {
+        "method": "energy_storage",
+        "status": "pass",
+        "type": "EsrSnapshot"
+      },
+      {
+        "method": "generation_outages",
+        "status": "pass",
+        "type": "GenerationOutagesSnapshot"
+      },
+      {
+        "method": "dc_tie_flows",
+        "status": "pass",
+        "type": "DcTieSnapshot"
+      },
+      {
+        "method": "system_prices",
+        "status": "pass",
+        "type": "SystemPricesSnapshot"
+      },
+      {
+        "method": "supply_demand",
+        "status": "pass",
+        "type": "SupplyDemandSnapshot"
+      },
+      {
+        "method": "combined_wind_solar",
+        "status": "pass",
+        "type": "WindSolarSnapshot"
+      },
+      {
+        "method": "system_demand",
+        "status": "pass",
+        "type": "DemandSnapshot"
+      },
+      {
+        "method": "ancillary_services",
+        "status": "pass",
+        "type": "AncillarySnapshot"
+      },
+      {
+        "method": "weather_forecast",
+        "status": "pass",
+        "type": "list"
+      }
+    ],
+    "emptyProducts": [
+      {
+        "product": "NP6-569-CD",
+        "kind": "archives",
+        "totalRecords": 0
+      },
+      {
+        "product": "NP6-569-CD",
+        "kind": "bundles",
+        "totalRecords": 0
+      },
+      {
+        "product": "NP6-655-CD",
+        "kind": "archives",
+        "totalRecords": 0
+      },
+      {
+        "product": "NP6-655-CD",
+        "kind": "bundles",
+        "totalRecords": 0
+      },
+      {
+        "product": "NP6-913-CD",
+        "kind": "archives",
+        "totalRecords": 0
+      },
+      {
+        "product": "NP6-913-CD",
+        "kind": "bundles",
+        "totalRecords": 0
+      }
+    ],
+    "static": {
+      "queries": 242,
+      "historyReaders": 289,
+      "historyFormats": {
+        "csv": 275,
+        "workbook": 9,
+        "pdf": 5
+      },
+      "products": 113,
+      "typedHistoryFields": 3434,
+      "nonemptyCapturedQuerySamples": 242,
+      "wheelBytes": 169393,
+      "runtimeModules": 11,
+      "wheelMatchesCurrentRuntime": true,
+      "generatedSha256": "4add31219447d92ec33bf16f4096a6745799d61c36b272ab2edba095e0c836c2"
+    },
+    "publicFileIndexes": {
+      "checkedAt": "2026-09-08T04:02:33.652496+00:00",
+      "hourlyLoadLinks": 33,
+      "fuelMixLinks": 3,
+      "nativeLoad2026": {
+        "url": "https://www.ercot.com/files/docs/2026/02/10/Native_Load_2026.zip",
+        "bytes": 722951,
+        "sha256": "3a642883ab3889c23650cde4cf6bade371c62999ee4c54bfdda6f8063422aef0",
+        "badMember": "Native_Load_2026.xlsx"
+      }
+    },
+    "checks": {
+      "pytest": "934 passed in 60.19s",
+      "mypy": "strict; 16 source files including examples",
+      "ruff": "check and format passed",
+      "generator": "242 endpoints, 113 namespaces; byte-identical output",
+      "wheel": "11 runtime modules byte-identical to checkout; py.typed present; fixtures, tests, examples and tools excluded"
+    }
+  },
+  "coreWheelSmokeCheck": {
+    "queryEndpointsExercised": 242,
+    "typedApiRows": 242,
+    "typedCsvRows": 3,
+    "optionalPackagesAbsent": [
+      "openpyxl",
+      "xlrd",
+      "pypdf"
+    ],
+    "optionalReaderConstructionSucceeded": true,
+    "dependencies": {
+      "httpcore": "1.0.9",
+      "pydantic": "2.13.5",
+      "annotated-types": "0.8.0",
+      "h11": "0.16.0",
+      "anyio": "4.15.1",
+      "httpx": "0.28.1",
+      "typing_extensions": "4.16.0",
+      "typing-inspection": "0.4.4",
+      "idna": "3.19",
+      "certifi": "2026.7.22",
+      "httpx-retries": "0.6.0",
+      "tinyercot": "0.2.2",
+      "pydantic_core": "2.46.5"
+    },
+    "scope": "Isolated installed wheel, captured responses through all generated query methods and a historical CSV; no live network queries or optional format decoding.",
+    "wheelSha256": "759efde4a1612d2a6690339b478309cc22555eb3779b6426857651132e683345",
+    "commit": "3adbe8d2658edbcfdba95ffd37ff2cff7411c57f"
+  },
+  "additionalCapacityDashboardCheck": {
+    "checkedAt": "2026-09-08T05:34:44.407551+00:00",
+    "scedCapacityRows": 8846,
+    "scedCapacityCurrentRows": 206,
+    "scedCapacityPreviousRows": 8640,
+    "scedLastUpdated": "2026-09-08T00:34:14-05:00",
+    "ancillaryGroups": 12,
+    "ancillaryValues": 60,
+    "ancillaryLastUpdated": "2026-09-08T00:34:26-05:00",
+    "allSourceValuesMatched": true,
+    "credentialsUsed": false,
+    "sources": {
+      "capacity-available-sced.json": {
+        "url": "https://www.ercot.com/api/1/services/read/dashboards/capacity-available-sced.json",
+        "sha256": "ba2d9c1869aec66637f14a9304497840c82df07a75a1f04236be04eb9eae8f17"
+      },
+      "ancillary-service-capacity-monitor.json": {
+        "url": "https://www.ercot.com/api/1/services/read/dashboards/ancillary-service-capacity-monitor.json",
+        "sha256": "217b6d7e0cd9cc4d4f7c80e04e979f827da86f5d89f0af9dc0ed7ebc33110c67"
+      }
+    },
+    "discovery": "Two additional public dashboard pages linked from https://www.ercot.com/gridinfo/index, absent from the main dashboard index and previously unimplemented.",
+    "pages": [
+      "https://www.ercot.com/gridmktinfo/dashboards/capacityavailablesced",
+      "https://www.ercot.com/gridmktinfo/dashboards/ancillaryservicecapacitymonitor"
+    ],
+    "fixtureScope": "Capacity fixture retains the first and last source row of each current/previous section; ancillary fixture preserves the complete captured 12-group table. Live comparison covers every row and field in the fetched responses.",
+    "methods": [
+      "sced_capacity",
+      "ancillary_capacity"
+    ],
+    "typedNumericDashboardFeeds": 13
+  },
+  "publicRealTimeConditionsCheck": {
+    "checkedAt": "2026-09-08T05:46:37.790529+00:00",
+    "url": "https://www.ercot.com/content/cdr/html/real_time_system_conditions.html",
+    "sourceSha256": "3aebe765ed7f013870cc5a0524bed2c408d31ab45e3233479b0ee534d7a304eb",
+    "numericFields": 14,
+    "allNumericValuesMatched": true,
+    "lastUpdated": "2026-09-08T00:46:20",
+    "sourceTimestampHasUtcOffset": false,
+    "credentialsUsed": false,
+    "verification": "Actual SDK method with raw response captured; all 14 values independently extracted by HTML label regex and Decimal, and timestamp independently parsed. No SDK parser/model used to construct reference values.",
+    "values": {
+      "lastUpdated": "2026-09-08T00:46:20",
+      "currentFrequency": "60.015",
+      "instantaneousTimeError": "-2.114",
+      "consecutiveBaalExceedances": 0,
+      "actualSystemDemand": "65754",
+      "averageNetLoad": "47930",
+      "totalSystemCapacity": "85873",
+      "totalWindOutput": "17978",
+      "totalPvgrOutput": "0",
+      "currentSystemInertia": "328564",
+      "dcE": "-443",
+      "dcL": "70",
+      "dcN": "-218",
+      "dcR": "83",
+      "dcS": "0"
+    },
+    "fixtureScope": "Captured source display body and table only, excluding tracking/header scripts. Values and source markup retained; line endings normalized.",
+    "fixtureSha256": "ce5414142d4bc12f94ba1e094729b5c6f2562dffd7175508beca1b1567f71772"
+  },
+  "publicRealTimeLmpDisplayCheck": {
+    "checkedAt": "2026-09-08T05:57:59.556384+00:00",
+    "credentialsUsed": false,
+    "scope": "Actual SDK requests for both display variants; every point, four price/change values, adder and timestamp compared independently with regex/Decimal extraction from the recorded HTML response. These are current snapshots, not historical queries.",
+    "checks": [
+      {
+        "source": "https://www.ercot.com/content/cdr/html/current_np6788.html",
+        "hubsAndZonesOnly": false,
+        "rows": 1123,
+        "fieldsCompared": 5615,
+        "lastUpdated": "2026-09-08T00:55:18",
+        "RTRDPA": "0.87",
+        "allValuesMatched": true,
+        "sourceSha256": "4833dc4da14bb063479ea506821cb5cfb8e543bcc2dfc23f77ee5b44790e496e"
+      },
+      {
+        "source": "https://www.ercot.com/content/cdr/html/hb_lz.html",
+        "hubsAndZonesOnly": true,
+        "rows": 15,
+        "fieldsCompared": 75,
+        "lastUpdated": "2026-09-08T00:55:18",
+        "RTRDPA": "0.87",
+        "allValuesMatched": true,
+        "sourceSha256": "324c9a15b121fe49af66a8af04879b0d72f154c636b3d9fc086f0a3219495e8e"
+      }
+    ],
+    "fixtures": "Full hubs/load-zones display body (15 points) and the first two data rows of the full settlement-point display, preserving source headers, metadata and nested adder table; tracking scripts excluded and line endings normalized."
+  },
+  "publicRtdDisplayCheck": {
+    "checkedAt": "2026-09-08T06:07:48.958949+00:00",
+    "credentialsUsed": false,
+    "allPublishedPointOptionsCovered": true,
+    "allSourceValuesMatched": true,
+    "includesReliabilityAdderVerifiedFromSourceText": true,
+    "sourceTimestampsHaveOffsets": false,
+    "scope": "All 15 point options currently published by the public RTD display. Actual SDK requests; every run timestamp, Actual LMP value, interval id, displayed minute offset, forecast price and last SCED timestamp compared with independent regex/Decimal extraction from each original response.",
+    "runs": 360,
+    "forecastPrices": 3960,
+    "runsPerPoint": 24,
+    "forecastHorizonsMinutes": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55
+    ],
+    "sourceHashesByPoint": {
+      "HB_BUSAVG": "1f5e6af5fcdd0d0a5c79a34a81f2c59f31b5450269b439e5db4a23751f5c4c9d",
+      "HB_HOUSTON": "71626d2823ab7be24e113ea89f4f1e2e9df26eef1e770579d0960640f5cff37a",
+      "HB_HUBAVG": "9315db5b56c68553dbe3cdee6d4690e5b4edd1f3bfc5c4f7be9250ff886f3a4c",
+      "HB_NORTH": "dd38043eed4151ed4f0b66bf392a8fe693698784c7e4088f31d5b126836e6817",
+      "HB_PAN": "6f5cfa283260a11d6d980429faf1b9da1545032aea0f18e4b0200fa0a354784e",
+      "HB_SOUTH": "85920e8354b182df2f818f216badd3429a5107d3d109fca06f19f80e3a942b14",
+      "HB_WEST": "c51f147cff86b0d25466dc08a70cf6eaba03e31a1d18d64dead8d5419a358710",
+      "LZ_AEN": "e4d8518db41741dd965facd5ce89875a1711d4b539d42713ef31cbee689b5840",
+      "LZ_CPS": "a99616ad789fafc1e80762a74ed2a37aee2ea50e3ef1fab2597f6b7999334f18",
+      "LZ_HOUSTON": "b4ddf09bac3da7434fc92f9705f7257c5bf1c47f4165996cd8d08c644f2ca1c0",
+      "LZ_LCRA": "4d2636f64614eee1049e3e70d72b7d92937ce77e306482d46cc8ae6d1bf2a90a",
+      "LZ_NORTH": "bb0a68d122e5e3e4cfe42a10c5558a9d39b060e44522b93dabe6ad803cbc46b3",
+      "LZ_RAYBN": "cb94ab472879967cb9e2b9aec18318a4e53fa94a06a4c253b07d29f17a0fcec6",
+      "LZ_SOUTH": "d655bf0030de1a5faef487b97e63e9297a34b8db5e5e7d1ba420acff9728e32d",
+      "LZ_WEST": "e973889bd90d2f4aec15a28679130b25695c5406d8631725f1bd05c528ead0c8"
+    },
+    "sourcePage": "https://www.ercot.com/content/cdr/html/rtd_ind_lmp_lz_hb.html",
+    "pointRoutes": "HB_BUSAVG uses the source page; other points use rtd_ind_lmp_lz_hb_{POINT}.html, matching the actual published selector options.",
+    "fixtures": "First two runs of the actual HB_BUSAVG and HB_HOUSTON display bodies, retaining selector/header/last-SCED metadata and all horizon values; tracking scripts excluded and line endings normalized."
+  }
+}

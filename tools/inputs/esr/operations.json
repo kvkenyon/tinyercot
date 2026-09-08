@@ -1,0 +1,131 @@
+[
+  {
+    "id": "getListForProducts",
+    "name": "All available Data Products",
+    "method": "GET",
+    "urlTemplate": "/",
+    "request": {
+      "queryParameters": []
+    }
+  },
+  {
+    "id": "getProductHistoryBundles",
+    "name": "Available historical report archives for a specified Data product.",
+    "method": "GET",
+    "urlTemplate": "/bundle/{productId}",
+    "request": {
+      "queryParameters": []
+    }
+  },
+  {
+    "id": "getProductHistory",
+    "name": "Available report archives for a specified Data product.",
+    "method": "GET",
+    "urlTemplate": "/archive/{productId}",
+    "request": {
+      "queryParameters": []
+    }
+  },
+  {
+    "id": "getProduct",
+    "name": "Available report artifacts for a specified Data product.",
+    "method": "GET",
+    "urlTemplate": "/{productId}",
+    "request": {
+      "queryParameters": []
+    }
+  },
+  {
+    "id": "getProductArchives",
+    "name": "Download a collection of Data Product archives.",
+    "method": "POST",
+    "urlTemplate": "/archive/{productId}/download",
+    "request": {
+      "queryParameters": []
+    }
+  },
+  {
+    "id": "getProductBundle",
+    "name": "Download a Data Product historical archive.",
+    "method": "POST",
+    "urlTemplate": "/bundle/{productId}/download",
+    "request": {
+      "queryParameters": []
+    }
+  },
+  {
+    "id": "getData",
+    "name": "Energy Storage Resource Four Second Data",
+    "method": "GET",
+    "urlTemplate": "/rptesr-m/4_sec_esr_charging_mw",
+    "request": {
+      "queryParameters": [
+        {
+          "name": "AGCExecTimeFrom",
+          "type": "string",
+          "format": "yyyy-MM-ddTH24:mm:ss"
+        },
+        {
+          "name": "AGCExecTimeTo",
+          "type": "string",
+          "format": "yyyy-MM-ddTH24:mm:ss"
+        },
+        {
+          "name": "DSTFlag",
+          "type": "boolean"
+        },
+        {
+          "name": "AGCExecTimeUTCFrom",
+          "type": "string",
+          "format": "yyyy-MM-ddTH24:mm:ss"
+        },
+        {
+          "name": "AGCExecTimeUTCTo",
+          "type": "string",
+          "format": "yyyy-MM-ddTH24:mm:ss"
+        },
+        {
+          "name": "systemDemandFrom",
+          "type": "number"
+        },
+        {
+          "name": "systemDemandTo",
+          "type": "number"
+        },
+        {
+          "name": "ESRChargingMWFrom",
+          "type": "number"
+        },
+        {
+          "name": "ESRChargingMWTo",
+          "type": "number"
+        },
+        {
+          "name": "page",
+          "type": "integer"
+        },
+        {
+          "name": "size",
+          "type": "integer"
+        },
+        {
+          "name": "sort",
+          "type": "string"
+        },
+        {
+          "name": "dir",
+          "type": "string"
+        }
+      ]
+    }
+  },
+  {
+    "id": "getVersion",
+    "name": "Retrieve the current version for the ERCOT ESR API Service.",
+    "method": "GET",
+    "urlTemplate": "/version",
+    "request": {
+      "queryParameters": []
+    }
+  }
+]

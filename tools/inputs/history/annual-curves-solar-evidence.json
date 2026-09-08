@@ -1,0 +1,1747 @@
+{
+  "scope": "One January publication per product/year in 2015 through 2025 where listed. Every CSV header and up to three rows was matched to a generated reader. Only the aggregate controllable-load energy-demand table and solar forecast table were decoded in full; their counts were compared with independent CSV counts. This is not proof of all retained publications or per-field numerical correctness.",
+  "csvFilesWithExactlyOneReader": 324,
+  "fullyDecodedFiles": 20,
+  "fullyDecodedRows": 4970040,
+  "formats": {
+    ".zip": 20,
+    ".csv": 324
+  },
+  "samples": [
+    {
+      "year": 2015,
+      "product": "NP3-908-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2015-01-01T00:00:00",
+        "postDatetimeTo": "2015-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 471248142,
+        "friendlyName": "48_Hour_DAM_and_SCED_Energy_Curves",
+        "postDatetime": "2015-01-31T03:22:51.385000"
+      },
+      "source": "work/history-annual-curves-solar-2015/NP3-908-ER.zip",
+      "zipSha256": "c828112b4bdc6fb47d6c9c79bd04953acd8af609d89fa0312cb2436e81f630aa",
+      "files": [
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves_West-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_west"
+        },
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves_South-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_south"
+        },
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves_North-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_north"
+        },
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves_Houston-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_houston"
+        },
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_Wind-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_esc_non_wind"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind_West-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_west"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind_South-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_south"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind_North-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_north"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind_Houston-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_houston"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_Wind_West-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_esc_non_wind_west"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_Wind_South-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_esc_non_wind_south"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_Wind_North-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_esc_non_wind_north"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_Wind_Houston-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_esc_non_wind_houston"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves_West-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_west"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves_South-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_south"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves_North-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_north"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves_Houston-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_houston"
+        },
+        {
+          "member": "48_Hour_Aggr_Energy_Demand_Curves_CLR-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr",
+          "csvSha256": "d0c182dff23ac8ba56406159fb506f1981f58ac7e19409017958c790abf2a11c",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves_West-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_west"
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves_South-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_south"
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves_North-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_north"
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves_Houston-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_houston"
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves-31-JAN-15.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc"
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "product": "NP4-737-CD",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2015-01-01T00:00:00",
+        "postDatetimeTo": "2015-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2016,
+      "product": "NP3-908-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2016-01-01T00:00:00",
+        "postDatetimeTo": "2016-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 508455692,
+        "friendlyName": "48_Hour_DAM_and_SCED_Energy_Curves",
+        "postDatetime": "2016-01-31T03:28:58.593000"
+      },
+      "source": "work/history-annual-curves-solar-2016/NP3-908-ER.zip",
+      "zipSha256": "1e576123ddc3ccb6b93f9a69d5188ea1aec704a6810b8ef49205fb983d54375b",
+      "files": [
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves_West-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_west"
+        },
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves_South-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_south"
+        },
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves_North-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_north"
+        },
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves_Houston-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_houston"
+        },
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_Wind-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_esc_non_wind"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind_West-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_west"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind_South-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_south"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind_North-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_north"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind_Houston-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_houston"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_Wind_West-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_esc_non_wind_west"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_Wind_South-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_esc_non_wind_south"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_Wind_North-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_esc_non_wind_north"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_Wind_Houston-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_esc_non_wind_houston"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves_West-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_west"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves_South-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_south"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves_North-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_north"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves_Houston-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_houston"
+        },
+        {
+          "member": "48_Hour_Aggr_Energy_Demand_Curves_CLR-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr",
+          "csvSha256": "d0c182dff23ac8ba56406159fb506f1981f58ac7e19409017958c790abf2a11c",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves_West-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_west"
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves_South-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_south"
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves_North-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_north"
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves_Houston-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_houston"
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves-31-JAN-16.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc"
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "product": "NP4-737-CD",
+      "totalJanuaryPublications": 0,
+      "publicationQuery": {
+        "postDatetimeFrom": "2016-01-01T00:00:00",
+        "postDatetimeTo": "2016-02-01T00:00:00"
+      }
+    },
+    {
+      "year": 2017,
+      "product": "NP3-908-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2017-01-01T00:00:00",
+        "postDatetimeTo": "2017-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 550572608,
+        "friendlyName": "48_Hour_DAM_and_SCED_Energy_Curves",
+        "postDatetime": "2017-01-31T03:34:59.215000"
+      },
+      "source": "work/history-annual-curves-solar-2017/NP3-908-ER.zip",
+      "zipSha256": "c588415363fa13a3f002ae4d75e9e58ec06ad0575ae72258054afb711147e045",
+      "files": [
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves_West-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_west"
+        },
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves_South-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_south"
+        },
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves_North-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_north"
+        },
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves_Houston-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_houston"
+        },
+        {
+          "member": "48h_Agg_Min_Energy_Supply_Curves-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_IRR-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind_West-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_west"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind_South-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_south"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind_North-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_north"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Wind_Houston-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_houston"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_IRR_West-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_west"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_IRR_South-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_south"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_IRR_North-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_north"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_Non_IRR_Houston-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_houston"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves_West-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_west"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves_South-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_south"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves_North-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_north"
+        },
+        {
+          "member": "48h_Agg_Energy_Supply_Curves_Houston-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_houston"
+        },
+        {
+          "member": "48_Hour_Aggr_Energy_Demand_Curves_CLR-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr",
+          "csvSha256": "d0c182dff23ac8ba56406159fb506f1981f58ac7e19409017958c790abf2a11c",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves_West-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_west"
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves_South-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_south"
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves_North-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_north"
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves_Houston-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_houston"
+        },
+        {
+          "member": "48h_Agg_Energy_Demand_Curves-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc"
+        },
+        {
+          "member": "48h_Agg_Supply_Curves_PVGR-31-JAN-17.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr"
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "product": "NP4-737-CD",
+      "totalJanuaryPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2017-01-01T00:00:00",
+        "postDatetimeTo": "2017-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 550677299,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2017-01-31T23:31:28.276000"
+      },
+      "source": "work/history-annual-curves-solar-2017/NP4-737-CD.zip",
+      "zipSha256": "5f32f908a2549926718bcc80ab03c66b4f3012ba77d024e5c3617f49cafdd528",
+      "files": [
+        {
+          "member": "cdr.00013483.0000000000000000.20170131.233128.PVGRHRLYAVGACTNP4737.csv",
+          "reader": "np4-737-cd/spp_hrly_avrg_actl_fcast",
+          "csvSha256": "f57ecd3f6109b3ec03fb3cd668d37063385b177fe4c65f00ed44e33ee73536b5",
+          "sourceRows": 216,
+          "decodedRows": 216
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "product": "NP3-908-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2018-01-01T00:00:00",
+        "postDatetimeTo": "2018-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 596924664,
+        "friendlyName": "2_Day_DAM_and_SCED_Energy_Curves",
+        "postDatetime": "2018-01-31T03:32:39.182000"
+      },
+      "source": "work/history-annual-curves-solar-2018/NP3-908-ER.zip",
+      "zipSha256": "8a107974da96dadbb9d7361544d21c7951edfa65dfe95780aea80726f0b832f9",
+      "files": [
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_West-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_west"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_South-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_south"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_North-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_north"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_Houston-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_West-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_South-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_North-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_Houston-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_West-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_South-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_North-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_Houston-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_West-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_South-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_North-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_Houston-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr",
+          "csvSha256": "d0c182dff23ac8ba56406159fb506f1981f58ac7e19409017958c790abf2a11c",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_West-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_South-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_North-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_Houston-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR-31-JAN-18.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "product": "NP4-737-CD",
+      "totalJanuaryPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2018-01-01T00:00:00",
+        "postDatetimeTo": "2018-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 597032986,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2018-01-31T23:30:53.128000"
+      },
+      "source": "work/history-annual-curves-solar-2018/NP4-737-CD.zip",
+      "zipSha256": "e18038cbcc01ba95a73861fcddba7ff206dd4f9300a4f80a9bdc1ea1dcf47571",
+      "files": [
+        {
+          "member": "cdr.00013483.0000000000000000.20180131.233052.PVGRHRLYAVGACTNP4737.csv",
+          "reader": "np4-737-cd/spp_hrly_avrg_actl_fcast",
+          "csvSha256": "c3a20841d41a1bbd90ca345954817f9426f323e2b64f78c64fbbd051b86cf756",
+          "sourceRows": 216,
+          "decodedRows": 216
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "product": "NP3-908-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2019-01-01T00:00:00",
+        "postDatetimeTo": "2019-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 646658498,
+        "friendlyName": "2_Day_DAM_and_SCED_Energy_Curves",
+        "postDatetime": "2019-01-31T03:39:26.807000"
+      },
+      "source": "work/history-annual-curves-solar-2019/NP3-908-ER.zip",
+      "zipSha256": "708cc1ed29908884124d997405e5363ca5c01c39c6755263d5126555c0c705fe",
+      "files": [
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_West-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_west"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_South-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_south"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_North-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_north"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_Houston-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_West-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_South-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_North-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_Houston-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_West-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_South-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_North-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_Houston-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_West-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_South-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_North-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_Houston-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr",
+          "csvSha256": "d0c182dff23ac8ba56406159fb506f1981f58ac7e19409017958c790abf2a11c",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_West-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_South-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_North-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_Houston-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR-31-JAN-19.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "product": "NP4-737-CD",
+      "totalJanuaryPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2019-01-01T00:00:00",
+        "postDatetimeTo": "2019-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 646776271,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2019-01-31T23:31:16.923000"
+      },
+      "source": "work/history-annual-curves-solar-2019/NP4-737-CD.zip",
+      "zipSha256": "99c76b38cde4490e2c53436d86eb38605aa68e307c3b64487134965ffb56f2a4",
+      "files": [
+        {
+          "member": "cdr.00013483.0000000000000000.20190131.233116.PVGRHRLYAVGACTNP4737.csv",
+          "reader": "np4-737-cd/spp_hrly_avrg_actl_fcast",
+          "csvSha256": "721f4b00f2ee10894e947435f693e090871ac77d1cbbbbfcb0d5503a5f533ed1",
+          "sourceRows": 216,
+          "decodedRows": 216
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "product": "NP3-908-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2020-01-01T00:00:00",
+        "postDatetimeTo": "2020-02-01T00:00:00"
+      },
+      "listingReusedFrom": "history-middle-listings.json",
+      "document": {
+        "docId": 698694258,
+        "friendlyName": "2_Day_DAM_and_SCED_Energy_Curves",
+        "postDatetime": "2020-01-31T03:34:45.026000"
+      },
+      "source": "work/history-middle-2020/NP3-908-ER.zip",
+      "zipSha256": "072a95b6c3b782974fb573ebe5c0cb2d8f8624fac6a5038b09a106dc49565cb6",
+      "files": [
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_West-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_west"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_South-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_south"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_North-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_north"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_Houston-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_West-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_South-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_North-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_Houston-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_West-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_South-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_North-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_Houston-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_West-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_South-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_North-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_Houston-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr",
+          "csvSha256": "d0c182dff23ac8ba56406159fb506f1981f58ac7e19409017958c790abf2a11c",
+          "sourceRows": 0,
+          "decodedRows": 0
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_West-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_South-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_North-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_Houston-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR-31-JAN-20.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr"
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "product": "NP4-737-CD",
+      "totalJanuaryPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2020-01-01T00:00:00",
+        "postDatetimeTo": "2020-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 698824372,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2020-01-31T23:55:12.988000"
+      },
+      "source": "work/history-annual-curves-solar-2020/NP4-737-CD.zip",
+      "zipSha256": "a6da99e1a9b979ec60bd13ed5b8dc36aa6ff617787653308dc331ca91f88e558",
+      "files": [
+        {
+          "member": "cdr.00013483.0000000000000000.20200131.235512.PVGRHRLYAVGACTNP4737.csv",
+          "reader": "np4-737-cd/spp_hrly_avrg_actl_fcast",
+          "csvSha256": "4b2e66fdf241507876059c24d8c4ae6caef77e2f8865ede8582c2236128077eb",
+          "sourceRows": 216,
+          "decodedRows": 216
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "product": "NP3-908-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2021-01-01T00:00:00",
+        "postDatetimeTo": "2021-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 756228215,
+        "friendlyName": "2_Day_DAM_and_SCED_Energy_Curves",
+        "postDatetime": "2021-01-31T04:47:25.922000"
+      },
+      "source": "work/history-annual-curves-solar-2021/NP3-908-ER.zip",
+      "zipSha256": "c5e5be9fa6d6942bfc337342abfd98da1a63c214b990191e530f547373222e3c",
+      "files": [
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_Houston-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_North-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_South-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_West-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr",
+          "csvSha256": "9dafff8926ae86a54716ef60eb7056f5ffbb7b91741afba886a29c34b31c8df8",
+          "sourceRows": 1776096,
+          "decodedRows": 1776096
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_Houston-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_North-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_South-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_West-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_Houston-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_North-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_South-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_West-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_Houston-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_North-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_South-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_West-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_Houston-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_North-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_north"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_South-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_south"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_West-31-JAN-21.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_west"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "product": "NP4-737-CD",
+      "totalJanuaryPublications": 743,
+      "publicationQuery": {
+        "postDatetimeFrom": "2021-01-01T00:00:00",
+        "postDatetimeTo": "2021-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 756356361,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2021-01-31T23:55:14.914000"
+      },
+      "source": "work/history-annual-curves-solar-2021/NP4-737-CD.zip",
+      "zipSha256": "3f3ce52335ef9f57a506510acb37b0c2451b968b5b8b1a50ebc453b8ab953c9b",
+      "files": [
+        {
+          "member": "cdr.00013483.0000000000000000.20210131.235514.PVGRHRLYAVGACTNP4737.csv",
+          "reader": "np4-737-cd/spp_hrly_avrg_actl_fcast",
+          "csvSha256": "43343d1aada8c068f931064c5f68782f0b7844ca9b1c64f608efa36f7d8d5735",
+          "sourceRows": 216,
+          "decodedRows": 216
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "product": "NP3-908-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2022-01-01T00:00:00",
+        "postDatetimeTo": "2022-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 820374503,
+        "friendlyName": "2_Day_DAM_and_SCED_Energy_Curves",
+        "postDatetime": "2022-01-31T04:24:14.358000"
+      },
+      "source": "work/history-annual-curves-solar-2022/NP3-908-ER.zip",
+      "zipSha256": "65031478f14c18121dddb2a565ec27a8c1435388507580fd567df04dec96595b",
+      "files": [
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_Houston-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_North-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_South-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_West-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr",
+          "csvSha256": "06e4de489c00d9d77a7b22bed8939b25adc68577ae8f76382a97d4e29a44af57",
+          "sourceRows": 1343904,
+          "decodedRows": 1343904
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_Houston-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_North-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_South-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_West-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_Houston-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_North-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_South-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_West-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_Houston-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_North-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_South-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_West-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_Houston-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_North-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_north"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_South-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_south"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_West-31-JAN-22.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_west"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "product": "NP4-737-CD",
+      "totalJanuaryPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2022-01-01T00:00:00",
+        "postDatetimeTo": "2022-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 820534504,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2022-01-31T23:55:21.234000"
+      },
+      "source": "work/history-annual-curves-solar-2022/NP4-737-CD.zip",
+      "zipSha256": "1e27ddce8ad815a30db02d86842690ae2add2b3dfacdca258264bf1fe06ee151",
+      "files": [
+        {
+          "member": "cdr.00013483.0000000000000000.20220131.235521.PVGRHRLYAVGACTNP4737.csv",
+          "reader": "np4-737-cd/spp_hrly_avrg_actl_fcast",
+          "csvSha256": "dbe1243effc300d5998179e1d86e9117d789e57197809aa8ff48a532bf6a4f04",
+          "sourceRows": 216,
+          "decodedRows": 216
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "product": "NP3-908-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-01-01T00:00:00",
+        "postDatetimeTo": "2023-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 892926235,
+        "friendlyName": "2_Day_DAM_and_SCED_Energy_Curves",
+        "postDatetime": "2023-01-31T04:10:12.737000"
+      },
+      "source": "work/history-annual-curves-solar-2023/NP3-908-ER.zip",
+      "zipSha256": "3edba57b3ed06478f96733b64f84e606dc6ce9e0a81a6b20656c63f1059bb215",
+      "files": [
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR_Houston-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR_North-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR_South-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR_West-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_Houston-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_North-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_South-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_West-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr",
+          "csvSha256": "68f6f5e210984f6f26056dd7415b3717d479b63aa81ba5b7e8440a51d95b1d3e",
+          "sourceRows": 672000,
+          "decodedRows": 672000
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_Houston-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_North-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_South-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_West-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_Houston-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_North-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_South-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_West-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_Houston-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_North-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_South-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_West-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_Houston-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_North-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_north"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_South-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_south"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_West-31-JAN-23.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_west"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "product": "NP4-737-CD",
+      "totalJanuaryPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2023-01-01T00:00:00",
+        "postDatetimeTo": "2023-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 893111065,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2023-01-31T23:55:19.756000"
+      },
+      "source": "work/history-annual-curves-solar-2023/NP4-737-CD.zip",
+      "zipSha256": "9024127a366442900da1b5fd1f8a5eb2819ebadcfb8b40202f7d79767598a9b9",
+      "files": [
+        {
+          "member": "cdr.00013483.0000000000000000.20230131.235519.PVGRHRLYAVGACTNP4737.csv",
+          "reader": "np4-737-cd/spp_hrly_avrg_actl_fcast",
+          "csvSha256": "5765c0be96968faf1bf428fa816f21d441452a3953881773a0ba5dc1d4654d6e",
+          "sourceRows": 216,
+          "decodedRows": 216
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "product": "NP3-908-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-01-01T00:00:00",
+        "postDatetimeTo": "2024-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 977271820,
+        "friendlyName": "2_Day_DAM_and_SCED_Energy_Curves",
+        "postDatetime": "2024-01-31T03:26:14.971000"
+      },
+      "source": "work/history-annual-curves-solar-2024/NP3-908-ER.zip",
+      "zipSha256": "d813354796b0f53b39612148af5c1c29945a50cdfb10d2441a214abba04dd7b4",
+      "files": [
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR_Houston-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR_North-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR_South-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR_West-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR_Houston-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR_North-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR_South-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR_West-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_Houston-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_North-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_South-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_West-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr",
+          "csvSha256": "a38a48cdb44407fbbed36ebf57360ac9b09833f0db4af10d4808c3fc84cb243f",
+          "sourceRows": 504096,
+          "decodedRows": 504096
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_Houston-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_North-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_South-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_West-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_Houston-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_North-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_South-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_West-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_Houston-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_North-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_South-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_West-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_Houston-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_North-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_north"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_South-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_south"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_West-31-JAN-24.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_west"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "product": "NP4-737-CD",
+      "totalJanuaryPublications": 742,
+      "publicationQuery": {
+        "postDatetimeFrom": "2024-01-01T00:00:00",
+        "postDatetimeTo": "2024-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 977491465,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2024-01-31T23:55:33"
+      },
+      "source": "work/history-annual-curves-solar-2024/NP4-737-CD.zip",
+      "zipSha256": "aa040a5194987b427d50c2f70db136dacf151f0817d84b95d63b30ca27824e0a",
+      "files": [
+        {
+          "member": "cdr.00013483.0000000000000000.20240131.235533.PVGRHRLYAVGACTNP4737.csv",
+          "reader": "np4-737-cd/spp_hrly_avrg_actl_fcast",
+          "csvSha256": "047d7797e5d1a3844145885e1b34261beee2df95e65624a1f837b0042b8b425b",
+          "sourceRows": 216,
+          "decodedRows": 216
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "product": "NP3-908-ER",
+      "totalJanuaryPublications": 31,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-01-01T00:00:00",
+        "postDatetimeTo": "2025-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 1073728759,
+        "friendlyName": "2_Day_DAM_and_SCED_Energy_Curves",
+        "postDatetime": "2025-01-31T03:50:14.194000"
+      },
+      "source": "work/history-annual-curves-solar-2025/NP3-908-ER.zip",
+      "zipSha256": "e2484e9f8ceb5956683cf4985e2d658aa9a1f1b1108736761d7471e481bffbd4",
+      "files": [
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR_Houston-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR_North-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR_South-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR_West-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_PVGR-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_pvgr"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR_Houston-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR_North-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR_South-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR_West-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_Houston-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_North-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_South-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_West-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_edc_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Demand_Curves_CLR-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_edc_clr",
+          "csvSha256": "424540886ecfebbfdd0f8a151347039b99343925888b59795eb1598313776d4b",
+          "sourceRows": 672000,
+          "decodedRows": 672000
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_Houston-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_North-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_north"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_South-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_south"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves_West-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_Houston-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_North-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_South-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR_West-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr_west"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_Houston-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_houston"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_North-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_north"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_South-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_south"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind_West-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind_west"
+        },
+        {
+          "member": "2d_Agg_Energy_Supply_Curves-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_esc"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Wind-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_wind"
+        },
+        {
+          "member": "2d_Agg_Supply_Curves_Non_IRR-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_esc_nonirr"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_Houston-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_houston"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_North-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_north"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_South-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_south"
+        },
+        {
+          "member": "2d_Agg_Min_Energy_Supply_Curves_West-31-JAN-25.csv",
+          "reader": "np3-908-er/2d_agg_dam_min_esc_west"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "product": "NP4-737-CD",
+      "totalJanuaryPublications": 744,
+      "publicationQuery": {
+        "postDatetimeFrom": "2025-01-01T00:00:00",
+        "postDatetimeTo": "2025-02-01T00:00:00"
+      },
+      "document": {
+        "docId": 1073971532,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2025-01-31T23:55:08"
+      },
+      "source": "work/history-annual-curves-solar-2025/NP4-737-CD.zip",
+      "zipSha256": "8db06323de586ae8db0b0f02b4f9a4f42ba99f6bd0e43a4fc43548f550cfa307",
+      "files": [
+        {
+          "member": "cdr.00013483.0000000000000000.20250131.235508.PVGRHRLYAVGACTNP4737.csv",
+          "reader": "np4-737-cd/spp_hrly_avrg_actl_fcast",
+          "csvSha256": "cb99d9e06fa7d3b98f591a9fb3e5ba09b23ee7f21d0992ec5ce98f8df536a001",
+          "sourceRows": 216,
+          "decodedRows": 216
+        }
+      ]
+    }
+  ]
+}

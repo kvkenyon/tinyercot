@@ -5,8 +5,125 @@ from datetime import date, datetime, time
 from decimal import Decimal
 from typing import ClassVar
 from ._client import Transport, Page, Row
+from ._history import Archive, EiaHour
+from ._xlsx import WorkbookArchive
+from ._pdf import PdfArchive, PdfChartArchive
 
-__all__ = ['Client', 'gen_55_cd', 'np1_301', 'np1_302', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd']
+__all__ = ['Client', 'copg_316', 'eia_930_cd', 'eia_930_er', 'gen_55_cd', 'np1_300', 'np1_301', 'np1_302', 'np1_346_er', 'np3_108', 'np3_161_cd', 'np3_162_cd', 'np3_233_cd', 'np3_257_ex', 'np3_560_cd', 'np3_561_cd', 'np3_562_cd', 'np3_565_cd', 'np3_566_cd', 'np3_763_cd', 'np3_764_cd', 'np3_765_cd', 'np3_906_ex', 'np3_907_ex', 'np3_908_er', 'np3_909_er', 'np3_910_er', 'np3_911_er', 'np3_914_ex', 'np3_915_ex', 'np3_916_ex', 'np3_965_er', 'np3_966_er', 'np3_987_ex', 'np3_988_er', 'np3_990_ex', 'np3_991_ex', 'np4_158_sg', 'np4_159_cd', 'np4_179_cd', 'np4_183_cd', 'np4_188_cd', 'np4_19_cd', 'np4_190_cd', 'np4_191_cd', 'np4_192_cd', 'np4_193_cd', 'np4_194_cd', 'np4_196_m', 'np4_197_m', 'np4_200_cd', 'np4_212_cd', 'np4_213_cd', 'np4_214_cd', 'np4_215_cd', 'np4_231_cd', 'np4_33_cd', 'np4_412_cd', 'np4_442_cd', 'np4_443_cd', 'np4_494_er', 'np4_523_cd', 'np4_532_cd', 'np4_722_cd', 'np4_732_cd', 'np4_733_cd', 'np4_737_cd', 'np4_738_cd', 'np4_742_cd', 'np4_743_cd', 'np4_745_cd', 'np4_746_cd', 'np4_751_cd', 'np4_752_cd', 'np4_765_er', 'np4_790_cd', 'np4_791_cd', 'np5_108_cd', 'np5_520_er', 'np5_525_cd', 'np5_526_cd', 'np5_527_cd', 'np5_528_cd', 'np5_754_cd', 'np5_755_cd', 'np6_235_cd', 'np6_322_cd', 'np6_323_cd', 'np6_324_cd', 'np6_325_cd', 'np6_326_cd', 'np6_327_cd', 'np6_328_cd', 'np6_329_cd', 'np6_331_cd', 'np6_332_cd', 'np6_344_cd', 'np6_345_cd', 'np6_346_cd', 'np6_625_cd', 'np6_626_cd', 'np6_787_cd', 'np6_788_cd', 'np6_792_er', 'np6_793_er', 'np6_794_er', 'np6_795_er', 'np6_796_er', 'np6_86_cd', 'np6_905_cd', 'np6_915_cd', 'np6_970_cd', 'np7_464_cd', 'np7_535_sg']
+class copg_316:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class LoadEstimationCountsHistoryRow(Row):
+        type: str | None
+        region: str | None
+        TDSP: str | None
+        operatingDay: date | None
+        channel: str | None
+        actualCount: int | None
+        historicalEstimatedCount: int | None
+        defaultProfileCount: int | None
+        totalCount: int | None
+        percentActualCount: Decimal | None
+        percentHistoricalEstimatedCount: Decimal | None
+        percentDefaultProfileCount: Decimal | None
+
+    @property
+    def load_estimation_counts_history(self) -> Archive[copg_316.LoadEstimationCountsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'copg-316', copg_316.LoadEstimationCountsHistoryRow, {'TYPE': 'type', 'Region': 'region', 'TDSP': 'TDSP', 'Operating Day': 'operatingDay', 'Channel': 'channel', 'Actual Count': 'actualCount', 'Historical Estimated Count': 'historicalEstimatedCount', 'Default Profile Count': 'defaultProfileCount', 'Total Count': 'totalCount', 'Percent Actual Count': 'percentActualCount', 'Percent Hist Estimated Count': 'percentHistoricalEstimatedCount', 'Percent Default Profile Count': 'percentDefaultProfileCount'}, {'operatingDay': '%d-%b-%y'}, member='*.csv', datetimes={}, variants=())
+
+class eia_930_cd:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class HourlyOperationsHistoryRow(Row):
+        productName: str | None
+        postingType: str | None
+        balancingAuthorityCode: str | None
+        dataType: str | None
+        dataCode: str | None
+        dataDate: date | None
+        UTCOffset: int | None
+        HR1: EiaHour | None
+        HR2: EiaHour | None
+        HR3: EiaHour | None
+        HR4: EiaHour | None
+        HR5: EiaHour | None
+        HR6: EiaHour | None
+        HR7: EiaHour | None
+        HR8: EiaHour | None
+        HR9: EiaHour | None
+        HR10: EiaHour | None
+        HR11: EiaHour | None
+        HR12: EiaHour | None
+        HR13: EiaHour | None
+        HR14: EiaHour | None
+        HR15: EiaHour | None
+        HR16: EiaHour | None
+        HR17: EiaHour | None
+        HR18: EiaHour | None
+        HR19: EiaHour | None
+        HR20: EiaHour | None
+        HR21: EiaHour | None
+        HR22: EiaHour | None
+        HR23: EiaHour | None
+        HR24: EiaHour | None
+        HR25: EiaHour | None
+
+    @property
+    def hourly_operations_history(self) -> Archive[eia_930_cd.HourlyOperationsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'eia-930-cd', eia_930_cd.HourlyOperationsHistoryRow, {'Product_Name': 'productName', 'Posting_Type': 'postingType', 'Balancing_Authority_Code': 'balancingAuthorityCode', 'Data_Type': 'dataType', 'Data_Code': 'dataCode', 'Data_Date': 'dataDate', 'UTC Offset': 'UTCOffset', 'HR1': 'HR1', 'HR2': 'HR2', 'HR3': 'HR3', 'HR4': 'HR4', 'HR5': 'HR5', 'HR6': 'HR6', 'HR7': 'HR7', 'HR8': 'HR8', 'HR9': 'HR9', 'HR10': 'HR10', 'HR11': 'HR11', 'HR12': 'HR12', 'HR13': 'HR13', 'HR14': 'HR14', 'HR15': 'HR15', 'HR16': 'HR16', 'HR17': 'HR17', 'HR18': 'HR18', 'HR19': 'HR19', 'HR20': 'HR20', 'HR21': 'HR21', 'HR22': 'HR22', 'HR23': 'HR23', 'HR24': 'HR24', 'HR25': 'HR25'}, {'dataDate': '%j%Y'}, member='*.csv', datetimes=None, variants=())
+
+class eia_930_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class DailyOperationsHistoryRow(Row):
+        productName: str | None
+        postingType: str | None
+        balancingAuthorityCode: str | None
+        interconnectedBalancingAuthorityCode: str | None = None
+        dataType: str | None
+        dataCode: str | None = None
+        dataDate: date | None = None
+        postedDate: date | None = None
+        UTCOffset: int | None
+        HR1: EiaHour | None
+        HR2: EiaHour | None
+        HR3: EiaHour | None
+        HR4: EiaHour | None
+        HR5: EiaHour | None
+        HR6: EiaHour | None
+        HR7: EiaHour | None
+        HR8: EiaHour | None
+        HR9: EiaHour | None
+        HR10: EiaHour | None
+        HR11: EiaHour | None
+        HR12: EiaHour | None
+        HR13: EiaHour | None
+        HR14: EiaHour | None
+        HR15: EiaHour | None
+        HR16: EiaHour | None
+        HR17: EiaHour | None
+        HR18: EiaHour | None
+        HR19: EiaHour | None
+        HR20: EiaHour | None
+        HR21: EiaHour | None
+        HR22: EiaHour | None
+        HR23: EiaHour | None
+        HR24: EiaHour | None
+        HR25: EiaHour | None
+
+    @property
+    def daily_operations_history(self) -> Archive[eia_930_er.DailyOperationsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'eia-930-er', eia_930_er.DailyOperationsHistoryRow, {'Product_Name': 'productName', 'Posting_Type': 'postingType', 'Balancing_Authority_Code': 'balancingAuthorityCode', 'Data_Type': 'dataType', 'Data_Code': 'dataCode', 'Data_Date': 'dataDate', 'UTC Offset': 'UTCOffset', 'HR1': 'HR1', 'HR2': 'HR2', 'HR3': 'HR3', 'HR4': 'HR4', 'HR5': 'HR5', 'HR6': 'HR6', 'HR7': 'HR7', 'HR8': 'HR8', 'HR9': 'HR9', 'HR10': 'HR10', 'HR11': 'HR11', 'HR12': 'HR12', 'HR13': 'HR13', 'HR14': 'HR14', 'HR15': 'HR15', 'HR16': 'HR16', 'HR17': 'HR17', 'HR18': 'HR18', 'HR19': 'HR19', 'HR20': 'HR20', 'HR21': 'HR21', 'HR22': 'HR22', 'HR23': 'HR23', 'HR24': 'HR24', 'HR25': 'HR25'}, {'dataDate': '%j%Y', 'postedDate': '%j%Y'}, member='*.csv', datetimes=None, variants=({'Survey Name': 'productName', 'Posting Type': 'postingType', 'Balancing Authority Code': 'balancingAuthorityCode', 'Interconnected Balancing Authority Code': 'interconnectedBalancingAuthorityCode', 'Type': 'dataType', 'Posted Date': 'postedDate', 'UTCOffset': 'UTCOffset', 'HR1': 'HR1', 'HR2': 'HR2', 'HR3': 'HR3', 'HR4': 'HR4', 'HR5': 'HR5', 'HR6': 'HR6', 'HR7': 'HR7', 'HR8': 'HR8', 'HR9': 'HR9', 'HR10': 'HR10', 'HR11': 'HR11', 'HR12': 'HR12', 'HR13': 'HR13', 'HR14': 'HR14', 'HR15': 'HR15', 'HR16': 'HR16', 'HR17': 'HR17', 'HR18': 'HR18', 'HR19': 'HR19', 'HR20': 'HR20', 'HR21': 'HR21', 'HR22': 'HR22', 'HR23': 'HR23', 'HR24': 'HR24', 'HR25': 'HR25'},))
+
 class gen_55_cd:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -20,6 +137,11 @@ class gen_55_cd:
         dayAheadHSL: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def hrly_rt_load_fcast_actual_history(self) -> Archive[gen_55_cd.HrlyRtLoadFcastActualRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'gen-55-cd', gen_55_cd.HrlyRtLoadFcastActualRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'CurrentDayForecast': 'currentDayFcast', 'DayAheadForecast': 'dayAheadFcast', 'ActualLoad': 'actualLoad', 'DayAheadHSL': 'dayAheadHSL', 'CurrentDayHSL': 'currentDayHSL', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
 
     def hrly_rt_load_fcast_actual(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, currentDayFcastFrom: Decimal | None = None, currentDayFcastTo: Decimal | None = None, dayAheadFcastFrom: Decimal | None = None, dayAheadFcastTo: Decimal | None = None, actualLoadFrom: Decimal | None = None, actualLoadTo: Decimal | None = None, dayAheadHSLFrom: Decimal | None = None, dayAheadHSLTo: Decimal | None = None, currentDayHSLFrom: Decimal | None = None, currentDayHSLTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[gen_55_cd.HrlyRtLoadFcastActualRow]:
         'Hourly Real-Time Load vs. Actual Report'
@@ -36,6 +158,122 @@ class gen_55_cd:
     def hrly_rt_load_fcast_actual_iter_async(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, currentDayFcastFrom: Decimal | None = None, currentDayFcastTo: Decimal | None = None, dayAheadFcastFrom: Decimal | None = None, dayAheadFcastTo: Decimal | None = None, actualLoadFrom: Decimal | None = None, actualLoadTo: Decimal | None = None, dayAheadHSLFrom: Decimal | None = None, dayAheadHSLTo: Decimal | None = None, currentDayHSLFrom: Decimal | None = None, currentDayHSLTo: Decimal | None = None, DSTFlag: bool | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> AsyncIterator[gen_55_cd.HrlyRtLoadFcastActualRow]:
         'Hourly Real-Time Load vs. Actual Report'
         return self._client._aiter('/gen-55-cd/hrly_rt_load_fcast_actual', gen_55_cd.HrlyRtLoadFcastActualRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'currentDayFcastFrom': currentDayFcastFrom, 'currentDayFcastTo': currentDayFcastTo, 'dayAheadFcastFrom': dayAheadFcastFrom, 'dayAheadFcastTo': dayAheadFcastTo, 'actualLoadFrom': actualLoadFrom, 'actualLoadTo': actualLoadTo, 'dayAheadHSLFrom': dayAheadHSLFrom, 'dayAheadHSLTo': dayAheadHSLTo, 'currentDayHSLFrom': currentDayHSLFrom, 'currentDayHSLTo': currentDayHSLTo, 'DSTFlag': DSTFlag, 'size': size, 'sort': sort, 'dir': dir})
+
+class np1_300:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class AdjustedMeterLoadHistoryRow(Row):
+        saveRecorder: str | None
+        saveChannel: str | None
+        startTime: date | None
+        INT001: Decimal | None
+        INT002: Decimal | None
+        INT003: Decimal | None
+        INT004: Decimal | None
+        INT005: Decimal | None
+        INT006: Decimal | None
+        INT007: Decimal | None
+        INT008: Decimal | None
+        INT009: Decimal | None
+        INT010: Decimal | None
+        INT011: Decimal | None
+        INT012: Decimal | None
+        INT013: Decimal | None
+        INT014: Decimal | None
+        INT015: Decimal | None
+        INT016: Decimal | None
+        INT017: Decimal | None
+        INT018: Decimal | None
+        INT019: Decimal | None
+        INT020: Decimal | None
+        INT021: Decimal | None
+        INT022: Decimal | None
+        INT023: Decimal | None
+        INT024: Decimal | None
+        INT025: Decimal | None
+        INT026: Decimal | None
+        INT027: Decimal | None
+        INT028: Decimal | None
+        INT029: Decimal | None
+        INT030: Decimal | None
+        INT031: Decimal | None
+        INT032: Decimal | None
+        INT033: Decimal | None
+        INT034: Decimal | None
+        INT035: Decimal | None
+        INT036: Decimal | None
+        INT037: Decimal | None
+        INT038: Decimal | None
+        INT039: Decimal | None
+        INT040: Decimal | None
+        INT041: Decimal | None
+        INT042: Decimal | None
+        INT043: Decimal | None
+        INT044: Decimal | None
+        INT045: Decimal | None
+        INT046: Decimal | None
+        INT047: Decimal | None
+        INT048: Decimal | None
+        INT049: Decimal | None
+        INT050: Decimal | None
+        INT051: Decimal | None
+        INT052: Decimal | None
+        INT053: Decimal | None
+        INT054: Decimal | None
+        INT055: Decimal | None
+        INT056: Decimal | None
+        INT057: Decimal | None
+        INT058: Decimal | None
+        INT059: Decimal | None
+        INT060: Decimal | None
+        INT061: Decimal | None
+        INT062: Decimal | None
+        INT063: Decimal | None
+        INT064: Decimal | None
+        INT065: Decimal | None
+        INT066: Decimal | None
+        INT067: Decimal | None
+        INT068: Decimal | None
+        INT069: Decimal | None
+        INT070: Decimal | None
+        INT071: Decimal | None
+        INT072: Decimal | None
+        INT073: Decimal | None
+        INT074: Decimal | None
+        INT075: Decimal | None
+        INT076: Decimal | None
+        INT077: Decimal | None
+        INT078: Decimal | None
+        INT079: Decimal | None
+        INT080: Decimal | None
+        INT081: Decimal | None
+        INT082: Decimal | None
+        INT083: Decimal | None
+        INT084: Decimal | None
+        INT085: Decimal | None
+        INT086: Decimal | None
+        INT087: Decimal | None
+        INT088: Decimal | None
+        INT089: Decimal | None
+        INT090: Decimal | None
+        INT091: Decimal | None
+        INT092: Decimal | None
+        INT093: Decimal | None
+        INT094: Decimal | None
+        INT095: Decimal | None
+        INT096: Decimal | None
+        INT097: Decimal | None
+        INT098: Decimal | None
+        INT099: Decimal | None
+        INT100: Decimal | None
+        LSTime: date | None
+
+    @property
+    def adjusted_meter_load_history(self) -> Archive[np1_300.AdjustedMeterLoadHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np1-300', np1_300.AdjustedMeterLoadHistoryRow, {'SAVERECORDER': 'saveRecorder', 'SAVECHANNEL': 'saveChannel', 'STARTTIME': 'startTime', 'INT001': 'INT001', 'INT002': 'INT002', 'INT003': 'INT003', 'INT004': 'INT004', 'INT005': 'INT005', 'INT006': 'INT006', 'INT007': 'INT007', 'INT008': 'INT008', 'INT009': 'INT009', 'INT010': 'INT010', 'INT011': 'INT011', 'INT012': 'INT012', 'INT013': 'INT013', 'INT014': 'INT014', 'INT015': 'INT015', 'INT016': 'INT016', 'INT017': 'INT017', 'INT018': 'INT018', 'INT019': 'INT019', 'INT020': 'INT020', 'INT021': 'INT021', 'INT022': 'INT022', 'INT023': 'INT023', 'INT024': 'INT024', 'INT025': 'INT025', 'INT026': 'INT026', 'INT027': 'INT027', 'INT028': 'INT028', 'INT029': 'INT029', 'INT030': 'INT030', 'INT031': 'INT031', 'INT032': 'INT032', 'INT033': 'INT033', 'INT034': 'INT034', 'INT035': 'INT035', 'INT036': 'INT036', 'INT037': 'INT037', 'INT038': 'INT038', 'INT039': 'INT039', 'INT040': 'INT040', 'INT041': 'INT041', 'INT042': 'INT042', 'INT043': 'INT043', 'INT044': 'INT044', 'INT045': 'INT045', 'INT046': 'INT046', 'INT047': 'INT047', 'INT048': 'INT048', 'INT049': 'INT049', 'INT050': 'INT050', 'INT051': 'INT051', 'INT052': 'INT052', 'INT053': 'INT053', 'INT054': 'INT054', 'INT055': 'INT055', 'INT056': 'INT056', 'INT057': 'INT057', 'INT058': 'INT058', 'INT059': 'INT059', 'INT060': 'INT060', 'INT061': 'INT061', 'INT062': 'INT062', 'INT063': 'INT063', 'INT064': 'INT064', 'INT065': 'INT065', 'INT066': 'INT066', 'INT067': 'INT067', 'INT068': 'INT068', 'INT069': 'INT069', 'INT070': 'INT070', 'INT071': 'INT071', 'INT072': 'INT072', 'INT073': 'INT073', 'INT074': 'INT074', 'INT075': 'INT075', 'INT076': 'INT076', 'INT077': 'INT077', 'INT078': 'INT078', 'INT079': 'INT079', 'INT080': 'INT080', 'INT081': 'INT081', 'INT082': 'INT082', 'INT083': 'INT083', 'INT084': 'INT084', 'INT085': 'INT085', 'INT086': 'INT086', 'INT087': 'INT087', 'INT088': 'INT088', 'INT089': 'INT089', 'INT090': 'INT090', 'INT091': 'INT091', 'INT092': 'INT092', 'INT093': 'INT093', 'INT094': 'INT094', 'INT095': 'INT095', 'INT096': 'INT096', 'INT097': 'INT097', 'INT098': 'INT098', 'INT099': 'INT099', 'INT100': 'INT100', 'LSTIME': 'LSTime'}, {'startTime': '%d-%b-%y', 'LSTime': '%d-%b-%y'}, member='*.csv', datetimes={}, variants=())
 
 class np1_301:
     def __init__(self, client: Transport) -> None:
@@ -61,6 +299,33 @@ class np1_301:
         qseName: str | None
         resourceName: str | None
         status: str | None
+
+    class _60CopAdjPeriodSnapshotHistoryRow(Row):
+        deliveryDate: date | None
+        qseName: str | None
+        resourceName: str | None
+        hourEnding: str | None
+        status: str | None
+        highSustainedLimit: Decimal | None
+        lowSustainedLimit: Decimal | None
+        highEmergencyLimit: Decimal | None
+        lowEmergencyLimit: Decimal | None
+        REGUP: Decimal | None
+        REGDN: Decimal | None
+        RRSPFR: Decimal | None = None
+        RRSFFR: Decimal | None = None
+        RRSUFR: Decimal | None = None
+        NSPIN: Decimal | None
+        ECRS: Decimal | None = None
+        minSOC: Decimal | None = None
+        maxSOC: Decimal | None = None
+        hourBeginningPlannedSOC: Decimal | None = None
+        RRS: Decimal | None = None
+
+    @property
+    def _60_cop_adj_period_snapshot_history(self) -> Archive[np1_301._60CopAdjPeriodSnapshotHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np1-301', np1_301._60CopAdjPeriodSnapshotHistoryRow, {'Delivery Date': 'deliveryDate', 'QSE Name': 'qseName', 'Resource Name': 'resourceName', 'Hour Ending': 'hourEnding', 'Status': 'status', 'High Sustained Limit': 'highSustainedLimit', 'Low Sustained Limit': 'lowSustainedLimit', 'High Emergency Limit': 'highEmergencyLimit', 'Low Emergency Limit': 'lowEmergencyLimit', 'Reg Up': 'REGUP', 'Reg Down': 'REGDN', 'RRSPFR': 'RRSPFR', 'RRSFFR': 'RRSFFR', 'RRSUFR': 'RRSUFR', 'NSPIN': 'NSPIN', 'ECRS': 'ECRS', 'Minimum SOC': 'minSOC', 'Maximum SOC': 'maxSOC', 'Hour Beginning Planned SOC': 'hourBeginningPlannedSOC'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'QSE Name': 'qseName', 'Resource Name': 'resourceName', 'Hour Ending': 'hourEnding', 'Status': 'status', 'High Sustained Limit': 'highSustainedLimit', 'Low Sustained Limit': 'lowSustainedLimit', 'High Emergency Limit': 'highEmergencyLimit', 'Low Emergency Limit': 'lowEmergencyLimit', 'Reg Up': 'REGUP', 'Reg Down': 'REGDN', 'RRS': 'RRS', 'NSPIN': 'NSPIN'},))
 
     def _60_cop_adj_period_snapshot(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, qseName: str | None = None, resourceName: str | None = None, hourEnding: str | None = None, status: str | None = None, highSustainedLimitFrom: Decimal | None = None, highSustainedLimitTo: Decimal | None = None, lowSustainedLimitFrom: Decimal | None = None, lowSustainedLimitTo: Decimal | None = None, highEmergencyLimitFrom: Decimal | None = None, highEmergencyLimitTo: Decimal | None = None, lowEmergencyLimitFrom: Decimal | None = None, lowEmergencyLimitTo: Decimal | None = None, REGUPFrom: Decimal | None = None, REGUPTo: Decimal | None = None, REGDNFrom: Decimal | None = None, REGDNTo: Decimal | None = None, RRSPFRFrom: Decimal | None = None, RRSPFRTo: Decimal | None = None, RRSFFRFrom: Decimal | None = None, RRSFFRTo: Decimal | None = None, RRSUFRFrom: Decimal | None = None, RRSUFRTo: Decimal | None = None, NSPINFrom: Decimal | None = None, NSPINTo: Decimal | None = None, ECRSFrom: Decimal | None = None, ECRSTo: Decimal | None = None, minSOCFrom: Decimal | None = None, minSOCTo: Decimal | None = None, maxSOCFrom: Decimal | None = None, maxSOCTo: Decimal | None = None, hourBeginningPlannedSOCFrom: Decimal | None = None, hourBeginningPlannedSOCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np1_301._60CopAdjPeriodSnapshotRow]:
         '60-Day COP Adjustment Period Snapshot'
@@ -97,6 +362,34 @@ class np1_302:
         hourEnding: str | None
         qseName: str | None
 
+    class AsObligationHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: str | None
+        qseName: str | None
+        REGUPOblAdvisory: Decimal | None = None
+        REGDNOblAdvisory: Decimal | None = None
+        RRSOblAdvisory: Decimal | None = None
+        NSPINOblAdvisory: Decimal | None = None
+        ECRSOblAdvisory: Decimal | None = None
+        REGUPOblFinal: Decimal | None = None
+        REGDNOblFinal: Decimal | None = None
+        RRSOblFinal: Decimal | None = None
+        NSPINOblFinal: Decimal | None = None
+        ECRSOblFinal: Decimal | None = None
+        REGUPObligation: Decimal | None = None
+        REGUPResponsibility: Decimal | None = None
+        REGDNObligation: Decimal | None = None
+        REGDNResponsibility: Decimal | None = None
+        RRSObligation: Decimal | None = None
+        RRSResponsibility: Decimal | None = None
+        NSPINObligation: Decimal | None = None
+        NSPINResponsibility: Decimal | None = None
+
+    @property
+    def as_obligation_history(self) -> Archive[np1_302.AsObligationHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np1-302', np1_302.AsObligationHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE Name': 'qseName', 'Reg Up Obligation Advisory': 'REGUPOblAdvisory', 'Reg Down Obligation Advisory': 'REGDNOblAdvisory', 'RRS Obligation Advisory': 'RRSOblAdvisory', 'NSPIN Obligation Advisory': 'NSPINOblAdvisory', 'ECRS Obligation Advisory': 'ECRSOblAdvisory', 'Reg Up Obligation Final': 'REGUPOblFinal', 'Reg Down Obligation Final': 'REGDNOblFinal', 'RRS Obligation Final': 'RRSOblFinal', 'NSPIN Obligation Final': 'NSPINOblFinal', 'ECRS Obligation Final': 'ECRSOblFinal'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE Name': 'qseName', 'Reg Up Obligation': 'REGUPObligation', 'Reg Down Obligation': 'REGDNObligation', 'RRS Obligation': 'RRSObligation', 'NSPIN Obligation': 'NSPINObligation', 'Reg Up Responsibility': 'REGUPResponsibility', 'Reg Down Responsibility': 'REGDNResponsibility', 'RRS Responsibility': 'RRSResponsibility', 'NSPIN Responsibility': 'NSPINResponsibility'},))
+
     def as_obligation(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, qseName: str | None = None, REGUPOblAdvisoryFrom: Decimal | None = None, REGUPOblAdvisoryTo: Decimal | None = None, REGDNOblAdvisoryFrom: Decimal | None = None, REGDNOblAdvisoryTo: Decimal | None = None, RRSOblAdvisoryFrom: Decimal | None = None, RRSOblAdvisoryTo: Decimal | None = None, NSPINOblAdvisoryFrom: Decimal | None = None, NSPINOblAdvisoryTo: Decimal | None = None, ECRSOblAdvisoryFrom: Decimal | None = None, ECRSOblAdvisoryTo: Decimal | None = None, REGUPOblFinalFrom: Decimal | None = None, REGUPOblFinalTo: Decimal | None = None, REGDNOblFinalFrom: Decimal | None = None, REGDNOblFinalTo: Decimal | None = None, RRSOblFinalFrom: Decimal | None = None, RRSOblFinalTo: Decimal | None = None, NSPINOblFinalFrom: Decimal | None = None, NSPINOblFinalTo: Decimal | None = None, ECRSOblFinalFrom: Decimal | None = None, ECRSOblFinalTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np1_302.AsObligationRow]:
         'Ancillary Service Obligations Report'
         return self._client._page('/np1-302/as_obligation', np1_302.AsObligationRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'qseName': qseName, 'REGUPOblAdvisoryFrom': REGUPOblAdvisoryFrom, 'REGUPOblAdvisoryTo': REGUPOblAdvisoryTo, 'REGDNOblAdvisoryFrom': REGDNOblAdvisoryFrom, 'REGDNOblAdvisoryTo': REGDNOblAdvisoryTo, 'RRSOblAdvisoryFrom': RRSOblAdvisoryFrom, 'RRSOblAdvisoryTo': RRSOblAdvisoryTo, 'NSPINOblAdvisoryFrom': NSPINOblAdvisoryFrom, 'NSPINOblAdvisoryTo': NSPINOblAdvisoryTo, 'ECRSOblAdvisoryFrom': ECRSOblAdvisoryFrom, 'ECRSOblAdvisoryTo': ECRSOblAdvisoryTo, 'REGUPOblFinalFrom': REGUPOblFinalFrom, 'REGUPOblFinalTo': REGUPOblFinalTo, 'REGDNOblFinalFrom': REGDNOblFinalFrom, 'REGDNOblFinalTo': REGDNOblFinalTo, 'RRSOblFinalFrom': RRSOblFinalFrom, 'RRSOblFinalTo': RRSOblFinalTo, 'NSPINOblFinalFrom': NSPINOblFinalFrom, 'NSPINOblFinalTo': NSPINOblFinalTo, 'ECRSOblFinalFrom': ECRSOblFinalFrom, 'ECRSOblFinalTo': ECRSOblFinalTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -112,6 +405,51 @@ class np1_302:
     def as_obligation_iter_async(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, qseName: str | None = None, REGUPOblAdvisoryFrom: Decimal | None = None, REGUPOblAdvisoryTo: Decimal | None = None, REGDNOblAdvisoryFrom: Decimal | None = None, REGDNOblAdvisoryTo: Decimal | None = None, RRSOblAdvisoryFrom: Decimal | None = None, RRSOblAdvisoryTo: Decimal | None = None, NSPINOblAdvisoryFrom: Decimal | None = None, NSPINOblAdvisoryTo: Decimal | None = None, ECRSOblAdvisoryFrom: Decimal | None = None, ECRSOblAdvisoryTo: Decimal | None = None, REGUPOblFinalFrom: Decimal | None = None, REGUPOblFinalTo: Decimal | None = None, REGDNOblFinalFrom: Decimal | None = None, REGDNOblFinalTo: Decimal | None = None, RRSOblFinalFrom: Decimal | None = None, RRSOblFinalTo: Decimal | None = None, NSPINOblFinalFrom: Decimal | None = None, NSPINOblFinalTo: Decimal | None = None, ECRSOblFinalFrom: Decimal | None = None, ECRSOblFinalTo: Decimal | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> AsyncIterator[np1_302.AsObligationRow]:
         'Ancillary Service Obligations Report'
         return self._client._aiter('/np1-302/as_obligation', np1_302.AsObligationRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'qseName': qseName, 'REGUPOblAdvisoryFrom': REGUPOblAdvisoryFrom, 'REGUPOblAdvisoryTo': REGUPOblAdvisoryTo, 'REGDNOblAdvisoryFrom': REGDNOblAdvisoryFrom, 'REGDNOblAdvisoryTo': REGDNOblAdvisoryTo, 'RRSOblAdvisoryFrom': RRSOblAdvisoryFrom, 'RRSOblAdvisoryTo': RRSOblAdvisoryTo, 'NSPINOblAdvisoryFrom': NSPINOblAdvisoryFrom, 'NSPINOblAdvisoryTo': NSPINOblAdvisoryTo, 'ECRSOblAdvisoryFrom': ECRSOblAdvisoryFrom, 'ECRSOblAdvisoryTo': ECRSOblAdvisoryTo, 'REGUPOblFinalFrom': REGUPOblFinalFrom, 'REGUPOblFinalTo': REGUPOblFinalTo, 'REGDNOblFinalFrom': REGDNOblFinalFrom, 'REGDNOblFinalTo': REGDNOblFinalTo, 'RRSOblFinalFrom': RRSOblFinalFrom, 'RRSOblFinalTo': RRSOblFinalTo, 'NSPINOblFinalFrom': NSPINOblFinalFrom, 'NSPINOblFinalTo': NSPINOblFinalTo, 'ECRSOblFinalFrom': ECRSOblFinalFrom, 'ECRSOblFinalTo': ECRSOblFinalTo, 'size': size, 'sort': sort, 'dir': dir})
+
+class np1_346_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class OutagesHistoryRow(Row):
+        sourceSheet: str | None = None
+        resourceName: str | None
+        resourceUnitCode: str | None
+        fuelType: str | None
+        outageType: str | None
+        availableMWMaximum: Decimal | None
+        availableMWDuringOutage: Decimal | None
+        effectiveMWReduction: Decimal | None
+        actualOutageStart: datetime | None
+        returnToServiceDate: datetime | None = None
+        plannedEndDate: datetime | None = None
+        actualEndDate: datetime | None = None
+        natureOfWork: str | None
+
+    @property
+    def outages_history(self) -> WorkbookArchive[np1_346_er.OutagesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np1-346-er', np1_346_er.OutagesHistoryRow, {'Resource Name': 'resourceName', 'Resource Unit Code': 'resourceUnitCode', 'Fuel Type': 'fuelType', 'Outage Type': 'outageType', 'Available MW Maximum': 'availableMWMaximum', 'Available MW During Outage': 'availableMWDuringOutage', 'Effective MW Reduction Due to Outage': 'effectiveMWReduction', 'Actual Outage Start': 'actualOutageStart', 'Return to Service Date': 'returnToServiceDate', 'Nature Of Work': 'natureOfWork'}, {}, sheets=('Unplanned Resource Outages',), variants=({'Resource Name': 'resourceName', 'Resource Unit Code': 'resourceUnitCode', 'Fuel Type': 'fuelType', 'Outage Type': 'outageType', 'Available MW Maximum': 'availableMWMaximum', 'Available MW During Outage': 'availableMWDuringOutage', 'Effective MW Reduction Due to Outage': 'effectiveMWReduction', 'Actual Outage Start': 'actualOutageStart', 'Planned End Date': 'plannedEndDate', 'Actual End Date': 'actualEndDate', 'Nature Of Work': 'natureOfWork'},))
+
+class np3_108:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class DemandResponseHistoryRow(Row):
+        sourceSheet: str | None = None
+        month: date | None
+        hour: int | None
+        ASType: str | None
+        houston: Decimal | None
+        north: Decimal | None
+        south: Decimal | None
+        west: Decimal | None
+
+    @property
+    def demand_response_history(self) -> WorkbookArchive[np3_108.DemandResponseHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np3-108', np3_108.DemandResponseHistoryRow, {'Month': 'month', 'Hour': 'hour', 'ASType': 'ASType', 'Houston': 'houston', 'North': 'north', 'South': 'south', 'West': 'west'}, {'month': '%b-%y'}, sheets=('Report Data', 'CLR Report Data', 'NCLR Report Data'), variants=())
 
 class np3_161_cd:
     def __init__(self, client: Transport) -> None:
@@ -129,6 +467,24 @@ class np3_161_cd:
         nonIRRNonPUN: Decimal | None
         operatingDate: date | None
         postedDatetime: datetime | None
+
+    class _7dPlusAvailResPocMarginHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        operatingDate: date | None
+        nonIRRNonPUN: Decimal | None
+        ESR: Decimal | None
+        aggApprvdNonIRRNonPUN: Decimal | None
+        aggRcvdNonIRRNonPUN: Decimal | None
+        IRR: Decimal | None
+        aggApprvdIRR: Decimal | None
+        aggRcvdIRR: Decimal | None
+        aggApprvdESR: Decimal | None
+        aggRcvdESR: Decimal | None
+
+    @property
+    def _7d_plus_avail_res_poc_margin_history(self) -> Archive[np3_161_cd._7dPlusAvailResPocMarginHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-161-cd', np3_161_cd._7dPlusAvailResPocMarginHistoryRow, {'OperatingDate': 'operatingDate', 'ResourcePOLnonIRRnonPUN': 'nonIRRNonPUN', 'ResourcePOLESR': 'ESR', 'AggApprovedResourcePOLnonIRRnonPUN': 'aggApprvdNonIRRNonPUN', 'AggReceivedResourcePOLnonIRRnonPUN': 'aggRcvdNonIRRNonPUN', 'ResourcePOLIRR': 'IRR', 'AggApprovedResourcePOLIRR': 'aggApprvdIRR', 'AggReceivedResourcePOLIRR': 'aggRcvdIRR', 'AggApprovedResourcePOLESR': 'aggApprvdESR', 'AggReceivedResourcePOLESR': 'aggRcvdESR'}, {'operatingDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
 
     def _7d_plus_avail_res_poc_margin(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, operatingDateFrom: date | None = None, operatingDateTo: date | None = None, nonIRRNonPUNFrom: Decimal | None = None, nonIRRNonPUNTo: Decimal | None = None, ESRFrom: Decimal | None = None, ESRTo: Decimal | None = None, aggApprvdNonIRRNonPUNFrom: Decimal | None = None, aggApprvdNonIRRNonPUNTo: Decimal | None = None, aggRcvdNonIRRNonPUNFrom: Decimal | None = None, aggRcvdNonIRRNonPUNTo: Decimal | None = None, IRRFrom: Decimal | None = None, IRRTo: Decimal | None = None, aggApprvdIRRFrom: Decimal | None = None, aggApprvdIRRTo: Decimal | None = None, aggRcvdIRRFrom: Decimal | None = None, aggRcvdIRRTo: Decimal | None = None, aggApprvdESRFrom: Decimal | None = None, aggApprvdESRTo: Decimal | None = None, aggRcvdESRFrom: Decimal | None = None, aggRcvdESRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_161_cd._7dPlusAvailResPocMarginRow]:
         'Available Resource Planned Outage Capacity Margin_7 Day Plus'
@@ -164,6 +520,26 @@ class np3_162_cd:
         operatingDate: date | None
         postedDatetime: datetime | None
         repeatedHourFlag: bool | None
+
+    class _7dAvailResPocMarginHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        operatingDate: date | None
+        hourEnding: int | None
+        nonIrrNonPun: Decimal | None
+        aggApprvdNonIRRNonPUN: Decimal | None
+        aggRcvdNonIRRNonPUN: Decimal | None
+        IRR: Decimal | None
+        aggApprvdIRR: Decimal | None
+        aggRcvdIRR: Decimal | None
+        ESR: Decimal | None
+        aggApprvdESR: Decimal | None
+        aggRcvdESR: Decimal | None
+        repeatedHourFlag: bool | None
+
+    @property
+    def _7d_avail_res_poc_margin_history(self) -> Archive[np3_162_cd._7dAvailResPocMarginHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-162-cd', np3_162_cd._7dAvailResPocMarginHistoryRow, {'OperatingDate': 'operatingDate', 'HourEnding': 'hourEnding', 'ResourcePOLnonIRRnonPUN': 'nonIrrNonPun', 'AggApprovedResourcePOLnonIRRnonPUN': 'aggApprvdNonIRRNonPUN', 'AggReceivedResourcePOLnonIRRnonPUN': 'aggRcvdNonIRRNonPUN', 'ResourcePOLIRR': 'IRR', 'AggApprovedResourcePOLIRR': 'aggApprvdIRR', 'AggReceivedResourcePOLIRR': 'aggRcvdIRR', 'ResourcePOLESR': 'ESR', 'AggApprovedResourcePOLESR': 'aggApprvdESR', 'AggReceivedResourcePOLESR': 'aggRcvdESR', 'RepeatedHourFlag': 'repeatedHourFlag'}, {'operatingDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
 
     def _7d_avail_res_poc_margin(self, *, aggRcvdESRFrom: Decimal | None = None, aggRcvdESRTo: Decimal | None = None, repeatedHourFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, operatingDateFrom: date | None = None, operatingDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, nonIrrNonPunFrom: Decimal | None = None, nonIrrNonPunTo: Decimal | None = None, aggApprvdNonIRRNonPUNFrom: Decimal | None = None, aggApprvdNonIRRNonPUNTo: Decimal | None = None, aggRcvdNonIRRNonPUNFrom: Decimal | None = None, aggRcvdNonIRRNonPUNTo: Decimal | None = None, IRRFrom: Decimal | None = None, IRRTo: Decimal | None = None, aggApprvdIRRFrom: Decimal | None = None, aggApprvdIRRTo: Decimal | None = None, aggRcvdIRRFrom: Decimal | None = None, aggRcvdIRRTo: Decimal | None = None, ESRFrom: Decimal | None = None, ESRTo: Decimal | None = None, aggApprvdESRFrom: Decimal | None = None, aggApprvdESRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_162_cd._7dAvailResPocMarginRow]:
         'Available Resource Planned Outage Capacity Margin_7 Day'
@@ -202,6 +578,30 @@ class np3_233_cd:
         totalResourceMWZoneSouth: int | None
         totalResourceMWZoneWest: int | None
 
+    class HourlyResOutageCapHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        operatingDate: date | None
+        hourEnding: int | None
+        totalResourceMWZoneSouth: int | None = None
+        totalResourceMWZoneNorth: int | None = None
+        totalResourceMWZoneWest: int | None = None
+        totalResourceMWZoneHouston: int | None = None
+        totalIRRMWZoneSouth: int | None = None
+        totalIRRMWZoneNorth: int | None = None
+        totalIRRMWZoneWest: int | None = None
+        totalIRRMWZoneHouston: int | None = None
+        totalNewEquipResourceMWZoneSouth: int | None = None
+        totalNewEquipResourceMWZoneNorth: int | None = None
+        totalNewEquipResourceMWZoneWest: int | None = None
+        totalNewEquipResourceMWZoneHouston: int | None = None
+        totalResourceMW: int | None = None
+        totalIRRMW: int | None = None
+
+    @property
+    def hourly_res_outage_cap_history(self) -> Archive[np3_233_cd.HourlyResOutageCapHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-233-cd', np3_233_cd.HourlyResOutageCapHistoryRow, {'Date': 'operatingDate', 'HourEnding': 'hourEnding', 'TotalResourceMWZoneSouth': 'totalResourceMWZoneSouth', 'TotalResourceMWZoneNorth': 'totalResourceMWZoneNorth', 'TotalResourceMWZoneWest': 'totalResourceMWZoneWest', 'TotalResourceMWZoneHouston': 'totalResourceMWZoneHouston', 'TotalIRRMWZoneSouth': 'totalIRRMWZoneSouth', 'TotalIRRMWZoneNorth': 'totalIRRMWZoneNorth', 'TotalIRRMWZoneWest': 'totalIRRMWZoneWest', 'TotalIRRMWZoneHouston': 'totalIRRMWZoneHouston', 'TotalNewEquipResourceMWZoneSouth': 'totalNewEquipResourceMWZoneSouth', 'TotalNewEquipResourceMWZoneNorth': 'totalNewEquipResourceMWZoneNorth', 'TotalNewEquipResourceMWZoneWest': 'totalNewEquipResourceMWZoneWest', 'TotalNewEquipResourceMWZoneHouston': 'totalNewEquipResourceMWZoneHouston'}, {'operatingDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=({'Date': 'operatingDate', 'HourEnding': 'hourEnding', 'TotalResourceMW': 'totalResourceMW', 'TotalIRRMW': 'totalIRRMW'},))
+
     def hourly_res_outage_cap(self, *, operatingDateFrom: date | None = None, operatingDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalResourceMWZoneSouthFrom: int | None = None, totalResourceMWZoneSouthTo: int | None = None, totalResourceMWZoneNorthFrom: int | None = None, totalResourceMWZoneNorthTo: int | None = None, totalResourceMWZoneWestFrom: int | None = None, totalResourceMWZoneWestTo: int | None = None, totalResourceMWZoneHoustonFrom: int | None = None, totalResourceMWZoneHoustonTo: int | None = None, totalIRRMWZoneSouthFrom: int | None = None, totalIRRMWZoneSouthTo: int | None = None, totalIRRMWZoneNorthFrom: int | None = None, totalIRRMWZoneNorthTo: int | None = None, totalIRRMWZoneWestFrom: int | None = None, totalIRRMWZoneWestTo: int | None = None, totalIRRMWZoneHoustonFrom: int | None = None, totalIRRMWZoneHoustonTo: int | None = None, totalNewEquipResourceMWZoneSouthFrom: int | None = None, totalNewEquipResourceMWZoneSouthTo: int | None = None, totalNewEquipResourceMWZoneNorthFrom: int | None = None, totalNewEquipResourceMWZoneNorthTo: int | None = None, totalNewEquipResourceMWZoneWestFrom: int | None = None, totalNewEquipResourceMWZoneWestTo: int | None = None, totalNewEquipResourceMWZoneHoustonFrom: int | None = None, totalNewEquipResourceMWZoneHoustonTo: int | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_233_cd.HourlyResOutageCapRow]:
         'Hourly Resource Outage Capacity'
         return self._client._page('/np3-233-cd/hourly_res_outage_cap', np3_233_cd.HourlyResOutageCapRow, {'operatingDateFrom': operatingDateFrom, 'operatingDateTo': operatingDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalResourceMWZoneSouthFrom': totalResourceMWZoneSouthFrom, 'totalResourceMWZoneSouthTo': totalResourceMWZoneSouthTo, 'totalResourceMWZoneNorthFrom': totalResourceMWZoneNorthFrom, 'totalResourceMWZoneNorthTo': totalResourceMWZoneNorthTo, 'totalResourceMWZoneWestFrom': totalResourceMWZoneWestFrom, 'totalResourceMWZoneWestTo': totalResourceMWZoneWestTo, 'totalResourceMWZoneHoustonFrom': totalResourceMWZoneHoustonFrom, 'totalResourceMWZoneHoustonTo': totalResourceMWZoneHoustonTo, 'totalIRRMWZoneSouthFrom': totalIRRMWZoneSouthFrom, 'totalIRRMWZoneSouthTo': totalIRRMWZoneSouthTo, 'totalIRRMWZoneNorthFrom': totalIRRMWZoneNorthFrom, 'totalIRRMWZoneNorthTo': totalIRRMWZoneNorthTo, 'totalIRRMWZoneWestFrom': totalIRRMWZoneWestFrom, 'totalIRRMWZoneWestTo': totalIRRMWZoneWestTo, 'totalIRRMWZoneHoustonFrom': totalIRRMWZoneHoustonFrom, 'totalIRRMWZoneHoustonTo': totalIRRMWZoneHoustonTo, 'totalNewEquipResourceMWZoneSouthFrom': totalNewEquipResourceMWZoneSouthFrom, 'totalNewEquipResourceMWZoneSouthTo': totalNewEquipResourceMWZoneSouthTo, 'totalNewEquipResourceMWZoneNorthFrom': totalNewEquipResourceMWZoneNorthFrom, 'totalNewEquipResourceMWZoneNorthTo': totalNewEquipResourceMWZoneNorthTo, 'totalNewEquipResourceMWZoneWestFrom': totalNewEquipResourceMWZoneWestFrom, 'totalNewEquipResourceMWZoneWestTo': totalNewEquipResourceMWZoneWestTo, 'totalNewEquipResourceMWZoneHoustonFrom': totalNewEquipResourceMWZoneHoustonFrom, 'totalNewEquipResourceMWZoneHoustonTo': totalNewEquipResourceMWZoneHoustonTo, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -230,6 +630,21 @@ class np3_257_ex:
         proxyExtension: str | None
         qseName: str | None
         repeatedHourFlag: bool | None
+
+    class _3dHighPriceBidsSelDispScedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatedHourFlag: bool | None
+        qseName: str | None
+        dmeName: str | None = None
+        loadResource: str | None
+        highestPriceDispatched: Decimal | None
+        proxyExtension: str | None
+        batchId: str | None = None
+
+    @property
+    def _3d_high_price_bids_sel_disp_sced_history(self) -> Archive[np3_257_ex._3dHighPriceBidsSelDispScedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-257-ex', np3_257_ex._3dHighPriceBidsSelDispScedHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatedHourFlag', 'QSE': 'qseName', 'DME': 'dmeName', 'Load Resource': 'loadResource', 'Highest Price Dispatched by SCED': 'highestPriceDispatched', 'Proxy Extension': 'proxyExtension'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time Stamp': 'SCEDTimestamp', 'Batch ID': 'batchId', 'Repeated Hour Flag': 'repeatedHourFlag', 'QSE': 'qseName', 'Load Resource': 'loadResource', 'Highest Price Dispatched by SCED': 'highestPriceDispatched', 'Proxy Extension': 'proxyExtension'},))
 
     def _3d_high_price_bids_sel_disp_sced(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatedHourFlag: bool | None = None, qseName: str | None = None, dmeName: str | None = None, loadResource: str | None = None, highestPriceDispatchedFrom: Decimal | None = None, highestPriceDispatchedTo: Decimal | None = None, proxyExtension: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_257_ex._3dHighPriceBidsSelDispScedRow]:
         '3-Day Highest Price Bids Selected or Dispatched in SCED'
@@ -261,6 +676,22 @@ class np3_560_cd:
         south: Decimal | None
         systemTotal: Decimal | None
         west: Decimal | None
+
+    class _7dLoadFcastByFznHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        north: Decimal | None
+        south: Decimal | None
+        west: Decimal | None
+        houston: Decimal | None
+        systemTotal: Decimal | None
+        DSTFlag: bool | None
+
+    @property
+    def _7d_load_fcast_by_fzn_history(self) -> Archive[np3_560_cd._7dLoadFcastByFznHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-560-cd', np3_560_cd._7dLoadFcastByFznHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'North': 'north', 'South': 'south', 'West': 'west', 'Houston': 'houston', 'SystemTotal': 'systemTotal', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=({'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'North': 'north', 'South': 'south', 'West': 'west', 'Houston': 'houston', 'SystemTotal': 'systemTotal', 'DSTFlag    ': 'DSTFlag'},))
 
     def _7d_load_fcast_by_fzn(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, southFrom: Decimal | None = None, southTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, houstonFrom: Decimal | None = None, houstonTo: Decimal | None = None, systemTotalFrom: Decimal | None = None, systemTotalTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_560_cd._7dLoadFcastByFznRow]:
         'Seven-Day Load Forecast by Forecast Zone'
@@ -297,6 +728,26 @@ class np3_561_cd:
         systemTotal: Decimal | None
         west: Decimal | None
 
+    class _7dLoadFcastByWznHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        coast: Decimal | None
+        east: Decimal | None
+        farWest: Decimal | None
+        north: Decimal | None
+        northCentral: Decimal | None
+        southCentral: Decimal | None
+        southern: Decimal | None
+        west: Decimal | None
+        systemTotal: Decimal | None
+        DSTFlag: bool | None
+
+    @property
+    def _7d_load_fcast_by_wzn_history(self) -> Archive[np3_561_cd._7dLoadFcastByWznHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-561-cd', np3_561_cd._7dLoadFcastByWznHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Coast': 'coast', 'East': 'east', 'FarWest': 'farWest', 'North': 'north', 'NorthCentral': 'northCentral', 'SouthCentral': 'southCentral', 'Southern': 'southern', 'West': 'west', 'SystemTotal': 'systemTotal', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
+
     def _7d_load_fcast_by_wzn(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, coastFrom: Decimal | None = None, coastTo: Decimal | None = None, eastFrom: Decimal | None = None, eastTo: Decimal | None = None, farWestFrom: Decimal | None = None, farWestTo: Decimal | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, northCentralFrom: Decimal | None = None, northCentralTo: Decimal | None = None, southCentralFrom: Decimal | None = None, southCentralTo: Decimal | None = None, southernFrom: Decimal | None = None, southernTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, systemTotalFrom: Decimal | None = None, systemTotalTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_561_cd._7dLoadFcastByWznRow]:
         'Seven-Day Load Forecast by Weather Zone'
         return self._client._page('/np3-561-cd/7d_load_fcast_by_wzn', np3_561_cd._7dLoadFcastByWznRow, {'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'coastFrom': coastFrom, 'coastTo': coastTo, 'eastFrom': eastFrom, 'eastTo': eastTo, 'farWestFrom': farWestFrom, 'farWestTo': farWestTo, 'northFrom': northFrom, 'northTo': northTo, 'northCentralFrom': northCentralFrom, 'northCentralTo': northCentralTo, 'southCentralFrom': southCentralFrom, 'southCentralTo': southCentralTo, 'southernFrom': southernFrom, 'southernTo': southernTo, 'westFrom': westFrom, 'westTo': westTo, 'systemTotalFrom': systemTotalFrom, 'systemTotalTo': systemTotalTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -332,6 +783,27 @@ class np3_562_cd:
         southern: Decimal | None
         systemTotal: Decimal | None
         west: Decimal | None
+
+    class IhLoadFcastByWznHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        coast: Decimal | None
+        east: Decimal | None
+        farWest: Decimal | None
+        north: Decimal | None
+        northCentral: Decimal | None
+        southCentral: Decimal | None
+        southern: Decimal | None
+        west: Decimal | None
+        systemTotal: Decimal | None
+        model: str | None
+        inUseFlag: bool | None
+        DSTFlag: bool | None
+
+    @property
+    def ih_load_fcast_by_wzn_history(self) -> Archive[np3_562_cd.IhLoadFcastByWznHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-562-cd', np3_562_cd.IhLoadFcastByWznHistoryRow, {'IntervalEnding': 'intervalEnding', 'Coast': 'coast', 'East': 'east', 'FarWest': 'farWest', 'North': 'north', 'NorthCentral': 'northCentral', 'SouthCentral': 'southCentral', 'Southern': 'southern', 'West': 'west', 'SystemTotal': 'systemTotal', 'Model': 'model', 'InUseFlag': 'inUseFlag', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=())
 
     def ih_load_fcast_by_wzn(self, *, farWestFrom: Decimal | None = None, farWestTo: Decimal | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, northCentralFrom: Decimal | None = None, northCentralTo: Decimal | None = None, southCentralFrom: Decimal | None = None, southCentralTo: Decimal | None = None, southernFrom: Decimal | None = None, southernTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, systemTotalFrom: Decimal | None = None, systemTotalTo: Decimal | None = None, model: str | None = None, inUseFlag: bool | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, coastFrom: Decimal | None = None, coastTo: Decimal | None = None, eastFrom: Decimal | None = None, eastTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_562_cd.IhLoadFcastByWznRow]:
         'Intra-Hour Load Forecast by Weather Zone'
@@ -370,6 +842,28 @@ class np3_565_cd:
         systemTotal: Decimal | None
         west: Decimal | None
 
+    class LfByModelWeatherZoneHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        coast: Decimal | None
+        east: Decimal | None
+        farWest: Decimal | None
+        north: Decimal | None
+        northCentral: Decimal | None
+        southCentral: Decimal | None
+        southern: Decimal | None
+        west: Decimal | None
+        systemTotal: Decimal | None
+        model: str | None
+        inUseFlag: bool | None
+        DSTFlag: bool | None
+
+    @property
+    def lf_by_model_weather_zone_history(self) -> Archive[np3_565_cd.LfByModelWeatherZoneHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-565-cd', np3_565_cd.LfByModelWeatherZoneHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Coast': 'coast', 'East': 'east', 'FarWest': 'farWest', 'North': 'north', 'NorthCentral': 'northCentral', 'SouthCentral': 'southCentral', 'Southern': 'southern', 'West': 'west', 'SystemTotal': 'systemTotal', 'Model': 'model', 'InUseFlag': 'inUseFlag', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
+
     def lf_by_model_weather_zone(self, *, DSTFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, coastFrom: Decimal | None = None, coastTo: Decimal | None = None, eastFrom: Decimal | None = None, eastTo: Decimal | None = None, farWestFrom: Decimal | None = None, farWestTo: Decimal | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, northCentralFrom: Decimal | None = None, northCentralTo: Decimal | None = None, southCentralFrom: Decimal | None = None, southCentralTo: Decimal | None = None, southernFrom: Decimal | None = None, southernTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, systemTotalFrom: Decimal | None = None, systemTotalTo: Decimal | None = None, model: str | None = None, inUseFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_565_cd.LfByModelWeatherZoneRow]:
         'Seven-Day Load Forecast by Model and Weather Zone'
         return self._client._page('/np3-565-cd/lf_by_model_weather_zone', np3_565_cd.LfByModelWeatherZoneRow, {'DSTFlag': DSTFlag, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'coastFrom': coastFrom, 'coastTo': coastTo, 'eastFrom': eastFrom, 'eastTo': eastTo, 'farWestFrom': farWestFrom, 'farWestTo': farWestTo, 'northFrom': northFrom, 'northTo': northTo, 'northCentralFrom': northCentralFrom, 'northCentralTo': northCentralTo, 'southCentralFrom': southCentralFrom, 'southCentralTo': southCentralTo, 'southernFrom': southernFrom, 'southernTo': southernTo, 'westFrom': westFrom, 'westTo': westTo, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'systemTotalFrom': systemTotalFrom, 'systemTotalTo': systemTotalTo, 'model': model, 'inUseFlag': inUseFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -397,6 +891,19 @@ class np3_566_cd:
         model: str | None
         postedDatetime: datetime | None
         valley: Decimal | None
+
+    class LfByModelStudyAreaHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        valley: Decimal | None
+        model: str | None
+        DSTFlag: bool | None
+
+    @property
+    def lf_by_model_study_area_history(self) -> Archive[np3_566_cd.LfByModelStudyAreaHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-566-cd', np3_566_cd.LfByModelStudyAreaHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Valley': 'valley', 'Model': 'model', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
 
     def lf_by_model_study_area(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, valleyFrom: Decimal | None = None, valleyTo: Decimal | None = None, model: str | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_566_cd.LfByModelStudyAreaRow]:
         'Seven-Day Load Forecast by Model and Study Area'
@@ -449,6 +956,42 @@ class np3_763_cd:
         postedDatetime: datetime | None
         repeatHourFlag: bool | None
 
+    class StSysAdequacyHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        capGenResSouth: Decimal | None = None
+        capGenResNorth: Decimal | None = None
+        capGenResWest: Decimal | None = None
+        capGenResHouston: Decimal | None = None
+        capLoadResSouth: Decimal | None = None
+        capLoadResNorth: Decimal | None = None
+        capLoadResWest: Decimal | None = None
+        capLoadResHouston: Decimal | None = None
+        offAvailMWSouth: Decimal | None = None
+        offAvailMWNorth: Decimal | None = None
+        offAvailMWWest: Decimal | None = None
+        offAvailMWHouston: Decimal | None = None
+        availCapGen: Decimal | None = None
+        availCapRes: Decimal | None = None
+        capGenRes: Decimal | None
+        capLoadRes: Decimal | None
+        offAvailMW: Decimal | None = None
+        capREGUP: Decimal | None = None
+        capREGDN: Decimal | None = None
+        capRRS: Decimal | None = None
+        capECRS: Decimal | None = None
+        capNSPIN: Decimal | None = None
+        capREGUPRRS: Decimal | None = None
+        capREGUPRRSECRS: Decimal | None = None
+        capREGUPRRSECRSNSPIN: Decimal | None = None
+        repeatHourFlag: bool | None
+
+    @property
+    def st_sys_adequacy_history(self) -> Archive[np3_763_cd.StSysAdequacyHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-763-cd', np3_763_cd.StSysAdequacyHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'CapGenResSouth': 'capGenResSouth', 'CapGenResNorth': 'capGenResNorth', 'CapGenResWest': 'capGenResWest', 'CapGenResHouston': 'capGenResHouston', 'CapLoadResSouth': 'capLoadResSouth', 'CapLoadResNorth': 'capLoadResNorth', 'CapLoadResWest': 'capLoadResWest', 'CapLoadResHouston': 'capLoadResHouston', 'OfflineAvailableMWSouth': 'offAvailMWSouth', 'OfflineAvailableMWNorth': 'offAvailMWNorth', 'OfflineAvailableMWWest': 'offAvailMWWest', 'OfflineAvailableMWHouston': 'offAvailMWHouston', 'AvailCapGen': 'availCapGen', 'AvailCapReserve': 'availCapRes', 'CapGenResTotal': 'capGenRes', 'CapLoadResTotal': 'capLoadRes', 'OfflineAvailableMWTotal': 'offAvailMW', 'CapREGUPTotal': 'capREGUP', 'CapREGDNTotal': 'capREGDN', 'CapRRSTotal': 'capRRS', 'CapECRSTotal': 'capECRS', 'CapNSPINTotal': 'capNSPIN', 'CapREGUP_RRSTotal': 'capREGUPRRS', 'CapREGUP_RRS_ECRSTotal': 'capREGUPRRSECRS', 'CapREGUP_RRS_ECRS_NSPINTotal': 'capREGUPRRSECRSNSPIN', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=({'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'TotalCapGenRes': 'capGenRes', 'TotalCapLoadRes': 'capLoadRes', 'DSTFlag': 'repeatHourFlag'},))
+
     def st_sys_adequacy(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: Decimal | None = None, hourEndingTo: Decimal | None = None, capGenResSouthFrom: Decimal | None = None, capGenResSouthTo: Decimal | None = None, capGenResNorthFrom: Decimal | None = None, capGenResNorthTo: Decimal | None = None, capGenResWestFrom: Decimal | None = None, capGenResWestTo: Decimal | None = None, capGenResHoustonFrom: Decimal | None = None, capGenResHoustonTo: Decimal | None = None, capLoadResSouthFrom: Decimal | None = None, capLoadResSouthTo: Decimal | None = None, capLoadResNorthFrom: Decimal | None = None, capLoadResNorthTo: Decimal | None = None, capLoadResWestFrom: Decimal | None = None, capLoadResWestTo: Decimal | None = None, capLoadResHoustonFrom: Decimal | None = None, capLoadResHoustonTo: Decimal | None = None, offAvailMWSouthFrom: Decimal | None = None, offAvailMWSouthTo: Decimal | None = None, offAvailMWNorthFrom: Decimal | None = None, offAvailMWNorthTo: Decimal | None = None, offAvailMWWestFrom: Decimal | None = None, offAvailMWWestTo: Decimal | None = None, offAvailMWHoustonFrom: Decimal | None = None, offAvailMWHoustonTo: Decimal | None = None, availCapGenFrom: Decimal | None = None, availCapGenTo: Decimal | None = None, availCapResFrom: Decimal | None = None, availCapResTo: Decimal | None = None, capGenResFrom: Decimal | None = None, capGenResTo: Decimal | None = None, capLoadResFrom: Decimal | None = None, capLoadResTo: Decimal | None = None, offAvailMWFrom: Decimal | None = None, offAvailMWTo: Decimal | None = None, capREGUPFrom: Decimal | None = None, capREGUPTo: Decimal | None = None, capREGDNFrom: Decimal | None = None, capREGDNTo: Decimal | None = None, capRRSFrom: Decimal | None = None, capRRSTo: Decimal | None = None, capECRSFrom: Decimal | None = None, capECRSTo: Decimal | None = None, capNSPINFrom: Decimal | None = None, capNSPINTo: Decimal | None = None, capREGUPRRSFrom: Decimal | None = None, capREGUPRRSTo: Decimal | None = None, capREGUPRRSECRSFrom: Decimal | None = None, capREGUPRRSECRSTo: Decimal | None = None, capREGUPRRSECRSNSPINFrom: Decimal | None = None, capREGUPRRSECRSNSPINTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_763_cd.StSysAdequacyRow]:
         'Short-Term System Adequacy'
         return self._client._page('/np3-763-cd/st_sys_adequacy', np3_763_cd.StSysAdequacyRow, {'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'capGenResSouthFrom': capGenResSouthFrom, 'capGenResSouthTo': capGenResSouthTo, 'capGenResNorthFrom': capGenResNorthFrom, 'capGenResNorthTo': capGenResNorthTo, 'capGenResWestFrom': capGenResWestFrom, 'capGenResWestTo': capGenResWestTo, 'capGenResHoustonFrom': capGenResHoustonFrom, 'capGenResHoustonTo': capGenResHoustonTo, 'capLoadResSouthFrom': capLoadResSouthFrom, 'capLoadResSouthTo': capLoadResSouthTo, 'capLoadResNorthFrom': capLoadResNorthFrom, 'capLoadResNorthTo': capLoadResNorthTo, 'capLoadResWestFrom': capLoadResWestFrom, 'capLoadResWestTo': capLoadResWestTo, 'capLoadResHoustonFrom': capLoadResHoustonFrom, 'capLoadResHoustonTo': capLoadResHoustonTo, 'offAvailMWSouthFrom': offAvailMWSouthFrom, 'offAvailMWSouthTo': offAvailMWSouthTo, 'offAvailMWNorthFrom': offAvailMWNorthFrom, 'offAvailMWNorthTo': offAvailMWNorthTo, 'offAvailMWWestFrom': offAvailMWWestFrom, 'offAvailMWWestTo': offAvailMWWestTo, 'offAvailMWHoustonFrom': offAvailMWHoustonFrom, 'offAvailMWHoustonTo': offAvailMWHoustonTo, 'availCapGenFrom': availCapGenFrom, 'availCapGenTo': availCapGenTo, 'availCapResFrom': availCapResFrom, 'availCapResTo': availCapResTo, 'capGenResFrom': capGenResFrom, 'capGenResTo': capGenResTo, 'capLoadResFrom': capLoadResFrom, 'capLoadResTo': capLoadResTo, 'offAvailMWFrom': offAvailMWFrom, 'offAvailMWTo': offAvailMWTo, 'capREGUPFrom': capREGUPFrom, 'capREGUPTo': capREGUPTo, 'capREGDNFrom': capREGDNFrom, 'capREGDNTo': capREGDNTo, 'capRRSFrom': capRRSFrom, 'capRRSTo': capRRSTo, 'capECRSFrom': capECRSFrom, 'capECRSTo': capECRSTo, 'capNSPINFrom': capNSPINFrom, 'capNSPINTo': capNSPINTo, 'capREGUPRRSFrom': capREGUPRRSFrom, 'capREGUPRRSTo': capREGUPRRSTo, 'capREGUPRRSECRSFrom': capREGUPRRSECRSFrom, 'capREGUPRRSECRSTo': capREGUPRRSECRSTo, 'capREGUPRRSECRSNSPINFrom': capREGUPRRSECRSNSPINFrom, 'capREGUPRRSECRSNSPINTo': capREGUPRRSECRSNSPINTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -480,6 +1023,23 @@ class np3_764_cd:
         sumSCEDSouth: Decimal | None
         sumSCEDWest: Decimal | None
 
+    class HrlyRucOnlineScedOfflineCopHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: str | None
+        RUCTimestamp: datetime | None
+        SCEDTimestamp: datetime | None
+        sumSCEDSouth: Decimal | None = None
+        sumSCEDNorth: Decimal | None = None
+        sumSCEDWest: Decimal | None = None
+        sumSCEDHouston: Decimal | None = None
+        DSTFlag: bool | None
+        sumSCEDTotal: Decimal | None = None
+
+    @property
+    def hrly_ruc_online_sced_offline_cop_history(self) -> Archive[np3_764_cd.HrlyRucOnlineScedOfflineCopHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-764-cd', np3_764_cd.HrlyRucOnlineScedOfflineCopHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimestamp': 'RUCTimestamp', 'SCEDTimestamp': 'SCEDTimestamp', 'SumSCEDHSLsOnlineSCEDOfflineCOPSouth': 'sumSCEDSouth', 'SumSCEDHSLsOnlineSCEDOfflineCOPNorth': 'sumSCEDNorth', 'SumSCEDHSLsOnlineSCEDOfflineCOPWest': 'sumSCEDWest', 'SumSCEDHSLsOnlineSCEDOfflineCOPHouston': 'sumSCEDHouston', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'RUCTimestamp': '%m/%d/%Y %H:%M:%S', 'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimestamp': 'RUCTimestamp', 'SCEDTimestamp': 'SCEDTimestamp', 'SumSCEDHSLsOnlineSCEDOfflineCOP': 'sumSCEDTotal', 'DSTFlag': 'DSTFlag'},))
+
     def hrly_ruc_online_sced_offline_cop(self, *, sumSCEDWestFrom: Decimal | None = None, sumSCEDWestTo: Decimal | None = None, sumSCEDHoustonFrom: Decimal | None = None, sumSCEDHoustonTo: Decimal | None = None, DSTFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, sumSCEDSouthFrom: Decimal | None = None, sumSCEDSouthTo: Decimal | None = None, sumSCEDNorthFrom: Decimal | None = None, sumSCEDNorthTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_764_cd.HrlyRucOnlineScedOfflineCopRow]:
         'Hourly RUC Online in SCED Offline in COP Report'
         return self._client._page('/np3-764-cd/hrly_ruc_online_sced_offline_cop', np3_764_cd.HrlyRucOnlineScedOfflineCopRow, {'sumSCEDWestFrom': sumSCEDWestFrom, 'sumSCEDWestTo': sumSCEDWestTo, 'sumSCEDHoustonFrom': sumSCEDHoustonFrom, 'sumSCEDHoustonTo': sumSCEDHoustonTo, 'DSTFlag': DSTFlag, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'RUCTimestampFrom': RUCTimestampFrom, 'RUCTimestampTo': RUCTimestampTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'sumSCEDSouthFrom': sumSCEDSouthFrom, 'sumSCEDSouthTo': sumSCEDSouthTo, 'sumSCEDNorthFrom': sumSCEDNorthFrom, 'sumSCEDNorthTo': sumSCEDNorthTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -509,6 +1069,20 @@ class np3_765_cd:
         postedDatetime: datetime | None
         repeatHourFlag: bool | None
 
+    class ApprovedDctieSchedulesHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        DCTie: str | None
+        GMTIntervalEnding: datetime | None
+        intervalEnding: datetime | None
+        repeatHourFlag: bool | None
+        MW: Decimal | None
+        importExport: str | None
+
+    @property
+    def approved_dctie_schedules_history(self) -> Archive[np3_765_cd.ApprovedDctieSchedulesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-765-cd', np3_765_cd.ApprovedDctieSchedulesHistoryRow, {'DC_Tie': 'DCTie', 'GMT_Interval_Ending': 'GMTIntervalEnding', 'Interval_Ending': 'intervalEnding', 'Repeated_Hour': 'repeatHourFlag', 'MW': 'MW', 'Import_Export': 'importExport'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'GMTIntervalEnding': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=())
+
     def approved_dctie_schedules(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, DCTie: str | None = None, GMTIntervalEndingFrom: datetime | None = None, GMTIntervalEndingTo: datetime | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, repeatHourFlag: bool | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, importExport: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_765_cd.ApprovedDctieSchedulesRow]:
         'Approved DC Tie Schedules'
         return self._client._page('/np3-765-cd/approved_dctie_schedules', np3_765_cd.ApprovedDctieSchedulesRow, {'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'DCTie': DCTie, 'GMTIntervalEndingFrom': GMTIntervalEndingFrom, 'GMTIntervalEndingTo': GMTIntervalEndingTo, 'intervalEndingFrom': intervalEndingFrom, 'intervalEndingTo': intervalEndingTo, 'repeatHourFlag': repeatHourFlag, 'MWFrom': MWFrom, 'MWTo': MWTo, 'importExport': importExport, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -535,6 +1109,11 @@ class np3_906_ex:
         SCEDTimestamp: datetime | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2day_agg_sced_as_offers_ecrsm_history(self) -> Archive[np3_906_ex._2dayAggScedAsOffersEcrsmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-906-ex', np3_906_ex._2dayAggScedAsOffersEcrsmRow, {'SCED Timestamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'MW Offered': 'MWOffered', 'ECRSM Offer Price': 'ECRSMOfferPrice'}, {}, member='2day_Agg_SCED_AS_Offers_ECRSM-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2day_agg_sced_as_offers_ecrsm(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, ECRSMOfferPriceFrom: Decimal | None = None, ECRSMOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_906_ex._2dayAggScedAsOffersEcrsmRow]:
         '2-Day Aggregate SCED Ancillary Offer Curves ECRSM'
         return self._client._page('/np3-906-ex/2day_agg_sced_as_offers_ecrsm', np3_906_ex._2dayAggScedAsOffersEcrsmRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'ECRSMOfferPriceFrom': ECRSMOfferPriceFrom, 'ECRSMOfferPriceTo': ECRSMOfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -555,6 +1134,11 @@ class np3_906_ex:
         MWOffered: Decimal | None
         SCEDTimestamp: datetime | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2day_agg_sced_as_offers_ecrss_history(self) -> Archive[np3_906_ex._2dayAggScedAsOffersEcrssRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-906-ex', np3_906_ex._2dayAggScedAsOffersEcrssRow, {'SCED Timestamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'MW Offered': 'MWOffered', 'ECRSS Offer Price': 'ECRSSOfferPrice'}, {}, member='2day_Agg_SCED_AS_Offers_ECRSS-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2day_agg_sced_as_offers_ecrss(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, ECRSSOfferPriceFrom: Decimal | None = None, ECRSSOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_906_ex._2dayAggScedAsOffersEcrssRow]:
         '2-Day Aggregate SCED Ancillary Offer Curves ECRSS'
@@ -577,6 +1161,11 @@ class np3_906_ex:
         SCEDTimestamp: datetime | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2day_agg_sced_as_offers_nspin_history(self) -> Archive[np3_906_ex._2dayAggScedAsOffersNspinRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-906-ex', np3_906_ex._2dayAggScedAsOffersNspinRow, {'SCED Timestamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'MW Offered': 'MWOffered', 'NSPIN Offer Price': 'NSPINOfferPrice'}, {}, member='2day_Agg_SCED_AS_Offers_NSPIN-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2day_agg_sced_as_offers_nspin(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, NSPINOfferPriceFrom: Decimal | None = None, NSPINOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_906_ex._2dayAggScedAsOffersNspinRow]:
         '2-Day Aggregate SCED Ancillary Offer Curves NSPIN'
         return self._client._page('/np3-906-ex/2day_agg_sced_as_offers_nspin', np3_906_ex._2dayAggScedAsOffersNspinRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'NSPINOfferPriceFrom': NSPINOfferPriceFrom, 'NSPINOfferPriceTo': NSPINOfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -597,6 +1186,11 @@ class np3_906_ex:
         NSPNMOfferPrice: Decimal | None
         SCEDTimestamp: datetime | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2day_agg_sced_as_offers_nspnm_history(self) -> Archive[np3_906_ex._2dayAggScedAsOffersNspnmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-906-ex', np3_906_ex._2dayAggScedAsOffersNspnmRow, {'SCED Timestamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'MW Offered': 'MWOffered', 'NSPNM Offer Price': 'NSPNMOfferPrice'}, {}, member='2day_Agg_SCED_AS_Offers_NSPNM-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2day_agg_sced_as_offers_nspnm(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, NSPNMOfferPriceFrom: Decimal | None = None, NSPNMOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_906_ex._2dayAggScedAsOffersNspnmRow]:
         '2-Day Aggregate SCED Ancillary Offer Curves NSPNM'
@@ -619,6 +1213,11 @@ class np3_906_ex:
         SCEDTimestamp: datetime | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2day_agg_sced_as_offers_regdn_history(self) -> Archive[np3_906_ex._2dayAggScedAsOffersRegdnRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-906-ex', np3_906_ex._2dayAggScedAsOffersRegdnRow, {'SCED Timestamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'MW Offered': 'MWOffered', 'REGDN Offer Price': 'REGDNOfferPrice'}, {}, member='2day_Agg_SCED_AS_Offers_REGDN-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2day_agg_sced_as_offers_regdn(self, *, repeatHourFlag: bool | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, REGDNOfferPriceFrom: Decimal | None = None, REGDNOfferPriceTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_906_ex._2dayAggScedAsOffersRegdnRow]:
         '2-Day Aggregate SCED Ancillary Offer Curves REGDN'
         return self._client._page('/np3-906-ex/2day_agg_sced_as_offers_regdn', np3_906_ex._2dayAggScedAsOffersRegdnRow, {'repeatHourFlag': repeatHourFlag, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'REGDNOfferPriceFrom': REGDNOfferPriceFrom, 'REGDNOfferPriceTo': REGDNOfferPriceTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -639,6 +1238,11 @@ class np3_906_ex:
         REGUPOfferPrice: Decimal | None
         SCEDTimestamp: datetime | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2day_agg_sced_as_offers_regup_history(self) -> Archive[np3_906_ex._2dayAggScedAsOffersRegupRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-906-ex', np3_906_ex._2dayAggScedAsOffersRegupRow, {'SCED Timestamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'MW Offered': 'MWOffered', 'REGUP Offer Price': 'REGUPOfferPrice'}, {}, member='2day_Agg_SCED_AS_Offers_REGUP-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2day_agg_sced_as_offers_regup(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, REGUPOfferPriceFrom: Decimal | None = None, REGUPOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_906_ex._2dayAggScedAsOffersRegupRow]:
         '2-Day Aggregate SCED Ancillary Offer Curves REGUP'
@@ -661,6 +1265,11 @@ class np3_906_ex:
         SCEDTimestamp: datetime | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2day_agg_sced_as_offers_rrsffr_history(self) -> Archive[np3_906_ex._2dayAggScedAsOffersRrsffrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-906-ex', np3_906_ex._2dayAggScedAsOffersRrsffrRow, {'SCED Timestamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'MW Offered': 'MWOffered', 'RRSFFR Offer Price': 'RRSFFROfferPrice'}, {}, member='2day_Agg_SCED_AS_Offers_RRSFFR-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2day_agg_sced_as_offers_rrsffr(self, *, RRSFFROfferPriceFrom: Decimal | None = None, RRSFFROfferPriceTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_906_ex._2dayAggScedAsOffersRrsffrRow]:
         '2-Day Aggregate SCED Ancillary Offer Curves RRSFFR'
         return self._client._page('/np3-906-ex/2day_agg_sced_as_offers_rrsffr', np3_906_ex._2dayAggScedAsOffersRrsffrRow, {'RRSFFROfferPriceFrom': RRSFFROfferPriceFrom, 'RRSFFROfferPriceTo': RRSFFROfferPriceTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -682,6 +1291,11 @@ class np3_906_ex:
         SCEDTimestamp: datetime | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2day_agg_sced_as_offers_rrspfr_history(self) -> Archive[np3_906_ex._2dayAggScedAsOffersRrspfrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-906-ex', np3_906_ex._2dayAggScedAsOffersRrspfrRow, {'SCED Timestamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'MW Offered': 'MWOffered', 'RRSPFR Offer Price': 'RRSPFROfferPrice'}, {}, member='2day_Agg_SCED_AS_Offers_RRSPFR-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2day_agg_sced_as_offers_rrspfr(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, RRSPFROfferPriceFrom: Decimal | None = None, RRSPFROfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_906_ex._2dayAggScedAsOffersRrspfrRow]:
         '2-Day Aggregate SCED Ancillary Offer Curves RRSPFR'
         return self._client._page('/np3-906-ex/2day_agg_sced_as_offers_rrspfr', np3_906_ex._2dayAggScedAsOffersRrspfrRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'RRSPFROfferPriceFrom': RRSPFROfferPriceFrom, 'RRSPFROfferPriceTo': RRSPFROfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -702,6 +1316,11 @@ class np3_906_ex:
         RRSUFROfferPrice: Decimal | None
         SCEDTimestamp: datetime | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2day_agg_sced_as_offers_rrsufr_history(self) -> Archive[np3_906_ex._2dayAggScedAsOffersRrsufrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-906-ex', np3_906_ex._2dayAggScedAsOffersRrsufrRow, {'SCED Timestamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'MW Offered': 'MWOffered', 'RRSUFR Offer Price': 'RRSUFROfferPrice'}, {}, member='2day_Agg_SCED_AS_Offers_RRSUFR-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2day_agg_sced_as_offers_rrsufr(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, RRSUFROfferPriceFrom: Decimal | None = None, RRSUFROfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_906_ex._2dayAggScedAsOffersRrsufrRow]:
         '2-Day Aggregate SCED Ancillary Offer Curves RRSUFR'
@@ -729,6 +1348,11 @@ class np3_907_ex:
         hourEnding: int | None
         price: Decimal | None
 
+    @property
+    def _2d_agg_edc_history(self) -> Archive[np3_907_ex._2dAggEdcRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggEdcRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Energy_Demand_Curves-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_edc(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggEdcRow]:
         '2-Day Aggregate Energy Demand Curves'
         return self._client._page('/np3-907-ex/2d_agg_edc', np3_907_ex._2dAggEdcRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -749,6 +1373,11 @@ class np3_907_ex:
         deliveryDate: date | None
         hourEnding: int | None
         price: Decimal | None
+
+    @property
+    def _2d_agg_edc_houston_history(self) -> Archive[np3_907_ex._2dAggEdcHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggEdcHoustonRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Energy_Demand_Curves_Houston-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_edc_houston(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggEdcHoustonRow]:
         '2-Day Aggregate Energy Demand Curves Houston'
@@ -771,6 +1400,11 @@ class np3_907_ex:
         hourEnding: int | None
         price: Decimal | None
 
+    @property
+    def _2d_agg_edc_north_history(self) -> Archive[np3_907_ex._2dAggEdcNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggEdcNorthRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Energy_Demand_Curves_North-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_edc_north(self, *, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggEdcNorthRow]:
         '2-Day Aggregate Energy Demand Curves North'
         return self._client._page('/np3-907-ex/2d_agg_edc_north', np3_907_ex._2dAggEdcNorthRow, {'MWFrom': MWFrom, 'MWTo': MWTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -791,6 +1425,11 @@ class np3_907_ex:
         deliveryDate: date | None
         hourEnding: int | None
         price: Decimal | None
+
+    @property
+    def _2d_agg_edc_south_history(self) -> Archive[np3_907_ex._2dAggEdcSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggEdcSouthRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Energy_Demand_Curves_South-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_edc_south(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggEdcSouthRow]:
         '2-Day Aggregate Energy Demand Curves South'
@@ -813,6 +1452,11 @@ class np3_907_ex:
         hourEnding: int | None
         price: Decimal | None
 
+    @property
+    def _2d_agg_edc_west_history(self) -> Archive[np3_907_ex._2dAggEdcWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggEdcWestRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Energy_Demand_Curves_West-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_edc_west(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggEdcWestRow]:
         '2-Day Aggregate Energy Demand Curves West'
         return self._client._page('/np3-907-ex/2d_agg_edc_west', np3_907_ex._2dAggEdcWestRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -833,6 +1477,11 @@ class np3_907_ex:
         deliveryDate: date | None
         hourEnding: int | None
         price: Decimal | None
+
+    @property
+    def _2d_agg_esc_history(self) -> Archive[np3_907_ex._2dAggEscRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggEscRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Energy_Supply_Curves-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_esc(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggEscRow]:
         '2-Day Aggregate Energy Supply Curves'
@@ -855,6 +1504,11 @@ class np3_907_ex:
         hourEnding: int | None
         price: Decimal | None
 
+    @property
+    def _2d_agg_esc_houston_history(self) -> Archive[np3_907_ex._2dAggEscHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggEscHoustonRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Energy_Supply_Curves_Houston-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_esc_houston(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggEscHoustonRow]:
         '2-Day Aggregate Energy Supply Curves Houston'
         return self._client._page('/np3-907-ex/2d_agg_esc_houston', np3_907_ex._2dAggEscHoustonRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -875,6 +1529,11 @@ class np3_907_ex:
         deliveryDate: date | None
         hourEnding: int | None
         price: Decimal | None
+
+    @property
+    def _2d_agg_esc_north_history(self) -> Archive[np3_907_ex._2dAggEscNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggEscNorthRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Energy_Supply_Curves_North-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_esc_north(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggEscNorthRow]:
         '2-Day Aggregate Energy Supply Curves North'
@@ -897,6 +1556,11 @@ class np3_907_ex:
         hourEnding: int | None
         price: Decimal | None
 
+    @property
+    def _2d_agg_esc_south_history(self) -> Archive[np3_907_ex._2dAggEscSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggEscSouthRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Energy_Supply_Curves_South-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_esc_south(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggEscSouthRow]:
         '2-Day Aggregate Energy Supply Curves South'
         return self._client._page('/np3-907-ex/2d_agg_esc_south', np3_907_ex._2dAggEscSouthRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -917,6 +1581,11 @@ class np3_907_ex:
         deliveryDate: date | None
         hourEnding: int | None
         price: Decimal | None
+
+    @property
+    def _2d_agg_esc_west_history(self) -> Archive[np3_907_ex._2dAggEscWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggEscWestRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Energy_Supply_Curves_West-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_esc_west(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggEscWestRow]:
         '2-Day Aggregate Energy Supply Curves West'
@@ -939,6 +1608,11 @@ class np3_907_ex:
         hourEnding: int | None
         price: Decimal | None
 
+    @property
+    def _2d_agg_min_esc_history(self) -> Archive[np3_907_ex._2dAggMinEscRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggMinEscRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Min_Energy_Supply_Curves-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_min_esc(self, *, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggMinEscRow]:
         '2-Day Aggregate Minimum Energy Supply Curves'
         return self._client._page('/np3-907-ex/2d_agg_min_esc', np3_907_ex._2dAggMinEscRow, {'MWFrom': MWFrom, 'MWTo': MWTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -959,6 +1633,11 @@ class np3_907_ex:
         deliveryDate: date | None
         hourEnding: int | None
         price: Decimal | None
+
+    @property
+    def _2d_agg_min_esc_houston_history(self) -> Archive[np3_907_ex._2dAggMinEscHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggMinEscHoustonRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Min_Energy_Supply_Curves_Houston-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_min_esc_houston(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggMinEscHoustonRow]:
         '2-Day Aggregate Minimum Energy Supply Curves Houston'
@@ -981,6 +1660,11 @@ class np3_907_ex:
         hourEnding: int | None
         price: Decimal | None
 
+    @property
+    def _2d_agg_min_esc_north_history(self) -> Archive[np3_907_ex._2dAggMinEscNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggMinEscNorthRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Min_Energy_Supply_Curves_North-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_min_esc_north(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggMinEscNorthRow]:
         '2-Day Aggregate Minimum Energy Supply Curves North'
         return self._client._page('/np3-907-ex/2d_agg_min_esc_north', np3_907_ex._2dAggMinEscNorthRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1002,6 +1686,11 @@ class np3_907_ex:
         hourEnding: int | None
         price: Decimal | None
 
+    @property
+    def _2d_agg_min_esc_south_history(self) -> Archive[np3_907_ex._2dAggMinEscSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggMinEscSouthRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Min_Energy_Supply_Curves_South-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_min_esc_south(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggMinEscSouthRow]:
         '2-Day Aggregate Minimum Energy Supply Curves South'
         return self._client._page('/np3-907-ex/2d_agg_min_esc_south', np3_907_ex._2dAggMinEscSouthRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1022,6 +1711,11 @@ class np3_907_ex:
         deliveryDate: date | None
         hourEnding: int | None
         price: Decimal | None
+
+    @property
+    def _2d_agg_min_esc_west_history(self) -> Archive[np3_907_ex._2dAggMinEscWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-907-ex', np3_907_ex._2dAggMinEscWestRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='2d_Agg_Min_Energy_Supply_Curves_West-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_min_esc_west(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_907_ex._2dAggMinEscWestRow]:
         '2-Day Aggregate Minimum Energy Supply Curves West'
@@ -1049,6 +1743,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_esr_history(self) -> Archive[np3_908_er._2dAggEscEsrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscEsrRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_ESR-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_esr(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscEsrRow]:
         '2-Day Aggregate Supply Curve for ESR Resources'
         return self._client._page('/np3-908-er/2d_agg_esc_esr', np3_908_er._2dAggEscEsrRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1069,6 +1768,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_esr_houston_history(self) -> Archive[np3_908_er._2dAggEscEsrHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscEsrHoustonRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_ESR_Houston-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_esr_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscEsrHoustonRow]:
         '2-Day Aggregate Supply Curve for ESR Resources Houston'
@@ -1091,6 +1795,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_esr_north_history(self) -> Archive[np3_908_er._2dAggEscEsrNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscEsrNorthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_ESR_North-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_esr_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscEsrNorthRow]:
         '2-Day Aggregate Supply Curve for ESR Resources North'
         return self._client._page('/np3-908-er/2d_agg_esc_esr_north', np3_908_er._2dAggEscEsrNorthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1111,6 +1820,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_esr_south_history(self) -> Archive[np3_908_er._2dAggEscEsrSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscEsrSouthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_ESR_South-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_esr_south(self, *, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscEsrSouthRow]:
         '2-Day Aggregate Supply Curve for ESR Resources South'
@@ -1134,6 +1848,11 @@ class np3_908_er:
         price: int | None
         MW: Decimal | None
 
+    @property
+    def _2d_agg_esc_esr_west_history(self) -> Archive[np3_908_er._2dAggEscEsrWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscEsrWestRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_ESR_West-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_esr_west(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = 'SCEDTimestamp', dir: str | None = None) -> Page[np3_908_er._2dAggEscEsrWestRow]:
         '2-Day Aggregate Supply Curve for ESR Resources West'
         return self._client._page('/np3-908-er/2d_agg_esc_esr_west', np3_908_er._2dAggEscEsrWestRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1154,6 +1873,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_nonirr_houston_history(self) -> Archive[np3_908_er._2dAggEscNonirrHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonirrHoustonRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_IRR_Houston-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_nonirr_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscNonirrHoustonRow]:
         '2-Day Aggregate Supply Curve for Non-Intermittent Renewable Resources Houston'
@@ -1176,6 +1900,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_nonirr_north_history(self) -> Archive[np3_908_er._2dAggEscNonirrNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonirrNorthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_IRR_North-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_nonirr_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscNonirrNorthRow]:
         '2-Day Aggregate Supply Curve for Non-Intermittent Renewable Resources North'
         return self._client._page('/np3-908-er/2d_agg_esc_nonirr_north', np3_908_er._2dAggEscNonirrNorthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1196,6 +1925,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_nonirr_south_history(self) -> Archive[np3_908_er._2dAggEscNonirrSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonirrSouthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_IRR_South-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_nonirr_south(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscNonirrSouthRow]:
         '2-Day Aggregate Supply Curve for Non-Intermittent Renewable Resources South'
@@ -1218,6 +1952,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_nonirr_west_history(self) -> Archive[np3_908_er._2dAggEscNonirrWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonirrWestRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_IRR_West-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_nonirr_west(self, *, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscNonirrWestRow]:
         '2-Day Aggregate Supply Curve for Non-Intermittent Renewable Resources West'
         return self._client._page('/np3-908-er/2d_agg_esc_nonirr_west', np3_908_er._2dAggEscNonirrWestRow, {'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1238,6 +1977,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_pvgr_history(self) -> Archive[np3_908_er._2dAggEscPvgrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscPvgrRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_PVGR-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_pvgr(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscPvgrRow]:
         '2-Day Aggregate Supply Curve for Photovoltaic Resources'
@@ -1260,6 +2004,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_pvgr_houston_history(self) -> Archive[np3_908_er._2dAggEscPvgrHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscPvgrHoustonRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_PVGR_Houston-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_pvgr_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscPvgrHoustonRow]:
         '2-Day Aggregate Supply Curve for Photovoltaic Resources Houston'
         return self._client._page('/np3-908-er/2d_agg_esc_pvgr_houston', np3_908_er._2dAggEscPvgrHoustonRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1280,6 +2029,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_pvgr_north_history(self) -> Archive[np3_908_er._2dAggEscPvgrNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscPvgrNorthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_PVGR_North-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_pvgr_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscPvgrNorthRow]:
         '2-Day Aggregate Supply Curve for Photovoltaic Resources North'
@@ -1302,6 +2056,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_pvgr_south_history(self) -> Archive[np3_908_er._2dAggEscPvgrSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscPvgrSouthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_PVGR_South-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_pvgr_south(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscPvgrSouthRow]:
         '2-Day Aggregate Supply Curve for Photovoltaic Resources South'
         return self._client._page('/np3-908-er/2d_agg_esc_pvgr_south', np3_908_er._2dAggEscPvgrSouthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1322,6 +2081,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_pvgr_west_history(self) -> Archive[np3_908_er._2dAggEscPvgrWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscPvgrWestRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_PVGR_West-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_pvgr_west(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscPvgrWestRow]:
         '2-Day Aggregate Supply Curve for Photovoltaic Resources West'
@@ -1344,6 +2108,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_wind_history(self) -> Archive[np3_908_er._2dAggEscWindRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscWindRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Wind-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_wind(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscWindRow]:
         '2-Day Aggregate Supply Curve for Wind Resources'
         return self._client._page('/np3-908-er/2d_agg_esc_wind', np3_908_er._2dAggEscWindRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1364,6 +2133,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_wind_houston_history(self) -> Archive[np3_908_er._2dAggEscWindHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscWindHoustonRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Wind_Houston-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_wind_houston(self, *, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscWindHoustonRow]:
         '2-Day Aggregate Supply Curve for Wind Resources Houston'
@@ -1386,6 +2160,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_wind_north_history(self) -> Archive[np3_908_er._2dAggEscWindNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscWindNorthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Wind_North-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_wind_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscWindNorthRow]:
         '2-Day Aggregate Supply Curve for Wind Resources North'
         return self._client._page('/np3-908-er/2d_agg_esc_wind_north', np3_908_er._2dAggEscWindNorthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1406,6 +2185,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_wind_south_history(self) -> Archive[np3_908_er._2dAggEscWindSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscWindSouthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Wind_South-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_wind_south(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscWindSouthRow]:
         '2-Day Aggregate Supply Curve for Wind Resources South'
@@ -1428,6 +2212,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_esc_wind_west_history(self) -> Archive[np3_908_er._2dAggEscWindWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscWindWestRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Wind_West-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_esc_wind_west(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscWindWestRow]:
         '2-Day Aggregate Supply Curve for Wind Resources West'
         return self._client._page('/np3-908-er/2d_agg_esc_wind_west', np3_908_er._2dAggEscWindWestRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1448,6 +2237,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_esc_nonirr_history(self) -> Archive[np3_908_er._2dAggEscNonirrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonirrRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_IRR-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_esc_nonirr(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEscNonirrRow]:
         '2-Day Aggregate Supply Curves for Non-Intermittent Renewable Resources'
@@ -1470,6 +2264,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_edc_clr_history(self) -> Archive[np3_908_er._2dAggEdcClrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEdcClrRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'PRICE': 'price', 'MW': 'MW'}, {}, member='*_Energy_Demand_Curves_CLR-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_edc_clr(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEdcClrRow]:
         '2-Day Aggregated Energy Demand Curves CLR'
         return self._client._page('/np3-908-er/2d_agg_edc_clr', np3_908_er._2dAggEdcClrRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1490,6 +2289,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_edc_clr_houston_history(self) -> Archive[np3_908_er._2dAggEdcClrHoustonRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEdcClrHoustonRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'PRICE': 'price', 'MW': 'MW'}, {}, member='*_Agg_Energy_Demand_Curves_CLR_Houston-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_edc_clr_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEdcClrHoustonRow]:
         '2-Day Aggregated Energy Demand Curves CLR Houston'
@@ -1512,6 +2316,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_edc_clr_north_history(self) -> Archive[np3_908_er._2dAggEdcClrNorthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEdcClrNorthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'PRICE': 'price', 'MW': 'MW'}, {}, member='*_Agg_Energy_Demand_Curves_CLR_North-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_edc_clr_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEdcClrNorthRow]:
         '2-Day Aggregated Energy Demand Curves CLR North'
         return self._client._page('/np3-908-er/2d_agg_edc_clr_north', np3_908_er._2dAggEdcClrNorthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1532,6 +2341,11 @@ class np3_908_er:
         SCEDTimestamp: datetime | None
         price: int | None
         repeatHourFlag: bool | None
+
+    @property
+    def _2d_agg_edc_clr_south_history(self) -> Archive[np3_908_er._2dAggEdcClrSouthRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEdcClrSouthRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'PRICE': 'price', 'MW': 'MW'}, {}, member='*_Agg_Energy_Demand_Curves_CLR_South-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_edc_clr_south(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEdcClrSouthRow]:
         '2-Day Aggregated Energy Demand Curves CLR South'
@@ -1554,6 +2368,11 @@ class np3_908_er:
         price: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def _2d_agg_edc_clr_west_history(self) -> Archive[np3_908_er._2dAggEdcClrWestRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEdcClrWestRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'PRICE': 'price', 'MW': 'MW'}, {}, member='*_Agg_Energy_Demand_Curves_CLR_West-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_edc_clr_west(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, priceFrom: int | None = None, priceTo: int | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_908_er._2dAggEdcClrWestRow]:
         '2-Day Aggregated Energy Demand Curves CLR West'
         return self._client._page('/np3-908-er/2d_agg_edc_clr_west', np3_908_er._2dAggEdcClrWestRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1570,6 +2389,226 @@ class np3_908_er:
         '2-Day Aggregated Energy Demand Curves CLR West'
         return self._client._aiter('/np3-908-er/2d_agg_edc_clr_west', np3_908_er._2dAggEdcClrWestRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'priceFrom': priceFrom, 'priceTo': priceTo, 'MWFrom': MWFrom, 'MWTo': MWTo, 'size': size, 'sort': sort, 'dir': dir})
 
+    class _2dAggDamMinEscWestHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_min_esc_west_history(self) -> Archive[np3_908_er._2dAggDamMinEscWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamMinEscWestHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW Offered': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Min_Energy_Supply_Curves_West-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamMinEscSouthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_min_esc_south_history(self) -> Archive[np3_908_er._2dAggDamMinEscSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamMinEscSouthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW Offered': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Min_Energy_Supply_Curves_South-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamMinEscNorthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_min_esc_north_history(self) -> Archive[np3_908_er._2dAggDamMinEscNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamMinEscNorthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW Offered': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Min_Energy_Supply_Curves_North-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamMinEscHoustonHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_min_esc_houston_history(self) -> Archive[np3_908_er._2dAggDamMinEscHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamMinEscHoustonHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW Offered': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Min_Energy_Supply_Curves_Houston-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamMinEscHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_min_esc_history(self) -> Archive[np3_908_er._2dAggDamMinEscHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamMinEscHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW Offered': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Min_Energy_Supply_Curves-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggEscNonWindHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_esc_non_wind_history(self) -> Archive[np3_908_er._2dAggEscNonWindHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonWindHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_Wind-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
+    class _2dAggDamEscHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_esc_history(self) -> Archive[np3_908_er._2dAggDamEscHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEscHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Supply_Curves-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggEscNonWindWestHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_esc_non_wind_west_history(self) -> Archive[np3_908_er._2dAggEscNonWindWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonWindWestHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_Wind_West-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
+    class _2dAggEscNonWindSouthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_esc_non_wind_south_history(self) -> Archive[np3_908_er._2dAggEscNonWindSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonWindSouthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_Wind_South-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
+    class _2dAggEscNonWindNorthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_esc_non_wind_north_history(self) -> Archive[np3_908_er._2dAggEscNonWindNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonWindNorthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_Wind_North-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
+    class _2dAggEscNonWindHoustonHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_esc_non_wind_houston_history(self) -> Archive[np3_908_er._2dAggEscNonWindHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggEscNonWindHoustonHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Price': 'price', 'MW': 'MW'}, {}, member='*_Agg_Supply_Curves_Non_Wind_Houston-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
+    class _2dAggDamEscWestHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_esc_west_history(self) -> Archive[np3_908_er._2dAggDamEscWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEscWestHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Supply_Curves_West-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEscSouthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_esc_south_history(self) -> Archive[np3_908_er._2dAggDamEscSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEscSouthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Supply_Curves_South-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEscNorthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_esc_north_history(self) -> Archive[np3_908_er._2dAggDamEscNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEscNorthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Supply_Curves_North-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEscHoustonHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_esc_houston_history(self) -> Archive[np3_908_er._2dAggDamEscHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEscHoustonHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Supply_Curves_Houston-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEdcWestHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_edc_west_history(self) -> Archive[np3_908_er._2dAggDamEdcWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEdcWestHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Demand_Curves_West-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEdcSouthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_edc_south_history(self) -> Archive[np3_908_er._2dAggDamEdcSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEdcSouthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Demand_Curves_South-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEdcNorthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_edc_north_history(self) -> Archive[np3_908_er._2dAggDamEdcNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEdcNorthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Demand_Curves_North-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEdcHoustonHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_edc_houston_history(self) -> Archive[np3_908_er._2dAggDamEdcHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEdcHoustonHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Demand_Curves_Houston-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggDamEdcHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        price: Decimal | None
+        MW: Decimal | None
+
+    @property
+    def _2d_agg_dam_edc_history(self) -> Archive[np3_908_er._2dAggDamEdcHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-908-er', np3_908_er._2dAggDamEdcHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Price': 'price', 'MW': 'MW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_Energy_Demand_Curves-[0-9]*.csv', datetimes={}, variants=())
+
 class np3_909_er:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -1581,6 +2620,20 @@ class np3_909_er:
         hourEnding: int | None
         settlementPointSink: str | None
         settlementPointSource: str | None
+
+    class _2dPtpOblBidsHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        PTPBidPrice: Decimal | None
+        PTPBidAwardMW: Decimal | None
+        bidId: str | None = None
+
+    @property
+    def _2d_ptp_obl_bids_history(self) -> Archive[np3_909_er._2dPtpOblBidsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dPtpOblBidsHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source Location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink Location for PtP Bid': 'settlementPointSink', 'PtP Bid Price': 'PTPBidPrice', 'PtP Bid MW': 'PTPBidAwardMW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_PTP_Obligation_Bids[ -]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink location for PtP Bid': 'settlementPointSink', 'PtP Bid  MW': 'PTPBidAwardMW', 'PtP Bid  Price': 'PTPBidPrice', 'Bid ID': 'bidId'},))
 
     def _2d_ptp_obl_bids(self, *, PTPBidAwardMWFrom: Decimal | None = None, PTPBidAwardMWTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, PTPBidPriceFrom: Decimal | None = None, PTPBidPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dPtpOblBidsRow]:
         '2-Day Point-to-Point Obligation Bids'
@@ -1605,6 +2658,20 @@ class np3_909_er:
         settlementPointSink: str | None
         settlementPointSource: str | None
 
+    class _2dPtpOblBidsHoustonHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        PTPBidPrice: Decimal | None
+        PTPBidAwardMW: Decimal | None
+        bidId: str | None = None
+
+    @property
+    def _2d_ptp_obl_bids_houston_history(self) -> Archive[np3_909_er._2dPtpOblBidsHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dPtpOblBidsHoustonHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source Location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink Location for PtP Bid': 'settlementPointSink', 'PtP Bid Price': 'PTPBidPrice', 'PtP Bid MW': 'PTPBidAwardMW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_PTP_Obligation_Bids_Houston[ -]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink location for PtP Bid': 'settlementPointSink', 'PtP Bid  MW': 'PTPBidAwardMW', 'PtP Bid  Price': 'PTPBidPrice', 'Bid ID': 'bidId'},))
+
     def _2d_ptp_obl_bids_houston(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, PTPBidPriceFrom: Decimal | None = None, PTPBidPriceTo: Decimal | None = None, PTPBidAwardMWFrom: Decimal | None = None, PTPBidAwardMWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dPtpOblBidsHoustonRow]:
         '2-Day Point-to-Point Obligation Bids Houston'
         return self._client._page('/np3-909-er/2d_ptp_obl_bids_houston', np3_909_er._2dPtpOblBidsHoustonRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'settlementPointSource': settlementPointSource, 'settlementPointSink': settlementPointSink, 'PTPBidPriceFrom': PTPBidPriceFrom, 'PTPBidPriceTo': PTPBidPriceTo, 'PTPBidAwardMWFrom': PTPBidAwardMWFrom, 'PTPBidAwardMWTo': PTPBidAwardMWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1627,6 +2694,20 @@ class np3_909_er:
         hourEnding: int | None
         settlementPointSink: str | None
         settlementPointSource: str | None
+
+    class _2dPtpOblBidsNorthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        PTPBidPrice: Decimal | None
+        PTPBidAwardMW: Decimal | None
+        bidId: str | None = None
+
+    @property
+    def _2d_ptp_obl_bids_north_history(self) -> Archive[np3_909_er._2dPtpOblBidsNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dPtpOblBidsNorthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source Location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink Location for PtP Bid': 'settlementPointSink', 'PtP Bid Price': 'PTPBidPrice', 'PtP Bid MW': 'PTPBidAwardMW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_PTP_Obligation_Bids_North[ -]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink location for PtP Bid': 'settlementPointSink', 'PtP Bid  MW': 'PTPBidAwardMW', 'PtP Bid  Price': 'PTPBidPrice', 'Bid ID': 'bidId'},))
 
     def _2d_ptp_obl_bids_north(self, *, PTPBidAwardMWFrom: Decimal | None = None, PTPBidAwardMWTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, PTPBidPriceFrom: Decimal | None = None, PTPBidPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dPtpOblBidsNorthRow]:
         '2-Day Point-to-Point Obligation Bids North'
@@ -1651,6 +2732,20 @@ class np3_909_er:
         settlementPointSink: str | None
         settlementPointSource: str | None
 
+    class _2dPtpOblBidsSouthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        PTPBidPrice: Decimal | None
+        PTPBidAwardMW: Decimal | None
+        bidId: str | None = None
+
+    @property
+    def _2d_ptp_obl_bids_south_history(self) -> Archive[np3_909_er._2dPtpOblBidsSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dPtpOblBidsSouthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source Location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink Location for PtP Bid': 'settlementPointSink', 'PtP Bid Price': 'PTPBidPrice', 'PtP Bid MW': 'PTPBidAwardMW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_PTP_Obligation_Bids_South[ -]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink location for PtP Bid': 'settlementPointSink', 'PtP Bid  MW': 'PTPBidAwardMW', 'PtP Bid  Price': 'PTPBidPrice', 'Bid ID': 'bidId'},))
+
     def _2d_ptp_obl_bids_south(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, PTPBidPriceFrom: Decimal | None = None, PTPBidPriceTo: Decimal | None = None, PTPBidAwardMWFrom: Decimal | None = None, PTPBidAwardMWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dPtpOblBidsSouthRow]:
         '2-Day Point-to-Point Obligation Bids South'
         return self._client._page('/np3-909-er/2d_ptp_obl_bids_south', np3_909_er._2dPtpOblBidsSouthRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'settlementPointSource': settlementPointSource, 'settlementPointSink': settlementPointSink, 'PTPBidPriceFrom': PTPBidPriceFrom, 'PTPBidPriceTo': PTPBidPriceTo, 'PTPBidAwardMWFrom': PTPBidAwardMWFrom, 'PTPBidAwardMWTo': PTPBidAwardMWTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1673,6 +2768,20 @@ class np3_909_er:
         hourEnding: int | None
         settlementPointSink: str | None
         settlementPointSource: str | None
+
+    class _2dPtpOblBidsWestHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        PTPBidPrice: Decimal | None
+        PTPBidAwardMW: Decimal | None
+        bidId: str | None = None
+
+    @property
+    def _2d_ptp_obl_bids_west_history(self) -> Archive[np3_909_er._2dPtpOblBidsWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dPtpOblBidsWestHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source Location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink Location for PtP Bid': 'settlementPointSink', 'PtP Bid Price': 'PTPBidPrice', 'PtP Bid MW': 'PTPBidAwardMW'}, {'deliveryDate': '%m/%d/%Y'}, member='*_PTP_Obligation_Bids_West[ -]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point Source location for PtP Bid': 'settlementPointSource', 'Settlement Point Sink location for PtP Bid': 'settlementPointSink', 'PtP Bid  MW': 'PTPBidAwardMW', 'PtP Bid  Price': 'PTPBidPrice', 'Bid ID': 'bidId'},))
 
     def _2d_ptp_obl_bids_west(self, *, PTPBidAwardMWFrom: Decimal | None = None, PTPBidAwardMWTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, PTPBidPriceFrom: Decimal | None = None, PTPBidPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dPtpOblBidsWestRow]:
         '2-Day Point-to-Point Obligation Bids West'
@@ -1698,6 +2807,20 @@ class np3_909_er:
         sumESRBidsCleared: Decimal | None
         sumESROffersCleared: Decimal | None
 
+    class _2dTotalClearedEnergyBidsOffersHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        sumDamENOnlyBidsCleared: Decimal | None
+        sum3POCleared: Decimal | None
+        sumDamENOnlyOffersCleared: Decimal | None
+        sumESRBidsCleared: Decimal | None = None
+        sumESROffersCleared: Decimal | None = None
+
+    @property
+    def _2d_total_cleared_energy_bids_offers_history(self) -> Archive[np3_909_er._2dTotalClearedEnergyBidsOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dTotalClearedEnergyBidsOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum DAM EN Only Bids cleared': 'sumDamENOnlyBidsCleared', 'Sum 3PO cleared': 'sum3POCleared', 'Sum DAM EN Only Offers cleared': 'sumDamENOnlyOffersCleared', 'Sum ESR Bids cleared': 'sumESRBidsCleared', 'Sum ESR Offers cleared': 'sumESROffersCleared'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Tot_*Offers-[0-9]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum Cleared DAM Bids': 'sumDamENOnlyBidsCleared', 'Sum Cleared 3PO': 'sum3POCleared', 'Sum Cleared Energy Only Offers': 'sumDamENOnlyOffersCleared'},))
+
     def _2d_total_cleared_energy_bids_offers(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, sumDamENOnlyBidsClearedFrom: Decimal | None = None, sumDamENOnlyBidsClearedTo: Decimal | None = None, sum3POClearedFrom: Decimal | None = None, sum3POClearedTo: Decimal | None = None, sumDamENOnlyOffersClearedFrom: Decimal | None = None, sumDamENOnlyOffersClearedTo: Decimal | None = None, sumESRBidsClearedFrom: Decimal | None = None, sumESRBidsClearedTo: Decimal | None = None, sumESROffersClearedFrom: Decimal | None = None, sumESROffersClearedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dTotalClearedEnergyBidsOffersRow]:
         '2-Day Total Cleared Energy Bids and Energy-Only Offers'
         return self._client._page('/np3-909-er/2d_total_cleared_energy_bids_offers', np3_909_er._2dTotalClearedEnergyBidsOffersRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'sumDamENOnlyBidsClearedFrom': sumDamENOnlyBidsClearedFrom, 'sumDamENOnlyBidsClearedTo': sumDamENOnlyBidsClearedTo, 'sum3POClearedFrom': sum3POClearedFrom, 'sum3POClearedTo': sum3POClearedTo, 'sumDamENOnlyOffersClearedFrom': sumDamENOnlyOffersClearedFrom, 'sumDamENOnlyOffersClearedTo': sumDamENOnlyOffersClearedTo, 'sumESRBidsClearedFrom': sumESRBidsClearedFrom, 'sumESRBidsClearedTo': sumESRBidsClearedTo, 'sumESROffersClearedFrom': sumESROffersClearedFrom, 'sumESROffersClearedTo': sumESROffersClearedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1721,6 +2844,20 @@ class np3_909_er:
         sumDamENOnlyOffersCleared: Decimal | None
         sumESRBidsCleared: Decimal | None
         sumESROffersCleared: Decimal | None
+
+    class _2dTotalClearedEnergyBidsOffersHoustonHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        sumDamENOnlyBidsCleared: Decimal | None
+        sum3POCleared: Decimal | None
+        sumDamENOnlyOffersCleared: Decimal | None
+        sumESRBidsCleared: Decimal | None = None
+        sumESROffersCleared: Decimal | None = None
+
+    @property
+    def _2d_total_cleared_energy_bids_offers_houston_history(self) -> Archive[np3_909_er._2dTotalClearedEnergyBidsOffersHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dTotalClearedEnergyBidsOffersHoustonHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum DAM EN Only Bids cleared': 'sumDamENOnlyBidsCleared', 'Sum 3PO cleared': 'sum3POCleared', 'Sum DAM EN Only Offers cleared': 'sumDamENOnlyOffersCleared', 'Sum ESR Bids cleared': 'sumESRBidsCleared', 'Sum ESR Offers cleared': 'sumESROffersCleared'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Tot_*Offers_Houston-[0-9]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum Cleared DAM Bids': 'sumDamENOnlyBidsCleared', 'Sum Cleared 3PO': 'sum3POCleared', 'Sum Cleared Energy Only Offers': 'sumDamENOnlyOffersCleared'},))
 
     def _2d_total_cleared_energy_bids_offers_houston(self, *, sum3POClearedFrom: Decimal | None = None, sum3POClearedTo: Decimal | None = None, sumDamENOnlyOffersClearedFrom: Decimal | None = None, sumDamENOnlyOffersClearedTo: Decimal | None = None, sumESRBidsClearedFrom: Decimal | None = None, sumESRBidsClearedTo: Decimal | None = None, sumESROffersClearedFrom: Decimal | None = None, sumESROffersClearedTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, sumDamENOnlyBidsClearedFrom: Decimal | None = None, sumDamENOnlyBidsClearedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dTotalClearedEnergyBidsOffersHoustonRow]:
         '2-Day Total Cleared Energy Bids and Energy-Only Offers Houston'
@@ -1746,6 +2883,20 @@ class np3_909_er:
         sumESRBidsCleared: Decimal | None
         sumESROffersCleared: Decimal | None
 
+    class _2dTotalClearedEnergyBidsOffersNorthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        sumDamENOnlyBidsCleared: Decimal | None
+        sum3POCleared: Decimal | None
+        sumDamENOnlyOffersCleared: Decimal | None
+        sumESRBidsCleared: Decimal | None = None
+        sumESROffersCleared: Decimal | None = None
+
+    @property
+    def _2d_total_cleared_energy_bids_offers_north_history(self) -> Archive[np3_909_er._2dTotalClearedEnergyBidsOffersNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dTotalClearedEnergyBidsOffersNorthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum DAM EN Only Bids cleared': 'sumDamENOnlyBidsCleared', 'Sum 3PO cleared': 'sum3POCleared', 'Sum DAM EN Only Offers cleared': 'sumDamENOnlyOffersCleared', 'Sum ESR Bids cleared': 'sumESRBidsCleared', 'Sum ESR Offers cleared': 'sumESROffersCleared'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Tot_*Offers_North-[0-9]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum Cleared DAM Bids': 'sumDamENOnlyBidsCleared', 'Sum Cleared 3PO': 'sum3POCleared', 'Sum Cleared Energy Only Offers': 'sumDamENOnlyOffersCleared'},))
+
     def _2d_total_cleared_energy_bids_offers_north(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, sumDamENOnlyBidsClearedFrom: Decimal | None = None, sumDamENOnlyBidsClearedTo: Decimal | None = None, sum3POClearedFrom: Decimal | None = None, sum3POClearedTo: Decimal | None = None, sumDamENOnlyOffersClearedFrom: Decimal | None = None, sumDamENOnlyOffersClearedTo: Decimal | None = None, sumESRBidsClearedFrom: Decimal | None = None, sumESRBidsClearedTo: Decimal | None = None, sumESROffersClearedFrom: Decimal | None = None, sumESROffersClearedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dTotalClearedEnergyBidsOffersNorthRow]:
         '2-Day Total Cleared Energy Bids and Energy-Only Offers North'
         return self._client._page('/np3-909-er/2d_total_cleared_energy_bids_offers_north', np3_909_er._2dTotalClearedEnergyBidsOffersNorthRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'sumDamENOnlyBidsClearedFrom': sumDamENOnlyBidsClearedFrom, 'sumDamENOnlyBidsClearedTo': sumDamENOnlyBidsClearedTo, 'sum3POClearedFrom': sum3POClearedFrom, 'sum3POClearedTo': sum3POClearedTo, 'sumDamENOnlyOffersClearedFrom': sumDamENOnlyOffersClearedFrom, 'sumDamENOnlyOffersClearedTo': sumDamENOnlyOffersClearedTo, 'sumESRBidsClearedFrom': sumESRBidsClearedFrom, 'sumESRBidsClearedTo': sumESRBidsClearedTo, 'sumESROffersClearedFrom': sumESROffersClearedFrom, 'sumESROffersClearedTo': sumESROffersClearedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1770,6 +2921,20 @@ class np3_909_er:
         sumESRBidsCleared: Decimal | None
         sumESROffersCleared: Decimal | None
 
+    class _2dTotalClearedEnergyBidsOffersSouthHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        sumDamENOnlyBidsCleared: Decimal | None
+        sum3POCleared: Decimal | None
+        sumDamENOnlyOffersCleared: Decimal | None
+        sumESRBidsCleared: Decimal | None = None
+        sumESROffersCleared: Decimal | None = None
+
+    @property
+    def _2d_total_cleared_energy_bids_offers_south_history(self) -> Archive[np3_909_er._2dTotalClearedEnergyBidsOffersSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dTotalClearedEnergyBidsOffersSouthHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum DAM EN Only Bids cleared': 'sumDamENOnlyBidsCleared', 'Sum 3PO cleared': 'sum3POCleared', 'Sum DAM EN Only Offers cleared': 'sumDamENOnlyOffersCleared', 'Sum ESR Bids cleared': 'sumESRBidsCleared', 'Sum ESR Offers cleared': 'sumESROffersCleared'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Tot_*Offers_South-[0-9]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum Cleared DAM Bids': 'sumDamENOnlyBidsCleared', 'Sum Cleared 3PO': 'sum3POCleared', 'Sum Cleared Energy Only Offers': 'sumDamENOnlyOffersCleared'},))
+
     def _2d_total_cleared_energy_bids_offers_south(self, *, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, sumDamENOnlyBidsClearedFrom: Decimal | None = None, sumDamENOnlyBidsClearedTo: Decimal | None = None, sum3POClearedFrom: Decimal | None = None, sum3POClearedTo: Decimal | None = None, sumDamENOnlyOffersClearedFrom: Decimal | None = None, sumDamENOnlyOffersClearedTo: Decimal | None = None, sumESRBidsClearedFrom: Decimal | None = None, sumESRBidsClearedTo: Decimal | None = None, sumESROffersClearedFrom: Decimal | None = None, sumESROffersClearedTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dTotalClearedEnergyBidsOffersSouthRow]:
         '2-Day Total Cleared Energy Bids and Energy-Only Offers South'
         return self._client._page('/np3-909-er/2d_total_cleared_energy_bids_offers_south', np3_909_er._2dTotalClearedEnergyBidsOffersSouthRow, {'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'sumDamENOnlyBidsClearedFrom': sumDamENOnlyBidsClearedFrom, 'sumDamENOnlyBidsClearedTo': sumDamENOnlyBidsClearedTo, 'sum3POClearedFrom': sum3POClearedFrom, 'sum3POClearedTo': sum3POClearedTo, 'sumDamENOnlyOffersClearedFrom': sumDamENOnlyOffersClearedFrom, 'sumDamENOnlyOffersClearedTo': sumDamENOnlyOffersClearedTo, 'sumESRBidsClearedFrom': sumESRBidsClearedFrom, 'sumESRBidsClearedTo': sumESRBidsClearedTo, 'sumESROffersClearedFrom': sumESROffersClearedFrom, 'sumESROffersClearedTo': sumESROffersClearedTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1793,6 +2958,20 @@ class np3_909_er:
         sumDamENOnlyOffersCleared: Decimal | None
         sumESRBidsCleared: Decimal | None
         sumESROffersCleared: Decimal | None
+
+    class _2dTotalClearedEnergyBidsOffersWestHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        sumDamENOnlyBidsCleared: Decimal | None
+        sum3POCleared: Decimal | None
+        sumDamENOnlyOffersCleared: Decimal | None
+        sumESRBidsCleared: Decimal | None = None
+        sumESROffersCleared: Decimal | None = None
+
+    @property
+    def _2d_total_cleared_energy_bids_offers_west_history(self) -> Archive[np3_909_er._2dTotalClearedEnergyBidsOffersWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-909-er', np3_909_er._2dTotalClearedEnergyBidsOffersWestHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum DAM EN Only Bids cleared': 'sumDamENOnlyBidsCleared', 'Sum 3PO cleared': 'sum3POCleared', 'Sum DAM EN Only Offers cleared': 'sumDamENOnlyOffersCleared', 'Sum ESR Bids cleared': 'sumESRBidsCleared', 'Sum ESR Offers cleared': 'sumESROffersCleared'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Tot_*Offers_West-[0-9]*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Sum Cleared DAM Bids': 'sumDamENOnlyBidsCleared', 'Sum Cleared 3PO': 'sum3POCleared', 'Sum Cleared Energy Only Offers': 'sumDamENOnlyOffersCleared'},))
 
     def _2d_total_cleared_energy_bids_offers_west(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, sumDamENOnlyBidsClearedFrom: Decimal | None = None, sumDamENOnlyBidsClearedTo: Decimal | None = None, sum3POClearedFrom: Decimal | None = None, sum3POClearedTo: Decimal | None = None, sumDamENOnlyOffersClearedFrom: Decimal | None = None, sumDamENOnlyOffersClearedTo: Decimal | None = None, sumESRBidsClearedFrom: Decimal | None = None, sumESRBidsClearedTo: Decimal | None = None, sumESROffersClearedFrom: Decimal | None = None, sumESROffersClearedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_909_er._2dTotalClearedEnergyBidsOffersWestRow]:
         '2-Day Total Cleared Energy Bids and Energy-Only Offers West'
@@ -1819,6 +2998,17 @@ class np3_910_er:
         repeatHourFlag: bool | None
         sumTelemDSRGen: Decimal | None
         sumTelemDSRLoad: Decimal | None
+
+    class _2dAggDsrLoadsHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumTelemDSRLoad: Decimal | None
+        sumTelemDSRGen: Decimal | None
+
+    @property
+    def _2d_agg_dsr_loads_history(self) -> Archive[np3_910_er._2dAggDsrLoadsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggDsrLoadsHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM TELEM DSR LOAD': 'sumTelemDSRLoad', 'SUM TELEM DSR GEN': 'sumTelemDSRGen'}, {}, member='*_Agg_DSR_Loads[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_dsr_loads(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumTelemDSRLoadFrom: Decimal | None = None, sumTelemDSRLoadTo: Decimal | None = None, sumTelemDSRGenFrom: Decimal | None = None, sumTelemDSRGenTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggDsrLoadsRow]:
         '2-Day Aggregated DSR Loads'
@@ -1855,6 +3045,34 @@ class np3_910_er:
         sumLASLREMRES: Decimal | None
         sumLASLWGR: Decimal | None
 
+    class _2dAggGenSummaryHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumBasePointNonIRR: Decimal | None = None
+        sumBasePointWGR: Decimal | None
+        sumBasePointPVGR: Decimal | None = None
+        sumBasePointREMRES: Decimal | None
+        sumGenTelemMW: Decimal | None
+        sumBasePointESR: Decimal | None = None
+        sumBasePointESRCharge: Decimal | None = None
+        sumBasePointESRDischarge: Decimal | None = None
+        sumHASLNonIRR: Decimal | None = None
+        sumLASLNonIRR: Decimal | None = None
+        sumHASLWGR: Decimal | None = None
+        sumLASLWGR: Decimal | None = None
+        sumHASLPVGR: Decimal | None = None
+        sumLASLPVGR: Decimal | None = None
+        sumHASLREMRES: Decimal | None = None
+        sumLASLREMRES: Decimal | None = None
+        sumBasePointNonWGR: Decimal | None = None
+        sumHASLNonWGR: Decimal | None = None
+        sumLASLNonWGR: Decimal | None = None
+
+    @property
+    def _2d_agg_gen_summary_history(self) -> Archive[np3_910_er._2dAggGenSummaryHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggGenSummaryHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM BASE POINT NON IRR': 'sumBasePointNonIRR', 'SUM BASE POINT WGR': 'sumBasePointWGR', 'SUM BASE POINT PVGR': 'sumBasePointPVGR', 'SUM BASE POINT Remaining Res': 'sumBasePointREMRES', 'SUM GEN TELEM MW': 'sumGenTelemMW', 'SUM BASE POINT ESR': 'sumBasePointESR', 'SUM BASE POINT ESR CHARGING': 'sumBasePointESRCharge', 'SUM BASE POINT ESR DISCHARGING': 'sumBasePointESRDischarge'}, {}, member='*_Agg_Gen_Summary[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time  Stamp': 'SCEDTimestamp', 'Repeated Hour  Flag': 'repeatHourFlag', 'SUM  BASE POINT NON-WGR': 'sumBasePointNonWGR', 'SUM  HASL NON-WGR': 'sumHASLNonWGR', 'SUM  LASL NON-WGR': 'sumLASLNonWGR', 'SUM  BASE POINT WGR': 'sumBasePointWGR', 'SUM   HASL  WGR': 'sumHASLWGR', 'SUM  LASL WGR': 'sumLASLWGR', 'SUM  BASE POINT REMAINING RESOURCES': 'sumBasePointREMRES', 'SUM  HASL REMAINING RESOURCES': 'sumHASLREMRES', 'SUM  LASL REMAINING RESOURCES': 'sumLASLREMRES', 'SUM  GEN  TELEM  MW': 'sumGenTelemMW'},))
+
     def _2d_agg_gen_summary(self, *, sumBasePointREMRESFrom: Decimal | None = None, sumBasePointREMRESTo: Decimal | None = None, sumGenTelemMWFrom: Decimal | None = None, sumGenTelemMWTo: Decimal | None = None, sumBasePointESRFrom: Decimal | None = None, sumBasePointESRTo: Decimal | None = None, sumBasePointESRChargeFrom: Decimal | None = None, sumBasePointESRChargeTo: Decimal | None = None, sumBasePointESRDischargeFrom: Decimal | None = None, sumBasePointESRDischargeTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumBasePointNonIRRFrom: Decimal | None = None, sumBasePointNonIRRTo: Decimal | None = None, sumBasePointWGRFrom: Decimal | None = None, sumBasePointWGRTo: Decimal | None = None, sumBasePointPVGRFrom: Decimal | None = None, sumBasePointPVGRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggGenSummaryRow]:
         '2-Day Aggregated Generation Summary'
         return self._client._page('/np3-910-er/2d_agg_gen_summary', np3_910_er._2dAggGenSummaryRow, {'sumBasePointREMRESFrom': sumBasePointREMRESFrom, 'sumBasePointREMRESTo': sumBasePointREMRESTo, 'sumGenTelemMWFrom': sumGenTelemMWFrom, 'sumGenTelemMWTo': sumGenTelemMWTo, 'sumBasePointESRFrom': sumBasePointESRFrom, 'sumBasePointESRTo': sumBasePointESRTo, 'sumBasePointESRChargeFrom': sumBasePointESRChargeFrom, 'sumBasePointESRChargeTo': sumBasePointESRChargeTo, 'sumBasePointESRDischargeFrom': sumBasePointESRDischargeFrom, 'sumBasePointESRDischargeTo': sumBasePointESRDischargeTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumBasePointNonIRRFrom': sumBasePointNonIRRFrom, 'sumBasePointNonIRRTo': sumBasePointNonIRRTo, 'sumBasePointWGRFrom': sumBasePointWGRFrom, 'sumBasePointWGRTo': sumBasePointWGRTo, 'sumBasePointPVGRFrom': sumBasePointPVGRFrom, 'sumBasePointPVGRTo': sumBasePointPVGRTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1888,6 +3106,34 @@ class np3_910_er:
         sumLaslNonWGR: Decimal | None
         sumLaslRemRes: Decimal | None
         sumLaslWGR: Decimal | None
+
+    class _2dAggGenSummaryHoustonHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumBasePointNonIRR: Decimal | None = None
+        sumBasePointWGR: Decimal | None
+        sumBasePointPVGR: Decimal | None = None
+        sumBasePointREMRES: Decimal | None
+        sumGenTelemMW: Decimal | None
+        sumBasePointESR: Decimal | None = None
+        sumBasePointESRCharge: Decimal | None = None
+        sumBasePointESRDischarge: Decimal | None = None
+        sumBasePointNonWGR: Decimal | None = None
+        sumHaslNonWGR: Decimal | None = None
+        sumLaslNonWGR: Decimal | None = None
+        sumHaslWGR: Decimal | None = None
+        sumLaslWGR: Decimal | None = None
+        sumHaslRemRes: Decimal | None = None
+        sumLaslRemRes: Decimal | None = None
+        sumHASLNonWGR: Decimal | None = None
+        sumLASLNonWGR: Decimal | None = None
+        sumHASLREMRES: Decimal | None = None
+        sumLASLREMRES: Decimal | None = None
+
+    @property
+    def _2d_agg_gen_summary_houston_history(self) -> Archive[np3_910_er._2dAggGenSummaryHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggGenSummaryHoustonHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM BASE POINT NON IRR': 'sumBasePointNonIRR', 'SUM BASE POINT WGR': 'sumBasePointWGR', 'SUM BASE POINT PVGR': 'sumBasePointPVGR', 'SUM BASE POINT Remaining Res': 'sumBasePointREMRES', 'SUM GEN TELEM MW': 'sumGenTelemMW', 'SUM BASE POINT ESR': 'sumBasePointESR', 'SUM BASE POINT ESR CHARGING': 'sumBasePointESRCharge', 'SUM BASE POINT ESR DISCHARGING': 'sumBasePointESRDischarge'}, {}, member='*_Agg_Gen_Summary_Houston[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time  Stamp': 'SCEDTimestamp', 'Repeated Hour  Flag': 'repeatHourFlag', 'SUM  BASE POINT NON-WGR': 'sumBasePointNonWGR', 'SUM  HASL NON-WGR': 'sumHASLNonWGR', 'SUM  LASL NON-WGR': 'sumLASLNonWGR', 'SUM  BASE POINT WGR': 'sumBasePointWGR', 'SUM   HASL  WGR': 'sumHaslWGR', 'SUM  LASL WGR': 'sumLaslWGR', 'SUM  BASE POINT REMAINING RESOURCES': 'sumBasePointREMRES', 'SUM  HASL REMAINING RESOURCES': 'sumHASLREMRES', 'SUM  LASL REMAINING RESOURCES': 'sumLASLREMRES', 'SUM  GEN  TELEM  MW': 'sumGenTelemMW'},))
 
     def _2d_agg_gen_summary_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumBasePointNonIRRFrom: Decimal | None = None, sumBasePointNonIRRTo: Decimal | None = None, sumBasePointWGRFrom: Decimal | None = None, sumBasePointWGRTo: Decimal | None = None, sumBasePointPVGRFrom: Decimal | None = None, sumBasePointPVGRTo: Decimal | None = None, sumBasePointREMRESFrom: Decimal | None = None, sumBasePointREMRESTo: Decimal | None = None, sumGenTelemMWFrom: Decimal | None = None, sumGenTelemMWTo: Decimal | None = None, sumBasePointESRFrom: Decimal | None = None, sumBasePointESRTo: Decimal | None = None, sumBasePointESRChargeFrom: Decimal | None = None, sumBasePointESRChargeTo: Decimal | None = None, sumBasePointESRDischargeFrom: Decimal | None = None, sumBasePointESRDischargeTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggGenSummaryHoustonRow]:
         '2-Day Aggregated Generation Summary Houston'
@@ -1923,6 +3169,34 @@ class np3_910_er:
         sumLaslRemRes: Decimal | None
         sumLaslWGR: Decimal | None
 
+    class _2dAggGenSummaryNorthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumBasePointNonIRR: Decimal | None = None
+        sumBasePointWGR: Decimal | None
+        sumBasePointPVGR: Decimal | None = None
+        sumBasePointREMRES: Decimal | None
+        sumGenTelemMW: Decimal | None
+        sumBasePointESR: Decimal | None = None
+        sumBasePointESRCharge: Decimal | None = None
+        sumBasePointESRDischarge: Decimal | None = None
+        sumBasePointNonWGR: Decimal | None = None
+        sumHaslNonWGR: Decimal | None = None
+        sumLaslNonWGR: Decimal | None = None
+        sumHaslWGR: Decimal | None = None
+        sumLaslWGR: Decimal | None = None
+        sumHaslRemRes: Decimal | None = None
+        sumLaslRemRes: Decimal | None = None
+        sumHASLNonWGR: Decimal | None = None
+        sumLASLNonWGR: Decimal | None = None
+        sumHASLREMRES: Decimal | None = None
+        sumLASLREMRES: Decimal | None = None
+
+    @property
+    def _2d_agg_gen_summary_north_history(self) -> Archive[np3_910_er._2dAggGenSummaryNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggGenSummaryNorthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM BASE POINT NON IRR': 'sumBasePointNonIRR', 'SUM BASE POINT WGR': 'sumBasePointWGR', 'SUM BASE POINT PVGR': 'sumBasePointPVGR', 'SUM BASE POINT Remaining Res': 'sumBasePointREMRES', 'SUM GEN TELEM MW': 'sumGenTelemMW', 'SUM BASE POINT ESR': 'sumBasePointESR', 'SUM BASE POINT ESR CHARGING': 'sumBasePointESRCharge', 'SUM BASE POINT ESR DISCHARGING': 'sumBasePointESRDischarge'}, {}, member='*_Agg_Gen_Summary_North[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time  Stamp': 'SCEDTimestamp', 'Repeated Hour  Flag': 'repeatHourFlag', 'SUM  BASE POINT NON-WGR': 'sumBasePointNonWGR', 'SUM  HASL NON-WGR': 'sumHASLNonWGR', 'SUM  LASL NON-WGR': 'sumLASLNonWGR', 'SUM  BASE POINT WGR': 'sumBasePointWGR', 'SUM   HASL  WGR': 'sumHaslWGR', 'SUM  LASL WGR': 'sumLaslWGR', 'SUM  BASE POINT REMAINING RESOURCES': 'sumBasePointREMRES', 'SUM  HASL REMAINING RESOURCES': 'sumHASLREMRES', 'SUM  LASL REMAINING RESOURCES': 'sumLASLREMRES', 'SUM  GEN  TELEM  MW': 'sumGenTelemMW'},))
+
     def _2d_agg_gen_summary_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumBasePointNonIRRFrom: Decimal | None = None, sumBasePointNonIRRTo: Decimal | None = None, sumBasePointWGRFrom: Decimal | None = None, sumBasePointWGRTo: Decimal | None = None, sumBasePointPVGRFrom: Decimal | None = None, sumBasePointPVGRTo: Decimal | None = None, sumBasePointREMRESFrom: Decimal | None = None, sumBasePointREMRESTo: Decimal | None = None, sumGenTelemMWFrom: Decimal | None = None, sumGenTelemMWTo: Decimal | None = None, sumBasePointESRFrom: Decimal | None = None, sumBasePointESRTo: Decimal | None = None, sumBasePointESRChargeFrom: Decimal | None = None, sumBasePointESRChargeTo: Decimal | None = None, sumBasePointESRDischargeFrom: Decimal | None = None, sumBasePointESRDischargeTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggGenSummaryNorthRow]:
         '2-Day Aggregated Generation Summary North'
         return self._client._page('/np3-910-er/2d_agg_gen_summary_north', np3_910_er._2dAggGenSummaryNorthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumBasePointNonIRRFrom': sumBasePointNonIRRFrom, 'sumBasePointNonIRRTo': sumBasePointNonIRRTo, 'sumBasePointWGRFrom': sumBasePointWGRFrom, 'sumBasePointWGRTo': sumBasePointWGRTo, 'sumBasePointPVGRFrom': sumBasePointPVGRFrom, 'sumBasePointPVGRTo': sumBasePointPVGRTo, 'sumBasePointREMRESFrom': sumBasePointREMRESFrom, 'sumBasePointREMRESTo': sumBasePointREMRESTo, 'sumGenTelemMWFrom': sumGenTelemMWFrom, 'sumGenTelemMWTo': sumGenTelemMWTo, 'sumBasePointESRFrom': sumBasePointESRFrom, 'sumBasePointESRTo': sumBasePointESRTo, 'sumBasePointESRChargeFrom': sumBasePointESRChargeFrom, 'sumBasePointESRChargeTo': sumBasePointESRChargeTo, 'sumBasePointESRDischargeFrom': sumBasePointESRDischargeFrom, 'sumBasePointESRDischargeTo': sumBasePointESRDischargeTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -1956,6 +3230,34 @@ class np3_910_er:
         sumLaslNonWGR: Decimal | None
         sumLaslRemRes: Decimal | None
         sumLaslWGR: Decimal | None
+
+    class _2dAggGenSummarySouthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumBasePointNonIRR: Decimal | None = None
+        sumBasePointWGR: Decimal | None
+        sumBasePointPVGR: Decimal | None = None
+        sumBasePointREMRES: Decimal | None
+        sumGenTelemMW: Decimal | None
+        sumBasePointESR: Decimal | None = None
+        sumBasePointESRCharge: Decimal | None = None
+        sumBasePointESRDischarge: Decimal | None = None
+        sumBasePointNonWGR: Decimal | None = None
+        sumHaslNonWGR: Decimal | None = None
+        sumLaslNonWGR: Decimal | None = None
+        sumHaslWGR: Decimal | None = None
+        sumLaslWGR: Decimal | None = None
+        sumHaslRemRes: Decimal | None = None
+        sumLaslRemRes: Decimal | None = None
+        sumHASLNonWGR: Decimal | None = None
+        sumLASLNonWGR: Decimal | None = None
+        sumHASLREMRES: Decimal | None = None
+        sumLASLREMRES: Decimal | None = None
+
+    @property
+    def _2d_agg_gen_summary_south_history(self) -> Archive[np3_910_er._2dAggGenSummarySouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggGenSummarySouthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM BASE POINT NON IRR': 'sumBasePointNonIRR', 'SUM BASE POINT WGR': 'sumBasePointWGR', 'SUM BASE POINT PVGR': 'sumBasePointPVGR', 'SUM BASE POINT Remaining Res': 'sumBasePointREMRES', 'SUM GEN TELEM MW': 'sumGenTelemMW', 'SUM BASE POINT ESR': 'sumBasePointESR', 'SUM BASE POINT ESR CHARGING': 'sumBasePointESRCharge', 'SUM BASE POINT ESR DISCHARGING': 'sumBasePointESRDischarge'}, {}, member='*_Agg_Gen_Summary_South[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time  Stamp': 'SCEDTimestamp', 'Repeated Hour  Flag': 'repeatHourFlag', 'SUM  BASE POINT NON-WGR': 'sumBasePointNonWGR', 'SUM  HASL NON-WGR': 'sumHASLNonWGR', 'SUM  LASL NON-WGR': 'sumLASLNonWGR', 'SUM  BASE POINT WGR': 'sumBasePointWGR', 'SUM   HASL  WGR': 'sumHaslWGR', 'SUM  LASL WGR': 'sumLaslWGR', 'SUM  BASE POINT REMAINING RESOURCES': 'sumBasePointREMRES', 'SUM  HASL REMAINING RESOURCES': 'sumHASLREMRES', 'SUM  LASL REMAINING RESOURCES': 'sumLASLREMRES', 'SUM  GEN  TELEM  MW': 'sumGenTelemMW'},))
 
     def _2d_agg_gen_summary_south(self, *, repeatHourFlag: bool | None = None, sumBasePointNonIRRFrom: Decimal | None = None, sumBasePointNonIRRTo: Decimal | None = None, sumBasePointWGRFrom: Decimal | None = None, sumBasePointWGRTo: Decimal | None = None, sumBasePointPVGRFrom: Decimal | None = None, sumBasePointPVGRTo: Decimal | None = None, sumBasePointREMRESFrom: Decimal | None = None, sumBasePointREMRESTo: Decimal | None = None, sumGenTelemMWFrom: Decimal | None = None, sumGenTelemMWTo: Decimal | None = None, sumBasePointESRFrom: Decimal | None = None, sumBasePointESRTo: Decimal | None = None, sumBasePointESRChargeFrom: Decimal | None = None, sumBasePointESRChargeTo: Decimal | None = None, sumBasePointESRDischargeFrom: Decimal | None = None, sumBasePointESRDischargeTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggGenSummarySouthRow]:
         '2-Day Aggregated Generation Summary South'
@@ -1991,6 +3293,34 @@ class np3_910_er:
         sumLaslRemRes: Decimal | None
         sumLaslWGR: Decimal | None
 
+    class _2dAggGenSummaryWestHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumBasePointNonIRR: Decimal | None = None
+        sumBasePointWGR: Decimal | None
+        sumBasePointPVGR: Decimal | None = None
+        sumBasePointREMRES: Decimal | None
+        sumGenTelemMW: Decimal | None
+        sumBasePointESR: Decimal | None = None
+        sumBasePointESRCharge: Decimal | None = None
+        sumBasePointESRDischarge: Decimal | None = None
+        sumBasePointNonWGR: Decimal | None = None
+        sumHaslNonWGR: Decimal | None = None
+        sumLaslNonWGR: Decimal | None = None
+        sumHaslWGR: Decimal | None = None
+        sumLaslWGR: Decimal | None = None
+        sumHaslRemRes: Decimal | None = None
+        sumLaslRemRes: Decimal | None = None
+        sumHASLNonWGR: Decimal | None = None
+        sumLASLNonWGR: Decimal | None = None
+        sumHASLREMRES: Decimal | None = None
+        sumLASLREMRES: Decimal | None = None
+
+    @property
+    def _2d_agg_gen_summary_west_history(self) -> Archive[np3_910_er._2dAggGenSummaryWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggGenSummaryWestHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM BASE POINT NON IRR': 'sumBasePointNonIRR', 'SUM BASE POINT WGR': 'sumBasePointWGR', 'SUM BASE POINT PVGR': 'sumBasePointPVGR', 'SUM BASE POINT Remaining Res': 'sumBasePointREMRES', 'SUM GEN TELEM MW': 'sumGenTelemMW', 'SUM BASE POINT ESR': 'sumBasePointESR', 'SUM BASE POINT ESR CHARGING': 'sumBasePointESRCharge', 'SUM BASE POINT ESR DISCHARGING': 'sumBasePointESRDischarge'}, {}, member='*_Agg_Gen_Summary_West[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time  Stamp': 'SCEDTimestamp', 'Repeated Hour  Flag': 'repeatHourFlag', 'SUM  BASE POINT NON-WGR': 'sumBasePointNonWGR', 'SUM  HASL NON-WGR': 'sumHASLNonWGR', 'SUM  LASL NON-WGR': 'sumLASLNonWGR', 'SUM  BASE POINT WGR': 'sumBasePointWGR', 'SUM   HASL  WGR': 'sumHaslWGR', 'SUM  LASL WGR': 'sumLaslWGR', 'SUM  BASE POINT REMAINING RESOURCES': 'sumBasePointREMRES', 'SUM  HASL REMAINING RESOURCES': 'sumHASLREMRES', 'SUM  LASL REMAINING RESOURCES': 'sumLASLREMRES', 'SUM  GEN  TELEM  MW': 'sumGenTelemMW'},))
+
     def _2d_agg_gen_summary_west(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumBasePointNonIRRFrom: Decimal | None = None, sumBasePointNonIRRTo: Decimal | None = None, sumBasePointWGRFrom: Decimal | None = None, sumBasePointWGRTo: Decimal | None = None, sumBasePointPVGRFrom: Decimal | None = None, sumBasePointPVGRTo: Decimal | None = None, sumBasePointREMRESFrom: Decimal | None = None, sumBasePointREMRESTo: Decimal | None = None, sumGenTelemMWFrom: Decimal | None = None, sumGenTelemMWTo: Decimal | None = None, sumBasePointESRFrom: Decimal | None = None, sumBasePointESRTo: Decimal | None = None, sumBasePointESRChargeFrom: Decimal | None = None, sumBasePointESRChargeTo: Decimal | None = None, sumBasePointESRDischargeFrom: Decimal | None = None, sumBasePointESRDischargeTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggGenSummaryWestRow]:
         '2-Day Aggregated Generation Summary West'
         return self._client._page('/np3-910-er/2d_agg_gen_summary_west', np3_910_er._2dAggGenSummaryWestRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumBasePointNonIRRFrom': sumBasePointNonIRRFrom, 'sumBasePointNonIRRTo': sumBasePointNonIRRTo, 'sumBasePointWGRFrom': sumBasePointWGRFrom, 'sumBasePointWGRTo': sumBasePointWGRTo, 'sumBasePointPVGRFrom': sumBasePointPVGRFrom, 'sumBasePointPVGRTo': sumBasePointPVGRTo, 'sumBasePointREMRESFrom': sumBasePointREMRESFrom, 'sumBasePointREMRESTo': sumBasePointREMRESTo, 'sumGenTelemMWFrom': sumGenTelemMWFrom, 'sumGenTelemMWTo': sumGenTelemMWTo, 'sumBasePointESRFrom': sumBasePointESRFrom, 'sumBasePointESRTo': sumBasePointESRTo, 'sumBasePointESRChargeFrom': sumBasePointESRChargeFrom, 'sumBasePointESRChargeTo': sumBasePointESRChargeTo, 'sumBasePointESRDischargeFrom': sumBasePointESRDischargeFrom, 'sumBasePointESRDischargeTo': sumBasePointESRDischargeTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2012,6 +3342,18 @@ class np3_910_er:
         repeatHourFlag: bool | None
         sumTelemDCtieMW: Decimal | None
         sumTelemGenMW: Decimal | None
+
+    class _2dAggLoadSummaryHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumTelemGenMW: Decimal | None
+        sumTelemDCtieMW: Decimal | None
+        aggLoadSummary: Decimal | None
+
+    @property
+    def _2d_agg_load_summary_history(self) -> Archive[np3_910_er._2dAggLoadSummaryHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggLoadSummaryHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM TELEM GEN MW': 'sumTelemGenMW', 'SUM TELEM DCTIE MW': 'sumTelemDCtieMW', 'AGG LOAD SUMMARY': 'aggLoadSummary'}, {}, member='*_Agg_Load_Summary[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_load_summary(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumTelemGenMWFrom: Decimal | None = None, sumTelemGenMWTo: Decimal | None = None, sumTelemDCtieMWFrom: Decimal | None = None, sumTelemDCtieMWTo: Decimal | None = None, aggLoadSummaryFrom: Decimal | None = None, aggLoadSummaryTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggLoadSummaryRow]:
         '2-Day Aggregated Load Summary'
@@ -2035,6 +3377,18 @@ class np3_910_er:
         sumTelemDCtieMW: Decimal | None
         sumTelemGenMW: Decimal | None
 
+    class _2dAggLoadSummaryHoustonHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumTelemGenMW: Decimal | None
+        sumTelemDCtieMW: Decimal | None
+        aggLoadSummary: Decimal | None
+
+    @property
+    def _2d_agg_load_summary_houston_history(self) -> Archive[np3_910_er._2dAggLoadSummaryHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggLoadSummaryHoustonHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM TELEM GEN MW': 'sumTelemGenMW', 'SUM TELEM DCTIE MW': 'sumTelemDCtieMW', 'AGG LOAD SUMMARY': 'aggLoadSummary'}, {}, member='*_Agg_Load_Summary_Houston[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_load_summary_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumTelemGenMWFrom: Decimal | None = None, sumTelemGenMWTo: Decimal | None = None, sumTelemDCtieMWFrom: Decimal | None = None, sumTelemDCtieMWTo: Decimal | None = None, aggLoadSummaryFrom: Decimal | None = None, aggLoadSummaryTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggLoadSummaryHoustonRow]:
         '2-Day Aggregated Load Summary Houston'
         return self._client._page('/np3-910-er/2d_agg_load_summary_houston', np3_910_er._2dAggLoadSummaryHoustonRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumTelemGenMWFrom': sumTelemGenMWFrom, 'sumTelemGenMWTo': sumTelemGenMWTo, 'sumTelemDCtieMWFrom': sumTelemDCtieMWFrom, 'sumTelemDCtieMWTo': sumTelemDCtieMWTo, 'aggLoadSummaryFrom': aggLoadSummaryFrom, 'aggLoadSummaryTo': aggLoadSummaryTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2056,6 +3410,18 @@ class np3_910_er:
         repeatHourFlag: bool | None
         sumTelemDCtieMW: Decimal | None
         sumTelemGenMW: Decimal | None
+
+    class _2dAggLoadSummaryNorthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumTelemGenMW: Decimal | None
+        sumTelemDCtieMW: Decimal | None
+        aggLoadSummary: Decimal | None
+
+    @property
+    def _2d_agg_load_summary_north_history(self) -> Archive[np3_910_er._2dAggLoadSummaryNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggLoadSummaryNorthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM TELEM GEN MW': 'sumTelemGenMW', 'SUM TELEM DCTIE MW': 'sumTelemDCtieMW', 'AGG LOAD SUMMARY': 'aggLoadSummary'}, {}, member='*_Agg_Load_Summary_North[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_load_summary_north(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumTelemGenMWFrom: Decimal | None = None, sumTelemGenMWTo: Decimal | None = None, sumTelemDCtieMWFrom: Decimal | None = None, sumTelemDCtieMWTo: Decimal | None = None, aggLoadSummaryFrom: Decimal | None = None, aggLoadSummaryTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggLoadSummaryNorthRow]:
         '2-Day Aggregated Load Summary North'
@@ -2079,6 +3445,18 @@ class np3_910_er:
         sumTelemDCtieMW: Decimal | None
         sumTelemGenMW: Decimal | None
 
+    class _2dAggLoadSummarySouthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumTelemGenMW: Decimal | None
+        sumTelemDCtieMW: Decimal | None
+        aggLoadSummary: Decimal | None
+
+    @property
+    def _2d_agg_load_summary_south_history(self) -> Archive[np3_910_er._2dAggLoadSummarySouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggLoadSummarySouthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM TELEM GEN MW': 'sumTelemGenMW', 'SUM TELEM DCTIE MW': 'sumTelemDCtieMW', 'AGG LOAD SUMMARY': 'aggLoadSummary'}, {}, member='*_Agg_Load_Summary_South[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_load_summary_south(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumTelemGenMWFrom: Decimal | None = None, sumTelemGenMWTo: Decimal | None = None, sumTelemDCtieMWFrom: Decimal | None = None, sumTelemDCtieMWTo: Decimal | None = None, aggLoadSummaryFrom: Decimal | None = None, aggLoadSummaryTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggLoadSummarySouthRow]:
         '2-Day Aggregated Load Summary South'
         return self._client._page('/np3-910-er/2d_agg_load_summary_south', np3_910_er._2dAggLoadSummarySouthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumTelemGenMWFrom': sumTelemGenMWFrom, 'sumTelemGenMWTo': sumTelemGenMWTo, 'sumTelemDCtieMWFrom': sumTelemDCtieMWFrom, 'sumTelemDCtieMWTo': sumTelemDCtieMWTo, 'aggLoadSummaryFrom': aggLoadSummaryFrom, 'aggLoadSummaryTo': aggLoadSummaryTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2100,6 +3478,18 @@ class np3_910_er:
         repeatHourFlag: bool | None
         sumTelemDCtieMW: Decimal | None
         sumTelemGenMW: Decimal | None
+
+    class _2dAggLoadSummaryWestHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumTelemGenMW: Decimal | None
+        sumTelemDCtieMW: Decimal | None
+        aggLoadSummary: Decimal | None
+
+    @property
+    def _2d_agg_load_summary_west_history(self) -> Archive[np3_910_er._2dAggLoadSummaryWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggLoadSummaryWestHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM TELEM GEN MW': 'sumTelemGenMW', 'SUM TELEM DCTIE MW': 'sumTelemDCtieMW', 'AGG LOAD SUMMARY': 'aggLoadSummary'}, {}, member='*_Agg_Load_Summary_West[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_load_summary_west(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumTelemGenMWFrom: Decimal | None = None, sumTelemGenMWTo: Decimal | None = None, sumTelemDCtieMWFrom: Decimal | None = None, sumTelemDCtieMWTo: Decimal | None = None, aggLoadSummaryFrom: Decimal | None = None, aggLoadSummaryTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggLoadSummaryWestRow]:
         '2-Day Aggregated Load Summary West'
@@ -2123,6 +3513,18 @@ class np3_910_er:
         sumLSLOutputSched: Decimal | None
         sumOutputSched: Decimal | None
 
+    class _2dAggOutSchedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumLSLOutputSched: Decimal | None
+        sumHSLOutputSched: Decimal | None
+        sumOutputSched: Decimal | None
+
+    @property
+    def _2d_agg_out_sched_history(self) -> Archive[np3_910_er._2dAggOutSchedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggOutSchedHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM LSL OUTPUT SCHEDULE': 'sumLSLOutputSched', 'SUM HSL OUTPUT SCHEDULE': 'sumHSLOutputSched', 'SUM OUTPUTSCHEDULE': 'sumOutputSched'}, {}, member='*_Agg_Output_Sched[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_out_sched(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumLSLOutputSchedFrom: Decimal | None = None, sumLSLOutputSchedTo: Decimal | None = None, sumHSLOutputSchedFrom: Decimal | None = None, sumHSLOutputSchedTo: Decimal | None = None, sumOutputSchedFrom: Decimal | None = None, sumOutputSchedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggOutSchedRow]:
         '2-Day Aggregated Output Schedule'
         return self._client._page('/np3-910-er/2d_agg_out_sched', np3_910_er._2dAggOutSchedRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumLSLOutputSchedFrom': sumLSLOutputSchedFrom, 'sumLSLOutputSchedTo': sumLSLOutputSchedTo, 'sumHSLOutputSchedFrom': sumHSLOutputSchedFrom, 'sumHSLOutputSchedTo': sumHSLOutputSchedTo, 'sumOutputSchedFrom': sumOutputSchedFrom, 'sumOutputSchedTo': sumOutputSchedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2144,6 +3546,18 @@ class np3_910_er:
         sumHSLOutputSched: Decimal | None
         sumLSLOutputSched: Decimal | None
         sumOutputSched: Decimal | None
+
+    class _2dAggOutSchedHoustonHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumLSLOutputSched: Decimal | None
+        sumHSLOutputSched: Decimal | None
+        sumOutputSched: Decimal | None
+
+    @property
+    def _2d_agg_out_sched_houston_history(self) -> Archive[np3_910_er._2dAggOutSchedHoustonHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggOutSchedHoustonHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM LSL OUTPUT SCHEDULE': 'sumLSLOutputSched', 'SUM HSL OUTPUT SCHEDULE': 'sumHSLOutputSched', 'SUM OUTPUTSCHEDULE': 'sumOutputSched'}, {}, member='*_Agg_Output_Sched_Houston[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_out_sched_houston(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumLSLOutputSchedFrom: Decimal | None = None, sumLSLOutputSchedTo: Decimal | None = None, sumHSLOutputSchedFrom: Decimal | None = None, sumHSLOutputSchedTo: Decimal | None = None, sumOutputSchedFrom: Decimal | None = None, sumOutputSchedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggOutSchedHoustonRow]:
         '2-Day Aggregated Output Schedule Houston'
@@ -2167,6 +3581,18 @@ class np3_910_er:
         sumLSLOutputSched: Decimal | None
         sumOutputSched: Decimal | None
 
+    class _2dAggOutSchedNorthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumLSLOutputSched: Decimal | None
+        sumHSLOutputSched: Decimal | None
+        sumOutputSched: Decimal | None
+
+    @property
+    def _2d_agg_out_sched_north_history(self) -> Archive[np3_910_er._2dAggOutSchedNorthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggOutSchedNorthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM LSL OUTPUT SCHEDULE': 'sumLSLOutputSched', 'SUM HSL OUTPUT SCHEDULE': 'sumHSLOutputSched', 'SUM OUTPUTSCHEDULE': 'sumOutputSched'}, {}, member='*_Agg_Output_Sched_North[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_out_sched_north(self, *, sumHSLOutputSchedFrom: Decimal | None = None, sumHSLOutputSchedTo: Decimal | None = None, sumOutputSchedFrom: Decimal | None = None, sumOutputSchedTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumLSLOutputSchedFrom: Decimal | None = None, sumLSLOutputSchedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggOutSchedNorthRow]:
         '2-Day Aggregated Output Schedule North'
         return self._client._page('/np3-910-er/2d_agg_out_sched_north', np3_910_er._2dAggOutSchedNorthRow, {'sumHSLOutputSchedFrom': sumHSLOutputSchedFrom, 'sumHSLOutputSchedTo': sumHSLOutputSchedTo, 'sumOutputSchedFrom': sumOutputSchedFrom, 'sumOutputSchedTo': sumOutputSchedTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumLSLOutputSchedFrom': sumLSLOutputSchedFrom, 'sumLSLOutputSchedTo': sumLSLOutputSchedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2189,6 +3615,18 @@ class np3_910_er:
         sumLSLOutputSched: Decimal | None
         sumOutputSched: Decimal | None
 
+    class _2dAggOutSchedSouthHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumLSLOutputSched: Decimal | None
+        sumHSLOutputSched: Decimal | None
+        sumOutputSched: Decimal | None
+
+    @property
+    def _2d_agg_out_sched_south_history(self) -> Archive[np3_910_er._2dAggOutSchedSouthHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggOutSchedSouthHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM LSL OUTPUT SCHEDULE': 'sumLSLOutputSched', 'SUM HSL OUTPUT SCHEDULE': 'sumHSLOutputSched', 'SUM OUTPUTSCHEDULE': 'sumOutputSched'}, {}, member='*_Agg_Output_Sched_South[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _2d_agg_out_sched_south(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, sumLSLOutputSchedFrom: Decimal | None = None, sumLSLOutputSchedTo: Decimal | None = None, sumHSLOutputSchedFrom: Decimal | None = None, sumHSLOutputSchedTo: Decimal | None = None, sumOutputSchedFrom: Decimal | None = None, sumOutputSchedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggOutSchedSouthRow]:
         '2-Day Aggregated Output Schedule South'
         return self._client._page('/np3-910-er/2d_agg_out_sched_south', np3_910_er._2dAggOutSchedSouthRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'sumLSLOutputSchedFrom': sumLSLOutputSchedFrom, 'sumLSLOutputSchedTo': sumLSLOutputSchedTo, 'sumHSLOutputSchedFrom': sumHSLOutputSchedFrom, 'sumHSLOutputSchedTo': sumHSLOutputSchedTo, 'sumOutputSchedFrom': sumOutputSchedFrom, 'sumOutputSchedTo': sumOutputSchedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2210,6 +3648,18 @@ class np3_910_er:
         sumHSLOutputSched: Decimal | None
         sumLSLOutputSched: Decimal | None
         sumOutputSched: Decimal | None
+
+    class _2dAggOutSchedWestHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        sumLSLOutputSched: Decimal | None
+        sumHSLOutputSched: Decimal | None
+        sumOutputSched: Decimal | None
+
+    @property
+    def _2d_agg_out_sched_west_history(self) -> Archive[np3_910_er._2dAggOutSchedWestHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-910-er', np3_910_er._2dAggOutSchedWestHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'SUM LSL OUTPUT SCHEDULE': 'sumLSLOutputSched', 'SUM HSL OUTPUT SCHEDULE': 'sumHSLOutputSched', 'SUM OUTPUTSCHEDULE': 'sumOutputSched'}, {}, member='*_Agg_Output_Sched_West[ -]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _2d_agg_out_sched_west(self, *, repeatHourFlag: bool | None = None, sumLSLOutputSchedFrom: Decimal | None = None, sumLSLOutputSchedTo: Decimal | None = None, sumHSLOutputSchedFrom: Decimal | None = None, sumHSLOutputSchedTo: Decimal | None = None, sumOutputSchedFrom: Decimal | None = None, sumOutputSchedTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_910_er._2dAggOutSchedWestRow]:
         '2-Day Aggregated Output Schedule West'
@@ -2237,6 +3687,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_as_offers_ecrsm_history(self) -> Archive[np3_911_er._2dAggAsOffersEcrsmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersEcrsmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'ECRSM Offer Price': 'ECRSMOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_ECRSM-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_as_offers_ecrsm(self, *, ECRSMOfferPriceFrom: Decimal | None = None, ECRSMOfferPriceTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersEcrsmRow]:
         '2-Day Aggregated Ancillary Service Offers ECRSM'
         return self._client._page('/np3-911-er/2d_agg_as_offers_ecrsm', np3_911_er._2dAggAsOffersEcrsmRow, {'ECRSMOfferPriceFrom': ECRSMOfferPriceFrom, 'ECRSMOfferPriceTo': ECRSMOfferPriceTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2257,6 +3712,11 @@ class np3_911_er:
         MWOffered: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_as_offers_ecrss_history(self) -> Archive[np3_911_er._2dAggAsOffersEcrssRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersEcrssRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'ECRSS Offer Price': 'ECRSSOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_ECRSS-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_as_offers_ecrss(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, ECRSSOfferPriceFrom: Decimal | None = None, ECRSSOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersEcrssRow]:
         '2-Day Aggregated Ancillary Service Offers ECRSS'
@@ -2279,6 +3739,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_as_offers_offns_history(self) -> Archive[np3_911_er._2dAggAsOffersOffnsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersOffnsRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'OFFNS Offer Price': 'OFFNSOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_OFFNS-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_as_offers_offns(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, OFFNSOfferPriceFrom: Decimal | None = None, OFFNSOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersOffnsRow]:
         '2-Day Aggregated Ancillary Service Offers OFFNS'
         return self._client._page('/np3-911-er/2d_agg_as_offers_offns', np3_911_er._2dAggAsOffersOffnsRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'OFFNSOfferPriceFrom': OFFNSOfferPriceFrom, 'OFFNSOfferPriceTo': OFFNSOfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2299,6 +3764,11 @@ class np3_911_er:
         ONNSOfferPrice: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_as_offers_onns_history(self) -> Archive[np3_911_er._2dAggAsOffersOnnsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersOnnsRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'ONNS Offer Price': 'ONNSOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_ONNS-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_as_offers_onns(self, *, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, ONNSOfferPriceFrom: Decimal | None = None, ONNSOfferPriceTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersOnnsRow]:
         '2-Day Aggregated Ancillary Service Offers ONNS'
@@ -2321,6 +3791,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_as_offers_regdn_history(self) -> Archive[np3_911_er._2dAggAsOffersRegdnRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRegdnRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'REGDN Offer Price': 'REGDNOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_REGDN-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_as_offers_regdn(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, REGDNOfferPriceFrom: Decimal | None = None, REGDNOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersRegdnRow]:
         '2-Day Aggregated Ancillary Service Offers REGDN'
         return self._client._page('/np3-911-er/2d_agg_as_offers_regdn', np3_911_er._2dAggAsOffersRegdnRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'REGDNOfferPriceFrom': REGDNOfferPriceFrom, 'REGDNOfferPriceTo': REGDNOfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2341,6 +3816,11 @@ class np3_911_er:
         REGUPOfferPrice: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_as_offers_regup_history(self) -> Archive[np3_911_er._2dAggAsOffersRegupRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRegupRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'REGUP Offer Price': 'REGUPOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_REGUP-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_as_offers_regup(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, REGUPOfferPriceFrom: Decimal | None = None, REGUPOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersRegupRow]:
         '2-Day Aggregated Ancillary Service Offers REGUP'
@@ -2363,6 +3843,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_as_offers_rrsffr_history(self) -> Archive[np3_911_er._2dAggAsOffersRrsffrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRrsffrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSFFR Offer Price': 'RRSFFROfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_RRSFFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_as_offers_rrsffr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, RRSFFROfferPriceFrom: Decimal | None = None, RRSFFROfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersRrsffrRow]:
         '2-Day Aggregated Ancillary Service Offers RRSFFR'
         return self._client._page('/np3-911-er/2d_agg_as_offers_rrsffr', np3_911_er._2dAggAsOffersRrsffrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'RRSFFROfferPriceFrom': RRSFFROfferPriceFrom, 'RRSFFROfferPriceTo': RRSFFROfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2383,6 +3868,11 @@ class np3_911_er:
         RRSPFROfferPrice: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_as_offers_rrspfr_history(self) -> Archive[np3_911_er._2dAggAsOffersRrspfrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRrspfrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSPFR Offer Price': 'RRSPFROfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_RRSPFR-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_as_offers_rrspfr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, RRSPFROfferPriceFrom: Decimal | None = None, RRSPFROfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersRrspfrRow]:
         '2-Day Aggregated Ancillary Service Offers RRSPFR'
@@ -2405,6 +3895,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_as_offers_rrsufr_history(self) -> Archive[np3_911_er._2dAggAsOffersRrsufrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRrsufrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSUFR Offer Price': 'RRSUFROfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_RRSUFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_as_offers_rrsufr(self, *, RRSUFROfferPriceFrom: Decimal | None = None, RRSUFROfferPriceTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggAsOffersRrsufrRow]:
         '2-Day Aggregated Ancillary Service Offers RRSUFR'
         return self._client._page('/np3-911-er/2d_agg_as_offers_rrsufr', np3_911_er._2dAggAsOffersRrsufrRow, {'RRSUFROfferPriceFrom': RRSUFROfferPriceFrom, 'RRSUFROfferPriceTo': RRSUFROfferPriceTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2425,6 +3920,11 @@ class np3_911_er:
         MWOffered: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_dam_as_offers_ecrsm_history(self) -> Archive[np3_911_er._2dAggDamAsOffersEcrsmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersEcrsmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'ECRSM Offer Price': 'ECRSMOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_ECRSM-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_dam_as_offers_ecrsm(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, ECRSMOfferPriceFrom: Decimal | None = None, ECRSMOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersEcrsmRow]:
         '2-Day Aggregated DAM Ancillary Service Offers ECRSM'
@@ -2447,6 +3947,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_dam_as_offers_ecrss_history(self) -> Archive[np3_911_er._2dAggDamAsOffersEcrssRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersEcrssRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'ECRSS Offer Price': 'ECRSSOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_ECRSS-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_dam_as_offers_ecrss(self, *, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, ECRSSOfferPriceFrom: Decimal | None = None, ECRSSOfferPriceTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersEcrssRow]:
         '2-Day Aggregated DAM Ancillary Service Offers ECRSS'
         return self._client._page('/np3-911-er/2d_agg_dam_as_offers_ecrss', np3_911_er._2dAggDamAsOffersEcrssRow, {'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'ECRSSOfferPriceFrom': ECRSSOfferPriceFrom, 'ECRSSOfferPriceTo': ECRSSOfferPriceTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2467,6 +3972,11 @@ class np3_911_er:
         NSPINOfferPrice: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_dam_as_offers_nspin_history(self) -> Archive[np3_911_er._2dAggDamAsOffersNspinRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersNspinRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'NSPIN Offer Price': 'NSPINOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_NSPIN-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_dam_as_offers_nspin(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, NSPINOfferPriceFrom: Decimal | None = None, NSPINOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersNspinRow]:
         '2-Day Aggregated DAM Ancillary Service Offers NSPIN'
@@ -2489,6 +3999,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_dam_as_offers_nspnm_history(self) -> Archive[np3_911_er._2dAggDamAsOffersNspnmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersNspnmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'NSPNM Offer Price': 'NSPNMOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_NSPNM-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_dam_as_offers_nspnm(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, NSPNMOfferPriceFrom: Decimal | None = None, NSPNMOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersNspnmRow]:
         '2-Day Aggregated DAM Ancillary Service Offers NSPNM'
         return self._client._page('/np3-911-er/2d_agg_dam_as_offers_nspnm', np3_911_er._2dAggDamAsOffersNspnmRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'NSPNMOfferPriceFrom': NSPNMOfferPriceFrom, 'NSPNMOfferPriceTo': NSPNMOfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2509,6 +4024,11 @@ class np3_911_er:
         REGDNOfferPrice: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_dam_as_offers_regdn_history(self) -> Archive[np3_911_er._2dAggDamAsOffersRegdnRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersRegdnRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'REGDN Offer Price': 'REGDNOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_REGDN-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_dam_as_offers_regdn(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, REGDNOfferPriceFrom: Decimal | None = None, REGDNOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersRegdnRow]:
         '2-Day Aggregated DAM Ancillary Service Offers REGDN'
@@ -2531,6 +4051,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_dam_as_offers_regup_history(self) -> Archive[np3_911_er._2dAggDamAsOffersRegupRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersRegupRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'REGUP Offer Price': 'REGUPOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_REGUP-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_dam_as_offers_regup(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, REGUPOfferPriceFrom: Decimal | None = None, REGUPOfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersRegupRow]:
         '2-Day Aggregated DAM Ancillary Service Offers REGUP'
         return self._client._page('/np3-911-er/2d_agg_dam_as_offers_regup', np3_911_er._2dAggDamAsOffersRegupRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'REGUPOfferPriceFrom': REGUPOfferPriceFrom, 'REGUPOfferPriceTo': REGUPOfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2551,6 +4076,11 @@ class np3_911_er:
         RRSFFROfferPrice: Decimal | None
         deliveryDate: date | None
         hourEnding: int | None
+
+    @property
+    def _2d_agg_dam_as_offers_rrsffr_history(self) -> Archive[np3_911_er._2dAggDamAsOffersRrsffrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersRrsffrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSFFR Offer Price': 'RRSFFROfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_RRSFFR-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_agg_dam_as_offers_rrsffr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, RRSFFROfferPriceFrom: Decimal | None = None, RRSFFROfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersRrsffrRow]:
         '2-Day Aggregated DAM Ancillary Service Offers RRSFFR'
@@ -2573,6 +4103,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_dam_as_offers_rrspfr_history(self) -> Archive[np3_911_er._2dAggDamAsOffersRrspfrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersRrspfrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSPFR Offer Price': 'RRSPFROfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_RRSPFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_dam_as_offers_rrspfr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, RRSPFROfferPriceFrom: Decimal | None = None, RRSPFROfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersRrspfrRow]:
         '2-Day Aggregated DAM Ancillary Service Offers RRSPFR'
         return self._client._page('/np3-911-er/2d_agg_dam_as_offers_rrspfr', np3_911_er._2dAggDamAsOffersRrspfrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'RRSPFROfferPriceFrom': RRSPFROfferPriceFrom, 'RRSPFROfferPriceTo': RRSPFROfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2594,6 +4129,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
 
+    @property
+    def _2d_agg_dam_as_offers_rrsufr_history(self) -> Archive[np3_911_er._2dAggDamAsOffersRrsufrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggDamAsOffersRrsufrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSUFR Offer Price': 'RRSUFROfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_DAM_AS_Offers_RRSUFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_agg_dam_as_offers_rrsufr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, MWOfferedFrom: Decimal | None = None, MWOfferedTo: Decimal | None = None, RRSUFROfferPriceFrom: Decimal | None = None, RRSUFROfferPriceTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dAggDamAsOffersRrsufrRow]:
         '2-Day Aggregated DAM Ancillary Service Offers RRSUFR'
         return self._client._page('/np3-911-er/2d_agg_dam_as_offers_rrsufr', np3_911_er._2dAggDamAsOffersRrsufrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'MWOfferedFrom': MWOfferedFrom, 'MWOfferedTo': MWOfferedTo, 'RRSUFROfferPriceFrom': RRSUFROfferPriceFrom, 'RRSUFROfferPriceTo': RRSUFROfferPriceTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2613,6 +4153,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalClearedASECRSM: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_ecrsm_history(self) -> Archive[np3_911_er._2dClearedDamAsEcrsmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsEcrsmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - ECRSM': 'totalClearedASECRSM'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_ECRSM-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_cleared_dam_as_ecrsm(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASECRSMFrom: Decimal | None = None, totalClearedASECRSMTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsEcrsmRow]:
         '2-Day Cleared DAM Ancillary Service ECRSM'
@@ -2634,6 +4179,11 @@ class np3_911_er:
         hourEnding: int | None
         totalClearedASECRSS: Decimal | None
 
+    @property
+    def _2d_cleared_dam_as_ecrss_history(self) -> Archive[np3_911_er._2dClearedDamAsEcrssRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsEcrssRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - ECRSS': 'totalClearedASECRSS'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_ECRSS-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_cleared_dam_as_ecrss(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASECRSSFrom: Decimal | None = None, totalClearedASECRSSTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsEcrssRow]:
         '2-Day Cleared DAM Ancillary Service ECRSS'
         return self._client._page('/np3-911-er/2d_cleared_dam_as_ecrss', np3_911_er._2dClearedDamAsEcrssRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalClearedASECRSSFrom': totalClearedASECRSSFrom, 'totalClearedASECRSSTo': totalClearedASECRSSTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2653,6 +4203,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalClearedASNSPIN: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_nspin_history(self) -> Archive[np3_911_er._2dClearedDamAsNspinRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsNspinRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - NonSpin': 'totalClearedASNSPIN'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_NSPIN-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_cleared_dam_as_nspin(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASNSPINFrom: Decimal | None = None, totalClearedASNSPINTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsNspinRow]:
         '2-Day Cleared DAM Ancillary Service NSPIN'
@@ -2674,6 +4229,11 @@ class np3_911_er:
         hourEnding: int | None
         totalClearedASNSPNM: Decimal | None
 
+    @property
+    def _2d_cleared_dam_as_nspnm_history(self) -> Archive[np3_911_er._2dClearedDamAsNspnmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsNspnmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - NSPNM': 'totalClearedASNSPNM'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_NSPNM-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_cleared_dam_as_nspnm(self, *, totalClearedASNSPNMFrom: Decimal | None = None, totalClearedASNSPNMTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsNspnmRow]:
         '2-Day Cleared DAM Ancillary Service NSPNM'
         return self._client._page('/np3-911-er/2d_cleared_dam_as_nspnm', np3_911_er._2dClearedDamAsNspnmRow, {'totalClearedASNSPNMFrom': totalClearedASNSPNMFrom, 'totalClearedASNSPNMTo': totalClearedASNSPNMTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2693,6 +4253,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalClearedASREGDN: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_regdn_history(self) -> Archive[np3_911_er._2dClearedDamAsRegdnRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRegdnRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RegDown': 'totalClearedASREGDN'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_REGDN-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_cleared_dam_as_regdn(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASREGDNFrom: Decimal | None = None, totalClearedASREGDNTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsRegdnRow]:
         '2-Day Cleared DAM Ancillary Service REGDN'
@@ -2714,6 +4279,11 @@ class np3_911_er:
         hourEnding: int | None
         totalClearedASREGUP: Decimal | None
 
+    @property
+    def _2d_cleared_dam_as_regup_history(self) -> Archive[np3_911_er._2dClearedDamAsRegupRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRegupRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RegUp': 'totalClearedASREGUP'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_REGUP-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_cleared_dam_as_regup(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASREGUPFrom: Decimal | None = None, totalClearedASREGUPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsRegupRow]:
         '2-Day Cleared DAM Ancillary Service REGUP'
         return self._client._page('/np3-911-er/2d_cleared_dam_as_regup', np3_911_er._2dClearedDamAsRegupRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalClearedASREGUPFrom': totalClearedASREGUPFrom, 'totalClearedASREGUPTo': totalClearedASREGUPTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2733,6 +4303,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalClearedASRRSFFR: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_rrsffr_history(self) -> Archive[np3_911_er._2dClearedDamAsRrsffrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRrsffrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RRSFFR': 'totalClearedASRRSFFR'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_RRSFFR-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_cleared_dam_as_rrsffr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASRRSFFRFrom: Decimal | None = None, totalClearedASRRSFFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsRrsffrRow]:
         '2-Day Cleared DAM Ancillary Service RRSFFR'
@@ -2754,6 +4329,11 @@ class np3_911_er:
         hourEnding: int | None
         totalClearedASRRSPFR: Decimal | None
 
+    @property
+    def _2d_cleared_dam_as_rrspfr_history(self) -> Archive[np3_911_er._2dClearedDamAsRrspfrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRrspfrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RRSPFR': 'totalClearedASRRSPFR'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_RRSPFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_cleared_dam_as_rrspfr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASRRSPFRFrom: Decimal | None = None, totalClearedASRRSPFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsRrspfrRow]:
         '2-Day Cleared DAM Ancillary Service RRSPFR'
         return self._client._page('/np3-911-er/2d_cleared_dam_as_rrspfr', np3_911_er._2dClearedDamAsRrspfrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalClearedASRRSPFRFrom': totalClearedASRRSPFRFrom, 'totalClearedASRRSPFRTo': totalClearedASRRSPFRTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2773,6 +4353,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalClearedASRRSUFR: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_rrsufr_history(self) -> Archive[np3_911_er._2dClearedDamAsRrsufrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRrsufrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RRSUFR': 'totalClearedASRRSUFR'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_RRSUFR-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_cleared_dam_as_rrsufr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalClearedASRRSUFRFrom: Decimal | None = None, totalClearedASRRSUFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dClearedDamAsRrsufrRow]:
         '2-Day Cleared DAM Ancillary Service RRSUFR'
@@ -2794,6 +4379,11 @@ class np3_911_er:
         hourEnding: int | None
         totalSelfArrangedASECRSM: Decimal | None
 
+    @property
+    def _2d_self_arranged_as_ecrsm_history(self) -> Archive[np3_911_er._2dSelfArrangedAsEcrsmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsEcrsmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - ECRSM': 'totalSelfArrangedASECRSM'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_ECRSM-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_self_arranged_as_ecrsm(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASECRSMFrom: Decimal | None = None, totalSelfArrangedASECRSMTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsEcrsmRow]:
         '2-Day Self Arranged Ancillary Service ECRSM'
         return self._client._page('/np3-911-er/2d_self_arranged_as_ecrsm', np3_911_er._2dSelfArrangedAsEcrsmRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalSelfArrangedASECRSMFrom': totalSelfArrangedASECRSMFrom, 'totalSelfArrangedASECRSMTo': totalSelfArrangedASECRSMTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2813,6 +4403,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalSelfArrangedASECRSS: Decimal | None
+
+    @property
+    def _2d_self_arranged_as_ecrss_history(self) -> Archive[np3_911_er._2dSelfArrangedAsEcrssRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsEcrssRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - ECRSS': 'totalSelfArrangedASECRSS'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_ECRSS-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_self_arranged_as_ecrss(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASECRSSFrom: Decimal | None = None, totalSelfArrangedASECRSSTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsEcrssRow]:
         '2-Day Self Arranged Ancillary Service ECRSS'
@@ -2834,6 +4429,11 @@ class np3_911_er:
         hourEnding: int | None
         totalSelfArrangedASNSPIN: Decimal | None
 
+    @property
+    def _2d_self_arranged_as_nspin_history(self) -> Archive[np3_911_er._2dSelfArrangedAsNspinRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsNspinRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - NonSpin': 'totalSelfArrangedASNSPIN'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_NSPIN-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_self_arranged_as_nspin(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASNSPINFrom: Decimal | None = None, totalSelfArrangedASNSPINTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsNspinRow]:
         '2-Day Self Arranged Ancillary Service NSPIN'
         return self._client._page('/np3-911-er/2d_self_arranged_as_nspin', np3_911_er._2dSelfArrangedAsNspinRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalSelfArrangedASNSPINFrom': totalSelfArrangedASNSPINFrom, 'totalSelfArrangedASNSPINTo': totalSelfArrangedASNSPINTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2853,6 +4453,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalSelfArrangedASNSPNM: Decimal | None
+
+    @property
+    def _2d_self_arranged_as_nspnm_history(self) -> Archive[np3_911_er._2dSelfArrangedAsNspnmRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsNspnmRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - NSPNM': 'totalSelfArrangedASNSPNM'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_NSPNM-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_self_arranged_as_nspnm(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASNSPNMFrom: Decimal | None = None, totalSelfArrangedASNSPNMTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsNspnmRow]:
         '2-Day Self Arranged Ancillary Service NSPNM'
@@ -2874,6 +4479,11 @@ class np3_911_er:
         hourEnding: int | None
         totalSelfArrangedASREGDN: Decimal | None
 
+    @property
+    def _2d_self_arranged_as_regdn_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRegdnRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRegdnRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RegDown': 'totalSelfArrangedASREGDN'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_REGDN-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_self_arranged_as_regdn(self, *, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASREGDNFrom: Decimal | None = None, totalSelfArrangedASREGDNTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsRegdnRow]:
         '2-Day Self Arranged Ancillary Service REGDN'
         return self._client._page('/np3-911-er/2d_self_arranged_as_regdn', np3_911_er._2dSelfArrangedAsRegdnRow, {'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalSelfArrangedASREGDNFrom': totalSelfArrangedASREGDNFrom, 'totalSelfArrangedASREGDNTo': totalSelfArrangedASREGDNTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2893,6 +4503,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalSelfArrangedASREGUP: Decimal | None
+
+    @property
+    def _2d_self_arranged_as_regup_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRegupRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRegupRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RegUp': 'totalSelfArrangedASREGUP'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_REGUP-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_self_arranged_as_regup(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASREGUPFrom: Decimal | None = None, totalSelfArrangedASREGUPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsRegupRow]:
         '2-Day Self Arranged Ancillary Service REGUP'
@@ -2914,6 +4529,11 @@ class np3_911_er:
         hourEnding: int | None
         totalSelfArrangedASRRSFFR: Decimal | None
 
+    @property
+    def _2d_self_arranged_as_rrsffr_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRrsffrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRrsffrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RRSFFR': 'totalSelfArrangedASRRSFFR'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_RRSFFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_self_arranged_as_rrsffr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASRRSFFRFrom: Decimal | None = None, totalSelfArrangedASRRSFFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsRrsffrRow]:
         '2-Day Self Arranged Ancillary Service RRSFFR'
         return self._client._page('/np3-911-er/2d_self_arranged_as_rrsffr', np3_911_er._2dSelfArrangedAsRrsffrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalSelfArrangedASRRSFFRFrom': totalSelfArrangedASRRSFFRFrom, 'totalSelfArrangedASRRSFFRTo': totalSelfArrangedASRRSFFRTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2933,6 +4553,11 @@ class np3_911_er:
         deliveryDate: date | None
         hourEnding: int | None
         totalSelfArrangedASRRSPFR: Decimal | None
+
+    @property
+    def _2d_self_arranged_as_rrspfr_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRrspfrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRrspfrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RRSPFR': 'totalSelfArrangedASRRSPFR'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_RRSPFR-[0-9]*.csv', datetimes={}, variants=())
 
     def _2d_self_arranged_as_rrspfr(self, *, totalSelfArrangedASRRSPFRFrom: Decimal | None = None, totalSelfArrangedASRRSPFRTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsRrspfrRow]:
         '2-Day Self Arranged Ancillary Service RRSPFR'
@@ -2954,6 +4579,11 @@ class np3_911_er:
         hourEnding: int | None
         totalSelfArrangedASRRSUFR: Decimal | None
 
+    @property
+    def _2d_self_arranged_as_rrsufr_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRrsufrRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRrsufrRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RRSUFR': 'totalSelfArrangedASRRSUFR'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_RRSUFR-[0-9]*.csv', datetimes={}, variants=())
+
     def _2d_self_arranged_as_rrsufr(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, totalSelfArrangedASRRSUFRFrom: Decimal | None = None, totalSelfArrangedASRRSUFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_911_er._2dSelfArrangedAsRrsufrRow]:
         '2-Day Self Arranged Ancillary Service RRSUFR'
         return self._client._page('/np3-911-er/2d_self_arranged_as_rrsufr', np3_911_er._2dSelfArrangedAsRrsufrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalSelfArrangedASRRSUFRFrom': totalSelfArrangedASRRSUFRFrom, 'totalSelfArrangedASRRSUFRTo': totalSelfArrangedASRRSUFRTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -2970,6 +4600,79 @@ class np3_911_er:
         '2-Day Self Arranged Ancillary Service RRSUFR'
         return self._client._aiter('/np3-911-er/2d_self_arranged_as_rrsufr', np3_911_er._2dSelfArrangedAsRrsufrRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'totalSelfArrangedASRRSUFRFrom': totalSelfArrangedASRRSUFRFrom, 'totalSelfArrangedASRRSUFRTo': totalSelfArrangedASRRSUFRTo, 'size': size, 'sort': sort, 'dir': dir})
 
+    class _2dClearedDamAsRrsloadHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        totalClearedASRRSLOAD: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_rrsload_history(self) -> Archive[np3_911_er._2dClearedDamAsRrsloadHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRrsloadHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RRS Load': 'totalClearedASRRSLOAD'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_RRSLOAD-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dClearedDamAsRrsgenHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        totalClearedASRRSGEN: Decimal | None
+
+    @property
+    def _2d_cleared_dam_as_rrsgen_history(self) -> Archive[np3_911_er._2dClearedDamAsRrsgenHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dClearedDamAsRrsgenHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Cleared AS - RRS Gen': 'totalClearedASRRSGEN'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Cleared_DAM_AS_RRSGEN-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dSelfArrangedAsRrsloadHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        totalSelfArrangedASRRSLOAD: Decimal | None
+
+    @property
+    def _2d_self_arranged_as_rrsload_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRrsloadHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRrsloadHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RRS Load': 'totalSelfArrangedASRRSLOAD'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_RRSLOAD-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dSelfArrangedAsRrsgenHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        totalSelfArrangedASRRSGEN: Decimal | None
+
+    @property
+    def _2d_self_arranged_as_rrsgen_history(self) -> Archive[np3_911_er._2dSelfArrangedAsRrsgenHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dSelfArrangedAsRrsgenHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Total Self-Arranged AS - RRS Gen': 'totalSelfArrangedASRRSGEN'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Self_Arranged_AS_RRSGEN-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggAsOffersRrsncHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        MWOffered: Decimal | None
+        RRSNCOfferPrice: Decimal | None
+
+    @property
+    def _2d_agg_as_offers_rrsnc_history(self) -> Archive[np3_911_er._2dAggAsOffersRrsncHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRrsncHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSNC Offer Price': 'RRSNCOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_RRSNC-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggAsOffersRrsldHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        MWOffered: Decimal | None
+        RRSLDOfferPrice: Decimal | None
+
+    @property
+    def _2d_agg_as_offers_rrsld_history(self) -> Archive[np3_911_er._2dAggAsOffersRrsldHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRrsldHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSLD Offer Price': 'RRSLDOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_RRSLD-[0-9]*.csv', datetimes={}, variants=())
+
+    class _2dAggAsOffersRrsgnHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        MWOffered: Decimal | None
+        RRSGNOfferPrice: Decimal | None
+
+    @property
+    def _2d_agg_as_offers_rrsgn_history(self) -> Archive[np3_911_er._2dAggAsOffersRrsgnHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-911-er', np3_911_er._2dAggAsOffersRrsgnHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'MW Offered': 'MWOffered', 'RRSGN Offer Price': 'RRSGNOfferPrice'}, {'deliveryDate': '%m/%d/%Y'}, member='*_Agg_AS_Offers_RRSGN-[0-9]*.csv', datetimes={}, variants=())
+
 class np3_914_ex:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -2982,6 +4685,11 @@ class np3_914_ex:
         qseName: str | None
         quantity: Decimal | None
         resourceName: str | None
+
+    @property
+    def _3d_sced_high_as_offers_history(self) -> Archive[np3_914_ex._3dScedHighAsOffersRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-914-ex', np3_914_ex._3dScedHighAsOffersRow, {'SCED Timestamp': 'SCEDTimestamp', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name with Highest - Priced AS Offer Selected in SCED': 'resourceName', 'AS Type': 'ASType', 'Offered Quantity': 'quantity', 'Offered Price': 'price'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _3d_sced_high_as_offers(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, ASType: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_914_ex._3dScedHighAsOffersRow]:
         '3-Day SCED Highest Price AS Offer Selected'
@@ -3014,6 +4722,22 @@ class np3_915_ex:
         quantity: Decimal | None
         resourceName: str | None
 
+    class _3dDamHighAsOffersHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None = None
+        dmeName: str | None = None
+        resourceName: str | None
+        ASType: str | None
+        blockIndicator: str | None
+        quantity: Decimal | None
+        price: Decimal | None
+
+    @property
+    def _3d_dam_high_as_offers_history(self) -> Archive[np3_915_ex._3dDamHighAsOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-915-ex', np3_915_ex._3dDamHighAsOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name with Highest-Priced AS Offer Selected in DAM': 'resourceName', 'AS Type': 'ASType', 'Block Indicator': 'blockIndicator', 'Offered Quantity': 'quantity', 'Offered Price': 'price'}, {'deliveryDate': '%d-%b-%y'}, member='*.csv', datetimes={}, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Resource Name with Highest-Priced Offer Selected in DAM': 'resourceName', 'AS Type': 'ASType', 'Block Indicator': 'blockIndicator', 'Offered Quantity': 'quantity', 'Offered Price': 'price'},))
+
     def _3d_dam_high_as_offers(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, ASType: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_915_ex._3dDamHighAsOffersRow]:
         '3-Day DAM Highest Price AS Offer Selected'
         return self._client._page('/np3-915-ex/3d_dam_high_as_offers', np3_915_ex._3dDamHighAsOffersRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'qseName': qseName, 'dmeName': dmeName, 'resourceName': resourceName, 'ASType': ASType, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3043,6 +4767,22 @@ class np3_916_ex:
         qseName: str | None
         repeatedHourFlag: bool | None
         resourceName: str | None
+
+    class _3dHighestPriceOfferScedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatedHourFlag: bool | None
+        LMP: Decimal | None
+        qseName: str | None = None
+        dmeName: str | None = None
+        resourceName: str | None
+        proxyExtension: str | None
+        penaltyFlag: str | None
+        batchId: str | None = None
+
+    @property
+    def _3d_highest_price_offer_sced_history(self) -> Archive[np3_916_ex._3dHighestPriceOfferScedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-916-ex', np3_916_ex._3dHighestPriceOfferScedHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatedHourFlag', 'LMP': 'LMP', 'QSE': 'qseName', 'DME': 'dmeName', 'Generation Resource': 'resourceName', 'Proxy Extension': 'proxyExtension', 'Power Balance Penalty Flag': 'penaltyFlag'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatedHourFlag', 'Batch ID': 'batchId', 'LMP': 'LMP', 'Generation Resource': 'resourceName', 'Proxy Extension': 'proxyExtension', 'Power Balance Penalty Flag': 'penaltyFlag'},))
 
     def _3d_highest_price_offer_sced(self, *, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, proxyExtension: str | None = None, penaltyFlag: str | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatedHourFlag: bool | None = None, LMPFrom: Decimal | None = None, LMPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_916_ex._3dHighestPriceOfferScedRow]:
         '3-Day Highest Price Offered in SCED'
@@ -3118,6 +4858,65 @@ class np3_965_er:
         repeatHourFlag: bool | None
         resourceName: str | None
 
+    class _60dScedResourceAsOffersHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        resourceName: str | None
+        price1REGUP: Decimal | None
+        price1REGDN: Decimal | None
+        price1RRSPFR: Decimal | None
+        price1RRSUFR: Decimal | None
+        price1RRSFFR: Decimal | None
+        price1NSPIN: Decimal | None
+        price1ECRS: Decimal | None
+        quantityMW1: Decimal | None
+        price2REGUP: Decimal | None
+        price2REGDN: Decimal | None
+        price2RRSPFR: Decimal | None
+        price2RRSUFR: Decimal | None
+        price2RRSFFR: Decimal | None
+        price2NSPIN: Decimal | None
+        price2ECRS: Decimal | None
+        quantityMW2: Decimal | None
+        price3REGUP: Decimal | None
+        price3REGDN: Decimal | None
+        price3RRSPFR: Decimal | None
+        price3RRSUFR: Decimal | None
+        price3RRSFFR: Decimal | None
+        price3NSPIN: Decimal | None
+        price3ECRS: Decimal | None
+        quantityMW3: Decimal | None
+        price4REGUP: Decimal | None
+        price4REGDN: Decimal | None
+        price4RRSPFR: Decimal | None
+        price4RRSUFR: Decimal | None
+        price4RRSFFR: Decimal | None
+        price4NSPIN: Decimal | None
+        price4ECRS: Decimal | None
+        quantityMW4: Decimal | None
+        price5REGUP: Decimal | None
+        price5REGDN: Decimal | None
+        price5RRSPFR: Decimal | None
+        price5RRSUFR: Decimal | None
+        price5RRSFFR: Decimal | None
+        price5NSPIN: Decimal | None
+        price5ECRS: Decimal | None
+        quantityMW5: Decimal | None
+        price6REGUP: Decimal | None
+        price6REGDN: Decimal | None
+        price6RRSPFR: Decimal | None
+        price6RRSUFR: Decimal | None
+        price6RRSFFR: Decimal | None
+        price6NSPIN: Decimal | None
+        price6ECRS: Decimal | None
+        quantityMW6: Decimal | None
+        offerType: str | None
+
+    @property
+    def _60d_sced_resource_as_offers_history(self) -> Archive[np3_965_er._60dScedResourceAsOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-965-er', np3_965_er._60dScedResourceAsOffersHistoryRow, {'SCED Timestamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Resource Name': 'resourceName', 'PRICE1_REGUP': 'price1REGUP', 'PRICE1_REGDN': 'price1REGDN', 'PRICE1_RRSPFR': 'price1RRSPFR', 'PRICE1_RRSUFR': 'price1RRSUFR', 'PRICE1_RRSFFR': 'price1RRSFFR', 'PRICE1_NSPIN': 'price1NSPIN', 'PRICE1_ECRS': 'price1ECRS', 'QUANTITY_MW1': 'quantityMW1', 'PRICE2_REGUP': 'price2REGUP', 'PRICE2_REGDN': 'price2REGDN', 'PRICE2_RRSPFR': 'price2RRSPFR', 'PRICE2_RRSUFR': 'price2RRSUFR', 'PRICE2_RRSFFR': 'price2RRSFFR', 'PRICE2_NSPIN': 'price2NSPIN', 'PRICE2_ECRS': 'price2ECRS', 'QUANTITY_MW2': 'quantityMW2', 'PRICE3_REGUP': 'price3REGUP', 'PRICE3_REGDN': 'price3REGDN', 'PRICE3_RRSPFR': 'price3RRSPFR', 'PRICE3_RRSUFR': 'price3RRSUFR', 'PRICE3_RRSFFR': 'price3RRSFFR', 'PRICE3_NSPIN': 'price3NSPIN', 'PRICE3_ECRS': 'price3ECRS', 'QUANTITY_MW3': 'quantityMW3', 'PRICE4_REGUP': 'price4REGUP', 'PRICE4_REGDN': 'price4REGDN', 'PRICE4_RRSPFR': 'price4RRSPFR', 'PRICE4_RRSUFR': 'price4RRSUFR', 'PRICE4_RRSFFR': 'price4RRSFFR', 'PRICE4_NSPIN': 'price4NSPIN', 'PRICE4_ECRS': 'price4ECRS', 'QUANTITY_MW4': 'quantityMW4', 'PRICE5_REGUP': 'price5REGUP', 'PRICE5_REGDN': 'price5REGDN', 'PRICE5_RRSPFR': 'price5RRSPFR', 'PRICE5_RRSUFR': 'price5RRSUFR', 'PRICE5_RRSFFR': 'price5RRSFFR', 'PRICE5_NSPIN': 'price5NSPIN', 'PRICE5_ECRS': 'price5ECRS', 'QUANTITY_MW5': 'quantityMW5', 'PRICE6_REGUP': 'price6REGUP', 'PRICE6_REGDN': 'price6REGDN', 'PRICE6_RRSPFR': 'price6RRSPFR', 'PRICE6_RRSUFR': 'price6RRSUFR', 'PRICE6_RRSFFR': 'price6RRSFFR', 'PRICE6_NSPIN': 'price6NSPIN', 'PRICE6_ECRS': 'price6ECRS', 'QUANTITY_MW6': 'quantityMW6', 'Offer Type': 'offerType'}, {}, member='60d_SCED_Resource_AS_OFFERS-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _60d_sced_resource_as_offers(self, *, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4NSPINFrom: Decimal | None = None, price4NSPINTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDNFrom: Decimal | None = None, price5REGDNTo: Decimal | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5NSPINFrom: Decimal | None = None, price5NSPINTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, price6REGUPFrom: Decimal | None = None, price6REGUPTo: Decimal | None = None, price6REGDNFrom: Decimal | None = None, price6REGDNTo: Decimal | None = None, price6RRSPFRFrom: Decimal | None = None, price6RRSPFRTo: Decimal | None = None, price6RRSUFRFrom: Decimal | None = None, price6RRSUFRTo: Decimal | None = None, price6RRSFFRFrom: Decimal | None = None, price6RRSFFRTo: Decimal | None = None, price6NSPINFrom: Decimal | None = None, price6NSPINTo: Decimal | None = None, price6ECRSFrom: Decimal | None = None, price6ECRSTo: Decimal | None = None, quantityMW6From: Decimal | None = None, quantityMW6To: Decimal | None = None, offerType: str | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, resourceName: str | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDNFrom: Decimal | None = None, price1REGDNTo: Decimal | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price1NSPINFrom: Decimal | None = None, price1NSPINTo: Decimal | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDNFrom: Decimal | None = None, price2REGDNTo: Decimal | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2NSPINFrom: Decimal | None = None, price2NSPINTo: Decimal | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDNFrom: Decimal | None = None, price3REGDNTo: Decimal | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3NSPINFrom: Decimal | None = None, price3NSPINTo: Decimal | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDNFrom: Decimal | None = None, price4REGDNTo: Decimal | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_965_er._60dScedResourceAsOffersRow]:
         '60 Day SCED Resource AS Offers'
         return self._client._page('/np3-965-er/60d_sced_resource_as_offers', np3_965_er._60dScedResourceAsOffersRow, {'price4RRSFFRFrom': price4RRSFFRFrom, 'price4RRSFFRTo': price4RRSFFRTo, 'price4NSPINFrom': price4NSPINFrom, 'price4NSPINTo': price4NSPINTo, 'price4ECRSFrom': price4ECRSFrom, 'price4ECRSTo': price4ECRSTo, 'quantityMW4From': quantityMW4From, 'quantityMW4To': quantityMW4To, 'price5REGUPFrom': price5REGUPFrom, 'price5REGUPTo': price5REGUPTo, 'price5REGDNFrom': price5REGDNFrom, 'price5REGDNTo': price5REGDNTo, 'price5RRSPFRFrom': price5RRSPFRFrom, 'price5RRSPFRTo': price5RRSPFRTo, 'price5RRSUFRFrom': price5RRSUFRFrom, 'price5RRSUFRTo': price5RRSUFRTo, 'price5RRSFFRFrom': price5RRSFFRFrom, 'price5RRSFFRTo': price5RRSFFRTo, 'price5NSPINFrom': price5NSPINFrom, 'price5NSPINTo': price5NSPINTo, 'price5ECRSFrom': price5ECRSFrom, 'price5ECRSTo': price5ECRSTo, 'quantityMW5From': quantityMW5From, 'quantityMW5To': quantityMW5To, 'price6REGUPFrom': price6REGUPFrom, 'price6REGUPTo': price6REGUPTo, 'price6REGDNFrom': price6REGDNFrom, 'price6REGDNTo': price6REGDNTo, 'price6RRSPFRFrom': price6RRSPFRFrom, 'price6RRSPFRTo': price6RRSPFRTo, 'price6RRSUFRFrom': price6RRSUFRFrom, 'price6RRSUFRTo': price6RRSUFRTo, 'price6RRSFFRFrom': price6RRSFFRFrom, 'price6RRSFFRTo': price6RRSFFRTo, 'price6NSPINFrom': price6NSPINFrom, 'price6NSPINTo': price6NSPINTo, 'price6ECRSFrom': price6ECRSFrom, 'price6ECRSTo': price6ECRSTo, 'quantityMW6From': quantityMW6From, 'quantityMW6To': quantityMW6To, 'offerType': offerType, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'resourceName': resourceName, 'price1REGUPFrom': price1REGUPFrom, 'price1REGUPTo': price1REGUPTo, 'price1REGDNFrom': price1REGDNFrom, 'price1REGDNTo': price1REGDNTo, 'price1RRSPFRFrom': price1RRSPFRFrom, 'price1RRSPFRTo': price1RRSPFRTo, 'price1RRSUFRFrom': price1RRSUFRFrom, 'price1RRSUFRTo': price1RRSUFRTo, 'price1RRSFFRFrom': price1RRSFFRFrom, 'price1RRSFFRTo': price1RRSFFRTo, 'price1NSPINFrom': price1NSPINFrom, 'price1NSPINTo': price1NSPINTo, 'price1ECRSFrom': price1ECRSFrom, 'price1ECRSTo': price1ECRSTo, 'quantityMW1From': quantityMW1From, 'quantityMW1To': quantityMW1To, 'price2REGUPFrom': price2REGUPFrom, 'price2REGUPTo': price2REGUPTo, 'price2REGDNFrom': price2REGDNFrom, 'price2REGDNTo': price2REGDNTo, 'price2RRSPFRFrom': price2RRSPFRFrom, 'price2RRSPFRTo': price2RRSPFRTo, 'price2RRSUFRFrom': price2RRSUFRFrom, 'price2RRSUFRTo': price2RRSUFRTo, 'price2RRSFFRFrom': price2RRSFFRFrom, 'price2RRSFFRTo': price2RRSFFRTo, 'price2NSPINFrom': price2NSPINFrom, 'price2NSPINTo': price2NSPINTo, 'price2ECRSFrom': price2ECRSFrom, 'price2ECRSTo': price2ECRSTo, 'quantityMW2From': quantityMW2From, 'quantityMW2To': quantityMW2To, 'price3REGUPFrom': price3REGUPFrom, 'price3REGUPTo': price3REGUPTo, 'price3REGDNFrom': price3REGDNFrom, 'price3REGDNTo': price3REGDNTo, 'price3RRSPFRFrom': price3RRSPFRFrom, 'price3RRSPFRTo': price3RRSPFRTo, 'price3RRSUFRFrom': price3RRSUFRFrom, 'price3RRSUFRTo': price3RRSUFRTo, 'price3RRSFFRFrom': price3RRSFFRFrom, 'price3RRSFFRTo': price3RRSFFRTo, 'price3NSPINFrom': price3NSPINFrom, 'price3NSPINTo': price3NSPINTo, 'price3ECRSFrom': price3ECRSFrom, 'price3ECRSTo': price3ECRSTo, 'quantityMW3From': quantityMW3From, 'quantityMW3To': quantityMW3To, 'price4REGUPFrom': price4REGUPFrom, 'price4REGUPTo': price4REGUPTo, 'price4REGDNFrom': price4REGDNFrom, 'price4REGDNTo': price4REGDNTo, 'price4RRSPFRFrom': price4RRSPFRFrom, 'price4RRSPFRTo': price4RRSPFRTo, 'price4RRSUFRFrom': price4RRSUFRFrom, 'price4RRSUFRTo': price4RRSUFRTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3144,6 +4943,23 @@ class np3_965_er:
         repeatHourFlag: bool | None
         resourceName: str | None
         startTime: datetime | None
+
+    class _60dScedAsCapManOverrideHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        startTime: datetime | None
+        endTime: datetime | None
+        participantName: str | None
+        resourceName: str | None
+        ASType: str | None
+        ASCapLimit: Decimal | None
+        deratedQty: Decimal | None
+        reasonCode: str | None
+
+    @property
+    def _60d_sced_as_cap_man_override_history(self) -> Archive[np3_965_er._60dScedAsCapManOverrideHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-965-er', np3_965_er._60dScedAsCapManOverrideHistoryRow, {'SCED Timestamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Start Timestamp': 'startTime', 'End Timestamp': 'endTime', 'Participant Name': 'participantName', 'Resource Name': 'resourceName', 'AS Type': 'ASType', 'AS Capability Limit': 'ASCapLimit', 'Derated Qty': 'deratedQty', 'Reason Code': 'reasonCode'}, {}, member='60d_AS_Capability_ManOverride-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S', 'startTime': '%m/%d/%Y %H:%M:%S', 'endTime': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _60d_sced_as_cap_man_override(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, startTimeFrom: datetime | None = None, startTimeTo: datetime | None = None, endTimeFrom: datetime | None = None, endTimeTo: datetime | None = None, participantName: str | None = None, resourceName: str | None = None, ASType: str | None = None, ASCapLimitFrom: Decimal | None = None, ASCapLimitTo: Decimal | None = None, deratedQtyFrom: Decimal | None = None, deratedQtyTo: Decimal | None = None, reasonCode: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_965_er._60dScedAsCapManOverrideRow]:
         '60-Day AS Capability Manual Override'
@@ -3360,6 +5176,211 @@ class np3_965_er:
         telemeteredNetOutput: Decimal | None
         telemeteredResourceStatus: str | None
 
+    class _60dScedEsrDataHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        qseName: str | None
+        dmeName: str | None
+        resourceName: str | None
+        resourceType: str | None
+        SCED1CurveMW1: Decimal | None
+        SCED1CurvePrice1: Decimal | None
+        SCED1CurveMW2: Decimal | None
+        SCED1CurvePrice2: Decimal | None
+        SCED1CurveMW3: Decimal | None
+        SCED1CurvePrice3: Decimal | None
+        SCED1CurveMW4: Decimal | None
+        SCED1CurvePrice4: Decimal | None
+        SCED1CurveMW5: Decimal | None
+        SCED1CurvePrice5: Decimal | None
+        SCED1CurveMW6: Decimal | None
+        SCED1CurvePrice6: Decimal | None
+        SCED1CurveMW7: Decimal | None
+        SCED1CurvePrice7: Decimal | None
+        SCED1CurveMW8: Decimal | None
+        SCED1CurvePrice8: Decimal | None
+        SCED1CurveMW9: Decimal | None
+        SCED1CurvePrice9: Decimal | None
+        SCED1CurveMW10: Decimal | None
+        SCED1CurvePrice10: Decimal | None
+        SCED1CurveMW11: Decimal | None
+        SCED1CurvePrice11: Decimal | None
+        SCED1CurveMW12: Decimal | None
+        SCED1CurvePrice12: Decimal | None
+        SCED1CurveMW13: Decimal | None
+        SCED1CurvePrice13: Decimal | None
+        SCED1CurveMW14: Decimal | None
+        SCED1CurvePrice14: Decimal | None
+        SCED1CurveMW15: Decimal | None
+        SCED1CurvePrice15: Decimal | None
+        SCED1CurveMW16: Decimal | None
+        SCED1CurvePrice16: Decimal | None
+        SCED1CurveMW17: Decimal | None
+        SCED1CurvePrice17: Decimal | None
+        SCED1CurveMW18: Decimal | None
+        SCED1CurvePrice18: Decimal | None
+        SCED1CurveMW19: Decimal | None
+        SCED1CurvePrice19: Decimal | None
+        SCED1CurveMW20: Decimal | None
+        SCED1CurvePrice20: Decimal | None
+        SCED1CurveMW21: Decimal | None
+        SCED1CurvePrice21: Decimal | None
+        SCED1CurveMW22: Decimal | None
+        SCED1CurvePrice22: Decimal | None
+        SCED1CurveMW23: Decimal | None
+        SCED1CurvePrice23: Decimal | None
+        SCED1CurveMW24: Decimal | None
+        SCED1CurvePrice24: Decimal | None
+        SCED1CurveMW25: Decimal | None
+        SCED1CurvePrice25: Decimal | None
+        SCED1CurveMW26: Decimal | None
+        SCED1CurvePrice26: Decimal | None
+        SCED1CurveMW27: Decimal | None
+        SCED1CurvePrice27: Decimal | None
+        SCED1CurveMW28: Decimal | None
+        SCED1CurvePrice28: Decimal | None
+        SCED1CurveMW29: Decimal | None
+        SCED1CurvePrice29: Decimal | None
+        SCED1CurveMW30: Decimal | None
+        SCED1CurvePrice30: Decimal | None
+        SCED1CurveMW31: Decimal | None
+        SCED1CurvePrice31: Decimal | None
+        SCED1CurveMW32: Decimal | None
+        SCED1CurvePrice32: Decimal | None
+        SCED1CurveMW33: Decimal | None
+        SCED1CurvePrice33: Decimal | None
+        SCED1CurveMW34: Decimal | None
+        SCED1CurvePrice34: Decimal | None
+        SCED1CurveMW35: Decimal | None
+        SCED1CurvePrice35: Decimal | None
+        SCED2CurveMW1: Decimal | None
+        SCED2CurvePrice1: Decimal | None
+        SCED2CurveMW2: Decimal | None
+        SCED2CurvePrice2: Decimal | None
+        SCED2CurveMW3: Decimal | None
+        SCED2CurvePrice3: Decimal | None
+        SCED2CurveMW4: Decimal | None
+        SCED2CurvePrice4: Decimal | None
+        SCED2CurveMW5: Decimal | None
+        SCED2CurvePrice5: Decimal | None
+        SCED2CurveMW6: Decimal | None
+        SCED2CurvePrice6: Decimal | None
+        SCED2CurveMW7: Decimal | None
+        SCED2CurvePrice7: Decimal | None
+        SCED2CurveMW8: Decimal | None
+        SCED2CurvePrice8: Decimal | None
+        SCED2CurveMW9: Decimal | None
+        SCED2CurvePrice9: Decimal | None
+        SCED2CurveMW10: Decimal | None
+        SCED2CurvePrice10: Decimal | None
+        SCED2CurveMW11: Decimal | None
+        SCED2CurvePrice11: Decimal | None
+        SCED2CurveMW12: Decimal | None
+        SCED2CurvePrice12: Decimal | None
+        SCED2CurveMW13: Decimal | None
+        SCED2CurvePrice13: Decimal | None
+        SCED2CurveMW14: Decimal | None
+        SCED2CurvePrice14: Decimal | None
+        SCED2CurveMW15: Decimal | None
+        SCED2CurvePrice15: Decimal | None
+        SCED2CurveMW16: Decimal | None
+        SCED2CurvePrice16: Decimal | None
+        SCED2CurveMW17: Decimal | None
+        SCED2CurvePrice17: Decimal | None
+        SCED2CurveMW18: Decimal | None
+        SCED2CurvePrice18: Decimal | None
+        SCED2CurveMW19: Decimal | None
+        SCED2CurvePrice19: Decimal | None
+        SCED2CurveMW20: Decimal | None
+        SCED2CurvePrice20: Decimal | None
+        SCED2CurveMW21: Decimal | None
+        SCED2CurvePrice21: Decimal | None
+        SCED2CurveMW22: Decimal | None
+        SCED2CurvePrice22: Decimal | None
+        SCED2CurveMW23: Decimal | None
+        SCED2CurvePrice23: Decimal | None
+        SCED2CurveMW24: Decimal | None
+        SCED2CurvePrice24: Decimal | None
+        SCED2CurveMW25: Decimal | None
+        SCED2CurvePrice25: Decimal | None
+        SCED2CurveMW26: Decimal | None
+        SCED2CurvePrice26: Decimal | None
+        SCED2CurveMW27: Decimal | None
+        SCED2CurvePrice27: Decimal | None
+        SCED2CurveMW28: Decimal | None
+        SCED2CurvePrice28: Decimal | None
+        SCED2CurveMW29: Decimal | None
+        SCED2CurvePrice29: Decimal | None
+        SCED2CurveMW30: Decimal | None
+        SCED2CurvePrice30: Decimal | None
+        SCED2CurveMW31: Decimal | None
+        SCED2CurvePrice31: Decimal | None
+        SCED2CurveMW32: Decimal | None
+        SCED2CurvePrice32: Decimal | None
+        SCED2CurveMW33: Decimal | None
+        SCED2CurvePrice33: Decimal | None
+        SCED2CurveMW34: Decimal | None
+        SCED2CurvePrice34: Decimal | None
+        SCED2CurveMW35: Decimal | None
+        SCED2CurvePrice35: Decimal | None
+        outputSchedule: Decimal | None
+        HSL: Decimal | None
+        HDL: Decimal | None
+        LSL: Decimal | None
+        LDL: Decimal | None
+        telemeteredResourceStatus: str | None
+        basePoint: Decimal | None
+        telemeteredNetOutput: Decimal | None
+        rampRateUp: Decimal | None
+        rampRateDown: Decimal | None
+        ASCapREGUP: Decimal | None
+        ASCapREGDN: Decimal | None
+        ASCapECRS: Decimal | None
+        ASCapNSPIN: Decimal | None
+        ASCapRRSPFR: Decimal | None
+        ASCapRRSFFR: Decimal | None
+        SOC: Decimal | None
+        minSOC: Decimal | None
+        maxSOC: Decimal | None
+        ASAwardsNSPIN: Decimal | None
+        ASAwardsRRSFFR: Decimal | None
+        ASAwardsRRSPFR: Decimal | None
+        ASAwardsRRSUFR: Decimal | None
+        ASAwardsECRS: Decimal | None
+        ASAwardsREGUP: Decimal | None
+        ASAwardsREGDN: Decimal | None
+        bidType: str | None
+        startUpColdOffer: Decimal | None
+        startUpHotOffer: Decimal | None
+        startUpInterOffer: Decimal | None
+        minGenCost: Decimal | None
+        submittedTPOMW1: Decimal | None
+        submittedTPOPrice1: Decimal | None
+        submittedTPOMW2: Decimal | None
+        submittedTPOPrice2: Decimal | None
+        submittedTPOMW3: Decimal | None
+        submittedTPOPrice3: Decimal | None
+        submittedTPOMW4: Decimal | None
+        submittedTPOPrice4: Decimal | None
+        submittedTPOMW5: Decimal | None
+        submittedTPOPrice5: Decimal | None
+        submittedTPOMW6: Decimal | None
+        submittedTPOPrice6: Decimal | None
+        submittedTPOMW7: Decimal | None
+        submittedTPOPrice7: Decimal | None
+        submittedTPOMW8: Decimal | None
+        submittedTPOPrice8: Decimal | None
+        submittedTPOMW9: Decimal | None
+        submittedTPOPrice9: Decimal | None
+        submittedTPOMW10: Decimal | None
+        submittedTPOPrice10: Decimal | None
+        proxyExtension: str | None
+
+    @property
+    def _60d_sced_esr_data_history(self) -> Archive[np3_965_er._60dScedEsrDataHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-965-er', np3_965_er._60dScedEsrDataHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'SCED1 Curve-MW1': 'SCED1CurveMW1', 'SCED1 Curve-Price1': 'SCED1CurvePrice1', 'SCED1 Curve-MW2': 'SCED1CurveMW2', 'SCED1 Curve-Price2': 'SCED1CurvePrice2', 'SCED1 Curve-MW3': 'SCED1CurveMW3', 'SCED1 Curve-Price3': 'SCED1CurvePrice3', 'SCED1 Curve-MW4': 'SCED1CurveMW4', 'SCED1 Curve-Price4': 'SCED1CurvePrice4', 'SCED1 Curve-MW5': 'SCED1CurveMW5', 'SCED1 Curve-Price5': 'SCED1CurvePrice5', 'SCED1 Curve-MW6': 'SCED1CurveMW6', 'SCED1 Curve-Price6': 'SCED1CurvePrice6', 'SCED1 Curve-MW7': 'SCED1CurveMW7', 'SCED1 Curve-Price7': 'SCED1CurvePrice7', 'SCED1 Curve-MW8': 'SCED1CurveMW8', 'SCED1 Curve-Price8': 'SCED1CurvePrice8', 'SCED1 Curve-MW9': 'SCED1CurveMW9', 'SCED1 Curve-Price9': 'SCED1CurvePrice9', 'SCED1 Curve-MW10': 'SCED1CurveMW10', 'SCED1 Curve-Price10': 'SCED1CurvePrice10', 'SCED1 Curve-MW11': 'SCED1CurveMW11', 'SCED1 Curve-Price11': 'SCED1CurvePrice11', 'SCED1 Curve-MW12': 'SCED1CurveMW12', 'SCED1 Curve-Price12': 'SCED1CurvePrice12', 'SCED1 Curve-MW13': 'SCED1CurveMW13', 'SCED1 Curve-Price13': 'SCED1CurvePrice13', 'SCED1 Curve-MW14': 'SCED1CurveMW14', 'SCED1 Curve-Price14': 'SCED1CurvePrice14', 'SCED1 Curve-MW15': 'SCED1CurveMW15', 'SCED1 Curve-Price15': 'SCED1CurvePrice15', 'SCED1 Curve-MW16': 'SCED1CurveMW16', 'SCED1 Curve-Price16': 'SCED1CurvePrice16', 'SCED1 Curve-MW17': 'SCED1CurveMW17', 'SCED1 Curve-Price17': 'SCED1CurvePrice17', 'SCED1 Curve-MW18': 'SCED1CurveMW18', 'SCED1 Curve-Price18': 'SCED1CurvePrice18', 'SCED1 Curve-MW19': 'SCED1CurveMW19', 'SCED1 Curve-Price19': 'SCED1CurvePrice19', 'SCED1 Curve-MW20': 'SCED1CurveMW20', 'SCED1 Curve-Price20': 'SCED1CurvePrice20', 'SCED1 Curve-MW21': 'SCED1CurveMW21', 'SCED1 Curve-Price21': 'SCED1CurvePrice21', 'SCED1 Curve-MW22': 'SCED1CurveMW22', 'SCED1 Curve-Price22': 'SCED1CurvePrice22', 'SCED1 Curve-MW23': 'SCED1CurveMW23', 'SCED1 Curve-Price23': 'SCED1CurvePrice23', 'SCED1 Curve-MW24': 'SCED1CurveMW24', 'SCED1 Curve-Price24': 'SCED1CurvePrice24', 'SCED1 Curve-MW25': 'SCED1CurveMW25', 'SCED1 Curve-Price25': 'SCED1CurvePrice25', 'SCED1 Curve-MW26': 'SCED1CurveMW26', 'SCED1 Curve-Price26': 'SCED1CurvePrice26', 'SCED1 Curve-MW27': 'SCED1CurveMW27', 'SCED1 Curve-Price27': 'SCED1CurvePrice27', 'SCED1 Curve-MW28': 'SCED1CurveMW28', 'SCED1 Curve-Price28': 'SCED1CurvePrice28', 'SCED1 Curve-MW29': 'SCED1CurveMW29', 'SCED1 Curve-Price29': 'SCED1CurvePrice29', 'SCED1 Curve-MW30': 'SCED1CurveMW30', 'SCED1 Curve-Price30': 'SCED1CurvePrice30', 'SCED1 Curve-MW31': 'SCED1CurveMW31', 'SCED1 Curve-Price31': 'SCED1CurvePrice31', 'SCED1 Curve-MW32': 'SCED1CurveMW32', 'SCED1 Curve-Price32': 'SCED1CurvePrice32', 'SCED1 Curve-MW33': 'SCED1CurveMW33', 'SCED1 Curve-Price33': 'SCED1CurvePrice33', 'SCED1 Curve-MW34': 'SCED1CurveMW34', 'SCED1 Curve-Price34': 'SCED1CurvePrice34', 'SCED1 Curve-MW35': 'SCED1CurveMW35', 'SCED1 Curve-Price35': 'SCED1CurvePrice35', 'SCED2 Curve-MW1': 'SCED2CurveMW1', 'SCED2 Curve-Price1': 'SCED2CurvePrice1', 'SCED2 Curve-MW2': 'SCED2CurveMW2', 'SCED2 Curve-Price2': 'SCED2CurvePrice2', 'SCED2 Curve-MW3': 'SCED2CurveMW3', 'SCED2 Curve-Price3': 'SCED2CurvePrice3', 'SCED2 Curve-MW4': 'SCED2CurveMW4', 'SCED2 Curve-Price4': 'SCED2CurvePrice4', 'SCED2 Curve-MW5': 'SCED2CurveMW5', 'SCED2 Curve-Price5': 'SCED2CurvePrice5', 'SCED2 Curve-MW6': 'SCED2CurveMW6', 'SCED2 Curve-Price6': 'SCED2CurvePrice6', 'SCED2 Curve-MW7': 'SCED2CurveMW7', 'SCED2 Curve-Price7': 'SCED2CurvePrice7', 'SCED2 Curve-MW8': 'SCED2CurveMW8', 'SCED2 Curve-Price8': 'SCED2CurvePrice8', 'SCED2 Curve-MW9': 'SCED2CurveMW9', 'SCED2 Curve-Price9': 'SCED2CurvePrice9', 'SCED2 Curve-MW10': 'SCED2CurveMW10', 'SCED2 Curve-Price10': 'SCED2CurvePrice10', 'SCED2 Curve-MW11': 'SCED2CurveMW11', 'SCED2 Curve-Price11': 'SCED2CurvePrice11', 'SCED2 Curve-MW12': 'SCED2CurveMW12', 'SCED2 Curve-Price12': 'SCED2CurvePrice12', 'SCED2 Curve-MW13': 'SCED2CurveMW13', 'SCED2 Curve-Price13': 'SCED2CurvePrice13', 'SCED2 Curve-MW14': 'SCED2CurveMW14', 'SCED2 Curve-Price14': 'SCED2CurvePrice14', 'SCED2 Curve-MW15': 'SCED2CurveMW15', 'SCED2 Curve-Price15': 'SCED2CurvePrice15', 'SCED2 Curve-MW16': 'SCED2CurveMW16', 'SCED2 Curve-Price16': 'SCED2CurvePrice16', 'SCED2 Curve-MW17': 'SCED2CurveMW17', 'SCED2 Curve-Price17': 'SCED2CurvePrice17', 'SCED2 Curve-MW18': 'SCED2CurveMW18', 'SCED2 Curve-Price18': 'SCED2CurvePrice18', 'SCED2 Curve-MW19': 'SCED2CurveMW19', 'SCED2 Curve-Price19': 'SCED2CurvePrice19', 'SCED2 Curve-MW20': 'SCED2CurveMW20', 'SCED2 Curve-Price20': 'SCED2CurvePrice20', 'SCED2 Curve-MW21': 'SCED2CurveMW21', 'SCED2 Curve-Price21': 'SCED2CurvePrice21', 'SCED2 Curve-MW22': 'SCED2CurveMW22', 'SCED2 Curve-Price22': 'SCED2CurvePrice22', 'SCED2 Curve-MW23': 'SCED2CurveMW23', 'SCED2 Curve-Price23': 'SCED2CurvePrice23', 'SCED2 Curve-MW24': 'SCED2CurveMW24', 'SCED2 Curve-Price24': 'SCED2CurvePrice24', 'SCED2 Curve-MW25': 'SCED2CurveMW25', 'SCED2 Curve-Price25': 'SCED2CurvePrice25', 'SCED2 Curve-MW26': 'SCED2CurveMW26', 'SCED2 Curve-Price26': 'SCED2CurvePrice26', 'SCED2 Curve-MW27': 'SCED2CurveMW27', 'SCED2 Curve-Price27': 'SCED2CurvePrice27', 'SCED2 Curve-MW28': 'SCED2CurveMW28', 'SCED2 Curve-Price28': 'SCED2CurvePrice28', 'SCED2 Curve-MW29': 'SCED2CurveMW29', 'SCED2 Curve-Price29': 'SCED2CurvePrice29', 'SCED2 Curve-MW30': 'SCED2CurveMW30', 'SCED2 Curve-Price30': 'SCED2CurvePrice30', 'SCED2 Curve-MW31': 'SCED2CurveMW31', 'SCED2 Curve-Price31': 'SCED2CurvePrice31', 'SCED2 Curve-MW32': 'SCED2CurveMW32', 'SCED2 Curve-Price32': 'SCED2CurvePrice32', 'SCED2 Curve-MW33': 'SCED2CurveMW33', 'SCED2 Curve-Price33': 'SCED2CurvePrice33', 'SCED2 Curve-MW34': 'SCED2CurveMW34', 'SCED2 Curve-Price34': 'SCED2CurvePrice34', 'SCED2 Curve-MW35': 'SCED2CurveMW35', 'SCED2 Curve-Price35': 'SCED2CurvePrice35', 'Output Schedule': 'outputSchedule', 'HSL': 'HSL', 'HDL': 'HDL', 'LSL': 'LSL', 'LDL': 'LDL', 'Telemetered Resource Status': 'telemeteredResourceStatus', 'Base Point': 'basePoint', 'Telemetered Net Output': 'telemeteredNetOutput', 'Ramp Rate Up': 'rampRateUp', 'Ramp Rate Down': 'rampRateDown', 'AS Capability REGUP': 'ASCapREGUP', 'AS Capability REGDN': 'ASCapREGDN', 'AS Capability ECRS': 'ASCapECRS', 'AS Capability NSPIN': 'ASCapNSPIN', 'AS Capability RRSPFR': 'ASCapRRSPFR', 'AS Capability RRSFFR': 'ASCapRRSFFR', 'State of Charge': 'SOC', 'Minimum SOC': 'minSOC', 'Maximum SOC': 'maxSOC', 'AS Awards NSPIN': 'ASAwardsNSPIN', 'AS Awards RRSFFR': 'ASAwardsRRSFFR', 'AS Awards RRSPFR': 'ASAwardsRRSPFR', 'AS Awards RRSUFR': 'ASAwardsRRSUFR', 'AS Awards ECRS': 'ASAwardsECRS', 'AS Awards REGUP': 'ASAwardsREGUP', 'AS Awards REGDN': 'ASAwardsREGDN', 'Bid_Type': 'bidType', 'Start Up Cold Offer': 'startUpColdOffer', 'Start Up Hot Offer': 'startUpHotOffer', 'Start Up Inter Offer': 'startUpInterOffer', 'Min Gen Cost': 'minGenCost', 'Submitted TPO-MW1': 'submittedTPOMW1', 'Submitted TPO-Price1': 'submittedTPOPrice1', 'Submitted TPO-MW2': 'submittedTPOMW2', 'Submitted TPO-Price2': 'submittedTPOPrice2', 'Submitted TPO-MW3': 'submittedTPOMW3', 'Submitted TPO-Price3': 'submittedTPOPrice3', 'Submitted TPO-MW4': 'submittedTPOMW4', 'Submitted TPO-Price4': 'submittedTPOPrice4', 'Submitted TPO-MW5': 'submittedTPOMW5', 'Submitted TPO-Price5': 'submittedTPOPrice5', 'Submitted TPO-MW6': 'submittedTPOMW6', 'Submitted TPO-Price6': 'submittedTPOPrice6', 'Submitted TPO-MW7': 'submittedTPOMW7', 'Submitted TPO-Price7': 'submittedTPOPrice7', 'Submitted TPO-MW8': 'submittedTPOMW8', 'Submitted TPO-Price8': 'submittedTPOPrice8', 'Submitted TPO-MW9': 'submittedTPOMW9', 'Submitted TPO-Price9': 'submittedTPOPrice9', 'Submitted TPO-MW10': 'submittedTPOMW10', 'Submitted TPO-Price10': 'submittedTPOPrice10', 'Proxy Extension': 'proxyExtension'}, {}, member='60d_ESR_Data_in_SCED-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _60d_sced_esr_data(self, *, SCED2CurvePrice6From: Decimal | None = None, SCED2CurvePrice6To: Decimal | None = None, SCED2CurveMW7From: Decimal | None = None, SCED2CurveMW7To: Decimal | None = None, SCED2CurvePrice7From: Decimal | None = None, SCED2CurvePrice7To: Decimal | None = None, SCED2CurveMW8From: Decimal | None = None, SCED2CurveMW8To: Decimal | None = None, SCED2CurvePrice8From: Decimal | None = None, SCED2CurvePrice8To: Decimal | None = None, SCED2CurveMW9From: Decimal | None = None, SCED2CurveMW9To: Decimal | None = None, SCED2CurvePrice9From: Decimal | None = None, SCED2CurvePrice9To: Decimal | None = None, SCED2CurveMW10From: Decimal | None = None, SCED2CurveMW10To: Decimal | None = None, SCED2CurvePrice10From: Decimal | None = None, SCED2CurvePrice10To: Decimal | None = None, SCED2CurveMW11From: Decimal | None = None, SCED2CurveMW11To: Decimal | None = None, SCED2CurvePrice11From: Decimal | None = None, SCED2CurvePrice11To: Decimal | None = None, SCED2CurveMW12From: Decimal | None = None, SCED2CurveMW12To: Decimal | None = None, SCED2CurvePrice12From: Decimal | None = None, SCED2CurvePrice12To: Decimal | None = None, SCED2CurveMW13From: Decimal | None = None, SCED2CurveMW13To: Decimal | None = None, SCED2CurvePrice13From: Decimal | None = None, SCED2CurvePrice13To: Decimal | None = None, SCED2CurveMW14From: Decimal | None = None, SCED2CurveMW14To: Decimal | None = None, SCED2CurvePrice14From: Decimal | None = None, SCED2CurvePrice14To: Decimal | None = None, SCED2CurveMW15From: Decimal | None = None, SCED2CurveMW15To: Decimal | None = None, SCED2CurvePrice15From: Decimal | None = None, SCED2CurvePrice15To: Decimal | None = None, SCED2CurveMW16From: Decimal | None = None, SCED2CurveMW16To: Decimal | None = None, SCED2CurvePrice16From: Decimal | None = None, SCED2CurvePrice16To: Decimal | None = None, SCED2CurveMW17From: Decimal | None = None, SCED2CurveMW17To: Decimal | None = None, SCED2CurvePrice17From: Decimal | None = None, SCED2CurvePrice17To: Decimal | None = None, SCED2CurveMW18From: Decimal | None = None, SCED2CurveMW18To: Decimal | None = None, SCED2CurvePrice18From: Decimal | None = None, SCED2CurvePrice18To: Decimal | None = None, SCED2CurveMW19From: Decimal | None = None, SCED2CurveMW19To: Decimal | None = None, SCED2CurvePrice19From: Decimal | None = None, SCED2CurvePrice19To: Decimal | None = None, SCED2CurveMW20From: Decimal | None = None, SCED2CurveMW20To: Decimal | None = None, SCED2CurvePrice20From: Decimal | None = None, SCED2CurvePrice20To: Decimal | None = None, SCED2CurveMW21From: Decimal | None = None, SCED2CurveMW21To: Decimal | None = None, SCED2CurvePrice21From: Decimal | None = None, SCED2CurvePrice21To: Decimal | None = None, SCED2CurveMW22From: Decimal | None = None, SCED2CurveMW22To: Decimal | None = None, SCED2CurvePrice22From: Decimal | None = None, SCED2CurvePrice22To: Decimal | None = None, SCED2CurveMW23From: Decimal | None = None, SCED2CurveMW23To: Decimal | None = None, SCED2CurvePrice23From: Decimal | None = None, SCED2CurvePrice23To: Decimal | None = None, SCED2CurveMW24From: Decimal | None = None, SCED2CurveMW24To: Decimal | None = None, SCED2CurvePrice24From: Decimal | None = None, SCED2CurvePrice24To: Decimal | None = None, SCED2CurveMW25From: Decimal | None = None, SCED2CurveMW25To: Decimal | None = None, SCED2CurvePrice25From: Decimal | None = None, SCED2CurvePrice25To: Decimal | None = None, SCED2CurveMW26From: Decimal | None = None, SCED2CurveMW26To: Decimal | None = None, SCED2CurvePrice26From: Decimal | None = None, SCED2CurvePrice26To: Decimal | None = None, SCED2CurveMW27From: Decimal | None = None, SCED2CurveMW27To: Decimal | None = None, SCED2CurvePrice27From: Decimal | None = None, SCED2CurvePrice27To: Decimal | None = None, SCED2CurveMW28From: Decimal | None = None, SCED2CurveMW28To: Decimal | None = None, SCED2CurvePrice28From: Decimal | None = None, SCED2CurvePrice28To: Decimal | None = None, SCED2CurveMW29From: Decimal | None = None, SCED2CurveMW29To: Decimal | None = None, SCED2CurvePrice29From: Decimal | None = None, SCED2CurvePrice29To: Decimal | None = None, SCED2CurveMW30From: Decimal | None = None, SCED2CurveMW30To: Decimal | None = None, SCED2CurvePrice30From: Decimal | None = None, SCED2CurvePrice30To: Decimal | None = None, SCED2CurveMW31From: Decimal | None = None, SCED2CurveMW31To: Decimal | None = None, SCED2CurvePrice31From: Decimal | None = None, SCED2CurvePrice31To: Decimal | None = None, SCED2CurveMW32From: Decimal | None = None, SCED2CurveMW32To: Decimal | None = None, SCED2CurvePrice32From: Decimal | None = None, SCED2CurvePrice32To: Decimal | None = None, SCED2CurveMW33From: Decimal | None = None, SCED2CurveMW33To: Decimal | None = None, SCED2CurvePrice33From: Decimal | None = None, SCED2CurvePrice33To: Decimal | None = None, SCED2CurveMW34From: Decimal | None = None, SCED2CurveMW34To: Decimal | None = None, SCED2CurvePrice34From: Decimal | None = None, SCED2CurvePrice34To: Decimal | None = None, SCED2CurveMW35From: Decimal | None = None, SCED2CurveMW35To: Decimal | None = None, SCED2CurvePrice35From: Decimal | None = None, SCED2CurvePrice35To: Decimal | None = None, outputScheduleFrom: Decimal | None = None, outputScheduleTo: Decimal | None = None, HSLFrom: Decimal | None = None, HSLTo: Decimal | None = None, HDLFrom: Decimal | None = None, HDLTo: Decimal | None = None, LSLFrom: Decimal | None = None, LSLTo: Decimal | None = None, LDLFrom: Decimal | None = None, LDLTo: Decimal | None = None, telemeteredResourceStatus: str | None = None, basePointFrom: Decimal | None = None, basePointTo: Decimal | None = None, telemeteredNetOutputFrom: Decimal | None = None, telemeteredNetOutputTo: Decimal | None = None, rampRateUpFrom: Decimal | None = None, rampRateUpTo: Decimal | None = None, rampRateDownFrom: Decimal | None = None, rampRateDownTo: Decimal | None = None, ASCapREGUPFrom: Decimal | None = None, ASCapREGUPTo: Decimal | None = None, ASCapREGDNFrom: Decimal | None = None, ASCapREGDNTo: Decimal | None = None, ASCapECRSFrom: Decimal | None = None, ASCapECRSTo: Decimal | None = None, ASCapNSPINFrom: Decimal | None = None, ASCapNSPINTo: Decimal | None = None, ASAwardsNSPINFrom: Decimal | None = None, ASAwardsNSPINTo: Decimal | None = None, ASAwardsRRSFFRFrom: Decimal | None = None, ASAwardsRRSFFRTo: Decimal | None = None, ASAwardsRRSPFRFrom: Decimal | None = None, ASAwardsRRSPFRTo: Decimal | None = None, ASAwardsRRSUFRFrom: Decimal | None = None, ASAwardsRRSUFRTo: Decimal | None = None, ASAwardsECRSFrom: Decimal | None = None, ASAwardsECRSTo: Decimal | None = None, ASAwardsREGUPFrom: Decimal | None = None, ASAwardsREGUPTo: Decimal | None = None, ASAwardsREGDNFrom: Decimal | None = None, ASAwardsREGDNTo: Decimal | None = None, bidType: str | None = None, startUpColdOfferFrom: Decimal | None = None, startUpColdOfferTo: Decimal | None = None, startUpHotOfferFrom: Decimal | None = None, startUpHotOfferTo: Decimal | None = None, startUpInterOfferFrom: Decimal | None = None, startUpInterOfferTo: Decimal | None = None, minGenCostFrom: Decimal | None = None, minGenCostTo: Decimal | None = None, submittedTPOMW1From: Decimal | None = None, submittedTPOMW1To: Decimal | None = None, submittedTPOPrice1From: Decimal | None = None, submittedTPOPrice1To: Decimal | None = None, submittedTPOMW2From: Decimal | None = None, submittedTPOMW2To: Decimal | None = None, submittedTPOPrice2From: Decimal | None = None, submittedTPOPrice2To: Decimal | None = None, submittedTPOMW3From: Decimal | None = None, submittedTPOMW3To: Decimal | None = None, submittedTPOPrice3From: Decimal | None = None, submittedTPOPrice3To: Decimal | None = None, submittedTPOMW4From: Decimal | None = None, submittedTPOMW4To: Decimal | None = None, submittedTPOPrice4From: Decimal | None = None, submittedTPOPrice4To: Decimal | None = None, submittedTPOMW5From: Decimal | None = None, submittedTPOMW5To: Decimal | None = None, submittedTPOPrice5From: Decimal | None = None, submittedTPOPrice5To: Decimal | None = None, submittedTPOMW6From: Decimal | None = None, submittedTPOMW6To: Decimal | None = None, submittedTPOPrice6From: Decimal | None = None, submittedTPOPrice6To: Decimal | None = None, submittedTPOMW7From: Decimal | None = None, submittedTPOMW7To: Decimal | None = None, submittedTPOPrice7From: Decimal | None = None, submittedTPOPrice7To: Decimal | None = None, submittedTPOMW8From: Decimal | None = None, submittedTPOMW8To: Decimal | None = None, submittedTPOPrice8From: Decimal | None = None, submittedTPOPrice8To: Decimal | None = None, submittedTPOMW9From: Decimal | None = None, submittedTPOMW9To: Decimal | None = None, SOCFrom: Decimal | None = None, SOCTo: Decimal | None = None, submittedTPOPrice9From: Decimal | None = None, submittedTPOPrice9To: Decimal | None = None, minSOCFrom: Decimal | None = None, minSOCTo: Decimal | None = None, submittedTPOMW10From: Decimal | None = None, submittedTPOMW10To: Decimal | None = None, maxSOCFrom: Decimal | None = None, maxSOCTo: Decimal | None = None, submittedTPOPrice10From: Decimal | None = None, submittedTPOPrice10To: Decimal | None = None, proxyExtension: str | None = None, ASCapRRSPFRFrom: Decimal | None = None, ASCapRRSPFRTo: Decimal | None = None, ASCapRRSFFRFrom: Decimal | None = None, ASCapRRSFFRTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, resourceType: str | None = None, SCED1CurveMW1From: Decimal | None = None, SCED1CurveMW1To: Decimal | None = None, SCED1CurvePrice1From: Decimal | None = None, SCED1CurvePrice1To: Decimal | None = None, SCED1CurveMW2From: Decimal | None = None, SCED1CurveMW2To: Decimal | None = None, SCED1CurvePrice2From: Decimal | None = None, SCED1CurvePrice2To: Decimal | None = None, SCED1CurveMW3From: Decimal | None = None, SCED1CurveMW3To: Decimal | None = None, SCED1CurvePrice3From: Decimal | None = None, SCED1CurvePrice3To: Decimal | None = None, SCED1CurveMW4From: Decimal | None = None, SCED1CurveMW4To: Decimal | None = None, SCED1CurvePrice4From: Decimal | None = None, SCED1CurvePrice4To: Decimal | None = None, SCED1CurveMW5From: Decimal | None = None, SCED1CurveMW5To: Decimal | None = None, SCED1CurvePrice5From: Decimal | None = None, SCED1CurvePrice5To: Decimal | None = None, SCED1CurveMW6From: Decimal | None = None, SCED1CurveMW6To: Decimal | None = None, SCED1CurvePrice6From: Decimal | None = None, SCED1CurvePrice6To: Decimal | None = None, SCED1CurveMW7From: Decimal | None = None, SCED1CurveMW7To: Decimal | None = None, SCED1CurvePrice7From: Decimal | None = None, SCED1CurvePrice7To: Decimal | None = None, SCED1CurveMW8From: Decimal | None = None, SCED1CurveMW8To: Decimal | None = None, SCED1CurvePrice8From: Decimal | None = None, SCED1CurvePrice8To: Decimal | None = None, SCED1CurveMW9From: Decimal | None = None, SCED1CurveMW9To: Decimal | None = None, SCED1CurvePrice9From: Decimal | None = None, SCED1CurvePrice9To: Decimal | None = None, SCED1CurveMW10From: Decimal | None = None, SCED1CurveMW10To: Decimal | None = None, SCED1CurvePrice10From: Decimal | None = None, SCED1CurvePrice10To: Decimal | None = None, SCED1CurveMW11From: Decimal | None = None, SCED1CurveMW11To: Decimal | None = None, SCED1CurvePrice11From: Decimal | None = None, SCED1CurvePrice11To: Decimal | None = None, SCED1CurveMW12From: Decimal | None = None, SCED1CurveMW12To: Decimal | None = None, SCED1CurvePrice12From: Decimal | None = None, SCED1CurvePrice12To: Decimal | None = None, SCED1CurveMW13From: Decimal | None = None, SCED1CurveMW13To: Decimal | None = None, SCED1CurvePrice13From: Decimal | None = None, SCED1CurvePrice13To: Decimal | None = None, SCED1CurveMW14From: Decimal | None = None, SCED1CurveMW14To: Decimal | None = None, SCED1CurvePrice14From: Decimal | None = None, SCED1CurvePrice14To: Decimal | None = None, SCED1CurveMW15From: Decimal | None = None, SCED1CurveMW15To: Decimal | None = None, SCED1CurvePrice15From: Decimal | None = None, SCED1CurvePrice15To: Decimal | None = None, SCED1CurveMW16From: Decimal | None = None, SCED1CurveMW16To: Decimal | None = None, SCED1CurvePrice16From: Decimal | None = None, SCED1CurvePrice16To: Decimal | None = None, SCED1CurveMW17From: Decimal | None = None, SCED1CurveMW17To: Decimal | None = None, SCED1CurvePrice17From: Decimal | None = None, SCED1CurvePrice17To: Decimal | None = None, SCED1CurveMW18From: Decimal | None = None, SCED1CurveMW18To: Decimal | None = None, SCED1CurvePrice18From: Decimal | None = None, SCED1CurvePrice18To: Decimal | None = None, SCED1CurveMW19From: Decimal | None = None, SCED1CurveMW19To: Decimal | None = None, SCED1CurvePrice19From: Decimal | None = None, SCED1CurvePrice19To: Decimal | None = None, SCED1CurveMW20From: Decimal | None = None, SCED1CurveMW20To: Decimal | None = None, SCED1CurvePrice20From: Decimal | None = None, SCED1CurvePrice20To: Decimal | None = None, SCED1CurveMW21From: Decimal | None = None, SCED1CurveMW21To: Decimal | None = None, SCED1CurvePrice21From: Decimal | None = None, SCED1CurvePrice21To: Decimal | None = None, SCED1CurveMW22From: Decimal | None = None, SCED1CurveMW22To: Decimal | None = None, SCED1CurvePrice22From: Decimal | None = None, SCED1CurvePrice22To: Decimal | None = None, SCED1CurveMW23From: Decimal | None = None, SCED1CurveMW23To: Decimal | None = None, SCED1CurvePrice23From: Decimal | None = None, SCED1CurvePrice23To: Decimal | None = None, SCED1CurveMW24From: Decimal | None = None, SCED1CurveMW24To: Decimal | None = None, SCED1CurvePrice24From: Decimal | None = None, SCED1CurvePrice24To: Decimal | None = None, SCED1CurveMW25From: Decimal | None = None, SCED1CurveMW25To: Decimal | None = None, SCED1CurvePrice25From: Decimal | None = None, SCED1CurvePrice25To: Decimal | None = None, SCED1CurveMW26From: Decimal | None = None, SCED1CurveMW26To: Decimal | None = None, SCED1CurvePrice26From: Decimal | None = None, SCED1CurvePrice26To: Decimal | None = None, SCED1CurveMW27From: Decimal | None = None, SCED1CurveMW27To: Decimal | None = None, SCED1CurvePrice27From: Decimal | None = None, SCED1CurvePrice27To: Decimal | None = None, SCED1CurveMW28From: Decimal | None = None, SCED1CurveMW28To: Decimal | None = None, SCED1CurvePrice28From: Decimal | None = None, SCED1CurvePrice28To: Decimal | None = None, SCED1CurveMW29From: Decimal | None = None, SCED1CurveMW29To: Decimal | None = None, SCED1CurvePrice29From: Decimal | None = None, SCED1CurvePrice29To: Decimal | None = None, SCED1CurveMW30From: Decimal | None = None, SCED1CurveMW30To: Decimal | None = None, SCED1CurvePrice30From: Decimal | None = None, SCED1CurvePrice30To: Decimal | None = None, SCED1CurveMW31From: Decimal | None = None, SCED1CurveMW31To: Decimal | None = None, SCED1CurvePrice31From: Decimal | None = None, SCED1CurvePrice31To: Decimal | None = None, SCED1CurveMW32From: Decimal | None = None, SCED1CurveMW32To: Decimal | None = None, SCED1CurvePrice32From: Decimal | None = None, SCED1CurvePrice32To: Decimal | None = None, SCED1CurveMW33From: Decimal | None = None, SCED1CurveMW33To: Decimal | None = None, SCED1CurvePrice33From: Decimal | None = None, SCED1CurvePrice33To: Decimal | None = None, SCED1CurveMW34From: Decimal | None = None, SCED1CurveMW34To: Decimal | None = None, SCED1CurvePrice34From: Decimal | None = None, SCED1CurvePrice34To: Decimal | None = None, SCED1CurveMW35From: Decimal | None = None, SCED1CurveMW35To: Decimal | None = None, SCED1CurvePrice35From: Decimal | None = None, SCED1CurvePrice35To: Decimal | None = None, SCED2CurveMW1From: Decimal | None = None, SCED2CurveMW1To: Decimal | None = None, SCED2CurvePrice1From: Decimal | None = None, SCED2CurvePrice1To: Decimal | None = None, SCED2CurveMW2From: Decimal | None = None, SCED2CurveMW2To: Decimal | None = None, SCED2CurvePrice2From: Decimal | None = None, SCED2CurvePrice2To: Decimal | None = None, SCED2CurveMW3From: Decimal | None = None, SCED2CurveMW3To: Decimal | None = None, SCED2CurvePrice3From: Decimal | None = None, SCED2CurvePrice3To: Decimal | None = None, SCED2CurveMW4From: Decimal | None = None, SCED2CurveMW4To: Decimal | None = None, SCED2CurvePrice4From: Decimal | None = None, SCED2CurvePrice4To: Decimal | None = None, SCED2CurveMW5From: Decimal | None = None, SCED2CurveMW5To: Decimal | None = None, SCED2CurvePrice5From: Decimal | None = None, SCED2CurvePrice5To: Decimal | None = None, SCED2CurveMW6From: Decimal | None = None, SCED2CurveMW6To: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_965_er._60dScedEsrDataRow]:
         '60-Day ESR Data in SCED'
         return self._client._page('/np3-965-er/60d_sced_esr_data', np3_965_er._60dScedEsrDataRow, {'SCED2CurvePrice6From': SCED2CurvePrice6From, 'SCED2CurvePrice6To': SCED2CurvePrice6To, 'SCED2CurveMW7From': SCED2CurveMW7From, 'SCED2CurveMW7To': SCED2CurveMW7To, 'SCED2CurvePrice7From': SCED2CurvePrice7From, 'SCED2CurvePrice7To': SCED2CurvePrice7To, 'SCED2CurveMW8From': SCED2CurveMW8From, 'SCED2CurveMW8To': SCED2CurveMW8To, 'SCED2CurvePrice8From': SCED2CurvePrice8From, 'SCED2CurvePrice8To': SCED2CurvePrice8To, 'SCED2CurveMW9From': SCED2CurveMW9From, 'SCED2CurveMW9To': SCED2CurveMW9To, 'SCED2CurvePrice9From': SCED2CurvePrice9From, 'SCED2CurvePrice9To': SCED2CurvePrice9To, 'SCED2CurveMW10From': SCED2CurveMW10From, 'SCED2CurveMW10To': SCED2CurveMW10To, 'SCED2CurvePrice10From': SCED2CurvePrice10From, 'SCED2CurvePrice10To': SCED2CurvePrice10To, 'SCED2CurveMW11From': SCED2CurveMW11From, 'SCED2CurveMW11To': SCED2CurveMW11To, 'SCED2CurvePrice11From': SCED2CurvePrice11From, 'SCED2CurvePrice11To': SCED2CurvePrice11To, 'SCED2CurveMW12From': SCED2CurveMW12From, 'SCED2CurveMW12To': SCED2CurveMW12To, 'SCED2CurvePrice12From': SCED2CurvePrice12From, 'SCED2CurvePrice12To': SCED2CurvePrice12To, 'SCED2CurveMW13From': SCED2CurveMW13From, 'SCED2CurveMW13To': SCED2CurveMW13To, 'SCED2CurvePrice13From': SCED2CurvePrice13From, 'SCED2CurvePrice13To': SCED2CurvePrice13To, 'SCED2CurveMW14From': SCED2CurveMW14From, 'SCED2CurveMW14To': SCED2CurveMW14To, 'SCED2CurvePrice14From': SCED2CurvePrice14From, 'SCED2CurvePrice14To': SCED2CurvePrice14To, 'SCED2CurveMW15From': SCED2CurveMW15From, 'SCED2CurveMW15To': SCED2CurveMW15To, 'SCED2CurvePrice15From': SCED2CurvePrice15From, 'SCED2CurvePrice15To': SCED2CurvePrice15To, 'SCED2CurveMW16From': SCED2CurveMW16From, 'SCED2CurveMW16To': SCED2CurveMW16To, 'SCED2CurvePrice16From': SCED2CurvePrice16From, 'SCED2CurvePrice16To': SCED2CurvePrice16To, 'SCED2CurveMW17From': SCED2CurveMW17From, 'SCED2CurveMW17To': SCED2CurveMW17To, 'SCED2CurvePrice17From': SCED2CurvePrice17From, 'SCED2CurvePrice17To': SCED2CurvePrice17To, 'SCED2CurveMW18From': SCED2CurveMW18From, 'SCED2CurveMW18To': SCED2CurveMW18To, 'SCED2CurvePrice18From': SCED2CurvePrice18From, 'SCED2CurvePrice18To': SCED2CurvePrice18To, 'SCED2CurveMW19From': SCED2CurveMW19From, 'SCED2CurveMW19To': SCED2CurveMW19To, 'SCED2CurvePrice19From': SCED2CurvePrice19From, 'SCED2CurvePrice19To': SCED2CurvePrice19To, 'SCED2CurveMW20From': SCED2CurveMW20From, 'SCED2CurveMW20To': SCED2CurveMW20To, 'SCED2CurvePrice20From': SCED2CurvePrice20From, 'SCED2CurvePrice20To': SCED2CurvePrice20To, 'SCED2CurveMW21From': SCED2CurveMW21From, 'SCED2CurveMW21To': SCED2CurveMW21To, 'SCED2CurvePrice21From': SCED2CurvePrice21From, 'SCED2CurvePrice21To': SCED2CurvePrice21To, 'SCED2CurveMW22From': SCED2CurveMW22From, 'SCED2CurveMW22To': SCED2CurveMW22To, 'SCED2CurvePrice22From': SCED2CurvePrice22From, 'SCED2CurvePrice22To': SCED2CurvePrice22To, 'SCED2CurveMW23From': SCED2CurveMW23From, 'SCED2CurveMW23To': SCED2CurveMW23To, 'SCED2CurvePrice23From': SCED2CurvePrice23From, 'SCED2CurvePrice23To': SCED2CurvePrice23To, 'SCED2CurveMW24From': SCED2CurveMW24From, 'SCED2CurveMW24To': SCED2CurveMW24To, 'SCED2CurvePrice24From': SCED2CurvePrice24From, 'SCED2CurvePrice24To': SCED2CurvePrice24To, 'SCED2CurveMW25From': SCED2CurveMW25From, 'SCED2CurveMW25To': SCED2CurveMW25To, 'SCED2CurvePrice25From': SCED2CurvePrice25From, 'SCED2CurvePrice25To': SCED2CurvePrice25To, 'SCED2CurveMW26From': SCED2CurveMW26From, 'SCED2CurveMW26To': SCED2CurveMW26To, 'SCED2CurvePrice26From': SCED2CurvePrice26From, 'SCED2CurvePrice26To': SCED2CurvePrice26To, 'SCED2CurveMW27From': SCED2CurveMW27From, 'SCED2CurveMW27To': SCED2CurveMW27To, 'SCED2CurvePrice27From': SCED2CurvePrice27From, 'SCED2CurvePrice27To': SCED2CurvePrice27To, 'SCED2CurveMW28From': SCED2CurveMW28From, 'SCED2CurveMW28To': SCED2CurveMW28To, 'SCED2CurvePrice28From': SCED2CurvePrice28From, 'SCED2CurvePrice28To': SCED2CurvePrice28To, 'SCED2CurveMW29From': SCED2CurveMW29From, 'SCED2CurveMW29To': SCED2CurveMW29To, 'SCED2CurvePrice29From': SCED2CurvePrice29From, 'SCED2CurvePrice29To': SCED2CurvePrice29To, 'SCED2CurveMW30From': SCED2CurveMW30From, 'SCED2CurveMW30To': SCED2CurveMW30To, 'SCED2CurvePrice30From': SCED2CurvePrice30From, 'SCED2CurvePrice30To': SCED2CurvePrice30To, 'SCED2CurveMW31From': SCED2CurveMW31From, 'SCED2CurveMW31To': SCED2CurveMW31To, 'SCED2CurvePrice31From': SCED2CurvePrice31From, 'SCED2CurvePrice31To': SCED2CurvePrice31To, 'SCED2CurveMW32From': SCED2CurveMW32From, 'SCED2CurveMW32To': SCED2CurveMW32To, 'SCED2CurvePrice32From': SCED2CurvePrice32From, 'SCED2CurvePrice32To': SCED2CurvePrice32To, 'SCED2CurveMW33From': SCED2CurveMW33From, 'SCED2CurveMW33To': SCED2CurveMW33To, 'SCED2CurvePrice33From': SCED2CurvePrice33From, 'SCED2CurvePrice33To': SCED2CurvePrice33To, 'SCED2CurveMW34From': SCED2CurveMW34From, 'SCED2CurveMW34To': SCED2CurveMW34To, 'SCED2CurvePrice34From': SCED2CurvePrice34From, 'SCED2CurvePrice34To': SCED2CurvePrice34To, 'SCED2CurveMW35From': SCED2CurveMW35From, 'SCED2CurveMW35To': SCED2CurveMW35To, 'SCED2CurvePrice35From': SCED2CurvePrice35From, 'SCED2CurvePrice35To': SCED2CurvePrice35To, 'outputScheduleFrom': outputScheduleFrom, 'outputScheduleTo': outputScheduleTo, 'HSLFrom': HSLFrom, 'HSLTo': HSLTo, 'HDLFrom': HDLFrom, 'HDLTo': HDLTo, 'LSLFrom': LSLFrom, 'LSLTo': LSLTo, 'LDLFrom': LDLFrom, 'LDLTo': LDLTo, 'telemeteredResourceStatus': telemeteredResourceStatus, 'basePointFrom': basePointFrom, 'basePointTo': basePointTo, 'telemeteredNetOutputFrom': telemeteredNetOutputFrom, 'telemeteredNetOutputTo': telemeteredNetOutputTo, 'rampRateUpFrom': rampRateUpFrom, 'rampRateUpTo': rampRateUpTo, 'rampRateDownFrom': rampRateDownFrom, 'rampRateDownTo': rampRateDownTo, 'ASCapREGUPFrom': ASCapREGUPFrom, 'ASCapREGUPTo': ASCapREGUPTo, 'ASCapREGDNFrom': ASCapREGDNFrom, 'ASCapREGDNTo': ASCapREGDNTo, 'ASCapECRSFrom': ASCapECRSFrom, 'ASCapECRSTo': ASCapECRSTo, 'ASCapNSPINFrom': ASCapNSPINFrom, 'ASCapNSPINTo': ASCapNSPINTo, 'ASAwardsNSPINFrom': ASAwardsNSPINFrom, 'ASAwardsNSPINTo': ASAwardsNSPINTo, 'ASAwardsRRSFFRFrom': ASAwardsRRSFFRFrom, 'ASAwardsRRSFFRTo': ASAwardsRRSFFRTo, 'ASAwardsRRSPFRFrom': ASAwardsRRSPFRFrom, 'ASAwardsRRSPFRTo': ASAwardsRRSPFRTo, 'ASAwardsRRSUFRFrom': ASAwardsRRSUFRFrom, 'ASAwardsRRSUFRTo': ASAwardsRRSUFRTo, 'ASAwardsECRSFrom': ASAwardsECRSFrom, 'ASAwardsECRSTo': ASAwardsECRSTo, 'ASAwardsREGUPFrom': ASAwardsREGUPFrom, 'ASAwardsREGUPTo': ASAwardsREGUPTo, 'ASAwardsREGDNFrom': ASAwardsREGDNFrom, 'ASAwardsREGDNTo': ASAwardsREGDNTo, 'bidType': bidType, 'startUpColdOfferFrom': startUpColdOfferFrom, 'startUpColdOfferTo': startUpColdOfferTo, 'startUpHotOfferFrom': startUpHotOfferFrom, 'startUpHotOfferTo': startUpHotOfferTo, 'startUpInterOfferFrom': startUpInterOfferFrom, 'startUpInterOfferTo': startUpInterOfferTo, 'minGenCostFrom': minGenCostFrom, 'minGenCostTo': minGenCostTo, 'submittedTPOMW1From': submittedTPOMW1From, 'submittedTPOMW1To': submittedTPOMW1To, 'submittedTPOPrice1From': submittedTPOPrice1From, 'submittedTPOPrice1To': submittedTPOPrice1To, 'submittedTPOMW2From': submittedTPOMW2From, 'submittedTPOMW2To': submittedTPOMW2To, 'submittedTPOPrice2From': submittedTPOPrice2From, 'submittedTPOPrice2To': submittedTPOPrice2To, 'submittedTPOMW3From': submittedTPOMW3From, 'submittedTPOMW3To': submittedTPOMW3To, 'submittedTPOPrice3From': submittedTPOPrice3From, 'submittedTPOPrice3To': submittedTPOPrice3To, 'submittedTPOMW4From': submittedTPOMW4From, 'submittedTPOMW4To': submittedTPOMW4To, 'submittedTPOPrice4From': submittedTPOPrice4From, 'submittedTPOPrice4To': submittedTPOPrice4To, 'submittedTPOMW5From': submittedTPOMW5From, 'submittedTPOMW5To': submittedTPOMW5To, 'submittedTPOPrice5From': submittedTPOPrice5From, 'submittedTPOPrice5To': submittedTPOPrice5To, 'submittedTPOMW6From': submittedTPOMW6From, 'submittedTPOMW6To': submittedTPOMW6To, 'submittedTPOPrice6From': submittedTPOPrice6From, 'submittedTPOPrice6To': submittedTPOPrice6To, 'submittedTPOMW7From': submittedTPOMW7From, 'submittedTPOMW7To': submittedTPOMW7To, 'submittedTPOPrice7From': submittedTPOPrice7From, 'submittedTPOPrice7To': submittedTPOPrice7To, 'submittedTPOMW8From': submittedTPOMW8From, 'submittedTPOMW8To': submittedTPOMW8To, 'submittedTPOPrice8From': submittedTPOPrice8From, 'submittedTPOPrice8To': submittedTPOPrice8To, 'submittedTPOMW9From': submittedTPOMW9From, 'submittedTPOMW9To': submittedTPOMW9To, 'SOCFrom': SOCFrom, 'SOCTo': SOCTo, 'submittedTPOPrice9From': submittedTPOPrice9From, 'submittedTPOPrice9To': submittedTPOPrice9To, 'minSOCFrom': minSOCFrom, 'minSOCTo': minSOCTo, 'submittedTPOMW10From': submittedTPOMW10From, 'submittedTPOMW10To': submittedTPOMW10To, 'maxSOCFrom': maxSOCFrom, 'maxSOCTo': maxSOCTo, 'submittedTPOPrice10From': submittedTPOPrice10From, 'submittedTPOPrice10To': submittedTPOPrice10To, 'proxyExtension': proxyExtension, 'ASCapRRSPFRFrom': ASCapRRSPFRFrom, 'ASCapRRSPFRTo': ASCapRRSPFRTo, 'ASCapRRSFFRFrom': ASCapRRSFFRFrom, 'ASCapRRSFFRTo': ASCapRRSFFRTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'qseName': qseName, 'dmeName': dmeName, 'resourceName': resourceName, 'resourceType': resourceType, 'SCED1CurveMW1From': SCED1CurveMW1From, 'SCED1CurveMW1To': SCED1CurveMW1To, 'SCED1CurvePrice1From': SCED1CurvePrice1From, 'SCED1CurvePrice1To': SCED1CurvePrice1To, 'SCED1CurveMW2From': SCED1CurveMW2From, 'SCED1CurveMW2To': SCED1CurveMW2To, 'SCED1CurvePrice2From': SCED1CurvePrice2From, 'SCED1CurvePrice2To': SCED1CurvePrice2To, 'SCED1CurveMW3From': SCED1CurveMW3From, 'SCED1CurveMW3To': SCED1CurveMW3To, 'SCED1CurvePrice3From': SCED1CurvePrice3From, 'SCED1CurvePrice3To': SCED1CurvePrice3To, 'SCED1CurveMW4From': SCED1CurveMW4From, 'SCED1CurveMW4To': SCED1CurveMW4To, 'SCED1CurvePrice4From': SCED1CurvePrice4From, 'SCED1CurvePrice4To': SCED1CurvePrice4To, 'SCED1CurveMW5From': SCED1CurveMW5From, 'SCED1CurveMW5To': SCED1CurveMW5To, 'SCED1CurvePrice5From': SCED1CurvePrice5From, 'SCED1CurvePrice5To': SCED1CurvePrice5To, 'SCED1CurveMW6From': SCED1CurveMW6From, 'SCED1CurveMW6To': SCED1CurveMW6To, 'SCED1CurvePrice6From': SCED1CurvePrice6From, 'SCED1CurvePrice6To': SCED1CurvePrice6To, 'SCED1CurveMW7From': SCED1CurveMW7From, 'SCED1CurveMW7To': SCED1CurveMW7To, 'SCED1CurvePrice7From': SCED1CurvePrice7From, 'SCED1CurvePrice7To': SCED1CurvePrice7To, 'SCED1CurveMW8From': SCED1CurveMW8From, 'SCED1CurveMW8To': SCED1CurveMW8To, 'SCED1CurvePrice8From': SCED1CurvePrice8From, 'SCED1CurvePrice8To': SCED1CurvePrice8To, 'SCED1CurveMW9From': SCED1CurveMW9From, 'SCED1CurveMW9To': SCED1CurveMW9To, 'SCED1CurvePrice9From': SCED1CurvePrice9From, 'SCED1CurvePrice9To': SCED1CurvePrice9To, 'SCED1CurveMW10From': SCED1CurveMW10From, 'SCED1CurveMW10To': SCED1CurveMW10To, 'SCED1CurvePrice10From': SCED1CurvePrice10From, 'SCED1CurvePrice10To': SCED1CurvePrice10To, 'SCED1CurveMW11From': SCED1CurveMW11From, 'SCED1CurveMW11To': SCED1CurveMW11To, 'SCED1CurvePrice11From': SCED1CurvePrice11From, 'SCED1CurvePrice11To': SCED1CurvePrice11To, 'SCED1CurveMW12From': SCED1CurveMW12From, 'SCED1CurveMW12To': SCED1CurveMW12To, 'SCED1CurvePrice12From': SCED1CurvePrice12From, 'SCED1CurvePrice12To': SCED1CurvePrice12To, 'SCED1CurveMW13From': SCED1CurveMW13From, 'SCED1CurveMW13To': SCED1CurveMW13To, 'SCED1CurvePrice13From': SCED1CurvePrice13From, 'SCED1CurvePrice13To': SCED1CurvePrice13To, 'SCED1CurveMW14From': SCED1CurveMW14From, 'SCED1CurveMW14To': SCED1CurveMW14To, 'SCED1CurvePrice14From': SCED1CurvePrice14From, 'SCED1CurvePrice14To': SCED1CurvePrice14To, 'SCED1CurveMW15From': SCED1CurveMW15From, 'SCED1CurveMW15To': SCED1CurveMW15To, 'SCED1CurvePrice15From': SCED1CurvePrice15From, 'SCED1CurvePrice15To': SCED1CurvePrice15To, 'SCED1CurveMW16From': SCED1CurveMW16From, 'SCED1CurveMW16To': SCED1CurveMW16To, 'SCED1CurvePrice16From': SCED1CurvePrice16From, 'SCED1CurvePrice16To': SCED1CurvePrice16To, 'SCED1CurveMW17From': SCED1CurveMW17From, 'SCED1CurveMW17To': SCED1CurveMW17To, 'SCED1CurvePrice17From': SCED1CurvePrice17From, 'SCED1CurvePrice17To': SCED1CurvePrice17To, 'SCED1CurveMW18From': SCED1CurveMW18From, 'SCED1CurveMW18To': SCED1CurveMW18To, 'SCED1CurvePrice18From': SCED1CurvePrice18From, 'SCED1CurvePrice18To': SCED1CurvePrice18To, 'SCED1CurveMW19From': SCED1CurveMW19From, 'SCED1CurveMW19To': SCED1CurveMW19To, 'SCED1CurvePrice19From': SCED1CurvePrice19From, 'SCED1CurvePrice19To': SCED1CurvePrice19To, 'SCED1CurveMW20From': SCED1CurveMW20From, 'SCED1CurveMW20To': SCED1CurveMW20To, 'SCED1CurvePrice20From': SCED1CurvePrice20From, 'SCED1CurvePrice20To': SCED1CurvePrice20To, 'SCED1CurveMW21From': SCED1CurveMW21From, 'SCED1CurveMW21To': SCED1CurveMW21To, 'SCED1CurvePrice21From': SCED1CurvePrice21From, 'SCED1CurvePrice21To': SCED1CurvePrice21To, 'SCED1CurveMW22From': SCED1CurveMW22From, 'SCED1CurveMW22To': SCED1CurveMW22To, 'SCED1CurvePrice22From': SCED1CurvePrice22From, 'SCED1CurvePrice22To': SCED1CurvePrice22To, 'SCED1CurveMW23From': SCED1CurveMW23From, 'SCED1CurveMW23To': SCED1CurveMW23To, 'SCED1CurvePrice23From': SCED1CurvePrice23From, 'SCED1CurvePrice23To': SCED1CurvePrice23To, 'SCED1CurveMW24From': SCED1CurveMW24From, 'SCED1CurveMW24To': SCED1CurveMW24To, 'SCED1CurvePrice24From': SCED1CurvePrice24From, 'SCED1CurvePrice24To': SCED1CurvePrice24To, 'SCED1CurveMW25From': SCED1CurveMW25From, 'SCED1CurveMW25To': SCED1CurveMW25To, 'SCED1CurvePrice25From': SCED1CurvePrice25From, 'SCED1CurvePrice25To': SCED1CurvePrice25To, 'SCED1CurveMW26From': SCED1CurveMW26From, 'SCED1CurveMW26To': SCED1CurveMW26To, 'SCED1CurvePrice26From': SCED1CurvePrice26From, 'SCED1CurvePrice26To': SCED1CurvePrice26To, 'SCED1CurveMW27From': SCED1CurveMW27From, 'SCED1CurveMW27To': SCED1CurveMW27To, 'SCED1CurvePrice27From': SCED1CurvePrice27From, 'SCED1CurvePrice27To': SCED1CurvePrice27To, 'SCED1CurveMW28From': SCED1CurveMW28From, 'SCED1CurveMW28To': SCED1CurveMW28To, 'SCED1CurvePrice28From': SCED1CurvePrice28From, 'SCED1CurvePrice28To': SCED1CurvePrice28To, 'SCED1CurveMW29From': SCED1CurveMW29From, 'SCED1CurveMW29To': SCED1CurveMW29To, 'SCED1CurvePrice29From': SCED1CurvePrice29From, 'SCED1CurvePrice29To': SCED1CurvePrice29To, 'SCED1CurveMW30From': SCED1CurveMW30From, 'SCED1CurveMW30To': SCED1CurveMW30To, 'SCED1CurvePrice30From': SCED1CurvePrice30From, 'SCED1CurvePrice30To': SCED1CurvePrice30To, 'SCED1CurveMW31From': SCED1CurveMW31From, 'SCED1CurveMW31To': SCED1CurveMW31To, 'SCED1CurvePrice31From': SCED1CurvePrice31From, 'SCED1CurvePrice31To': SCED1CurvePrice31To, 'SCED1CurveMW32From': SCED1CurveMW32From, 'SCED1CurveMW32To': SCED1CurveMW32To, 'SCED1CurvePrice32From': SCED1CurvePrice32From, 'SCED1CurvePrice32To': SCED1CurvePrice32To, 'SCED1CurveMW33From': SCED1CurveMW33From, 'SCED1CurveMW33To': SCED1CurveMW33To, 'SCED1CurvePrice33From': SCED1CurvePrice33From, 'SCED1CurvePrice33To': SCED1CurvePrice33To, 'SCED1CurveMW34From': SCED1CurveMW34From, 'SCED1CurveMW34To': SCED1CurveMW34To, 'SCED1CurvePrice34From': SCED1CurvePrice34From, 'SCED1CurvePrice34To': SCED1CurvePrice34To, 'SCED1CurveMW35From': SCED1CurveMW35From, 'SCED1CurveMW35To': SCED1CurveMW35To, 'SCED1CurvePrice35From': SCED1CurvePrice35From, 'SCED1CurvePrice35To': SCED1CurvePrice35To, 'SCED2CurveMW1From': SCED2CurveMW1From, 'SCED2CurveMW1To': SCED2CurveMW1To, 'SCED2CurvePrice1From': SCED2CurvePrice1From, 'SCED2CurvePrice1To': SCED2CurvePrice1To, 'SCED2CurveMW2From': SCED2CurveMW2From, 'SCED2CurveMW2To': SCED2CurveMW2To, 'SCED2CurvePrice2From': SCED2CurvePrice2From, 'SCED2CurvePrice2To': SCED2CurvePrice2To, 'SCED2CurveMW3From': SCED2CurveMW3From, 'SCED2CurveMW3To': SCED2CurveMW3To, 'SCED2CurvePrice3From': SCED2CurvePrice3From, 'SCED2CurvePrice3To': SCED2CurvePrice3To, 'SCED2CurveMW4From': SCED2CurveMW4From, 'SCED2CurveMW4To': SCED2CurveMW4To, 'SCED2CurvePrice4From': SCED2CurvePrice4From, 'SCED2CurvePrice4To': SCED2CurvePrice4To, 'SCED2CurveMW5From': SCED2CurveMW5From, 'SCED2CurveMW5To': SCED2CurveMW5To, 'SCED2CurvePrice5From': SCED2CurvePrice5From, 'SCED2CurvePrice5To': SCED2CurvePrice5To, 'SCED2CurveMW6From': SCED2CurveMW6From, 'SCED2CurveMW6To': SCED2CurveMW6To, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3387,6 +5408,24 @@ class np3_965_er:
         reasonCode: str | None
         repeatHourFlag: bool | None
         resourceName: str | None
+
+    class _60HdlLdlManOverrideHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        participantName: str | None
+        resourceName: str | None
+        HDLOriginal: Decimal | None
+        HDLManual: Decimal | None
+        HDLFinal: Decimal | None
+        LDLOriginal: Decimal | None
+        LDLManual: Decimal | None
+        LDLFinal: Decimal | None
+        reasonCode: str | None
+
+    @property
+    def _60_hdl_ldl_man_override_history(self) -> Archive[np3_965_er._60HdlLdlManOverrideHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-965-er', np3_965_er._60HdlLdlManOverrideHistoryRow, {'SCED Timestamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Participant Name': 'participantName', 'Resource Name': 'resourceName', 'HDL Original': 'HDLOriginal', 'HDL Manual': 'HDLManual', 'HDL Final': 'HDLFinal', 'LDL Original': 'LDLOriginal', 'LDL Manual': 'LDLManual', 'LDL Final': 'LDLFinal', 'Reason Code': 'reasonCode'}, {}, member='60d_HDL_LDL_ManOverride-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _60_hdl_ldl_man_override(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, participantName: str | None = None, resourceName: str | None = None, HDLOriginalFrom: Decimal | None = None, HDLOriginalTo: Decimal | None = None, HDLManualFrom: Decimal | None = None, HDLManualTo: Decimal | None = None, HDLFinalFrom: Decimal | None = None, HDLFinalTo: Decimal | None = None, LDLOriginalFrom: Decimal | None = None, LDLOriginalTo: Decimal | None = None, LDLManualFrom: Decimal | None = None, LDLManualTo: Decimal | None = None, LDLFinalFrom: Decimal | None = None, LDLFinalTo: Decimal | None = None, reasonCode: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_965_er._60HdlLdlManOverrideRow]:
         '60-Day HDL and LDL Manual Override Summary'
@@ -3464,6 +5503,122 @@ class np3_965_er:
         selfRRSUFR: Decimal | None
         telResStatus: str | None
 
+    class _60LoadResDataInScedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        qseName: str | None = None
+        dmeName: str | None = None
+        resourceName: str | None
+        telResStatus: str | None
+        maxPowerConsumption: Decimal | None
+        lowPowerConsumption: Decimal | None
+        realPowerConsumption: Decimal | None
+        ASAwardsNSPIN: Decimal | None = None
+        ASAwardsRRSFFR: Decimal | None = None
+        ASAwardsRRSPFR: Decimal | None = None
+        ASAwardsRRSUFR: Decimal | None = None
+        ASAwardsECRS: Decimal | None = None
+        ASAwardsREGUP: Decimal | None = None
+        ASAwardsREGDN: Decimal | None = None
+        SCEDBidCurveMW1: Decimal | None = None
+        SCEDBidCurvePrice1: Decimal | None = None
+        SCEDBidCurveMW2: Decimal | None = None
+        SCEDBidCurvePrice2: Decimal | None = None
+        SCEDBidCurveMW3: Decimal | None = None
+        SCEDBidCurvePrice3: Decimal | None = None
+        SCEDBidCurveMW4: Decimal | None = None
+        SCEDBidCurvePrice4: Decimal | None = None
+        SCEDBidCurveMW5: Decimal | None = None
+        SCEDBidCurvePrice5: Decimal | None = None
+        SCEDBidCurveMW6: Decimal | None = None
+        SCEDBidCurvePrice6: Decimal | None = None
+        SCEDBidCurveMW7: Decimal | None = None
+        SCEDBidCurvePrice7: Decimal | None = None
+        SCEDBidCurveMW8: Decimal | None = None
+        SCEDBidCurvePrice8: Decimal | None = None
+        SCEDBidCurveMW9: Decimal | None = None
+        SCEDBidCurvePrice9: Decimal | None = None
+        SCEDBidCurveMW10: Decimal | None = None
+        SCEDBidCurvePrice10: Decimal | None = None
+        selfRRSFFR: Decimal | None = None
+        selfRRSUFR: Decimal | None = None
+        selfECRS: Decimal | None = None
+        rampRateUp: Decimal | None = None
+        rampRateDown: Decimal | None = None
+        ASCapNSPIN: Decimal | None = None
+        ASCapECRS: Decimal | None = None
+        ASCapREGUP: Decimal | None = None
+        ASCapREGDN: Decimal | None = None
+        ASCapRRSPFR: Decimal | None = None
+        ASCapRRSFFR: Decimal | None = None
+        ASCapRRSUFR: Decimal | None = None
+        HDL: Decimal | None = None
+        LDL: Decimal | None = None
+        basePoint: Decimal | None = None
+        ASRespForRRS: Decimal | None = None
+        ASRespForRRSFFR: Decimal | None = None
+        ASRespForNSPIN: Decimal | None = None
+        ASRespForREGUP: Decimal | None = None
+        ASRespForREGDN: Decimal | None = None
+        HASL: Decimal | None = None
+        LASL: Decimal | None = None
+        ASRespForECRS: Decimal | None = None
+        SCEDBidCurveMW11: Decimal | None = None
+        SCEDBidCurvePrice11: Decimal | None = None
+        SCEDBidCurveMW12: Decimal | None = None
+        SCEDBidCurvePrice12: Decimal | None = None
+        SCEDBidCurveMW13: Decimal | None = None
+        SCEDBidCurvePrice13: Decimal | None = None
+        SCEDBidCurveMW14: Decimal | None = None
+        SCEDBidCurvePrice14: Decimal | None = None
+        SCEDBidCurveMW15: Decimal | None = None
+        SCEDBidCurvePrice15: Decimal | None = None
+        SCEDBidCurveMW16: Decimal | None = None
+        SCEDBidCurvePrice16: Decimal | None = None
+        SCEDBidCurveMW17: Decimal | None = None
+        SCEDBidCurvePrice17: Decimal | None = None
+        SCEDBidCurveMW18: Decimal | None = None
+        SCEDBidCurvePrice18: Decimal | None = None
+        SCEDBidCurveMW19: Decimal | None = None
+        SCEDBidCurvePrice19: Decimal | None = None
+        SCEDBidCurveMW20: Decimal | None = None
+        SCEDBidCurvePrice20: Decimal | None = None
+        SCEDBidCurveMW21: Decimal | None = None
+        SCEDBidCurvePrice21: Decimal | None = None
+        SCEDBidCurveMW22: Decimal | None = None
+        SCEDBidCurvePrice22: Decimal | None = None
+        SCEDBidCurveMW23: Decimal | None = None
+        SCEDBidCurvePrice23: Decimal | None = None
+        SCEDBidCurveMW24: Decimal | None = None
+        SCEDBidCurvePrice24: Decimal | None = None
+        SCEDBidCurveMW25: Decimal | None = None
+        SCEDBidCurvePrice25: Decimal | None = None
+        SCEDBidCurveMW26: Decimal | None = None
+        SCEDBidCurvePrice26: Decimal | None = None
+        SCEDBidCurveMW27: Decimal | None = None
+        SCEDBidCurvePrice27: Decimal | None = None
+        SCEDBidCurveMW28: Decimal | None = None
+        SCEDBidCurvePrice28: Decimal | None = None
+        SCEDBidCurveMW29: Decimal | None = None
+        SCEDBidCurvePrice29: Decimal | None = None
+        SCEDBidCurveMW30: Decimal | None = None
+        SCEDBidCurvePrice30: Decimal | None = None
+        SCEDBidCurveMW31: Decimal | None = None
+        SCEDBidCurvePrice31: Decimal | None = None
+        SCEDBidCurveMW32: Decimal | None = None
+        SCEDBidCurvePrice32: Decimal | None = None
+        SCEDBidCurveMW33: Decimal | None = None
+        SCEDBidCurvePrice33: Decimal | None = None
+        SCEDBidCurveMW34: Decimal | None = None
+        SCEDBidCurvePrice34: Decimal | None = None
+        SCEDBidCurveMW35: Decimal | None = None
+        SCEDBidCurvePrice35: Decimal | None = None
+
+    @property
+    def _60_load_res_data_in_sced_history(self) -> Archive[np3_965_er._60LoadResDataInScedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-965-er', np3_965_er._60LoadResDataInScedHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', 'Telemetered Resource Status': 'telResStatus', 'Max Power Consumption': 'maxPowerConsumption', 'Low Power Consumption': 'lowPowerConsumption', 'Real Power Consumption': 'realPowerConsumption', 'AS Awards NSPIN': 'ASAwardsNSPIN', 'AS Awards RRSFFR': 'ASAwardsRRSFFR', 'AS Awards RRSPFR': 'ASAwardsRRSPFR', 'AS Awards RRSUFR': 'ASAwardsRRSUFR', 'AS Awards ECRS': 'ASAwardsECRS', 'AS Awards REGUP': 'ASAwardsREGUP', 'AS Awards REGDN': 'ASAwardsREGDN', 'SCED Bid to Buy Curve-MW1': 'SCEDBidCurveMW1', 'SCED Bid to Buy Curve-Price1': 'SCEDBidCurvePrice1', 'SCED Bid to Buy Curve-MW2': 'SCEDBidCurveMW2', 'SCED Bid to Buy Curve-Price2': 'SCEDBidCurvePrice2', 'SCED Bid to Buy Curve-MW3': 'SCEDBidCurveMW3', 'SCED Bid to Buy Curve-Price3': 'SCEDBidCurvePrice3', 'SCED Bid to Buy Curve-MW4': 'SCEDBidCurveMW4', 'SCED Bid to Buy Curve-Price4': 'SCEDBidCurvePrice4', 'SCED Bid to Buy Curve-MW5': 'SCEDBidCurveMW5', 'SCED Bid to Buy Curve-Price5': 'SCEDBidCurvePrice5', 'SCED Bid to Buy Curve-MW6': 'SCEDBidCurveMW6', 'SCED Bid to Buy Curve-Price6': 'SCEDBidCurvePrice6', 'SCED Bid to Buy Curve-MW7': 'SCEDBidCurveMW7', 'SCED Bid to Buy Curve-Price7': 'SCEDBidCurvePrice7', 'SCED Bid to Buy Curve-MW8': 'SCEDBidCurveMW8', 'SCED Bid to Buy Curve-Price8': 'SCEDBidCurvePrice8', 'SCED Bid to Buy Curve-MW9': 'SCEDBidCurveMW9', 'SCED Bid to Buy Curve-Price9': 'SCEDBidCurvePrice9', 'SCED Bid to Buy Curve-MW10': 'SCEDBidCurveMW10', 'SCED Bid to Buy Curve-Price10': 'SCEDBidCurvePrice10', 'Self Provided RRSFFR': 'selfRRSFFR', 'Self Provided RRSUFR': 'selfRRSUFR', 'Self Provided ECRS': 'selfECRS', 'Ramp Rate Up': 'rampRateUp', 'Ramp Rate Down': 'rampRateDown', 'AS Capability NSPIN': 'ASCapNSPIN', 'AS Capability ECRS': 'ASCapECRS', 'AS Capability REGUP': 'ASCapREGUP', 'AS Capability REGDN': 'ASCapREGDN', 'AS Capability RRSPFR': 'ASCapRRSPFR', 'AS Capability RRSFFR': 'ASCapRRSFFR', 'AS Capability RRSUFR': 'ASCapRRSUFR', 'HDL': 'HDL', 'LDL': 'LDL', 'Base Point': 'basePoint'}, {}, member='60d_Load?Resource_Data_in_SCED-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Resource Name': 'resourceName', 'Telemetered Resource Status': 'telResStatus', 'Max Power Consumption': 'maxPowerConsumption', 'Low Power Consumption': 'lowPowerConsumption', 'Real Power Consumption': 'realPowerConsumption', 'AS Responsibility for RRS': 'ASRespForRRS', 'AS Responsibility for NonSpin': 'ASRespForNSPIN', 'AS Responsibility for RegUp': 'ASRespForREGUP', 'AS Responsibility for RegDown': 'ASRespForREGDN'}, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Resource Name': 'resourceName', 'Telemetered Resource Status': 'telResStatus', 'Max Power Consumption': 'maxPowerConsumption', 'Low Power Consumption': 'lowPowerConsumption', 'Real Power Consumption': 'realPowerConsumption', 'AS Responsibility for RRS': 'ASRespForRRS', 'AS Responsibility for NonSpin': 'ASRespForNSPIN', 'AS Responsibility for RegUp': 'ASRespForREGUP', 'AS Responsibility for RegDown': 'ASRespForREGDN', 'SCED Bid to Buy Curve-MW1': 'SCEDBidCurveMW1', 'SCED Bid to Buy Curve-Price1': 'SCEDBidCurvePrice1', 'SCED Bid to Buy Curve-MW2': 'SCEDBidCurveMW2', 'SCED Bid to Buy Curve-Price2': 'SCEDBidCurvePrice2', 'SCED Bid to Buy Curve-MW3': 'SCEDBidCurveMW3', 'SCED Bid to Buy Curve-Price3': 'SCEDBidCurvePrice3', 'SCED Bid to Buy Curve-MW4': 'SCEDBidCurveMW4', 'SCED Bid to Buy Curve-Price4': 'SCEDBidCurvePrice4', 'SCED Bid to Buy Curve-MW5': 'SCEDBidCurveMW5', 'SCED Bid to Buy Curve-Price5': 'SCEDBidCurvePrice5', 'SCED Bid to Buy Curve-MW6': 'SCEDBidCurveMW6', 'SCED Bid to Buy Curve-Price6': 'SCEDBidCurvePrice6', 'SCED Bid to Buy Curve-MW7': 'SCEDBidCurveMW7', 'SCED Bid to Buy Curve-Price7': 'SCEDBidCurvePrice7', 'SCED Bid to Buy Curve-MW8': 'SCEDBidCurveMW8', 'SCED Bid to Buy Curve-Price8': 'SCEDBidCurvePrice8', 'SCED Bid to Buy Curve-MW9': 'SCEDBidCurveMW9', 'SCED Bid to Buy Curve-Price9': 'SCEDBidCurvePrice9', 'SCED Bid to Buy Curve-MW10': 'SCEDBidCurveMW10', 'SCED Bid to Buy Curve-Price10': 'SCEDBidCurvePrice10', 'SCED Bid to Buy Curve-MW11': 'SCEDBidCurveMW11', 'SCED Bid to Buy Curve-Price11': 'SCEDBidCurvePrice11', 'SCED Bid to Buy Curve-MW12': 'SCEDBidCurveMW12', 'SCED Bid to Buy Curve-Price12': 'SCEDBidCurvePrice12', 'SCED Bid to Buy Curve-MW13': 'SCEDBidCurveMW13', 'SCED Bid to Buy Curve-Price13': 'SCEDBidCurvePrice13', 'SCED Bid to Buy Curve-MW14': 'SCEDBidCurveMW14', 'SCED Bid to Buy Curve-Price14': 'SCEDBidCurvePrice14', 'SCED Bid to Buy Curve-MW15': 'SCEDBidCurveMW15', 'SCED Bid to Buy Curve-Price15': 'SCEDBidCurvePrice15', 'SCED Bid to Buy Curve-MW16': 'SCEDBidCurveMW16', 'SCED Bid to Buy Curve-Price16': 'SCEDBidCurvePrice16', 'SCED Bid to Buy Curve-MW17': 'SCEDBidCurveMW17', 'SCED Bid to Buy Curve-Price17': 'SCEDBidCurvePrice17', 'SCED Bid to Buy Curve-MW18': 'SCEDBidCurveMW18', 'SCED Bid to Buy Curve-Price18': 'SCEDBidCurvePrice18', 'SCED Bid to Buy Curve-MW19': 'SCEDBidCurveMW19', 'SCED Bid to Buy Curve-Price19': 'SCEDBidCurvePrice19', 'SCED Bid to Buy Curve-MW20': 'SCEDBidCurveMW20', 'SCED Bid to Buy Curve-Price20': 'SCEDBidCurvePrice20', 'SCED Bid to Buy Curve-MW21': 'SCEDBidCurveMW21', 'SCED Bid to Buy Curve-Price21': 'SCEDBidCurvePrice21', 'SCED Bid to Buy Curve-MW22': 'SCEDBidCurveMW22', 'SCED Bid to Buy Curve-Price22': 'SCEDBidCurvePrice22', 'SCED Bid to Buy Curve-MW23': 'SCEDBidCurveMW23', 'SCED Bid to Buy Curve-Price23': 'SCEDBidCurvePrice23', 'SCED Bid to Buy Curve-MW24': 'SCEDBidCurveMW24', 'SCED Bid to Buy Curve-Price24': 'SCEDBidCurvePrice24', 'SCED Bid to Buy Curve-MW25': 'SCEDBidCurveMW25', 'SCED Bid to Buy Curve-Price25': 'SCEDBidCurvePrice25', 'SCED Bid to Buy Curve-MW26': 'SCEDBidCurveMW26', 'SCED Bid to Buy Curve-Price26': 'SCEDBidCurvePrice26', 'SCED Bid to Buy Curve-MW27': 'SCEDBidCurveMW27', 'SCED Bid to Buy Curve-Price27': 'SCEDBidCurvePrice27', 'SCED Bid to Buy Curve-MW28': 'SCEDBidCurveMW28', 'SCED Bid to Buy Curve-Price28': 'SCEDBidCurvePrice28', 'SCED Bid to Buy Curve-MW29': 'SCEDBidCurveMW29', 'SCED Bid to Buy Curve-Price29': 'SCEDBidCurvePrice29', 'SCED Bid to Buy Curve-MW30': 'SCEDBidCurveMW30', 'SCED Bid to Buy Curve-Price30': 'SCEDBidCurvePrice30', 'SCED Bid to Buy Curve-MW31': 'SCEDBidCurveMW31', 'SCED Bid to Buy Curve-Price31': 'SCEDBidCurvePrice31', 'SCED Bid to Buy Curve-MW32': 'SCEDBidCurveMW32', 'SCED Bid to Buy Curve-Price32': 'SCEDBidCurvePrice32', 'SCED Bid to Buy Curve-MW33': 'SCEDBidCurveMW33', 'SCED Bid to Buy Curve-Price33': 'SCEDBidCurvePrice33', 'SCED Bid to Buy Curve-MW34': 'SCEDBidCurveMW34', 'SCED Bid to Buy Curve-Price34': 'SCEDBidCurvePrice34', 'SCED Bid to Buy Curve-MW35': 'SCEDBidCurveMW35', 'SCED Bid to Buy Curve-Price35': 'SCEDBidCurvePrice35', 'HASL': 'HASL', 'HDL': 'HDL', 'LASL': 'LASL', 'LDL': 'LDL', 'Base Point': 'basePoint'}, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', 'Telemetered Resource Status': 'telResStatus', 'Max Power Consumption': 'maxPowerConsumption', 'Low Power Consumption': 'lowPowerConsumption', 'Real Power Consumption': 'realPowerConsumption', 'AS Responsibility for RRS': 'ASRespForRRS', 'AS Responsibility for RRSFFR': 'ASRespForRRSFFR', 'AS Responsibility for NonSpin': 'ASRespForNSPIN', 'AS Responsibility for RegUp': 'ASRespForREGUP', 'AS Responsibility for RegDown': 'ASRespForREGDN', 'AS Responsibility for ECRS': 'ASRespForECRS', 'SCED Bid to Buy Curve-MW1': 'SCEDBidCurveMW1', 'SCED Bid to Buy Curve-Price1': 'SCEDBidCurvePrice1', 'SCED Bid to Buy Curve-MW2': 'SCEDBidCurveMW2', 'SCED Bid to Buy Curve-Price2': 'SCEDBidCurvePrice2', 'SCED Bid to Buy Curve-MW3': 'SCEDBidCurveMW3', 'SCED Bid to Buy Curve-Price3': 'SCEDBidCurvePrice3', 'SCED Bid to Buy Curve-MW4': 'SCEDBidCurveMW4', 'SCED Bid to Buy Curve-Price4': 'SCEDBidCurvePrice4', 'SCED Bid to Buy Curve-MW5': 'SCEDBidCurveMW5', 'SCED Bid to Buy Curve-Price5': 'SCEDBidCurvePrice5', 'SCED Bid to Buy Curve-MW6': 'SCEDBidCurveMW6', 'SCED Bid to Buy Curve-Price6': 'SCEDBidCurvePrice6', 'SCED Bid to Buy Curve-MW7': 'SCEDBidCurveMW7', 'SCED Bid to Buy Curve-Price7': 'SCEDBidCurvePrice7', 'SCED Bid to Buy Curve-MW8': 'SCEDBidCurveMW8', 'SCED Bid to Buy Curve-Price8': 'SCEDBidCurvePrice8', 'SCED Bid to Buy Curve-MW9': 'SCEDBidCurveMW9', 'SCED Bid to Buy Curve-Price9': 'SCEDBidCurvePrice9', 'SCED Bid to Buy Curve-MW10': 'SCEDBidCurveMW10', 'SCED Bid to Buy Curve-Price10': 'SCEDBidCurvePrice10', 'HASL': 'HASL', 'HDL': 'HDL', 'LASL': 'LASL', 'LDL': 'LDL', 'Base Point': 'basePoint'}))
+
     def _60_load_res_data_in_sced(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, telResStatus: str | None = None, maxPowerConsumptionFrom: Decimal | None = None, maxPowerConsumptionTo: Decimal | None = None, lowPowerConsumptionFrom: Decimal | None = None, lowPowerConsumptionTo: Decimal | None = None, realPowerConsumptionFrom: Decimal | None = None, realPowerConsumptionTo: Decimal | None = None, ASAwardsNSPINFrom: Decimal | None = None, ASAwardsNSPINTo: Decimal | None = None, ASAwardsRRSFFRFrom: Decimal | None = None, ASAwardsRRSFFRTo: Decimal | None = None, ASAwardsRRSPFRFrom: Decimal | None = None, ASAwardsRRSPFRTo: Decimal | None = None, ASAwardsRRSUFRFrom: Decimal | None = None, ASAwardsRRSUFRTo: Decimal | None = None, ASAwardsECRSFrom: Decimal | None = None, ASAwardsECRSTo: Decimal | None = None, ASAwardsREGUPFrom: Decimal | None = None, ASAwardsREGUPTo: Decimal | None = None, ASAwardsREGDNFrom: Decimal | None = None, ASAwardsREGDNTo: Decimal | None = None, SCEDBidCurveMW1From: Decimal | None = None, SCEDBidCurveMW1To: Decimal | None = None, SCEDBidCurvePrice1From: Decimal | None = None, SCEDBidCurvePrice1To: Decimal | None = None, SCEDBidCurveMW2From: Decimal | None = None, SCEDBidCurveMW2To: Decimal | None = None, SCEDBidCurvePrice2From: Decimal | None = None, SCEDBidCurvePrice2To: Decimal | None = None, SCEDBidCurveMW3From: Decimal | None = None, SCEDBidCurveMW3To: Decimal | None = None, SCEDBidCurvePrice3From: Decimal | None = None, SCEDBidCurvePrice3To: Decimal | None = None, SCEDBidCurveMW4From: Decimal | None = None, SCEDBidCurveMW4To: Decimal | None = None, SCEDBidCurvePrice4From: Decimal | None = None, SCEDBidCurvePrice4To: Decimal | None = None, SCEDBidCurveMW5From: Decimal | None = None, SCEDBidCurveMW5To: Decimal | None = None, SCEDBidCurvePrice5From: Decimal | None = None, SCEDBidCurvePrice5To: Decimal | None = None, SCEDBidCurveMW6From: Decimal | None = None, SCEDBidCurveMW6To: Decimal | None = None, SCEDBidCurvePrice6From: Decimal | None = None, SCEDBidCurvePrice6To: Decimal | None = None, SCEDBidCurveMW7From: Decimal | None = None, SCEDBidCurveMW7To: Decimal | None = None, SCEDBidCurvePrice7From: Decimal | None = None, SCEDBidCurvePrice7To: Decimal | None = None, SCEDBidCurveMW8From: Decimal | None = None, SCEDBidCurveMW8To: Decimal | None = None, SCEDBidCurvePrice8From: Decimal | None = None, SCEDBidCurvePrice8To: Decimal | None = None, SCEDBidCurveMW9From: Decimal | None = None, SCEDBidCurveMW9To: Decimal | None = None, SCEDBidCurvePrice9From: Decimal | None = None, SCEDBidCurvePrice9To: Decimal | None = None, SCEDBidCurveMW10From: Decimal | None = None, SCEDBidCurveMW10To: Decimal | None = None, SCEDBidCurvePrice10From: Decimal | None = None, SCEDBidCurvePrice10To: Decimal | None = None, selfRRSFFRFrom: Decimal | None = None, selfRRSFFRTo: Decimal | None = None, selfRRSUFRFrom: Decimal | None = None, selfRRSUFRTo: Decimal | None = None, selfECRSFrom: Decimal | None = None, selfECRSTo: Decimal | None = None, rampRateUpFrom: Decimal | None = None, rampRateUpTo: Decimal | None = None, rampRateDownFrom: Decimal | None = None, rampRateDownTo: Decimal | None = None, ASCapNSPINFrom: Decimal | None = None, ASCapNSPINTo: Decimal | None = None, ASCapECRSFrom: Decimal | None = None, ASCapECRSTo: Decimal | None = None, ASCapREGUPFrom: Decimal | None = None, ASCapREGUPTo: Decimal | None = None, ASCapREGDNFrom: Decimal | None = None, ASCapREGDNTo: Decimal | None = None, HDLFrom: Decimal | None = None, HDLTo: Decimal | None = None, LDLFrom: Decimal | None = None, LDLTo: Decimal | None = None, basePointFrom: Decimal | None = None, basePointTo: Decimal | None = None, ASCapRRSPFRFrom: Decimal | None = None, ASCapRRSPFRTo: Decimal | None = None, ASCapRRSFFRFrom: Decimal | None = None, ASCapRRSFFRTo: Decimal | None = None, ASCapRRSUFRFrom: Decimal | None = None, ASCapRRSUFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_965_er._60LoadResDataInScedRow]:
         '60-Day Load Resource Data in SCED'
         return self._client._page('/np3-965-er/60_load_res_data_in_sced', np3_965_er._60LoadResDataInScedRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'qseName': qseName, 'dmeName': dmeName, 'resourceName': resourceName, 'telResStatus': telResStatus, 'maxPowerConsumptionFrom': maxPowerConsumptionFrom, 'maxPowerConsumptionTo': maxPowerConsumptionTo, 'lowPowerConsumptionFrom': lowPowerConsumptionFrom, 'lowPowerConsumptionTo': lowPowerConsumptionTo, 'realPowerConsumptionFrom': realPowerConsumptionFrom, 'realPowerConsumptionTo': realPowerConsumptionTo, 'ASAwardsNSPINFrom': ASAwardsNSPINFrom, 'ASAwardsNSPINTo': ASAwardsNSPINTo, 'ASAwardsRRSFFRFrom': ASAwardsRRSFFRFrom, 'ASAwardsRRSFFRTo': ASAwardsRRSFFRTo, 'ASAwardsRRSPFRFrom': ASAwardsRRSPFRFrom, 'ASAwardsRRSPFRTo': ASAwardsRRSPFRTo, 'ASAwardsRRSUFRFrom': ASAwardsRRSUFRFrom, 'ASAwardsRRSUFRTo': ASAwardsRRSUFRTo, 'ASAwardsECRSFrom': ASAwardsECRSFrom, 'ASAwardsECRSTo': ASAwardsECRSTo, 'ASAwardsREGUPFrom': ASAwardsREGUPFrom, 'ASAwardsREGUPTo': ASAwardsREGUPTo, 'ASAwardsREGDNFrom': ASAwardsREGDNFrom, 'ASAwardsREGDNTo': ASAwardsREGDNTo, 'SCEDBidCurveMW1From': SCEDBidCurveMW1From, 'SCEDBidCurveMW1To': SCEDBidCurveMW1To, 'SCEDBidCurvePrice1From': SCEDBidCurvePrice1From, 'SCEDBidCurvePrice1To': SCEDBidCurvePrice1To, 'SCEDBidCurveMW2From': SCEDBidCurveMW2From, 'SCEDBidCurveMW2To': SCEDBidCurveMW2To, 'SCEDBidCurvePrice2From': SCEDBidCurvePrice2From, 'SCEDBidCurvePrice2To': SCEDBidCurvePrice2To, 'SCEDBidCurveMW3From': SCEDBidCurveMW3From, 'SCEDBidCurveMW3To': SCEDBidCurveMW3To, 'SCEDBidCurvePrice3From': SCEDBidCurvePrice3From, 'SCEDBidCurvePrice3To': SCEDBidCurvePrice3To, 'SCEDBidCurveMW4From': SCEDBidCurveMW4From, 'SCEDBidCurveMW4To': SCEDBidCurveMW4To, 'SCEDBidCurvePrice4From': SCEDBidCurvePrice4From, 'SCEDBidCurvePrice4To': SCEDBidCurvePrice4To, 'SCEDBidCurveMW5From': SCEDBidCurveMW5From, 'SCEDBidCurveMW5To': SCEDBidCurveMW5To, 'SCEDBidCurvePrice5From': SCEDBidCurvePrice5From, 'SCEDBidCurvePrice5To': SCEDBidCurvePrice5To, 'SCEDBidCurveMW6From': SCEDBidCurveMW6From, 'SCEDBidCurveMW6To': SCEDBidCurveMW6To, 'SCEDBidCurvePrice6From': SCEDBidCurvePrice6From, 'SCEDBidCurvePrice6To': SCEDBidCurvePrice6To, 'SCEDBidCurveMW7From': SCEDBidCurveMW7From, 'SCEDBidCurveMW7To': SCEDBidCurveMW7To, 'SCEDBidCurvePrice7From': SCEDBidCurvePrice7From, 'SCEDBidCurvePrice7To': SCEDBidCurvePrice7To, 'SCEDBidCurveMW8From': SCEDBidCurveMW8From, 'SCEDBidCurveMW8To': SCEDBidCurveMW8To, 'SCEDBidCurvePrice8From': SCEDBidCurvePrice8From, 'SCEDBidCurvePrice8To': SCEDBidCurvePrice8To, 'SCEDBidCurveMW9From': SCEDBidCurveMW9From, 'SCEDBidCurveMW9To': SCEDBidCurveMW9To, 'SCEDBidCurvePrice9From': SCEDBidCurvePrice9From, 'SCEDBidCurvePrice9To': SCEDBidCurvePrice9To, 'SCEDBidCurveMW10From': SCEDBidCurveMW10From, 'SCEDBidCurveMW10To': SCEDBidCurveMW10To, 'SCEDBidCurvePrice10From': SCEDBidCurvePrice10From, 'SCEDBidCurvePrice10To': SCEDBidCurvePrice10To, 'selfRRSFFRFrom': selfRRSFFRFrom, 'selfRRSFFRTo': selfRRSFFRTo, 'selfRRSUFRFrom': selfRRSUFRFrom, 'selfRRSUFRTo': selfRRSUFRTo, 'selfECRSFrom': selfECRSFrom, 'selfECRSTo': selfECRSTo, 'rampRateUpFrom': rampRateUpFrom, 'rampRateUpTo': rampRateUpTo, 'rampRateDownFrom': rampRateDownFrom, 'rampRateDownTo': rampRateDownTo, 'ASCapNSPINFrom': ASCapNSPINFrom, 'ASCapNSPINTo': ASCapNSPINTo, 'ASCapECRSFrom': ASCapECRSFrom, 'ASCapECRSTo': ASCapECRSTo, 'ASCapREGUPFrom': ASCapREGUPFrom, 'ASCapREGUPTo': ASCapREGUPTo, 'ASCapREGDNFrom': ASCapREGDNFrom, 'ASCapREGDNTo': ASCapREGDNTo, 'HDLFrom': HDLFrom, 'HDLTo': HDLTo, 'LDLFrom': LDLFrom, 'LDLTo': LDLTo, 'basePointFrom': basePointFrom, 'basePointTo': basePointTo, 'ASCapRRSPFRFrom': ASCapRRSPFRFrom, 'ASCapRRSPFRTo': ASCapRRSPFRTo, 'ASCapRRSFFRFrom': ASCapRRSFFRFrom, 'ASCapRRSFFRTo': ASCapRRSFFRTo, 'ASCapRRSUFRFrom': ASCapRRSUFRFrom, 'ASCapRRSUFRTo': ASCapRRSUFRTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3493,6 +5648,28 @@ class np3_965_er:
         qseName: str | None
         repeatHourFlag: bool | None
 
+    class _60ScedQseSelfArrangedAsHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        qseName: str | None
+        REGUP: Decimal | None
+        REGDN: Decimal | None
+        NSPIN: Decimal | None
+        NSPNM: Decimal | None = None
+        RRSPFR: Decimal | None = None
+        RRSFFR: Decimal | None = None
+        RRSUFR: Decimal | None = None
+        ECRSS: Decimal | None = None
+        ECRSM: Decimal | None = None
+        RRSGN: Decimal | None = None
+        RRSLD: Decimal | None = None
+        RRSNC: Decimal | None = None
+
+    @property
+    def _60_sced_qse_self_arranged_as_history(self) -> Archive[np3_965_er._60ScedQseSelfArrangedAsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-965-er', np3_965_er._60ScedQseSelfArrangedAsHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'QSE': 'qseName', 'REGUP': 'REGUP', 'REGDN': 'REGDN', 'NSPIN': 'NSPIN', 'NSPNM': 'NSPNM', 'RRSPFR': 'RRSPFR', 'RRSFFR': 'RRSFFR', 'RRSUFR': 'RRSUFR', 'ECRSS': 'ECRSS', 'ECRSM': 'ECRSM'}, {}, member='60d_SCED_QSE_Self_Arranged_AS-[0-9]*.csv', datetimes={'SCEDTimestamp': ['%m/%d/%Y %H:%M:%S', '%m/%d/%Y %H :%M :%S']}, variants=({'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'QSE': 'qseName', 'REGUP': 'REGUP', 'REGDN': 'REGDN', 'NSPIN': 'NSPIN', 'RRSGN': 'RRSGN', 'RRSLD': 'RRSLD', 'RRSNC': 'RRSNC'}, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'QSE': 'qseName', 'REGUP': 'REGUP', 'REGDN': 'REGDN', 'NSPIN': 'NSPIN', 'NSPNM': 'NSPNM', 'RRSPFR': 'RRSPFR', 'RRSFFR': 'RRSFFR', 'RRSUFR': 'RRSUFR', 'ECRSS': 'ECRSS', 'ECRSM ': 'ECRSM'}))
+
     def _60_sced_qse_self_arranged_as(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, qseName: str | None = None, REGUPFrom: Decimal | None = None, REGUPTo: Decimal | None = None, REGDNFrom: Decimal | None = None, REGDNTo: Decimal | None = None, NSPINFrom: Decimal | None = None, NSPINTo: Decimal | None = None, NSPNMFrom: Decimal | None = None, NSPNMTo: Decimal | None = None, RRSPFRFrom: Decimal | None = None, RRSPFRTo: Decimal | None = None, RRSFFRFrom: Decimal | None = None, RRSFFRTo: Decimal | None = None, RRSUFRFrom: Decimal | None = None, RRSUFRTo: Decimal | None = None, ECRSSFrom: Decimal | None = None, ECRSSTo: Decimal | None = None, ECRSMFrom: Decimal | None = None, ECRSMTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_965_er._60ScedQseSelfArrangedAsRow]:
         '60-Day QSE-specific Self-Arranged AS in SCED'
         return self._client._page('/np3-965-er/60_sced_qse_self_arranged_as', np3_965_er._60ScedQseSelfArrangedAsRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'qseName': qseName, 'REGUPFrom': REGUPFrom, 'REGUPTo': REGUPTo, 'REGDNFrom': REGDNFrom, 'REGDNTo': REGDNTo, 'NSPINFrom': NSPINFrom, 'NSPINTo': NSPINTo, 'NSPNMFrom': NSPNMFrom, 'NSPNMTo': NSPNMTo, 'RRSPFRFrom': RRSPFRFrom, 'RRSPFRTo': RRSPFRTo, 'RRSFFRFrom': RRSFFRFrom, 'RRSFFRTo': RRSFFRTo, 'RRSUFRFrom': RRSUFRFrom, 'RRSUFRTo': RRSUFRTo, 'ECRSSFrom': ECRSSFrom, 'ECRSSTo': ECRSSTo, 'ECRSMFrom': ECRSMFrom, 'ECRSMTo': ECRSMTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3515,6 +5692,18 @@ class np3_965_er:
         opPeriodUpd: Decimal | None
         resourceName: str | None
 
+    class _60dScedAsOfferUpdatesHistoryRow(Row):
+        deliveryDate: date | None
+        deliveryHour: int | None
+        resourceName: str | None
+        ASType: str | None
+        opPeriodUpd: Decimal | None
+
+    @property
+    def _60d_sced_as_offer_updates_history(self) -> Archive[np3_965_er._60dScedAsOfferUpdatesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-965-er', np3_965_er._60dScedAsOfferUpdatesHistoryRow, {'Delivery Date': 'deliveryDate', 'Delivery Hour': 'deliveryHour', 'Resource Name': 'resourceName', 'AS Type': 'ASType', 'Count of Updates During Operating Period': 'opPeriodUpd'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_SCED_AS_Offer_Updates_in_OpPeriod-[0-9]*.csv', datetimes={}, variants=())
+
     def _60d_sced_as_offer_updates(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, resourceName: str | None = None, ASType: str | None = None, opPeriodUpdFrom: Decimal | None = None, opPeriodUpdTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_965_er._60dScedAsOfferUpdatesRow]:
         '60-Day SCED AS Offer Updates in Operating Period'
         return self._client._page('/np3-965-er/60d_sced_as_offer_updates', np3_965_er._60dScedAsOfferUpdatesRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'resourceName': resourceName, 'ASType': ASType, 'opPeriodUpdFrom': opPeriodUpdFrom, 'opPeriodUpdTo': opPeriodUpdTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3535,6 +5724,17 @@ class np3_965_er:
         qseName: str | None
         repeatHourFlag: bool | None
         totalTelemeteredDSRLoads: Decimal | None
+
+    class _60ScedDsrLoadDataHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        qseName: str | None
+        totalTelemeteredDSRLoads: Decimal | None
+
+    @property
+    def _60_sced_dsr_load_data_history(self) -> Archive[np3_965_er._60ScedDsrLoadDataHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-965-er', np3_965_er._60ScedDsrLoadDataHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'QSE Name': 'qseName', 'Total Telemetered DSR Loads': 'totalTelemeteredDSRLoads'}, {}, member='60d_SCED_DSR_Load_Data-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _60_sced_dsr_load_data(self, *, qseName: str | None = None, totalTelemeteredDSRLoadsFrom: Decimal | None = None, totalTelemeteredDSRLoadsTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_965_er._60ScedDsrLoadDataRow]:
         '60-Day SCED DSR Load Data'
@@ -3557,6 +5757,18 @@ class np3_965_er:
         opHourUpdates: Decimal | None
         reason: str | None
         resourceName: str | None
+
+    class _60ScedEocUpdatesInOphourHistoryRow(Row):
+        deliveryDate: date | None
+        deliveryHour: int | None
+        resourceName: str | None
+        reason: str | None
+        opHourUpdates: Decimal | None
+
+    @property
+    def _60_sced_eoc_updates_in_ophour_history(self) -> Archive[np3_965_er._60ScedEocUpdatesInOphourHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-965-er', np3_965_er._60ScedEocUpdatesInOphourHistoryRow, {'Delivery Date': 'deliveryDate', 'Delivery Hour': 'deliveryHour', 'Resource Name': 'resourceName', 'Reason': 'reason', 'Count of Updates During Operating Hour': 'opHourUpdates'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_SCED_EOC_Updates_in_OpHour-[0-9]*.csv', datetimes={}, variants=())
 
     def _60_sced_eoc_updates_in_ophour(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, resourceName: str | None = None, opHourUpdatesFrom: Decimal | None = None, opHourUpdatesTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_965_er._60ScedEocUpdatesInOphourRow]:
         '60-Day SCED Energy Offer Curve Updates in Operating Hour'
@@ -3778,6 +5990,216 @@ class np3_965_er:
         telemeteredNetOutput: Decimal | None
         telemeteredResourceStatus: str | None
 
+    class _60ScedGenResDataHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        qseName: str | None = None
+        dmeName: str | None = None
+        resourceName: str | None
+        resourceType: str | None
+        SCED1CurveMW1: Decimal | None
+        SCED1CurvePrice1: Decimal | None
+        SCED1CurveMW2: Decimal | None
+        SCED1CurvePrice2: Decimal | None
+        SCED1CurveMW3: Decimal | None
+        SCED1CurvePrice3: Decimal | None
+        SCED1CurveMW4: Decimal | None
+        SCED1CurvePrice4: Decimal | None
+        SCED1CurveMW5: Decimal | None
+        SCED1CurvePrice5: Decimal | None
+        SCED1CurveMW6: Decimal | None
+        SCED1CurvePrice6: Decimal | None
+        SCED1CurveMW7: Decimal | None
+        SCED1CurvePrice7: Decimal | None
+        SCED1CurveMW8: Decimal | None
+        SCED1CurvePrice8: Decimal | None
+        SCED1CurveMW9: Decimal | None
+        SCED1CurvePrice9: Decimal | None
+        SCED1CurveMW10: Decimal | None
+        SCED1CurvePrice10: Decimal | None
+        SCED1CurveMW11: Decimal | None
+        SCED1CurvePrice11: Decimal | None
+        SCED1CurveMW12: Decimal | None
+        SCED1CurvePrice12: Decimal | None
+        SCED1CurveMW13: Decimal | None
+        SCED1CurvePrice13: Decimal | None
+        SCED1CurveMW14: Decimal | None
+        SCED1CurvePrice14: Decimal | None
+        SCED1CurveMW15: Decimal | None
+        SCED1CurvePrice15: Decimal | None
+        SCED1CurveMW16: Decimal | None
+        SCED1CurvePrice16: Decimal | None
+        SCED1CurveMW17: Decimal | None
+        SCED1CurvePrice17: Decimal | None
+        SCED1CurveMW18: Decimal | None
+        SCED1CurvePrice18: Decimal | None
+        SCED1CurveMW19: Decimal | None
+        SCED1CurvePrice19: Decimal | None
+        SCED1CurveMW20: Decimal | None
+        SCED1CurvePrice20: Decimal | None
+        SCED1CurveMW21: Decimal | None
+        SCED1CurvePrice21: Decimal | None
+        SCED1CurveMW22: Decimal | None
+        SCED1CurvePrice22: Decimal | None
+        SCED1CurveMW23: Decimal | None
+        SCED1CurvePrice23: Decimal | None
+        SCED1CurveMW24: Decimal | None
+        SCED1CurvePrice24: Decimal | None
+        SCED1CurveMW25: Decimal | None
+        SCED1CurvePrice25: Decimal | None
+        SCED1CurveMW26: Decimal | None
+        SCED1CurvePrice26: Decimal | None
+        SCED1CurveMW27: Decimal | None
+        SCED1CurvePrice27: Decimal | None
+        SCED1CurveMW28: Decimal | None
+        SCED1CurvePrice28: Decimal | None
+        SCED1CurveMW29: Decimal | None
+        SCED1CurvePrice29: Decimal | None
+        SCED1CurveMW30: Decimal | None
+        SCED1CurvePrice30: Decimal | None
+        SCED1CurveMW31: Decimal | None
+        SCED1CurvePrice31: Decimal | None
+        SCED1CurveMW32: Decimal | None
+        SCED1CurvePrice32: Decimal | None
+        SCED1CurveMW33: Decimal | None
+        SCED1CurvePrice33: Decimal | None
+        SCED1CurveMW34: Decimal | None
+        SCED1CurvePrice34: Decimal | None
+        SCED1CurveMW35: Decimal | None
+        SCED1CurvePrice35: Decimal | None
+        SCED2CurveMW1: Decimal | None
+        SCED2CurvePrice1: Decimal | None
+        SCED2CurveMW2: Decimal | None
+        SCED2CurvePrice2: Decimal | None
+        SCED2CurveMW3: Decimal | None
+        SCED2CurvePrice3: Decimal | None
+        SCED2CurveMW4: Decimal | None
+        SCED2CurvePrice4: Decimal | None
+        SCED2CurveMW5: Decimal | None
+        SCED2CurvePrice5: Decimal | None
+        SCED2CurveMW6: Decimal | None
+        SCED2CurvePrice6: Decimal | None
+        SCED2CurveMW7: Decimal | None
+        SCED2CurvePrice7: Decimal | None
+        SCED2CurveMW8: Decimal | None
+        SCED2CurvePrice8: Decimal | None
+        SCED2CurveMW9: Decimal | None
+        SCED2CurvePrice9: Decimal | None
+        SCED2CurveMW10: Decimal | None
+        SCED2CurvePrice10: Decimal | None
+        SCED2CurveMW11: Decimal | None
+        SCED2CurvePrice11: Decimal | None
+        SCED2CurveMW12: Decimal | None
+        SCED2CurvePrice12: Decimal | None
+        SCED2CurveMW13: Decimal | None
+        SCED2CurvePrice13: Decimal | None
+        SCED2CurveMW14: Decimal | None
+        SCED2CurvePrice14: Decimal | None
+        SCED2CurveMW15: Decimal | None
+        SCED2CurvePrice15: Decimal | None
+        SCED2CurveMW16: Decimal | None
+        SCED2CurvePrice16: Decimal | None
+        SCED2CurveMW17: Decimal | None
+        SCED2CurvePrice17: Decimal | None
+        SCED2CurveMW18: Decimal | None
+        SCED2CurvePrice18: Decimal | None
+        SCED2CurveMW19: Decimal | None
+        SCED2CurvePrice19: Decimal | None
+        SCED2CurveMW20: Decimal | None
+        SCED2CurvePrice20: Decimal | None
+        SCED2CurveMW21: Decimal | None
+        SCED2CurvePrice21: Decimal | None
+        SCED2CurveMW22: Decimal | None
+        SCED2CurvePrice22: Decimal | None
+        SCED2CurveMW23: Decimal | None
+        SCED2CurvePrice23: Decimal | None
+        SCED2CurveMW24: Decimal | None
+        SCED2CurvePrice24: Decimal | None
+        SCED2CurveMW25: Decimal | None
+        SCED2CurvePrice25: Decimal | None
+        SCED2CurveMW26: Decimal | None
+        SCED2CurvePrice26: Decimal | None
+        SCED2CurveMW27: Decimal | None
+        SCED2CurvePrice27: Decimal | None
+        SCED2CurveMW28: Decimal | None
+        SCED2CurvePrice28: Decimal | None
+        SCED2CurveMW29: Decimal | None
+        SCED2CurvePrice29: Decimal | None
+        SCED2CurveMW30: Decimal | None
+        SCED2CurvePrice30: Decimal | None
+        SCED2CurveMW31: Decimal | None
+        SCED2CurvePrice31: Decimal | None
+        SCED2CurveMW32: Decimal | None
+        SCED2CurvePrice32: Decimal | None
+        SCED2CurveMW33: Decimal | None
+        SCED2CurvePrice33: Decimal | None
+        SCED2CurveMW34: Decimal | None
+        SCED2CurvePrice34: Decimal | None
+        SCED2CurveMW35: Decimal | None
+        SCED2CurvePrice35: Decimal | None
+        outputSchedule: Decimal | None
+        HSL: Decimal | None
+        HDL: Decimal | None
+        LSL: Decimal | None
+        LDL: Decimal | None
+        telemeteredResourceStatus: str | None
+        basePoint: Decimal | None
+        telemeteredNetOutput: Decimal | None
+        rampRateUp: Decimal | None = None
+        rampRateDown: Decimal | None = None
+        ASCapREGUP: Decimal | None = None
+        ASCapREGDN: Decimal | None = None
+        ASCapECRS: Decimal | None = None
+        ASCapNSPIN: Decimal | None = None
+        ASCapRRSPFR: Decimal | None = None
+        ASCapRRSFFR: Decimal | None = None
+        ASAwardsNSPIN: Decimal | None = None
+        ASAwardsRRSFFR: Decimal | None = None
+        ASAwardsRRSPFR: Decimal | None = None
+        ASAwardsRRSUFR: Decimal | None = None
+        ASAwardsECRS: Decimal | None = None
+        ASAwardsREGUP: Decimal | None = None
+        ASAwardsREGDN: Decimal | None = None
+        bidType: str | None
+        startUpColdOffer: Decimal | None
+        startUpHotOffer: Decimal | None
+        startUpInterOffer: Decimal | None
+        minGenCost: Decimal | None
+        submittedTPOMW1: Decimal | None
+        submittedTPOPrice1: Decimal | None
+        submittedTPOMW2: Decimal | None
+        submittedTPOPrice2: Decimal | None
+        submittedTPOMW3: Decimal | None
+        submittedTPOPrice3: Decimal | None
+        submittedTPOMW4: Decimal | None
+        submittedTPOPrice4: Decimal | None
+        submittedTPOMW5: Decimal | None
+        submittedTPOPrice5: Decimal | None
+        submittedTPOMW6: Decimal | None
+        submittedTPOPrice6: Decimal | None
+        submittedTPOMW7: Decimal | None
+        submittedTPOPrice7: Decimal | None
+        submittedTPOMW8: Decimal | None
+        submittedTPOPrice8: Decimal | None
+        submittedTPOMW9: Decimal | None
+        submittedTPOPrice9: Decimal | None
+        submittedTPOMW10: Decimal | None
+        submittedTPOPrice10: Decimal | None
+        proxyExtension: str | None
+        HASL: Decimal | None = None
+        LASL: Decimal | None = None
+        ASREGUP: Decimal | None = None
+        ASREGDN: Decimal | None = None
+        ASRRS: Decimal | None = None
+        ASRRSFFR: Decimal | None = None
+        ASNSRS: Decimal | None = None
+        ASECRS: Decimal | None = None
+
+    @property
+    def _60_sced_gen_res_data_history(self) -> Archive[np3_965_er._60ScedGenResDataHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-965-er', np3_965_er._60ScedGenResDataHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'SCED1 Curve-MW1': 'SCED1CurveMW1', 'SCED1 Curve-Price1': 'SCED1CurvePrice1', 'SCED1 Curve-MW2': 'SCED1CurveMW2', 'SCED1 Curve-Price2': 'SCED1CurvePrice2', 'SCED1 Curve-MW3': 'SCED1CurveMW3', 'SCED1 Curve-Price3': 'SCED1CurvePrice3', 'SCED1 Curve-MW4': 'SCED1CurveMW4', 'SCED1 Curve-Price4': 'SCED1CurvePrice4', 'SCED1 Curve-MW5': 'SCED1CurveMW5', 'SCED1 Curve-Price5': 'SCED1CurvePrice5', 'SCED1 Curve-MW6': 'SCED1CurveMW6', 'SCED1 Curve-Price6': 'SCED1CurvePrice6', 'SCED1 Curve-MW7': 'SCED1CurveMW7', 'SCED1 Curve-Price7': 'SCED1CurvePrice7', 'SCED1 Curve-MW8': 'SCED1CurveMW8', 'SCED1 Curve-Price8': 'SCED1CurvePrice8', 'SCED1 Curve-MW9': 'SCED1CurveMW9', 'SCED1 Curve-Price9': 'SCED1CurvePrice9', 'SCED1 Curve-MW10': 'SCED1CurveMW10', 'SCED1 Curve-Price10': 'SCED1CurvePrice10', 'SCED1 Curve-MW11': 'SCED1CurveMW11', 'SCED1 Curve-Price11': 'SCED1CurvePrice11', 'SCED1 Curve-MW12': 'SCED1CurveMW12', 'SCED1 Curve-Price12': 'SCED1CurvePrice12', 'SCED1 Curve-MW13': 'SCED1CurveMW13', 'SCED1 Curve-Price13': 'SCED1CurvePrice13', 'SCED1 Curve-MW14': 'SCED1CurveMW14', 'SCED1 Curve-Price14': 'SCED1CurvePrice14', 'SCED1 Curve-MW15': 'SCED1CurveMW15', 'SCED1 Curve-Price15': 'SCED1CurvePrice15', 'SCED1 Curve-MW16': 'SCED1CurveMW16', 'SCED1 Curve-Price16': 'SCED1CurvePrice16', 'SCED1 Curve-MW17': 'SCED1CurveMW17', 'SCED1 Curve-Price17': 'SCED1CurvePrice17', 'SCED1 Curve-MW18': 'SCED1CurveMW18', 'SCED1 Curve-Price18': 'SCED1CurvePrice18', 'SCED1 Curve-MW19': 'SCED1CurveMW19', 'SCED1 Curve-Price19': 'SCED1CurvePrice19', 'SCED1 Curve-MW20': 'SCED1CurveMW20', 'SCED1 Curve-Price20': 'SCED1CurvePrice20', 'SCED1 Curve-MW21': 'SCED1CurveMW21', 'SCED1 Curve-Price21': 'SCED1CurvePrice21', 'SCED1 Curve-MW22': 'SCED1CurveMW22', 'SCED1 Curve-Price22': 'SCED1CurvePrice22', 'SCED1 Curve-MW23': 'SCED1CurveMW23', 'SCED1 Curve-Price23': 'SCED1CurvePrice23', 'SCED1 Curve-MW24': 'SCED1CurveMW24', 'SCED1 Curve-Price24': 'SCED1CurvePrice24', 'SCED1 Curve-MW25': 'SCED1CurveMW25', 'SCED1 Curve-Price25': 'SCED1CurvePrice25', 'SCED1 Curve-MW26': 'SCED1CurveMW26', 'SCED1 Curve-Price26': 'SCED1CurvePrice26', 'SCED1 Curve-MW27': 'SCED1CurveMW27', 'SCED1 Curve-Price27': 'SCED1CurvePrice27', 'SCED1 Curve-MW28': 'SCED1CurveMW28', 'SCED1 Curve-Price28': 'SCED1CurvePrice28', 'SCED1 Curve-MW29': 'SCED1CurveMW29', 'SCED1 Curve-Price29': 'SCED1CurvePrice29', 'SCED1 Curve-MW30': 'SCED1CurveMW30', 'SCED1 Curve-Price30': 'SCED1CurvePrice30', 'SCED1 Curve-MW31': 'SCED1CurveMW31', 'SCED1 Curve-Price31': 'SCED1CurvePrice31', 'SCED1 Curve-MW32': 'SCED1CurveMW32', 'SCED1 Curve-Price32': 'SCED1CurvePrice32', 'SCED1 Curve-MW33': 'SCED1CurveMW33', 'SCED1 Curve-Price33': 'SCED1CurvePrice33', 'SCED1 Curve-MW34': 'SCED1CurveMW34', 'SCED1 Curve-Price34': 'SCED1CurvePrice34', 'SCED1 Curve-MW35': 'SCED1CurveMW35', 'SCED1 Curve-Price35': 'SCED1CurvePrice35', 'SCED2 Curve-MW1': 'SCED2CurveMW1', 'SCED2 Curve-Price1': 'SCED2CurvePrice1', 'SCED2 Curve-MW2': 'SCED2CurveMW2', 'SCED2 Curve-Price2': 'SCED2CurvePrice2', 'SCED2 Curve-MW3': 'SCED2CurveMW3', 'SCED2 Curve-Price3': 'SCED2CurvePrice3', 'SCED2 Curve-MW4': 'SCED2CurveMW4', 'SCED2 Curve-Price4': 'SCED2CurvePrice4', 'SCED2 Curve-MW5': 'SCED2CurveMW5', 'SCED2 Curve-Price5': 'SCED2CurvePrice5', 'SCED2 Curve-MW6': 'SCED2CurveMW6', 'SCED2 Curve-Price6': 'SCED2CurvePrice6', 'SCED2 Curve-MW7': 'SCED2CurveMW7', 'SCED2 Curve-Price7': 'SCED2CurvePrice7', 'SCED2 Curve-MW8': 'SCED2CurveMW8', 'SCED2 Curve-Price8': 'SCED2CurvePrice8', 'SCED2 Curve-MW9': 'SCED2CurveMW9', 'SCED2 Curve-Price9': 'SCED2CurvePrice9', 'SCED2 Curve-MW10': 'SCED2CurveMW10', 'SCED2 Curve-Price10': 'SCED2CurvePrice10', 'SCED2 Curve-MW11': 'SCED2CurveMW11', 'SCED2 Curve-Price11': 'SCED2CurvePrice11', 'SCED2 Curve-MW12': 'SCED2CurveMW12', 'SCED2 Curve-Price12': 'SCED2CurvePrice12', 'SCED2 Curve-MW13': 'SCED2CurveMW13', 'SCED2 Curve-Price13': 'SCED2CurvePrice13', 'SCED2 Curve-MW14': 'SCED2CurveMW14', 'SCED2 Curve-Price14': 'SCED2CurvePrice14', 'SCED2 Curve-MW15': 'SCED2CurveMW15', 'SCED2 Curve-Price15': 'SCED2CurvePrice15', 'SCED2 Curve-MW16': 'SCED2CurveMW16', 'SCED2 Curve-Price16': 'SCED2CurvePrice16', 'SCED2 Curve-MW17': 'SCED2CurveMW17', 'SCED2 Curve-Price17': 'SCED2CurvePrice17', 'SCED2 Curve-MW18': 'SCED2CurveMW18', 'SCED2 Curve-Price18': 'SCED2CurvePrice18', 'SCED2 Curve-MW19': 'SCED2CurveMW19', 'SCED2 Curve-Price19': 'SCED2CurvePrice19', 'SCED2 Curve-MW20': 'SCED2CurveMW20', 'SCED2 Curve-Price20': 'SCED2CurvePrice20', 'SCED2 Curve-MW21': 'SCED2CurveMW21', 'SCED2 Curve-Price21': 'SCED2CurvePrice21', 'SCED2 Curve-MW22': 'SCED2CurveMW22', 'SCED2 Curve-Price22': 'SCED2CurvePrice22', 'SCED2 Curve-MW23': 'SCED2CurveMW23', 'SCED2 Curve-Price23': 'SCED2CurvePrice23', 'SCED2 Curve-MW24': 'SCED2CurveMW24', 'SCED2 Curve-Price24': 'SCED2CurvePrice24', 'SCED2 Curve-MW25': 'SCED2CurveMW25', 'SCED2 Curve-Price25': 'SCED2CurvePrice25', 'SCED2 Curve-MW26': 'SCED2CurveMW26', 'SCED2 Curve-Price26': 'SCED2CurvePrice26', 'SCED2 Curve-MW27': 'SCED2CurveMW27', 'SCED2 Curve-Price27': 'SCED2CurvePrice27', 'SCED2 Curve-MW28': 'SCED2CurveMW28', 'SCED2 Curve-Price28': 'SCED2CurvePrice28', 'SCED2 Curve-MW29': 'SCED2CurveMW29', 'SCED2 Curve-Price29': 'SCED2CurvePrice29', 'SCED2 Curve-MW30': 'SCED2CurveMW30', 'SCED2 Curve-Price30': 'SCED2CurvePrice30', 'SCED2 Curve-MW31': 'SCED2CurveMW31', 'SCED2 Curve-Price31': 'SCED2CurvePrice31', 'SCED2 Curve-MW32': 'SCED2CurveMW32', 'SCED2 Curve-Price32': 'SCED2CurvePrice32', 'SCED2 Curve-MW33': 'SCED2CurveMW33', 'SCED2 Curve-Price33': 'SCED2CurvePrice33', 'SCED2 Curve-MW34': 'SCED2CurveMW34', 'SCED2 Curve-Price34': 'SCED2CurvePrice34', 'SCED2 Curve-MW35': 'SCED2CurveMW35', 'SCED2 Curve-Price35': 'SCED2CurvePrice35', 'Output Schedule': 'outputSchedule', 'HSL': 'HSL', 'HDL': 'HDL', 'LSL': 'LSL', 'LDL': 'LDL', 'Telemetered Resource Status': 'telemeteredResourceStatus', 'Base Point': 'basePoint', 'Telemetered Net Output': 'telemeteredNetOutput', 'Ramp Rate Up': 'rampRateUp', 'Ramp Rate Down': 'rampRateDown', 'AS Capability REGUP': 'ASCapREGUP', 'AS Capability REGDN': 'ASCapREGDN', 'AS Capability ECRS': 'ASCapECRS', 'AS Capability NSPIN': 'ASCapNSPIN', 'AS Capability RRSPFR': 'ASCapRRSPFR', 'AS Capability RRSFFR': 'ASCapRRSFFR', 'AS Awards NSPIN': 'ASAwardsNSPIN', 'AS Awards RRSFFR': 'ASAwardsRRSFFR', 'AS Awards RRSPFR': 'ASAwardsRRSPFR', 'AS Awards RRSUFR': 'ASAwardsRRSUFR', 'AS Awards ECRS': 'ASAwardsECRS', 'AS Awards REGUP': 'ASAwardsREGUP', 'AS Awards REGDN': 'ASAwardsREGDN', 'Bid_Type': 'bidType', 'Start Up Cold Offer': 'startUpColdOffer', 'Start Up Hot Offer': 'startUpHotOffer', 'Start Up Inter Offer': 'startUpInterOffer', 'Min Gen Cost': 'minGenCost', 'Submitted TPO-MW1': 'submittedTPOMW1', 'Submitted TPO-Price1': 'submittedTPOPrice1', 'Submitted TPO-MW2': 'submittedTPOMW2', 'Submitted TPO-Price2': 'submittedTPOPrice2', 'Submitted TPO-MW3': 'submittedTPOMW3', 'Submitted TPO-Price3': 'submittedTPOPrice3', 'Submitted TPO-MW4': 'submittedTPOMW4', 'Submitted TPO-Price4': 'submittedTPOPrice4', 'Submitted TPO-MW5': 'submittedTPOMW5', 'Submitted TPO-Price5': 'submittedTPOPrice5', 'Submitted TPO-MW6': 'submittedTPOMW6', 'Submitted TPO-Price6': 'submittedTPOPrice6', 'Submitted TPO-MW7': 'submittedTPOMW7', 'Submitted TPO-Price7': 'submittedTPOPrice7', 'Submitted TPO-MW8': 'submittedTPOMW8', 'Submitted TPO-Price8': 'submittedTPOPrice8', 'Submitted TPO-MW9': 'submittedTPOMW9', 'Submitted TPO-Price9': 'submittedTPOPrice9', 'Submitted TPO-MW10': 'submittedTPOMW10', 'Submitted TPO-Price10': 'submittedTPOPrice10', 'Proxy Extension': 'proxyExtension'}, {}, member='60d_SCED_Gen_Resource_Data-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'SCED1 Curve-MW1': 'SCED1CurveMW1', 'SCED1 Curve-Price1': 'SCED1CurvePrice1', 'SCED1 Curve-MW2': 'SCED1CurveMW2', 'SCED1 Curve-Price2': 'SCED1CurvePrice2', 'SCED1 Curve-MW3': 'SCED1CurveMW3', 'SCED1 Curve-Price3': 'SCED1CurvePrice3', 'SCED1 Curve-MW4': 'SCED1CurveMW4', 'SCED1 Curve-Price4': 'SCED1CurvePrice4', 'SCED1 Curve-MW5': 'SCED1CurveMW5', 'SCED1 Curve-Price5': 'SCED1CurvePrice5', 'SCED1 Curve-MW6': 'SCED1CurveMW6', 'SCED1 Curve-Price6': 'SCED1CurvePrice6', 'SCED1 Curve-MW7': 'SCED1CurveMW7', 'SCED1 Curve-Price7': 'SCED1CurvePrice7', 'SCED1 Curve-MW8': 'SCED1CurveMW8', 'SCED1 Curve-Price8': 'SCED1CurvePrice8', 'SCED1 Curve-MW9': 'SCED1CurveMW9', 'SCED1 Curve-Price9': 'SCED1CurvePrice9', 'SCED1 Curve-MW10': 'SCED1CurveMW10', 'SCED1 Curve-Price10': 'SCED1CurvePrice10', 'SCED1 Curve-MW11': 'SCED1CurveMW11', 'SCED1 Curve-Price11': 'SCED1CurvePrice11', 'SCED1 Curve-MW12': 'SCED1CurveMW12', 'SCED1 Curve-Price12': 'SCED1CurvePrice12', 'SCED1 Curve-MW13': 'SCED1CurveMW13', 'SCED1 Curve-Price13': 'SCED1CurvePrice13', 'SCED1 Curve-MW14': 'SCED1CurveMW14', 'SCED1 Curve-Price14': 'SCED1CurvePrice14', 'SCED1 Curve-MW15': 'SCED1CurveMW15', 'SCED1 Curve-Price15': 'SCED1CurvePrice15', 'SCED1 Curve-MW16': 'SCED1CurveMW16', 'SCED1 Curve-Price16': 'SCED1CurvePrice16', 'SCED1 Curve-MW17': 'SCED1CurveMW17', 'SCED1 Curve-Price17': 'SCED1CurvePrice17', 'SCED1 Curve-MW18': 'SCED1CurveMW18', 'SCED1 Curve-Price18': 'SCED1CurvePrice18', 'SCED1 Curve-MW19': 'SCED1CurveMW19', 'SCED1 Curve-Price19': 'SCED1CurvePrice19', 'SCED1 Curve-MW20': 'SCED1CurveMW20', 'SCED1 Curve-Price20': 'SCED1CurvePrice20', 'SCED1 Curve-MW21': 'SCED1CurveMW21', 'SCED1 Curve-Price21': 'SCED1CurvePrice21', 'SCED1 Curve-MW22': 'SCED1CurveMW22', 'SCED1 Curve-Price22': 'SCED1CurvePrice22', 'SCED1 Curve-MW23': 'SCED1CurveMW23', 'SCED1 Curve-Price23': 'SCED1CurvePrice23', 'SCED1 Curve-MW24': 'SCED1CurveMW24', 'SCED1 Curve-Price24': 'SCED1CurvePrice24', 'SCED1 Curve-MW25': 'SCED1CurveMW25', 'SCED1 Curve-Price25': 'SCED1CurvePrice25', 'SCED1 Curve-MW26': 'SCED1CurveMW26', 'SCED1 Curve-Price26': 'SCED1CurvePrice26', 'SCED1 Curve-MW27': 'SCED1CurveMW27', 'SCED1 Curve-Price27': 'SCED1CurvePrice27', 'SCED1 Curve-MW28': 'SCED1CurveMW28', 'SCED1 Curve-Price28': 'SCED1CurvePrice28', 'SCED1 Curve-MW29': 'SCED1CurveMW29', 'SCED1 Curve-Price29': 'SCED1CurvePrice29', 'SCED1 Curve-MW30': 'SCED1CurveMW30', 'SCED1 Curve-Price30': 'SCED1CurvePrice30', 'SCED1 Curve-MW31': 'SCED1CurveMW31', 'SCED1 Curve-Price31': 'SCED1CurvePrice31', 'SCED1 Curve-MW32': 'SCED1CurveMW32', 'SCED1 Curve-Price32': 'SCED1CurvePrice32', 'SCED1 Curve-MW33': 'SCED1CurveMW33', 'SCED1 Curve-Price33': 'SCED1CurvePrice33', 'SCED1 Curve-MW34': 'SCED1CurveMW34', 'SCED1 Curve-Price34': 'SCED1CurvePrice34', 'SCED1 Curve-MW35': 'SCED1CurveMW35', 'SCED1 Curve-Price35': 'SCED1CurvePrice35', 'SCED2 Curve-MW1': 'SCED2CurveMW1', 'SCED2 Curve-Price1': 'SCED2CurvePrice1', 'SCED2 Curve-MW2': 'SCED2CurveMW2', 'SCED2 Curve-Price2': 'SCED2CurvePrice2', 'SCED2 Curve-MW3': 'SCED2CurveMW3', 'SCED2 Curve-Price3': 'SCED2CurvePrice3', 'SCED2 Curve-MW4': 'SCED2CurveMW4', 'SCED2 Curve-Price4': 'SCED2CurvePrice4', 'SCED2 Curve-MW5': 'SCED2CurveMW5', 'SCED2 Curve-Price5': 'SCED2CurvePrice5', 'SCED2 Curve-MW6': 'SCED2CurveMW6', 'SCED2 Curve-Price6': 'SCED2CurvePrice6', 'SCED2 Curve-MW7': 'SCED2CurveMW7', 'SCED2 Curve-Price7': 'SCED2CurvePrice7', 'SCED2 Curve-MW8': 'SCED2CurveMW8', 'SCED2 Curve-Price8': 'SCED2CurvePrice8', 'SCED2 Curve-MW9': 'SCED2CurveMW9', 'SCED2 Curve-Price9': 'SCED2CurvePrice9', 'SCED2 Curve-MW10': 'SCED2CurveMW10', 'SCED2 Curve-Price10': 'SCED2CurvePrice10', 'SCED2 Curve-MW11': 'SCED2CurveMW11', 'SCED2 Curve-Price11': 'SCED2CurvePrice11', 'SCED2 Curve-MW12': 'SCED2CurveMW12', 'SCED2 Curve-Price12': 'SCED2CurvePrice12', 'SCED2 Curve-MW13': 'SCED2CurveMW13', 'SCED2 Curve-Price13': 'SCED2CurvePrice13', 'SCED2 Curve-MW14': 'SCED2CurveMW14', 'SCED2 Curve-Price14': 'SCED2CurvePrice14', 'SCED2 Curve-MW15': 'SCED2CurveMW15', 'SCED2 Curve-Price15': 'SCED2CurvePrice15', 'SCED2 Curve-MW16': 'SCED2CurveMW16', 'SCED2 Curve-Price16': 'SCED2CurvePrice16', 'SCED2 Curve-MW17': 'SCED2CurveMW17', 'SCED2 Curve-Price17': 'SCED2CurvePrice17', 'SCED2 Curve-MW18': 'SCED2CurveMW18', 'SCED2 Curve-Price18': 'SCED2CurvePrice18', 'SCED2 Curve-MW19': 'SCED2CurveMW19', 'SCED2 Curve-Price19': 'SCED2CurvePrice19', 'SCED2 Curve-MW20': 'SCED2CurveMW20', 'SCED2 Curve-Price20': 'SCED2CurvePrice20', 'SCED2 Curve-MW21': 'SCED2CurveMW21', 'SCED2 Curve-Price21': 'SCED2CurvePrice21', 'SCED2 Curve-MW22': 'SCED2CurveMW22', 'SCED2 Curve-Price22': 'SCED2CurvePrice22', 'SCED2 Curve-MW23': 'SCED2CurveMW23', 'SCED2 Curve-Price23': 'SCED2CurvePrice23', 'SCED2 Curve-MW24': 'SCED2CurveMW24', 'SCED2 Curve-Price24': 'SCED2CurvePrice24', 'SCED2 Curve-MW25': 'SCED2CurveMW25', 'SCED2 Curve-Price25': 'SCED2CurvePrice25', 'SCED2 Curve-MW26': 'SCED2CurveMW26', 'SCED2 Curve-Price26': 'SCED2CurvePrice26', 'SCED2 Curve-MW27': 'SCED2CurveMW27', 'SCED2 Curve-Price27': 'SCED2CurvePrice27', 'SCED2 Curve-MW28': 'SCED2CurveMW28', 'SCED2 Curve-Price28': 'SCED2CurvePrice28', 'SCED2 Curve-MW29': 'SCED2CurveMW29', 'SCED2 Curve-Price29': 'SCED2CurvePrice29', 'SCED2 Curve-MW30': 'SCED2CurveMW30', 'SCED2 Curve-Price30': 'SCED2CurvePrice30', 'SCED2 Curve-MW31': 'SCED2CurveMW31', 'SCED2 Curve-Price31': 'SCED2CurvePrice31', 'SCED2 Curve-MW32': 'SCED2CurveMW32', 'SCED2 Curve-Price32': 'SCED2CurvePrice32', 'SCED2 Curve-MW33': 'SCED2CurveMW33', 'SCED2 Curve-Price33': 'SCED2CurvePrice33', 'SCED2 Curve-MW34': 'SCED2CurveMW34', 'SCED2 Curve-Price34': 'SCED2CurvePrice34', 'SCED2 Curve-MW35': 'SCED2CurveMW35', 'SCED2 Curve-Price35': 'SCED2CurvePrice35', 'Output Schedule': 'outputSchedule', 'HSL': 'HSL', 'HASL': 'HASL', 'HDL': 'HDL', 'LSL': 'LSL', 'LASL': 'LASL', 'LDL': 'LDL', 'Telemetered Resource Status': 'telemeteredResourceStatus', 'Base Point': 'basePoint', 'Telemetered Net Output ': 'telemeteredNetOutput', 'Ancillary Service REGUP': 'ASREGUP', 'Ancillary Service REGDN': 'ASREGDN', 'Ancillary Service RRS': 'ASRRS', 'Ancillary Service NSRS': 'ASNSRS', 'Bid_Type': 'bidType', 'Start Up Cold Offer': 'startUpColdOffer', 'Start Up Hot Offer': 'startUpHotOffer', 'Start Up Inter Offer': 'startUpInterOffer', 'Min Gen Cost': 'minGenCost', 'Submitted TPO-MW1': 'submittedTPOMW1', 'Submitted TPO-Price1': 'submittedTPOPrice1', 'Submitted TPO-MW2': 'submittedTPOMW2', 'Submitted TPO-Price2': 'submittedTPOPrice2', 'Submitted TPO-MW3': 'submittedTPOMW3', 'Submitted TPO-Price3': 'submittedTPOPrice3', 'Submitted TPO-MW4': 'submittedTPOMW4', 'Submitted TPO-Price4': 'submittedTPOPrice4', 'Submitted TPO-MW5': 'submittedTPOMW5', 'Submitted TPO-Price5': 'submittedTPOPrice5', 'Submitted TPO-MW6': 'submittedTPOMW6', 'Submitted TPO-Price6': 'submittedTPOPrice6', 'Submitted TPO-MW7': 'submittedTPOMW7', 'Submitted TPO-Price7': 'submittedTPOPrice7', 'Submitted TPO-MW8': 'submittedTPOMW8', 'Submitted TPO-Price8': 'submittedTPOPrice8', 'Submitted TPO-MW9': 'submittedTPOMW9', 'Submitted TPO-Price9': 'submittedTPOPrice9', 'Submitted TPO-MW10': 'submittedTPOMW10', 'Submitted TPO-Price10': 'submittedTPOPrice10', 'Proxy Extension': 'proxyExtension'}, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'SCED1 Curve-MW1': 'SCED1CurveMW1', 'SCED1 Curve-Price1': 'SCED1CurvePrice1', 'SCED1 Curve-MW2': 'SCED1CurveMW2', 'SCED1 Curve-Price2': 'SCED1CurvePrice2', 'SCED1 Curve-MW3': 'SCED1CurveMW3', 'SCED1 Curve-Price3': 'SCED1CurvePrice3', 'SCED1 Curve-MW4': 'SCED1CurveMW4', 'SCED1 Curve-Price4': 'SCED1CurvePrice4', 'SCED1 Curve-MW5': 'SCED1CurveMW5', 'SCED1 Curve-Price5': 'SCED1CurvePrice5', 'SCED1 Curve-MW6': 'SCED1CurveMW6', 'SCED1 Curve-Price6': 'SCED1CurvePrice6', 'SCED1 Curve-MW7': 'SCED1CurveMW7', 'SCED1 Curve-Price7': 'SCED1CurvePrice7', 'SCED1 Curve-MW8': 'SCED1CurveMW8', 'SCED1 Curve-Price8': 'SCED1CurvePrice8', 'SCED1 Curve-MW9': 'SCED1CurveMW9', 'SCED1 Curve-Price9': 'SCED1CurvePrice9', 'SCED1 Curve-MW10': 'SCED1CurveMW10', 'SCED1 Curve-Price10': 'SCED1CurvePrice10', 'SCED1 Curve-MW11': 'SCED1CurveMW11', 'SCED1 Curve-Price11': 'SCED1CurvePrice11', 'SCED1 Curve-MW12': 'SCED1CurveMW12', 'SCED1 Curve-Price12': 'SCED1CurvePrice12', 'SCED1 Curve-MW13': 'SCED1CurveMW13', 'SCED1 Curve-Price13': 'SCED1CurvePrice13', 'SCED1 Curve-MW14': 'SCED1CurveMW14', 'SCED1 Curve-Price14': 'SCED1CurvePrice14', 'SCED1 Curve-MW15': 'SCED1CurveMW15', 'SCED1 Curve-Price15': 'SCED1CurvePrice15', 'SCED1 Curve-MW16': 'SCED1CurveMW16', 'SCED1 Curve-Price16': 'SCED1CurvePrice16', 'SCED1 Curve-MW17': 'SCED1CurveMW17', 'SCED1 Curve-Price17': 'SCED1CurvePrice17', 'SCED1 Curve-MW18': 'SCED1CurveMW18', 'SCED1 Curve-Price18': 'SCED1CurvePrice18', 'SCED1 Curve-MW19': 'SCED1CurveMW19', 'SCED1 Curve-Price19': 'SCED1CurvePrice19', 'SCED1 Curve-MW20': 'SCED1CurveMW20', 'SCED1 Curve-Price20': 'SCED1CurvePrice20', 'SCED1 Curve-MW21': 'SCED1CurveMW21', 'SCED1 Curve-Price21': 'SCED1CurvePrice21', 'SCED1 Curve-MW22': 'SCED1CurveMW22', 'SCED1 Curve-Price22': 'SCED1CurvePrice22', 'SCED1 Curve-MW23': 'SCED1CurveMW23', 'SCED1 Curve-Price23': 'SCED1CurvePrice23', 'SCED1 Curve-MW24': 'SCED1CurveMW24', 'SCED1 Curve-Price24': 'SCED1CurvePrice24', 'SCED1 Curve-MW25': 'SCED1CurveMW25', 'SCED1 Curve-Price25': 'SCED1CurvePrice25', 'SCED1 Curve-MW26': 'SCED1CurveMW26', 'SCED1 Curve-Price26': 'SCED1CurvePrice26', 'SCED1 Curve-MW27': 'SCED1CurveMW27', 'SCED1 Curve-Price27': 'SCED1CurvePrice27', 'SCED1 Curve-MW28': 'SCED1CurveMW28', 'SCED1 Curve-Price28': 'SCED1CurvePrice28', 'SCED1 Curve-MW29': 'SCED1CurveMW29', 'SCED1 Curve-Price29': 'SCED1CurvePrice29', 'SCED1 Curve-MW30': 'SCED1CurveMW30', 'SCED1 Curve-Price30': 'SCED1CurvePrice30', 'SCED1 Curve-MW31': 'SCED1CurveMW31', 'SCED1 Curve-Price31': 'SCED1CurvePrice31', 'SCED1 Curve-MW32': 'SCED1CurveMW32', 'SCED1 Curve-Price32': 'SCED1CurvePrice32', 'SCED1 Curve-MW33': 'SCED1CurveMW33', 'SCED1 Curve-Price33': 'SCED1CurvePrice33', 'SCED1 Curve-MW34': 'SCED1CurveMW34', 'SCED1 Curve-Price34': 'SCED1CurvePrice34', 'SCED1 Curve-MW35': 'SCED1CurveMW35', 'SCED1 Curve-Price35': 'SCED1CurvePrice35', 'SCED2 Curve-MW1': 'SCED2CurveMW1', 'SCED2 Curve-Price1': 'SCED2CurvePrice1', 'SCED2 Curve-MW2': 'SCED2CurveMW2', 'SCED2 Curve-Price2': 'SCED2CurvePrice2', 'SCED2 Curve-MW3': 'SCED2CurveMW3', 'SCED2 Curve-Price3': 'SCED2CurvePrice3', 'SCED2 Curve-MW4': 'SCED2CurveMW4', 'SCED2 Curve-Price4': 'SCED2CurvePrice4', 'SCED2 Curve-MW5': 'SCED2CurveMW5', 'SCED2 Curve-Price5': 'SCED2CurvePrice5', 'SCED2 Curve-MW6': 'SCED2CurveMW6', 'SCED2 Curve-Price6': 'SCED2CurvePrice6', 'SCED2 Curve-MW7': 'SCED2CurveMW7', 'SCED2 Curve-Price7': 'SCED2CurvePrice7', 'SCED2 Curve-MW8': 'SCED2CurveMW8', 'SCED2 Curve-Price8': 'SCED2CurvePrice8', 'SCED2 Curve-MW9': 'SCED2CurveMW9', 'SCED2 Curve-Price9': 'SCED2CurvePrice9', 'SCED2 Curve-MW10': 'SCED2CurveMW10', 'SCED2 Curve-Price10': 'SCED2CurvePrice10', 'SCED2 Curve-MW11': 'SCED2CurveMW11', 'SCED2 Curve-Price11': 'SCED2CurvePrice11', 'SCED2 Curve-MW12': 'SCED2CurveMW12', 'SCED2 Curve-Price12': 'SCED2CurvePrice12', 'SCED2 Curve-MW13': 'SCED2CurveMW13', 'SCED2 Curve-Price13': 'SCED2CurvePrice13', 'SCED2 Curve-MW14': 'SCED2CurveMW14', 'SCED2 Curve-Price14': 'SCED2CurvePrice14', 'SCED2 Curve-MW15': 'SCED2CurveMW15', 'SCED2 Curve-Price15': 'SCED2CurvePrice15', 'SCED2 Curve-MW16': 'SCED2CurveMW16', 'SCED2 Curve-Price16': 'SCED2CurvePrice16', 'SCED2 Curve-MW17': 'SCED2CurveMW17', 'SCED2 Curve-Price17': 'SCED2CurvePrice17', 'SCED2 Curve-MW18': 'SCED2CurveMW18', 'SCED2 Curve-Price18': 'SCED2CurvePrice18', 'SCED2 Curve-MW19': 'SCED2CurveMW19', 'SCED2 Curve-Price19': 'SCED2CurvePrice19', 'SCED2 Curve-MW20': 'SCED2CurveMW20', 'SCED2 Curve-Price20': 'SCED2CurvePrice20', 'SCED2 Curve-MW21': 'SCED2CurveMW21', 'SCED2 Curve-Price21': 'SCED2CurvePrice21', 'SCED2 Curve-MW22': 'SCED2CurveMW22', 'SCED2 Curve-Price22': 'SCED2CurvePrice22', 'SCED2 Curve-MW23': 'SCED2CurveMW23', 'SCED2 Curve-Price23': 'SCED2CurvePrice23', 'SCED2 Curve-MW24': 'SCED2CurveMW24', 'SCED2 Curve-Price24': 'SCED2CurvePrice24', 'SCED2 Curve-MW25': 'SCED2CurveMW25', 'SCED2 Curve-Price25': 'SCED2CurvePrice25', 'SCED2 Curve-MW26': 'SCED2CurveMW26', 'SCED2 Curve-Price26': 'SCED2CurvePrice26', 'SCED2 Curve-MW27': 'SCED2CurveMW27', 'SCED2 Curve-Price27': 'SCED2CurvePrice27', 'SCED2 Curve-MW28': 'SCED2CurveMW28', 'SCED2 Curve-Price28': 'SCED2CurvePrice28', 'SCED2 Curve-MW29': 'SCED2CurveMW29', 'SCED2 Curve-Price29': 'SCED2CurvePrice29', 'SCED2 Curve-MW30': 'SCED2CurveMW30', 'SCED2 Curve-Price30': 'SCED2CurvePrice30', 'SCED2 Curve-MW31': 'SCED2CurveMW31', 'SCED2 Curve-Price31': 'SCED2CurvePrice31', 'SCED2 Curve-MW32': 'SCED2CurveMW32', 'SCED2 Curve-Price32': 'SCED2CurvePrice32', 'SCED2 Curve-MW33': 'SCED2CurveMW33', 'SCED2 Curve-Price33': 'SCED2CurvePrice33', 'SCED2 Curve-MW34': 'SCED2CurveMW34', 'SCED2 Curve-Price34': 'SCED2CurvePrice34', 'SCED2 Curve-MW35': 'SCED2CurveMW35', 'SCED2 Curve-Price35': 'SCED2CurvePrice35', 'Output Schedule': 'outputSchedule', 'HSL': 'HSL', 'HASL': 'HASL', 'HDL': 'HDL', 'LSL': 'LSL', 'LASL': 'LASL', 'LDL': 'LDL', 'Telemetered Resource Status': 'telemeteredResourceStatus', 'Base Point': 'basePoint', 'Telemetered Net Output ': 'telemeteredNetOutput', 'Ancillary Service REGUP': 'ASREGUP', 'Ancillary Service REGDN': 'ASREGDN', 'Ancillary Service RRS': 'ASRRS', 'Ancillary Service RRSFFR': 'ASRRSFFR', 'Ancillary Service NSRS': 'ASNSRS', 'Ancillary Service ECRS': 'ASECRS', 'Bid_Type': 'bidType', 'Start Up Cold Offer': 'startUpColdOffer', 'Start Up Hot Offer': 'startUpHotOffer', 'Start Up Inter Offer': 'startUpInterOffer', 'Min Gen Cost': 'minGenCost', 'Submitted TPO-MW1': 'submittedTPOMW1', 'Submitted TPO-Price1': 'submittedTPOPrice1', 'Submitted TPO-MW2': 'submittedTPOMW2', 'Submitted TPO-Price2': 'submittedTPOPrice2', 'Submitted TPO-MW3': 'submittedTPOMW3', 'Submitted TPO-Price3': 'submittedTPOPrice3', 'Submitted TPO-MW4': 'submittedTPOMW4', 'Submitted TPO-Price4': 'submittedTPOPrice4', 'Submitted TPO-MW5': 'submittedTPOMW5', 'Submitted TPO-Price5': 'submittedTPOPrice5', 'Submitted TPO-MW6': 'submittedTPOMW6', 'Submitted TPO-Price6': 'submittedTPOPrice6', 'Submitted TPO-MW7': 'submittedTPOMW7', 'Submitted TPO-Price7': 'submittedTPOPrice7', 'Submitted TPO-MW8': 'submittedTPOMW8', 'Submitted TPO-Price8': 'submittedTPOPrice8', 'Submitted TPO-MW9': 'submittedTPOMW9', 'Submitted TPO-Price9': 'submittedTPOPrice9', 'Submitted TPO-MW10': 'submittedTPOMW10', 'Submitted TPO-Price10': 'submittedTPOPrice10', 'Proxy Extension': 'proxyExtension'}))
+
     def _60_sced_gen_res_data(self, *, SCED2CurveMW16From: Decimal | None = None, SCED2CurveMW16To: Decimal | None = None, SCED2CurvePrice16From: Decimal | None = None, SCED2CurvePrice16To: Decimal | None = None, SCED2CurveMW17From: Decimal | None = None, SCED2CurveMW17To: Decimal | None = None, SCED2CurvePrice17From: Decimal | None = None, SCED2CurvePrice17To: Decimal | None = None, SCED2CurveMW18From: Decimal | None = None, SCED2CurveMW18To: Decimal | None = None, SCED2CurvePrice18From: Decimal | None = None, SCED2CurvePrice18To: Decimal | None = None, SCED2CurveMW19From: Decimal | None = None, SCED2CurveMW19To: Decimal | None = None, SCED2CurvePrice19From: Decimal | None = None, SCED2CurvePrice19To: Decimal | None = None, SCED2CurveMW20From: Decimal | None = None, SCED2CurveMW20To: Decimal | None = None, SCED2CurvePrice20From: Decimal | None = None, SCED2CurvePrice20To: Decimal | None = None, SCED2CurveMW21From: Decimal | None = None, SCED2CurveMW21To: Decimal | None = None, SCED2CurvePrice21From: Decimal | None = None, SCED2CurvePrice21To: Decimal | None = None, SCED2CurveMW22From: Decimal | None = None, SCED2CurveMW22To: Decimal | None = None, SCED2CurvePrice22From: Decimal | None = None, SCED2CurvePrice22To: Decimal | None = None, SCED2CurveMW23From: Decimal | None = None, SCED2CurveMW23To: Decimal | None = None, SCED2CurvePrice23From: Decimal | None = None, SCED2CurvePrice23To: Decimal | None = None, SCED2CurveMW24From: Decimal | None = None, SCED2CurveMW24To: Decimal | None = None, SCED2CurvePrice24From: Decimal | None = None, SCED2CurvePrice24To: Decimal | None = None, SCED2CurveMW25From: Decimal | None = None, SCED2CurveMW25To: Decimal | None = None, SCED2CurvePrice25From: Decimal | None = None, SCED2CurvePrice25To: Decimal | None = None, SCED2CurveMW26From: Decimal | None = None, SCED2CurveMW26To: Decimal | None = None, SCED2CurvePrice26From: Decimal | None = None, SCED2CurvePrice26To: Decimal | None = None, SCED2CurveMW27From: Decimal | None = None, SCED2CurveMW27To: Decimal | None = None, SCED2CurvePrice27From: Decimal | None = None, SCED2CurvePrice27To: Decimal | None = None, SCED2CurveMW28From: Decimal | None = None, SCED2CurveMW28To: Decimal | None = None, SCED2CurvePrice28From: Decimal | None = None, SCED2CurvePrice28To: Decimal | None = None, SCED2CurveMW29From: Decimal | None = None, SCED2CurveMW29To: Decimal | None = None, SCED2CurvePrice29From: Decimal | None = None, SCED2CurvePrice29To: Decimal | None = None, SCED2CurveMW30From: Decimal | None = None, SCED2CurveMW30To: Decimal | None = None, SCED2CurvePrice30From: Decimal | None = None, SCED2CurvePrice30To: Decimal | None = None, SCED2CurveMW31From: Decimal | None = None, SCED2CurveMW31To: Decimal | None = None, SCED2CurvePrice31From: Decimal | None = None, SCED2CurvePrice31To: Decimal | None = None, SCED2CurveMW32From: Decimal | None = None, SCED2CurveMW32To: Decimal | None = None, SCED2CurvePrice32From: Decimal | None = None, SCED2CurvePrice32To: Decimal | None = None, SCED2CurveMW33From: Decimal | None = None, SCED2CurveMW33To: Decimal | None = None, SCED2CurvePrice33From: Decimal | None = None, SCED2CurvePrice33To: Decimal | None = None, SCED2CurveMW34From: Decimal | None = None, SCED2CurveMW34To: Decimal | None = None, SCED2CurvePrice34From: Decimal | None = None, SCED2CurvePrice34To: Decimal | None = None, SCED2CurveMW35From: Decimal | None = None, SCED2CurveMW35To: Decimal | None = None, SCED2CurvePrice35From: Decimal | None = None, SCED2CurvePrice35To: Decimal | None = None, outputScheduleFrom: Decimal | None = None, outputScheduleTo: Decimal | None = None, HSLFrom: Decimal | None = None, HSLTo: Decimal | None = None, HDLFrom: Decimal | None = None, HDLTo: Decimal | None = None, LSLFrom: Decimal | None = None, LSLTo: Decimal | None = None, LDLFrom: Decimal | None = None, LDLTo: Decimal | None = None, telemeteredResourceStatus: str | None = None, basePointFrom: Decimal | None = None, basePointTo: Decimal | None = None, telemeteredNetOutputFrom: Decimal | None = None, telemeteredNetOutputTo: Decimal | None = None, rampRateUpFrom: Decimal | None = None, rampRateUpTo: Decimal | None = None, rampRateDownFrom: Decimal | None = None, rampRateDownTo: Decimal | None = None, ASCapREGUPFrom: Decimal | None = None, ASCapREGUPTo: Decimal | None = None, ASCapREGDNFrom: Decimal | None = None, ASCapREGDNTo: Decimal | None = None, ASCapECRSFrom: Decimal | None = None, ASCapECRSTo: Decimal | None = None, ASCapNSPINFrom: Decimal | None = None, ASCapNSPINTo: Decimal | None = None, ASAwardsNSPINFrom: Decimal | None = None, ASAwardsNSPINTo: Decimal | None = None, ASAwardsRRSFFRFrom: Decimal | None = None, ASAwardsRRSFFRTo: Decimal | None = None, ASAwardsRRSPFRFrom: Decimal | None = None, ASAwardsRRSPFRTo: Decimal | None = None, ASAwardsRRSUFRFrom: Decimal | None = None, ASAwardsRRSUFRTo: Decimal | None = None, ASAwardsECRSFrom: Decimal | None = None, ASAwardsECRSTo: Decimal | None = None, ASAwardsREGUPFrom: Decimal | None = None, ASAwardsREGUPTo: Decimal | None = None, ASAwardsREGDNFrom: Decimal | None = None, ASAwardsREGDNTo: Decimal | None = None, bidType: str | None = None, startUpColdOfferFrom: Decimal | None = None, startUpColdOfferTo: Decimal | None = None, startUpHotOfferFrom: Decimal | None = None, startUpHotOfferTo: Decimal | None = None, startUpInterOfferFrom: Decimal | None = None, startUpInterOfferTo: Decimal | None = None, minGenCostFrom: Decimal | None = None, minGenCostTo: Decimal | None = None, submittedTPOMW1From: Decimal | None = None, submittedTPOMW1To: Decimal | None = None, submittedTPOPrice1From: Decimal | None = None, submittedTPOPrice1To: Decimal | None = None, submittedTPOMW2From: Decimal | None = None, submittedTPOMW2To: Decimal | None = None, submittedTPOPrice2From: Decimal | None = None, submittedTPOPrice2To: Decimal | None = None, submittedTPOMW3From: Decimal | None = None, submittedTPOMW3To: Decimal | None = None, submittedTPOPrice3From: Decimal | None = None, submittedTPOPrice3To: Decimal | None = None, submittedTPOMW4From: Decimal | None = None, submittedTPOMW4To: Decimal | None = None, submittedTPOPrice4From: Decimal | None = None, submittedTPOPrice4To: Decimal | None = None, submittedTPOMW5From: Decimal | None = None, submittedTPOMW5To: Decimal | None = None, submittedTPOPrice5From: Decimal | None = None, submittedTPOPrice5To: Decimal | None = None, submittedTPOMW6From: Decimal | None = None, submittedTPOMW6To: Decimal | None = None, submittedTPOPrice6From: Decimal | None = None, submittedTPOPrice6To: Decimal | None = None, submittedTPOMW7From: Decimal | None = None, submittedTPOMW7To: Decimal | None = None, submittedTPOPrice7From: Decimal | None = None, submittedTPOPrice7To: Decimal | None = None, submittedTPOMW8From: Decimal | None = None, submittedTPOMW8To: Decimal | None = None, submittedTPOPrice8From: Decimal | None = None, submittedTPOPrice8To: Decimal | None = None, submittedTPOMW9From: Decimal | None = None, submittedTPOMW9To: Decimal | None = None, submittedTPOPrice9From: Decimal | None = None, submittedTPOPrice9To: Decimal | None = None, submittedTPOMW10From: Decimal | None = None, submittedTPOMW10To: Decimal | None = None, submittedTPOPrice10From: Decimal | None = None, submittedTPOPrice10To: Decimal | None = None, proxyExtension: str | None = None, ASCapRRSPFRFrom: Decimal | None = None, ASCapRRSPFRTo: Decimal | None = None, ASCapRRSFFRFrom: Decimal | None = None, ASCapRRSFFRTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, resourceType: str | None = None, SCED1CurveMW1From: Decimal | None = None, SCED1CurveMW1To: Decimal | None = None, SCED1CurvePrice1From: Decimal | None = None, SCED1CurvePrice1To: Decimal | None = None, SCED1CurveMW2From: Decimal | None = None, SCED1CurveMW2To: Decimal | None = None, SCED1CurvePrice2From: Decimal | None = None, SCED1CurvePrice2To: Decimal | None = None, SCED1CurveMW3From: Decimal | None = None, SCED1CurveMW3To: Decimal | None = None, SCED1CurvePrice3From: Decimal | None = None, SCED1CurvePrice3To: Decimal | None = None, SCED1CurveMW4From: Decimal | None = None, SCED1CurveMW4To: Decimal | None = None, SCED1CurvePrice4From: Decimal | None = None, SCED1CurvePrice4To: Decimal | None = None, SCED1CurveMW5From: Decimal | None = None, SCED1CurveMW5To: Decimal | None = None, SCED1CurvePrice5From: Decimal | None = None, SCED1CurvePrice5To: Decimal | None = None, SCED1CurveMW6From: Decimal | None = None, SCED1CurveMW6To: Decimal | None = None, SCED1CurvePrice6From: Decimal | None = None, SCED1CurvePrice6To: Decimal | None = None, SCED1CurveMW7From: Decimal | None = None, SCED1CurveMW7To: Decimal | None = None, SCED1CurvePrice7From: Decimal | None = None, SCED1CurvePrice7To: Decimal | None = None, SCED1CurveMW8From: Decimal | None = None, SCED1CurveMW8To: Decimal | None = None, SCED1CurvePrice8From: Decimal | None = None, SCED1CurvePrice8To: Decimal | None = None, SCED1CurveMW9From: Decimal | None = None, SCED1CurveMW9To: Decimal | None = None, SCED1CurvePrice9From: Decimal | None = None, SCED1CurvePrice9To: Decimal | None = None, SCED1CurveMW10From: Decimal | None = None, SCED1CurveMW10To: Decimal | None = None, SCED1CurvePrice10From: Decimal | None = None, SCED1CurvePrice10To: Decimal | None = None, SCED1CurveMW11From: Decimal | None = None, SCED1CurveMW11To: Decimal | None = None, SCED1CurvePrice11From: Decimal | None = None, SCED1CurvePrice11To: Decimal | None = None, SCED1CurveMW12From: Decimal | None = None, SCED1CurveMW12To: Decimal | None = None, SCED1CurvePrice12From: Decimal | None = None, SCED1CurvePrice12To: Decimal | None = None, SCED1CurveMW13From: Decimal | None = None, SCED1CurveMW13To: Decimal | None = None, SCED1CurvePrice13From: Decimal | None = None, SCED1CurvePrice13To: Decimal | None = None, SCED1CurveMW14From: Decimal | None = None, SCED1CurveMW14To: Decimal | None = None, SCED1CurvePrice14From: Decimal | None = None, SCED1CurvePrice14To: Decimal | None = None, SCED1CurveMW15From: Decimal | None = None, SCED1CurveMW15To: Decimal | None = None, SCED1CurvePrice15From: Decimal | None = None, SCED1CurvePrice15To: Decimal | None = None, SCED1CurveMW16From: Decimal | None = None, SCED1CurveMW16To: Decimal | None = None, SCED1CurvePrice16From: Decimal | None = None, SCED1CurvePrice16To: Decimal | None = None, SCED1CurveMW17From: Decimal | None = None, SCED1CurveMW17To: Decimal | None = None, SCED1CurvePrice17From: Decimal | None = None, SCED1CurvePrice17To: Decimal | None = None, SCED1CurveMW18From: Decimal | None = None, SCED1CurveMW18To: Decimal | None = None, SCED1CurvePrice18From: Decimal | None = None, SCED1CurvePrice18To: Decimal | None = None, SCED1CurveMW19From: Decimal | None = None, SCED1CurveMW19To: Decimal | None = None, SCED1CurvePrice19From: Decimal | None = None, SCED1CurvePrice19To: Decimal | None = None, SCED1CurveMW20From: Decimal | None = None, SCED1CurveMW20To: Decimal | None = None, SCED1CurvePrice20From: Decimal | None = None, SCED1CurvePrice20To: Decimal | None = None, SCED1CurveMW21From: Decimal | None = None, SCED1CurveMW21To: Decimal | None = None, SCED1CurvePrice21From: Decimal | None = None, SCED1CurvePrice21To: Decimal | None = None, SCED1CurveMW22From: Decimal | None = None, SCED1CurveMW22To: Decimal | None = None, SCED1CurvePrice22From: Decimal | None = None, SCED1CurvePrice22To: Decimal | None = None, SCED1CurveMW23From: Decimal | None = None, SCED1CurveMW23To: Decimal | None = None, SCED1CurvePrice23From: Decimal | None = None, SCED1CurvePrice23To: Decimal | None = None, SCED1CurveMW24From: Decimal | None = None, SCED1CurveMW24To: Decimal | None = None, SCED1CurvePrice24From: Decimal | None = None, SCED1CurvePrice24To: Decimal | None = None, SCED1CurveMW25From: Decimal | None = None, SCED1CurveMW25To: Decimal | None = None, SCED1CurvePrice25From: Decimal | None = None, SCED1CurvePrice25To: Decimal | None = None, SCED1CurveMW26From: Decimal | None = None, SCED1CurveMW26To: Decimal | None = None, SCED1CurvePrice26From: Decimal | None = None, SCED1CurvePrice26To: Decimal | None = None, SCED1CurveMW27From: Decimal | None = None, SCED1CurveMW27To: Decimal | None = None, SCED1CurvePrice27From: Decimal | None = None, SCED1CurvePrice27To: Decimal | None = None, SCED1CurveMW28From: Decimal | None = None, SCED1CurveMW28To: Decimal | None = None, SCED1CurvePrice28From: Decimal | None = None, SCED1CurvePrice28To: Decimal | None = None, SCED1CurveMW29From: Decimal | None = None, SCED1CurveMW29To: Decimal | None = None, SCED1CurvePrice29From: Decimal | None = None, SCED1CurvePrice29To: Decimal | None = None, SCED1CurveMW30From: Decimal | None = None, SCED1CurveMW30To: Decimal | None = None, SCED1CurvePrice30From: Decimal | None = None, SCED1CurvePrice30To: Decimal | None = None, SCED1CurveMW31From: Decimal | None = None, SCED1CurveMW31To: Decimal | None = None, SCED1CurvePrice31From: Decimal | None = None, SCED1CurvePrice31To: Decimal | None = None, SCED1CurveMW32From: Decimal | None = None, SCED1CurveMW32To: Decimal | None = None, SCED1CurvePrice32From: Decimal | None = None, SCED1CurvePrice32To: Decimal | None = None, SCED1CurveMW33From: Decimal | None = None, SCED1CurveMW33To: Decimal | None = None, SCED1CurvePrice33From: Decimal | None = None, SCED1CurvePrice33To: Decimal | None = None, SCED1CurveMW34From: Decimal | None = None, SCED1CurveMW34To: Decimal | None = None, SCED1CurvePrice34From: Decimal | None = None, SCED1CurvePrice34To: Decimal | None = None, SCED1CurveMW35From: Decimal | None = None, SCED1CurveMW35To: Decimal | None = None, SCED1CurvePrice35From: Decimal | None = None, SCED1CurvePrice35To: Decimal | None = None, SCED2CurveMW1From: Decimal | None = None, SCED2CurveMW1To: Decimal | None = None, SCED2CurvePrice1From: Decimal | None = None, SCED2CurvePrice1To: Decimal | None = None, SCED2CurveMW2From: Decimal | None = None, SCED2CurveMW2To: Decimal | None = None, SCED2CurvePrice2From: Decimal | None = None, SCED2CurvePrice2To: Decimal | None = None, SCED2CurveMW3From: Decimal | None = None, SCED2CurveMW3To: Decimal | None = None, SCED2CurvePrice3From: Decimal | None = None, SCED2CurvePrice3To: Decimal | None = None, SCED2CurveMW4From: Decimal | None = None, SCED2CurveMW4To: Decimal | None = None, SCED2CurvePrice4From: Decimal | None = None, SCED2CurvePrice4To: Decimal | None = None, SCED2CurveMW5From: Decimal | None = None, SCED2CurveMW5To: Decimal | None = None, SCED2CurvePrice5From: Decimal | None = None, SCED2CurvePrice5To: Decimal | None = None, SCED2CurveMW6From: Decimal | None = None, SCED2CurveMW6To: Decimal | None = None, SCED2CurvePrice6From: Decimal | None = None, SCED2CurvePrice6To: Decimal | None = None, SCED2CurveMW7From: Decimal | None = None, SCED2CurveMW7To: Decimal | None = None, SCED2CurvePrice7From: Decimal | None = None, SCED2CurvePrice7To: Decimal | None = None, SCED2CurveMW8From: Decimal | None = None, SCED2CurveMW8To: Decimal | None = None, SCED2CurvePrice8From: Decimal | None = None, SCED2CurvePrice8To: Decimal | None = None, SCED2CurveMW9From: Decimal | None = None, SCED2CurveMW9To: Decimal | None = None, SCED2CurvePrice9From: Decimal | None = None, SCED2CurvePrice9To: Decimal | None = None, SCED2CurveMW10From: Decimal | None = None, SCED2CurveMW10To: Decimal | None = None, SCED2CurvePrice10From: Decimal | None = None, SCED2CurvePrice10To: Decimal | None = None, SCED2CurveMW11From: Decimal | None = None, SCED2CurveMW11To: Decimal | None = None, SCED2CurvePrice11From: Decimal | None = None, SCED2CurvePrice11To: Decimal | None = None, SCED2CurveMW12From: Decimal | None = None, SCED2CurveMW12To: Decimal | None = None, SCED2CurvePrice12From: Decimal | None = None, SCED2CurvePrice12To: Decimal | None = None, SCED2CurveMW13From: Decimal | None = None, SCED2CurveMW13To: Decimal | None = None, SCED2CurvePrice13From: Decimal | None = None, SCED2CurvePrice13To: Decimal | None = None, SCED2CurveMW14From: Decimal | None = None, SCED2CurveMW14To: Decimal | None = None, SCED2CurvePrice14From: Decimal | None = None, SCED2CurvePrice14To: Decimal | None = None, SCED2CurveMW15From: Decimal | None = None, SCED2CurveMW15To: Decimal | None = None, SCED2CurvePrice15From: Decimal | None = None, SCED2CurvePrice15To: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_965_er._60ScedGenResDataRow]:
         '60-Day SCED Gen Resource Data'
         return self._client._page('/np3-965-er/60_sced_gen_res_data', np3_965_er._60ScedGenResDataRow, {'SCED2CurveMW16From': SCED2CurveMW16From, 'SCED2CurveMW16To': SCED2CurveMW16To, 'SCED2CurvePrice16From': SCED2CurvePrice16From, 'SCED2CurvePrice16To': SCED2CurvePrice16To, 'SCED2CurveMW17From': SCED2CurveMW17From, 'SCED2CurveMW17To': SCED2CurveMW17To, 'SCED2CurvePrice17From': SCED2CurvePrice17From, 'SCED2CurvePrice17To': SCED2CurvePrice17To, 'SCED2CurveMW18From': SCED2CurveMW18From, 'SCED2CurveMW18To': SCED2CurveMW18To, 'SCED2CurvePrice18From': SCED2CurvePrice18From, 'SCED2CurvePrice18To': SCED2CurvePrice18To, 'SCED2CurveMW19From': SCED2CurveMW19From, 'SCED2CurveMW19To': SCED2CurveMW19To, 'SCED2CurvePrice19From': SCED2CurvePrice19From, 'SCED2CurvePrice19To': SCED2CurvePrice19To, 'SCED2CurveMW20From': SCED2CurveMW20From, 'SCED2CurveMW20To': SCED2CurveMW20To, 'SCED2CurvePrice20From': SCED2CurvePrice20From, 'SCED2CurvePrice20To': SCED2CurvePrice20To, 'SCED2CurveMW21From': SCED2CurveMW21From, 'SCED2CurveMW21To': SCED2CurveMW21To, 'SCED2CurvePrice21From': SCED2CurvePrice21From, 'SCED2CurvePrice21To': SCED2CurvePrice21To, 'SCED2CurveMW22From': SCED2CurveMW22From, 'SCED2CurveMW22To': SCED2CurveMW22To, 'SCED2CurvePrice22From': SCED2CurvePrice22From, 'SCED2CurvePrice22To': SCED2CurvePrice22To, 'SCED2CurveMW23From': SCED2CurveMW23From, 'SCED2CurveMW23To': SCED2CurveMW23To, 'SCED2CurvePrice23From': SCED2CurvePrice23From, 'SCED2CurvePrice23To': SCED2CurvePrice23To, 'SCED2CurveMW24From': SCED2CurveMW24From, 'SCED2CurveMW24To': SCED2CurveMW24To, 'SCED2CurvePrice24From': SCED2CurvePrice24From, 'SCED2CurvePrice24To': SCED2CurvePrice24To, 'SCED2CurveMW25From': SCED2CurveMW25From, 'SCED2CurveMW25To': SCED2CurveMW25To, 'SCED2CurvePrice25From': SCED2CurvePrice25From, 'SCED2CurvePrice25To': SCED2CurvePrice25To, 'SCED2CurveMW26From': SCED2CurveMW26From, 'SCED2CurveMW26To': SCED2CurveMW26To, 'SCED2CurvePrice26From': SCED2CurvePrice26From, 'SCED2CurvePrice26To': SCED2CurvePrice26To, 'SCED2CurveMW27From': SCED2CurveMW27From, 'SCED2CurveMW27To': SCED2CurveMW27To, 'SCED2CurvePrice27From': SCED2CurvePrice27From, 'SCED2CurvePrice27To': SCED2CurvePrice27To, 'SCED2CurveMW28From': SCED2CurveMW28From, 'SCED2CurveMW28To': SCED2CurveMW28To, 'SCED2CurvePrice28From': SCED2CurvePrice28From, 'SCED2CurvePrice28To': SCED2CurvePrice28To, 'SCED2CurveMW29From': SCED2CurveMW29From, 'SCED2CurveMW29To': SCED2CurveMW29To, 'SCED2CurvePrice29From': SCED2CurvePrice29From, 'SCED2CurvePrice29To': SCED2CurvePrice29To, 'SCED2CurveMW30From': SCED2CurveMW30From, 'SCED2CurveMW30To': SCED2CurveMW30To, 'SCED2CurvePrice30From': SCED2CurvePrice30From, 'SCED2CurvePrice30To': SCED2CurvePrice30To, 'SCED2CurveMW31From': SCED2CurveMW31From, 'SCED2CurveMW31To': SCED2CurveMW31To, 'SCED2CurvePrice31From': SCED2CurvePrice31From, 'SCED2CurvePrice31To': SCED2CurvePrice31To, 'SCED2CurveMW32From': SCED2CurveMW32From, 'SCED2CurveMW32To': SCED2CurveMW32To, 'SCED2CurvePrice32From': SCED2CurvePrice32From, 'SCED2CurvePrice32To': SCED2CurvePrice32To, 'SCED2CurveMW33From': SCED2CurveMW33From, 'SCED2CurveMW33To': SCED2CurveMW33To, 'SCED2CurvePrice33From': SCED2CurvePrice33From, 'SCED2CurvePrice33To': SCED2CurvePrice33To, 'SCED2CurveMW34From': SCED2CurveMW34From, 'SCED2CurveMW34To': SCED2CurveMW34To, 'SCED2CurvePrice34From': SCED2CurvePrice34From, 'SCED2CurvePrice34To': SCED2CurvePrice34To, 'SCED2CurveMW35From': SCED2CurveMW35From, 'SCED2CurveMW35To': SCED2CurveMW35To, 'SCED2CurvePrice35From': SCED2CurvePrice35From, 'SCED2CurvePrice35To': SCED2CurvePrice35To, 'outputScheduleFrom': outputScheduleFrom, 'outputScheduleTo': outputScheduleTo, 'HSLFrom': HSLFrom, 'HSLTo': HSLTo, 'HDLFrom': HDLFrom, 'HDLTo': HDLTo, 'LSLFrom': LSLFrom, 'LSLTo': LSLTo, 'LDLFrom': LDLFrom, 'LDLTo': LDLTo, 'telemeteredResourceStatus': telemeteredResourceStatus, 'basePointFrom': basePointFrom, 'basePointTo': basePointTo, 'telemeteredNetOutputFrom': telemeteredNetOutputFrom, 'telemeteredNetOutputTo': telemeteredNetOutputTo, 'rampRateUpFrom': rampRateUpFrom, 'rampRateUpTo': rampRateUpTo, 'rampRateDownFrom': rampRateDownFrom, 'rampRateDownTo': rampRateDownTo, 'ASCapREGUPFrom': ASCapREGUPFrom, 'ASCapREGUPTo': ASCapREGUPTo, 'ASCapREGDNFrom': ASCapREGDNFrom, 'ASCapREGDNTo': ASCapREGDNTo, 'ASCapECRSFrom': ASCapECRSFrom, 'ASCapECRSTo': ASCapECRSTo, 'ASCapNSPINFrom': ASCapNSPINFrom, 'ASCapNSPINTo': ASCapNSPINTo, 'ASAwardsNSPINFrom': ASAwardsNSPINFrom, 'ASAwardsNSPINTo': ASAwardsNSPINTo, 'ASAwardsRRSFFRFrom': ASAwardsRRSFFRFrom, 'ASAwardsRRSFFRTo': ASAwardsRRSFFRTo, 'ASAwardsRRSPFRFrom': ASAwardsRRSPFRFrom, 'ASAwardsRRSPFRTo': ASAwardsRRSPFRTo, 'ASAwardsRRSUFRFrom': ASAwardsRRSUFRFrom, 'ASAwardsRRSUFRTo': ASAwardsRRSUFRTo, 'ASAwardsECRSFrom': ASAwardsECRSFrom, 'ASAwardsECRSTo': ASAwardsECRSTo, 'ASAwardsREGUPFrom': ASAwardsREGUPFrom, 'ASAwardsREGUPTo': ASAwardsREGUPTo, 'ASAwardsREGDNFrom': ASAwardsREGDNFrom, 'ASAwardsREGDNTo': ASAwardsREGDNTo, 'bidType': bidType, 'startUpColdOfferFrom': startUpColdOfferFrom, 'startUpColdOfferTo': startUpColdOfferTo, 'startUpHotOfferFrom': startUpHotOfferFrom, 'startUpHotOfferTo': startUpHotOfferTo, 'startUpInterOfferFrom': startUpInterOfferFrom, 'startUpInterOfferTo': startUpInterOfferTo, 'minGenCostFrom': minGenCostFrom, 'minGenCostTo': minGenCostTo, 'submittedTPOMW1From': submittedTPOMW1From, 'submittedTPOMW1To': submittedTPOMW1To, 'submittedTPOPrice1From': submittedTPOPrice1From, 'submittedTPOPrice1To': submittedTPOPrice1To, 'submittedTPOMW2From': submittedTPOMW2From, 'submittedTPOMW2To': submittedTPOMW2To, 'submittedTPOPrice2From': submittedTPOPrice2From, 'submittedTPOPrice2To': submittedTPOPrice2To, 'submittedTPOMW3From': submittedTPOMW3From, 'submittedTPOMW3To': submittedTPOMW3To, 'submittedTPOPrice3From': submittedTPOPrice3From, 'submittedTPOPrice3To': submittedTPOPrice3To, 'submittedTPOMW4From': submittedTPOMW4From, 'submittedTPOMW4To': submittedTPOMW4To, 'submittedTPOPrice4From': submittedTPOPrice4From, 'submittedTPOPrice4To': submittedTPOPrice4To, 'submittedTPOMW5From': submittedTPOMW5From, 'submittedTPOMW5To': submittedTPOMW5To, 'submittedTPOPrice5From': submittedTPOPrice5From, 'submittedTPOPrice5To': submittedTPOPrice5To, 'submittedTPOMW6From': submittedTPOMW6From, 'submittedTPOMW6To': submittedTPOMW6To, 'submittedTPOPrice6From': submittedTPOPrice6From, 'submittedTPOPrice6To': submittedTPOPrice6To, 'submittedTPOMW7From': submittedTPOMW7From, 'submittedTPOMW7To': submittedTPOMW7To, 'submittedTPOPrice7From': submittedTPOPrice7From, 'submittedTPOPrice7To': submittedTPOPrice7To, 'submittedTPOMW8From': submittedTPOMW8From, 'submittedTPOMW8To': submittedTPOMW8To, 'submittedTPOPrice8From': submittedTPOPrice8From, 'submittedTPOPrice8To': submittedTPOPrice8To, 'submittedTPOMW9From': submittedTPOMW9From, 'submittedTPOMW9To': submittedTPOMW9To, 'submittedTPOPrice9From': submittedTPOPrice9From, 'submittedTPOPrice9To': submittedTPOPrice9To, 'submittedTPOMW10From': submittedTPOMW10From, 'submittedTPOMW10To': submittedTPOMW10To, 'submittedTPOPrice10From': submittedTPOPrice10From, 'submittedTPOPrice10To': submittedTPOPrice10To, 'proxyExtension': proxyExtension, 'ASCapRRSPFRFrom': ASCapRRSPFRFrom, 'ASCapRRSPFRTo': ASCapRRSPFRTo, 'ASCapRRSFFRFrom': ASCapRRSFFRFrom, 'ASCapRRSFFRTo': ASCapRRSFFRTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'qseName': qseName, 'dmeName': dmeName, 'resourceName': resourceName, 'resourceType': resourceType, 'SCED1CurveMW1From': SCED1CurveMW1From, 'SCED1CurveMW1To': SCED1CurveMW1To, 'SCED1CurvePrice1From': SCED1CurvePrice1From, 'SCED1CurvePrice1To': SCED1CurvePrice1To, 'SCED1CurveMW2From': SCED1CurveMW2From, 'SCED1CurveMW2To': SCED1CurveMW2To, 'SCED1CurvePrice2From': SCED1CurvePrice2From, 'SCED1CurvePrice2To': SCED1CurvePrice2To, 'SCED1CurveMW3From': SCED1CurveMW3From, 'SCED1CurveMW3To': SCED1CurveMW3To, 'SCED1CurvePrice3From': SCED1CurvePrice3From, 'SCED1CurvePrice3To': SCED1CurvePrice3To, 'SCED1CurveMW4From': SCED1CurveMW4From, 'SCED1CurveMW4To': SCED1CurveMW4To, 'SCED1CurvePrice4From': SCED1CurvePrice4From, 'SCED1CurvePrice4To': SCED1CurvePrice4To, 'SCED1CurveMW5From': SCED1CurveMW5From, 'SCED1CurveMW5To': SCED1CurveMW5To, 'SCED1CurvePrice5From': SCED1CurvePrice5From, 'SCED1CurvePrice5To': SCED1CurvePrice5To, 'SCED1CurveMW6From': SCED1CurveMW6From, 'SCED1CurveMW6To': SCED1CurveMW6To, 'SCED1CurvePrice6From': SCED1CurvePrice6From, 'SCED1CurvePrice6To': SCED1CurvePrice6To, 'SCED1CurveMW7From': SCED1CurveMW7From, 'SCED1CurveMW7To': SCED1CurveMW7To, 'SCED1CurvePrice7From': SCED1CurvePrice7From, 'SCED1CurvePrice7To': SCED1CurvePrice7To, 'SCED1CurveMW8From': SCED1CurveMW8From, 'SCED1CurveMW8To': SCED1CurveMW8To, 'SCED1CurvePrice8From': SCED1CurvePrice8From, 'SCED1CurvePrice8To': SCED1CurvePrice8To, 'SCED1CurveMW9From': SCED1CurveMW9From, 'SCED1CurveMW9To': SCED1CurveMW9To, 'SCED1CurvePrice9From': SCED1CurvePrice9From, 'SCED1CurvePrice9To': SCED1CurvePrice9To, 'SCED1CurveMW10From': SCED1CurveMW10From, 'SCED1CurveMW10To': SCED1CurveMW10To, 'SCED1CurvePrice10From': SCED1CurvePrice10From, 'SCED1CurvePrice10To': SCED1CurvePrice10To, 'SCED1CurveMW11From': SCED1CurveMW11From, 'SCED1CurveMW11To': SCED1CurveMW11To, 'SCED1CurvePrice11From': SCED1CurvePrice11From, 'SCED1CurvePrice11To': SCED1CurvePrice11To, 'SCED1CurveMW12From': SCED1CurveMW12From, 'SCED1CurveMW12To': SCED1CurveMW12To, 'SCED1CurvePrice12From': SCED1CurvePrice12From, 'SCED1CurvePrice12To': SCED1CurvePrice12To, 'SCED1CurveMW13From': SCED1CurveMW13From, 'SCED1CurveMW13To': SCED1CurveMW13To, 'SCED1CurvePrice13From': SCED1CurvePrice13From, 'SCED1CurvePrice13To': SCED1CurvePrice13To, 'SCED1CurveMW14From': SCED1CurveMW14From, 'SCED1CurveMW14To': SCED1CurveMW14To, 'SCED1CurvePrice14From': SCED1CurvePrice14From, 'SCED1CurvePrice14To': SCED1CurvePrice14To, 'SCED1CurveMW15From': SCED1CurveMW15From, 'SCED1CurveMW15To': SCED1CurveMW15To, 'SCED1CurvePrice15From': SCED1CurvePrice15From, 'SCED1CurvePrice15To': SCED1CurvePrice15To, 'SCED1CurveMW16From': SCED1CurveMW16From, 'SCED1CurveMW16To': SCED1CurveMW16To, 'SCED1CurvePrice16From': SCED1CurvePrice16From, 'SCED1CurvePrice16To': SCED1CurvePrice16To, 'SCED1CurveMW17From': SCED1CurveMW17From, 'SCED1CurveMW17To': SCED1CurveMW17To, 'SCED1CurvePrice17From': SCED1CurvePrice17From, 'SCED1CurvePrice17To': SCED1CurvePrice17To, 'SCED1CurveMW18From': SCED1CurveMW18From, 'SCED1CurveMW18To': SCED1CurveMW18To, 'SCED1CurvePrice18From': SCED1CurvePrice18From, 'SCED1CurvePrice18To': SCED1CurvePrice18To, 'SCED1CurveMW19From': SCED1CurveMW19From, 'SCED1CurveMW19To': SCED1CurveMW19To, 'SCED1CurvePrice19From': SCED1CurvePrice19From, 'SCED1CurvePrice19To': SCED1CurvePrice19To, 'SCED1CurveMW20From': SCED1CurveMW20From, 'SCED1CurveMW20To': SCED1CurveMW20To, 'SCED1CurvePrice20From': SCED1CurvePrice20From, 'SCED1CurvePrice20To': SCED1CurvePrice20To, 'SCED1CurveMW21From': SCED1CurveMW21From, 'SCED1CurveMW21To': SCED1CurveMW21To, 'SCED1CurvePrice21From': SCED1CurvePrice21From, 'SCED1CurvePrice21To': SCED1CurvePrice21To, 'SCED1CurveMW22From': SCED1CurveMW22From, 'SCED1CurveMW22To': SCED1CurveMW22To, 'SCED1CurvePrice22From': SCED1CurvePrice22From, 'SCED1CurvePrice22To': SCED1CurvePrice22To, 'SCED1CurveMW23From': SCED1CurveMW23From, 'SCED1CurveMW23To': SCED1CurveMW23To, 'SCED1CurvePrice23From': SCED1CurvePrice23From, 'SCED1CurvePrice23To': SCED1CurvePrice23To, 'SCED1CurveMW24From': SCED1CurveMW24From, 'SCED1CurveMW24To': SCED1CurveMW24To, 'SCED1CurvePrice24From': SCED1CurvePrice24From, 'SCED1CurvePrice24To': SCED1CurvePrice24To, 'SCED1CurveMW25From': SCED1CurveMW25From, 'SCED1CurveMW25To': SCED1CurveMW25To, 'SCED1CurvePrice25From': SCED1CurvePrice25From, 'SCED1CurvePrice25To': SCED1CurvePrice25To, 'SCED1CurveMW26From': SCED1CurveMW26From, 'SCED1CurveMW26To': SCED1CurveMW26To, 'SCED1CurvePrice26From': SCED1CurvePrice26From, 'SCED1CurvePrice26To': SCED1CurvePrice26To, 'SCED1CurveMW27From': SCED1CurveMW27From, 'SCED1CurveMW27To': SCED1CurveMW27To, 'SCED1CurvePrice27From': SCED1CurvePrice27From, 'SCED1CurvePrice27To': SCED1CurvePrice27To, 'SCED1CurveMW28From': SCED1CurveMW28From, 'SCED1CurveMW28To': SCED1CurveMW28To, 'SCED1CurvePrice28From': SCED1CurvePrice28From, 'SCED1CurvePrice28To': SCED1CurvePrice28To, 'SCED1CurveMW29From': SCED1CurveMW29From, 'SCED1CurveMW29To': SCED1CurveMW29To, 'SCED1CurvePrice29From': SCED1CurvePrice29From, 'SCED1CurvePrice29To': SCED1CurvePrice29To, 'SCED1CurveMW30From': SCED1CurveMW30From, 'SCED1CurveMW30To': SCED1CurveMW30To, 'SCED1CurvePrice30From': SCED1CurvePrice30From, 'SCED1CurvePrice30To': SCED1CurvePrice30To, 'SCED1CurveMW31From': SCED1CurveMW31From, 'SCED1CurveMW31To': SCED1CurveMW31To, 'SCED1CurvePrice31From': SCED1CurvePrice31From, 'SCED1CurvePrice31To': SCED1CurvePrice31To, 'SCED1CurveMW32From': SCED1CurveMW32From, 'SCED1CurveMW32To': SCED1CurveMW32To, 'SCED1CurvePrice32From': SCED1CurvePrice32From, 'SCED1CurvePrice32To': SCED1CurvePrice32To, 'SCED1CurveMW33From': SCED1CurveMW33From, 'SCED1CurveMW33To': SCED1CurveMW33To, 'SCED1CurvePrice33From': SCED1CurvePrice33From, 'SCED1CurvePrice33To': SCED1CurvePrice33To, 'SCED1CurveMW34From': SCED1CurveMW34From, 'SCED1CurveMW34To': SCED1CurveMW34To, 'SCED1CurvePrice34From': SCED1CurvePrice34From, 'SCED1CurvePrice34To': SCED1CurvePrice34To, 'SCED1CurveMW35From': SCED1CurveMW35From, 'SCED1CurveMW35To': SCED1CurveMW35To, 'SCED1CurvePrice35From': SCED1CurvePrice35From, 'SCED1CurvePrice35To': SCED1CurvePrice35To, 'SCED2CurveMW1From': SCED2CurveMW1From, 'SCED2CurveMW1To': SCED2CurveMW1To, 'SCED2CurvePrice1From': SCED2CurvePrice1From, 'SCED2CurvePrice1To': SCED2CurvePrice1To, 'SCED2CurveMW2From': SCED2CurveMW2From, 'SCED2CurveMW2To': SCED2CurveMW2To, 'SCED2CurvePrice2From': SCED2CurvePrice2From, 'SCED2CurvePrice2To': SCED2CurvePrice2To, 'SCED2CurveMW3From': SCED2CurveMW3From, 'SCED2CurveMW3To': SCED2CurveMW3To, 'SCED2CurvePrice3From': SCED2CurvePrice3From, 'SCED2CurvePrice3To': SCED2CurvePrice3To, 'SCED2CurveMW4From': SCED2CurveMW4From, 'SCED2CurveMW4To': SCED2CurveMW4To, 'SCED2CurvePrice4From': SCED2CurvePrice4From, 'SCED2CurvePrice4To': SCED2CurvePrice4To, 'SCED2CurveMW5From': SCED2CurveMW5From, 'SCED2CurveMW5To': SCED2CurveMW5To, 'SCED2CurvePrice5From': SCED2CurvePrice5From, 'SCED2CurvePrice5To': SCED2CurvePrice5To, 'SCED2CurveMW6From': SCED2CurveMW6From, 'SCED2CurveMW6To': SCED2CurveMW6To, 'SCED2CurvePrice6From': SCED2CurvePrice6From, 'SCED2CurvePrice6To': SCED2CurvePrice6To, 'SCED2CurveMW7From': SCED2CurveMW7From, 'SCED2CurveMW7To': SCED2CurveMW7To, 'SCED2CurvePrice7From': SCED2CurvePrice7From, 'SCED2CurvePrice7To': SCED2CurvePrice7To, 'SCED2CurveMW8From': SCED2CurveMW8From, 'SCED2CurveMW8To': SCED2CurveMW8To, 'SCED2CurvePrice8From': SCED2CurvePrice8From, 'SCED2CurvePrice8To': SCED2CurvePrice8To, 'SCED2CurveMW9From': SCED2CurveMW9From, 'SCED2CurveMW9To': SCED2CurveMW9To, 'SCED2CurvePrice9From': SCED2CurvePrice9From, 'SCED2CurvePrice9To': SCED2CurvePrice9To, 'SCED2CurveMW10From': SCED2CurveMW10From, 'SCED2CurveMW10To': SCED2CurveMW10To, 'SCED2CurvePrice10From': SCED2CurvePrice10From, 'SCED2CurvePrice10To': SCED2CurvePrice10To, 'SCED2CurveMW11From': SCED2CurveMW11From, 'SCED2CurveMW11To': SCED2CurveMW11To, 'SCED2CurvePrice11From': SCED2CurvePrice11From, 'SCED2CurvePrice11To': SCED2CurvePrice11To, 'SCED2CurveMW12From': SCED2CurveMW12From, 'SCED2CurveMW12To': SCED2CurveMW12To, 'SCED2CurvePrice12From': SCED2CurvePrice12From, 'SCED2CurvePrice12To': SCED2CurvePrice12To, 'SCED2CurveMW13From': SCED2CurveMW13From, 'SCED2CurveMW13To': SCED2CurveMW13To, 'SCED2CurvePrice13From': SCED2CurvePrice13From, 'SCED2CurvePrice13To': SCED2CurvePrice13To, 'SCED2CurveMW14From': SCED2CurveMW14From, 'SCED2CurveMW14To': SCED2CurveMW14To, 'SCED2CurvePrice14From': SCED2CurvePrice14From, 'SCED2CurvePrice14To': SCED2CurvePrice14To, 'SCED2CurveMW15From': SCED2CurveMW15From, 'SCED2CurveMW15To': SCED2CurveMW15To, 'SCED2CurvePrice15From': SCED2CurvePrice15From, 'SCED2CurvePrice15To': SCED2CurvePrice15To, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3798,6 +6220,17 @@ class np3_965_er:
         intervalTime: datetime | None
         intervalValue: Decimal | None
         resourceCode: str | None
+
+    class _60ScedSmneGenResHistoryRow(Row):
+        intervalTime: datetime | None
+        intervalNumber: int | None
+        resourceCode: str | None
+        intervalValue: Decimal | None
+
+    @property
+    def _60_sced_smne_gen_res_history(self) -> Archive[np3_965_er._60ScedSmneGenResHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-965-er', np3_965_er._60ScedSmneGenResHistoryRow, {'Interval Time': 'intervalTime', 'Interval Number': 'intervalNumber', 'Resource Code': 'resourceCode', 'Interval Value': 'intervalValue'}, {}, member='60d_SCED_SMNE_GEN_RES-[0-9]*.csv', datetimes={'intervalTime': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def _60_sced_smne_gen_res(self, *, intervalValueFrom: Decimal | None = None, intervalValueTo: Decimal | None = None, intervalTimeFrom: datetime | None = None, intervalTimeTo: datetime | None = None, intervalNumberFrom: int | None = None, intervalNumberTo: int | None = None, resourceCode: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_965_er._60ScedSmneGenResRow]:
         '60-Day SCED Settlement Metered Net Energy for Generation Resources'
@@ -3833,6 +6266,25 @@ class np3_966_er:
         quantity5Award: Decimal | None
         totalAward: Decimal | None
 
+    class _60dDamAsOnlyAwardsHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None
+        ASType: str | None
+        offerId: str | None
+        quantity1Award: Decimal | None
+        quantity2Award: Decimal | None
+        quantity3Award: Decimal | None
+        quantity4Award: Decimal | None
+        quantity5Award: Decimal | None
+        totalAward: Decimal | None
+        MCPC: Decimal | None
+
+    @property
+    def _60d_dam_as_only_awards_history(self) -> Archive[np3_966_er._60dDamAsOnlyAwardsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60dDamAsOnlyAwardsHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE Name': 'qseName', 'AS Type': 'ASType', 'Offer ID': 'offerId', 'Quantity1 Award': 'quantity1Award', 'Quantity2 Award': 'quantity2Award', 'Quantity3 Award': 'quantity3Award', 'Quantity4 Award': 'quantity4Award', 'Quantity5 Award': 'quantity5Award', 'Total Award': 'totalAward', 'MCPC': 'MCPC'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_AS_Only_Awards-*.csv', datetimes=None, variants=())
+
     def _60d_dam_as_only_awards(self, *, quantity3AwardFrom: Decimal | None = None, quantity3AwardTo: Decimal | None = None, quantity4AwardFrom: Decimal | None = None, quantity4AwardTo: Decimal | None = None, quantity5AwardFrom: Decimal | None = None, quantity5AwardTo: Decimal | None = None, totalAwardFrom: Decimal | None = None, totalAwardTo: Decimal | None = None, MCPCFrom: Decimal | None = None, MCPCTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, ASType: str | None = None, offerId: str | None = None, quantity1AwardFrom: Decimal | None = None, quantity1AwardTo: Decimal | None = None, quantity2AwardFrom: Decimal | None = None, quantity2AwardTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60dDamAsOnlyAwardsRow]:
         '60-Day DAM AS Only Awards'
         return self._client._page('/np3-966-er/60d_dam_as_only_awards', np3_966_er._60dDamAsOnlyAwardsRow, {'quantity3AwardFrom': quantity3AwardFrom, 'quantity3AwardTo': quantity3AwardTo, 'quantity4AwardFrom': quantity4AwardFrom, 'quantity4AwardTo': quantity4AwardTo, 'quantity5AwardFrom': quantity5AwardFrom, 'quantity5AwardTo': quantity5AwardTo, 'totalAwardFrom': totalAwardFrom, 'totalAwardTo': totalAwardTo, 'MCPCFrom': MCPCFrom, 'MCPCTo': MCPCTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'qseName': qseName, 'ASType': ASType, 'offerId': offerId, 'quantity1AwardFrom': quantity1AwardFrom, 'quantity1AwardTo': quantity1AwardTo, 'quantity2AwardFrom': quantity2AwardFrom, 'quantity2AwardTo': quantity2AwardTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3865,6 +6317,28 @@ class np3_966_er:
         offerId: str | None
         qseName: str | None
 
+    class _60dDamAsOnlyOffersHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None
+        offerId: str | None
+        ASType: str | None
+        ASOnlyOfferMW1: Decimal | None
+        ASOnlyOfferPrice1: Decimal | None
+        ASOnlyOfferMW2: Decimal | None
+        ASOnlyOfferPrice2: Decimal | None
+        ASOnlyOfferMW3: Decimal | None
+        ASOnlyOfferPrice3: Decimal | None
+        ASOnlyOfferMW4: Decimal | None
+        ASOnlyOfferPrice4: Decimal | None
+        ASOnlyOfferMW5: Decimal | None
+        ASOnlyOfferPrice5: Decimal | None
+
+    @property
+    def _60d_dam_as_only_offers_history(self) -> Archive[np3_966_er._60dDamAsOnlyOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60dDamAsOnlyOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE Name': 'qseName', 'Offer ID': 'offerId', 'AS Type': 'ASType', 'AS Only Offer MW1': 'ASOnlyOfferMW1', 'AS Only Offer Price1': 'ASOnlyOfferPrice1', 'AS Only Offer MW2': 'ASOnlyOfferMW2', 'AS Only Offer Price2': 'ASOnlyOfferPrice2', 'AS Only Offer MW3': 'ASOnlyOfferMW3', 'AS Only Offer Price3': 'ASOnlyOfferPrice3', 'AS Only Offer MW4': 'ASOnlyOfferMW4', 'AS Only Offer Price4': 'ASOnlyOfferPrice4', 'AS Only Offer MW5': 'ASOnlyOfferMW5', 'AS Only Offer Price5': 'ASOnlyOfferPrice5'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_AS_Only_Offers-*.csv', datetimes=None, variants=())
+
     def _60d_dam_as_only_offers(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, offerId: str | None = None, ASType: str | None = None, ASOnlyOfferMW1From: Decimal | None = None, ASOnlyOfferMW1To: Decimal | None = None, ASOnlyOfferPrice1From: Decimal | None = None, ASOnlyOfferPrice1To: Decimal | None = None, ASOnlyOfferMW2From: Decimal | None = None, ASOnlyOfferMW2To: Decimal | None = None, ASOnlyOfferPrice2From: Decimal | None = None, ASOnlyOfferPrice2To: Decimal | None = None, ASOnlyOfferMW3From: Decimal | None = None, ASOnlyOfferMW3To: Decimal | None = None, ASOnlyOfferPrice3From: Decimal | None = None, ASOnlyOfferPrice3To: Decimal | None = None, ASOnlyOfferMW4From: Decimal | None = None, ASOnlyOfferMW4To: Decimal | None = None, ASOnlyOfferPrice4From: Decimal | None = None, ASOnlyOfferPrice4To: Decimal | None = None, ASOnlyOfferMW5From: Decimal | None = None, ASOnlyOfferMW5To: Decimal | None = None, ASOnlyOfferPrice5From: Decimal | None = None, ASOnlyOfferPrice5To: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60dDamAsOnlyOffersRow]:
         '60-Day DAM AS Only Offers'
         return self._client._page('/np3-966-er/60d_dam_as_only_offers', np3_966_er._60dDamAsOnlyOffersRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'qseName': qseName, 'offerId': offerId, 'ASType': ASType, 'ASOnlyOfferMW1From': ASOnlyOfferMW1From, 'ASOnlyOfferMW1To': ASOnlyOfferMW1To, 'ASOnlyOfferPrice1From': ASOnlyOfferPrice1From, 'ASOnlyOfferPrice1To': ASOnlyOfferPrice1To, 'ASOnlyOfferMW2From': ASOnlyOfferMW2From, 'ASOnlyOfferMW2To': ASOnlyOfferMW2To, 'ASOnlyOfferPrice2From': ASOnlyOfferPrice2From, 'ASOnlyOfferPrice2To': ASOnlyOfferPrice2To, 'ASOnlyOfferMW3From': ASOnlyOfferMW3From, 'ASOnlyOfferMW3To': ASOnlyOfferMW3To, 'ASOnlyOfferPrice3From': ASOnlyOfferPrice3From, 'ASOnlyOfferPrice3To': ASOnlyOfferPrice3To, 'ASOnlyOfferMW4From': ASOnlyOfferMW4From, 'ASOnlyOfferMW4To': ASOnlyOfferMW4To, 'ASOnlyOfferPrice4From': ASOnlyOfferPrice4From, 'ASOnlyOfferPrice4To': ASOnlyOfferPrice4To, 'ASOnlyOfferMW5From': ASOnlyOfferMW5From, 'ASOnlyOfferMW5To': ASOnlyOfferMW5To, 'ASOnlyOfferPrice5From': ASOnlyOfferPrice5From, 'ASOnlyOfferPrice5To': ASOnlyOfferPrice5To, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3888,6 +6362,20 @@ class np3_966_er:
         qseName: str | None
         settlementPointName: str | None
         settlementPointPrice: Decimal | None
+
+    class _60DamEnergyBidAwardsHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointName: str | None
+        qseName: str | None
+        energyOnlyBidAwardInMW: Decimal | None
+        settlementPointPrice: Decimal | None
+        bidId: str | None
+
+    @property
+    def _60_dam_energy_bid_awards_history(self) -> Archive[np3_966_er._60DamEnergyBidAwardsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamEnergyBidAwardsHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point': 'settlementPointName', 'QSE Name': 'qseName', 'Energy Only Bid Award in MW': 'energyOnlyBidAwardInMW', 'Settlement Point Price': 'settlementPointPrice', 'Bid ID': 'bidId'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_EnergyBidAwards-*.csv', datetimes=None, variants=())
 
     def _60_dam_energy_bid_awards(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointName: str | None = None, qseName: str | None = None, energyOnlyBidAwardInMWFrom: Decimal | None = None, energyOnlyBidAwardInMWTo: Decimal | None = None, settlementPointPriceFrom: Decimal | None = None, settlementPointPriceTo: Decimal | None = None, bidId: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamEnergyBidAwardsRow]:
         '60-Day DAM Energy Bid Awards'
@@ -3933,6 +6421,40 @@ class np3_966_er:
         qseName: str | None
         settlementPointName: str | None
 
+    class _60DamEnergyBidsHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointName: str | None
+        qseName: str | None
+        energyOnlyBidMW1: Decimal | None
+        energyOnlyBidPrice1: Decimal | None
+        energyOnlyBidMW2: Decimal | None
+        energyOnlyBidPrice2: Decimal | None
+        energyOnlyBidMW3: Decimal | None
+        energyOnlyBidPrice3: Decimal | None
+        energyOnlyBidMW4: Decimal | None
+        energyOnlyBidPrice4: Decimal | None
+        energyOnlyBidMW5: Decimal | None
+        energyOnlyBidPrice5: Decimal | None
+        energyOnlyBidMW6: Decimal | None
+        energyOnlyBidPrice6: Decimal | None
+        energyOnlyBidMW7: Decimal | None
+        energyOnlyBidPrice7: Decimal | None
+        energyOnlyBidMW8: Decimal | None
+        energyOnlyBidPrice8: Decimal | None
+        energyOnlyBidMW9: Decimal | None
+        energyOnlyBidPrice9: Decimal | None
+        energyOnlyBidMW10: Decimal | None
+        energyOnlyBidPrice10: Decimal | None
+        bidId: str | None
+        multiHourBlock: bool | None
+        blockCurve: str | None
+
+    @property
+    def _60_dam_energy_bids_history(self) -> Archive[np3_966_er._60DamEnergyBidsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamEnergyBidsHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point': 'settlementPointName', 'QSE Name': 'qseName', 'Energy Only Bid MW1': 'energyOnlyBidMW1', 'Energy Only Bid Price1': 'energyOnlyBidPrice1', 'Energy Only Bid MW2': 'energyOnlyBidMW2', 'Energy Only Bid Price2': 'energyOnlyBidPrice2', 'Energy Only Bid MW3': 'energyOnlyBidMW3', 'Energy Only Bid Price3': 'energyOnlyBidPrice3', 'Energy Only Bid MW4': 'energyOnlyBidMW4', 'Energy Only Bid Price4': 'energyOnlyBidPrice4', 'Energy Only Bid MW5': 'energyOnlyBidMW5', 'Energy Only Bid Price5': 'energyOnlyBidPrice5', 'Energy Only Bid MW6': 'energyOnlyBidMW6', 'Energy Only Bid Price6': 'energyOnlyBidPrice6', 'Energy Only Bid MW7': 'energyOnlyBidMW7', 'Energy Only Bid Price7': 'energyOnlyBidPrice7', 'Energy Only Bid MW8': 'energyOnlyBidMW8', 'Energy Only Bid Price8': 'energyOnlyBidPrice8', 'Energy Only Bid MW9': 'energyOnlyBidMW9', 'Energy Only Bid Price9': 'energyOnlyBidPrice9', 'Energy Only Bid MW10': 'energyOnlyBidMW10', 'Energy Only Bid Price10': 'energyOnlyBidPrice10', 'Energy Only Bid ID': 'bidId', 'Multi-Hour Block Indicator': 'multiHourBlock', 'Block/Curve indicator': 'blockCurve'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_EnergyBids-*.csv', datetimes=None, variants=())
+
     def _60_dam_energy_bids(self, *, energyOnlyBidMW1From: Decimal | None = None, energyOnlyBidMW1To: Decimal | None = None, energyOnlyBidPrice1From: Decimal | None = None, energyOnlyBidPrice1To: Decimal | None = None, energyOnlyBidMW2From: Decimal | None = None, energyOnlyBidMW2To: Decimal | None = None, energyOnlyBidPrice2From: Decimal | None = None, energyOnlyBidPrice2To: Decimal | None = None, energyOnlyBidMW3From: Decimal | None = None, energyOnlyBidMW3To: Decimal | None = None, energyOnlyBidPrice3From: Decimal | None = None, energyOnlyBidPrice3To: Decimal | None = None, energyOnlyBidMW4From: Decimal | None = None, energyOnlyBidMW4To: Decimal | None = None, energyOnlyBidPrice4From: Decimal | None = None, energyOnlyBidPrice4To: Decimal | None = None, energyOnlyBidMW5From: Decimal | None = None, energyOnlyBidMW5To: Decimal | None = None, energyOnlyBidPrice5From: Decimal | None = None, energyOnlyBidPrice5To: Decimal | None = None, energyOnlyBidMW6From: Decimal | None = None, energyOnlyBidMW6To: Decimal | None = None, energyOnlyBidPrice6From: Decimal | None = None, energyOnlyBidPrice6To: Decimal | None = None, energyOnlyBidMW7From: Decimal | None = None, energyOnlyBidMW7To: Decimal | None = None, energyOnlyBidPrice7From: Decimal | None = None, energyOnlyBidPrice7To: Decimal | None = None, energyOnlyBidMW8From: Decimal | None = None, energyOnlyBidMW8To: Decimal | None = None, energyOnlyBidPrice8From: Decimal | None = None, energyOnlyBidPrice8To: Decimal | None = None, energyOnlyBidMW9From: Decimal | None = None, energyOnlyBidMW9To: Decimal | None = None, energyOnlyBidPrice9From: Decimal | None = None, energyOnlyBidPrice9To: Decimal | None = None, energyOnlyBidMW10From: Decimal | None = None, energyOnlyBidMW10To: Decimal | None = None, energyOnlyBidPrice10From: Decimal | None = None, energyOnlyBidPrice10To: Decimal | None = None, bidIdFrom: Decimal | None = None, bidIdTo: Decimal | None = None, multiHourBlock: bool | None = None, blockCurve: str | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointName: str | None = None, qseName: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamEnergyBidsRow]:
         '60-Day DAM Energy Bids'
         return self._client._page('/np3-966-er/60_dam_energy_bids', np3_966_er._60DamEnergyBidsRow, {'energyOnlyBidMW1From': energyOnlyBidMW1From, 'energyOnlyBidMW1To': energyOnlyBidMW1To, 'energyOnlyBidPrice1From': energyOnlyBidPrice1From, 'energyOnlyBidPrice1To': energyOnlyBidPrice1To, 'energyOnlyBidMW2From': energyOnlyBidMW2From, 'energyOnlyBidMW2To': energyOnlyBidMW2To, 'energyOnlyBidPrice2From': energyOnlyBidPrice2From, 'energyOnlyBidPrice2To': energyOnlyBidPrice2To, 'energyOnlyBidMW3From': energyOnlyBidMW3From, 'energyOnlyBidMW3To': energyOnlyBidMW3To, 'energyOnlyBidPrice3From': energyOnlyBidPrice3From, 'energyOnlyBidPrice3To': energyOnlyBidPrice3To, 'energyOnlyBidMW4From': energyOnlyBidMW4From, 'energyOnlyBidMW4To': energyOnlyBidMW4To, 'energyOnlyBidPrice4From': energyOnlyBidPrice4From, 'energyOnlyBidPrice4To': energyOnlyBidPrice4To, 'energyOnlyBidMW5From': energyOnlyBidMW5From, 'energyOnlyBidMW5To': energyOnlyBidMW5To, 'energyOnlyBidPrice5From': energyOnlyBidPrice5From, 'energyOnlyBidPrice5To': energyOnlyBidPrice5To, 'energyOnlyBidMW6From': energyOnlyBidMW6From, 'energyOnlyBidMW6To': energyOnlyBidMW6To, 'energyOnlyBidPrice6From': energyOnlyBidPrice6From, 'energyOnlyBidPrice6To': energyOnlyBidPrice6To, 'energyOnlyBidMW7From': energyOnlyBidMW7From, 'energyOnlyBidMW7To': energyOnlyBidMW7To, 'energyOnlyBidPrice7From': energyOnlyBidPrice7From, 'energyOnlyBidPrice7To': energyOnlyBidPrice7To, 'energyOnlyBidMW8From': energyOnlyBidMW8From, 'energyOnlyBidMW8To': energyOnlyBidMW8To, 'energyOnlyBidPrice8From': energyOnlyBidPrice8From, 'energyOnlyBidPrice8To': energyOnlyBidPrice8To, 'energyOnlyBidMW9From': energyOnlyBidMW9From, 'energyOnlyBidMW9To': energyOnlyBidMW9To, 'energyOnlyBidPrice9From': energyOnlyBidPrice9From, 'energyOnlyBidPrice9To': energyOnlyBidPrice9To, 'energyOnlyBidMW10From': energyOnlyBidMW10From, 'energyOnlyBidMW10To': energyOnlyBidMW10To, 'energyOnlyBidPrice10From': energyOnlyBidPrice10From, 'energyOnlyBidPrice10To': energyOnlyBidPrice10To, 'bidIdFrom': bidIdFrom, 'bidIdTo': bidIdTo, 'multiHourBlock': multiHourBlock, 'blockCurve': blockCurve, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'settlementPointName': settlementPointName, 'qseName': qseName, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -3956,6 +6478,20 @@ class np3_966_er:
         qseName: str | None
         settlementPointName: str | None
         settlementPointPrice: Decimal | None
+
+    class _60DamEnergyOnlyOfferAwardsHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointName: str | None
+        qseName: str | None
+        energyOnlyOfferAwardInMW: Decimal | None
+        settlementPointPrice: Decimal | None
+        offerId: str | None
+
+    @property
+    def _60_dam_energy_only_offer_awards_history(self) -> Archive[np3_966_er._60DamEnergyOnlyOfferAwardsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamEnergyOnlyOfferAwardsHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point': 'settlementPointName', 'QSE Name': 'qseName', 'Energy Only Offer Award in MW': 'energyOnlyOfferAwardInMW', 'Settlement Point Price': 'settlementPointPrice', 'Offer ID': 'offerId'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_EnergyOnlyOfferAwards-*.csv', datetimes=None, variants=())
 
     def _60_dam_energy_only_offer_awards(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointName: str | None = None, qseName: str | None = None, energyOnlyOfferAwardInMWFrom: Decimal | None = None, energyOnlyOfferAwardInMWTo: Decimal | None = None, settlementPointPriceFrom: Decimal | None = None, settlementPointPriceTo: Decimal | None = None, offerId: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamEnergyOnlyOfferAwardsRow]:
         '60-Day DAM Energy Offer Only Awards'
@@ -4000,6 +6536,40 @@ class np3_966_er:
         offerId: str | None
         qseName: str | None
         settlementPointName: str | None
+
+    class _60DamEnergyOnlyOffersHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        settlementPointName: str | None
+        qseName: str | None
+        energyOnlyOfferMW1: Decimal | None
+        energyOnlyOfferPrice1: Decimal | None
+        energyOnlyOfferMW2: Decimal | None
+        energyOnlyOfferPrice2: Decimal | None
+        energyOnlyOfferMW3: Decimal | None
+        energyOnlyOfferPrice3: Decimal | None
+        energyOnlyOfferMW4: Decimal | None
+        energyOnlyOfferPrice4: Decimal | None
+        energyOnlyOfferMW5: Decimal | None
+        energyOnlyOfferPrice5: Decimal | None
+        energyOnlyOfferMW6: Decimal | None
+        energyOnlyOfferPrice6: Decimal | None
+        energyOnlyOfferMW7: Decimal | None
+        energyOnlyOfferPrice7: Decimal | None
+        energyOnlyOfferMW8: Decimal | None
+        energyOnlyOfferPrice8: Decimal | None
+        energyOnlyOfferMW9: Decimal | None
+        energyOnlyOfferPrice9: Decimal | None
+        energyOnlyOfferMW10: Decimal | None
+        energyOnlyOfferPrice10: Decimal | None
+        offerId: str | None
+        multiHourBlock: bool | None
+        blockCurve: str | None
+
+    @property
+    def _60_dam_energy_only_offers_history(self) -> Archive[np3_966_er._60DamEnergyOnlyOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamEnergyOnlyOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Settlement Point': 'settlementPointName', 'QSE Name': 'qseName', 'Energy Only Offer MW1': 'energyOnlyOfferMW1', 'Energy Only Offer Price1': 'energyOnlyOfferPrice1', 'Energy Only Offer MW2': 'energyOnlyOfferMW2', 'Energy Only Offer Price2': 'energyOnlyOfferPrice2', 'Energy Only Offer MW3': 'energyOnlyOfferMW3', 'Energy Only Offer Price3': 'energyOnlyOfferPrice3', 'Energy Only Offer MW4': 'energyOnlyOfferMW4', 'Energy Only Offer Price4': 'energyOnlyOfferPrice4', 'Energy Only Offer MW5': 'energyOnlyOfferMW5', 'Energy Only Offer Price5': 'energyOnlyOfferPrice5', 'Energy Only Offer MW6': 'energyOnlyOfferMW6', 'Energy Only Offer Price6': 'energyOnlyOfferPrice6', 'Energy Only Offer MW7': 'energyOnlyOfferMW7', 'Energy Only Offer Price7': 'energyOnlyOfferPrice7', 'Energy Only Offer MW8': 'energyOnlyOfferMW8', 'Energy Only Offer Price8': 'energyOnlyOfferPrice8', 'Energy Only Offer MW9': 'energyOnlyOfferMW9', 'Energy Only Offer Price9': 'energyOnlyOfferPrice9', 'Energy Only Offer MW10': 'energyOnlyOfferMW10', 'Energy Only Offer Price10': 'energyOnlyOfferPrice10', 'Energy Only Offer ID': 'offerId', 'Multi-Hour Block Indicator': 'multiHourBlock', 'Block/Curve indicator': 'blockCurve'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_EnergyOnlyOffers-*.csv', datetimes=None, variants=())
 
     def _60_dam_energy_only_offers(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, settlementPointName: str | None = None, qseName: str | None = None, energyOnlyOfferMW1From: Decimal | None = None, energyOnlyOfferMW1To: Decimal | None = None, energyOnlyOfferPrice1From: Decimal | None = None, energyOnlyOfferPrice1To: Decimal | None = None, energyOnlyOfferMW2From: Decimal | None = None, energyOnlyOfferMW2To: Decimal | None = None, energyOnlyOfferPrice2From: Decimal | None = None, energyOnlyOfferPrice2To: Decimal | None = None, energyOnlyOfferMW3From: Decimal | None = None, energyOnlyOfferMW3To: Decimal | None = None, energyOnlyOfferPrice3From: Decimal | None = None, energyOnlyOfferPrice3To: Decimal | None = None, energyOnlyOfferMW4From: Decimal | None = None, energyOnlyOfferMW4To: Decimal | None = None, energyOnlyOfferPrice4From: Decimal | None = None, energyOnlyOfferPrice4To: Decimal | None = None, energyOnlyOfferMW5From: Decimal | None = None, energyOnlyOfferMW5To: Decimal | None = None, energyOnlyOfferPrice5From: Decimal | None = None, energyOnlyOfferPrice5To: Decimal | None = None, energyOnlyOfferMW6From: Decimal | None = None, energyOnlyOfferMW6To: Decimal | None = None, energyOnlyOfferPrice6From: Decimal | None = None, energyOnlyOfferPrice6To: Decimal | None = None, energyOnlyOfferMW7From: Decimal | None = None, energyOnlyOfferMW7To: Decimal | None = None, energyOnlyOfferPrice7From: Decimal | None = None, energyOnlyOfferPrice7To: Decimal | None = None, energyOnlyOfferMW8From: Decimal | None = None, energyOnlyOfferMW8To: Decimal | None = None, energyOnlyOfferPrice8From: Decimal | None = None, energyOnlyOfferPrice8To: Decimal | None = None, energyOnlyOfferMW9From: Decimal | None = None, energyOnlyOfferMW9To: Decimal | None = None, energyOnlyOfferPrice9From: Decimal | None = None, energyOnlyOfferPrice9To: Decimal | None = None, energyOnlyOfferMW10From: Decimal | None = None, energyOnlyOfferMW10To: Decimal | None = None, energyOnlyOfferPrice10From: Decimal | None = None, energyOnlyOfferPrice10To: Decimal | None = None, offerIdFrom: Decimal | None = None, offerIdTo: Decimal | None = None, multiHourBlock: bool | None = None, blockCurve: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamEnergyOnlyOffersRow]:
         '60-Day DAM Energy Only Offers'
@@ -4079,6 +6649,74 @@ class np3_966_er:
         quantityMW5: Decimal | None
         resourceName: str | None
 
+    class _60dDamEsrAsOffersHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None
+        dmeName: str | None
+        resourceName: str | None
+        multiHourBlock: bool | None
+        blockIndicator1: str | None
+        price1RRSPFR: Decimal | None
+        price1RRSFFR: Decimal | None
+        price1RRSUFR: Decimal | None
+        price1ECRS: Decimal | None
+        price1OFFEC: Decimal | None
+        price1OnlineNSPIN: Decimal | None
+        price1REGUP: Decimal | None
+        price1REGDN: Decimal | None
+        price1OfflineNSPIN: Decimal | None
+        quantityMW1: Decimal | None
+        blockIndicator2: str | None
+        price2RRSPFR: Decimal | None
+        price2RRSFFR: Decimal | None
+        price2RRSUFR: Decimal | None
+        price2ECRS: Decimal | None
+        price2OFFEC: Decimal | None
+        price2OnlineNSPIN: Decimal | None
+        price2REGUP: Decimal | None
+        price2REGDN: Decimal | None
+        price2OfflineNSPIN: Decimal | None
+        quantityMW2: Decimal | None
+        blockIndicator3: str | None
+        price3RRSPFR: Decimal | None
+        price3RRSFFR: Decimal | None
+        price3RRSUFR: Decimal | None
+        price3ECRS: Decimal | None
+        price3OFFEC: Decimal | None
+        price3OnlineNSPIN: Decimal | None
+        price3REGUP: Decimal | None
+        price3REGDN: Decimal | None
+        price3OfflineNSPIN: Decimal | None
+        quantityMW3: Decimal | None
+        blockIndicator4: str | None
+        price4RRSPFR: Decimal | None
+        price4RRSFFR: Decimal | None
+        price4RRSUFR: Decimal | None
+        price4ECRS: Decimal | None
+        price4OFFEC: Decimal | None
+        price4OnlineNSPIN: Decimal | None
+        price4REGUP: Decimal | None
+        price4REGDN: Decimal | None
+        price4OfflineNSPIN: Decimal | None
+        quantityMW4: Decimal | None
+        blockIndicator5: str | None
+        price5RRSPFR: Decimal | None
+        price5RRSFFR: Decimal | None
+        price5RRSUFR: Decimal | None
+        price5ECRS: Decimal | None
+        price5OFFEC: Decimal | None
+        price5OnlineNSPIN: Decimal | None
+        price5REGUP: Decimal | None
+        price5REGDN: Decimal | None
+        price5OfflineNSPIN: Decimal | None
+        quantityMW5: Decimal | None
+
+    @property
+    def _60d_dam_esr_as_offers_history(self) -> Archive[np3_966_er._60dDamEsrAsOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60dDamEsrAsOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', 'Multi-Hour Block Flag': 'multiHourBlock', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRSPFR': 'price1RRSPFR', 'PRICE1 RRSFFR': 'price1RRSFFR', 'PRICE1 RRSUFR': 'price1RRSUFR', 'PRICE1 ECRS': 'price1ECRS', 'PRICE1 OFFEC': 'price1OFFEC', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRSPFR': 'price2RRSPFR', 'PRICE2 RRSFFR': 'price2RRSFFR', 'PRICE2 RRSUFR': 'price2RRSUFR', 'PRICE2 ECRS': 'price2ECRS', 'PRICE2 OFFEC': 'price2OFFEC', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRSPFR': 'price3RRSPFR', 'PRICE3 RRSFFR': 'price3RRSFFR', 'PRICE3 RRSUFR': 'price3RRSUFR', 'PRICE3 ECRS': 'price3ECRS', 'PRICE3 OFFEC': 'price3OFFEC', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRSPFR': 'price4RRSPFR', 'PRICE4 RRSFFR': 'price4RRSFFR', 'PRICE4 RRSUFR': 'price4RRSUFR', 'PRICE4 ECRS': 'price4ECRS', 'PRICE4 OFFEC': 'price4OFFEC', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRSPFR': 'price5RRSPFR', 'PRICE5 RRSFFR': 'price5RRSFFR', 'PRICE5 RRSUFR': 'price5RRSUFR', 'PRICE5 ECRS': 'price5ECRS', 'PRICE5 OFFEC': 'price5OFFEC', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNSPIN', 'QUANTITY MW5': 'quantityMW5'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_ESR_ASOffers-*.csv', datetimes=None, variants=())
+
     def _60d_dam_esr_as_offers(self, *, blockIndicator3: str | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, price3OFFECFrom: Decimal | None = None, price3OFFECTo: Decimal | None = None, price3OnlineNSPINFrom: Decimal | None = None, price3OnlineNSPINTo: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDNFrom: Decimal | None = None, price3REGDNTo: Decimal | None = None, price3OfflineNSPINFrom: Decimal | None = None, price3OfflineNSPINTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, blockIndicator4: str | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, price4OFFECFrom: Decimal | None = None, price4OFFECTo: Decimal | None = None, price4OnlineNSPINFrom: Decimal | None = None, price4OnlineNSPINTo: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDNFrom: Decimal | None = None, price4REGDNTo: Decimal | None = None, price4OfflineNSPINFrom: Decimal | None = None, price4OfflineNSPINTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, blockIndicator5: str | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, price5OFFECFrom: Decimal | None = None, price5OFFECTo: Decimal | None = None, price5OnlineNSPINFrom: Decimal | None = None, price5OnlineNSPINTo: Decimal | None = None, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDNFrom: Decimal | None = None, price5REGDNTo: Decimal | None = None, price5OfflineNSPINFrom: Decimal | None = None, price5OfflineNSPINTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, multiHourBlock: bool | None = None, blockIndicator1: str | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, price1OFFECFrom: Decimal | None = None, price1OFFECTo: Decimal | None = None, price1OnlineNSPINFrom: Decimal | None = None, price1OnlineNSPINTo: Decimal | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDNFrom: Decimal | None = None, price1REGDNTo: Decimal | None = None, price1OfflineNSPINFrom: Decimal | None = None, price1OfflineNSPINTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, blockIndicator2: str | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, price2OFFECFrom: Decimal | None = None, price2OFFECTo: Decimal | None = None, price2OnlineNSPINFrom: Decimal | None = None, price2OnlineNSPINTo: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDNFrom: Decimal | None = None, price2REGDNTo: Decimal | None = None, price2OfflineNSPINFrom: Decimal | None = None, price2OfflineNSPINTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60dDamEsrAsOffersRow]:
         '60-Day DAM ESR AS Offers'
         return self._client._page('/np3-966-er/60d_dam_esr_as_offers', np3_966_er._60dDamEsrAsOffersRow, {'blockIndicator3': blockIndicator3, 'price3RRSPFRFrom': price3RRSPFRFrom, 'price3RRSPFRTo': price3RRSPFRTo, 'price3RRSFFRFrom': price3RRSFFRFrom, 'price3RRSFFRTo': price3RRSFFRTo, 'price3RRSUFRFrom': price3RRSUFRFrom, 'price3RRSUFRTo': price3RRSUFRTo, 'price3ECRSFrom': price3ECRSFrom, 'price3ECRSTo': price3ECRSTo, 'price3OFFECFrom': price3OFFECFrom, 'price3OFFECTo': price3OFFECTo, 'price3OnlineNSPINFrom': price3OnlineNSPINFrom, 'price3OnlineNSPINTo': price3OnlineNSPINTo, 'price3REGUPFrom': price3REGUPFrom, 'price3REGUPTo': price3REGUPTo, 'price3REGDNFrom': price3REGDNFrom, 'price3REGDNTo': price3REGDNTo, 'price3OfflineNSPINFrom': price3OfflineNSPINFrom, 'price3OfflineNSPINTo': price3OfflineNSPINTo, 'quantityMW3From': quantityMW3From, 'quantityMW3To': quantityMW3To, 'blockIndicator4': blockIndicator4, 'price4RRSPFRFrom': price4RRSPFRFrom, 'price4RRSPFRTo': price4RRSPFRTo, 'price4RRSFFRFrom': price4RRSFFRFrom, 'price4RRSFFRTo': price4RRSFFRTo, 'price4RRSUFRFrom': price4RRSUFRFrom, 'price4RRSUFRTo': price4RRSUFRTo, 'price4ECRSFrom': price4ECRSFrom, 'price4ECRSTo': price4ECRSTo, 'price4OFFECFrom': price4OFFECFrom, 'price4OFFECTo': price4OFFECTo, 'price4OnlineNSPINFrom': price4OnlineNSPINFrom, 'price4OnlineNSPINTo': price4OnlineNSPINTo, 'price4REGUPFrom': price4REGUPFrom, 'price4REGUPTo': price4REGUPTo, 'price4REGDNFrom': price4REGDNFrom, 'price4REGDNTo': price4REGDNTo, 'price4OfflineNSPINFrom': price4OfflineNSPINFrom, 'price4OfflineNSPINTo': price4OfflineNSPINTo, 'quantityMW4From': quantityMW4From, 'quantityMW4To': quantityMW4To, 'blockIndicator5': blockIndicator5, 'price5RRSPFRFrom': price5RRSPFRFrom, 'price5RRSPFRTo': price5RRSPFRTo, 'price5RRSFFRFrom': price5RRSFFRFrom, 'price5RRSFFRTo': price5RRSFFRTo, 'price5RRSUFRFrom': price5RRSUFRFrom, 'price5RRSUFRTo': price5RRSUFRTo, 'price5ECRSFrom': price5ECRSFrom, 'price5ECRSTo': price5ECRSTo, 'price5OFFECFrom': price5OFFECFrom, 'price5OFFECTo': price5OFFECTo, 'price5OnlineNSPINFrom': price5OnlineNSPINFrom, 'price5OnlineNSPINTo': price5OnlineNSPINTo, 'price5REGUPFrom': price5REGUPFrom, 'price5REGUPTo': price5REGUPTo, 'price5REGDNFrom': price5REGDNFrom, 'price5REGDNTo': price5REGDNTo, 'price5OfflineNSPINFrom': price5OfflineNSPINFrom, 'price5OfflineNSPINTo': price5OfflineNSPINTo, 'quantityMW5From': quantityMW5From, 'quantityMW5To': quantityMW5To, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'qseName': qseName, 'dmeName': dmeName, 'resourceName': resourceName, 'multiHourBlock': multiHourBlock, 'blockIndicator1': blockIndicator1, 'price1RRSPFRFrom': price1RRSPFRFrom, 'price1RRSPFRTo': price1RRSPFRTo, 'price1RRSFFRFrom': price1RRSFFRFrom, 'price1RRSFFRTo': price1RRSFFRTo, 'price1RRSUFRFrom': price1RRSUFRFrom, 'price1RRSUFRTo': price1RRSUFRTo, 'price1ECRSFrom': price1ECRSFrom, 'price1ECRSTo': price1ECRSTo, 'price1OFFECFrom': price1OFFECFrom, 'price1OFFECTo': price1OFFECTo, 'price1OnlineNSPINFrom': price1OnlineNSPINFrom, 'price1OnlineNSPINTo': price1OnlineNSPINTo, 'price1REGUPFrom': price1REGUPFrom, 'price1REGUPTo': price1REGUPTo, 'price1REGDNFrom': price1REGDNFrom, 'price1REGDNTo': price1REGDNTo, 'price1OfflineNSPINFrom': price1OfflineNSPINFrom, 'price1OfflineNSPINTo': price1OfflineNSPINTo, 'quantityMW1From': quantityMW1From, 'quantityMW1To': quantityMW1To, 'blockIndicator2': blockIndicator2, 'price2RRSPFRFrom': price2RRSPFRFrom, 'price2RRSPFRTo': price2RRSPFRTo, 'price2RRSFFRFrom': price2RRSFFRFrom, 'price2RRSFFRTo': price2RRSFFRTo, 'price2RRSUFRFrom': price2RRSUFRFrom, 'price2RRSUFRTo': price2RRSUFRTo, 'price2ECRSFrom': price2ECRSFrom, 'price2ECRSTo': price2ECRSTo, 'price2OFFECFrom': price2OFFECFrom, 'price2OFFECTo': price2OFFECTo, 'price2OnlineNSPINFrom': price2OnlineNSPINFrom, 'price2OnlineNSPINTo': price2OnlineNSPINTo, 'price2REGUPFrom': price2REGUPFrom, 'price2REGUPTo': price2REGUPTo, 'price2REGDNFrom': price2REGDNFrom, 'price2REGDNTo': price2REGDNTo, 'price2OfflineNSPINFrom': price2OfflineNSPINFrom, 'price2OfflineNSPINTo': price2OfflineNSPINTo, 'quantityMW2From': quantityMW2From, 'quantityMW2To': quantityMW2To, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4144,6 +6782,61 @@ class np3_966_er:
         startUpHot: Decimal | None
         startUpInter: Decimal | None
 
+    class _60dDamEsrDataHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None
+        dmeName: str | None
+        resourceName: str | None
+        resourceType: str | None
+        qseSubmittedCurveMW1: Decimal | None
+        qseSubmittedCurvePrice1: Decimal | None
+        qseSubmittedCurveMW2: Decimal | None
+        qseSubmittedCurvePrice2: Decimal | None
+        qseSubmittedCurveMW3: Decimal | None
+        qseSubmittedCurvePrice3: Decimal | None
+        qseSubmittedCurveMW4: Decimal | None
+        qseSubmittedCurvePrice4: Decimal | None
+        qseSubmittedCurveMW5: Decimal | None
+        qseSubmittedCurvePrice5: Decimal | None
+        qseSubmittedCurveMW6: Decimal | None
+        qseSubmittedCurvePrice6: Decimal | None
+        qseSubmittedCurveMW7: Decimal | None
+        qseSubmittedCurvePrice7: Decimal | None
+        qseSubmittedCurveMW8: Decimal | None
+        qseSubmittedCurvePrice8: Decimal | None
+        qseSubmittedCurveMW9: Decimal | None
+        qseSubmittedCurvePrice9: Decimal | None
+        qseSubmittedCurveMW10: Decimal | None
+        qseSubmittedCurvePrice10: Decimal | None
+        startUpHot: Decimal | None
+        startUpInter: Decimal | None
+        startUpCold: Decimal | None
+        minGenCost: Decimal | None
+        HSL: Decimal | None
+        LSL: Decimal | None
+        resourceStatus: str | None
+        awardedQuantity: Decimal | None
+        settlementPointName: str | None
+        energySettlementPointPrice: Decimal | None
+        REGUPAwarded: Decimal | None
+        REGUPMCPC: Decimal | None
+        REGDNAwarded: Decimal | None
+        REGDNMCPC: Decimal | None
+        RRSPFRAwarded: Decimal | None
+        RRSFFRAwarded: Decimal | None
+        RRSUFRAwarded: Decimal | None
+        RRSMCPC: Decimal | None
+        ECRSSDAwarded: Decimal | None
+        ECRSMCPC: Decimal | None
+        NSPINAwarded: Decimal | None
+        NSPINMCPC: Decimal | None
+
+    @property
+    def _60d_dam_esr_data_history(self) -> Archive[np3_966_er._60dDamEsrDataHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60dDamEsrDataHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'QSE submitted Curve-MW1': 'qseSubmittedCurveMW1', 'QSE submitted Curve-Price1': 'qseSubmittedCurvePrice1', 'QSE submitted Curve-MW2': 'qseSubmittedCurveMW2', 'QSE submitted Curve-Price2': 'qseSubmittedCurvePrice2', 'QSE submitted Curve-MW3': 'qseSubmittedCurveMW3', 'QSE submitted Curve-Price3': 'qseSubmittedCurvePrice3', 'QSE submitted Curve-MW4': 'qseSubmittedCurveMW4', 'QSE submitted Curve-Price4': 'qseSubmittedCurvePrice4', 'QSE submitted Curve-MW5': 'qseSubmittedCurveMW5', 'QSE submitted Curve-Price5': 'qseSubmittedCurvePrice5', 'QSE submitted Curve-MW6': 'qseSubmittedCurveMW6', 'QSE submitted Curve-Price6': 'qseSubmittedCurvePrice6', 'QSE submitted Curve-MW7': 'qseSubmittedCurveMW7', 'QSE submitted Curve-Price7': 'qseSubmittedCurvePrice7', 'QSE submitted Curve-MW8': 'qseSubmittedCurveMW8', 'QSE submitted Curve-Price8': 'qseSubmittedCurvePrice8', 'QSE submitted Curve-MW9': 'qseSubmittedCurveMW9', 'QSE submitted Curve-Price9': 'qseSubmittedCurvePrice9', 'QSE submitted Curve-MW10': 'qseSubmittedCurveMW10', 'QSE submitted Curve-Price10': 'qseSubmittedCurvePrice10', 'Start Up Hot': 'startUpHot', 'Start Up Inter': 'startUpInter', 'Start Up Cold': 'startUpCold', 'Min Gen Cost': 'minGenCost', 'HSL': 'HSL', 'LSL': 'LSL', 'Resource Status': 'resourceStatus', 'Awarded Quantity': 'awardedQuantity', 'Settlement Point Name': 'settlementPointName', 'Energy Settlement Point Price': 'energySettlementPointPrice', 'RegUp Awarded': 'REGUPAwarded', 'RegUp MCPC': 'REGUPMCPC', 'RegDown Awarded': 'REGDNAwarded', 'RegDown MCPC': 'REGDNMCPC', 'RRSPFR Awarded': 'RRSPFRAwarded', 'RRSFFR Awarded': 'RRSFFRAwarded', 'RRSUFR Awarded': 'RRSUFRAwarded', 'RRS MCPC': 'RRSMCPC', 'ECRSSD Awarded': 'ECRSSDAwarded', 'ECRS MCPC': 'ECRSMCPC', 'NonSpin Awarded': 'NSPINAwarded', 'NonSpin MCPC': 'NSPINMCPC'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_ESR_Data-*.csv', datetimes=None, variants=())
+
     def _60d_dam_esr_data(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, resourceType: str | None = None, qseSubmittedCurveMW1From: Decimal | None = None, qseSubmittedCurveMW1To: Decimal | None = None, qseSubmittedCurvePrice1From: Decimal | None = None, qseSubmittedCurvePrice1To: Decimal | None = None, qseSubmittedCurveMW2From: Decimal | None = None, qseSubmittedCurveMW2To: Decimal | None = None, qseSubmittedCurvePrice2From: Decimal | None = None, qseSubmittedCurvePrice2To: Decimal | None = None, qseSubmittedCurveMW3From: Decimal | None = None, qseSubmittedCurveMW3To: Decimal | None = None, qseSubmittedCurvePrice3From: Decimal | None = None, qseSubmittedCurvePrice3To: Decimal | None = None, qseSubmittedCurveMW4From: Decimal | None = None, qseSubmittedCurveMW4To: Decimal | None = None, qseSubmittedCurvePrice4From: Decimal | None = None, qseSubmittedCurvePrice4To: Decimal | None = None, qseSubmittedCurveMW5From: Decimal | None = None, qseSubmittedCurveMW5To: Decimal | None = None, qseSubmittedCurvePrice5From: Decimal | None = None, qseSubmittedCurvePrice5To: Decimal | None = None, qseSubmittedCurveMW6From: Decimal | None = None, qseSubmittedCurveMW6To: Decimal | None = None, qseSubmittedCurvePrice6From: Decimal | None = None, qseSubmittedCurvePrice6To: Decimal | None = None, qseSubmittedCurveMW7From: Decimal | None = None, qseSubmittedCurveMW7To: Decimal | None = None, qseSubmittedCurvePrice7From: Decimal | None = None, qseSubmittedCurvePrice7To: Decimal | None = None, qseSubmittedCurveMW8From: Decimal | None = None, qseSubmittedCurveMW8To: Decimal | None = None, qseSubmittedCurvePrice8From: Decimal | None = None, qseSubmittedCurvePrice8To: Decimal | None = None, qseSubmittedCurveMW9From: Decimal | None = None, qseSubmittedCurveMW9To: Decimal | None = None, qseSubmittedCurvePrice9From: Decimal | None = None, qseSubmittedCurvePrice9To: Decimal | None = None, qseSubmittedCurveMW10From: Decimal | None = None, qseSubmittedCurveMW10To: Decimal | None = None, qseSubmittedCurvePrice10From: Decimal | None = None, qseSubmittedCurvePrice10To: Decimal | None = None, startUpHotFrom: Decimal | None = None, startUpHotTo: Decimal | None = None, startUpInterFrom: Decimal | None = None, startUpInterTo: Decimal | None = None, startUpColdFrom: Decimal | None = None, startUpColdTo: Decimal | None = None, minGenCostFrom: Decimal | None = None, minGenCostTo: Decimal | None = None, HSLFrom: Decimal | None = None, HSLTo: Decimal | None = None, LSLFrom: Decimal | None = None, LSLTo: Decimal | None = None, resourceStatus: str | None = None, awardedQuantityFrom: Decimal | None = None, awardedQuantityTo: Decimal | None = None, settlementPointName: str | None = None, energySettlementPointPriceFrom: Decimal | None = None, energySettlementPointPriceTo: Decimal | None = None, REGUPAwardedFrom: Decimal | None = None, REGUPAwardedTo: Decimal | None = None, REGUPMCPCFrom: Decimal | None = None, REGUPMCPCTo: Decimal | None = None, REGDNAwardedFrom: Decimal | None = None, REGDNAwardedTo: Decimal | None = None, REGDNMCPCFrom: Decimal | None = None, REGDNMCPCTo: Decimal | None = None, RRSPFRAwardedFrom: Decimal | None = None, RRSPFRAwardedTo: Decimal | None = None, RRSFFRAwardedFrom: Decimal | None = None, RRSFFRAwardedTo: Decimal | None = None, RRSUFRAwardedFrom: Decimal | None = None, RRSUFRAwardedTo: Decimal | None = None, RRSMCPCFrom: Decimal | None = None, RRSMCPCTo: Decimal | None = None, ECRSSDAwardedFrom: Decimal | None = None, ECRSSDAwardedTo: Decimal | None = None, ECRSMCPCFrom: Decimal | None = None, ECRSMCPCTo: Decimal | None = None, NSPINAwardedFrom: Decimal | None = None, NSPINAwardedTo: Decimal | None = None, NSPINMCPCFrom: Decimal | None = None, NSPINMCPCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60dDamEsrDataRow]:
         '60-Day DAM ESR Data'
         return self._client._page('/np3-966-er/60d_dam_esr_data', np3_966_er._60dDamEsrDataRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'qseName': qseName, 'dmeName': dmeName, 'resourceName': resourceName, 'resourceType': resourceType, 'qseSubmittedCurveMW1From': qseSubmittedCurveMW1From, 'qseSubmittedCurveMW1To': qseSubmittedCurveMW1To, 'qseSubmittedCurvePrice1From': qseSubmittedCurvePrice1From, 'qseSubmittedCurvePrice1To': qseSubmittedCurvePrice1To, 'qseSubmittedCurveMW2From': qseSubmittedCurveMW2From, 'qseSubmittedCurveMW2To': qseSubmittedCurveMW2To, 'qseSubmittedCurvePrice2From': qseSubmittedCurvePrice2From, 'qseSubmittedCurvePrice2To': qseSubmittedCurvePrice2To, 'qseSubmittedCurveMW3From': qseSubmittedCurveMW3From, 'qseSubmittedCurveMW3To': qseSubmittedCurveMW3To, 'qseSubmittedCurvePrice3From': qseSubmittedCurvePrice3From, 'qseSubmittedCurvePrice3To': qseSubmittedCurvePrice3To, 'qseSubmittedCurveMW4From': qseSubmittedCurveMW4From, 'qseSubmittedCurveMW4To': qseSubmittedCurveMW4To, 'qseSubmittedCurvePrice4From': qseSubmittedCurvePrice4From, 'qseSubmittedCurvePrice4To': qseSubmittedCurvePrice4To, 'qseSubmittedCurveMW5From': qseSubmittedCurveMW5From, 'qseSubmittedCurveMW5To': qseSubmittedCurveMW5To, 'qseSubmittedCurvePrice5From': qseSubmittedCurvePrice5From, 'qseSubmittedCurvePrice5To': qseSubmittedCurvePrice5To, 'qseSubmittedCurveMW6From': qseSubmittedCurveMW6From, 'qseSubmittedCurveMW6To': qseSubmittedCurveMW6To, 'qseSubmittedCurvePrice6From': qseSubmittedCurvePrice6From, 'qseSubmittedCurvePrice6To': qseSubmittedCurvePrice6To, 'qseSubmittedCurveMW7From': qseSubmittedCurveMW7From, 'qseSubmittedCurveMW7To': qseSubmittedCurveMW7To, 'qseSubmittedCurvePrice7From': qseSubmittedCurvePrice7From, 'qseSubmittedCurvePrice7To': qseSubmittedCurvePrice7To, 'qseSubmittedCurveMW8From': qseSubmittedCurveMW8From, 'qseSubmittedCurveMW8To': qseSubmittedCurveMW8To, 'qseSubmittedCurvePrice8From': qseSubmittedCurvePrice8From, 'qseSubmittedCurvePrice8To': qseSubmittedCurvePrice8To, 'qseSubmittedCurveMW9From': qseSubmittedCurveMW9From, 'qseSubmittedCurveMW9To': qseSubmittedCurveMW9To, 'qseSubmittedCurvePrice9From': qseSubmittedCurvePrice9From, 'qseSubmittedCurvePrice9To': qseSubmittedCurvePrice9To, 'qseSubmittedCurveMW10From': qseSubmittedCurveMW10From, 'qseSubmittedCurveMW10To': qseSubmittedCurveMW10To, 'qseSubmittedCurvePrice10From': qseSubmittedCurvePrice10From, 'qseSubmittedCurvePrice10To': qseSubmittedCurvePrice10To, 'startUpHotFrom': startUpHotFrom, 'startUpHotTo': startUpHotTo, 'startUpInterFrom': startUpInterFrom, 'startUpInterTo': startUpInterTo, 'startUpColdFrom': startUpColdFrom, 'startUpColdTo': startUpColdTo, 'minGenCostFrom': minGenCostFrom, 'minGenCostTo': minGenCostTo, 'HSLFrom': HSLFrom, 'HSLTo': HSLTo, 'LSLFrom': LSLFrom, 'LSLTo': LSLTo, 'resourceStatus': resourceStatus, 'awardedQuantityFrom': awardedQuantityFrom, 'awardedQuantityTo': awardedQuantityTo, 'settlementPointName': settlementPointName, 'energySettlementPointPriceFrom': energySettlementPointPriceFrom, 'energySettlementPointPriceTo': energySettlementPointPriceTo, 'REGUPAwardedFrom': REGUPAwardedFrom, 'REGUPAwardedTo': REGUPAwardedTo, 'REGUPMCPCFrom': REGUPMCPCFrom, 'REGUPMCPCTo': REGUPMCPCTo, 'REGDNAwardedFrom': REGDNAwardedFrom, 'REGDNAwardedTo': REGDNAwardedTo, 'REGDNMCPCFrom': REGDNMCPCFrom, 'REGDNMCPCTo': REGDNMCPCTo, 'RRSPFRAwardedFrom': RRSPFRAwardedFrom, 'RRSPFRAwardedTo': RRSPFRAwardedTo, 'RRSFFRAwardedFrom': RRSFFRAwardedFrom, 'RRSFFRAwardedTo': RRSFFRAwardedTo, 'RRSUFRAwardedFrom': RRSUFRAwardedFrom, 'RRSUFRAwardedTo': RRSUFRAwardedTo, 'RRSMCPCFrom': RRSMCPCFrom, 'RRSMCPCTo': RRSMCPCTo, 'ECRSSDAwardedFrom': ECRSSDAwardedFrom, 'ECRSSDAwardedTo': ECRSSDAwardedTo, 'ECRSMCPCFrom': ECRSMCPCFrom, 'ECRSMCPCTo': ECRSMCPCTo, 'NSPINAwardedFrom': NSPINAwardedFrom, 'NSPINAwardedTo': NSPINAwardedTo, 'NSPINMCPCFrom': NSPINMCPCFrom, 'NSPINMCPCTo': NSPINMCPCTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4208,6 +6901,62 @@ class np3_966_er:
         startUpCold: Decimal | None
         startUpHot: Decimal | None
         startUpInter: Decimal | None
+
+    class _60DamGenResDataHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None = None
+        dmeName: str | None = None
+        resourceName: str | None
+        resourceType: str | None
+        qseSubmittedCurveMW1: Decimal | None
+        qseSubmittedCurvePrice1: Decimal | None
+        qseSubmittedCurveMW2: Decimal | None
+        qseSubmittedCurvePrice2: Decimal | None
+        qseSubmittedCurveMW3: Decimal | None
+        qseSubmittedCurvePrice3: Decimal | None
+        qseSubmittedCurveMW4: Decimal | None
+        qseSubmittedCurvePrice4: Decimal | None
+        qseSubmittedCurveMW5: Decimal | None
+        qseSubmittedCurvePrice5: Decimal | None
+        qseSubmittedCurveMW6: Decimal | None
+        qseSubmittedCurvePrice6: Decimal | None
+        qseSubmittedCurveMW7: Decimal | None
+        qseSubmittedCurvePrice7: Decimal | None
+        qseSubmittedCurveMW8: Decimal | None
+        qseSubmittedCurvePrice8: Decimal | None
+        qseSubmittedCurveMW9: Decimal | None
+        qseSubmittedCurvePrice9: Decimal | None
+        qseSubmittedCurveMW10: Decimal | None
+        qseSubmittedCurvePrice10: Decimal | None
+        startUpHot: Decimal | None
+        startUpInter: Decimal | None
+        startUpCold: Decimal | None
+        minGenCost: Decimal | None
+        HSL: Decimal | None
+        LSL: Decimal | None
+        resourceStatus: str | None
+        awardedQuantity: Decimal | None
+        settlementPointName: str | None
+        energySettlementPointPrice: Decimal | None
+        REGUPAwarded: Decimal | None
+        REGUPMCPC: Decimal | None
+        REGDNAwarded: Decimal | None
+        REGDNMCPC: Decimal | None
+        RRSPFRAwarded: Decimal | None = None
+        RRSFFRAwarded: Decimal | None = None
+        RRSUFRAwarded: Decimal | None = None
+        RRSMCPC: Decimal | None
+        ECRSSDAwarded: Decimal | None = None
+        ECRSMCPC: Decimal | None = None
+        NSPINAwarded: Decimal | None
+        NSPINMCPC: Decimal | None
+        RRSAwarded: Decimal | None = None
+
+    @property
+    def _60_dam_gen_res_data_history(self) -> Archive[np3_966_er._60DamGenResDataHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamGenResDataHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'QSE submitted Curve-MW1': 'qseSubmittedCurveMW1', 'QSE submitted Curve-Price1': 'qseSubmittedCurvePrice1', 'QSE submitted Curve-MW2': 'qseSubmittedCurveMW2', 'QSE submitted Curve-Price2': 'qseSubmittedCurvePrice2', 'QSE submitted Curve-MW3': 'qseSubmittedCurveMW3', 'QSE submitted Curve-Price3': 'qseSubmittedCurvePrice3', 'QSE submitted Curve-MW4': 'qseSubmittedCurveMW4', 'QSE submitted Curve-Price4': 'qseSubmittedCurvePrice4', 'QSE submitted Curve-MW5': 'qseSubmittedCurveMW5', 'QSE submitted Curve-Price5': 'qseSubmittedCurvePrice5', 'QSE submitted Curve-MW6': 'qseSubmittedCurveMW6', 'QSE submitted Curve-Price6': 'qseSubmittedCurvePrice6', 'QSE submitted Curve-MW7': 'qseSubmittedCurveMW7', 'QSE submitted Curve-Price7': 'qseSubmittedCurvePrice7', 'QSE submitted Curve-MW8': 'qseSubmittedCurveMW8', 'QSE submitted Curve-Price8': 'qseSubmittedCurvePrice8', 'QSE submitted Curve-MW9': 'qseSubmittedCurveMW9', 'QSE submitted Curve-Price9': 'qseSubmittedCurvePrice9', 'QSE submitted Curve-MW10': 'qseSubmittedCurveMW10', 'QSE submitted Curve-Price10': 'qseSubmittedCurvePrice10', 'Start Up Hot': 'startUpHot', 'Start Up Inter': 'startUpInter', 'Start Up Cold': 'startUpCold', 'Min Gen Cost': 'minGenCost', 'HSL': 'HSL', 'LSL': 'LSL', 'Resource Status': 'resourceStatus', 'Awarded Quantity': 'awardedQuantity', 'Settlement Point Name': 'settlementPointName', 'Energy Settlement Point Price': 'energySettlementPointPrice', 'RegUp Awarded': 'REGUPAwarded', 'RegUp MCPC': 'REGUPMCPC', 'RegDown Awarded': 'REGDNAwarded', 'RegDown MCPC': 'REGDNMCPC', 'RRSPFR Awarded': 'RRSPFRAwarded', 'RRSFFR Awarded': 'RRSFFRAwarded', 'RRSUFR Awarded': 'RRSUFRAwarded', 'RRS MCPC': 'RRSMCPC', 'ECRSSD Awarded': 'ECRSSDAwarded', 'ECRS MCPC': 'ECRSMCPC', 'NonSpin Awarded': 'NSPINAwarded', 'NonSpin MCPC': 'NSPINMCPC'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_Gen_Resource_Data-*.csv', datetimes=None, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'QSE submitted Curve-MW1': 'qseSubmittedCurveMW1', 'QSE submitted Curve-Price1': 'qseSubmittedCurvePrice1', 'QSE submitted Curve-MW2': 'qseSubmittedCurveMW2', 'QSE submitted Curve-Price2': 'qseSubmittedCurvePrice2', 'QSE submitted Curve-MW3': 'qseSubmittedCurveMW3', 'QSE submitted Curve-Price3': 'qseSubmittedCurvePrice3', 'QSE submitted Curve-MW4': 'qseSubmittedCurveMW4', 'QSE submitted Curve-Price4': 'qseSubmittedCurvePrice4', 'QSE submitted Curve-MW5': 'qseSubmittedCurveMW5', 'QSE submitted Curve-Price5': 'qseSubmittedCurvePrice5', 'QSE submitted Curve-MW6': 'qseSubmittedCurveMW6', 'QSE submitted Curve-Price6': 'qseSubmittedCurvePrice6', 'QSE submitted Curve-MW7': 'qseSubmittedCurveMW7', 'QSE submitted Curve-Price7': 'qseSubmittedCurvePrice7', 'QSE submitted Curve-MW8': 'qseSubmittedCurveMW8', 'QSE submitted Curve-Price8': 'qseSubmittedCurvePrice8', 'QSE submitted Curve-MW9': 'qseSubmittedCurveMW9', 'QSE submitted Curve-Price9': 'qseSubmittedCurvePrice9', 'QSE submitted Curve-MW10': 'qseSubmittedCurveMW10', 'QSE submitted Curve-Price10': 'qseSubmittedCurvePrice10', 'Start Up Hot': 'startUpHot', 'Start Up Inter': 'startUpInter', 'Start Up Cold': 'startUpCold', 'Min Gen Cost': 'minGenCost', 'HSL': 'HSL', 'LSL': 'LSL', 'Resource Status': 'resourceStatus', 'Awarded Quantity': 'awardedQuantity', 'Settlement Point Name': 'settlementPointName', 'Energy Settlement Point Price': 'energySettlementPointPrice', 'RegUp Awarded': 'REGUPAwarded', 'RegUp MCPC': 'REGUPMCPC', 'RegDown Awarded': 'REGDNAwarded', 'RegDown MCPC': 'REGDNMCPC', 'RRS Awarded': 'RRSAwarded', 'RRS MCPC': 'RRSMCPC', 'NonSpin Awarded': 'NSPINAwarded', 'NonSpin MCPC': 'NSPINMCPC'},))
 
     def _60_dam_gen_res_data(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, resourceType: str | None = None, qseSubmittedCurveMW1From: Decimal | None = None, qseSubmittedCurveMW1To: Decimal | None = None, qseSubmittedCurvePrice1From: Decimal | None = None, qseSubmittedCurvePrice1To: Decimal | None = None, qseSubmittedCurveMW2From: Decimal | None = None, qseSubmittedCurveMW2To: Decimal | None = None, qseSubmittedCurvePrice2From: Decimal | None = None, qseSubmittedCurvePrice2To: Decimal | None = None, qseSubmittedCurveMW3From: Decimal | None = None, qseSubmittedCurveMW3To: Decimal | None = None, qseSubmittedCurvePrice3From: Decimal | None = None, qseSubmittedCurvePrice3To: Decimal | None = None, qseSubmittedCurveMW4From: Decimal | None = None, qseSubmittedCurveMW4To: Decimal | None = None, qseSubmittedCurvePrice4From: Decimal | None = None, qseSubmittedCurvePrice4To: Decimal | None = None, qseSubmittedCurveMW5From: Decimal | None = None, qseSubmittedCurveMW5To: Decimal | None = None, qseSubmittedCurvePrice5From: Decimal | None = None, qseSubmittedCurvePrice5To: Decimal | None = None, qseSubmittedCurveMW6From: Decimal | None = None, qseSubmittedCurveMW6To: Decimal | None = None, qseSubmittedCurvePrice6From: Decimal | None = None, qseSubmittedCurvePrice6To: Decimal | None = None, qseSubmittedCurveMW7From: Decimal | None = None, qseSubmittedCurveMW7To: Decimal | None = None, qseSubmittedCurvePrice7From: Decimal | None = None, qseSubmittedCurvePrice7To: Decimal | None = None, ECRSSDAwardedFrom: Decimal | None = None, ECRSSDAwardedTo: Decimal | None = None, qseSubmittedCurveMW8From: Decimal | None = None, qseSubmittedCurveMW8To: Decimal | None = None, ECRSMCPCFrom: Decimal | None = None, ECRSMCPCTo: Decimal | None = None, qseSubmittedCurvePrice8From: Decimal | None = None, qseSubmittedCurvePrice8To: Decimal | None = None, qseSubmittedCurveMW9From: Decimal | None = None, qseSubmittedCurveMW9To: Decimal | None = None, qseSubmittedCurvePrice9From: Decimal | None = None, qseSubmittedCurvePrice9To: Decimal | None = None, qseSubmittedCurveMW10From: Decimal | None = None, qseSubmittedCurveMW10To: Decimal | None = None, qseSubmittedCurvePrice10From: Decimal | None = None, qseSubmittedCurvePrice10To: Decimal | None = None, startUpHotFrom: Decimal | None = None, startUpHotTo: Decimal | None = None, startUpInterFrom: Decimal | None = None, startUpInterTo: Decimal | None = None, startUpColdFrom: Decimal | None = None, startUpColdTo: Decimal | None = None, minGenCostFrom: Decimal | None = None, minGenCostTo: Decimal | None = None, HSLFrom: Decimal | None = None, HSLTo: Decimal | None = None, LSLFrom: Decimal | None = None, LSLTo: Decimal | None = None, resourceStatus: str | None = None, awardedQuantityFrom: Decimal | None = None, awardedQuantityTo: Decimal | None = None, settlementPointName: str | None = None, energySettlementPointPriceFrom: Decimal | None = None, energySettlementPointPriceTo: Decimal | None = None, REGUPAwardedFrom: Decimal | None = None, REGUPAwardedTo: Decimal | None = None, REGUPMCPCFrom: Decimal | None = None, REGUPMCPCTo: Decimal | None = None, REGDNAwardedFrom: Decimal | None = None, REGDNAwardedTo: Decimal | None = None, REGDNMCPCFrom: Decimal | None = None, REGDNMCPCTo: Decimal | None = None, RRSPFRAwardedFrom: Decimal | None = None, RRSPFRAwardedTo: Decimal | None = None, RRSFFRAwardedFrom: Decimal | None = None, RRSFFRAwardedTo: Decimal | None = None, RRSUFRAwardedFrom: Decimal | None = None, RRSUFRAwardedTo: Decimal | None = None, RRSMCPCFrom: Decimal | None = None, RRSMCPCTo: Decimal | None = None, NSPINAwardedFrom: Decimal | None = None, NSPINAwardedTo: Decimal | None = None, NSPINMCPCFrom: Decimal | None = None, NSPINMCPCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamGenResDataRow]:
         '60-Day DAM Generation Resource Data'
@@ -4287,6 +7036,79 @@ class np3_966_er:
         quantityMW5: Decimal | None
         resourceName: str | None
 
+    class _60DamGenResAsOffersHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None = None
+        dmeName: str | None = None
+        resourceName: str | None
+        multiHourBlock: bool | None
+        blockIndicator1: str | None
+        price1RRSPFR: Decimal | None = None
+        price1RRSFFR: Decimal | None = None
+        price1RRSUFR: Decimal | None = None
+        price1ECRS: Decimal | None = None
+        price1OFFEC: Decimal | None = None
+        price1OnlineNSPIN: Decimal | None
+        price1REGUP: Decimal | None
+        price1REGDN: Decimal | None
+        price1OfflineNSPIN: Decimal | None
+        quantityMW1: Decimal | None
+        blockIndicator2: str | None
+        price2RRSPFR: Decimal | None = None
+        price2RRSFFR: Decimal | None = None
+        price2RRSUFR: Decimal | None = None
+        price2ECRS: Decimal | None = None
+        price2OFFEC: Decimal | None = None
+        price2OnlineNSPIN: Decimal | None
+        price2REGUP: Decimal | None
+        price2REGDN: Decimal | None
+        price2OfflineNSPIN: Decimal | None
+        quantityMW2: Decimal | None
+        blockIndicator3: str | None
+        price3RRSPFR: Decimal | None = None
+        price3RRSFFR: Decimal | None = None
+        price3RRSUFR: Decimal | None = None
+        price3ECRS: Decimal | None = None
+        price3OFFEC: Decimal | None = None
+        price3OnlineNSPIN: Decimal | None
+        price3REGUP: Decimal | None
+        price3REGDN: Decimal | None
+        price3OfflineNSPIN: Decimal | None
+        quantityMW3: Decimal | None
+        blockIndicator4: str | None
+        price4RRSPFR: Decimal | None = None
+        price4RRSFFR: Decimal | None = None
+        price4RRSUFR: Decimal | None = None
+        price4ECRS: Decimal | None = None
+        price4OFFEC: Decimal | None = None
+        price4OnlineNSPIN: Decimal | None
+        price4REGUP: Decimal | None
+        price4REGDN: Decimal | None
+        price4OfflineNSPIN: Decimal | None
+        quantityMW4: Decimal | None
+        blockIndicator5: str | None
+        price5RRSPFR: Decimal | None = None
+        price5RRSFFR: Decimal | None = None
+        price5RRSUFR: Decimal | None = None
+        price5ECRS: Decimal | None = None
+        price5OFFEC: Decimal | None = None
+        price5OnlineNSPIN: Decimal | None
+        price5REGUP: Decimal | None
+        price5REGDN: Decimal | None
+        price5OfflineNSPIN: Decimal | None
+        quantityMW5: Decimal | None
+        price1RRS: Decimal | None = None
+        price2RRS: Decimal | None = None
+        price3RRS: Decimal | None = None
+        price4RRS: Decimal | None = None
+        price5RRS: Decimal | None = None
+
+    @property
+    def _60_dam_gen_res_as_offers_history(self) -> Archive[np3_966_er._60DamGenResAsOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamGenResAsOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE': 'qseName', 'DME': 'dmeName', 'Generation Resource Name': 'resourceName', 'Multi-Hour Block Flag': 'multiHourBlock', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRSPFR': 'price1RRSPFR', 'PRICE1 RRSFFR': 'price1RRSFFR', 'PRICE1 RRSUFR': 'price1RRSUFR', 'PRICE1 ECRS': 'price1ECRS', 'PRICE1 OFFEC': 'price1OFFEC', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRSPFR': 'price2RRSPFR', 'PRICE2 RRSFFR': 'price2RRSFFR', 'PRICE2 RRSUFR': 'price2RRSUFR', 'PRICE2 ECRS': 'price2ECRS', 'PRICE2 OFFEC': 'price2OFFEC', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRSPFR': 'price3RRSPFR', 'PRICE3 RRSFFR': 'price3RRSFFR', 'PRICE3 RRSUFR': 'price3RRSUFR', 'PRICE3 ECRS': 'price3ECRS', 'PRICE3 OFFEC': 'price3OFFEC', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRSPFR': 'price4RRSPFR', 'PRICE4 RRSFFR': 'price4RRSFFR', 'PRICE4 RRSUFR': 'price4RRSUFR', 'PRICE4 ECRS': 'price4ECRS', 'PRICE4 OFFEC': 'price4OFFEC', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRSPFR': 'price5RRSPFR', 'PRICE5 RRSFFR': 'price5RRSFFR', 'PRICE5 RRSUFR': 'price5RRSUFR', 'PRICE5 ECRS': 'price5ECRS', 'PRICE5 OFFEC': 'price5OFFEC', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNSPIN', 'QUANTITY MW5': 'quantityMW5'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_Generation_Resource_ASOffers-*.csv', datetimes=None, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Generation Resource Name': 'resourceName', 'Multi-Hour Block Flag': 'multiHourBlock', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRS': 'price1RRS', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRS': 'price2RRS', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRS': 'price3RRS', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRS': 'price4RRS', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRS': 'price5RRS', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNSPIN', 'QUANTITY MW5': 'quantityMW5'},))
+
     def _60_dam_gen_res_as_offers(self, *, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2OnlineNSPINFrom: Decimal | None = None, price2OnlineNSPINTo: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDNFrom: Decimal | None = None, price2REGDNTo: Decimal | None = None, price2OfflineNSPINFrom: Decimal | None = None, price2OfflineNSPINTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, blockIndicator3: str | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3OnlineNSPINFrom: Decimal | None = None, price3OnlineNSPINTo: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDNFrom: Decimal | None = None, price3REGDNTo: Decimal | None = None, price3OfflineNSPINFrom: Decimal | None = None, price3OfflineNSPINTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, blockIndicator4: str | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, price4OnlineNSPINFrom: Decimal | None = None, price4OnlineNSPINTo: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDNFrom: Decimal | None = None, price4REGDNTo: Decimal | None = None, price4OfflineNSPINFrom: Decimal | None = None, price4OfflineNSPINTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, blockIndicator5: str | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5OnlineNSPINFrom: Decimal | None = None, price5OnlineNSPINTo: Decimal | None = None, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDNFrom: Decimal | None = None, price5REGDNTo: Decimal | None = None, price5OfflineNSPINFrom: Decimal | None = None, price5OfflineNSPINTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, price1OFFECFrom: Decimal | None = None, price1OFFECTo: Decimal | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, price2OFFECFrom: Decimal | None = None, price2OFFECTo: Decimal | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, price3OFFECFrom: Decimal | None = None, price3OFFECTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, price4OFFECFrom: Decimal | None = None, price4OFFECTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, price5OFFECFrom: Decimal | None = None, price5OFFECTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, multiHourBlock: bool | None = None, blockIndicator1: str | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price1OnlineNSPINFrom: Decimal | None = None, price1OnlineNSPINTo: Decimal | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDNFrom: Decimal | None = None, price1REGDNTo: Decimal | None = None, price1OfflineNSPINFrom: Decimal | None = None, price1OfflineNSPINTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, blockIndicator2: str | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamGenResAsOffersRow]:
         '60-Day DAM Generation Resources AS Offers'
         return self._client._page('/np3-966-er/60_dam_gen_res_as_offers', np3_966_er._60DamGenResAsOffersRow, {'price2RRSFFRFrom': price2RRSFFRFrom, 'price2RRSFFRTo': price2RRSFFRTo, 'price2RRSUFRFrom': price2RRSUFRFrom, 'price2RRSUFRTo': price2RRSUFRTo, 'price2OnlineNSPINFrom': price2OnlineNSPINFrom, 'price2OnlineNSPINTo': price2OnlineNSPINTo, 'price2REGUPFrom': price2REGUPFrom, 'price2REGUPTo': price2REGUPTo, 'price2REGDNFrom': price2REGDNFrom, 'price2REGDNTo': price2REGDNTo, 'price2OfflineNSPINFrom': price2OfflineNSPINFrom, 'price2OfflineNSPINTo': price2OfflineNSPINTo, 'quantityMW2From': quantityMW2From, 'quantityMW2To': quantityMW2To, 'blockIndicator3': blockIndicator3, 'price3RRSPFRFrom': price3RRSPFRFrom, 'price3RRSPFRTo': price3RRSPFRTo, 'price3RRSFFRFrom': price3RRSFFRFrom, 'price3RRSFFRTo': price3RRSFFRTo, 'price3RRSUFRFrom': price3RRSUFRFrom, 'price3RRSUFRTo': price3RRSUFRTo, 'price3OnlineNSPINFrom': price3OnlineNSPINFrom, 'price3OnlineNSPINTo': price3OnlineNSPINTo, 'price3REGUPFrom': price3REGUPFrom, 'price3REGUPTo': price3REGUPTo, 'price3REGDNFrom': price3REGDNFrom, 'price3REGDNTo': price3REGDNTo, 'price3OfflineNSPINFrom': price3OfflineNSPINFrom, 'price3OfflineNSPINTo': price3OfflineNSPINTo, 'quantityMW3From': quantityMW3From, 'quantityMW3To': quantityMW3To, 'blockIndicator4': blockIndicator4, 'price4RRSPFRFrom': price4RRSPFRFrom, 'price4RRSPFRTo': price4RRSPFRTo, 'price4RRSFFRFrom': price4RRSFFRFrom, 'price4RRSFFRTo': price4RRSFFRTo, 'price4RRSUFRFrom': price4RRSUFRFrom, 'price4RRSUFRTo': price4RRSUFRTo, 'price4OnlineNSPINFrom': price4OnlineNSPINFrom, 'price4OnlineNSPINTo': price4OnlineNSPINTo, 'price4REGUPFrom': price4REGUPFrom, 'price4REGUPTo': price4REGUPTo, 'price4REGDNFrom': price4REGDNFrom, 'price4REGDNTo': price4REGDNTo, 'price4OfflineNSPINFrom': price4OfflineNSPINFrom, 'price4OfflineNSPINTo': price4OfflineNSPINTo, 'quantityMW4From': quantityMW4From, 'quantityMW4To': quantityMW4To, 'blockIndicator5': blockIndicator5, 'price5RRSPFRFrom': price5RRSPFRFrom, 'price5RRSPFRTo': price5RRSPFRTo, 'price5RRSFFRFrom': price5RRSFFRFrom, 'price5RRSFFRTo': price5RRSFFRTo, 'price5RRSUFRFrom': price5RRSUFRFrom, 'price5RRSUFRTo': price5RRSUFRTo, 'price5OnlineNSPINFrom': price5OnlineNSPINFrom, 'price5OnlineNSPINTo': price5OnlineNSPINTo, 'price5REGUPFrom': price5REGUPFrom, 'price5REGUPTo': price5REGUPTo, 'price5REGDNFrom': price5REGDNFrom, 'price5REGDNTo': price5REGDNTo, 'price5OfflineNSPINFrom': price5OfflineNSPINFrom, 'price5OfflineNSPINTo': price5OfflineNSPINTo, 'quantityMW5From': quantityMW5From, 'quantityMW5To': quantityMW5To, 'price1ECRSFrom': price1ECRSFrom, 'price1ECRSTo': price1ECRSTo, 'price1OFFECFrom': price1OFFECFrom, 'price1OFFECTo': price1OFFECTo, 'price2ECRSFrom': price2ECRSFrom, 'price2ECRSTo': price2ECRSTo, 'price2OFFECFrom': price2OFFECFrom, 'price2OFFECTo': price2OFFECTo, 'price3ECRSFrom': price3ECRSFrom, 'price3ECRSTo': price3ECRSTo, 'price3OFFECFrom': price3OFFECFrom, 'price3OFFECTo': price3OFFECTo, 'price4ECRSFrom': price4ECRSFrom, 'price4ECRSTo': price4ECRSTo, 'price4OFFECFrom': price4OFFECFrom, 'price4OFFECTo': price4OFFECTo, 'price5ECRSFrom': price5ECRSFrom, 'price5ECRSTo': price5ECRSTo, 'price5OFFECFrom': price5OFFECFrom, 'price5OFFECTo': price5OFFECTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'qseName': qseName, 'dmeName': dmeName, 'resourceName': resourceName, 'multiHourBlock': multiHourBlock, 'blockIndicator1': blockIndicator1, 'price1RRSPFRFrom': price1RRSPFRFrom, 'price1RRSPFRTo': price1RRSPFRTo, 'price1RRSFFRFrom': price1RRSFFRFrom, 'price1RRSFFRTo': price1RRSFFRTo, 'price1RRSUFRFrom': price1RRSUFRFrom, 'price1RRSUFRTo': price1RRSUFRTo, 'price1OnlineNSPINFrom': price1OnlineNSPINFrom, 'price1OnlineNSPINTo': price1OnlineNSPINTo, 'price1REGUPFrom': price1REGUPFrom, 'price1REGUPTo': price1REGUPTo, 'price1REGDNFrom': price1REGDNFrom, 'price1REGDNTo': price1REGDNTo, 'price1OfflineNSPINFrom': price1OfflineNSPINFrom, 'price1OfflineNSPINTo': price1OfflineNSPINTo, 'quantityMW1From': quantityMW1From, 'quantityMW1To': quantityMW1To, 'blockIndicator2': blockIndicator2, 'price2RRSPFRFrom': price2RRSPFRFrom, 'price2RRSPFRTo': price2RRSPFRTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4321,6 +7143,32 @@ class np3_966_er:
         loadResourceName: str | None
         lowPowerConsumption: Decimal | None
         maxPowerConsumption: Decimal | None
+
+    class _60DamLoadResDataHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        loadResourceName: str | None
+        maxPowerConsumption: Decimal | None
+        lowPowerConsumption: Decimal | None
+        REGUPAwarded: Decimal | None
+        REGUPMCPC: Decimal | None
+        REGDNAwarded: Decimal | None
+        REGDNMCPC: Decimal | None
+        RRSPFRAwarded: Decimal | None = None
+        RRSFFRAwarded: Decimal | None = None
+        RRSUFRAwarded: Decimal | None = None
+        RRSMCPC: Decimal | None
+        ECRSSDAwarded: Decimal | None = None
+        ECRSMDAwarded: Decimal | None = None
+        ECRSMCPC: Decimal | None = None
+        NSPINAwarded: Decimal | None
+        NSPINMCPC: Decimal | None
+        RRSAwarded: Decimal | None = None
+
+    @property
+    def _60_dam_load_res_data_history(self) -> Archive[np3_966_er._60DamLoadResDataHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamLoadResDataHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Load Resource Name': 'loadResourceName', 'Max Power Consumption for Load Resource': 'maxPowerConsumption', 'Low Power Consumption for Load Resource': 'lowPowerConsumption', 'RegUp Awarded': 'REGUPAwarded', 'RegUp MCPC': 'REGUPMCPC', 'RegDown Awarded': 'REGDNAwarded', 'RegDown MCPC': 'REGDNMCPC', 'RRSPFR Awarded': 'RRSPFRAwarded', 'RRSFFR Awarded': 'RRSFFRAwarded', 'RRSUFR Awarded': 'RRSUFRAwarded', 'RRS MCPC': 'RRSMCPC', 'ECRSSD Awarded': 'ECRSSDAwarded', 'ECRSMD Awarded': 'ECRSMDAwarded', 'ECRS MCPC': 'ECRSMCPC', 'NonSpin Awarded': 'NSPINAwarded', 'NonSpin MCPC': 'NSPINMCPC'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_Load_Resource_Data-*.csv', datetimes=None, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Load Resource Name': 'loadResourceName', 'Max Power Consumption for Load Resource': 'maxPowerConsumption', 'Low Power Consumption for Load Resource': 'lowPowerConsumption', 'RegUp Awarded': 'REGUPAwarded', 'RegUp MCPC': 'REGUPMCPC', 'RegDown Awarded': 'REGDNAwarded', 'RegDown MCPC': 'REGDNMCPC', 'RRS Awarded': 'RRSAwarded', 'RRS MCPC': 'RRSMCPC', 'NonSpin Awarded': 'NSPINAwarded', 'NonSpin MCPC': 'NSPINMCPC'},))
 
     def _60_dam_load_res_data(self, *, REGUPMCPCFrom: Decimal | None = None, REGUPMCPCTo: Decimal | None = None, ECRSMCPCFrom: Decimal | None = None, ECRSMCPCTo: Decimal | None = None, REGDNAwardedFrom: Decimal | None = None, REGDNAwardedTo: Decimal | None = None, REGDNMCPCFrom: Decimal | None = None, REGDNMCPCTo: Decimal | None = None, RRSPFRAwardedFrom: Decimal | None = None, RRSPFRAwardedTo: Decimal | None = None, RRSFFRAwardedFrom: Decimal | None = None, RRSFFRAwardedTo: Decimal | None = None, RRSUFRAwardedFrom: Decimal | None = None, RRSUFRAwardedTo: Decimal | None = None, RRSMCPCFrom: Decimal | None = None, RRSMCPCTo: Decimal | None = None, NSPINAwardedFrom: Decimal | None = None, NSPINAwardedTo: Decimal | None = None, NSPINMCPCFrom: Decimal | None = None, NSPINMCPCTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, loadResourceName: str | None = None, maxPowerConsumptionFrom: Decimal | None = None, maxPowerConsumptionTo: Decimal | None = None, lowPowerConsumptionFrom: Decimal | None = None, lowPowerConsumptionTo: Decimal | None = None, ECRSSDAwardedFrom: Decimal | None = None, ECRSSDAwardedTo: Decimal | None = None, REGUPAwardedFrom: Decimal | None = None, REGUPAwardedTo: Decimal | None = None, ECRSMDAwardedFrom: Decimal | None = None, ECRSMDAwardedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamLoadResDataRow]:
         '60-Day DAM Load Resource Data'
@@ -4401,6 +7249,80 @@ class np3_966_er:
         quantityMW4: Decimal | None
         quantityMW5: Decimal | None
 
+    class _60DamLoadResAsOffersHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None = None
+        dmeName: str | None = None
+        loadResourceName: str | None
+        multiHourBlock: bool | None
+        blockIndicator1: str | None
+        price1RRSPFR: Decimal | None = None
+        price1RRSFFR: Decimal | None = None
+        price1RRSUFR: Decimal | None = None
+        price1ECRS: Decimal | None = None
+        price1OFFEC: Decimal | None = None
+        price1OnlineNSPIN: Decimal | None
+        price1REGUP: Decimal | None
+        price1REGDN: Decimal | None
+        price1OfflineNSPIN: Decimal | None
+        quantityMW1: Decimal | None
+        blockIndicator2: str | None
+        price2RRSPFR: Decimal | None = None
+        price2RRSFFR: Decimal | None = None
+        price2RRSUFR: Decimal | None = None
+        price2ECRS: Decimal | None = None
+        price2OFFEC: Decimal | None = None
+        price2OnlineNSPIN: Decimal | None
+        price2REGUP: Decimal | None
+        price2REGDN: Decimal | None
+        price2OfflineNSPIN: Decimal | None
+        quantityMW2: Decimal | None
+        blockIndicator3: str | None
+        price3RRSPFR: Decimal | None = None
+        price3RRSFFR: Decimal | None = None
+        price3RRSUFR: Decimal | None = None
+        price3ECRS: Decimal | None = None
+        price3OFFEC: Decimal | None = None
+        price3OnlineNSPIN: Decimal | None
+        price3REGUP: Decimal | None
+        price3REGDN: Decimal | None
+        price3OfflineNSPIN: Decimal | None
+        quantityMW3: Decimal | None
+        blockIndicator4: str | None
+        price4RRSPFR: Decimal | None = None
+        price4RRSFFR: Decimal | None = None
+        price4RRSUFR: Decimal | None = None
+        price4ECRS: Decimal | None = None
+        price4OFFEC: Decimal | None = None
+        price4OnlineNSPIN: Decimal | None
+        price4REGUP: Decimal | None
+        price4REGDN: Decimal | None
+        price4OfflineNSPIN: Decimal | None
+        quantityMW4: Decimal | None
+        blockIndicator5: str | None
+        price5RRSPFR: Decimal | None = None
+        price5RRSFFR: Decimal | None = None
+        price5RRSUFR: Decimal | None = None
+        price5ECRS: Decimal | None = None
+        price5OFFEC: Decimal | None = None
+        price5OnlineNSPIN: Decimal | None
+        price5REGUP: Decimal | None
+        price5REGDN: Decimal | None
+        price5OfflineNSPIN: Decimal | None
+        quantityMW5: Decimal | None
+        NCLRFlag: bool | None
+        price1RRS: Decimal | None = None
+        price2RRS: Decimal | None = None
+        price3RRS: Decimal | None = None
+        price4RRS: Decimal | None = None
+        price5RRS: Decimal | None = None
+
+    @property
+    def _60_dam_load_res_as_offers_history(self) -> Archive[np3_966_er._60DamLoadResAsOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamLoadResAsOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE': 'qseName', 'DME': 'dmeName', 'Load Resource Name': 'loadResourceName', 'Multi-Hour Block Flag': 'multiHourBlock', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRSPFR': 'price1RRSPFR', 'PRICE1 RRSFFR': 'price1RRSFFR', 'PRICE1 RRSUFR': 'price1RRSUFR', 'PRICE1 ECRS': 'price1ECRS', 'PRICE1 OFFEC': 'price1OFFEC', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRSPFR': 'price2RRSPFR', 'PRICE2 RRSFFR': 'price2RRSFFR', 'PRICE2 RRSUFR': 'price2RRSUFR', 'PRICE2 ECRS': 'price2ECRS', 'PRICE2 OFFEC': 'price2OFFEC', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRSPFR': 'price3RRSPFR', 'PRICE3 RRSFFR': 'price3RRSFFR', 'PRICE3 RRSUFR': 'price3RRSUFR', 'PRICE3 ECRS': 'price3ECRS', 'PRICE3 OFFEC': 'price3OFFEC', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRSPFR': 'price4RRSPFR', 'PRICE4 RRSFFR': 'price4RRSFFR', 'PRICE4 RRSUFR': 'price4RRSUFR', 'PRICE4 ECRS': 'price4ECRS', 'PRICE4 OFFEC': 'price4OFFEC', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRSPFR': 'price5RRSPFR', 'PRICE5 RRSFFR': 'price5RRSFFR', 'PRICE5 RRSUFR': 'price5RRSUFR', 'PRICE5 ECRS': 'price5ECRS', 'PRICE5 OFFEC': 'price5OFFEC', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNSPIN', 'QUANTITY MW5': 'quantityMW5', 'NCLR Flag': 'NCLRFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_Load_Resource_ASOffers-*.csv', datetimes=None, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Load Resource Name': 'loadResourceName', 'Multi-Hour Block Flag': 'multiHourBlock', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRS': 'price1RRS', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRS': 'price2RRS', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRS': 'price3RRS', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRS': 'price4RRS', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRS': 'price5RRS', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNSPIN', 'QUANTITY MW5': 'quantityMW5', 'NCLR Flag': 'NCLRFlag'},))
+
     def _60_dam_load_res_as_offers(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, dmeName: str | None = None, loadResourceName: str | None = None, multiHourBlock: bool | None = None, blockIndicator1: str | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price1OnlineNSPINFrom: Decimal | None = None, price1OnlineNSPINTo: Decimal | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDNFrom: Decimal | None = None, price1REGDNTo: Decimal | None = None, price1OfflineNSPINFrom: Decimal | None = None, price1OfflineNSPINTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, blockIndicator2: str | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2OnlineNSPINFrom: Decimal | None = None, price2OnlineNSPINTo: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDNFrom: Decimal | None = None, price2REGDNTo: Decimal | None = None, price2OfflineNSPINFrom: Decimal | None = None, price2OfflineNSPINTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, blockIndicator3: str | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3OnlineNSPINFrom: Decimal | None = None, price3OnlineNSPINTo: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDNFrom: Decimal | None = None, price3REGDNTo: Decimal | None = None, price3OfflineNSPINFrom: Decimal | None = None, price3OfflineNSPINTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, blockIndicator4: str | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, price4OnlineNSPINFrom: Decimal | None = None, price4OnlineNSPINTo: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDNFrom: Decimal | None = None, price4REGDNTo: Decimal | None = None, price4OfflineNSPINFrom: Decimal | None = None, price4OfflineNSPINTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, blockIndicator5: str | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5OnlineNSPINFrom: Decimal | None = None, price5OnlineNSPINTo: Decimal | None = None, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDNFrom: Decimal | None = None, price5REGDNTo: Decimal | None = None, price5OfflineNSPINFrom: Decimal | None = None, price5OfflineNSPINTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, NCLRFlag: bool | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, price1OFFECFrom: Decimal | None = None, price1OFFECTo: Decimal | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, price2OFFECFrom: Decimal | None = None, price2OFFECTo: Decimal | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, price3OFFECFrom: Decimal | None = None, price3OFFECTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, price4OFFECFrom: Decimal | None = None, price4OFFECTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, price5OFFECFrom: Decimal | None = None, price5OFFECTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamLoadResAsOffersRow]:
         '60-Day DAM Load Resources AS Offers'
         return self._client._page('/np3-966-er/60_dam_load_res_as_offers', np3_966_er._60DamLoadResAsOffersRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'qseName': qseName, 'dmeName': dmeName, 'loadResourceName': loadResourceName, 'multiHourBlock': multiHourBlock, 'blockIndicator1': blockIndicator1, 'price1RRSPFRFrom': price1RRSPFRFrom, 'price1RRSPFRTo': price1RRSPFRTo, 'price1RRSFFRFrom': price1RRSFFRFrom, 'price1RRSFFRTo': price1RRSFFRTo, 'price1RRSUFRFrom': price1RRSUFRFrom, 'price1RRSUFRTo': price1RRSUFRTo, 'price1OnlineNSPINFrom': price1OnlineNSPINFrom, 'price1OnlineNSPINTo': price1OnlineNSPINTo, 'price1REGUPFrom': price1REGUPFrom, 'price1REGUPTo': price1REGUPTo, 'price1REGDNFrom': price1REGDNFrom, 'price1REGDNTo': price1REGDNTo, 'price1OfflineNSPINFrom': price1OfflineNSPINFrom, 'price1OfflineNSPINTo': price1OfflineNSPINTo, 'quantityMW1From': quantityMW1From, 'quantityMW1To': quantityMW1To, 'blockIndicator2': blockIndicator2, 'price2RRSPFRFrom': price2RRSPFRFrom, 'price2RRSPFRTo': price2RRSPFRTo, 'price2RRSFFRFrom': price2RRSFFRFrom, 'price2RRSFFRTo': price2RRSFFRTo, 'price2RRSUFRFrom': price2RRSUFRFrom, 'price2RRSUFRTo': price2RRSUFRTo, 'price2OnlineNSPINFrom': price2OnlineNSPINFrom, 'price2OnlineNSPINTo': price2OnlineNSPINTo, 'price2REGUPFrom': price2REGUPFrom, 'price2REGUPTo': price2REGUPTo, 'price2REGDNFrom': price2REGDNFrom, 'price2REGDNTo': price2REGDNTo, 'price2OfflineNSPINFrom': price2OfflineNSPINFrom, 'price2OfflineNSPINTo': price2OfflineNSPINTo, 'quantityMW2From': quantityMW2From, 'quantityMW2To': quantityMW2To, 'blockIndicator3': blockIndicator3, 'price3RRSPFRFrom': price3RRSPFRFrom, 'price3RRSPFRTo': price3RRSPFRTo, 'price3RRSFFRFrom': price3RRSFFRFrom, 'price3RRSFFRTo': price3RRSFFRTo, 'price3RRSUFRFrom': price3RRSUFRFrom, 'price3RRSUFRTo': price3RRSUFRTo, 'price3OnlineNSPINFrom': price3OnlineNSPINFrom, 'price3OnlineNSPINTo': price3OnlineNSPINTo, 'price3REGUPFrom': price3REGUPFrom, 'price3REGUPTo': price3REGUPTo, 'price3REGDNFrom': price3REGDNFrom, 'price3REGDNTo': price3REGDNTo, 'price3OfflineNSPINFrom': price3OfflineNSPINFrom, 'price3OfflineNSPINTo': price3OfflineNSPINTo, 'quantityMW3From': quantityMW3From, 'quantityMW3To': quantityMW3To, 'blockIndicator4': blockIndicator4, 'price4RRSPFRFrom': price4RRSPFRFrom, 'price4RRSPFRTo': price4RRSPFRTo, 'price4RRSFFRFrom': price4RRSFFRFrom, 'price4RRSFFRTo': price4RRSFFRTo, 'price4RRSUFRFrom': price4RRSUFRFrom, 'price4RRSUFRTo': price4RRSUFRTo, 'price4OnlineNSPINFrom': price4OnlineNSPINFrom, 'price4OnlineNSPINTo': price4OnlineNSPINTo, 'price4REGUPFrom': price4REGUPFrom, 'price4REGUPTo': price4REGUPTo, 'price4REGDNFrom': price4REGDNFrom, 'price4REGDNTo': price4REGDNTo, 'price4OfflineNSPINFrom': price4OfflineNSPINFrom, 'price4OfflineNSPINTo': price4OfflineNSPINTo, 'quantityMW4From': quantityMW4From, 'quantityMW4To': quantityMW4To, 'blockIndicator5': blockIndicator5, 'price5RRSPFRFrom': price5RRSPFRFrom, 'price5RRSPFRTo': price5RRSPFRTo, 'price5RRSFFRFrom': price5RRSFFRFrom, 'price5RRSFFRTo': price5RRSFFRTo, 'price5RRSUFRFrom': price5RRSUFRFrom, 'price5RRSUFRTo': price5RRSUFRTo, 'price5OnlineNSPINFrom': price5OnlineNSPINFrom, 'price5OnlineNSPINTo': price5OnlineNSPINTo, 'price5REGUPFrom': price5REGUPFrom, 'price5REGUPTo': price5REGUPTo, 'price5REGDNFrom': price5REGDNFrom, 'price5REGDNTo': price5REGDNTo, 'price5OfflineNSPINFrom': price5OfflineNSPINFrom, 'price5OfflineNSPINTo': price5OfflineNSPINTo, 'quantityMW5From': quantityMW5From, 'quantityMW5To': quantityMW5To, 'NCLRFlag': NCLRFlag, 'price1ECRSFrom': price1ECRSFrom, 'price1ECRSTo': price1ECRSTo, 'price1OFFECFrom': price1OFFECFrom, 'price1OFFECTo': price1OFFECTo, 'price2ECRSFrom': price2ECRSFrom, 'price2ECRSTo': price2ECRSTo, 'price2OFFECFrom': price2OFFECFrom, 'price2OFFECTo': price2OFFECTo, 'price3ECRSFrom': price3ECRSFrom, 'price3ECRSTo': price3ECRSTo, 'price3OFFECFrom': price3OFFECFrom, 'price3OFFECTo': price3OFFECTo, 'price4ECRSFrom': price4ECRSFrom, 'price4ECRSTo': price4ECRSTo, 'price4OFFECFrom': price4OFFECFrom, 'price4OFFECTo': price4OFFECTo, 'price5ECRSFrom': price5ECRSFrom, 'price5ECRSTo': price5ECRSTo, 'price5OFFECFrom': price5OFFECFrom, 'price5OFFECTo': price5OFFECTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4425,6 +7347,21 @@ class np3_966_er:
         qseName: str | None
         settlementPointSink: str | None
         settlementPointSource: str | None
+
+    class _60DamPtpOblBidAwardsHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        PTPBidAwardMW: Decimal | None
+        PTPBidPrice: Decimal | None
+        bidId: str | None
+
+    @property
+    def _60_dam_ptp_obl_bid_awards_history(self) -> Archive[np3_966_er._60DamPtpOblBidAwardsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamPtpOblBidAwardsHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE Name': 'qseName', 'Settlement Point Source': 'settlementPointSource', 'Settlement Point Sink': 'settlementPointSink', 'PtP Bid Award - MW': 'PTPBidAwardMW', 'PtP Bid - Price': 'PTPBidPrice', 'Bid ID': 'bidId'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_PTPObligationBidAwards-*.csv', datetimes=None, variants=())
 
     def _60_dam_ptp_obl_bid_awards(self, *, settlementPointSource: str | None = None, settlementPointSink: str | None = None, PTPBidAwardMWFrom: Decimal | None = None, PTPBidAwardMWTo: Decimal | None = None, PTPBidPriceFrom: Decimal | None = None, PTPBidPriceTo: Decimal | None = None, bidId: str | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamPtpOblBidAwardsRow]:
         '60-Day DAM PTP Obligation Bid Awards'
@@ -4451,6 +7388,22 @@ class np3_966_er:
         qseName: str | None
         settlementPointSink: str | None
         settlementPointSource: str | None
+
+    class _60DamPtpOblBidsHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        PTPBidMW: Decimal | None
+        PTPBidPrice: Decimal | None
+        bidId: str | None
+        multiHourBlock: bool | None
+
+    @property
+    def _60_dam_ptp_obl_bids_history(self) -> Archive[np3_966_er._60DamPtpOblBidsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamPtpOblBidsHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE Name': 'qseName', 'Settlement Point Source': 'settlementPointSource', 'Settlement Point Sink': 'settlementPointSink', 'PtP Bid - MW': 'PTPBidMW', 'PtP Bid - Price': 'PTPBidPrice', 'Bid ID': 'bidId', 'Multi-Hour Block Indicator': 'multiHourBlock'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_PTPObligationBids-*.csv', datetimes=None, variants=())
 
     def _60_dam_ptp_obl_bids(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, PTPBidMWFrom: Decimal | None = None, PTPBidMWTo: Decimal | None = None, PTPBidPriceFrom: Decimal | None = None, PTPBidPriceTo: Decimal | None = None, bidId: str | None = None, multiHourBlock: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamPtpOblBidsRow]:
         '60-Day DAM PTP Obligation Bids'
@@ -4479,6 +7432,23 @@ class np3_966_er:
         settlementPointSink: str | None
         settlementPointSource: str | None
 
+    class _60DamPtpOblOptHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        MW: Decimal | None
+        price: Decimal | None
+        offerId: str | None
+        multiHourBlock: bool | None
+        CRRId: str | None
+
+    @property
+    def _60_dam_ptp_obl_opt_history(self) -> Archive[np3_966_er._60DamPtpOblOptHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamPtpOblOptHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE Name': 'qseName', 'Settlement Point Source': 'settlementPointSource', 'Settlement Point Sink': 'settlementPointSink', 'MW': 'MW', 'Price': 'price', 'Offer ID': 'offerId', 'Multi-Hour Block Indicator': 'multiHourBlock', 'CRR ID': 'CRRId'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_PTP_Obligation_Option-*.csv', datetimes=None, variants=())
+
     def _60_dam_ptp_obl_opt(self, *, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, offerId: str | None = None, multiHourBlock: bool | None = None, CRRId: str | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamPtpOblOptRow]:
         '60-Day DAM PTP Obligation Option'
         return self._client._page('/np3-966-er/60_dam_ptp_obl_opt', np3_966_er._60DamPtpOblOptRow, {'MWFrom': MWFrom, 'MWTo': MWTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'offerId': offerId, 'multiHourBlock': multiHourBlock, 'CRRId': CRRId, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'qseName': qseName, 'settlementPointSource': settlementPointSource, 'settlementPointSink': settlementPointSink, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4504,6 +7474,22 @@ class np3_966_er:
         qseName: str | None
         settlementPointSink: str | None
         settlementPointSource: str | None
+
+    class _60DamPtpOblOptAwardsHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None
+        settlementPointSource: str | None
+        settlementPointSink: str | None
+        MW: Decimal | None
+        price: Decimal | None
+        offerId: str | None
+        CRRId: str | None
+
+    @property
+    def _60_dam_ptp_obl_opt_awards_history(self) -> Archive[np3_966_er._60DamPtpOblOptAwardsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamPtpOblOptAwardsHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE Name': 'qseName', 'Settlement Point Source': 'settlementPointSource', 'Settlement Point Sink': 'settlementPointSink', 'MW': 'MW', 'Price': 'price', 'Offer ID': 'offerId', 'CRR ID': 'CRRId'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_PTP_Obligation_OptionAwards-*.csv', datetimes=None, variants=())
 
     def _60_dam_ptp_obl_opt_awards(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, settlementPointSource: str | None = None, settlementPointSink: str | None = None, MWFrom: Decimal | None = None, MWTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, offerId: str | None = None, CRRId: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamPtpOblOptAwardsRow]:
         '60-Day DAM PTP Obligation Option Awards'
@@ -4533,6 +7519,28 @@ class np3_966_er:
         totalSelfArrangedASRRSFFR: Decimal | None
         totalSelfArrangedASRRSPFR: Decimal | None
         totalSelfArrangedASRRSUFR: Decimal | None
+
+    class _60DamQseSelfAsHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None
+        totalSelfArrangedASREGUP: Decimal | None
+        totalSelfArrangedASREGDN: Decimal | None
+        totalSelfArrangedASNSPIN: Decimal | None
+        totalSelfArrangedASNSPNM: Decimal | None = None
+        totalSelfArrangedASRRSPFR: Decimal | None = None
+        totalSelfArrangedASRRSFFR: Decimal | None = None
+        totalSelfArrangedASRRSUFR: Decimal | None = None
+        totalSelfArrangedASECRSSD: Decimal | None = None
+        totalSelfArrangedASECRSMD: Decimal | None = None
+        totalSelfArrangedASRRSGen: Decimal | None = None
+        totalSelfArrangedASRRSCLR: Decimal | None = None
+        totalSelfArrangedASRRSNCLR: Decimal | None = None
+
+    @property
+    def _60_dam_qse_self_as_history(self) -> Archive[np3_966_er._60DamQseSelfAsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-966-er', np3_966_er._60DamQseSelfAsHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE': 'qseName', 'Total Self-Arranged AS RegUp': 'totalSelfArrangedASREGUP', 'Total Self-Arranged AS RegDown': 'totalSelfArrangedASREGDN', 'Total Self-Arranged AS NonSpin': 'totalSelfArrangedASNSPIN', 'Total Self-Arranged AS NSPNM': 'totalSelfArrangedASNSPNM', 'Total Self-Arranged AS RRSPFR': 'totalSelfArrangedASRRSPFR', 'Total Self-Arranged AS RRSFFR': 'totalSelfArrangedASRRSFFR', 'Total Self-Arranged AS RRSUFR': 'totalSelfArrangedASRRSUFR', 'Total Self-Arranged AS ECRSSD': 'totalSelfArrangedASECRSSD', 'Total Self-Arranged AS ECRSMD': 'totalSelfArrangedASECRSMD'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_DAM_QSE_Self_Arranged_AS-*.csv', datetimes=None, variants=({'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE': 'qseName', 'Total Self-Arranged AS RegUp': 'totalSelfArrangedASREGUP', 'Total Self-Arranged AS RegDown': 'totalSelfArrangedASREGDN', 'Total Self-Arranged AS NonSpin': 'totalSelfArrangedASNSPIN', 'Total Self-Arranged AS RRS for Gen': 'totalSelfArrangedASRRSGen', 'Total Self-Arranged AS RRS for CLR': 'totalSelfArrangedASRRSCLR', 'Total Self-Arranged AS RRS for NCLR': 'totalSelfArrangedASRRSNCLR'},))
 
     def _60_dam_qse_self_as(self, *, totalSelfArrangedASRRSUFRFrom: Decimal | None = None, totalSelfArrangedASRRSUFRTo: Decimal | None = None, totalSelfArrangedASECRSSDFrom: Decimal | None = None, totalSelfArrangedASECRSSDTo: Decimal | None = None, totalSelfArrangedASECRSMDFrom: Decimal | None = None, totalSelfArrangedASECRSMDTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, totalSelfArrangedASREGUPFrom: Decimal | None = None, totalSelfArrangedASREGUPTo: Decimal | None = None, totalSelfArrangedASREGDNFrom: Decimal | None = None, totalSelfArrangedASREGDNTo: Decimal | None = None, totalSelfArrangedASNSPINFrom: Decimal | None = None, totalSelfArrangedASNSPINTo: Decimal | None = None, totalSelfArrangedASNSPNMFrom: Decimal | None = None, totalSelfArrangedASNSPNMTo: Decimal | None = None, totalSelfArrangedASRRSPFRFrom: Decimal | None = None, totalSelfArrangedASRRSPFRTo: Decimal | None = None, totalSelfArrangedASRRSFFRFrom: Decimal | None = None, totalSelfArrangedASRRSFFRTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_966_er._60DamQseSelfAsRow]:
         '60-Day DAM QSE Self Arranged AS'
@@ -4618,6 +7626,76 @@ class np3_987_ex:
         quantityMW4: Decimal | None
         quantityMW5: Decimal | None
         resourceName: str | None
+
+    class _7dTrigMcpc50xfipHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: int | None
+        qseName: str | None
+        dmeName: str | None
+        resourceName: str | None
+        FIPx50: Decimal | None
+        MCPC: Decimal | None
+        multiHourBlockFlag: bool | None
+        blockIndicator1: str | None
+        price1RRSPFR: Decimal | None
+        price1RRSFFR: Decimal | None
+        price1RRSUFR: Decimal | None
+        price1ECRS: Decimal | None
+        price1OFFEC: Decimal | None
+        price1OnlineNONSPIN: Decimal | None
+        price1REGUP: Decimal | None
+        price1REGDOWN: Decimal | None
+        price1OfflineNONSPIN: Decimal | None
+        quantityMW1: Decimal | None
+        blockIndicator2: str | None
+        price2RRSPFR: Decimal | None
+        price2RRSFFR: Decimal | None
+        price2RRSUFR: Decimal | None
+        price2ECRS: Decimal | None
+        price2OFFEC: Decimal | None
+        price2OnlineNONSPIN: Decimal | None
+        price2REGUP: Decimal | None
+        price2REGDOWN: Decimal | None
+        price2OfflineNONSPIN: Decimal | None
+        quantityMW2: Decimal | None
+        blockIndicator3: str | None
+        price3RRSPFR: Decimal | None
+        price3RRSFFR: Decimal | None
+        price3RRSUFR: Decimal | None
+        price3ECRS: Decimal | None
+        price3OFFEC: Decimal | None
+        price3OnlineNONSPIN: Decimal | None
+        price3REGUP: Decimal | None
+        price3REGDOWN: Decimal | None
+        price3OfflineNONSPIN: Decimal | None
+        quantityMW3: Decimal | None
+        blockIndicator4: str | None
+        price4RRSPFR: Decimal | None
+        price4RRSFFR: Decimal | None
+        price4RRSUFR: Decimal | None
+        price4ECRS: Decimal | None
+        price4OFFEC: Decimal | None
+        price4OnlineNONSPIN: Decimal | None
+        price4REGUP: Decimal | None
+        price4REGDOWN: Decimal | None
+        price4OfflineNONSPIN: Decimal | None
+        quantityMW4: Decimal | None
+        blockIndicator5: str | None
+        price5RRSPFR: Decimal | None
+        price5RRSFFR: Decimal | None
+        price5RRSUFR: Decimal | None
+        price5ECRS: Decimal | None
+        price5OFFEC: Decimal | None
+        price5OnlineNONSPIN: Decimal | None
+        price5REGUP: Decimal | None
+        price5REGDOWN: Decimal | None
+        price5OfflineNONSPIN: Decimal | None
+        quantityMW5: Decimal | None
+
+    @property
+    def _7d_trig_mcpc_50xfip_history(self) -> Archive[np3_987_ex._7dTrigMcpc50xfipHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-987-ex', np3_987_ex._7dTrigMcpc50xfipHistoryRow, {'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'QSE': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', '50xFIP': 'FIPx50', 'MCPC': 'MCPC', 'Multi-Hour Block Flag': 'multiHourBlockFlag', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRSPFR': 'price1RRSPFR', 'PRICE1 RRSFFR': 'price1RRSFFR', 'PRICE1 RRSUFR': 'price1RRSUFR', 'PRICE1 ECRS': 'price1ECRS', 'PRICE1 OFFEC': 'price1OFFEC', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNONSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDOWN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNONSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRSPFR': 'price2RRSPFR', 'PRICE2 RRSFFR': 'price2RRSFFR', 'PRICE2 RRSUFR': 'price2RRSUFR', 'PRICE2 ECRS': 'price2ECRS', 'PRICE2 OFFEC': 'price2OFFEC', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNONSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDOWN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNONSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRSPFR': 'price3RRSPFR', 'PRICE3 RRSFFR': 'price3RRSFFR', 'PRICE3 RRSUFR': 'price3RRSUFR', 'PRICE3 ECRS': 'price3ECRS', 'PRICE3 OFFEC': 'price3OFFEC', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNONSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDOWN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNONSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRSPFR': 'price4RRSPFR', 'PRICE4 RRSFFR': 'price4RRSFFR', 'PRICE4 RRSUFR': 'price4RRSUFR', 'PRICE4 ECRS': 'price4ECRS', 'PRICE4 OFFEC': 'price4OFFEC', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNONSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDOWN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNONSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRSPFR': 'price5RRSPFR', 'PRICE5 RRSFFR': 'price5RRSFFR', 'PRICE5 RRSUFR': 'price5RRSUFR', 'PRICE5 ECRS': 'price5ECRS', 'PRICE5 OFFEC': 'price5OFFEC', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNONSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDOWN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNONSPIN', 'QUANTITY MW5': 'quantityMW5'}, {'deliveryDate': '%m/%d/%Y'}, member='7day_Event_Trigger_DAM_MCPC_Exceeds_50XFIP-[0-9]*.csv', datetimes={}, variants=())
 
     def _7d_trig_mcpc_50xfip(self, *, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDOWNFrom: Decimal | None = None, price5REGDOWNTo: Decimal | None = None, price5OfflineNONSPINFrom: Decimal | None = None, price5OfflineNONSPINTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, FIPx50From: Decimal | None = None, FIPx50To: Decimal | None = None, MCPCFrom: Decimal | None = None, MCPCTo: Decimal | None = None, multiHourBlockFlag: bool | None = None, blockIndicator1: str | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, price1OFFECFrom: Decimal | None = None, price1OFFECTo: Decimal | None = None, price1OnlineNONSPINFrom: Decimal | None = None, price1OnlineNONSPINTo: Decimal | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDOWNFrom: Decimal | None = None, price1REGDOWNTo: Decimal | None = None, price1OfflineNONSPINFrom: Decimal | None = None, price1OfflineNONSPINTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, blockIndicator2: str | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, price2OFFECFrom: Decimal | None = None, price2OFFECTo: Decimal | None = None, price2OnlineNONSPINFrom: Decimal | None = None, price2OnlineNONSPINTo: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDOWNFrom: Decimal | None = None, price2REGDOWNTo: Decimal | None = None, price2OfflineNONSPINFrom: Decimal | None = None, price2OfflineNONSPINTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, blockIndicator3: str | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, price3OFFECFrom: Decimal | None = None, price3OFFECTo: Decimal | None = None, price3OnlineNONSPINFrom: Decimal | None = None, price3OnlineNONSPINTo: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDOWNFrom: Decimal | None = None, price3REGDOWNTo: Decimal | None = None, price3OfflineNONSPINFrom: Decimal | None = None, price3OfflineNONSPINTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, blockIndicator4: str | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, price4OFFECFrom: Decimal | None = None, price4OFFECTo: Decimal | None = None, price4OnlineNONSPINFrom: Decimal | None = None, price4OnlineNONSPINTo: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDOWNFrom: Decimal | None = None, price4REGDOWNTo: Decimal | None = None, price4OfflineNONSPINFrom: Decimal | None = None, price4OfflineNONSPINTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, blockIndicator5: str | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, price5OFFECFrom: Decimal | None = None, price5OFFECTo: Decimal | None = None, price5OnlineNONSPINFrom: Decimal | None = None, price5OnlineNONSPINTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_987_ex._7dTrigMcpc50xfipRow]:
         '7-Day Event Trigger Posting When DAM MCPC Exceeds 50xFIP'
@@ -4733,6 +7811,110 @@ class np3_987_ex:
         submittedTPOPrice8: Decimal | None
         submittedTPOPrice9: Decimal | None
 
+    class _7dTrigLmp50xfipHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        resourceName: str | None
+        LMP: Decimal | None
+        FIPx50: Decimal | None
+        SCED2CurveMW1: Decimal | None
+        SCED2CurvePrice1: Decimal | None
+        SCED2CurveMW2: Decimal | None
+        SCED2CurvePrice2: Decimal | None
+        SCED2CurveMW3: Decimal | None
+        SCED2CurvePrice3: Decimal | None
+        SCED2CurveMW4: Decimal | None
+        SCED2CurvePrice4: Decimal | None
+        SCED2CurveMW5: Decimal | None
+        SCED2CurvePrice5: Decimal | None
+        SCED2CurveMW6: Decimal | None
+        SCED2CurvePrice6: Decimal | None
+        SCED2CurveMW7: Decimal | None
+        SCED2CurvePrice7: Decimal | None
+        SCED2CurveMW8: Decimal | None
+        SCED2CurvePrice8: Decimal | None
+        SCED2CurveMW9: Decimal | None
+        SCED2CurvePrice9: Decimal | None
+        SCED2CurveMW10: Decimal | None
+        SCED2CurvePrice10: Decimal | None
+        SCED2CurveMW11: Decimal | None
+        SCED2CurvePrice11: Decimal | None
+        SCED2CurveMW12: Decimal | None
+        SCED2CurvePrice12: Decimal | None
+        SCED2CurveMW13: Decimal | None
+        SCED2CurvePrice13: Decimal | None
+        SCED2CurveMW14: Decimal | None
+        SCED2CurvePrice14: Decimal | None
+        SCED2CurveMW15: Decimal | None
+        SCED2CurvePrice15: Decimal | None
+        SCED2CurveMW16: Decimal | None
+        SCED2CurvePrice16: Decimal | None
+        SCED2CurveMW17: Decimal | None
+        SCED2CurvePrice17: Decimal | None
+        SCED2CurveMW18: Decimal | None
+        SCED2CurvePrice18: Decimal | None
+        SCED2CurveMW19: Decimal | None
+        SCED2CurvePrice19: Decimal | None
+        SCED2CurveMW20: Decimal | None
+        SCED2CurvePrice20: Decimal | None
+        SCED2CurveMW21: Decimal | None
+        SCED2CurvePrice21: Decimal | None
+        SCED2CurveMW22: Decimal | None
+        SCED2CurvePrice22: Decimal | None
+        SCED2CurveMW23: Decimal | None
+        SCED2CurvePrice23: Decimal | None
+        SCED2CurveMW24: Decimal | None
+        SCED2CurvePrice24: Decimal | None
+        SCED2CurveMW25: Decimal | None
+        SCED2CurvePrice25: Decimal | None
+        SCED2CurveMW26: Decimal | None
+        SCED2CurvePrice26: Decimal | None
+        SCED2CurveMW27: Decimal | None
+        SCED2CurvePrice27: Decimal | None
+        SCED2CurveMW28: Decimal | None
+        SCED2CurvePrice28: Decimal | None
+        SCED2CurveMW29: Decimal | None
+        SCED2CurvePrice29: Decimal | None
+        SCED2CurveMW30: Decimal | None
+        SCED2CurvePrice30: Decimal | None
+        SCED2CurveMW31: Decimal | None
+        SCED2CurvePrice31: Decimal | None
+        SCED2CurveMW32: Decimal | None
+        SCED2CurvePrice32: Decimal | None
+        SCED2CurveMW33: Decimal | None
+        SCED2CurvePrice33: Decimal | None
+        SCED2CurveMW34: Decimal | None
+        SCED2CurvePrice34: Decimal | None
+        SCED2CurveMW35: Decimal | None
+        SCED2CurvePrice35: Decimal | None
+        bidType: str | None
+        submittedTPOMW1: Decimal | None
+        submittedTPOPrice1: Decimal | None
+        submittedTPOMW2: Decimal | None
+        submittedTPOPrice2: Decimal | None
+        submittedTPOMW3: Decimal | None
+        submittedTPOPrice3: Decimal | None
+        submittedTPOMW4: Decimal | None
+        submittedTPOPrice4: Decimal | None
+        submittedTPOMW5: Decimal | None
+        submittedTPOPrice5: Decimal | None
+        submittedTPOMW6: Decimal | None
+        submittedTPOPrice6: Decimal | None
+        submittedTPOMW7: Decimal | None
+        submittedTPOPrice7: Decimal | None
+        submittedTPOMW8: Decimal | None
+        submittedTPOPrice8: Decimal | None
+        submittedTPOMW9: Decimal | None
+        submittedTPOPrice9: Decimal | None
+        submittedTPOMW10: Decimal | None
+        submittedTPOPrice10: Decimal | None
+        proxyExtension: str | None
+
+    @property
+    def _7d_trig_lmp_50xfip_history(self) -> Archive[np3_987_ex._7dTrigLmp50xfipHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-987-ex', np3_987_ex._7dTrigLmp50xfipHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Resource Name': 'resourceName', 'LMP': 'LMP', '50xFIP': 'FIPx50', 'SCED2 Curve-MW1': 'SCED2CurveMW1', 'SCED2 Curve-Price1': 'SCED2CurvePrice1', 'SCED2 Curve-MW2': 'SCED2CurveMW2', 'SCED2 Curve-Price2': 'SCED2CurvePrice2', 'SCED2 Curve-MW3': 'SCED2CurveMW3', 'SCED2 Curve-Price3': 'SCED2CurvePrice3', 'SCED2 Curve-MW4': 'SCED2CurveMW4', 'SCED2 Curve-Price4': 'SCED2CurvePrice4', 'SCED2 Curve-MW5': 'SCED2CurveMW5', 'SCED2 Curve-Price5': 'SCED2CurvePrice5', 'SCED2 Curve-MW6': 'SCED2CurveMW6', 'SCED2 Curve-Price6': 'SCED2CurvePrice6', 'SCED2 Curve-MW7': 'SCED2CurveMW7', 'SCED2 Curve-Price7': 'SCED2CurvePrice7', 'SCED2 Curve-MW8': 'SCED2CurveMW8', 'SCED2 Curve-Price8': 'SCED2CurvePrice8', 'SCED2 Curve-MW9': 'SCED2CurveMW9', 'SCED2 Curve-Price9': 'SCED2CurvePrice9', 'SCED2 Curve-MW10': 'SCED2CurveMW10', 'SCED2 Curve-Price10': 'SCED2CurvePrice10', 'SCED2 Curve-MW11': 'SCED2CurveMW11', 'SCED2 Curve-Price11': 'SCED2CurvePrice11', 'SCED2 Curve-MW12': 'SCED2CurveMW12', 'SCED2 Curve-Price12': 'SCED2CurvePrice12', 'SCED2 Curve-MW13': 'SCED2CurveMW13', 'SCED2 Curve-Price13': 'SCED2CurvePrice13', 'SCED2 Curve-MW14': 'SCED2CurveMW14', 'SCED2 Curve-Price14': 'SCED2CurvePrice14', 'SCED2 Curve-MW15': 'SCED2CurveMW15', 'SCED2 Curve-Price15': 'SCED2CurvePrice15', 'SCED2 Curve-MW16': 'SCED2CurveMW16', 'SCED2 Curve-Price16': 'SCED2CurvePrice16', 'SCED2 Curve-MW17': 'SCED2CurveMW17', 'SCED2 Curve-Price17': 'SCED2CurvePrice17', 'SCED2 Curve-MW18': 'SCED2CurveMW18', 'SCED2 Curve-Price18': 'SCED2CurvePrice18', 'SCED2 Curve-MW19': 'SCED2CurveMW19', 'SCED2 Curve-Price19': 'SCED2CurvePrice19', 'SCED2 Curve-MW20': 'SCED2CurveMW20', 'SCED2 Curve-Price20': 'SCED2CurvePrice20', 'SCED2 Curve-MW21': 'SCED2CurveMW21', 'SCED2 Curve-Price21': 'SCED2CurvePrice21', 'SCED2 Curve-MW22': 'SCED2CurveMW22', 'SCED2 Curve-Price22': 'SCED2CurvePrice22', 'SCED2 Curve-MW23': 'SCED2CurveMW23', 'SCED2 Curve-Price23': 'SCED2CurvePrice23', 'SCED2 Curve-MW24': 'SCED2CurveMW24', 'SCED2 Curve-Price24': 'SCED2CurvePrice24', 'SCED2 Curve-MW25': 'SCED2CurveMW25', 'SCED2 Curve-Price25': 'SCED2CurvePrice25', 'SCED2 Curve-MW26': 'SCED2CurveMW26', 'SCED2 Curve-Price26': 'SCED2CurvePrice26', 'SCED2 Curve-MW27': 'SCED2CurveMW27', 'SCED2 Curve-Price27': 'SCED2CurvePrice27', 'SCED2 Curve-MW28': 'SCED2CurveMW28', 'SCED2 Curve-Price28': 'SCED2CurvePrice28', 'SCED2 Curve-MW29': 'SCED2CurveMW29', 'SCED2 Curve-Price29': 'SCED2CurvePrice29', 'SCED2 Curve-MW30': 'SCED2CurveMW30', 'SCED2 Curve-Price30': 'SCED2CurvePrice30', 'SCED2 Curve-MW31': 'SCED2CurveMW31', 'SCED2 Curve-Price31': 'SCED2CurvePrice31', 'SCED2 Curve-MW32': 'SCED2CurveMW32', 'SCED2 Curve-Price32': 'SCED2CurvePrice32', 'SCED2 Curve-MW33': 'SCED2CurveMW33', 'SCED2 Curve-Price33': 'SCED2CurvePrice33', 'SCED2 Curve-MW34': 'SCED2CurveMW34', 'SCED2 Curve-Price34': 'SCED2CurvePrice34', 'SCED2 Curve-MW35': 'SCED2CurveMW35', 'SCED2 Curve-Price35': 'SCED2CurvePrice35', 'Bid Type': 'bidType', 'Submitted TPO-MW1': 'submittedTPOMW1', 'Submitted TPO-Price1': 'submittedTPOPrice1', 'Submitted TPO-MW2': 'submittedTPOMW2', 'Submitted TPO-Price2': 'submittedTPOPrice2', 'Submitted TPO-MW3': 'submittedTPOMW3', 'Submitted TPO-Price3': 'submittedTPOPrice3', 'Submitted TPO-MW4': 'submittedTPOMW4', 'Submitted TPO-Price4': 'submittedTPOPrice4', 'Submitted TPO-MW5': 'submittedTPOMW5', 'Submitted TPO-Price5': 'submittedTPOPrice5', 'Submitted TPO-MW6': 'submittedTPOMW6', 'Submitted TPO-Price6': 'submittedTPOPrice6', 'Submitted TPO-MW7': 'submittedTPOMW7', 'Submitted TPO-Price7': 'submittedTPOPrice7', 'Submitted TPO-MW8': 'submittedTPOMW8', 'Submitted TPO-Price8': 'submittedTPOPrice8', 'Submitted TPO-MW9': 'submittedTPOMW9', 'Submitted TPO-Price9': 'submittedTPOPrice9', 'Submitted TPO-MW10': 'submittedTPOMW10', 'Submitted TPO-Price10': 'submittedTPOPrice10', 'Proxy Extension': 'proxyExtension'}, {}, member='7day_Event_Trigger_LMP_Exceeds_50XFIP-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _7d_trig_lmp_50xfip(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, resourceName: str | None = None, LMPFrom: Decimal | None = None, LMPTo: Decimal | None = None, FIPx50From: Decimal | None = None, FIPx50To: Decimal | None = None, SCED2CurveMW1From: Decimal | None = None, SCED2CurveMW1To: Decimal | None = None, SCED2CurvePrice1From: Decimal | None = None, SCED2CurvePrice1To: Decimal | None = None, SCED2CurveMW2From: Decimal | None = None, SCED2CurveMW2To: Decimal | None = None, SCED2CurvePrice2From: Decimal | None = None, SCED2CurvePrice2To: Decimal | None = None, SCED2CurveMW3From: Decimal | None = None, SCED2CurveMW3To: Decimal | None = None, SCED2CurvePrice3From: Decimal | None = None, SCED2CurvePrice3To: Decimal | None = None, SCED2CurveMW4From: Decimal | None = None, SCED2CurveMW4To: Decimal | None = None, SCED2CurvePrice4From: Decimal | None = None, SCED2CurvePrice4To: Decimal | None = None, SCED2CurveMW5From: Decimal | None = None, SCED2CurveMW5To: Decimal | None = None, SCED2CurvePrice5From: Decimal | None = None, SCED2CurvePrice5To: Decimal | None = None, SCED2CurveMW6From: Decimal | None = None, SCED2CurveMW6To: Decimal | None = None, SCED2CurvePrice6From: Decimal | None = None, SCED2CurvePrice6To: Decimal | None = None, SCED2CurveMW7From: Decimal | None = None, SCED2CurveMW7To: Decimal | None = None, SCED2CurvePrice7From: Decimal | None = None, SCED2CurvePrice7To: Decimal | None = None, SCED2CurveMW8From: Decimal | None = None, SCED2CurveMW8To: Decimal | None = None, SCED2CurvePrice8From: Decimal | None = None, SCED2CurvePrice8To: Decimal | None = None, SCED2CurveMW9From: Decimal | None = None, SCED2CurveMW9To: Decimal | None = None, SCED2CurvePrice9From: Decimal | None = None, SCED2CurvePrice9To: Decimal | None = None, SCED2CurveMW10From: Decimal | None = None, SCED2CurveMW10To: Decimal | None = None, SCED2CurvePrice10From: Decimal | None = None, SCED2CurvePrice10To: Decimal | None = None, SCED2CurveMW11From: Decimal | None = None, SCED2CurveMW11To: Decimal | None = None, SCED2CurvePrice11From: Decimal | None = None, SCED2CurvePrice11To: Decimal | None = None, SCED2CurveMW12From: Decimal | None = None, SCED2CurveMW12To: Decimal | None = None, SCED2CurvePrice12From: Decimal | None = None, SCED2CurvePrice12To: Decimal | None = None, SCED2CurveMW13From: Decimal | None = None, SCED2CurveMW13To: Decimal | None = None, SCED2CurvePrice13From: Decimal | None = None, SCED2CurvePrice13To: Decimal | None = None, SCED2CurveMW14From: Decimal | None = None, SCED2CurveMW14To: Decimal | None = None, SCED2CurvePrice14From: Decimal | None = None, SCED2CurvePrice14To: Decimal | None = None, SCED2CurveMW15From: Decimal | None = None, SCED2CurveMW15To: Decimal | None = None, SCED2CurvePrice15From: Decimal | None = None, SCED2CurvePrice15To: Decimal | None = None, SCED2CurveMW16From: Decimal | None = None, SCED2CurveMW16To: Decimal | None = None, SCED2CurvePrice16From: Decimal | None = None, SCED2CurvePrice16To: Decimal | None = None, SCED2CurveMW17From: Decimal | None = None, SCED2CurveMW17To: Decimal | None = None, SCED2CurvePrice17From: Decimal | None = None, SCED2CurvePrice17To: Decimal | None = None, SCED2CurveMW18From: Decimal | None = None, SCED2CurveMW18To: Decimal | None = None, SCED2CurvePrice18From: Decimal | None = None, SCED2CurvePrice18To: Decimal | None = None, SCED2CurveMW19From: Decimal | None = None, SCED2CurveMW19To: Decimal | None = None, SCED2CurvePrice19From: Decimal | None = None, SCED2CurvePrice19To: Decimal | None = None, SCED2CurveMW20From: Decimal | None = None, SCED2CurveMW20To: Decimal | None = None, SCED2CurvePrice20From: Decimal | None = None, SCED2CurvePrice20To: Decimal | None = None, SCED2CurveMW21From: Decimal | None = None, SCED2CurveMW21To: Decimal | None = None, SCED2CurvePrice21From: Decimal | None = None, SCED2CurvePrice21To: Decimal | None = None, SCED2CurveMW22From: Decimal | None = None, SCED2CurveMW22To: Decimal | None = None, SCED2CurvePrice22From: Decimal | None = None, SCED2CurvePrice22To: Decimal | None = None, SCED2CurveMW23From: Decimal | None = None, SCED2CurveMW23To: Decimal | None = None, SCED2CurvePrice23From: Decimal | None = None, SCED2CurvePrice23To: Decimal | None = None, SCED2CurveMW24From: Decimal | None = None, SCED2CurveMW24To: Decimal | None = None, SCED2CurvePrice24From: Decimal | None = None, SCED2CurvePrice24To: Decimal | None = None, SCED2CurveMW25From: Decimal | None = None, SCED2CurveMW25To: Decimal | None = None, SCED2CurvePrice25From: Decimal | None = None, SCED2CurvePrice25To: Decimal | None = None, SCED2CurveMW26From: Decimal | None = None, SCED2CurveMW26To: Decimal | None = None, SCED2CurvePrice26From: Decimal | None = None, SCED2CurvePrice26To: Decimal | None = None, SCED2CurveMW27From: Decimal | None = None, SCED2CurveMW27To: Decimal | None = None, SCED2CurvePrice27From: Decimal | None = None, SCED2CurvePrice27To: Decimal | None = None, SCED2CurveMW28From: Decimal | None = None, SCED2CurveMW28To: Decimal | None = None, SCED2CurvePrice28From: Decimal | None = None, SCED2CurvePrice28To: Decimal | None = None, SCED2CurveMW29From: Decimal | None = None, SCED2CurveMW29To: Decimal | None = None, SCED2CurvePrice29From: Decimal | None = None, SCED2CurvePrice29To: Decimal | None = None, SCED2CurveMW30From: Decimal | None = None, SCED2CurveMW30To: Decimal | None = None, SCED2CurvePrice30From: Decimal | None = None, SCED2CurvePrice30To: Decimal | None = None, SCED2CurveMW31From: Decimal | None = None, SCED2CurveMW31To: Decimal | None = None, SCED2CurvePrice31From: Decimal | None = None, SCED2CurvePrice31To: Decimal | None = None, SCED2CurveMW32From: Decimal | None = None, SCED2CurveMW32To: Decimal | None = None, SCED2CurvePrice32From: Decimal | None = None, SCED2CurvePrice32To: Decimal | None = None, SCED2CurveMW33From: Decimal | None = None, SCED2CurveMW33To: Decimal | None = None, SCED2CurvePrice33From: Decimal | None = None, SCED2CurvePrice33To: Decimal | None = None, SCED2CurveMW34From: Decimal | None = None, SCED2CurveMW34To: Decimal | None = None, SCED2CurvePrice34From: Decimal | None = None, SCED2CurvePrice34To: Decimal | None = None, SCED2CurveMW35From: Decimal | None = None, SCED2CurveMW35To: Decimal | None = None, SCED2CurvePrice35From: Decimal | None = None, SCED2CurvePrice35To: Decimal | None = None, bidType: str | None = None, submittedTPOMW1From: Decimal | None = None, submittedTPOMW1To: Decimal | None = None, submittedTPOPrice1From: Decimal | None = None, submittedTPOPrice1To: Decimal | None = None, submittedTPOMW2From: Decimal | None = None, submittedTPOMW2To: Decimal | None = None, submittedTPOPrice2From: Decimal | None = None, submittedTPOPrice2To: Decimal | None = None, submittedTPOMW3From: Decimal | None = None, submittedTPOMW3To: Decimal | None = None, submittedTPOPrice3From: Decimal | None = None, submittedTPOPrice3To: Decimal | None = None, submittedTPOMW4From: Decimal | None = None, submittedTPOMW4To: Decimal | None = None, submittedTPOPrice4From: Decimal | None = None, submittedTPOPrice4To: Decimal | None = None, submittedTPOMW5From: Decimal | None = None, submittedTPOMW5To: Decimal | None = None, submittedTPOPrice5From: Decimal | None = None, submittedTPOPrice5To: Decimal | None = None, submittedTPOMW6From: Decimal | None = None, submittedTPOMW6To: Decimal | None = None, submittedTPOPrice6From: Decimal | None = None, submittedTPOPrice6To: Decimal | None = None, submittedTPOMW7From: Decimal | None = None, submittedTPOMW7To: Decimal | None = None, submittedTPOPrice7From: Decimal | None = None, submittedTPOPrice7To: Decimal | None = None, submittedTPOMW8From: Decimal | None = None, submittedTPOMW8To: Decimal | None = None, submittedTPOPrice8From: Decimal | None = None, submittedTPOPrice8To: Decimal | None = None, submittedTPOMW9From: Decimal | None = None, submittedTPOMW9To: Decimal | None = None, submittedTPOPrice9From: Decimal | None = None, submittedTPOPrice9To: Decimal | None = None, submittedTPOMW10From: Decimal | None = None, submittedTPOMW10To: Decimal | None = None, submittedTPOPrice10From: Decimal | None = None, submittedTPOPrice10To: Decimal | None = None, proxyExtension: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_987_ex._7dTrigLmp50xfipRow]:
         '7-Day Event Trigger Posting when LMP exceeds 50xFIP'
         return self._client._page('/np3-987-ex/7d_trig_lmp_50xfip', np3_987_ex._7dTrigLmp50xfipRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'resourceName': resourceName, 'LMPFrom': LMPFrom, 'LMPTo': LMPTo, 'FIPx50From': FIPx50From, 'FIPx50To': FIPx50To, 'SCED2CurveMW1From': SCED2CurveMW1From, 'SCED2CurveMW1To': SCED2CurveMW1To, 'SCED2CurvePrice1From': SCED2CurvePrice1From, 'SCED2CurvePrice1To': SCED2CurvePrice1To, 'SCED2CurveMW2From': SCED2CurveMW2From, 'SCED2CurveMW2To': SCED2CurveMW2To, 'SCED2CurvePrice2From': SCED2CurvePrice2From, 'SCED2CurvePrice2To': SCED2CurvePrice2To, 'SCED2CurveMW3From': SCED2CurveMW3From, 'SCED2CurveMW3To': SCED2CurveMW3To, 'SCED2CurvePrice3From': SCED2CurvePrice3From, 'SCED2CurvePrice3To': SCED2CurvePrice3To, 'SCED2CurveMW4From': SCED2CurveMW4From, 'SCED2CurveMW4To': SCED2CurveMW4To, 'SCED2CurvePrice4From': SCED2CurvePrice4From, 'SCED2CurvePrice4To': SCED2CurvePrice4To, 'SCED2CurveMW5From': SCED2CurveMW5From, 'SCED2CurveMW5To': SCED2CurveMW5To, 'SCED2CurvePrice5From': SCED2CurvePrice5From, 'SCED2CurvePrice5To': SCED2CurvePrice5To, 'SCED2CurveMW6From': SCED2CurveMW6From, 'SCED2CurveMW6To': SCED2CurveMW6To, 'SCED2CurvePrice6From': SCED2CurvePrice6From, 'SCED2CurvePrice6To': SCED2CurvePrice6To, 'SCED2CurveMW7From': SCED2CurveMW7From, 'SCED2CurveMW7To': SCED2CurveMW7To, 'SCED2CurvePrice7From': SCED2CurvePrice7From, 'SCED2CurvePrice7To': SCED2CurvePrice7To, 'SCED2CurveMW8From': SCED2CurveMW8From, 'SCED2CurveMW8To': SCED2CurveMW8To, 'SCED2CurvePrice8From': SCED2CurvePrice8From, 'SCED2CurvePrice8To': SCED2CurvePrice8To, 'SCED2CurveMW9From': SCED2CurveMW9From, 'SCED2CurveMW9To': SCED2CurveMW9To, 'SCED2CurvePrice9From': SCED2CurvePrice9From, 'SCED2CurvePrice9To': SCED2CurvePrice9To, 'SCED2CurveMW10From': SCED2CurveMW10From, 'SCED2CurveMW10To': SCED2CurveMW10To, 'SCED2CurvePrice10From': SCED2CurvePrice10From, 'SCED2CurvePrice10To': SCED2CurvePrice10To, 'SCED2CurveMW11From': SCED2CurveMW11From, 'SCED2CurveMW11To': SCED2CurveMW11To, 'SCED2CurvePrice11From': SCED2CurvePrice11From, 'SCED2CurvePrice11To': SCED2CurvePrice11To, 'SCED2CurveMW12From': SCED2CurveMW12From, 'SCED2CurveMW12To': SCED2CurveMW12To, 'SCED2CurvePrice12From': SCED2CurvePrice12From, 'SCED2CurvePrice12To': SCED2CurvePrice12To, 'SCED2CurveMW13From': SCED2CurveMW13From, 'SCED2CurveMW13To': SCED2CurveMW13To, 'SCED2CurvePrice13From': SCED2CurvePrice13From, 'SCED2CurvePrice13To': SCED2CurvePrice13To, 'SCED2CurveMW14From': SCED2CurveMW14From, 'SCED2CurveMW14To': SCED2CurveMW14To, 'SCED2CurvePrice14From': SCED2CurvePrice14From, 'SCED2CurvePrice14To': SCED2CurvePrice14To, 'SCED2CurveMW15From': SCED2CurveMW15From, 'SCED2CurveMW15To': SCED2CurveMW15To, 'SCED2CurvePrice15From': SCED2CurvePrice15From, 'SCED2CurvePrice15To': SCED2CurvePrice15To, 'SCED2CurveMW16From': SCED2CurveMW16From, 'SCED2CurveMW16To': SCED2CurveMW16To, 'SCED2CurvePrice16From': SCED2CurvePrice16From, 'SCED2CurvePrice16To': SCED2CurvePrice16To, 'SCED2CurveMW17From': SCED2CurveMW17From, 'SCED2CurveMW17To': SCED2CurveMW17To, 'SCED2CurvePrice17From': SCED2CurvePrice17From, 'SCED2CurvePrice17To': SCED2CurvePrice17To, 'SCED2CurveMW18From': SCED2CurveMW18From, 'SCED2CurveMW18To': SCED2CurveMW18To, 'SCED2CurvePrice18From': SCED2CurvePrice18From, 'SCED2CurvePrice18To': SCED2CurvePrice18To, 'SCED2CurveMW19From': SCED2CurveMW19From, 'SCED2CurveMW19To': SCED2CurveMW19To, 'SCED2CurvePrice19From': SCED2CurvePrice19From, 'SCED2CurvePrice19To': SCED2CurvePrice19To, 'SCED2CurveMW20From': SCED2CurveMW20From, 'SCED2CurveMW20To': SCED2CurveMW20To, 'SCED2CurvePrice20From': SCED2CurvePrice20From, 'SCED2CurvePrice20To': SCED2CurvePrice20To, 'SCED2CurveMW21From': SCED2CurveMW21From, 'SCED2CurveMW21To': SCED2CurveMW21To, 'SCED2CurvePrice21From': SCED2CurvePrice21From, 'SCED2CurvePrice21To': SCED2CurvePrice21To, 'SCED2CurveMW22From': SCED2CurveMW22From, 'SCED2CurveMW22To': SCED2CurveMW22To, 'SCED2CurvePrice22From': SCED2CurvePrice22From, 'SCED2CurvePrice22To': SCED2CurvePrice22To, 'SCED2CurveMW23From': SCED2CurveMW23From, 'SCED2CurveMW23To': SCED2CurveMW23To, 'SCED2CurvePrice23From': SCED2CurvePrice23From, 'SCED2CurvePrice23To': SCED2CurvePrice23To, 'SCED2CurveMW24From': SCED2CurveMW24From, 'SCED2CurveMW24To': SCED2CurveMW24To, 'SCED2CurvePrice24From': SCED2CurvePrice24From, 'SCED2CurvePrice24To': SCED2CurvePrice24To, 'SCED2CurveMW25From': SCED2CurveMW25From, 'SCED2CurveMW25To': SCED2CurveMW25To, 'SCED2CurvePrice25From': SCED2CurvePrice25From, 'SCED2CurvePrice25To': SCED2CurvePrice25To, 'SCED2CurveMW26From': SCED2CurveMW26From, 'SCED2CurveMW26To': SCED2CurveMW26To, 'SCED2CurvePrice26From': SCED2CurvePrice26From, 'SCED2CurvePrice26To': SCED2CurvePrice26To, 'SCED2CurveMW27From': SCED2CurveMW27From, 'SCED2CurveMW27To': SCED2CurveMW27To, 'SCED2CurvePrice27From': SCED2CurvePrice27From, 'SCED2CurvePrice27To': SCED2CurvePrice27To, 'SCED2CurveMW28From': SCED2CurveMW28From, 'SCED2CurveMW28To': SCED2CurveMW28To, 'SCED2CurvePrice28From': SCED2CurvePrice28From, 'SCED2CurvePrice28To': SCED2CurvePrice28To, 'SCED2CurveMW29From': SCED2CurveMW29From, 'SCED2CurveMW29To': SCED2CurveMW29To, 'SCED2CurvePrice29From': SCED2CurvePrice29From, 'SCED2CurvePrice29To': SCED2CurvePrice29To, 'SCED2CurveMW30From': SCED2CurveMW30From, 'SCED2CurveMW30To': SCED2CurveMW30To, 'SCED2CurvePrice30From': SCED2CurvePrice30From, 'SCED2CurvePrice30To': SCED2CurvePrice30To, 'SCED2CurveMW31From': SCED2CurveMW31From, 'SCED2CurveMW31To': SCED2CurveMW31To, 'SCED2CurvePrice31From': SCED2CurvePrice31From, 'SCED2CurvePrice31To': SCED2CurvePrice31To, 'SCED2CurveMW32From': SCED2CurveMW32From, 'SCED2CurveMW32To': SCED2CurveMW32To, 'SCED2CurvePrice32From': SCED2CurvePrice32From, 'SCED2CurvePrice32To': SCED2CurvePrice32To, 'SCED2CurveMW33From': SCED2CurveMW33From, 'SCED2CurveMW33To': SCED2CurveMW33To, 'SCED2CurvePrice33From': SCED2CurvePrice33From, 'SCED2CurvePrice33To': SCED2CurvePrice33To, 'SCED2CurveMW34From': SCED2CurveMW34From, 'SCED2CurveMW34To': SCED2CurveMW34To, 'SCED2CurvePrice34From': SCED2CurvePrice34From, 'SCED2CurvePrice34To': SCED2CurvePrice34To, 'SCED2CurveMW35From': SCED2CurveMW35From, 'SCED2CurveMW35To': SCED2CurveMW35To, 'SCED2CurvePrice35From': SCED2CurvePrice35From, 'SCED2CurvePrice35To': SCED2CurvePrice35To, 'bidType': bidType, 'submittedTPOMW1From': submittedTPOMW1From, 'submittedTPOMW1To': submittedTPOMW1To, 'submittedTPOPrice1From': submittedTPOPrice1From, 'submittedTPOPrice1To': submittedTPOPrice1To, 'submittedTPOMW2From': submittedTPOMW2From, 'submittedTPOMW2To': submittedTPOMW2To, 'submittedTPOPrice2From': submittedTPOPrice2From, 'submittedTPOPrice2To': submittedTPOPrice2To, 'submittedTPOMW3From': submittedTPOMW3From, 'submittedTPOMW3To': submittedTPOMW3To, 'submittedTPOPrice3From': submittedTPOPrice3From, 'submittedTPOPrice3To': submittedTPOPrice3To, 'submittedTPOMW4From': submittedTPOMW4From, 'submittedTPOMW4To': submittedTPOMW4To, 'submittedTPOPrice4From': submittedTPOPrice4From, 'submittedTPOPrice4To': submittedTPOPrice4To, 'submittedTPOMW5From': submittedTPOMW5From, 'submittedTPOMW5To': submittedTPOMW5To, 'submittedTPOPrice5From': submittedTPOPrice5From, 'submittedTPOPrice5To': submittedTPOPrice5To, 'submittedTPOMW6From': submittedTPOMW6From, 'submittedTPOMW6To': submittedTPOMW6To, 'submittedTPOPrice6From': submittedTPOPrice6From, 'submittedTPOPrice6To': submittedTPOPrice6To, 'submittedTPOMW7From': submittedTPOMW7From, 'submittedTPOMW7To': submittedTPOMW7To, 'submittedTPOPrice7From': submittedTPOPrice7From, 'submittedTPOPrice7To': submittedTPOPrice7To, 'submittedTPOMW8From': submittedTPOMW8From, 'submittedTPOMW8To': submittedTPOMW8To, 'submittedTPOPrice8From': submittedTPOPrice8From, 'submittedTPOPrice8To': submittedTPOPrice8To, 'submittedTPOMW9From': submittedTPOMW9From, 'submittedTPOMW9To': submittedTPOMW9To, 'submittedTPOPrice9From': submittedTPOPrice9From, 'submittedTPOPrice9To': submittedTPOPrice9To, 'submittedTPOMW10From': submittedTPOMW10From, 'submittedTPOMW10To': submittedTPOMW10To, 'submittedTPOPrice10From': submittedTPOPrice10From, 'submittedTPOPrice10To': submittedTPOPrice10To, 'proxyExtension': proxyExtension, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4795,6 +7977,58 @@ class np3_987_ex:
         repeatHourFlag: bool | None
         resourceName: str | None
 
+    class _7dTrigRtmMcpc50xfipHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        resourceName: str | None
+        FIPx50: Decimal | None
+        RTMCPC: Decimal | None
+        price1REGUP: Decimal | None
+        price1REGDOWN: Decimal | None
+        price1RRSPFR: Decimal | None
+        price1RRSUFR: Decimal | None
+        price1RRSFFR: Decimal | None
+        price1NONSPIN: Decimal | None
+        price1ECRS: Decimal | None
+        quantityMW1: Decimal | None
+        price2REGUP: Decimal | None
+        price2REGDOWN: Decimal | None
+        price2RRSPFR: Decimal | None
+        price2RRSUFR: Decimal | None
+        price2RRSFFR: Decimal | None
+        price2NONSPIN: Decimal | None
+        price2ECRS: Decimal | None
+        quantityMW2: Decimal | None
+        price3REGUP: Decimal | None
+        price3REGDOWN: Decimal | None
+        price3RRSPFR: Decimal | None
+        price3RRSUFR: Decimal | None
+        price3RRSFFR: Decimal | None
+        price3NONSPIN: Decimal | None
+        price3ECRS: Decimal | None
+        quantityMW3: Decimal | None
+        price4REGUP: Decimal | None
+        price4REGDOWN: Decimal | None
+        price4RRSPFR: Decimal | None
+        price4RRSUFR: Decimal | None
+        price4RRSFFR: Decimal | None
+        price4NONSPIN: Decimal | None
+        price4ECRS: Decimal | None
+        quantityMW4: Decimal | None
+        price5REGUP: Decimal | None
+        price5REGDOWN: Decimal | None
+        price5RRSPFR: Decimal | None
+        price5RRSUFR: Decimal | None
+        price5RRSFFR: Decimal | None
+        price5NONSPIN: Decimal | None
+        price5ECRS: Decimal | None
+        quantityMW5: Decimal | None
+
+    @property
+    def _7d_trig_rtm_mcpc_50xfip_history(self) -> Archive[np3_987_ex._7dTrigRtmMcpc50xfipHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-987-ex', np3_987_ex._7dTrigRtmMcpc50xfipHistoryRow, {'SCED Time Stamp': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'Resource Name': 'resourceName', '50xFIP': 'FIPx50', 'RTMCPC': 'RTMCPC', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDOWN', 'PRICE1 RRSPFR': 'price1RRSPFR', 'PRICE1 RRSUFR': 'price1RRSUFR', 'PRICE1 RRSFFR': 'price1RRSFFR', 'PRICE1 NONSPIN': 'price1NONSPIN', 'PRICE1 ECRS': 'price1ECRS', 'QUANTITY MW1': 'quantityMW1', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDOWN', 'PRICE2 RRSPFR': 'price2RRSPFR', 'PRICE2 RRSUFR': 'price2RRSUFR', 'PRICE2 RRSFFR': 'price2RRSFFR', 'PRICE2 NONSPIN': 'price2NONSPIN', 'PRICE2 ECRS': 'price2ECRS', 'QUANTITY MW2': 'quantityMW2', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDOWN', 'PRICE3 RRSPFR': 'price3RRSPFR', 'PRICE3 RRSUFR': 'price3RRSUFR', 'PRICE3 RRSFFR': 'price3RRSFFR', 'PRICE3 NONSPIN': 'price3NONSPIN', 'PRICE3 ECRS': 'price3ECRS', 'QUANTITY MW3': 'quantityMW3', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDOWN', 'PRICE4 RRSPFR': 'price4RRSPFR', 'PRICE4 RRSUFR': 'price4RRSUFR', 'PRICE4 RRSFFR': 'price4RRSFFR', 'PRICE4 NONSPIN': 'price4NONSPIN', 'PRICE4 ECRS': 'price4ECRS', 'QUANTITY MW4': 'quantityMW4', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDOWN', 'PRICE5 RRSPFR': 'price5RRSPFR', 'PRICE5 RRSUFR': 'price5RRSUFR', 'PRICE5 RRSFFR': 'price5RRSFFR', 'PRICE5 NONSPIN': 'price5NONSPIN', 'PRICE5 ECRS': 'price5ECRS', 'QUANTITY MW5': 'quantityMW5'}, {}, member='7day_Event_Trigger_RTM_MCPC_Exceeds_50XFIP-[0-9]*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def _7d_trig_rtm_mcpc_50xfip(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, resourceName: str | None = None, FIPx50From: Decimal | None = None, FIPx50To: Decimal | None = None, RTMCPCFrom: Decimal | None = None, RTMCPCTo: Decimal | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDOWNFrom: Decimal | None = None, price1REGDOWNTo: Decimal | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price1NONSPINFrom: Decimal | None = None, price1NONSPINTo: Decimal | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDOWNFrom: Decimal | None = None, price2REGDOWNTo: Decimal | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2NONSPINFrom: Decimal | None = None, price2NONSPINTo: Decimal | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDOWNFrom: Decimal | None = None, price3REGDOWNTo: Decimal | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3NONSPINFrom: Decimal | None = None, price3NONSPINTo: Decimal | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDOWNFrom: Decimal | None = None, price4REGDOWNTo: Decimal | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4NONSPINFrom: Decimal | None = None, price4NONSPINTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDOWNFrom: Decimal | None = None, price5REGDOWNTo: Decimal | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5NONSPINFrom: Decimal | None = None, price5NONSPINTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_987_ex._7dTrigRtmMcpc50xfipRow]:
         '7-Day Event Trigger Posting when RTM MCPC exceeds 50xFIP'
         return self._client._page('/np3-987-ex/7d_trig_rtm_mcpc_50xfip', np3_987_ex._7dTrigRtmMcpc50xfipRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'resourceName': resourceName, 'FIPx50From': FIPx50From, 'FIPx50To': FIPx50To, 'RTMCPCFrom': RTMCPCFrom, 'RTMCPCTo': RTMCPCTo, 'price1REGUPFrom': price1REGUPFrom, 'price1REGUPTo': price1REGUPTo, 'price1REGDOWNFrom': price1REGDOWNFrom, 'price1REGDOWNTo': price1REGDOWNTo, 'price1RRSPFRFrom': price1RRSPFRFrom, 'price1RRSPFRTo': price1RRSPFRTo, 'price1RRSUFRFrom': price1RRSUFRFrom, 'price1RRSUFRTo': price1RRSUFRTo, 'price1RRSFFRFrom': price1RRSFFRFrom, 'price1RRSFFRTo': price1RRSFFRTo, 'price1NONSPINFrom': price1NONSPINFrom, 'price1NONSPINTo': price1NONSPINTo, 'price1ECRSFrom': price1ECRSFrom, 'price1ECRSTo': price1ECRSTo, 'quantityMW1From': quantityMW1From, 'quantityMW1To': quantityMW1To, 'price2REGUPFrom': price2REGUPFrom, 'price2REGUPTo': price2REGUPTo, 'price2REGDOWNFrom': price2REGDOWNFrom, 'price2REGDOWNTo': price2REGDOWNTo, 'price2RRSPFRFrom': price2RRSPFRFrom, 'price2RRSPFRTo': price2RRSPFRTo, 'price2RRSUFRFrom': price2RRSUFRFrom, 'price2RRSUFRTo': price2RRSUFRTo, 'price2RRSFFRFrom': price2RRSFFRFrom, 'price2RRSFFRTo': price2RRSFFRTo, 'price2NONSPINFrom': price2NONSPINFrom, 'price2NONSPINTo': price2NONSPINTo, 'price2ECRSFrom': price2ECRSFrom, 'price2ECRSTo': price2ECRSTo, 'quantityMW2From': quantityMW2From, 'quantityMW2To': quantityMW2To, 'price3REGUPFrom': price3REGUPFrom, 'price3REGUPTo': price3REGUPTo, 'price3REGDOWNFrom': price3REGDOWNFrom, 'price3REGDOWNTo': price3REGDOWNTo, 'price3RRSPFRFrom': price3RRSPFRFrom, 'price3RRSPFRTo': price3RRSPFRTo, 'price3RRSUFRFrom': price3RRSUFRFrom, 'price3RRSUFRTo': price3RRSUFRTo, 'price3RRSFFRFrom': price3RRSFFRFrom, 'price3RRSFFRTo': price3RRSFFRTo, 'price3NONSPINFrom': price3NONSPINFrom, 'price3NONSPINTo': price3NONSPINTo, 'price3ECRSFrom': price3ECRSFrom, 'price3ECRSTo': price3ECRSTo, 'quantityMW3From': quantityMW3From, 'quantityMW3To': quantityMW3To, 'price4REGUPFrom': price4REGUPFrom, 'price4REGUPTo': price4REGUPTo, 'price4REGDOWNFrom': price4REGDOWNFrom, 'price4REGDOWNTo': price4REGDOWNTo, 'price4RRSPFRFrom': price4RRSPFRFrom, 'price4RRSPFRTo': price4RRSPFRTo, 'price4RRSUFRFrom': price4RRSUFRFrom, 'price4RRSUFRTo': price4RRSUFRTo, 'price4RRSFFRFrom': price4RRSFFRFrom, 'price4RRSFFRTo': price4RRSFFRTo, 'price4NONSPINFrom': price4NONSPINFrom, 'price4NONSPINTo': price4NONSPINTo, 'price4ECRSFrom': price4ECRSFrom, 'price4ECRSTo': price4ECRSTo, 'quantityMW4From': quantityMW4From, 'quantityMW4To': quantityMW4To, 'price5REGUPFrom': price5REGUPFrom, 'price5REGUPTo': price5REGUPTo, 'price5REGDOWNFrom': price5REGDOWNFrom, 'price5REGDOWNTo': price5REGDOWNTo, 'price5RRSPFRFrom': price5RRSPFRFrom, 'price5RRSPFRTo': price5RRSPFRTo, 'price5RRSUFRFrom': price5RRSUFRFrom, 'price5RRSUFRTo': price5RRSUFRTo, 'price5RRSFFRFrom': price5RRSFFRFrom, 'price5RRSFFRTo': price5RRSFFRTo, 'price5NONSPINFrom': price5NONSPINFrom, 'price5NONSPINTo': price5NONSPINTo, 'price5ECRSFrom': price5ECRSFrom, 'price5ECRSTo': price5ECRSTo, 'quantityMW5From': quantityMW5From, 'quantityMW5To': quantityMW5To, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4810,6 +8044,25 @@ class np3_987_ex:
     def _7d_trig_rtm_mcpc_50xfip_iter_async(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, resourceName: str | None = None, FIPx50From: Decimal | None = None, FIPx50To: Decimal | None = None, RTMCPCFrom: Decimal | None = None, RTMCPCTo: Decimal | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDOWNFrom: Decimal | None = None, price1REGDOWNTo: Decimal | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price1NONSPINFrom: Decimal | None = None, price1NONSPINTo: Decimal | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDOWNFrom: Decimal | None = None, price2REGDOWNTo: Decimal | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2NONSPINFrom: Decimal | None = None, price2NONSPINTo: Decimal | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDOWNFrom: Decimal | None = None, price3REGDOWNTo: Decimal | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3NONSPINFrom: Decimal | None = None, price3NONSPINTo: Decimal | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDOWNFrom: Decimal | None = None, price4REGDOWNTo: Decimal | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4NONSPINFrom: Decimal | None = None, price4NONSPINTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDOWNFrom: Decimal | None = None, price5REGDOWNTo: Decimal | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5NONSPINFrom: Decimal | None = None, price5NONSPINTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> AsyncIterator[np3_987_ex._7dTrigRtmMcpc50xfipRow]:
         '7-Day Event Trigger Posting when RTM MCPC exceeds 50xFIP'
         return self._client._aiter('/np3-987-ex/7d_trig_rtm_mcpc_50xfip', np3_987_ex._7dTrigRtmMcpc50xfipRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'resourceName': resourceName, 'FIPx50From': FIPx50From, 'FIPx50To': FIPx50To, 'RTMCPCFrom': RTMCPCFrom, 'RTMCPCTo': RTMCPCTo, 'price1REGUPFrom': price1REGUPFrom, 'price1REGUPTo': price1REGUPTo, 'price1REGDOWNFrom': price1REGDOWNFrom, 'price1REGDOWNTo': price1REGDOWNTo, 'price1RRSPFRFrom': price1RRSPFRFrom, 'price1RRSPFRTo': price1RRSPFRTo, 'price1RRSUFRFrom': price1RRSUFRFrom, 'price1RRSUFRTo': price1RRSUFRTo, 'price1RRSFFRFrom': price1RRSFFRFrom, 'price1RRSFFRTo': price1RRSFFRTo, 'price1NONSPINFrom': price1NONSPINFrom, 'price1NONSPINTo': price1NONSPINTo, 'price1ECRSFrom': price1ECRSFrom, 'price1ECRSTo': price1ECRSTo, 'quantityMW1From': quantityMW1From, 'quantityMW1To': quantityMW1To, 'price2REGUPFrom': price2REGUPFrom, 'price2REGUPTo': price2REGUPTo, 'price2REGDOWNFrom': price2REGDOWNFrom, 'price2REGDOWNTo': price2REGDOWNTo, 'price2RRSPFRFrom': price2RRSPFRFrom, 'price2RRSPFRTo': price2RRSPFRTo, 'price2RRSUFRFrom': price2RRSUFRFrom, 'price2RRSUFRTo': price2RRSUFRTo, 'price2RRSFFRFrom': price2RRSFFRFrom, 'price2RRSFFRTo': price2RRSFFRTo, 'price2NONSPINFrom': price2NONSPINFrom, 'price2NONSPINTo': price2NONSPINTo, 'price2ECRSFrom': price2ECRSFrom, 'price2ECRSTo': price2ECRSTo, 'quantityMW2From': quantityMW2From, 'quantityMW2To': quantityMW2To, 'price3REGUPFrom': price3REGUPFrom, 'price3REGUPTo': price3REGUPTo, 'price3REGDOWNFrom': price3REGDOWNFrom, 'price3REGDOWNTo': price3REGDOWNTo, 'price3RRSPFRFrom': price3RRSPFRFrom, 'price3RRSPFRTo': price3RRSPFRTo, 'price3RRSUFRFrom': price3RRSUFRFrom, 'price3RRSUFRTo': price3RRSUFRTo, 'price3RRSFFRFrom': price3RRSFFRFrom, 'price3RRSFFRTo': price3RRSFFRTo, 'price3NONSPINFrom': price3NONSPINFrom, 'price3NONSPINTo': price3NONSPINTo, 'price3ECRSFrom': price3ECRSFrom, 'price3ECRSTo': price3ECRSTo, 'quantityMW3From': quantityMW3From, 'quantityMW3To': quantityMW3To, 'price4REGUPFrom': price4REGUPFrom, 'price4REGUPTo': price4REGUPTo, 'price4REGDOWNFrom': price4REGDOWNFrom, 'price4REGDOWNTo': price4REGDOWNTo, 'price4RRSPFRFrom': price4RRSPFRFrom, 'price4RRSPFRTo': price4RRSPFRTo, 'price4RRSUFRFrom': price4RRSUFRFrom, 'price4RRSUFRTo': price4RRSUFRTo, 'price4RRSFFRFrom': price4RRSFFRFrom, 'price4RRSFFRTo': price4RRSFFRTo, 'price4NONSPINFrom': price4NONSPINFrom, 'price4NONSPINTo': price4NONSPINTo, 'price4ECRSFrom': price4ECRSFrom, 'price4ECRSTo': price4ECRSTo, 'quantityMW4From': quantityMW4From, 'quantityMW4To': quantityMW4To, 'price5REGUPFrom': price5REGUPFrom, 'price5REGUPTo': price5REGUPTo, 'price5REGDOWNFrom': price5REGDOWNFrom, 'price5REGDOWNTo': price5REGDOWNTo, 'price5RRSPFRFrom': price5RRSPFRFrom, 'price5RRSPFRTo': price5RRSPFRTo, 'price5RRSUFRFrom': price5RRSUFRFrom, 'price5RRSUFRTo': price5RRSUFRTo, 'price5RRSFFRFrom': price5RRSFFRFrom, 'price5RRSFFRTo': price5RRSFFRTo, 'price5NONSPINFrom': price5NONSPINFrom, 'price5NONSPINTo': price5NONSPINTo, 'price5ECRSFrom': price5ECRSFrom, 'price5ECRSTo': price5ECRSTo, 'quantityMW5From': quantityMW5From, 'quantityMW5To': quantityMW5To, 'size': size, 'sort': sort, 'dir': dir})
+
+class np3_988_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class ResourcesHistoryRow(Row):
+        ownerRE: str | None
+        resourceName: str | None
+        resourceType: str | None
+        splitGenResource: str | None
+        DME: str | None
+        DMEDuns: str | None
+        RMR: bool | None
+
+    @property
+    def resources_history(self) -> Archive[np3_988_er.ResourcesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-988-er', np3_988_er.ResourcesHistoryRow, {'OWNER RE': 'ownerRE', 'RESOURCE NAME': 'resourceName', 'TYPE': 'resourceType', 'SPLIT GEN RESOURCE': 'splitGenResource', 'DME': 'DME', 'DME DUNS': 'DMEDuns', 'RMR': 'RMR'}, {}, member='*.csv', datetimes={}, variants=())
 
 class np3_990_ex:
     def __init__(self, client: Transport) -> None:
@@ -4834,6 +8087,32 @@ class np3_990_ex:
         hourEnding: int | None
         resourceName: str | None
         resourceType: str | None
+
+    class _60SasmGenResAsOfferAwardsHistoryRow(Row):
+        SASMId: datetime | None
+        deliveryDate: date | None
+        hourEnding: int | None
+        resourceName: str | None
+        resourceType: str | None
+        REGUPAawarded: Decimal | None
+        REGUPMCPC: Decimal | None
+        REGDNAwarded: Decimal | None
+        REGDNMCPC: Decimal | None
+        RRSPFRAwarded: Decimal | None = None
+        RRSFFRAwarded: Decimal | None = None
+        RRSUFRAwarded: Decimal | None = None
+        RRSMCPC: Decimal | None
+        ECRSSAwarded: Decimal | None = None
+        OFFECAwarded: Decimal | None = None
+        ECRSMCPC: Decimal | None = None
+        NSPINAwarded: Decimal | None
+        NSPINMCPC: Decimal | None
+        RRSAwarded: Decimal | None = None
+
+    @property
+    def _60_sasm_gen_res_as_offer_awards_history(self) -> Archive[np3_990_ex._60SasmGenResAsOfferAwardsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-990-ex', np3_990_ex._60SasmGenResAsOfferAwardsHistoryRow, {'SASM ID': 'SASMId', 'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'REGUP Awarded': 'REGUPAawarded', 'REGUP MCPC': 'REGUPMCPC', 'REGDN Awarded': 'REGDNAwarded', 'REGDN MCPC': 'REGDNMCPC', 'RRSPFR Awarded': 'RRSPFRAwarded', 'RRSFFR Awarded': 'RRSFFRAwarded', 'RRSUFR Awarded': 'RRSUFRAwarded', 'RRS MCPC': 'RRSMCPC', 'ECRSS Awarded': 'ECRSSAwarded', 'OFFEC Awarded': 'OFFECAwarded', 'ECRS MCPC': 'ECRSMCPC', 'NSPIN Awarded': 'NSPINAwarded', 'NSPIN MCPC': 'NSPINMCPC'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_SASM_Generation_Resource_AS_Offer_Awards-[0-9]*.csv', datetimes={'SASMId': '%m/%d/%Y %I:%M:%S %p'}, variants=({'SASM ID': 'SASMId', 'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'REGUP Awarded': 'REGUPAawarded', 'REGUP MCPC': 'REGUPMCPC', 'REGDN Awarded': 'REGDNAwarded', 'REGDN MCPC': 'REGDNMCPC', 'RRS Awarded': 'RRSAwarded', 'RRS MCPC': 'RRSMCPC', 'NSPIN Awarded': 'NSPINAwarded', 'NSPIN MCPC': 'NSPINMCPC'},))
 
     def _60_sasm_gen_res_as_offer_awards(self, *, SASMIdFrom: datetime | None = None, SASMIdTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, resourceName: str | None = None, resourceType: str | None = None, REGUPAawardedFrom: Decimal | None = None, REGUPAawardedTo: Decimal | None = None, REGUPMCPCFrom: Decimal | None = None, REGUPMCPCTo: Decimal | None = None, REGDNAwardedFrom: Decimal | None = None, REGDNAwardedTo: Decimal | None = None, REGDNMCPCFrom: Decimal | None = None, REGDNMCPCTo: Decimal | None = None, RRSPFRAwardedFrom: Decimal | None = None, RRSPFRAwardedTo: Decimal | None = None, RRSFFRAwardedFrom: Decimal | None = None, RRSFFRAwardedTo: Decimal | None = None, ECRSSAwardedFrom: Decimal | None = None, ECRSSAwardedTo: Decimal | None = None, RRSUFRAwardedFrom: Decimal | None = None, RRSUFRAwardedTo: Decimal | None = None, OFFECAwardedFrom: Decimal | None = None, OFFECAwardedTo: Decimal | None = None, RRSMCPCFrom: Decimal | None = None, RRSMCPCTo: Decimal | None = None, ECRSMCPCFrom: Decimal | None = None, ECRSMCPCTo: Decimal | None = None, NSPINAwardedFrom: Decimal | None = None, NSPINAwardedTo: Decimal | None = None, NSPINMCPCFrom: Decimal | None = None, NSPINMCPCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_990_ex._60SasmGenResAsOfferAwardsRow]:
         '60-Day SASM Generation Resource AS Offer Awards'
@@ -4914,6 +8193,80 @@ class np3_990_ex:
         quantityMW5: Decimal | None
         resourceName: str | None
 
+    class _60SasmGenResAsOffersHistoryRow(Row):
+        deliveryDate: date | None
+        SASMId: datetime | None
+        hourEnding: int | None
+        qseName: str | None
+        dmeName: str | None = None
+        resourceName: str | None
+        multiHourBlockFlag: bool | None
+        blockIndicator1: str | None
+        price1RRSPFR: Decimal | None = None
+        price1RRSFFR: Decimal | None = None
+        price1RRSUFR: Decimal | None = None
+        price1ECRS: Decimal | None = None
+        price1OFFEC: Decimal | None = None
+        price1OnlineNONSPIN: Decimal | None
+        price1REGUP: Decimal | None
+        price1REGDOWN: Decimal | None
+        price1OfflineNONSPIN: Decimal | None
+        quantityMW1: Decimal | None
+        blockIndicator2: str | None
+        price2RRSPFR: Decimal | None = None
+        price2RRSFFR: Decimal | None = None
+        price2RRSUFR: Decimal | None = None
+        price2ECRS: Decimal | None = None
+        price2OFFEC: Decimal | None = None
+        price2OnlineNONSPIN: Decimal | None
+        price2REGUP: Decimal | None
+        price2REGDOWN: Decimal | None
+        price2OfflineNONSPIN: Decimal | None
+        quantityMW2: Decimal | None
+        blockIndicator3: str | None
+        price3RRSPFR: Decimal | None = None
+        price3RRSFFR: Decimal | None = None
+        price3RRSUFR: Decimal | None = None
+        price3ECRS: Decimal | None = None
+        price3OFFEC: Decimal | None = None
+        price3OnlineNONSPIN: Decimal | None
+        price3REGUP: Decimal | None
+        price3REGDOWN: Decimal | None
+        price3OfflineNONSPIN: Decimal | None
+        quantityMW3: Decimal | None
+        blockIndicator4: str | None
+        price4RRSPFR: Decimal | None = None
+        price4RRSFFR: Decimal | None = None
+        price4RRSUFR: Decimal | None = None
+        price4ECRS: Decimal | None = None
+        price4OFFEC: Decimal | None = None
+        price4OnlineNONSPIN: Decimal | None
+        price4REGUP: Decimal | None
+        price4REGDOWN: Decimal | None
+        price4OfflineNONSPIN: Decimal | None
+        quantityMW4: Decimal | None
+        blockIndicator5: str | None
+        price5RRSPFR: Decimal | None = None
+        price5RRSFFR: Decimal | None = None
+        price5RRSUFR: Decimal | None = None
+        price5ECRS: Decimal | None = None
+        price5OFFEC: Decimal | None = None
+        price5OnlineNONSPIN: Decimal | None
+        price5REGUP: Decimal | None
+        price5REGDOWN: Decimal | None
+        price5OfflineNONSPIN: Decimal | None
+        quantityMW5: Decimal | None
+        price1RRS: Decimal | None = None
+        price2RRS: Decimal | None = None
+        price3RRS: Decimal | None = None
+        price4RRS: Decimal | None = None
+        price5RRS: Decimal | None = None
+
+    @property
+    def _60_sasm_gen_res_as_offers_history(self) -> Archive[np3_990_ex._60SasmGenResAsOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-990-ex', np3_990_ex._60SasmGenResAsOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'SASM ID': 'SASMId', 'Hour Ending': 'hourEnding', 'QSE NAME': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', 'Multi-Hour Block Flag': 'multiHourBlockFlag', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRSPFR': 'price1RRSPFR', 'PRICE1 RRSFFR': 'price1RRSFFR', 'PRICE1 RRSUFR': 'price1RRSUFR', 'PRICE1 ECRS': 'price1ECRS', 'PRICE1 OFFEC': 'price1OFFEC', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNONSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDOWN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNONSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRSPFR': 'price2RRSPFR', 'PRICE2 RRSFFR': 'price2RRSFFR', 'PRICE2 RRSUFR': 'price2RRSUFR', 'PRICE2 ECRS': 'price2ECRS', 'PRICE2 OFFEC': 'price2OFFEC', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNONSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDOWN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNONSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRSPFR': 'price3RRSPFR', 'PRICE3 RRSFFR': 'price3RRSFFR', 'PRICE3 RRSUFR': 'price3RRSUFR', 'PRICE3 ECRS': 'price3ECRS', 'PRICE3 OFFEC': 'price3OFFEC', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNONSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDOWN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNONSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRSPFR': 'price4RRSPFR', 'PRICE4 RRSFFR': 'price4RRSFFR', 'PRICE4 RRSUFR': 'price4RRSUFR', 'PRICE4 ECRS': 'price4ECRS', 'PRICE4 OFFEC': 'price4OFFEC', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNONSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDOWN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNONSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRSPFR': 'price5RRSPFR', 'PRICE5 RRSFFR': 'price5RRSFFR', 'PRICE5 RRSUFR': 'price5RRSUFR', 'PRICE5 ECRS': 'price5ECRS', 'PRICE5 OFFEC': 'price5OFFEC', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNONSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDOWN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNONSPIN', 'QUANTITY MW5': 'quantityMW5'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_SASM_Generation_Resource_AS_Offers-[0-9]*.csv', datetimes={'SASMId': '%m/%d/%Y %H:%M:%S'}, variants=({'Delivery Date': 'deliveryDate', 'SASM ID': 'SASMId', 'Hour Ending': 'hourEnding', 'QSE NAME': 'qseName', 'Resource Name': 'resourceName', 'Multi-Hour Block Flag': 'multiHourBlockFlag', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRS': 'price1RRS', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNONSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDOWN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNONSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRS': 'price2RRS', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNONSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDOWN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNONSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRS': 'price3RRS', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNONSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDOWN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNONSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRS': 'price4RRS', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNONSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDOWN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNONSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRS': 'price5RRS', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNONSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDOWN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNONSPIN', 'QUANTITY MW5': 'quantityMW5'},))
+
     def _60_sasm_gen_res_as_offers(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, SASMIdFrom: datetime | None = None, SASMIdTo: datetime | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, qseName: str | None = None, dmeName: str | None = None, resourceName: str | None = None, multiHourBlockFlag: bool | None = None, blockIndicator1: str | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price1OnlineNONSPINFrom: Decimal | None = None, price1OnlineNONSPINTo: Decimal | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDOWNFrom: Decimal | None = None, price1REGDOWNTo: Decimal | None = None, price1OfflineNONSPINFrom: Decimal | None = None, price1OfflineNONSPINTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, blockIndicator2: str | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2OnlineNONSPINFrom: Decimal | None = None, price2OnlineNONSPINTo: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDOWNFrom: Decimal | None = None, price2REGDOWNTo: Decimal | None = None, price2OfflineNONSPINFrom: Decimal | None = None, price2OfflineNONSPINTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, blockIndicator3: str | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3OnlineNONSPINFrom: Decimal | None = None, price3OnlineNONSPINTo: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDOWNFrom: Decimal | None = None, price3REGDOWNTo: Decimal | None = None, price3OfflineNONSPINFrom: Decimal | None = None, price3OfflineNONSPINTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, blockIndicator4: str | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, price4OnlineNONSPINFrom: Decimal | None = None, price4OnlineNONSPINTo: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDOWNFrom: Decimal | None = None, price4REGDOWNTo: Decimal | None = None, price4OfflineNONSPINFrom: Decimal | None = None, price4OfflineNONSPINTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, blockIndicator5: str | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5OnlineNONSPINFrom: Decimal | None = None, price5OnlineNONSPINTo: Decimal | None = None, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDOWNFrom: Decimal | None = None, price5REGDOWNTo: Decimal | None = None, price5OfflineNONSPINFrom: Decimal | None = None, price5OfflineNONSPINTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, price1OFFECFrom: Decimal | None = None, price1OFFECTo: Decimal | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, price2OFFECFrom: Decimal | None = None, price2OFFECTo: Decimal | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, price3OFFECFrom: Decimal | None = None, price3OFFECTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, price4OFFECFrom: Decimal | None = None, price4OFFECTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, price5OFFECFrom: Decimal | None = None, price5OFFECTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_990_ex._60SasmGenResAsOffersRow]:
         '60-Day SASM Generation Resource AS Offers'
         return self._client._page('/np3-990-ex/60_sasm_gen_res_as_offers', np3_990_ex._60SasmGenResAsOffersRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'SASMIdFrom': SASMIdFrom, 'SASMIdTo': SASMIdTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'qseName': qseName, 'dmeName': dmeName, 'resourceName': resourceName, 'multiHourBlockFlag': multiHourBlockFlag, 'blockIndicator1': blockIndicator1, 'price1RRSPFRFrom': price1RRSPFRFrom, 'price1RRSPFRTo': price1RRSPFRTo, 'price1RRSFFRFrom': price1RRSFFRFrom, 'price1RRSFFRTo': price1RRSFFRTo, 'price1RRSUFRFrom': price1RRSUFRFrom, 'price1RRSUFRTo': price1RRSUFRTo, 'price1OnlineNONSPINFrom': price1OnlineNONSPINFrom, 'price1OnlineNONSPINTo': price1OnlineNONSPINTo, 'price1REGUPFrom': price1REGUPFrom, 'price1REGUPTo': price1REGUPTo, 'price1REGDOWNFrom': price1REGDOWNFrom, 'price1REGDOWNTo': price1REGDOWNTo, 'price1OfflineNONSPINFrom': price1OfflineNONSPINFrom, 'price1OfflineNONSPINTo': price1OfflineNONSPINTo, 'quantityMW1From': quantityMW1From, 'quantityMW1To': quantityMW1To, 'blockIndicator2': blockIndicator2, 'price2RRSPFRFrom': price2RRSPFRFrom, 'price2RRSPFRTo': price2RRSPFRTo, 'price2RRSFFRFrom': price2RRSFFRFrom, 'price2RRSFFRTo': price2RRSFFRTo, 'price2RRSUFRFrom': price2RRSUFRFrom, 'price2RRSUFRTo': price2RRSUFRTo, 'price2OnlineNONSPINFrom': price2OnlineNONSPINFrom, 'price2OnlineNONSPINTo': price2OnlineNONSPINTo, 'price2REGUPFrom': price2REGUPFrom, 'price2REGUPTo': price2REGUPTo, 'price2REGDOWNFrom': price2REGDOWNFrom, 'price2REGDOWNTo': price2REGDOWNTo, 'price2OfflineNONSPINFrom': price2OfflineNONSPINFrom, 'price2OfflineNONSPINTo': price2OfflineNONSPINTo, 'quantityMW2From': quantityMW2From, 'quantityMW2To': quantityMW2To, 'blockIndicator3': blockIndicator3, 'price3RRSPFRFrom': price3RRSPFRFrom, 'price3RRSPFRTo': price3RRSPFRTo, 'price3RRSFFRFrom': price3RRSFFRFrom, 'price3RRSFFRTo': price3RRSFFRTo, 'price3RRSUFRFrom': price3RRSUFRFrom, 'price3RRSUFRTo': price3RRSUFRTo, 'price3OnlineNONSPINFrom': price3OnlineNONSPINFrom, 'price3OnlineNONSPINTo': price3OnlineNONSPINTo, 'price3REGUPFrom': price3REGUPFrom, 'price3REGUPTo': price3REGUPTo, 'price3REGDOWNFrom': price3REGDOWNFrom, 'price3REGDOWNTo': price3REGDOWNTo, 'price3OfflineNONSPINFrom': price3OfflineNONSPINFrom, 'price3OfflineNONSPINTo': price3OfflineNONSPINTo, 'quantityMW3From': quantityMW3From, 'quantityMW3To': quantityMW3To, 'blockIndicator4': blockIndicator4, 'price4RRSPFRFrom': price4RRSPFRFrom, 'price4RRSPFRTo': price4RRSPFRTo, 'price4RRSFFRFrom': price4RRSFFRFrom, 'price4RRSFFRTo': price4RRSFFRTo, 'price4RRSUFRFrom': price4RRSUFRFrom, 'price4RRSUFRTo': price4RRSUFRTo, 'price4OnlineNONSPINFrom': price4OnlineNONSPINFrom, 'price4OnlineNONSPINTo': price4OnlineNONSPINTo, 'price4REGUPFrom': price4REGUPFrom, 'price4REGUPTo': price4REGUPTo, 'price4REGDOWNFrom': price4REGDOWNFrom, 'price4REGDOWNTo': price4REGDOWNTo, 'price4OfflineNONSPINFrom': price4OfflineNONSPINFrom, 'price4OfflineNONSPINTo': price4OfflineNONSPINTo, 'quantityMW4From': quantityMW4From, 'quantityMW4To': quantityMW4To, 'blockIndicator5': blockIndicator5, 'price5RRSPFRFrom': price5RRSPFRFrom, 'price5RRSPFRTo': price5RRSPFRTo, 'price5RRSFFRFrom': price5RRSFFRFrom, 'price5RRSFFRTo': price5RRSFFRTo, 'price5RRSUFRFrom': price5RRSUFRFrom, 'price5RRSUFRTo': price5RRSUFRTo, 'price5OnlineNONSPINFrom': price5OnlineNONSPINFrom, 'price5OnlineNONSPINTo': price5OnlineNONSPINTo, 'price5REGUPFrom': price5REGUPFrom, 'price5REGUPTo': price5REGUPTo, 'price5REGDOWNFrom': price5REGDOWNFrom, 'price5REGDOWNTo': price5REGDOWNTo, 'price5OfflineNONSPINFrom': price5OfflineNONSPINFrom, 'price5OfflineNONSPINTo': price5OfflineNONSPINTo, 'quantityMW5From': quantityMW5From, 'quantityMW5To': quantityMW5To, 'price1ECRSFrom': price1ECRSFrom, 'price1ECRSTo': price1ECRSTo, 'price1OFFECFrom': price1OFFECFrom, 'price1OFFECTo': price1OFFECTo, 'price2ECRSFrom': price2ECRSFrom, 'price2ECRSTo': price2ECRSTo, 'price2OFFECFrom': price2OFFECFrom, 'price2OFFECTo': price2OFFECTo, 'price3ECRSFrom': price3ECRSFrom, 'price3ECRSTo': price3ECRSTo, 'price3OFFECFrom': price3OFFECFrom, 'price3OFFECTo': price3OFFECTo, 'price4ECRSFrom': price4ECRSFrom, 'price4ECRSTo': price4ECRSTo, 'price4OFFECFrom': price4OFFECFrom, 'price4OFFECTo': price4OFFECTo, 'price5ECRSFrom': price5ECRSFrom, 'price5ECRSTo': price5ECRSTo, 'price5OFFECFrom': price5OFFECFrom, 'price5OFFECTo': price5OFFECTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -4948,6 +8301,32 @@ class np3_990_ex:
         hourEnding: int | None
         resourceName: str | None
         resourceType: str | None
+
+    class _60SasmLoadResAsOfferAwardsHistoryRow(Row):
+        SASMId: datetime | None
+        deliveryDate: date | None
+        hourEnding: int | None
+        resourceName: str | None
+        resourceType: str | None
+        REGUPAawarded: Decimal | None
+        REGUPMCPC: Decimal | None
+        REGDNAwarded: Decimal | None
+        REGDNMCPC: Decimal | None
+        RRSPFRAwarded: Decimal | None = None
+        RRSFFRAwarded: Decimal | None = None
+        RRSUFRAwarded: Decimal | None = None
+        RRSMCPC: Decimal | None
+        ECRSMAwarded: Decimal | None = None
+        ECRSSAwarded: Decimal | None = None
+        ECRSMCPC: Decimal | None = None
+        NSPINAwarded: Decimal | None
+        NSPINMCPC: Decimal | None
+        RRSAwarded: Decimal | None = None
+
+    @property
+    def _60_sasm_load_res_as_offer_awards_history(self) -> Archive[np3_990_ex._60SasmLoadResAsOfferAwardsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-990-ex', np3_990_ex._60SasmLoadResAsOfferAwardsHistoryRow, {'SASM ID': 'SASMId', 'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'REGUP Awarded': 'REGUPAawarded', 'REGUP MCPC': 'REGUPMCPC', 'REGDN Awarded': 'REGDNAwarded', 'REGDN MCPC': 'REGDNMCPC', 'RRSPFR Awarded': 'RRSPFRAwarded', 'RRSFFR Awarded': 'RRSFFRAwarded', 'RRSUFR Awarded': 'RRSUFRAwarded', 'RRS MCPC': 'RRSMCPC', 'ECRSM Awarded': 'ECRSMAwarded', 'ECRSS Awarded': 'ECRSSAwarded', 'ECRS MCPC': 'ECRSMCPC', 'NSPIN Awarded': 'NSPINAwarded', 'NSPIN MCPC': 'NSPINMCPC'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_SASM_Load_Resource_AS_Offer_Awards-[0-9]*.csv', datetimes={'SASMId': '%m/%d/%Y %I:%M:%S %p'}, variants=({'SASM ID': 'SASMId', 'Delivery Date': 'deliveryDate', 'Hour Ending': 'hourEnding', 'Resource Name': 'resourceName', 'Resource Type': 'resourceType', 'REGUP Awarded': 'REGUPAawarded', 'REGUP MCPC': 'REGUPMCPC', 'REGDN Awarded': 'REGDNAwarded', 'REGDN MCPC': 'REGDNMCPC', 'RRS Awarded': 'RRSAwarded', 'RRS MCPC': 'RRSMCPC', 'NSPIN Awarded': 'NSPINAwarded', 'NSPIN MCPC': 'NSPINMCPC'},))
 
     def _60_sasm_load_res_as_offer_awards(self, *, SASMIdFrom: datetime | None = None, SASMIdTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, resourceName: str | None = None, resourceType: str | None = None, REGUPAawardedFrom: Decimal | None = None, REGUPAawardedTo: Decimal | None = None, REGUPMCPCFrom: Decimal | None = None, REGUPMCPCTo: Decimal | None = None, REGDNAwardedFrom: Decimal | None = None, REGDNAwardedTo: Decimal | None = None, REGDNMCPCFrom: Decimal | None = None, REGDNMCPCTo: Decimal | None = None, RRSPFRAwardedFrom: Decimal | None = None, RRSPFRAwardedTo: Decimal | None = None, RRSFFRAwardedFrom: Decimal | None = None, RRSFFRAwardedTo: Decimal | None = None, RRSUFRAwardedFrom: Decimal | None = None, RRSUFRAwardedTo: Decimal | None = None, RRSMCPCFrom: Decimal | None = None, RRSMCPCTo: Decimal | None = None, NSPINAwardedFrom: Decimal | None = None, NSPINAwardedTo: Decimal | None = None, NSPINMCPCFrom: Decimal | None = None, NSPINMCPCTo: Decimal | None = None, ECRSMAwardedFrom: Decimal | None = None, ECRSMAwardedTo: Decimal | None = None, ECRSSAwardedFrom: Decimal | None = None, ECRSSAwardedTo: Decimal | None = None, ECRSMCPCFrom: Decimal | None = None, ECRSMCPCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_990_ex._60SasmLoadResAsOfferAwardsRow]:
         '60-Day SASM Load Resource AS Offer Awards'
@@ -5028,6 +8407,80 @@ class np3_990_ex:
         quantityMW5: Decimal | None
         resourceName: str | None
 
+    class _60SasmLoadResAsOffersHistoryRow(Row):
+        deliveryDate: date | None
+        SASMId: datetime | None
+        hourEnding: int | None
+        qseName: str | None
+        dmeName: str | None = None
+        resourceName: str | None
+        multiHourBlockFlag: bool | None
+        blockIndicator1: str | None
+        price1RRSPFR: Decimal | None = None
+        price1RRSFFR: Decimal | None = None
+        price1RRSUFR: Decimal | None = None
+        price1ECRS: Decimal | None = None
+        price1OFFEC: Decimal | None = None
+        price1OnlineNONSPIN: Decimal | None
+        price1REGUP: Decimal | None
+        price1REGDOWN: Decimal | None
+        price1OfflineNONSPIN: Decimal | None
+        quantityMW1: Decimal | None
+        blockIndicator2: str | None
+        price2RRSPFR: Decimal | None = None
+        price2RRSFFR: Decimal | None = None
+        price2RRSUFR: Decimal | None = None
+        price2ECRS: Decimal | None = None
+        price2OFFEC: Decimal | None = None
+        price2OnlineNONSPIN: Decimal | None
+        price2REGUP: Decimal | None
+        price2REGDOWN: Decimal | None
+        price2OfflineNONSPIN: Decimal | None
+        quantityMW2: Decimal | None
+        blockIndicator3: str | None
+        price3RRSPFR: Decimal | None = None
+        price3RRSFFR: Decimal | None = None
+        price3RRSUFR: Decimal | None = None
+        price3ECRS: Decimal | None = None
+        price3OFFEC: Decimal | None = None
+        price3OnlineNONSPIN: Decimal | None
+        price3REGUP: Decimal | None
+        price3REGDOWN: Decimal | None
+        price3OfflineNONSPIN: Decimal | None
+        quantityMW3: Decimal | None
+        blockIndicator4: str | None
+        price4RRSPFR: Decimal | None = None
+        price4RRSFFR: Decimal | None = None
+        price4RRSUFR: Decimal | None = None
+        price4ECRS: Decimal | None = None
+        price4OFFEC: Decimal | None = None
+        price4OnlineNONSPIN: Decimal | None
+        price4REGUP: Decimal | None
+        price4REGDOWN: Decimal | None
+        price4OfflineNONSPIN: Decimal | None
+        quantityMW4: Decimal | None
+        blockIndicator5: str | None
+        price5RRSPFR: Decimal | None = None
+        price5RRSFFR: Decimal | None = None
+        price5RRSUFR: Decimal | None = None
+        price5ECRS: Decimal | None = None
+        price5OFFEC: Decimal | None = None
+        price5OnlineNONSPIN: Decimal | None
+        price5REGUP: Decimal | None
+        price5REGDOWN: Decimal | None
+        price5OfflineNONSPIN: Decimal | None
+        quantityMW5: Decimal | None
+        price1RRS: Decimal | None = None
+        price2RRS: Decimal | None = None
+        price3RRS: Decimal | None = None
+        price4RRS: Decimal | None = None
+        price5RRS: Decimal | None = None
+
+    @property
+    def _60_sasm_load_res_as_offers_history(self) -> Archive[np3_990_ex._60SasmLoadResAsOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-990-ex', np3_990_ex._60SasmLoadResAsOffersHistoryRow, {'Delivery Date': 'deliveryDate', 'SASM ID': 'SASMId', 'Hour Ending': 'hourEnding', 'QSE NAME': 'qseName', 'DME': 'dmeName', 'Resource Name': 'resourceName', 'Multi-Hour Block Flag': 'multiHourBlockFlag', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRSPFR': 'price1RRSPFR', 'PRICE1 RRSFFR': 'price1RRSFFR', 'PRICE1 RRSUFR': 'price1RRSUFR', 'PRICE1 ECRS': 'price1ECRS', 'PRICE1 OFFEC': 'price1OFFEC', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNONSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDOWN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNONSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRSPFR': 'price2RRSPFR', 'PRICE2 RRSFFR': 'price2RRSFFR', 'PRICE2 RRSUFR': 'price2RRSUFR', 'PRICE2 ECRS': 'price2ECRS', 'PRICE2 OFFEC': 'price2OFFEC', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNONSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDOWN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNONSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRSPFR': 'price3RRSPFR', 'PRICE3 RRSFFR': 'price3RRSFFR', 'PRICE3 RRSUFR': 'price3RRSUFR', 'PRICE3 ECRS': 'price3ECRS', 'PRICE3 OFFEC': 'price3OFFEC', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNONSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDOWN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNONSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRSPFR': 'price4RRSPFR', 'PRICE4 RRSFFR': 'price4RRSFFR', 'PRICE4 RRSUFR': 'price4RRSUFR', 'PRICE4 ECRS': 'price4ECRS', 'PRICE4 OFFEC': 'price4OFFEC', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNONSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDOWN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNONSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRSPFR': 'price5RRSPFR', 'PRICE5 RRSFFR': 'price5RRSFFR', 'PRICE5 RRSUFR': 'price5RRSUFR', 'PRICE5 ECRS': 'price5ECRS', 'PRICE5 OFFEC': 'price5OFFEC', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNONSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDOWN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNONSPIN', 'QUANTITY MW5': 'quantityMW5'}, {'deliveryDate': '%m/%d/%Y'}, member='60d_SASM_Load_Resource_AS_Offers-[0-9]*.csv', datetimes={'SASMId': '%m/%d/%Y %H:%M:%S'}, variants=({'Delivery Date': 'deliveryDate', 'SASM ID': 'SASMId', 'Hour Ending': 'hourEnding', 'QSE NAME': 'qseName', 'Resource Name': 'resourceName', 'Multi-Hour Block Flag': 'multiHourBlockFlag', 'BLOCK INDICATOR1': 'blockIndicator1', 'PRICE1 RRS': 'price1RRS', 'PRICE1 ONLINE NONSPIN': 'price1OnlineNONSPIN', 'PRICE1 REGUP': 'price1REGUP', 'PRICE1 REGDOWN': 'price1REGDOWN', 'PRICE1 OFFLINE NONSPIN': 'price1OfflineNONSPIN', 'QUANTITY MW1': 'quantityMW1', 'BLOCK INDICATOR2': 'blockIndicator2', 'PRICE2 RRS': 'price2RRS', 'PRICE2 ONLINE NONSPIN': 'price2OnlineNONSPIN', 'PRICE2 REGUP': 'price2REGUP', 'PRICE2 REGDOWN': 'price2REGDOWN', 'PRICE2 OFFLINE NONSPIN': 'price2OfflineNONSPIN', 'QUANTITY MW2': 'quantityMW2', 'BLOCK INDICATOR3': 'blockIndicator3', 'PRICE3 RRS': 'price3RRS', 'PRICE3 ONLINE NONSPIN': 'price3OnlineNONSPIN', 'PRICE3 REGUP': 'price3REGUP', 'PRICE3 REGDOWN': 'price3REGDOWN', 'PRICE3 OFFLINE NONSPIN': 'price3OfflineNONSPIN', 'QUANTITY MW3': 'quantityMW3', 'BLOCK INDICATOR4': 'blockIndicator4', 'PRICE4 RRS': 'price4RRS', 'PRICE4 ONLINE NONSPIN': 'price4OnlineNONSPIN', 'PRICE4 REGUP': 'price4REGUP', 'PRICE4 REGDOWN': 'price4REGDOWN', 'PRICE4 OFFLINE NONSPIN': 'price4OfflineNONSPIN', 'QUANTITY MW4': 'quantityMW4', 'BLOCK INDICATOR5': 'blockIndicator5', 'PRICE5 RRS': 'price5RRS', 'PRICE5 ONLINE NONSPIN': 'price5OnlineNONSPIN', 'PRICE5 REGUP': 'price5REGUP', 'PRICE5 REGDOWN': 'price5REGDOWN', 'PRICE5 OFFLINE NONSPIN': 'price5OfflineNONSPIN', 'QUANTITY MW5': 'quantityMW5'},))
+
     def _60_sasm_load_res_as_offers(self, *, resourceName: str | None = None, price2OFFECFrom: Decimal | None = None, price2OFFECTo: Decimal | None = None, multiHourBlockFlag: bool | None = None, price3ECRSFrom: Decimal | None = None, price3ECRSTo: Decimal | None = None, blockIndicator1: str | None = None, price3OFFECFrom: Decimal | None = None, price3OFFECTo: Decimal | None = None, price1RRSPFRFrom: Decimal | None = None, price1RRSPFRTo: Decimal | None = None, price4ECRSFrom: Decimal | None = None, price4ECRSTo: Decimal | None = None, price1RRSFFRFrom: Decimal | None = None, price1RRSFFRTo: Decimal | None = None, price4OFFECFrom: Decimal | None = None, price4OFFECTo: Decimal | None = None, price1RRSUFRFrom: Decimal | None = None, price1RRSUFRTo: Decimal | None = None, price5ECRSFrom: Decimal | None = None, price5ECRSTo: Decimal | None = None, price1OnlineNONSPINFrom: Decimal | None = None, price1OnlineNONSPINTo: Decimal | None = None, price5OFFECFrom: Decimal | None = None, price5OFFECTo: Decimal | None = None, price1REGUPFrom: Decimal | None = None, price1REGUPTo: Decimal | None = None, price1REGDOWNFrom: Decimal | None = None, price1REGDOWNTo: Decimal | None = None, price1OfflineNONSPINFrom: Decimal | None = None, price1OfflineNONSPINTo: Decimal | None = None, quantityMW1From: Decimal | None = None, quantityMW1To: Decimal | None = None, blockIndicator2: str | None = None, price2RRSPFRFrom: Decimal | None = None, price2RRSPFRTo: Decimal | None = None, price2RRSFFRFrom: Decimal | None = None, price2RRSFFRTo: Decimal | None = None, price2RRSUFRFrom: Decimal | None = None, price2RRSUFRTo: Decimal | None = None, price2OnlineNONSPINFrom: Decimal | None = None, price2OnlineNONSPINTo: Decimal | None = None, price2REGUPFrom: Decimal | None = None, price2REGUPTo: Decimal | None = None, price2REGDOWNFrom: Decimal | None = None, price2REGDOWNTo: Decimal | None = None, price2OfflineNONSPINFrom: Decimal | None = None, price2OfflineNONSPINTo: Decimal | None = None, quantityMW2From: Decimal | None = None, quantityMW2To: Decimal | None = None, blockIndicator3: str | None = None, price3RRSPFRFrom: Decimal | None = None, price3RRSPFRTo: Decimal | None = None, price3RRSFFRFrom: Decimal | None = None, price3RRSFFRTo: Decimal | None = None, price3RRSUFRFrom: Decimal | None = None, price3RRSUFRTo: Decimal | None = None, price3OnlineNONSPINFrom: Decimal | None = None, price3OnlineNONSPINTo: Decimal | None = None, price3REGUPFrom: Decimal | None = None, price3REGUPTo: Decimal | None = None, price3REGDOWNFrom: Decimal | None = None, price3REGDOWNTo: Decimal | None = None, price3OfflineNONSPINFrom: Decimal | None = None, price3OfflineNONSPINTo: Decimal | None = None, quantityMW3From: Decimal | None = None, quantityMW3To: Decimal | None = None, blockIndicator4: str | None = None, price4RRSPFRFrom: Decimal | None = None, price4RRSPFRTo: Decimal | None = None, price4RRSFFRFrom: Decimal | None = None, price4RRSFFRTo: Decimal | None = None, price4RRSUFRFrom: Decimal | None = None, price4RRSUFRTo: Decimal | None = None, price4OnlineNONSPINFrom: Decimal | None = None, price4OnlineNONSPINTo: Decimal | None = None, price4REGUPFrom: Decimal | None = None, price4REGUPTo: Decimal | None = None, price4REGDOWNFrom: Decimal | None = None, price4REGDOWNTo: Decimal | None = None, price4OfflineNONSPINFrom: Decimal | None = None, price4OfflineNONSPINTo: Decimal | None = None, quantityMW4From: Decimal | None = None, quantityMW4To: Decimal | None = None, blockIndicator5: str | None = None, price5RRSPFRFrom: Decimal | None = None, price5RRSPFRTo: Decimal | None = None, price5RRSFFRFrom: Decimal | None = None, price5RRSFFRTo: Decimal | None = None, price5RRSUFRFrom: Decimal | None = None, price5RRSUFRTo: Decimal | None = None, price5OnlineNONSPINFrom: Decimal | None = None, price5OnlineNONSPINTo: Decimal | None = None, price5REGUPFrom: Decimal | None = None, price5REGUPTo: Decimal | None = None, price5REGDOWNFrom: Decimal | None = None, price5REGDOWNTo: Decimal | None = None, price5OfflineNONSPINFrom: Decimal | None = None, price5OfflineNONSPINTo: Decimal | None = None, quantityMW5From: Decimal | None = None, quantityMW5To: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, SASMIdFrom: datetime | None = None, SASMIdTo: datetime | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, price1ECRSFrom: Decimal | None = None, price1ECRSTo: Decimal | None = None, qseName: str | None = None, price1OFFECFrom: Decimal | None = None, price1OFFECTo: Decimal | None = None, dmeName: str | None = None, price2ECRSFrom: Decimal | None = None, price2ECRSTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_990_ex._60SasmLoadResAsOffersRow]:
         '60-Day SASM Load Resource AS Offers'
         return self._client._page('/np3-990-ex/60_sasm_load_res_as_offers', np3_990_ex._60SasmLoadResAsOffersRow, {'resourceName': resourceName, 'price2OFFECFrom': price2OFFECFrom, 'price2OFFECTo': price2OFFECTo, 'multiHourBlockFlag': multiHourBlockFlag, 'price3ECRSFrom': price3ECRSFrom, 'price3ECRSTo': price3ECRSTo, 'blockIndicator1': blockIndicator1, 'price3OFFECFrom': price3OFFECFrom, 'price3OFFECTo': price3OFFECTo, 'price1RRSPFRFrom': price1RRSPFRFrom, 'price1RRSPFRTo': price1RRSPFRTo, 'price4ECRSFrom': price4ECRSFrom, 'price4ECRSTo': price4ECRSTo, 'price1RRSFFRFrom': price1RRSFFRFrom, 'price1RRSFFRTo': price1RRSFFRTo, 'price4OFFECFrom': price4OFFECFrom, 'price4OFFECTo': price4OFFECTo, 'price1RRSUFRFrom': price1RRSUFRFrom, 'price1RRSUFRTo': price1RRSUFRTo, 'price5ECRSFrom': price5ECRSFrom, 'price5ECRSTo': price5ECRSTo, 'price1OnlineNONSPINFrom': price1OnlineNONSPINFrom, 'price1OnlineNONSPINTo': price1OnlineNONSPINTo, 'price5OFFECFrom': price5OFFECFrom, 'price5OFFECTo': price5OFFECTo, 'price1REGUPFrom': price1REGUPFrom, 'price1REGUPTo': price1REGUPTo, 'price1REGDOWNFrom': price1REGDOWNFrom, 'price1REGDOWNTo': price1REGDOWNTo, 'price1OfflineNONSPINFrom': price1OfflineNONSPINFrom, 'price1OfflineNONSPINTo': price1OfflineNONSPINTo, 'quantityMW1From': quantityMW1From, 'quantityMW1To': quantityMW1To, 'blockIndicator2': blockIndicator2, 'price2RRSPFRFrom': price2RRSPFRFrom, 'price2RRSPFRTo': price2RRSPFRTo, 'price2RRSFFRFrom': price2RRSFFRFrom, 'price2RRSFFRTo': price2RRSFFRTo, 'price2RRSUFRFrom': price2RRSUFRFrom, 'price2RRSUFRTo': price2RRSUFRTo, 'price2OnlineNONSPINFrom': price2OnlineNONSPINFrom, 'price2OnlineNONSPINTo': price2OnlineNONSPINTo, 'price2REGUPFrom': price2REGUPFrom, 'price2REGUPTo': price2REGUPTo, 'price2REGDOWNFrom': price2REGDOWNFrom, 'price2REGDOWNTo': price2REGDOWNTo, 'price2OfflineNONSPINFrom': price2OfflineNONSPINFrom, 'price2OfflineNONSPINTo': price2OfflineNONSPINTo, 'quantityMW2From': quantityMW2From, 'quantityMW2To': quantityMW2To, 'blockIndicator3': blockIndicator3, 'price3RRSPFRFrom': price3RRSPFRFrom, 'price3RRSPFRTo': price3RRSPFRTo, 'price3RRSFFRFrom': price3RRSFFRFrom, 'price3RRSFFRTo': price3RRSFFRTo, 'price3RRSUFRFrom': price3RRSUFRFrom, 'price3RRSUFRTo': price3RRSUFRTo, 'price3OnlineNONSPINFrom': price3OnlineNONSPINFrom, 'price3OnlineNONSPINTo': price3OnlineNONSPINTo, 'price3REGUPFrom': price3REGUPFrom, 'price3REGUPTo': price3REGUPTo, 'price3REGDOWNFrom': price3REGDOWNFrom, 'price3REGDOWNTo': price3REGDOWNTo, 'price3OfflineNONSPINFrom': price3OfflineNONSPINFrom, 'price3OfflineNONSPINTo': price3OfflineNONSPINTo, 'quantityMW3From': quantityMW3From, 'quantityMW3To': quantityMW3To, 'blockIndicator4': blockIndicator4, 'price4RRSPFRFrom': price4RRSPFRFrom, 'price4RRSPFRTo': price4RRSPFRTo, 'price4RRSFFRFrom': price4RRSFFRFrom, 'price4RRSFFRTo': price4RRSFFRTo, 'price4RRSUFRFrom': price4RRSUFRFrom, 'price4RRSUFRTo': price4RRSUFRTo, 'price4OnlineNONSPINFrom': price4OnlineNONSPINFrom, 'price4OnlineNONSPINTo': price4OnlineNONSPINTo, 'price4REGUPFrom': price4REGUPFrom, 'price4REGUPTo': price4REGUPTo, 'price4REGDOWNFrom': price4REGDOWNFrom, 'price4REGDOWNTo': price4REGDOWNTo, 'price4OfflineNONSPINFrom': price4OfflineNONSPINFrom, 'price4OfflineNONSPINTo': price4OfflineNONSPINTo, 'quantityMW4From': quantityMW4From, 'quantityMW4To': quantityMW4To, 'blockIndicator5': blockIndicator5, 'price5RRSPFRFrom': price5RRSPFRFrom, 'price5RRSPFRTo': price5RRSPFRTo, 'price5RRSFFRFrom': price5RRSFFRFrom, 'price5RRSFFRTo': price5RRSFFRTo, 'price5RRSUFRFrom': price5RRSUFRFrom, 'price5RRSUFRTo': price5RRSUFRTo, 'price5OnlineNONSPINFrom': price5OnlineNONSPINFrom, 'price5OnlineNONSPINTo': price5OnlineNONSPINTo, 'price5REGUPFrom': price5REGUPFrom, 'price5REGUPTo': price5REGUPTo, 'price5REGDOWNFrom': price5REGDOWNFrom, 'price5REGDOWNTo': price5REGDOWNTo, 'price5OfflineNONSPINFrom': price5OfflineNONSPINFrom, 'price5OfflineNONSPINTo': price5OfflineNONSPINTo, 'quantityMW5From': quantityMW5From, 'quantityMW5To': quantityMW5To, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'SASMIdFrom': SASMIdFrom, 'SASMIdTo': SASMIdTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'price1ECRSFrom': price1ECRSFrom, 'price1ECRSTo': price1ECRSTo, 'qseName': qseName, 'price1OFFECFrom': price1OFFECFrom, 'price1OFFECTo': price1OFFECTo, 'dmeName': dmeName, 'price2ECRSFrom': price2ECRSFrom, 'price2ECRSTo': price2ECRSTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5072,6 +8525,36 @@ class np3_991_ex:
         submitTime: datetime | None
         updateTime: datetime | None
 
+    class _60CopAllUpdatesHistoryRow(Row):
+        deliveryDate: date | None
+        qseName: str | None
+        resourceName: str | None
+        hourEnding: str | None
+        status: str | None
+        highSustainedLimit: Decimal | None
+        lowSustainedLimit: Decimal | None
+        highEmergencyLimit: Decimal | None
+        lowEmergencyLimit: Decimal | None
+        REGUP: Decimal | None
+        REGDN: Decimal | None
+        RRSPFR: Decimal | None = None
+        RRSFFR: Decimal | None = None
+        RRSUFR: Decimal | None = None
+        NSPIN: Decimal | None
+        ECRS: Decimal | None = None
+        minSOC: Decimal | None = None
+        maxSOC: Decimal | None = None
+        hourBeginningPlannedSOC: Decimal | None = None
+        cancelFlag: bool | None
+        updateTime: datetime | None
+        submitTime: datetime | None
+        RRS: Decimal | None = None
+
+    @property
+    def _60_cop_all_updates_history(self) -> Archive[np3_991_ex._60CopAllUpdatesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np3-991-ex', np3_991_ex._60CopAllUpdatesHistoryRow, {'Delivery Date': 'deliveryDate', 'QSE Name': 'qseName', 'Resource Name': 'resourceName', 'Hour Ending': 'hourEnding', 'Status': 'status', 'High Sustained Limit': 'highSustainedLimit', 'Low Sustained Limit': 'lowSustainedLimit', 'High Emergency Limit': 'highEmergencyLimit', 'Low Emergency Limit': 'lowEmergencyLimit', 'Reg Up': 'REGUP', 'Reg Down': 'REGDN', 'RRSPFR': 'RRSPFR', 'RRSFFR': 'RRSFFR', 'RRSUFR': 'RRSUFR', 'NSPIN': 'NSPIN', 'ECRS': 'ECRS', 'Minimum SOC': 'minSOC', 'Maximum SOC': 'maxSOC', 'Hour Beginning Planned SOC': 'hourBeginningPlannedSOC', 'Cancel Flag': 'cancelFlag', 'Update Time': 'updateTime', 'Submit Time': 'submitTime'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'updateTime': ['%m/%d/%Y %H:%M:%S', '%m/%d/%Y %H:%M'], 'submitTime': ['%m/%d/%Y %H:%M:%S', '%m/%d/%Y %H:%M']}, variants=({'Delivery Date': 'deliveryDate', 'QSE Name': 'qseName', 'Resource Name': 'resourceName', 'Hour Ending': 'hourEnding', 'Status': 'status', 'High Sustained Limit': 'highSustainedLimit', 'Low Sustained Limit': 'lowSustainedLimit', 'High Emergency Limit': 'highEmergencyLimit', 'Low Emergency Limit': 'lowEmergencyLimit', 'Reg Up': 'REGUP', 'Reg Down': 'REGDN', 'RRS': 'RRS', 'NSPIN': 'NSPIN', 'Cancel Flag': 'cancelFlag', 'Update Time': 'updateTime', 'Submit Time': 'submitTime'},))
+
     def _60_cop_all_updates(self, *, cancelFlag: bool | None = None, updateTimeFrom: datetime | None = None, updateTimeTo: datetime | None = None, submitTimeFrom: datetime | None = None, submitTimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, qseName: str | None = None, resourceName: str | None = None, hourEnding: str | None = None, status: str | None = None, highSustainedLimitFrom: Decimal | None = None, highSustainedLimitTo: Decimal | None = None, lowSustainedLimitFrom: Decimal | None = None, lowSustainedLimitTo: Decimal | None = None, highEmergencyLimitFrom: Decimal | None = None, highEmergencyLimitTo: Decimal | None = None, lowEmergencyLimitFrom: Decimal | None = None, lowEmergencyLimitTo: Decimal | None = None, REGUPFrom: Decimal | None = None, REGUPTo: Decimal | None = None, REGDNFrom: Decimal | None = None, REGDNTo: Decimal | None = None, RRSPFRFrom: Decimal | None = None, RRSPFRTo: Decimal | None = None, ECRSFrom: Decimal | None = None, ECRSTo: Decimal | None = None, RRSFFRFrom: Decimal | None = None, RRSFFRTo: Decimal | None = None, minSOCFrom: Decimal | None = None, minSOCTo: Decimal | None = None, RRSUFRFrom: Decimal | None = None, RRSUFRTo: Decimal | None = None, maxSOCFrom: Decimal | None = None, maxSOCTo: Decimal | None = None, NSPINFrom: Decimal | None = None, NSPINTo: Decimal | None = None, hourBeginningPlannedSOCFrom: Decimal | None = None, hourBeginningPlannedSOCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np3_991_ex._60CopAllUpdatesRow]:
         '60-Day COP All Updates'
         return self._client._page('/np3-991-ex/60_cop_all_updates', np3_991_ex._60CopAllUpdatesRow, {'cancelFlag': cancelFlag, 'updateTimeFrom': updateTimeFrom, 'updateTimeTo': updateTimeTo, 'submitTimeFrom': submitTimeFrom, 'submitTimeTo': submitTimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'qseName': qseName, 'resourceName': resourceName, 'hourEnding': hourEnding, 'status': status, 'highSustainedLimitFrom': highSustainedLimitFrom, 'highSustainedLimitTo': highSustainedLimitTo, 'lowSustainedLimitFrom': lowSustainedLimitFrom, 'lowSustainedLimitTo': lowSustainedLimitTo, 'highEmergencyLimitFrom': highEmergencyLimitFrom, 'highEmergencyLimitTo': highEmergencyLimitTo, 'lowEmergencyLimitFrom': lowEmergencyLimitFrom, 'lowEmergencyLimitTo': lowEmergencyLimitTo, 'REGUPFrom': REGUPFrom, 'REGUPTo': REGUPTo, 'REGDNFrom': REGDNFrom, 'REGDNTo': REGDNTo, 'RRSPFRFrom': RRSPFRFrom, 'RRSPFRTo': RRSPFRTo, 'ECRSFrom': ECRSFrom, 'ECRSTo': ECRSTo, 'RRSFFRFrom': RRSFFRFrom, 'RRSFFRTo': RRSFFRTo, 'minSOCFrom': minSOCFrom, 'minSOCTo': minSOCTo, 'RRSUFRFrom': RRSUFRFrom, 'RRSUFRTo': RRSUFRTo, 'maxSOCFrom': maxSOCFrom, 'maxSOCTo': maxSOCTo, 'NSPINFrom': NSPINFrom, 'NSPINTo': NSPINTo, 'hourBeginningPlannedSOCFrom': hourBeginningPlannedSOCFrom, 'hourBeginningPlannedSOCTo': hourBeginningPlannedSOCTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5100,6 +8583,20 @@ class np4_158_sg:
         repeatHourFlag: bool | None
         settlementPoint: str | None
         updateTime: datetime | None
+
+    class DamEsspsHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        settlementPoint: str | None
+        groupIndex: int | None
+        updateTime: datetime | None
+        repeatHourFlag: bool | None
+
+    @property
+    def dam_essps_history(self) -> Archive[np4_158_sg.DamEsspsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-158-sg', np4_158_sg.DamEsspsHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'SettlementPoint': 'settlementPoint', 'GroupIndex': 'groupIndex', 'UpdateTime': 'updateTime', 'DSTFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S', 'updateTime': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def dam_essps(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, settlementPoint: str | None = None, groupIndexFrom: int | None = None, groupIndexTo: int | None = None, updateTimeFrom: datetime | None = None, updateTimeTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_158_sg.DamEsspsRow]:
         'DAM Electrically Similar Settlement Points'
@@ -5131,6 +8628,22 @@ class np4_159_cd:
         loadId: str | None
         postedDatetime: datetime | None
         substation: str | None
+
+    class LoadDistributionFactorsHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        LDFDate: date | None
+        LDFHour: str | None
+        substation: str | None
+        distributionFactor: Decimal | None
+        loadId: str | None
+        MVARDistributionFactor: Decimal | None
+        MRIDLoad: str | None
+        DSTFlag: bool | None
+
+    @property
+    def load_distribution_factors_history(self) -> Archive[np4_159_cd.LoadDistributionFactorsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-159-cd', np4_159_cd.LoadDistributionFactorsHistoryRow, {'LdfDate': 'LDFDate', 'LdfHour': 'LDFHour', 'SubStation': 'substation', 'DistributionFactor': 'distributionFactor', 'LoadID': 'loadId', 'MVARDistributionFactor': 'MVARDistributionFactor', 'MRIDLoad': 'MRIDLoad', 'DSTFlag': 'DSTFlag'}, {'LDFDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=({'LdfDate': 'LDFDate', 'LdfHour': 'LDFHour', 'SubStation': 'substation', 'LoadDistributionFactor': 'distributionFactor', 'LoadID': 'loadId', 'MVARDistributionFactor': 'MVARDistributionFactor', 'MRIDLoad': 'MRIDLoad', 'DSTFlag': 'DSTFlag'},))
 
     def load_distribution_factors(self, *, LDFDateFrom: date | None = None, LDFDateTo: date | None = None, LDFHour: str | None = None, substation: str | None = None, distributionFactorFrom: Decimal | None = None, distributionFactorTo: Decimal | None = None, loadId: str | None = None, MVARDistributionFactorFrom: Decimal | None = None, MVARDistributionFactorTo: Decimal | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, MRIDLoad: str | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_159_cd.LoadDistributionFactorsRow]:
         'Load Distribution Factors'
@@ -5165,6 +8678,25 @@ class np4_179_cd:
         deliveryDate: date | None
         hourEnding: str | None
 
+    class TotalAsServiceOffersHistoryRow(Row):
+        deliveryDate: date | None
+        hourEnding: str | None
+        REGDN: Decimal | None
+        REGUP: Decimal | None
+        RRSPFR: Decimal | None = None
+        RRSFFR: Decimal | None = None
+        RRSUFR: Decimal | None = None
+        ECRSSD: Decimal | None = None
+        ECRSMD: Decimal | None = None
+        NSPIN: Decimal | None
+        DSTFlag: bool | None
+        RRS: Decimal | None = None
+
+    @property
+    def total_as_service_offers_history(self) -> Archive[np4_179_cd.TotalAsServiceOffersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-179-cd', np4_179_cd.TotalAsServiceOffersHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'REGDN': 'REGDN', 'REGUP': 'REGUP', 'RRSPFR': 'RRSPFR', 'RRSFFR': 'RRSFFR', 'RRSUFR': 'RRSUFR', 'ECRSSD': 'ECRSSD', 'ECRSMD': 'ECRSMD', 'NSPIN': 'NSPIN', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=({'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'REGDN': 'REGDN', 'REGUP': 'REGUP', 'RRS': 'RRS', 'NSPIN': 'NSPIN', 'DSTFlag': 'DSTFlag'},))
+
     def total_as_service_offers(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, REGDNFrom: Decimal | None = None, REGDNTo: Decimal | None = None, REGUPFrom: Decimal | None = None, REGUPTo: Decimal | None = None, RRSPFRFrom: Decimal | None = None, RRSPFRTo: Decimal | None = None, RRSFFRFrom: Decimal | None = None, RRSFFRTo: Decimal | None = None, RRSUFRFrom: Decimal | None = None, RRSUFRTo: Decimal | None = None, ECRSSDFrom: Decimal | None = None, ECRSSDTo: Decimal | None = None, ECRSMDFrom: Decimal | None = None, ECRSMDTo: Decimal | None = None, NSPINFrom: Decimal | None = None, NSPINTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_179_cd.TotalAsServiceOffersRow]:
         'Total Ancillary Service Offers'
         return self._client._page('/np4-179-cd/total_as_service_offers', np4_179_cd.TotalAsServiceOffersRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'REGDNFrom': REGDNFrom, 'REGDNTo': REGDNTo, 'REGUPFrom': REGUPFrom, 'REGUPTo': REGUPTo, 'RRSPFRFrom': RRSPFRFrom, 'RRSPFRTo': RRSPFRTo, 'RRSFFRFrom': RRSFFRFrom, 'RRSFFRTo': RRSFFRTo, 'RRSUFRFrom': RRSUFRFrom, 'RRSUFRTo': RRSUFRTo, 'ECRSSDFrom': ECRSSDFrom, 'ECRSSDTo': ECRSSDTo, 'ECRSMDFrom': ECRSMDFrom, 'ECRSMDTo': ECRSMDTo, 'NSPINFrom': NSPINFrom, 'NSPINTo': NSPINTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5192,6 +8724,11 @@ class np4_183_cd:
         deliveryDate: date | None
         hourEnding: str | None
 
+    @property
+    def dam_hourly_lmp_history(self) -> Archive[np4_183_cd.DamHourlyLmpRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-183-cd', np4_183_cd.DamHourlyLmpRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'BusName': 'busName', 'LMP': 'LMP', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes=None, variants=())
+
     def dam_hourly_lmp(self, *, DSTFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, busName: str | None = None, LMPFrom: Decimal | None = None, LMPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_183_cd.DamHourlyLmpRow]:
         'DAM Hourly LMPs'
         return self._client._page('/np4-183-cd/dam_hourly_lmp', np4_183_cd.DamHourlyLmpRow, {'DSTFlag': DSTFlag, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'busName': busName, 'LMPFrom': LMPFrom, 'LMPTo': LMPTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5218,6 +8755,11 @@ class np4_188_cd:
         ancillaryType: str | None
         deliveryDate: date | None
         hourEnding: str | None
+
+    @property
+    def dam_clear_price_for_cap_history(self) -> Archive[np4_188_cd.DamClearPriceForCapRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-188-cd', np4_188_cd.DamClearPriceForCapRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'AncillaryType': 'ancillaryType', 'MCPC': 'MCPC', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes=None, variants=())
 
     def dam_clear_price_for_cap(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, ancillaryType: str | None = None, MCPCFrom: Decimal | None = None, MCPCTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_188_cd.DamClearPriceForCapRow]:
         'DAM Clearing Prices for Capacity'
@@ -5247,6 +8789,11 @@ class np4_19_cd:
         price: Decimal | None
         quantity: Decimal | None
 
+    @property
+    def dam_agg_as_offer_curve_history(self) -> Archive[np4_19_cd.DamAggAsOfferCurveRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-19-cd', np4_19_cd.DamAggAsOfferCurveRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'AncillaryType': 'ancillaryType', 'Price': 'price', 'Quantity': 'quantity', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
+
     def dam_agg_as_offer_curve(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, ancillaryType: str | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, quantityFrom: Decimal | None = None, quantityTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_19_cd.DamAggAsOfferCurveRow]:
         'DAM Aggregated Ancillary Service Offer Curve'
         return self._client._page('/np4-19-cd/dam_agg_as_offer_curve', np4_19_cd.DamAggAsOfferCurveRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'ancillaryType': ancillaryType, 'priceFrom': priceFrom, 'priceTo': priceTo, 'quantityFrom': quantityFrom, 'quantityTo': quantityTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5273,6 +8820,11 @@ class np4_190_cd:
         hourEnding: str | None
         settlementPoint: str | None
         settlementPointPrice: Decimal | None
+
+    @property
+    def dam_stlmnt_pnt_prices_history(self) -> Archive[np4_190_cd.DamStlmntPntPricesRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-190-cd', np4_190_cd.DamStlmntPntPricesRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'SettlementPoint': 'settlementPoint', 'SettlementPointPrice': 'settlementPointPrice', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes=None, variants=())
 
     def dam_stlmnt_pnt_prices(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, settlementPoint: str | None = None, settlementPointPriceFrom: Decimal | None = None, settlementPointPriceTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_190_cd.DamStlmntPntPricesRow]:
         'DAM Settlement Point Prices'
@@ -5311,6 +8863,11 @@ class np4_191_cd:
         toStationkV: Decimal | None
         violationAmount: int | None
 
+    @property
+    def dam_shadow_prices_history(self) -> Archive[np4_191_cd.DamShadowPricesRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-191-cd', np4_191_cd.DamShadowPricesRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'ConstraintID': 'constraintId', 'ConstraintName': 'constraintName', 'ContingencyName': 'contingencyName', 'ConstraintLimit': 'constraintLimit', 'ConstraintValue': 'constraintValue', 'ViolationAmount': 'violationAmount', 'ShadowPrice': 'shadowPrice', 'FromStation': 'fromStation', 'ToStation': 'toStation', 'FromStationkV': 'fromStationkV', 'ToStationkV': 'toStationkV', 'DeliveryTime': 'deliveryTime', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'deliveryTime': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def dam_shadow_prices(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, constraintIdFrom: int | None = None, constraintIdTo: int | None = None, constraintName: str | None = None, contingencyName: str | None = None, constraintLimitFrom: int | None = None, constraintLimitTo: int | None = None, constraintValueFrom: int | None = None, constraintValueTo: int | None = None, violationAmountFrom: int | None = None, violationAmountTo: int | None = None, shadowPriceFrom: Decimal | None = None, shadowPriceTo: Decimal | None = None, fromStation: str | None = None, toStation: str | None = None, fromStationkVFrom: Decimal | None = None, fromStationkVTo: Decimal | None = None, toStationkVFrom: Decimal | None = None, toStationkVTo: Decimal | None = None, deliveryTimeFrom: datetime | None = None, deliveryTimeTo: datetime | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_191_cd.DamShadowPricesRow]:
         'DAM Shadow Prices'
         return self._client._page('/np4-191-cd/dam_shadow_prices', np4_191_cd.DamShadowPricesRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'constraintIdFrom': constraintIdFrom, 'constraintIdTo': constraintIdTo, 'constraintName': constraintName, 'contingencyName': contingencyName, 'constraintLimitFrom': constraintLimitFrom, 'constraintLimitTo': constraintLimitTo, 'constraintValueFrom': constraintValueFrom, 'constraintValueTo': constraintValueTo, 'violationAmountFrom': violationAmountFrom, 'violationAmountTo': violationAmountTo, 'shadowPriceFrom': shadowPriceFrom, 'shadowPriceTo': shadowPriceTo, 'fromStation': fromStation, 'toStation': toStation, 'fromStationkVFrom': fromStationkVFrom, 'fromStationkVTo': fromStationkVTo, 'toStationkVFrom': toStationkVFrom, 'toStationkVTo': toStationkVTo, 'deliveryTimeFrom': deliveryTimeFrom, 'deliveryTimeTo': deliveryTimeTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5337,6 +8894,11 @@ class np4_192_cd:
         repeatHourFlag: bool | None
         settlementPoint: str | None
         totalDamEnergyBought: Decimal | None
+
+    @property
+    def dam_total_energy_purchased_history(self) -> Archive[np4_192_cd.DamTotalEnergyPurchasedRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-192-cd', np4_192_cd.DamTotalEnergyPurchasedRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Settlement_Point': 'settlementPoint', 'Total_DAM_Energy_Bought': 'totalDamEnergyBought', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=({'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Settlement_Point': 'settlementPoint', 'Total_DAM_Energy_Bought': 'totalDamEnergyBought', 'DSTFlag': 'repeatHourFlag'},))
 
     def dam_total_energy_purchased(self, *, hourEnding: str | None = None, settlementPoint: str | None = None, totalDamEnergyBoughtFrom: Decimal | None = None, totalDamEnergyBoughtTo: Decimal | None = None, repeatHourFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_192_cd.DamTotalEnergyPurchasedRow]:
         'DAM Total Energy Purchased'
@@ -5365,6 +8927,11 @@ class np4_193_cd:
         settlementPoint: str | None
         totalDAMEnergySold: Decimal | None
 
+    @property
+    def total_dam_energy_sold_history(self) -> Archive[np4_193_cd.TotalDamEnergySoldRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-193-cd', np4_193_cd.TotalDamEnergySoldRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Settlement_Point': 'settlementPoint', 'TotalDAMEnergySold': 'totalDAMEnergySold', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=({'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Settlement_Point': 'settlementPoint', 'TotalDAMEnergySold': 'totalDAMEnergySold', 'DSTFlag': 'repeatHourFlag'},))
+
     def total_dam_energy_sold(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, settlementPoint: str | None = None, totalDAMEnergySoldFrom: Decimal | None = None, totalDAMEnergySoldTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_193_cd.TotalDamEnergySoldRow]:
         'DAM Total Energy Sold'
         return self._client._page('/np4-193-cd/total_dam_energy_sold', np4_193_cd.TotalDamEnergySoldRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'settlementPoint': settlementPoint, 'totalDAMEnergySoldFrom': totalDAMEnergySoldFrom, 'totalDAMEnergySoldTo': totalDAMEnergySoldTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5392,6 +8959,11 @@ class np4_194_cd:
         stlPnt: str | None
         totalPtpOblAwardedSink: Decimal | None
         totalPtpOblAwardedSource: Decimal | None
+
+    @property
+    def dam_ptp_obligation_sp_results_history(self) -> Archive[np4_194_cd.DamPtpObligationSpResultsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-194-cd', np4_194_cd.DamPtpObligationSpResultsRow, {'DELIVERYDATE': 'deliveryDate', 'HOURENDING': 'hourEnding', 'STL_PNT': 'stlPnt', 'TOTAL_PTP_OBL_AWARDED_SOURCE': 'totalPtpOblAwardedSource', 'TOTAL_PTP_OBL_AWARDED_SINK': 'totalPtpOblAwardedSink', 'DSTFlag': 'repeatedHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
 
     def dam_ptp_obligation_sp_results(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, stlPnt: str | None = None, totalPtpOblAwardedSourceFrom: Decimal | None = None, totalPtpOblAwardedSourceTo: Decimal | None = None, totalPtpOblAwardedSinkFrom: Decimal | None = None, totalPtpOblAwardedSinkTo: Decimal | None = None, repeatedHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_194_cd.DamPtpObligationSpResultsRow]:
         'DAM PTP Obligation Results by Settlement Point'
@@ -5422,6 +8994,11 @@ class np4_196_m:
         electricalBus: str | None
         priceCorrectionTime: datetime | None
 
+    @property
+    def dam_price_corrections_eblmp_history(self) -> Archive[np4_196_m.DamPriceCorrectionsEblmpRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-196-m', np4_196_m.DamPriceCorrectionsEblmpRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'ElectricBusName': 'electricalBus', 'LMPOriginal': 'LMPOriginal', 'LMPCorrected': 'LMPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*pricecorrection_DAM_EBLMP_*.csv', datetimes={'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_DAM_EBLMP_*')
+
     def dam_price_corrections_eblmp(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, electricalBus: str | None = None, LMPOriginalFrom: Decimal | None = None, LMPOriginalTo: Decimal | None = None, LMPCorrectedFrom: Decimal | None = None, LMPCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_196_m.DamPriceCorrectionsEblmpRow]:
         'DAM Price Corrections for EBLMP'
         return self._client._page('/np4-196-m/dam_price_corrections_eblmp', np4_196_m.DamPriceCorrectionsEblmpRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'electricalBus': electricalBus, 'LMPOriginalFrom': LMPOriginalFrom, 'LMPOriginalTo': LMPOriginalTo, 'LMPCorrectedFrom': LMPCorrectedFrom, 'LMPCorrectedTo': LMPCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5446,6 +9023,11 @@ class np4_196_m:
         deliveryHour: int | None
         priceCorrectionTime: datetime | None
 
+    @property
+    def dam_price_corrections_mcpc_history(self) -> Archive[np4_196_m.DamPriceCorrectionsMcpcRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-196-m', np4_196_m.DamPriceCorrectionsMcpcRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'ASType': 'ASType', 'MCPCOriginal': 'MCPCOriginal', 'MCPCCorrected': 'MCPCCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*pricecorrection_DAM_MCPC_*.csv', datetimes={'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_DAM_MCPC_*')
+
     def dam_price_corrections_mcpc(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, ASType: str | None = None, MCPCOriginalFrom: Decimal | None = None, MCPCOriginalTo: Decimal | None = None, MCPCCorrectedFrom: Decimal | None = None, MCPCCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_196_m.DamPriceCorrectionsMcpcRow]:
         'DAM Price Corrections for MCPC'
         return self._client._page('/np4-196-m/dam_price_corrections_mcpc', np4_196_m.DamPriceCorrectionsMcpcRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'ASType': ASType, 'MCPCOriginalFrom': MCPCOriginalFrom, 'MCPCOriginalTo': MCPCOriginalTo, 'MCPCCorrectedFrom': MCPCCorrectedFrom, 'MCPCCorrectedTo': MCPCCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5469,6 +9051,11 @@ class np4_196_m:
         deliveryHour: int | None
         priceCorrectionTime: datetime | None
         settlementPoint: str | None
+
+    @property
+    def dam_price_corrections_spp_history(self) -> Archive[np4_196_m.DamPriceCorrectionsSppRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-196-m', np4_196_m.DamPriceCorrectionsSppRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'SettlementPoint': 'settlementPoint', 'SPPOriginal': 'SPPOriginal', 'SPPCorrected': 'SPPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*pricecorrection_DAM_SPP_*.csv', datetimes={'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_DAM_SPP_*')
 
     def dam_price_corrections_spp(self, *, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, settlementPoint: str | None = None, SPPOriginalFrom: Decimal | None = None, SPPOriginalTo: Decimal | None = None, SPPCorrectedFrom: Decimal | None = None, SPPCorrectedTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_196_m.DamPriceCorrectionsSppRow]:
         'DAM Price Corrections for SPP'
@@ -5500,6 +9087,23 @@ class np4_197_m:
         uncappedLMPCorrected: Decimal | None
         uncappedLMPOriginal: Decimal | None
 
+    class RtmPriceCorrectionsEblmpHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        electricalBus: str | None
+        cappedLMPOriginal: Decimal | None = None
+        uncappedLMPOriginal: Decimal | None = None
+        cappedLMPCorrected: Decimal | None = None
+        uncappedLMPCorrected: Decimal | None = None
+        priceCorrectionTime: datetime | None
+        repeatedHourFlag: bool | None
+        LMPOriginal: Decimal | None = None
+        LMPCorrected: Decimal | None = None
+
+    @property
+    def rtm_price_corrections_eblmp_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsEblmpHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsEblmpHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'ElectricalBus': 'electricalBus', 'CappedLMPOriginal': 'cappedLMPOriginal', 'UncappedLMPOriginal': 'uncappedLMPOriginal', 'CappedLMPCorrected': 'cappedLMPCorrected', 'UncappedLMPCorrected': 'uncappedLMPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'RepeatedHourFlag': 'repeatedHourFlag'}, {}, member='*pricecorrection_RTM_EBLMP_*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S', 'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=({'SCEDTimestamp': 'SCEDTimestamp', 'ElectricBusName': 'electricalBus', 'LMPOriginal': 'LMPOriginal', 'LMPCorrected': 'LMPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'repeatedHourFlag'},), document='*pricecorrection_RTM_EBLMP_*')
+
     def rtm_price_corrections_eblmp(self, *, cappedLMPOriginalFrom: Decimal | None = None, cappedLMPOriginalTo: Decimal | None = None, uncappedLMPOriginalFrom: Decimal | None = None, uncappedLMPOriginalTo: Decimal | None = None, cappedLMPCorrectedFrom: Decimal | None = None, cappedLMPCorrectedTo: Decimal | None = None, uncappedLMPCorrectedFrom: Decimal | None = None, uncappedLMPCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, repeatedHourFlag: bool | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, electricalBus: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsEblmpRow]:
         'RTM Price Corrections for EB LMP'
         return self._client._page('/np4-197-m/rtm_price_corrections_eblmp', np4_197_m.RtmPriceCorrectionsEblmpRow, {'cappedLMPOriginalFrom': cappedLMPOriginalFrom, 'cappedLMPOriginalTo': cappedLMPOriginalTo, 'uncappedLMPOriginalFrom': uncappedLMPOriginalFrom, 'uncappedLMPOriginalTo': uncappedLMPOriginalTo, 'cappedLMPCorrectedFrom': cappedLMPCorrectedFrom, 'cappedLMPCorrectedTo': cappedLMPCorrectedTo, 'uncappedLMPCorrectedFrom': uncappedLMPCorrectedFrom, 'uncappedLMPCorrectedTo': uncappedLMPCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'repeatedHourFlag': repeatedHourFlag, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'electricalBus': electricalBus, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5525,6 +9129,11 @@ class np4_197_m:
         priceCorrectionTime: datetime | None
         repeatHourFlag: bool | None
 
+    @property
+    def rtm_price_corrections_mcpc_spp_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsMcpcSppRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsMcpcSppRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'ASType': 'ASType', 'MCPCOriginal': 'MCPCOriginal', 'MCPCCorrected': 'MCPCCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*pricecorrection_RTM_MCPC_SPP_*.csv', datetimes={'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_RTM_MCPC_SPP_*')
+
     def rtm_price_corrections_mcpc_spp(self, *, ASType: str | None = None, MCPCOriginalFrom: Decimal | None = None, MCPCOriginalTo: Decimal | None = None, MCPCCorrectedFrom: Decimal | None = None, MCPCCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, repeatHourFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsMcpcSppRow]:
         'RTM Price Corrections for MCPC by 15-Min Settlement Interval'
         return self._client._page('/np4-197-m/rtm_price_corrections_mcpc_spp', np4_197_m.RtmPriceCorrectionsMcpcSppRow, {'ASType': ASType, 'MCPCOriginalFrom': MCPCOriginalFrom, 'MCPCOriginalTo': MCPCOriginalTo, 'MCPCCorrectedFrom': MCPCCorrectedFrom, 'MCPCCorrectedTo': MCPCCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'repeatHourFlag': repeatHourFlag, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'deliveryIntervalFrom': deliveryIntervalFrom, 'deliveryIntervalTo': deliveryIntervalTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5549,6 +9158,23 @@ class np4_197_m:
         repeatedHourFlag: bool | None
         uncappedMCPCCorrected: Decimal | None
         uncappedMCPCOriginal: Decimal | None
+
+    class RtmPriceCorrectionsMcpcScedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        ASType: str | None
+        cappedMCPCOriginal: Decimal | None = None
+        uncappedMCPCOriginal: Decimal | None = None
+        cappedMCPCCorrected: Decimal | None = None
+        uncappedMCPCCorrected: Decimal | None = None
+        priceCorrectionTime: datetime | None
+        repeatedHourFlag: bool | None
+        MCPCOriginal: Decimal | None = None
+        MCPCCorrected: Decimal | None = None
+
+    @property
+    def rtm_price_corrections_mcpc_sced_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsMcpcScedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsMcpcScedHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'ASType': 'ASType', 'CappedMCPCOriginal': 'cappedMCPCOriginal', 'UncappedMCPCOriginal': 'uncappedMCPCOriginal', 'CappedMCPCCorrected': 'cappedMCPCCorrected', 'UncappedMCPCCorrected': 'uncappedMCPCCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'RepeatedHourFlag': 'repeatedHourFlag'}, {}, member='*pricecorrection_RTM_MCPC_SCED_*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S', 'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=({'SCEDTimestamp': 'SCEDTimestamp', 'ASType': 'ASType', 'MCPCOriginal': 'MCPCOriginal', 'MCPCCorrected': 'MCPCCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'RepeatedHourFlag': 'repeatedHourFlag'},), document='*pricecorrection_RTM_MCPC_SCED_*')
 
     def rtm_price_corrections_mcpc_sced(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, ASType: str | None = None, cappedMCPCOriginalFrom: Decimal | None = None, cappedMCPCOriginalTo: Decimal | None = None, uncappedMCPCOriginalFrom: Decimal | None = None, uncappedMCPCOriginalTo: Decimal | None = None, cappedMCPCCorrectedFrom: Decimal | None = None, cappedMCPCCorrectedTo: Decimal | None = None, uncappedMCPCCorrectedFrom: Decimal | None = None, uncappedMCPCCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, repeatedHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsMcpcScedRow]:
         'RTM Price Corrections for MCPCs by SCED Interval'
@@ -5578,6 +9204,11 @@ class np4_197_m:
         shadowPriceOriginal: Decimal | None
         valueCorrected: Decimal | None
         valueOriginal: Decimal | None
+
+    @property
+    def rtm_price_corrections_shadow_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsShadowRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsShadowRow, {'SCEDTimestamp': 'SCEDTimestamp', 'ConstrID': 'constraintId', 'ConstrName': 'constraintName', 'ContingencyName': 'contingencyName', 'ShadowPriceOrig': 'shadowPriceOriginal', 'ShadowPriceCorrected': 'shadowPriceCorrected', 'LimitOrig': 'limitOriginal', 'LimitCorrected': 'limitCorrected', 'ValueOriginal': 'valueOriginal', 'ValueCorrected': 'valueCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {}, member='*pricecorrection_RTM_ShadowPrice_*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S', 'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_RTM_ShadowPrice_*')
 
     def rtm_price_corrections_shadow(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, constraintIdFrom: int | None = None, constraintIdTo: int | None = None, constraintName: str | None = None, contingencyName: str | None = None, shadowPriceOriginalFrom: Decimal | None = None, shadowPriceOriginalTo: Decimal | None = None, shadowPriceCorrectedFrom: Decimal | None = None, shadowPriceCorrectedTo: Decimal | None = None, limitOriginalFrom: Decimal | None = None, limitOriginalTo: Decimal | None = None, limitCorrectedFrom: Decimal | None = None, limitCorrectedTo: Decimal | None = None, valueOriginalFrom: Decimal | None = None, valueOriginalTo: Decimal | None = None, valueCorrectedFrom: Decimal | None = None, valueCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsShadowRow]:
         'RTM Price Corrections for Shadow Prices'
@@ -5610,6 +9241,29 @@ class np4_197_m:
         resourceName: str | None
         resourceType: str | None
 
+    class RtmPriceCorrectionsSoglmpHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        resourceType: str | None
+        resourceName: str | None
+        meterName: str | None
+        meterLMPOriginal: Decimal | None
+        meterLMPCorrected: Decimal | None
+        RTRDPAOriginal: Decimal | None = None
+        RTRDPACorrected: Decimal | None = None
+        finalLMPOriginal: Decimal | None
+        finalLMPCorrected: Decimal | None
+        priceCorrectionTime: datetime | None
+        repeatHourFlag: bool | None
+        RTORPAOriginal: Decimal | None = None
+        RTORPACorrected: Decimal | None = None
+        RTORDPAOriginal: Decimal | None = None
+        RTORDPACorrected: Decimal | None = None
+
+    @property
+    def rtm_price_corrections_soglmp_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsSoglmpHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsSoglmpHistoryRow, {'ScedTimestamp': 'SCEDTimestamp', 'ResourceType': 'resourceType', 'ResourceName': 'resourceName', 'MeterName': 'meterName', 'MeterLMPOriginal': 'meterLMPOriginal', 'MeterLMPCorrected': 'meterLMPCorrected', 'RTRDPAOriginal': 'RTRDPAOriginal', 'RTRDPACorrected': 'RTRDPACorrected', 'FinalLMPOriginal': 'finalLMPOriginal', 'FinalLMPCorrected': 'finalLMPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'RepeatedHourFlag': 'repeatHourFlag'}, {}, member='*pricecorrection_RTM_SOGLMP_*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S', 'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=({'ScedTimestamp': 'SCEDTimestamp', 'ResourceType': 'resourceType', 'ResourceName': 'resourceName', 'MeterName': 'meterName', 'MeterLMPOriginal': 'meterLMPOriginal', 'MeterLMPCorrected': 'meterLMPCorrected', 'RTORPAOriginal': 'RTORPAOriginal', 'RTORPACorrected': 'RTORPACorrected', 'RTORDPAOriginal': 'RTORDPAOriginal', 'RTORDPACorrected': 'RTORDPACorrected', 'FinalLMPOriginal': 'finalLMPOriginal', 'FinalLMPCorrected': 'finalLMPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'repeatHourFlag'},), document='*pricecorrection_RTM_SOGLMP_*')
+
     def rtm_price_corrections_soglmp(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, resourceType: str | None = None, resourceName: str | None = None, meterName: str | None = None, meterLMPOriginalFrom: Decimal | None = None, meterLMPOriginalTo: Decimal | None = None, meterLMPCorrectedFrom: Decimal | None = None, meterLMPCorrectedTo: Decimal | None = None, RTRDPAOriginalFrom: Decimal | None = None, RTRDPAOriginalTo: Decimal | None = None, RTRDPACorrectedFrom: Decimal | None = None, RTRDPACorrectedTo: Decimal | None = None, finalLMPOriginalFrom: Decimal | None = None, finalLMPOriginalTo: Decimal | None = None, finalLMPCorrectedFrom: Decimal | None = None, finalLMPCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsSoglmpRow]:
         'RTM Price Corrections for SOG LMP'
         return self._client._page('/np4-197-m/rtm_price_corrections_soglmp', np4_197_m.RtmPriceCorrectionsSoglmpRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'resourceType': resourceType, 'resourceName': resourceName, 'meterName': meterName, 'meterLMPOriginalFrom': meterLMPOriginalFrom, 'meterLMPOriginalTo': meterLMPOriginalTo, 'meterLMPCorrectedFrom': meterLMPCorrectedFrom, 'meterLMPCorrectedTo': meterLMPCorrectedTo, 'RTRDPAOriginalFrom': RTRDPAOriginalFrom, 'RTRDPAOriginalTo': RTRDPAOriginalTo, 'RTRDPACorrectedFrom': RTRDPACorrectedFrom, 'RTRDPACorrectedTo': RTRDPACorrectedTo, 'finalLMPOriginalFrom': finalLMPOriginalFrom, 'finalLMPOriginalTo': finalLMPOriginalTo, 'finalLMPCorrectedFrom': finalLMPCorrectedFrom, 'finalLMPCorrectedTo': finalLMPCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5637,6 +9291,11 @@ class np4_197_m:
         resourceName: str | None
         resourceType: str | None
 
+    @property
+    def rtm_price_corrections_sogprice_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsSogpriceRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsSogpriceRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'ResourceType': 'resourceType', 'ResourceName': 'resourceName', 'MeterName': 'meterName', 'PriceOriginal': 'priceOriginal', 'PriceCorrected': 'priceCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*pricecorrection_RTM_SOGPRICE_*.csv', datetimes={'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_RTM_SOGPRICE_*')
+
     def rtm_price_corrections_sogprice(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, resourceType: str | None = None, resourceName: str | None = None, meterName: str | None = None, priceOriginalFrom: Decimal | None = None, priceOriginalTo: Decimal | None = None, priceCorrectedFrom: Decimal | None = None, priceCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsSogpriceRow]:
         'RTM Price Corrections for SOG Price'
         return self._client._page('/np4-197-m/rtm_price_corrections_sogprice', np4_197_m.RtmPriceCorrectionsSogpriceRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'deliveryIntervalFrom': deliveryIntervalFrom, 'deliveryIntervalTo': deliveryIntervalTo, 'resourceType': resourceType, 'resourceName': resourceName, 'meterName': meterName, 'priceOriginalFrom': priceOriginalFrom, 'priceOriginalTo': priceOriginalTo, 'priceCorrectedFrom': priceCorrectedFrom, 'priceCorrectedTo': priceCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5663,6 +9322,11 @@ class np4_197_m:
         settlementPointName: str | None
         settlementPointType: str | None
 
+    @property
+    def rtm_price_corrections_spp_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsSppRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsSppRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'SettlementPointName': 'settlementPointName', 'SettlementPointType': 'settlementPointType', 'SPPOriginal': 'SPPOriginal', 'SPPCorrected': 'SPPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*pricecorrection_RTM_SPP_*.csv', datetimes={'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_RTM_SPP_*')
+
     def rtm_price_corrections_spp(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, settlementPointName: str | None = None, settlementPointType: str | None = None, SPPOriginalFrom: Decimal | None = None, SPPOriginalTo: Decimal | None = None, SPPCorrectedFrom: Decimal | None = None, SPPCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsSppRow]:
         'RTM Price Corrections for SPP'
         return self._client._page('/np4-197-m/rtm_price_corrections_spp', np4_197_m.RtmPriceCorrectionsSppRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'deliveryIntervalFrom': deliveryIntervalFrom, 'deliveryIntervalTo': deliveryIntervalTo, 'settlementPointName': settlementPointName, 'settlementPointType': settlementPointType, 'SPPOriginalFrom': SPPOriginalFrom, 'SPPOriginalTo': SPPOriginalTo, 'SPPCorrectedFrom': SPPCorrectedFrom, 'SPPCorrectedTo': SPPCorrectedTo, 'priceCorrectionTimeFrom': priceCorrectionTimeFrom, 'priceCorrectionTimeTo': priceCorrectionTimeTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5685,6 +9349,11 @@ class np4_197_m:
         SCEDTimestamp: datetime | None
         priceCorrectionTime: datetime | None
         settlementPointName: str | None
+
+    @property
+    def rtm_price_corrections_splmp_history(self) -> Archive[np4_197_m.RtmPriceCorrectionsSplmpRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-197-m', np4_197_m.RtmPriceCorrectionsSplmpRow, {'SCEDTimestamp': 'SCEDTimestamp', 'SettlementPoint': 'settlementPointName', 'LMPOriginal': 'LMPOriginal', 'LMPCorrected': 'LMPCorrected', 'PriceCorrectionTime': 'priceCorrectionTime', 'DSTFlag': 'DSTFlag'}, {}, member='*pricecorrection_RTM_SPLMP_*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S', 'priceCorrectionTime': '%m/%d/%Y %H:%M:%S'}, variants=(), document='*pricecorrection_RTM_SPLMP_*')
 
     def rtm_price_corrections_splmp(self, *, settlementPointName: str | None = None, LMPOriginalFrom: Decimal | None = None, LMPOriginalTo: Decimal | None = None, LMPCorrectedFrom: Decimal | None = None, LMPCorrectedTo: Decimal | None = None, priceCorrectionTimeFrom: datetime | None = None, priceCorrectionTimeTo: datetime | None = None, DSTFlag: bool | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_197_m.RtmPriceCorrectionsSplmpRow]:
         'RTM Price Corrections SP LMP'
@@ -5711,6 +9380,11 @@ class np4_200_cd:
         hourEnding: str | None
         repeatedHourFlag: bool | None
         settlementPoint: str | None
+
+    @property
+    def dam_de_energized_spbc_history(self) -> Archive[np4_200_cd.DamDeEnergizedSpbcRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-200-cd', np4_200_cd.DamDeEnergizedSpbcRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'SettlementPoint': 'settlementPoint', 'DSTFlag': 'repeatedHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
 
     def dam_de_energized_spbc(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, settlementPoint: str | None = None, repeatedHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_200_cd.DamDeEnergizedSpbcRow]:
         'DAM De-Energized Settlement Points in Base Case'
@@ -5742,6 +9416,21 @@ class np4_212_cd:
         quantity: Decimal | None
         repeatHourFlag: bool | None
 
+    class DamScedAsDemandCurvesHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        ASType: str | None
+        demandCurvePoint: Decimal | None
+        quantity: Decimal | None
+        price: Decimal | None
+        repeatHourFlag: bool | None
+
+    @property
+    def dam_sced_as_demand_curves_history(self) -> Archive[np4_212_cd.DamScedAsDemandCurvesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-212-cd', np4_212_cd.DamScedAsDemandCurvesHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'ASType': 'ASType', 'DemandCurvePoint': 'demandCurvePoint', 'Quantity': 'quantity', 'Price': 'price', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def dam_sced_as_demand_curves(self, *, quantityFrom: Decimal | None = None, quantityTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, repeatHourFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, ASType: str | None = None, demandCurvePointFrom: Decimal | None = None, demandCurvePointTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_212_cd.DamScedAsDemandCurvesRow]:
         'DAM and SCED Ancillary Service Demand Curves'
         return self._client._page('/np4-212-cd/dam_sced_as_demand_curves', np4_212_cd.DamScedAsDemandCurvesRow, {'quantityFrom': quantityFrom, 'quantityTo': quantityTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'repeatHourFlag': repeatHourFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'ASType': ASType, 'demandCurvePointFrom': demandCurvePointFrom, 'demandCurvePointTo': demandCurvePointTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5772,6 +9461,11 @@ class np4_213_cd:
         quantity: Decimal | None
         repeatHourFlag: bool | None
 
+    @property
+    def hruc_as_demand_curves_history(self) -> Archive[np4_213_cd.HrucAsDemandCurvesRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-213-cd', np4_213_cd.HrucAsDemandCurvesRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimeStamp': 'RUCTimestamp', 'ASType': 'ASType', 'DemandCurvePoint': 'demandCurvePoint', 'Quantity': 'quantity', 'Price': 'price', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def hruc_as_demand_curves(self, *, quantityFrom: Decimal | None = None, quantityTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, repeatHourFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, ASType: str | None = None, demandCurvePointFrom: Decimal | None = None, demandCurvePointTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_213_cd.HrucAsDemandCurvesRow]:
         'Hourly RUC Ancillary Service Demand Curves'
         return self._client._page('/np4-213-cd/hruc_as_demand_curves', np4_213_cd.HrucAsDemandCurvesRow, {'quantityFrom': quantityFrom, 'quantityTo': quantityTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'repeatHourFlag': repeatHourFlag, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'RUCTimestampFrom': RUCTimestampFrom, 'RUCTimestampTo': RUCTimestampTo, 'ASType': ASType, 'demandCurvePointFrom': demandCurvePointFrom, 'demandCurvePointTo': demandCurvePointTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5801,6 +9495,11 @@ class np4_214_cd:
         price: Decimal | None
         quantity: Decimal | None
         repeatHourFlag: bool | None
+
+    @property
+    def druc_as_demand_curves_history(self) -> Archive[np4_214_cd.DrucAsDemandCurvesRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-214-cd', np4_214_cd.DrucAsDemandCurvesRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimeStamp': 'RUCTimestamp', 'ASType': 'ASType', 'DemandCurvePoint': 'demandCurvePoint', 'Quantity': 'quantity', 'Price': 'price', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def druc_as_demand_curves(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, ASType: str | None = None, demandCurvePointFrom: Decimal | None = None, demandCurvePointTo: Decimal | None = None, quantityFrom: Decimal | None = None, quantityTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_214_cd.DrucAsDemandCurvesRow]:
         'Daily RUC Ancillary Service Demand Curves'
@@ -5833,6 +9532,22 @@ class np4_215_cd:
         quantity: Decimal | None
         repeatHourFlag: bool | None
 
+    class WrucAsDemandCurvesHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        RUCTimestamp: datetime | None
+        ASType: str | None
+        demandCurvePoint: Decimal | None
+        quantity: Decimal | None
+        price: Decimal | None
+        repeatHourFlag: bool | None
+
+    @property
+    def wruc_as_demand_curves_history(self) -> Archive[np4_215_cd.WrucAsDemandCurvesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-215-cd', np4_215_cd.WrucAsDemandCurvesHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimeStamp': 'RUCTimestamp', 'ASType': 'ASType', 'DemandCurvePoint': 'demandCurvePoint', 'Quantity': 'quantity', 'Price': 'price', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S', 'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def wruc_as_demand_curves(self, *, quantityFrom: Decimal | None = None, quantityTo: Decimal | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, repeatHourFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, ASType: str | None = None, demandCurvePointFrom: Decimal | None = None, demandCurvePointTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_215_cd.WrucAsDemandCurvesRow]:
         'Weekly RUC Ancillary Service Demand Curves'
         return self._client._page('/np4-215-cd/wruc_as_demand_curves', np4_215_cd.WrucAsDemandCurvesRow, {'quantityFrom': quantityFrom, 'quantityTo': quantityTo, 'priceFrom': priceFrom, 'priceTo': priceTo, 'repeatHourFlag': repeatHourFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'RUCTimestampFrom': RUCTimestampFrom, 'RUCTimestampTo': RUCTimestampTo, 'ASType': ASType, 'demandCurvePointFrom': demandCurvePointFrom, 'demandCurvePointTo': demandCurvePointTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5861,6 +9576,19 @@ class np4_231_cd:
         toEBName: str | None
         type: str | None
 
+    class ElectricalBusMapHeurPriceHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        marketType: str | None
+        fromEBName: str | None
+        toEBName: str | None
+        type: str | None
+        priority: Decimal | None
+
+    @property
+    def electrical_bus_map_heur_price_history(self) -> Archive[np4_231_cd.ElectricalBusMapHeurPriceHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-231-cd', np4_231_cd.ElectricalBusMapHeurPriceHistoryRow, {'MarketType': 'marketType', 'FromEBName': 'fromEBName', 'ToEBName': 'toEBName', 'Type': 'type', 'Priority': 'priority'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def electrical_bus_map_heur_price(self, *, toEBName: str | None = None, type: str | None = None, priorityFrom: Decimal | None = None, priorityTo: Decimal | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, marketType: str | None = None, fromEBName: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_231_cd.ElectricalBusMapHeurPriceRow]:
         'Electrical Bus Mapping for Heuristic Pricing'
         return self._client._page('/np4-231-cd/electrical_bus_map_heur_price', np4_231_cd.ElectricalBusMapHeurPriceRow, {'toEBName': toEBName, 'type': type, 'priorityFrom': priorityFrom, 'priorityTo': priorityTo, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'marketType': marketType, 'fromEBName': fromEBName, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5888,6 +9616,19 @@ class np4_33_cd:
         hourEnding: str | None
         postedDatetime: datetime | None
         quantity: int | None
+
+    class DamAsPlanHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        ancillaryType: str | None
+        quantity: int | None
+        DSTFlag: bool | None
+
+    @property
+    def dam_as_plan_history(self) -> Archive[np4_33_cd.DamAsPlanHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-33-cd', np4_33_cd.DamAsPlanHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'AncillaryType': 'ancillaryType', 'Quantity': 'quantity', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def dam_as_plan(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, ancillaryType: str | None = None, quantityFrom: int | None = None, quantityTo: int | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_33_cd.DamAsPlanRow]:
         'DAM Ancillary Service Plan'
@@ -5920,6 +9661,11 @@ class np4_412_cd:
         hoursHCAPDAM: Decimal | None
         repeatHourFlag: bool | None
 
+    @property
+    def epp_cumulative_hours_history(self) -> Archive[np4_412_cd.EppCumulativeHoursRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-412-cd', np4_412_cd.EppCumulativeHoursRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'AvgRTSystemLambda': 'RTSystemLambda', 'AvgRTRDPA': 'RTRDPA', 'SumRTSysLambdaRTRDPA': 'RTSystemLambdaRTDPA', 'HCAPforDAM': 'HCAPDAM', 'CumHrsHCAPDAM24Hrs': 'hoursHCAPDAM', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
+
     def epp_cumulative_hours(self, *, HCAPDAMFrom: Decimal | None = None, HCAPDAMTo: Decimal | None = None, hoursHCAPDAMFrom: Decimal | None = None, hoursHCAPDAMTo: Decimal | None = None, repeatHourFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, RTSystemLambdaFrom: Decimal | None = None, RTSystemLambdaTo: Decimal | None = None, RTRDPAFrom: Decimal | None = None, RTRDPATo: Decimal | None = None, RTSystemLambdaRTDPAFrom: Decimal | None = None, RTSystemLambdaRTDPATo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_412_cd.EppCumulativeHoursRow]:
         'Emergency Pricing Program Cumulative Hours Tracking'
         return self._client._page('/np4-412-cd/epp_cumulative_hours', np4_412_cd.EppCumulativeHoursRow, {'HCAPDAMFrom': HCAPDAMFrom, 'HCAPDAMTo': HCAPDAMTo, 'hoursHCAPDAMFrom': hoursHCAPDAMFrom, 'hoursHCAPDAMTo': hoursHCAPDAMTo, 'repeatHourFlag': repeatHourFlag, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'deliveryIntervalFrom': deliveryIntervalFrom, 'deliveryIntervalTo': deliveryIntervalTo, 'RTSystemLambdaFrom': RTSystemLambdaFrom, 'RTSystemLambdaTo': RTSystemLambdaTo, 'RTRDPAFrom': RTRDPAFrom, 'RTRDPATo': RTRDPATo, 'RTSystemLambdaRTDPAFrom': RTSystemLambdaRTDPAFrom, 'RTSystemLambdaRTDPATo': RTSystemLambdaRTDPATo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5949,6 +9695,21 @@ class np4_442_cd:
         postedDatetime: datetime | None
         region: str | None
         value: Decimal | None
+
+    class HrlySysRegWindFcastModelHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: int | None
+        region: str | None
+        value: Decimal | None
+        model: str | None
+        inUseFlag: bool | None
+        DSTFlag: bool | None
+
+    @property
+    def hrly_sys_reg_wind_fcast_model_history(self) -> Archive[np4_442_cd.HrlySysRegWindFcastModelHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-442-cd', np4_442_cd.HrlySysRegWindFcastModelHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Region': 'region', 'Value': 'value', 'Model': 'model', 'InUseFlag': 'inUseFlag', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
 
     def hrly_sys_reg_wind_fcast_model(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, region: str | None = None, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, model: str | None = None, inUseFlag: bool | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_442_cd.HrlySysRegWindFcastModelRow]:
         'Hourly System-wide and Regional Wind Forecasts by Model'
@@ -5980,6 +9741,21 @@ class np4_443_cd:
         region: str | None
         value: Decimal | None
 
+    class HrlySysRegSolarFcastModelHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: int | None
+        region: str | None
+        value: Decimal | None
+        model: str | None
+        inUseFlag: bool | None
+        DSTFlag: bool | None
+
+    @property
+    def hrly_sys_reg_solar_fcast_model_history(self) -> Archive[np4_443_cd.HrlySysRegSolarFcastModelHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-443-cd', np4_443_cd.HrlySysRegSolarFcastModelHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Region': 'region', 'Value': 'value', 'Model': 'model', 'InUseFlag': 'inUseFlag', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=())
+
     def hrly_sys_reg_solar_fcast_model(self, *, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, model: str | None = None, inUseFlag: bool | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, region: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_443_cd.HrlySysRegSolarFcastModelRow]:
         'Hourly System-Wide and Regional Solar Forecasts by Model'
         return self._client._page('/np4-443-cd/hrly_sys_reg_solar_fcast_model', np4_443_cd.HrlySysRegSolarFcastModelRow, {'valueFrom': valueFrom, 'valueTo': valueTo, 'model': model, 'inUseFlag': inUseFlag, 'DSTFlag': DSTFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'region': region, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -5996,6 +9772,22 @@ class np4_443_cd:
         'Hourly System-Wide and Regional Solar Forecasts by Model'
         return self._client._aiter('/np4-443-cd/hrly_sys_reg_solar_fcast_model', np4_443_cd.HrlySysRegSolarFcastModelRow, {'valueFrom': valueFrom, 'valueTo': valueTo, 'model': model, 'inUseFlag': inUseFlag, 'DSTFlag': DSTFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'region': region, 'size': size, 'sort': sort, 'dir': dir})
 
+class np4_494_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class FuelCostSubmissionsHistoryRow(Row):
+        sourceSheet: str | None = None
+        deliveryDate: date | None
+        deliveryHour: int | None
+        resourceCount: int | None
+
+    @property
+    def fuel_cost_submissions_history(self) -> WorkbookArchive[np4_494_er.FuelCostSubmissionsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np4-494-er', np4_494_er.FuelCostSubmissionsHistoryRow, {'Delivery Date': 'deliveryDate', 'Delivery Hour': 'deliveryHour', 'Number of resources with submitted EFC': 'resourceCount'}, {}, sheets=('Exceptional Fuel Cost Data',), variants=())
+
 class np4_523_cd:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -6005,6 +9797,11 @@ class np4_523_cd:
         deliveryDate: date | None
         hourEnding: str | None
         systemLambda: Decimal | None
+
+    @property
+    def dam_system_lambda_history(self) -> Archive[np4_523_cd.DamSystemLambdaRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-523-cd', np4_523_cd.DamSystemLambdaRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'SystemLambda': 'systemLambda', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
 
     def dam_system_lambda(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, systemLambdaFrom: Decimal | None = None, systemLambdaTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_523_cd.DamSystemLambdaRow]:
         'DAM System Lambda'
@@ -6032,6 +9829,11 @@ class np4_532_cd:
         hourEnding: str | None
         quantity: Decimal | None
         repeatHourFlag: bool | None
+
+    @property
+    def dam_as_sold_history(self) -> Archive[np4_532_cd.DamAsSoldRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-532-cd', np4_532_cd.DamAsSoldRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'ASType': 'ASType', 'Quantity': 'quantity', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
 
     def dam_as_sold(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, ASType: str | None = None, quantityFrom: Decimal | None = None, quantityTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_532_cd.DamAsSoldRow]:
         'DAM Total Ancillary Services Sold'
@@ -6065,6 +9867,11 @@ class np4_722_cd:
         southCentral: Decimal | None
         southern: Decimal | None
         west: Decimal | None
+
+    @property
+    def weather_assumptions_history(self) -> Archive[np4_722_cd.WeatherAssumptionsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-722-cd', np4_722_cd.WeatherAssumptionsRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Coast': 'coast', 'East': 'east', 'FarWest': 'farWest', 'North': 'north', 'NorthCentral': 'northCentral', 'SouthCentral': 'southCentral', 'Southern': 'southern', 'West': 'west', 'DSTFlag': 'repeatedHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
 
     def weather_assumptions(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, coastFrom: Decimal | None = None, coastTo: Decimal | None = None, eastFrom: Decimal | None = None, eastTo: Decimal | None = None, farWestFrom: Decimal | None = None, farWestTo: Decimal | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, northCentralFrom: Decimal | None = None, northCentralTo: Decimal | None = None, southCentralFrom: Decimal | None = None, southCentralTo: Decimal | None = None, southernFrom: Decimal | None = None, southernTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, repeatedHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_722_cd.WeatherAssumptionsRow]:
         'Weather Assumptions'
@@ -6109,6 +9916,48 @@ class np4_732_cd:
         hourEnding: int | None
         postedDatetime: datetime | None
 
+    class WppHrlyAvrgActlFcastHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None = None
+        hourEnding: int | None = None
+        genSystemWide: Decimal | None = None
+        COPHSLSystemWide: Decimal | None
+        STWPFSystemWide: Decimal | None
+        WGRPPSystemWide: Decimal | None
+        genLoadZoneSouthHouston: Decimal | None = None
+        COPHSLLoadZoneSouthHouston: Decimal | None = None
+        STWPFLoadZoneSouthHouston: Decimal | None = None
+        WGRPPLoadZoneSouthHouston: Decimal | None = None
+        genLoadZoneWest: Decimal | None = None
+        COPHSLLoadZoneWest: Decimal | None = None
+        STWPFLoadZoneWest: Decimal | None = None
+        WGRPPLoadZoneWest: Decimal | None = None
+        genLoadZoneNorth: Decimal | None = None
+        COPHSLLoadZoneNorth: Decimal | None = None
+        STWPFLoadZoneNorth: Decimal | None = None
+        WGRPPLoadZoneNorth: Decimal | None = None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+        hourEndingTimestamp: datetime | None = None
+        actualSystemWide: Decimal | None = None
+        actualSouthHouston: Decimal | None = None
+        COPHSLSouthHouston: Decimal | None = None
+        STWPFSouthHouston: Decimal | None = None
+        WGRPPSouthHouston: Decimal | None = None
+        actualWestNorth: Decimal | None = None
+        COPHSLWestNorth: Decimal | None = None
+        STWPFWestNorth: Decimal | None = None
+        WGRPPWestNorth: Decimal | None = None
+        actualLoadZoneSouthHouston: Decimal | None = None
+        actualLoadZoneWest: Decimal | None = None
+        actualLoadZoneNorth: Decimal | None = None
+        hourBeginningTimestamp: datetime | None = None
+
+    @property
+    def wpp_hrly_avrg_actl_fcast_history(self) -> Archive[np4_732_cd.WppHrlyAvrgActlFcastHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-732-cd', np4_732_cd.WppHrlyAvrgActlFcastHistoryRow, {'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STWPF_SYSTEM_WIDE': 'STWPFSystemWide', 'WGRPP_SYSTEM_WIDE': 'WGRPPSystemWide', 'GEN_LZ_SOUTH_HOUSTON': 'genLoadZoneSouthHouston', 'COP_HSL_LZ_SOUTH_HOUSTON': 'COPHSLLoadZoneSouthHouston', 'STWPF_LZ_SOUTH_HOUSTON': 'STWPFLoadZoneSouthHouston', 'WGRPP_LZ_SOUTH_HOUSTON': 'WGRPPLoadZoneSouthHouston', 'GEN_LZ_WEST': 'genLoadZoneWest', 'COP_HSL_LZ_WEST': 'COPHSLLoadZoneWest', 'STWPF_LZ_WEST': 'STWPFLoadZoneWest', 'WGRPP_LZ_WEST': 'WGRPPLoadZoneWest', 'GEN_LZ_NORTH': 'genLoadZoneNorth', 'COP_HSL_LZ_NORTH': 'COPHSLLoadZoneNorth', 'STWPF_LZ_NORTH': 'STWPFLoadZoneNorth', 'WGRPP_LZ_NORTH': 'WGRPPLoadZoneNorth', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S', 'hourEndingTimestamp': '%m/%d/%Y %H:%M', 'hourBeginningTimestamp': '%m/%d/%Y %H:%M'}, variants=({'HOUR_ENDING': 'hourEndingTimestamp', 'ACTUAL_SYSTEM_WIDE': 'actualSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STWPF_SYSTEM_WIDE': 'STWPFSystemWide', 'WGRPP_SYSTEM_WIDE': 'WGRPPSystemWide', 'ACTUAL_SOUTH_HOUSTON': 'actualSouthHouston', 'COP_HSL_SOUTH_HOUSTON': 'COPHSLSouthHouston', 'STWPF_SOUTH_HOUSTON': 'STWPFSouthHouston', 'WGRPP_SOUTH_HOUSTON': 'WGRPPSouthHouston', 'ACTUAL_WEST_NORTH': 'actualWestNorth', 'COP_HSL_WEST_NORTH': 'COPHSLWestNorth', 'STWPF_WEST_NORTH': 'STWPFWestNorth', 'WGRPP_WEST_NORTH': 'WGRPPWestNorth', 'DSTFlag': 'DSTFlag'}, {'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'ACTUAL_SYSTEM_WIDE': 'actualSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STWPF_SYSTEM_WIDE': 'STWPFSystemWide', 'WGRPP_SYSTEM_WIDE': 'WGRPPSystemWide', 'ACTUAL_LZ_SOUTH_HOUSTON': 'actualLoadZoneSouthHouston', 'COP_HSL_LZ_SOUTH_HOUSTON': 'COPHSLLoadZoneSouthHouston', 'STWPF_LZ_SOUTH_HOUSTON': 'STWPFLoadZoneSouthHouston', 'WGRPP_LZ_SOUTH_HOUSTON': 'WGRPPLoadZoneSouthHouston', 'ACTUAL_LZ_WEST': 'actualLoadZoneWest', 'COP_HSL_LZ_WEST': 'COPHSLLoadZoneWest', 'STWPF_LZ_WEST': 'STWPFLoadZoneWest', 'WGRPP_LZ_WEST': 'WGRPPLoadZoneWest', 'ACTUAL_LZ_NORTH': 'actualLoadZoneNorth', 'COP_HSL_LZ_NORTH': 'COPHSLLoadZoneNorth', 'STWPF_LZ_NORTH': 'STWPFLoadZoneNorth', 'WGRPP_LZ_NORTH': 'WGRPPLoadZoneNorth', 'DSTFlag': 'DSTFlag'}, {'HOUR_BEGINNING': 'hourBeginningTimestamp', 'ACTUAL_SYSTEM_WIDE': 'actualSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STWPF_SYSTEM_WIDE': 'STWPFSystemWide', 'WGRPP_SYSTEM_WIDE': 'WGRPPSystemWide', 'ACTUAL_SOUTH_HOUSTON': 'actualSouthHouston', 'COP_HSL_SOUTH_HOUSTON': 'COPHSLSouthHouston', 'STWPF_SOUTH_HOUSTON': 'STWPFSouthHouston', 'WGRPP_SOUTH_HOUSTON': 'WGRPPSouthHouston', 'ACTUAL_WEST_NORTH': 'actualWestNorth', 'COP_HSL_WEST_NORTH': 'COPHSLWestNorth', 'STWPF_WEST_NORTH': 'STWPFWestNorth', 'WGRPP_WEST_NORTH': 'WGRPPWestNorth', 'DSTFlag': 'DSTFlag'}, {'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'ACTUAL_SYSTEM_WIDE': 'actualSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STWPF_SYSTEM_WIDE': 'STWPFSystemWide', 'WGRPP_SYSTEM_WIDE': 'WGRPPSystemWide', 'ACTUAL_SOUTH_HOUSTON': 'actualSouthHouston', 'COP_HSL_SOUTH_HOUSTON': 'COPHSLSouthHouston', 'STWPF_SOUTH_HOUSTON': 'STWPFSouthHouston', 'WGRPP_SOUTH_HOUSTON': 'WGRPPSouthHouston', 'ACTUAL_WEST_NORTH': 'actualWestNorth', 'COP_HSL_WEST_NORTH': 'COPHSLWestNorth', 'STWPF_WEST_NORTH': 'STWPFWestNorth', 'WGRPP_WEST_NORTH': 'WGRPPWestNorth', 'DSTFlag': 'DSTFlag'}))
+
     def wpp_hrly_avrg_actl_fcast(self, *, WGRPPLoadZoneNorthFrom: Decimal | None = None, WGRPPLoadZoneNorthTo: Decimal | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, COPHSLSystemWideFrom: Decimal | None = None, COPHSLSystemWideTo: Decimal | None = None, STWPFSystemWideFrom: Decimal | None = None, STWPFSystemWideTo: Decimal | None = None, WGRPPSystemWideFrom: Decimal | None = None, WGRPPSystemWideTo: Decimal | None = None, genLoadZoneSouthHoustonFrom: Decimal | None = None, genLoadZoneSouthHoustonTo: Decimal | None = None, COPHSLLoadZoneSouthHoustonFrom: Decimal | None = None, COPHSLLoadZoneSouthHoustonTo: Decimal | None = None, STWPFLoadZoneSouthHoustonFrom: Decimal | None = None, STWPFLoadZoneSouthHoustonTo: Decimal | None = None, WGRPPLoadZoneSouthHoustonFrom: Decimal | None = None, WGRPPLoadZoneSouthHoustonTo: Decimal | None = None, genLoadZoneWestFrom: Decimal | None = None, genLoadZoneWestTo: Decimal | None = None, COPHSLLoadZoneWestFrom: Decimal | None = None, COPHSLLoadZoneWestTo: Decimal | None = None, STWPFLoadZoneWestFrom: Decimal | None = None, STWPFLoadZoneWestTo: Decimal | None = None, WGRPPLoadZoneWestFrom: Decimal | None = None, WGRPPLoadZoneWestTo: Decimal | None = None, genLoadZoneNorthFrom: Decimal | None = None, genLoadZoneNorthTo: Decimal | None = None, COPHSLLoadZoneNorthFrom: Decimal | None = None, COPHSLLoadZoneNorthTo: Decimal | None = None, STWPFLoadZoneNorthFrom: Decimal | None = None, STWPFLoadZoneNorthTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_732_cd.WppHrlyAvrgActlFcastRow]:
         'Wind Power Production - Hourly Averaged Actual and Forecasted Values'
         return self._client._page('/np4-732-cd/wpp_hrly_avrg_actl_fcast', np4_732_cd.WppHrlyAvrgActlFcastRow, {'WGRPPLoadZoneNorthFrom': WGRPPLoadZoneNorthFrom, 'WGRPPLoadZoneNorthTo': WGRPPLoadZoneNorthTo, 'DSTFlag': DSTFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'HSLSystemWideFrom': HSLSystemWideFrom, 'HSLSystemWideTo': HSLSystemWideTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'genSystemWideFrom': genSystemWideFrom, 'genSystemWideTo': genSystemWideTo, 'COPHSLSystemWideFrom': COPHSLSystemWideFrom, 'COPHSLSystemWideTo': COPHSLSystemWideTo, 'STWPFSystemWideFrom': STWPFSystemWideFrom, 'STWPFSystemWideTo': STWPFSystemWideTo, 'WGRPPSystemWideFrom': WGRPPSystemWideFrom, 'WGRPPSystemWideTo': WGRPPSystemWideTo, 'genLoadZoneSouthHoustonFrom': genLoadZoneSouthHoustonFrom, 'genLoadZoneSouthHoustonTo': genLoadZoneSouthHoustonTo, 'COPHSLLoadZoneSouthHoustonFrom': COPHSLLoadZoneSouthHoustonFrom, 'COPHSLLoadZoneSouthHoustonTo': COPHSLLoadZoneSouthHoustonTo, 'STWPFLoadZoneSouthHoustonFrom': STWPFLoadZoneSouthHoustonFrom, 'STWPFLoadZoneSouthHoustonTo': STWPFLoadZoneSouthHoustonTo, 'WGRPPLoadZoneSouthHoustonFrom': WGRPPLoadZoneSouthHoustonFrom, 'WGRPPLoadZoneSouthHoustonTo': WGRPPLoadZoneSouthHoustonTo, 'genLoadZoneWestFrom': genLoadZoneWestFrom, 'genLoadZoneWestTo': genLoadZoneWestTo, 'COPHSLLoadZoneWestFrom': COPHSLLoadZoneWestFrom, 'COPHSLLoadZoneWestTo': COPHSLLoadZoneWestTo, 'STWPFLoadZoneWestFrom': STWPFLoadZoneWestFrom, 'STWPFLoadZoneWestTo': STWPFLoadZoneWestTo, 'WGRPPLoadZoneWestFrom': WGRPPLoadZoneWestFrom, 'WGRPPLoadZoneWestTo': WGRPPLoadZoneWestTo, 'genLoadZoneNorthFrom': genLoadZoneNorthFrom, 'genLoadZoneNorthTo': genLoadZoneNorthTo, 'COPHSLLoadZoneNorthFrom': COPHSLLoadZoneNorthFrom, 'COPHSLLoadZoneNorthTo': COPHSLLoadZoneNorthTo, 'STWPFLoadZoneNorthFrom': STWPFLoadZoneNorthFrom, 'STWPFLoadZoneNorthTo': STWPFLoadZoneNorthTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6138,6 +9987,22 @@ class np4_733_cd:
         genSystemWide: Decimal | None
         intervalEnding: datetime | None
         postedDatetime: datetime | None
+
+    class WppActual5minAvgValuesHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        genSystemWide: Decimal | None
+        LZSouthHouston: Decimal | None
+        LZWest: Decimal | None = None
+        LZNorth: Decimal | None = None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+        LZWestNorth: Decimal | None = None
+
+    @property
+    def wpp_actual_5min_avg_values_history(self) -> Archive[np4_733_cd.WppActual5minAvgValuesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-733-cd', np4_733_cd.WppActual5minAvgValuesHistoryRow, {'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'LZ_SOUTH_HOUSTON': 'LZSouthHouston', 'LZ_WEST': 'LZWest', 'LZ_NORTH': 'LZNorth', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=({'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE': 'genSystemWide', 'SOUTH_HOUSTON': 'LZSouthHouston', 'WEST_NORTH': 'LZWestNorth', 'DSTFlag': 'DSTFlag'},))
 
     def wpp_actual_5min_avg_values(self, *, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, LZSouthHoustonFrom: Decimal | None = None, LZSouthHoustonTo: Decimal | None = None, LZWestFrom: Decimal | None = None, LZWestTo: Decimal | None = None, LZNorthFrom: Decimal | None = None, LZNorthTo: Decimal | None = None, DSTFlag: bool | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_733_cd.WppActual5minAvgValuesRow]:
         'Wind Power Production - Actual 5-Minute Averaged Values'
@@ -6170,6 +10035,23 @@ class np4_737_cd:
         hourEnding: int | None
         postedDatetime: datetime | None
 
+    class SppHrlyAvrgActlFcastHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None = None
+        hourEnding: int | None = None
+        genSystemWide: Decimal | None
+        COPHSLSystemWide: Decimal | None
+        STPPFSystemWide: Decimal | None
+        PVGRPPSystemWide: Decimal | None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+        hourEndingTimestamp: datetime | None = None
+
+    @property
+    def spp_hrly_avrg_actl_fcast_history(self) -> Archive[np4_737_cd.SppHrlyAvrgActlFcastHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-737-cd', np4_737_cd.SppHrlyAvrgActlFcastHistoryRow, {'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STPPF_SYSTEM_WIDE': 'STPPFSystemWide', 'PVGRPP_SYSTEM_WIDE': 'PVGRPPSystemWide', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'hourEndingTimestamp': '%m/%d/%Y %H:%M'}, variants=({'HOUR_ENDING': 'hourEndingTimestamp', 'ACTUAL_SYSTEM_WIDE': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STPPF_SYSTEM_WIDE': 'STPPFSystemWide', 'PVGRPP_SYSTEM_WIDE': 'PVGRPPSystemWide', 'DSTFlag': 'DSTFlag'}, {'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'ACTUAL_SYSTEM_WIDE': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STPPF_SYSTEM_WIDE': 'STPPFSystemWide', 'PVGRPP_SYSTEM_WIDE': 'PVGRPPSystemWide', 'DSTFlag': 'DSTFlag'}))
+
     def spp_hrly_avrg_actl_fcast(self, *, STPPFSystemWideFrom: Decimal | None = None, STPPFSystemWideTo: Decimal | None = None, PVGRPPSystemWideFrom: Decimal | None = None, PVGRPPSystemWideTo: Decimal | None = None, DSTFlag: bool | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, COPHSLSystemWideFrom: Decimal | None = None, COPHSLSystemWideTo: Decimal | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_737_cd.SppHrlyAvrgActlFcastRow]:
         'Solar Power Production - Hourly Averaged Actual and Forecasted Values'
         return self._client._page('/np4-737-cd/spp_hrly_avrg_actl_fcast', np4_737_cd.SppHrlyAvrgActlFcastRow, {'STPPFSystemWideFrom': STPPFSystemWideFrom, 'STPPFSystemWideTo': STPPFSystemWideTo, 'PVGRPPSystemWideFrom': PVGRPPSystemWideFrom, 'PVGRPPSystemWideTo': PVGRPPSystemWideTo, 'DSTFlag': DSTFlag, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'HSLSystemWideFrom': HSLSystemWideFrom, 'HSLSystemWideTo': HSLSystemWideTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'genSystemWideFrom': genSystemWideFrom, 'genSystemWideTo': genSystemWideTo, 'COPHSLSystemWideFrom': COPHSLSystemWideFrom, 'COPHSLSystemWideTo': COPHSLSystemWideTo, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6196,6 +10078,18 @@ class np4_738_cd:
         genSystemWide: Decimal | None
         intervalEnding: datetime | None
         postedDatetime: datetime | None
+
+    class SppActual5minAvgValuesHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        genSystemWide: Decimal | None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+
+    @property
+    def spp_actual_5min_avg_values_history(self) -> Archive[np4_738_cd.SppActual5minAvgValuesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-738-cd', np4_738_cd.SppActual5minAvgValuesHistoryRow, {'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=({'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE': 'genSystemWide', 'DSTFlag': 'DSTFlag'},))
 
     def spp_actual_5min_avg_values(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, DSTFlag: bool | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_738_cd.SppActual5minAvgValuesRow]:
         'Solar Power Production - Actual 5-Minute Averaged Values'
@@ -6248,6 +10142,42 @@ class np4_742_cd:
         hourEnding: int | None
         postedDatetime: datetime | None
 
+    class WppHrlyActualFcastGeoHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: int | None
+        genSystemWide: Decimal | None
+        COPHSLSystemWide: Decimal | None
+        STWPFSystemWide: Decimal | None
+        WGRPPSystemWide: Decimal | None
+        genPanhandle: Decimal | None
+        COPHSLPanhandle: Decimal | None
+        STWPFPanhandle: Decimal | None
+        WGRPPPanhandle: Decimal | None
+        genCoastal: Decimal | None
+        COPHSLCoastal: Decimal | None
+        STWPFCoastal: Decimal | None
+        WGRPPCoastal: Decimal | None
+        genSouth: Decimal | None
+        COPHSLSouth: Decimal | None
+        STWPFSouth: Decimal | None
+        WGRPPSouth: Decimal | None
+        genWest: Decimal | None
+        COPHSLWest: Decimal | None
+        STWPFWest: Decimal | None
+        WGRPPWest: Decimal | None
+        genNorth: Decimal | None
+        COPHSLNorth: Decimal | None
+        STWPFNorth: Decimal | None
+        WGRPPNorth: Decimal | None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+
+    @property
+    def wpp_hrly_actual_fcast_geo_history(self) -> Archive[np4_742_cd.WppHrlyActualFcastGeoHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-742-cd', np4_742_cd.WppHrlyActualFcastGeoHistoryRow, {'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STWPF_SYSTEM_WIDE': 'STWPFSystemWide', 'WGRPP_SYSTEM_WIDE': 'WGRPPSystemWide', 'GEN_PANHANDLE': 'genPanhandle', 'COP_HSL_PANHANDLE': 'COPHSLPanhandle', 'STWPF_PANHANDLE': 'STWPFPanhandle', 'WGRPP_PANHANDLE': 'WGRPPPanhandle', 'GEN_COASTAL': 'genCoastal', 'COP_HSL_COASTAL': 'COPHSLCoastal', 'STWPF_COASTAL': 'STWPFCoastal', 'WGRPP_COASTAL': 'WGRPPCoastal', 'GEN_SOUTH': 'genSouth', 'COP_HSL_SOUTH': 'COPHSLSouth', 'STWPF_SOUTH': 'STWPFSouth', 'WGRPP_SOUTH': 'WGRPPSouth', 'GEN_WEST': 'genWest', 'COP_HSL_WEST': 'COPHSLWest', 'STWPF_WEST': 'STWPFWest', 'WGRPP_WEST': 'WGRPPWest', 'GEN_NORTH': 'genNorth', 'COP_HSL_NORTH': 'COPHSLNorth', 'STWPF_NORTH': 'STWPFNorth', 'WGRPP_NORTH': 'WGRPPNorth', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=({'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'ACTUAL_SYSTEM_WIDE': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STWPF_SYSTEM_WIDE': 'STWPFSystemWide', 'WGRPP_SYSTEM_WIDE': 'WGRPPSystemWide', 'ACTUAL_PANHANDLE': 'genPanhandle', 'COP_HSL_PANHANDLE': 'COPHSLPanhandle', 'STWPF_PANHANDLE': 'STWPFPanhandle', 'WGRPP_PANHANDLE': 'WGRPPPanhandle', 'ACTUAL_COASTAL': 'genCoastal', 'COP_HSL_COASTAL': 'COPHSLCoastal', 'STWPF_COASTAL': 'STWPFCoastal', 'WGRPP_COASTAL': 'WGRPPCoastal', 'ACTUAL_SOUTH': 'genSouth', 'COP_HSL_SOUTH': 'COPHSLSouth', 'STWPF_SOUTH': 'STWPFSouth', 'WGRPP_SOUTH': 'WGRPPSouth', 'ACTUAL_WEST': 'genWest', 'COP_HSL_WEST': 'COPHSLWest', 'STWPF_WEST': 'STWPFWest', 'WGRPP_WEST': 'WGRPPWest', 'ACTUAL_NORTH': 'genNorth', 'COP_HSL_NORTH': 'COPHSLNorth', 'STWPF_NORTH': 'STWPFNorth', 'WGRPP_NORTH': 'WGRPPNorth', 'DSTFlag': 'DSTFlag'},))
+
     def wpp_hrly_actual_fcast_geo(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, COPHSLSystemWideFrom: Decimal | None = None, COPHSLSystemWideTo: Decimal | None = None, STWPFSystemWideFrom: Decimal | None = None, STWPFSystemWideTo: Decimal | None = None, WGRPPSystemWideFrom: Decimal | None = None, WGRPPSystemWideTo: Decimal | None = None, genPanhandleFrom: Decimal | None = None, genPanhandleTo: Decimal | None = None, COPHSLPanhandleFrom: Decimal | None = None, COPHSLPanhandleTo: Decimal | None = None, STWPFPanhandleFrom: Decimal | None = None, STWPFPanhandleTo: Decimal | None = None, WGRPPPanhandleFrom: Decimal | None = None, WGRPPPanhandleTo: Decimal | None = None, genCoastalFrom: Decimal | None = None, genCoastalTo: Decimal | None = None, COPHSLCoastalFrom: Decimal | None = None, COPHSLCoastalTo: Decimal | None = None, STWPFCoastalFrom: Decimal | None = None, STWPFCoastalTo: Decimal | None = None, WGRPPCoastalFrom: Decimal | None = None, WGRPPCoastalTo: Decimal | None = None, genSouthFrom: Decimal | None = None, genSouthTo: Decimal | None = None, COPHSLSouthFrom: Decimal | None = None, COPHSLSouthTo: Decimal | None = None, STWPFSouthFrom: Decimal | None = None, STWPFSouthTo: Decimal | None = None, WGRPPSouthFrom: Decimal | None = None, WGRPPSouthTo: Decimal | None = None, genWestFrom: Decimal | None = None, genWestTo: Decimal | None = None, COPHSLWestFrom: Decimal | None = None, COPHSLWestTo: Decimal | None = None, STWPFWestFrom: Decimal | None = None, STWPFWestTo: Decimal | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, WGRPPWestFrom: Decimal | None = None, WGRPPWestTo: Decimal | None = None, genNorthFrom: Decimal | None = None, genNorthTo: Decimal | None = None, COPHSLNorthFrom: Decimal | None = None, COPHSLNorthTo: Decimal | None = None, STWPFNorthFrom: Decimal | None = None, STWPFNorthTo: Decimal | None = None, WGRPPNorthFrom: Decimal | None = None, WGRPPNorthTo: Decimal | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_742_cd.WppHrlyActualFcastGeoRow]:
         'Wind Power Production - Hourly Averaged Actual and Forecasted Values by Geographical Region'
         return self._client._page('/np4-742-cd/wpp_hrly_actual_fcast_geo', np4_742_cd.WppHrlyActualFcastGeoRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'genSystemWideFrom': genSystemWideFrom, 'genSystemWideTo': genSystemWideTo, 'COPHSLSystemWideFrom': COPHSLSystemWideFrom, 'COPHSLSystemWideTo': COPHSLSystemWideTo, 'STWPFSystemWideFrom': STWPFSystemWideFrom, 'STWPFSystemWideTo': STWPFSystemWideTo, 'WGRPPSystemWideFrom': WGRPPSystemWideFrom, 'WGRPPSystemWideTo': WGRPPSystemWideTo, 'genPanhandleFrom': genPanhandleFrom, 'genPanhandleTo': genPanhandleTo, 'COPHSLPanhandleFrom': COPHSLPanhandleFrom, 'COPHSLPanhandleTo': COPHSLPanhandleTo, 'STWPFPanhandleFrom': STWPFPanhandleFrom, 'STWPFPanhandleTo': STWPFPanhandleTo, 'WGRPPPanhandleFrom': WGRPPPanhandleFrom, 'WGRPPPanhandleTo': WGRPPPanhandleTo, 'genCoastalFrom': genCoastalFrom, 'genCoastalTo': genCoastalTo, 'COPHSLCoastalFrom': COPHSLCoastalFrom, 'COPHSLCoastalTo': COPHSLCoastalTo, 'STWPFCoastalFrom': STWPFCoastalFrom, 'STWPFCoastalTo': STWPFCoastalTo, 'WGRPPCoastalFrom': WGRPPCoastalFrom, 'WGRPPCoastalTo': WGRPPCoastalTo, 'genSouthFrom': genSouthFrom, 'genSouthTo': genSouthTo, 'COPHSLSouthFrom': COPHSLSouthFrom, 'COPHSLSouthTo': COPHSLSouthTo, 'STWPFSouthFrom': STWPFSouthFrom, 'STWPFSouthTo': STWPFSouthTo, 'WGRPPSouthFrom': WGRPPSouthFrom, 'WGRPPSouthTo': WGRPPSouthTo, 'genWestFrom': genWestFrom, 'genWestTo': genWestTo, 'COPHSLWestFrom': COPHSLWestFrom, 'COPHSLWestTo': COPHSLWestTo, 'STWPFWestFrom': STWPFWestFrom, 'STWPFWestTo': STWPFWestTo, 'HSLSystemWideFrom': HSLSystemWideFrom, 'HSLSystemWideTo': HSLSystemWideTo, 'WGRPPWestFrom': WGRPPWestFrom, 'WGRPPWestTo': WGRPPWestTo, 'genNorthFrom': genNorthFrom, 'genNorthTo': genNorthTo, 'COPHSLNorthFrom': COPHSLNorthFrom, 'COPHSLNorthTo': COPHSLNorthTo, 'STWPFNorthFrom': STWPFNorthFrom, 'STWPFNorthTo': STWPFNorthTo, 'WGRPPNorthFrom': WGRPPNorthFrom, 'WGRPPNorthTo': WGRPPNorthTo, 'DSTFlag': DSTFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6279,6 +10209,23 @@ class np4_743_cd:
         postedDatetime: datetime | None
         south: Decimal | None
         west: Decimal | None
+
+    class WppActual5minAvgValuesGeoHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        genSystemWide: Decimal | None
+        panhandle: Decimal | None
+        coastal: Decimal | None
+        south: Decimal | None
+        west: Decimal | None
+        north: Decimal | None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+
+    @property
+    def wpp_actual_5min_avg_values_geo_history(self) -> Archive[np4_743_cd.WppActual5minAvgValuesGeoHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-743-cd', np4_743_cd.WppActual5minAvgValuesGeoHistoryRow, {'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'PANHANDLE': 'panhandle', 'COASTAL': 'coastal', 'SOUTH': 'south', 'WEST': 'west', 'NORTH': 'north', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=({'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE': 'genSystemWide', 'PANHANDLE': 'panhandle', 'COASTAL': 'coastal', 'SOUTH': 'south', 'WEST': 'west', 'NORTH': 'north', 'DSTFlag': 'DSTFlag'},))
 
     def wpp_actual_5min_avg_values_geo(self, *, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, panhandleFrom: Decimal | None = None, panhandleTo: Decimal | None = None, coastalFrom: Decimal | None = None, coastalTo: Decimal | None = None, southFrom: Decimal | None = None, southTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_743_cd.WppActual5minAvgValuesGeoRow]:
         'Wind Power Production - Actual 5-Minute Averaged Values by Geographical Region'
@@ -6335,6 +10282,46 @@ class np4_745_cd:
         hourEnding: int | None
         postedDatetime: datetime | None
 
+    class SppHrlyActualFcastGeoHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: int | None
+        genSystemWide: Decimal | None
+        COPHSLSystemWide: Decimal | None
+        STPPFSystemWide: Decimal | None
+        PVGRPPSystemWide: Decimal | None
+        genCenterWest: Decimal | None
+        COPHSLCenterWest: Decimal | None
+        STPPFCenterWest: Decimal | None
+        PVGRPPCenterWest: Decimal | None
+        genNorthWest: Decimal | None
+        COPHSLNorthWest: Decimal | None
+        STPPFNorthWest: Decimal | None
+        PVGRPPNorthWest: Decimal | None
+        genFarWest: Decimal | None
+        COPHSLFarWest: Decimal | None
+        STPPFFarWest: Decimal | None
+        PVGRPPFarWest: Decimal | None
+        genFarEast: Decimal | None
+        COPHSLFarEast: Decimal | None
+        STPPFFarEast: Decimal | None
+        PVGRPPFarEast: Decimal | None
+        genSouthEast: Decimal | None
+        COPHSLSouthEast: Decimal | None
+        STPPFSouthEast: Decimal | None
+        PVGRPPSouthEast: Decimal | None
+        genCenterEast: Decimal | None
+        COPHSLCenterEast: Decimal | None
+        STPPFCenterEast: Decimal | None
+        PVGRPPCenterEast: Decimal | None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+
+    @property
+    def spp_hrly_actual_fcast_geo_history(self) -> Archive[np4_745_cd.SppHrlyActualFcastGeoHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-745-cd', np4_745_cd.SppHrlyActualFcastGeoHistoryRow, {'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STPPF_SYSTEM_WIDE': 'STPPFSystemWide', 'PVGRPP_SYSTEM_WIDE': 'PVGRPPSystemWide', 'GEN_CenterWest': 'genCenterWest', 'COP_HSL_CenterWest': 'COPHSLCenterWest', 'STPPF_CenterWest': 'STPPFCenterWest', 'PVGRPP_CenterWest': 'PVGRPPCenterWest', 'GEN_NorthWest': 'genNorthWest', 'COP_HSL_NorthWest': 'COPHSLNorthWest', 'STPPF_NorthWest': 'STPPFNorthWest', 'PVGRPP_NorthWest': 'PVGRPPNorthWest', 'GEN_FarWest': 'genFarWest', 'COP_HSL_FarWest': 'COPHSLFarWest', 'STPPF_FarWest': 'STPPFFarWest', 'PVGRPP_FarWest': 'PVGRPPFarWest', 'GEN_FarEast': 'genFarEast', 'COP_HSL_FarEast': 'COPHSLFarEast', 'STPPF_FarEast': 'STPPFFarEast', 'PVGRPP_FarEast': 'PVGRPPFarEast', 'GEN_SouthEast': 'genSouthEast', 'COP_HSL_SouthEast': 'COPHSLSouthEast', 'STPPF_SouthEast': 'STPPFSouthEast', 'PVGRPP_SouthEast': 'PVGRPPSouthEast', 'GEN_CenterEast': 'genCenterEast', 'COP_HSL_CenterEast': 'COPHSLCenterEast', 'STPPF_CenterEast': 'STPPFCenterEast', 'PVGRPP_CenterEast': 'PVGRPPCenterEast', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M'}, variants=({'DELIVERY_DATE': 'deliveryDate', 'HOUR_ENDING': 'hourEnding', 'GEN_SYSTEM_WIDE': 'genSystemWide', 'COP_HSL_SYSTEM_WIDE': 'COPHSLSystemWide', 'STPPF_SYSTEM_WIDE': 'STPPFSystemWide', 'PVGRPP_SYSTEM_WIDE': 'PVGRPPSystemWide', 'GEN_CenterWest': 'genCenterWest', 'COP_HSL_CenterWest': 'COPHSLCenterWest', 'STPPF_CenterWest': 'STPPFCenterWest', 'PVGRPP_CenterWest': 'PVGRPPCenterWest', 'GEN_NorthWest': 'genNorthWest', 'COP_HSL_NorthWest': 'COPHSLNorthWest', 'STPPF_NorthWest': 'STPPFNorthWest', 'PVGRPP_NorthWest': 'PVGRPPNorthWest', 'GEN_FarWest': 'genFarWest', 'COP_HSL_FarWest': 'COPHSLFarWest', 'STPPF_FarWest': 'STPPFFarWest', 'PVGRPP_FarWest': 'PVGRPPFarWest', 'GEN_FarEast': 'genFarEast', 'COP_HSL_FarEast': 'COPHSLFarEast', 'STPPF_FarEast': 'STPPFFarEast', 'PVGRPP_FarEast': 'PVGRPPFarEast', 'GEN_SouthEast': 'genSouthEast', 'COP_HSL_SouthEast': 'COPHSLSouthEast', 'STPPF_SouthEast': 'STPPFSouthEast', 'PVGRPP_SouthEast': 'PVGRPPSouthEast', 'GEN_CenterEast': 'genCenterEast', 'COP_HSL_CenterEast': 'COPHSLCenterEast', 'STPPF_CenterEast': 'STPPFCenterEast', 'PVGRPP_CenterEast': 'PVGRPPCenterEast', 'DSTFlag': 'DSTFlag'},))
+
     def spp_hrly_actual_fcast_geo(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, hourEndingFrom: int | None = None, hourEndingTo: int | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, COPHSLSystemWideFrom: Decimal | None = None, COPHSLSystemWideTo: Decimal | None = None, STPPFSystemWideFrom: Decimal | None = None, STPPFSystemWideTo: Decimal | None = None, PVGRPPSystemWideFrom: Decimal | None = None, PVGRPPSystemWideTo: Decimal | None = None, genCenterWestFrom: Decimal | None = None, genCenterWestTo: Decimal | None = None, COPHSLCenterWestFrom: Decimal | None = None, COPHSLCenterWestTo: Decimal | None = None, STPPFCenterWestFrom: Decimal | None = None, STPPFCenterWestTo: Decimal | None = None, PVGRPPCenterWestFrom: Decimal | None = None, PVGRPPCenterWestTo: Decimal | None = None, genNorthWestFrom: Decimal | None = None, genNorthWestTo: Decimal | None = None, COPHSLNorthWestFrom: Decimal | None = None, COPHSLNorthWestTo: Decimal | None = None, STPPFNorthWestFrom: Decimal | None = None, STPPFNorthWestTo: Decimal | None = None, PVGRPPNorthWestFrom: Decimal | None = None, PVGRPPNorthWestTo: Decimal | None = None, genFarWestFrom: Decimal | None = None, genFarWestTo: Decimal | None = None, COPHSLFarWestFrom: Decimal | None = None, COPHSLFarWestTo: Decimal | None = None, STPPFFarWestFrom: Decimal | None = None, STPPFFarWestTo: Decimal | None = None, PVGRPPFarWestFrom: Decimal | None = None, PVGRPPFarWestTo: Decimal | None = None, genFarEastFrom: Decimal | None = None, genFarEastTo: Decimal | None = None, COPHSLFarEastFrom: Decimal | None = None, COPHSLFarEastTo: Decimal | None = None, STPPFFarEastFrom: Decimal | None = None, STPPFFarEastTo: Decimal | None = None, PVGRPPFarEastFrom: Decimal | None = None, PVGRPPFarEastTo: Decimal | None = None, genSouthEastFrom: Decimal | None = None, genSouthEastTo: Decimal | None = None, COPHSLSouthEastFrom: Decimal | None = None, COPHSLSouthEastTo: Decimal | None = None, STPPFSouthEastFrom: Decimal | None = None, STPPFSouthEastTo: Decimal | None = None, PVGRPPSouthEastFrom: Decimal | None = None, PVGRPPSouthEastTo: Decimal | None = None, genCenterEastFrom: Decimal | None = None, genCenterEastTo: Decimal | None = None, COPHSLCenterEastFrom: Decimal | None = None, COPHSLCenterEastTo: Decimal | None = None, STPPFCenterEastFrom: Decimal | None = None, STPPFCenterEastTo: Decimal | None = None, PVGRPPCenterEastFrom: Decimal | None = None, PVGRPPCenterEastTo: Decimal | None = None, DSTFlag: bool | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_745_cd.SppHrlyActualFcastGeoRow]:
         'Solar Power Production - Hourly Averaged Actual and Forecasted Values by Geographical Region'
         return self._client._page('/np4-745-cd/spp_hrly_actual_fcast_geo', np4_745_cd.SppHrlyActualFcastGeoRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'hourEndingFrom': hourEndingFrom, 'hourEndingTo': hourEndingTo, 'genSystemWideFrom': genSystemWideFrom, 'genSystemWideTo': genSystemWideTo, 'COPHSLSystemWideFrom': COPHSLSystemWideFrom, 'COPHSLSystemWideTo': COPHSLSystemWideTo, 'STPPFSystemWideFrom': STPPFSystemWideFrom, 'STPPFSystemWideTo': STPPFSystemWideTo, 'PVGRPPSystemWideFrom': PVGRPPSystemWideFrom, 'PVGRPPSystemWideTo': PVGRPPSystemWideTo, 'genCenterWestFrom': genCenterWestFrom, 'genCenterWestTo': genCenterWestTo, 'COPHSLCenterWestFrom': COPHSLCenterWestFrom, 'COPHSLCenterWestTo': COPHSLCenterWestTo, 'STPPFCenterWestFrom': STPPFCenterWestFrom, 'STPPFCenterWestTo': STPPFCenterWestTo, 'PVGRPPCenterWestFrom': PVGRPPCenterWestFrom, 'PVGRPPCenterWestTo': PVGRPPCenterWestTo, 'genNorthWestFrom': genNorthWestFrom, 'genNorthWestTo': genNorthWestTo, 'COPHSLNorthWestFrom': COPHSLNorthWestFrom, 'COPHSLNorthWestTo': COPHSLNorthWestTo, 'STPPFNorthWestFrom': STPPFNorthWestFrom, 'STPPFNorthWestTo': STPPFNorthWestTo, 'PVGRPPNorthWestFrom': PVGRPPNorthWestFrom, 'PVGRPPNorthWestTo': PVGRPPNorthWestTo, 'genFarWestFrom': genFarWestFrom, 'genFarWestTo': genFarWestTo, 'COPHSLFarWestFrom': COPHSLFarWestFrom, 'COPHSLFarWestTo': COPHSLFarWestTo, 'STPPFFarWestFrom': STPPFFarWestFrom, 'STPPFFarWestTo': STPPFFarWestTo, 'PVGRPPFarWestFrom': PVGRPPFarWestFrom, 'PVGRPPFarWestTo': PVGRPPFarWestTo, 'genFarEastFrom': genFarEastFrom, 'genFarEastTo': genFarEastTo, 'COPHSLFarEastFrom': COPHSLFarEastFrom, 'COPHSLFarEastTo': COPHSLFarEastTo, 'STPPFFarEastFrom': STPPFFarEastFrom, 'STPPFFarEastTo': STPPFFarEastTo, 'PVGRPPFarEastFrom': PVGRPPFarEastFrom, 'PVGRPPFarEastTo': PVGRPPFarEastTo, 'genSouthEastFrom': genSouthEastFrom, 'genSouthEastTo': genSouthEastTo, 'COPHSLSouthEastFrom': COPHSLSouthEastFrom, 'COPHSLSouthEastTo': COPHSLSouthEastTo, 'STPPFSouthEastFrom': STPPFSouthEastFrom, 'STPPFSouthEastTo': STPPFSouthEastTo, 'PVGRPPSouthEastFrom': PVGRPPSouthEastFrom, 'PVGRPPSouthEastTo': PVGRPPSouthEastTo, 'genCenterEastFrom': genCenterEastFrom, 'genCenterEastTo': genCenterEastTo, 'COPHSLCenterEastFrom': COPHSLCenterEastFrom, 'COPHSLCenterEastTo': COPHSLCenterEastTo, 'STPPFCenterEastFrom': STPPFCenterEastFrom, 'STPPFCenterEastTo': STPPFCenterEastTo, 'PVGRPPCenterEastFrom': PVGRPPCenterEastFrom, 'PVGRPPCenterEastTo': PVGRPPCenterEastTo, 'DSTFlag': DSTFlag, 'HSLSystemWideFrom': HSLSystemWideFrom, 'HSLSystemWideTo': HSLSystemWideTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6368,6 +10355,24 @@ class np4_746_cd:
         intervalEnding: datetime | None
         postedDatetime: datetime | None
 
+    class SppActual5minAvgValuesGeoHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        genSystemWide: Decimal | None
+        genCenterWest: Decimal | None
+        genNorthWest: Decimal | None
+        genFarWest: Decimal | None
+        genFarEast: Decimal | None
+        genSouthEast: Decimal | None
+        genCenterEast: Decimal | None
+        HSLSystemWide: Decimal | None = None
+        DSTFlag: bool | None
+
+    @property
+    def spp_actual_5min_avg_values_geo_history(self) -> Archive[np4_746_cd.SppActual5minAvgValuesGeoHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-746-cd', np4_746_cd.SppActual5minAvgValuesGeoHistoryRow, {'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'CenterWest_GEN': 'genCenterWest', 'NorthWest_GEN': 'genNorthWest', 'FarWest_GEN': 'genFarWest', 'FarEast_GEN': 'genFarEast', 'SouthEast_GEN': 'genSouthEast', 'CenterEast_GEN': 'genCenterEast', 'SYSTEM_WIDE_HSL': 'HSLSystemWide', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %I:%M:%S %p'}, variants=({'INTERVAL_ENDING': 'intervalEnding', 'SYSTEM_WIDE_GEN': 'genSystemWide', 'CenterWest_GEN': 'genCenterWest', 'NorthWest_GEN': 'genNorthWest', 'FarWest_GEN': 'genFarWest', 'FarEast_GEN': 'genFarEast', 'SouthEast_GEN': 'genSouthEast', 'CenterEast_GEN': 'genCenterEast', 'DSTFlag': 'DSTFlag'},))
+
     def spp_actual_5min_avg_values_geo(self, *, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, genSystemWideFrom: Decimal | None = None, genSystemWideTo: Decimal | None = None, genCenterWestFrom: Decimal | None = None, genCenterWestTo: Decimal | None = None, genNorthWestFrom: Decimal | None = None, genNorthWestTo: Decimal | None = None, genFarWestFrom: Decimal | None = None, genFarWestTo: Decimal | None = None, genFarEastFrom: Decimal | None = None, genFarEastTo: Decimal | None = None, genSouthEastFrom: Decimal | None = None, genSouthEastTo: Decimal | None = None, genCenterEastFrom: Decimal | None = None, genCenterEastTo: Decimal | None = None, DSTFlag: bool | None = None, HSLSystemWideFrom: Decimal | None = None, HSLSystemWideTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_746_cd.SppActual5minAvgValuesGeoRow]:
         'Solar Power Production - Actual 5-Minute Averaged Values by Geographical Region'
         return self._client._page('/np4-746-cd/spp_actual_5min_avg_values_geo', np4_746_cd.SppActual5minAvgValuesGeoRow, {'intervalEndingFrom': intervalEndingFrom, 'intervalEndingTo': intervalEndingTo, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'genSystemWideFrom': genSystemWideFrom, 'genSystemWideTo': genSystemWideTo, 'genCenterWestFrom': genCenterWestFrom, 'genCenterWestTo': genCenterWestTo, 'genNorthWestFrom': genNorthWestFrom, 'genNorthWestTo': genNorthWestTo, 'genFarWestFrom': genFarWestFrom, 'genFarWestTo': genFarWestTo, 'genFarEastFrom': genFarEastFrom, 'genFarEastTo': genFarEastTo, 'genSouthEastFrom': genSouthEastFrom, 'genSouthEastTo': genSouthEastTo, 'genCenterEastFrom': genCenterEastFrom, 'genCenterEastTo': genCenterEastTo, 'DSTFlag': DSTFlag, 'HSLSystemWideFrom': HSLSystemWideFrom, 'HSLSystemWideTo': HSLSystemWideTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6396,6 +10401,20 @@ class np4_751_cd:
         postedDatetime: datetime | None
         region: str | None
         value: Decimal | None
+
+    class IhWindFcastGeoHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        region: str | None
+        value: Decimal | None
+        model: str | None
+        inUseFlag: bool | None
+        DSTFlag: bool | None
+
+    @property
+    def ih_wind_fcast_geo_history(self) -> Archive[np4_751_cd.IhWindFcastGeoHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-751-cd', np4_751_cd.IhWindFcastGeoHistoryRow, {'IntervalEnding': 'intervalEnding', 'Region': 'region', 'Value': 'value', 'Model': 'model', 'InUseFlag': 'inUseFlag', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=())
 
     def ih_wind_fcast_geo(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, region: str | None = None, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, model: str | None = None, inUseFlag: bool | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_751_cd.IhWindFcastGeoRow]:
         'Intra-Hour Wind Power Forecast By Geographical Region'
@@ -6426,6 +10445,20 @@ class np4_752_cd:
         region: str | None
         value: Decimal | None
 
+    class IhSolarFcastGeoHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        intervalEnding: datetime | None
+        region: str | None
+        value: Decimal | None
+        model: str | None
+        inUseFlag: bool | None
+        DSTFlag: bool | None
+
+    @property
+    def ih_solar_fcast_geo_history(self) -> Archive[np4_752_cd.IhSolarFcastGeoHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-752-cd', np4_752_cd.IhSolarFcastGeoHistoryRow, {'IntervalEnding': 'intervalEnding', 'Region': 'region', 'Value': 'value', 'Model': 'model', 'InUseFlag': 'inUseFlag', 'DSTFlag': 'DSTFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=())
+
     def ih_solar_fcast_geo(self, *, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, region: str | None = None, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, model: str | None = None, inUseFlag: bool | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_752_cd.IhSolarFcastGeoRow]:
         'Intra-Hour Solar Power Forecast by Geographical Region'
         return self._client._page('/np4-752-cd/ih_solar_fcast_geo', np4_752_cd.IhSolarFcastGeoRow, {'intervalEndingFrom': intervalEndingFrom, 'intervalEndingTo': intervalEndingTo, 'region': region, 'valueFrom': valueFrom, 'valueTo': valueTo, 'model': model, 'inUseFlag': inUseFlag, 'DSTFlag': DSTFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6442,6 +10475,92 @@ class np4_752_cd:
         'Intra-Hour Solar Power Forecast by Geographical Region'
         return self._client._aiter('/np4-752-cd/ih_solar_fcast_geo', np4_752_cd.IhSolarFcastGeoRow, {'intervalEndingFrom': intervalEndingFrom, 'intervalEndingTo': intervalEndingTo, 'region': region, 'valueFrom': valueFrom, 'valueTo': valueTo, 'model': model, 'inUseFlag': inUseFlag, 'DSTFlag': DSTFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'size': size, 'sort': sort, 'dir': dir})
 
+class np4_765_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class DailyValuesHistoryRow(Row):
+        reportDate: date | None
+        installedDischargeCapacityMW: Decimal | None
+        totalDischargeCapacityMW: Decimal | None
+        installedChargeCapacityMW: Decimal | None
+        totalChargeCapacityMW: Decimal | None
+        peakLoadMW: Decimal | None
+        peakLoadHourEnding: int | None
+        dischargeAtPeakLoadMW: Decimal | None
+        chargeAtPeakLoadMW: Decimal | None
+        netOutputAtPeakLoadMW: Decimal | None
+        maxDischargeMW: Decimal | None
+        maxDischargeTime: time | None
+        penetrationAtMaxDischargePercent: Decimal | None
+        maxChargeMW: Decimal | None
+        maxChargeTime: time | None
+        penetrationAtMaxChargePercent: Decimal | None
+        maxDischargePenetrationPercent: Decimal | None
+        maxDischargePenetrationTime: time | None
+        dischargeAtMaxPenetrationMW: Decimal | None
+        maxChargePenetrationPercent: Decimal | None
+        maxChargePenetrationTime: time | None
+        chargeAtMaxPenetrationMW: Decimal | None
+        sourceNotes: str | None
+
+    @property
+    def daily_values_history(self) -> PdfArchive[np4_765_er.DailyValuesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return PdfArchive(self._client, 'np4-765-er', np4_765_er.DailyValuesHistoryRow, {'reportDate': 'reportDate', 'installedDischargeCapacityMW': 'installedDischargeCapacityMW', 'totalDischargeCapacityMW': 'totalDischargeCapacityMW', 'installedChargeCapacityMW': 'installedChargeCapacityMW', 'totalChargeCapacityMW': 'totalChargeCapacityMW', 'peakLoadMW': 'peakLoadMW', 'peakLoadHourEnding': 'peakLoadHourEnding', 'dischargeAtPeakLoadMW': 'dischargeAtPeakLoadMW', 'chargeAtPeakLoadMW': 'chargeAtPeakLoadMW', 'netOutputAtPeakLoadMW': 'netOutputAtPeakLoadMW', 'maxDischargeMW': 'maxDischargeMW', 'maxDischargeTime': 'maxDischargeTime', 'penetrationAtMaxDischargePercent': 'penetrationAtMaxDischargePercent', 'maxChargeMW': 'maxChargeMW', 'maxChargeTime': 'maxChargeTime', 'penetrationAtMaxChargePercent': 'penetrationAtMaxChargePercent', 'maxDischargePenetrationPercent': 'maxDischargePenetrationPercent', 'maxDischargePenetrationTime': 'maxDischargePenetrationTime', 'dischargeAtMaxPenetrationMW': 'dischargeAtMaxPenetrationMW', 'maxChargePenetrationPercent': 'maxChargePenetrationPercent', 'maxChargePenetrationTime': 'maxChargePenetrationTime', 'chargeAtMaxPenetrationMW': 'chargeAtMaxPenetrationMW', 'sourceNotes': 'sourceNotes'}, {}, start='Current\\s*Daily\\s*Values:', end='All\\s*Time\\s*Record\\s*Values:|\\*\\s*Sum', pattern='Installed\\s*ESR\\s*Discharge\\s*Capacity\\*\\s*(?P<installedDischargeCapacityMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Total\\s*ESR\\s*Discharge\\s*Capacity\\*\\*\\s*(?P<totalDischargeCapacityMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Installed\\s*ESR\\s*Charge\\s*Capacity\\+\\s*(?P<installedChargeCapacityMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Total\\s*ESR\\s*Charge\\s*Capacity\\+\\+\\s*(?P<totalChargeCapacityMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Peak\\s*Load\\s*(?P<peakLoadMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Peak\\s*Load\\s*Hour\\s*\\(HE\\)\\s*(?P<peakLoadHourEnding>\\d+)\\s*\\s*ESR\\s*Discharge\\s*at\\s*Peak\\s*Load\\s*Hour\\s*(?P<dischargeAtPeakLoadMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*ESR\\s*Charge\\s*at\\s*Peak\\s*Load\\s*Hour\\s*(?P<chargeAtPeakLoadMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*ESR\\s*Net\\s*Charge/Discharge\\s*at\\s*Peak\\s*Load\\s*Hour\\^\\s*(?P<netOutputAtPeakLoadMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Max\\s*ESR\\s*Discharge\\s*Generation\\s*(?P<maxDischargeMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Max\\s*ESR\\s*Discharge\\s*Time\\s*(?P<maxDischargeTime>\\d{2}:\\d{2})\\s*\\s*Penetration\\s*at\\s*Max\\s*ESR\\s*Discharge\\s*Time\\s*(?P<penetrationAtMaxDischargePercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*Max\\s*ESR\\s*Charge\\s*Load\\s*(?P<maxChargeMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Max\\s*ESR\\s*Charge\\s*Time\\s*(?P<maxChargeTime>\\d{2}:\\d{2})\\s*\\s*Penetration\\s*at\\s*Max\\s*ESR\\s*Charge\\s*Time\\s*(?P<penetrationAtMaxChargePercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*Max\\s*ESR\\s*Discharge\\s*Penetration\\s*(?P<maxDischargePenetrationPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*Max\\s*ESR\\s*Discharge\\s*Penetration\\s*Time\\s*(?P<maxDischargePenetrationTime>\\d{2}:\\d{2})\\s*\\s*ESR\\s*Discharge\\s*Generation\\s*at\\s*Max\\s*ESR\\s*Discharge\\s*Penetration\\s*Time\\s*(?P<dischargeAtMaxPenetrationMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*Max\\s*ESR\\s*Charge\\s*Penetration\\s*(?P<maxChargePenetrationPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*Max\\s*ESR\\s*Charge\\s*Penetration\\s*Time\\s*(?P<maxChargePenetrationTime>\\d{2}:\\d{2})\\s*\\s*ESR\\s*Charge\\s*Load\\s*at\\s*Max\\s*ESR\\s*Charge\\s*Penetration\\s*Time\\s*(?P<chargeAtMaxPenetrationMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW', records=False, notes=True, numbers=('installedDischargeCapacityMW', 'totalDischargeCapacityMW', 'installedChargeCapacityMW', 'totalChargeCapacityMW', 'peakLoadMW', 'peakLoadHourEnding', 'dischargeAtPeakLoadMW', 'chargeAtPeakLoadMW', 'netOutputAtPeakLoadMW', 'maxDischargeMW', 'penetrationAtMaxDischargePercent', 'maxChargeMW', 'penetrationAtMaxChargePercent', 'maxDischargePenetrationPercent', 'dischargeAtMaxPenetrationMW', 'maxChargePenetrationPercent', 'chargeAtMaxPenetrationMW'), datetimes={})
+
+    class PowerRecordsHistoryRow(Row):
+        reportDate: date | None
+        category: str | None
+        recordMW: Decimal | None
+        recordTime: datetime | None
+        penetrationPercent: Decimal | None
+        maxSocPercent: Decimal | None
+        minSocPercent: Decimal | None
+
+    @property
+    def power_records_history(self) -> PdfArchive[np4_765_er.PowerRecordsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return PdfArchive(self._client, 'np4-765-er', np4_765_er.PowerRecordsHistoryRow, {'reportDate': 'reportDate', 'category': 'category', 'recordMW': 'recordMW', 'recordTime': 'recordTime', 'penetrationPercent': 'penetrationPercent', 'maxSocPercent': 'maxSocPercent', 'minSocPercent': 'minSocPercent'}, {}, start='Record\\s*Max\\s*MW\\s*Record\\s*Max\\s*MW\\s*Time\\s*Penetration\\s*at\\s*Record\\s*Max\\s*MW\\s*Max\\s*SOC\\s*in\\s*Record\\s*Hour\\s*Min\\s*SOC\\s*in\\s*Record\\s*Hour', end='Record\\s*Penetration\\s*Record\\s*Penetration\\s*Time\\s*MW\\s*at\\s*Record\\s*Penetration\\s*Time\\s*Max\\s*SOC\\s*in\\s*Record\\s*Hour\\s*Min\\s*SOC\\s*in\\s*Record\\s*Hour', pattern='(?P<category>ESR Discharge Generation|ESR Charge Load|ESR Injection)\\s*(?P<recordMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*(?P<recordTime>\\d{2}/\\d{2}/\\d{4}\\s+\\d{2}:\\d{2})\\s*(?P<penetrationPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*(?P<maxSocPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*(?P<minSocPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%', records=True, notes=False, numbers=('recordMW', 'penetrationPercent', 'maxSocPercent', 'minSocPercent'), datetimes={'recordTime': '%m/%d/%Y %H:%M'})
+
+    class PenetrationRecordsHistoryRow(Row):
+        reportDate: date | None
+        category: str | None
+        penetrationPercent: Decimal | None
+        recordTime: datetime | None
+        recordMW: Decimal | None
+        maxSocPercent: Decimal | None
+        minSocPercent: Decimal | None
+
+    @property
+    def penetration_records_history(self) -> PdfArchive[np4_765_er.PenetrationRecordsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return PdfArchive(self._client, 'np4-765-er', np4_765_er.PenetrationRecordsHistoryRow, {'reportDate': 'reportDate', 'category': 'category', 'penetrationPercent': 'penetrationPercent', 'recordTime': 'recordTime', 'recordMW': 'recordMW', 'maxSocPercent': 'maxSocPercent', 'minSocPercent': 'minSocPercent'}, {}, start='Record\\s*Penetration\\s*Record\\s*Penetration\\s*Time\\s*MW\\s*at\\s*Record\\s*Penetration\\s*Time\\s*Max\\s*SOC\\s*in\\s*Record\\s*Hour\\s*Min\\s*SOC\\s*in\\s*Record\\s*Hour', end='Record\\s*SOC\\s*Delta\\s*Record\\s*SOC\\s*Delta\\s*Time', pattern='(?P<category>ESR Discharge Generation|ESR Charge Load)\\s*(?P<penetrationPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*(?P<recordTime>\\d{2}/\\d{2}/\\d{4}\\s+\\d{2}:\\d{2})\\s*(?P<recordMW>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MW\\s*(?P<maxSocPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%\\s*(?P<minSocPercent>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*%', records=True, notes=False, numbers=('penetrationPercent', 'recordMW', 'maxSocPercent', 'minSocPercent'), datetimes={'recordTime': '%m/%d/%Y %H:%M'})
+
+    class SocRecordsHistoryRow(Row):
+        reportDate: date | None
+        category: str | None
+        recordMWh: Decimal | None
+        recordTime: datetime | None
+
+    @property
+    def soc_records_history(self) -> PdfArchive[np4_765_er.SocRecordsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return PdfArchive(self._client, 'np4-765-er', np4_765_er.SocRecordsHistoryRow, {'reportDate': 'reportDate', 'category': 'category', 'recordMWh': 'recordMWh', 'recordTime': 'recordTime'}, {}, start='Record\\s*SOC\\s*Delta\\s*Record\\s*SOC\\s*Delta\\s*Time', end='\\*\\s*Sum', pattern='(?P<category>ESR SOC Hourly Increase|ESR SOC Hourly Decrease)\\s*(?P<recordMWh>-?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s*MWh\\s*(?P<recordTime>\\d{2}/\\d{2}/\\d{4}\\s+\\d{2}:\\d{2})', records=True, notes=False, numbers=('recordMWh',), datetimes={'recordTime': '%m/%d/%Y %H:%M'})
+
+    class HourlyPercentagesHistoryRow(Row):
+        reportDate: date | None
+        hourEnding: str | None
+        dischargeCapacityPercent: Decimal | None
+        chargeCapacityPercent: Decimal | None
+        netLoadPercent: Decimal | None
+
+    @property
+    def hourly_percentages_history(self) -> PdfChartArchive[np4_765_er.HourlyPercentagesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return PdfChartArchive(self._client, 'np4-765-er', np4_765_er.HourlyPercentagesHistoryRow, {'reportDate': 'reportDate', 'hourEnding': 'hourEnding', 'dischargeCapacityPercent': 'dischargeCapacityPercent', 'chargeCapacityPercent': 'chargeCapacityPercent', 'netLoadPercent': 'netLoadPercent'}, {}, charts={'dischargeCapacityPercent': (3, 'Actual ESR Discharging Output'), 'chargeCapacityPercent': (3, 'Actual ESR Charging Output'), 'netLoadPercent': (4, 'Actual ESR Net Output')})
+
 class np4_790_cd:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -6449,6 +10568,11 @@ class np4_790_cd:
     class PeakerNetMarginRow(Row):
         asOfDate: datetime | None
         peakerNetMargin: Decimal | None
+
+    @property
+    def peaker_net_margin_history(self) -> Archive[np4_790_cd.PeakerNetMarginRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-790-cd', np4_790_cd.PeakerNetMarginRow, {'AsOfDate': 'asOfDate', 'PeakerNetMargin': 'peakerNetMargin'}, {}, member='*.csv', datetimes={'asOfDate': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def peaker_net_margin(self, *, asOfDateFrom: datetime | None = None, asOfDateTo: datetime | None = None, peakerNetMarginFrom: Decimal | None = None, peakerNetMarginTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_790_cd.PeakerNetMarginRow]:
         'Peaker Net Margin'
@@ -6475,6 +10599,18 @@ class np4_791_cd:
         RTSWCAP: Decimal | None
         SWCAPType: str | None
         postedDatetime: datetime | None
+
+    class DaSwOfferCapsHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        SWCAPType: str | None
+        DASWCAP: Decimal | None = None
+        RTSWCAP: Decimal | None = None
+        SWCAP: Decimal | None = None
+
+    @property
+    def da_sw_offer_caps_history(self) -> Archive[np4_791_cd.DaSwOfferCapsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np4-791-cd', np4_791_cd.DaSwOfferCapsHistoryRow, {'SWCAPType': 'SWCAPType', 'DASWCAP': 'DASWCAP', 'RTSWCAP': 'RTSWCAP'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=({'SWCAPType': 'SWCAPType', 'SWCAP': 'SWCAP'},))
 
     def da_sw_offer_caps(self, *, SWCAPType: str | None = None, DASWCAPFrom: Decimal | None = None, DASWCAPTo: Decimal | None = None, RTSWCAPFrom: Decimal | None = None, RTSWCAPTo: Decimal | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np4_791_cd.DaSwOfferCapsRow]:
         'Day-Ahead and Real-Time System Wide-Offer Caps'
@@ -6503,6 +10639,18 @@ class np5_108_cd:
         repeatHourFlag: bool | None
         resourceName: str | None
 
+    class HrlyRmrServicesDeployedHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        hourEnding: str | None
+        resourceName: str | None
+        mwhDeployment: Decimal | None
+        repeatHourFlag: bool | None
+
+    @property
+    def hrly_rmr_services_deployed_history(self) -> Archive[np5_108_cd.HrlyRmrServicesDeployedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-108-cd', np5_108_cd.HrlyRmrServicesDeployedHistoryRow, {'HourEnding': 'hourEnding', 'ResourceName': 'resourceName', 'MWHDeployment': 'mwhDeployment', 'DSTFlag': 'repeatHourFlag'}, {}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def hrly_rmr_services_deployed(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, hourEnding: str | None = None, resourceName: str | None = None, mwhDeploymentFrom: Decimal | None = None, mwhDeploymentTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_108_cd.HrlyRmrServicesDeployedRow]:
         'Hourly RMR Services Deployed'
         return self._client._page('/np5-108-cd/hrly_rmr_services_deployed', np5_108_cd.HrlyRmrServicesDeployedRow, {'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'hourEnding': hourEnding, 'resourceName': resourceName, 'mwhDeploymentFrom': mwhDeploymentFrom, 'mwhDeploymentTo': mwhDeploymentTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6519,6 +10667,25 @@ class np5_108_cd:
         'Hourly RMR Services Deployed'
         return self._client._aiter('/np5-108-cd/hrly_rmr_services_deployed', np5_108_cd.HrlyRmrServicesDeployedRow, {'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'hourEnding': hourEnding, 'resourceName': resourceName, 'mwhDeploymentFrom': mwhDeploymentFrom, 'mwhDeploymentTo': mwhDeploymentTo, 'repeatHourFlag': repeatHourFlag, 'size': size, 'sort': sort, 'dir': dir})
 
+class np5_520_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class DeploymentFactorsHistoryRow(Row):
+        sourceSheet: str | None = None
+        deliveryMonth: date | None
+        hourEnding: int | None
+        ASType: str | None
+        average: Decimal | None
+        minimum: Decimal | None
+        maximum: Decimal | None
+
+    @property
+    def deployment_factors_history(self) -> WorkbookArchive[np5_520_er.DeploymentFactorsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np5-520-er', np5_520_er.DeploymentFactorsHistoryRow, {'Delivery Month': 'deliveryMonth', 'Hour Ending': 'hourEnding', 'AS Type': 'ASType', 'Avg AS Deployment Factors': 'average', 'Min AS Deployment Factors': 'minimum', 'Max AS Deployment Factors': 'maximum'}, {'deliveryMonth': '%Y-%m'}, sheets=('Monthly ASDF',), variants=())
+
 class np5_525_cd:
     def __init__(self, client: Transport) -> None:
         self._client = client
@@ -6531,6 +10698,20 @@ class np5_525_cd:
         deliveryHour: str | None
         postedDatetime: datetime | None
         repeatHourFlag: bool | None
+
+    class WrucAsDeployFactorsHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        RUCTimestamp: datetime | None
+        deliveryDate: date | None
+        deliveryHour: str | None
+        ASType: str | None
+        ASDeploymentFactors: Decimal | None
+        repeatHourFlag: bool | None
+
+    @property
+    def wruc_as_deploy_factors_history(self) -> Archive[np5_525_cd.WrucAsDeployFactorsHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-525-cd', np5_525_cd.WrucAsDeployFactorsHistoryRow, {'RUCTimestamp': 'RUCTimestamp', 'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'ASType': 'ASType', 'ASDeploymentFactors': 'ASDeploymentFactors', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S', 'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def wruc_as_deploy_factors(self, *, ASType: str | None = None, ASDeploymentFactorsFrom: Decimal | None = None, ASDeploymentFactorsTo: Decimal | None = None, repeatHourFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHour: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_525_cd.WrucAsDeployFactorsRow]:
         'WRUC Ancillary Service Deployment Factors'
@@ -6560,6 +10741,19 @@ class np5_526_cd:
         postedDatetime: datetime | None
         repeatHourFlag: bool | None
 
+    class ProjAsDeployFactorHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        ASType: str | None
+        ASDeploymentFactors: Decimal | None
+        repeatHourFlag: bool | None
+
+    @property
+    def proj_as_deploy_factor_history(self) -> Archive[np5_526_cd.ProjAsDeployFactorHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-526-cd', np5_526_cd.ProjAsDeployFactorHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'ASType': 'ASType', 'ASDeploymentFactors': 'ASDeploymentFactors', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def proj_as_deploy_factor(self, *, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, ASType: str | None = None, ASDeploymentFactorsFrom: Decimal | None = None, ASDeploymentFactorsTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_526_cd.ProjAsDeployFactorRow]:
         'Projected Ancillary Service Deployments Factors'
         return self._client._page('/np5-526-cd/proj_as_deploy_factor', np5_526_cd.ProjAsDeployFactorRow, {'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'ASType': ASType, 'ASDeploymentFactorsFrom': ASDeploymentFactorsFrom, 'ASDeploymentFactorsTo': ASDeploymentFactorsTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6588,6 +10782,11 @@ class np5_527_cd:
         deliveryHour: str | None
         repeatHourFlag: bool | None
 
+    @property
+    def druc_as_deploy_factors_history(self) -> Archive[np5_527_cd.DrucAsDeployFactorsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-527-cd', np5_527_cd.DrucAsDeployFactorsRow, {'RUCTimestamp': 'RUCTimestamp', 'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'ASType': 'ASType', 'ASDeploymentFactors': 'ASDeploymentFactors', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def druc_as_deploy_factors(self, *, ASType: str | None = None, ASDeploymentFactorsFrom: Decimal | None = None, ASDeploymentFactorsTo: Decimal | None = None, repeatHourFlag: bool | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHour: str | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_527_cd.DrucAsDeployFactorsRow]:
         'DRUC Ancillary Service Deployment Factors'
         return self._client._page('/np5-527-cd/druc_as_deploy_factors', np5_527_cd.DrucAsDeployFactorsRow, {'ASType': ASType, 'ASDeploymentFactorsFrom': ASDeploymentFactorsFrom, 'ASDeploymentFactorsTo': ASDeploymentFactorsTo, 'repeatHourFlag': repeatHourFlag, 'RUCTimestampFrom': RUCTimestampFrom, 'RUCTimestampTo': RUCTimestampTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHour': deliveryHour, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6615,6 +10814,11 @@ class np5_528_cd:
         deliveryDate: date | None
         deliveryHour: str | None
         repeatHourFlag: bool | None
+
+    @property
+    def hruc_as_deploy_factors_history(self) -> Archive[np5_528_cd.HrucAsDeployFactorsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-528-cd', np5_528_cd.HrucAsDeployFactorsRow, {'RUCTimestamp': 'RUCTimestamp', 'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'ASType': 'ASType', 'ASDeploymentFactors': 'ASDeploymentFactors', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def hruc_as_deploy_factors(self, *, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHour: str | None = None, ASType: str | None = None, ASDeploymentFactorsFrom: Decimal | None = None, ASDeploymentFactorsTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_528_cd.HrucAsDeployFactorsRow]:
         'HRUC Ancillary Service Deployment Factors'
@@ -6651,6 +10855,11 @@ class np5_754_cd:
         toStationkV: Decimal | None
         value: Decimal | None
         violationAmount: Decimal | None
+
+    @property
+    def daily_ruc_act_and_bind_tran_const_history(self) -> Archive[np5_754_cd.DailyRucActAndBindTranConstRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-754-cd', np5_754_cd.DailyRucActAndBindTranConstRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimeStamp': 'RUCTimestamp', 'ConstraintID': 'constraintID', 'ConstraintName': 'constraintName', 'ContingencyName': 'contingencyName', 'Limit': 'limit', 'Value': 'value', 'ViolationAmount': 'violationAmount', 'FromStation': 'fromStation', 'ToStation': 'toStation', 'FromStationkV': 'fromStationkV', 'ToStationkV': 'toStationkV', 'DSTFlag': 'repeatedHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def daily_ruc_act_and_bind_tran_const(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, constraintIDFrom: int | None = None, constraintIDTo: int | None = None, constraintName: str | None = None, contingencyName: str | None = None, limitFrom: Decimal | None = None, limitTo: Decimal | None = None, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, violationAmountFrom: Decimal | None = None, violationAmountTo: Decimal | None = None, fromStation: str | None = None, toStation: str | None = None, fromStationkVFrom: Decimal | None = None, fromStationkVTo: Decimal | None = None, toStationkVFrom: Decimal | None = None, toStationkVTo: Decimal | None = None, repeatedHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_754_cd.DailyRucActAndBindTranConstRow]:
         'Daily RUC Active and Binding Transmission Constraints'
@@ -6689,6 +10898,28 @@ class np5_755_cd:
         value: Decimal | None
         violationAmount: Decimal | None
 
+    class HrlyRucActAndBindTranConstHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        RUCTimestamp: datetime | None
+        constraintID: int | None
+        constraintName: str | None
+        contingencyName: str | None
+        limit: Decimal | None
+        value: Decimal | None
+        violationAmount: Decimal | None
+        fromStation: str | None
+        toStation: str | None
+        fromStationkV: Decimal | None
+        toStationkV: Decimal | None
+        DSTFlag: bool | None
+
+    @property
+    def hrly_ruc_act_and_bind_tran_const_history(self) -> Archive[np5_755_cd.HrlyRucActAndBindTranConstHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np5-755-cd', np5_755_cd.HrlyRucActAndBindTranConstHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'RUCTimeStamp': 'RUCTimestamp', 'ConstraintID': 'constraintID', 'ConstraintName': 'constraintName', 'ContingencyName': 'contingencyName', 'Limit': 'limit', 'Value': 'value', 'ViolationAmount': 'violationAmount', 'FromStation': 'fromStation', 'ToStation': 'toStation', 'FromStationkV': 'fromStationkV', 'ToStationkV': 'toStationkV', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S', 'RUCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def hrly_ruc_act_and_bind_tran_const(self, *, fromStation: str | None = None, toStation: str | None = None, fromStationkVFrom: Decimal | None = None, fromStationkVTo: Decimal | None = None, toStationkVFrom: Decimal | None = None, toStationkVTo: Decimal | None = None, DSTFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, RUCTimestampFrom: datetime | None = None, RUCTimestampTo: datetime | None = None, constraintIDFrom: int | None = None, constraintIDTo: int | None = None, constraintName: str | None = None, contingencyName: str | None = None, limitFrom: Decimal | None = None, limitTo: Decimal | None = None, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, violationAmountFrom: Decimal | None = None, violationAmountTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np5_755_cd.HrlyRucActAndBindTranConstRow]:
         'Hourly RUC Active and Binding Transmission Constraints'
         return self._client._page('/np5-755-cd/hrly_ruc_act_and_bind_tran_const', np5_755_cd.HrlyRucActAndBindTranConstRow, {'fromStation': fromStation, 'toStation': toStation, 'fromStationkVFrom': fromStationkVFrom, 'fromStationkVTo': fromStationkVTo, 'toStationkVFrom': toStationkVFrom, 'toStationkVTo': toStationkVTo, 'DSTFlag': DSTFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'RUCTimestampFrom': RUCTimestampFrom, 'RUCTimestampTo': RUCTimestampTo, 'constraintIDFrom': constraintIDFrom, 'constraintIDTo': constraintIDTo, 'constraintName': constraintName, 'contingencyName': contingencyName, 'limitFrom': limitFrom, 'limitTo': limitTo, 'valueFrom': valueFrom, 'valueTo': valueTo, 'violationAmountFrom': violationAmountFrom, 'violationAmountTo': violationAmountTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6715,6 +10946,11 @@ class np6_235_cd:
         demand: Decimal | None
         timeEnding: str | None
 
+    @property
+    def system_wide_demand_history(self) -> Archive[np6_235_cd.SystemWideDemandRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-235-cd', np6_235_cd.SystemWideDemandRow, {'DeliveryDate': 'deliveryDate', 'TimeEnding': 'timeEnding', 'Demand': 'demand', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
+
     def system_wide_demand(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, timeEnding: str | None = None, demandFrom: Decimal | None = None, demandTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_235_cd.SystemWideDemandRow]:
         'System-Wide Demand'
         return self._client._page('/np6-235-cd/system_wide_demand', np6_235_cd.SystemWideDemandRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'timeEnding': timeEnding, 'demandFrom': demandFrom, 'demandTo': demandTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6740,6 +10976,18 @@ class np6_322_cd:
         cappedSystemLambda: Decimal | None
         repeatedHourFlag: bool | None
         uncappedSystemLambda: Decimal | None
+
+    class ScedSystemLambdaHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatedHourFlag: bool | None
+        cappedSystemLambda: Decimal | None = None
+        uncappedSystemLambda: Decimal | None = None
+        systemLambda: Decimal | None = None
+
+    @property
+    def sced_system_lambda_history(self) -> Archive[np6_322_cd.ScedSystemLambdaHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-322-cd', np6_322_cd.ScedSystemLambdaHistoryRow, {'SCEDTimeStamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'CappedSystemLambda': 'cappedSystemLambda', 'UncappedSystemLambda': 'uncappedSystemLambda'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'SystemLambda': 'systemLambda'},))
 
     def sced_system_lambda(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatedHourFlag: bool | None = None, cappedSystemLambdaFrom: Decimal | None = None, cappedSystemLambdaTo: Decimal | None = None, uncappedSystemLambdaFrom: Decimal | None = None, uncappedSystemLambdaTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_322_cd.ScedSystemLambdaRow]:
         'SCED System Lambda'
@@ -6783,6 +11031,51 @@ class np6_323_cd:
         repeatHourFlag: bool | None
         systemLambda: Decimal | None
 
+    class RtPriceAdderScedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        systemLambda: Decimal | None
+        RTRDPA: Decimal | None = None
+        RTRDPARUS: Decimal | None = None
+        RTRDPARDS: Decimal | None = None
+        RTRDPARRS: Decimal | None = None
+        RTRDPAECRS: Decimal | None = None
+        RTRDPANSS: Decimal | None = None
+        RTRRUC: Decimal | None = None
+        RTRRMR: Decimal | None = None
+        RTDNCLR: Decimal | None = None
+        RTDERS: Decimal | None = None
+        RTDCTIEIMPORT: Decimal | None = None
+        RTDCTIEEXPORT: Decimal | None = None
+        RTBLTIMPORT: Decimal | None = None
+        RTBLTEXPORT: Decimal | None = None
+        RTOLLSL: Decimal | None = None
+        RTOLHSL: Decimal | None
+        RTDLL: Decimal | None = None
+        BatchID: int | None = None
+        PRC: Decimal | None = None
+        RTORPA: Decimal | None = None
+        RTOFFPA: Decimal | None = None
+        RTOLCAP: Decimal | None = None
+        RTOFFCAP: Decimal | None = None
+        RTBP: Decimal | None = None
+        RTCLRCAP: Decimal | None = None
+        RTCLRREG: Decimal | None = None
+        RTCLRBP: Decimal | None = None
+        RTCLRLSL: Decimal | None = None
+        RTCLRNS: Decimal | None = None
+        RTNCLRRRS: Decimal | None = None
+        RTOLNSRS: Decimal | None = None
+        RTCST30HSL: Decimal | None = None
+        RTOFFNSHSL: Decimal | None = None
+        RTOFF10: Decimal | None = None
+        RTOFF30: Decimal | None = None
+
+    @property
+    def rt_price_adder_sced_history(self) -> Archive[np6_323_cd.RtPriceAdderScedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-323-cd', np6_323_cd.RtPriceAdderScedHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'SystemLambda': 'systemLambda', 'RTRDPA': 'RTRDPA', 'RTRDPARUS': 'RTRDPARUS', 'RTRDPARDS': 'RTRDPARDS', 'RTRDPARRS': 'RTRDPARRS', 'RTRDPAECRS': 'RTRDPAECRS', 'RTRDPANSS': 'RTRDPANSS', 'RTRRUC': 'RTRRUC', 'RTRRMR': 'RTRRMR', 'RTDNCLR': 'RTDNCLR', 'RTDERS': 'RTDERS', 'RTDCTIEIMPORT': 'RTDCTIEIMPORT', 'RTDCTIEEXPORT': 'RTDCTIEEXPORT', 'RTBLTIMPORT': 'RTBLTIMPORT', 'RTBLTEXPORT': 'RTBLTEXPORT', 'RTOLLSL': 'RTOLLSL', 'RTOLHSL': 'RTOLHSL', 'RTDLL': 'RTDLL'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'BatchID': 'BatchID', 'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'SystemLambda': 'systemLambda', 'PRC': 'PRC', 'RTORPA': 'RTORPA', 'RTOFFPA': 'RTOFFPA', 'RTOLCAP': 'RTOLCAP', 'RTOFFCAP': 'RTOFFCAP', 'RTOLHSL': 'RTOLHSL', 'RTBP': 'RTBP', 'RTCLRCAP': 'RTCLRCAP', 'RTCLRREG': 'RTCLRREG', 'RTCLRBP': 'RTCLRBP', 'RTCLRLSL': 'RTCLRLSL', 'RTCLRNS': 'RTCLRNS', 'RTNCLRRRS': 'RTNCLRRRS', 'RTOLNSRS': 'RTOLNSRS', 'RTCST30HSL': 'RTCST30HSL', 'RTOFFNSHSL': 'RTOFFNSHSL', 'RTOFF10': 'RTOFF10', 'RTOFF30': 'RTOFF30'},))
+
     def rt_price_adder_sced(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, systemLambdaFrom: Decimal | None = None, systemLambdaTo: Decimal | None = None, RTRDPAFrom: Decimal | None = None, RTRDPATo: Decimal | None = None, RTRDPARUSFrom: Decimal | None = None, RTRDPARUSTo: Decimal | None = None, RTRDPARDSFrom: Decimal | None = None, RTRDPARDSTo: Decimal | None = None, RTRDPARRSFrom: Decimal | None = None, RTRDPARRSTo: Decimal | None = None, RTRDPAECRSFrom: Decimal | None = None, RTRDPAECRSTo: Decimal | None = None, RTRDPANSSFrom: Decimal | None = None, RTRDPANSSTo: Decimal | None = None, RTRRUCFrom: Decimal | None = None, RTRRUCTo: Decimal | None = None, RTRRMRFrom: Decimal | None = None, RTRRMRTo: Decimal | None = None, RTDNCLRFrom: Decimal | None = None, RTDNCLRTo: Decimal | None = None, RTDERSFrom: Decimal | None = None, RTDERSTo: Decimal | None = None, RTDCTIEIMPORTFrom: Decimal | None = None, RTDCTIEIMPORTTo: Decimal | None = None, RTDCTIEEXPORTFrom: Decimal | None = None, RTDCTIEEXPORTTo: Decimal | None = None, RTBLTIMPORTFrom: Decimal | None = None, RTBLTIMPORTTo: Decimal | None = None, RTBLTEXPORTFrom: Decimal | None = None, RTBLTEXPORTTo: Decimal | None = None, RTOLLSLFrom: Decimal | None = None, RTOLLSLTo: Decimal | None = None, RTOLHSLFrom: Decimal | None = None, RTOLHSLTo: Decimal | None = None, RTDLLFrom: Decimal | None = None, RTDLLTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_323_cd.RtPriceAdderScedRow]:
         'Real-Time Price Adders by SCED Interval'
         return self._client._page('/np6-323-cd/rt_price_adder_sced', np6_323_cd.RtPriceAdderScedRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'systemLambdaFrom': systemLambdaFrom, 'systemLambdaTo': systemLambdaTo, 'RTRDPAFrom': RTRDPAFrom, 'RTRDPATo': RTRDPATo, 'RTRDPARUSFrom': RTRDPARUSFrom, 'RTRDPARUSTo': RTRDPARUSTo, 'RTRDPARDSFrom': RTRDPARDSFrom, 'RTRDPARDSTo': RTRDPARDSTo, 'RTRDPARRSFrom': RTRDPARRSFrom, 'RTRDPARRSTo': RTRDPARRSTo, 'RTRDPAECRSFrom': RTRDPAECRSFrom, 'RTRDPAECRSTo': RTRDPAECRSTo, 'RTRDPANSSFrom': RTRDPANSSFrom, 'RTRDPANSSTo': RTRDPANSSTo, 'RTRRUCFrom': RTRRUCFrom, 'RTRRUCTo': RTRRUCTo, 'RTRRMRFrom': RTRRMRFrom, 'RTRRMRTo': RTRRMRTo, 'RTDNCLRFrom': RTDNCLRFrom, 'RTDNCLRTo': RTDNCLRTo, 'RTDERSFrom': RTDERSFrom, 'RTDERSTo': RTDERSTo, 'RTDCTIEIMPORTFrom': RTDCTIEIMPORTFrom, 'RTDCTIEIMPORTTo': RTDCTIEIMPORTTo, 'RTDCTIEEXPORTFrom': RTDCTIEEXPORTFrom, 'RTDCTIEEXPORTTo': RTDCTIEEXPORTTo, 'RTBLTIMPORTFrom': RTBLTIMPORTFrom, 'RTBLTIMPORTTo': RTBLTIMPORTTo, 'RTBLTEXPORTFrom': RTBLTEXPORTFrom, 'RTBLTEXPORTTo': RTBLTEXPORTTo, 'RTOLLSLFrom': RTOLLSLFrom, 'RTOLLSLTo': RTOLLSLTo, 'RTOLHSLFrom': RTOLHSLFrom, 'RTOLHSLTo': RTOLHSLTo, 'RTDLLFrom': RTDLLFrom, 'RTDLLTo': RTDLLTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6814,6 +11107,25 @@ class np6_324_cd:
         deliveryHour: int | None
         deliveryInterval: int | None
         repeatHourFlag: bool | None
+
+    class Rt15minPriceAddersHistoryRow(Row):
+        deliveryDate: date | None
+        deliveryHour: int | None
+        deliveryInterval: int | None
+        RTRDPA: Decimal | None = None
+        RTRDPRU: Decimal | None = None
+        RTRDPRD: Decimal | None = None
+        RTRDPRRS: Decimal | None = None
+        RTRDPECRS: Decimal | None = None
+        RTRDPNS: Decimal | None = None
+        repeatHourFlag: bool | None
+        RTRSVPOR: Decimal | None = None
+        RTRSVPOFF: Decimal | None = None
+
+    @property
+    def rt_15min_price_adders_history(self) -> Archive[np6_324_cd.Rt15minPriceAddersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-324-cd', np6_324_cd.Rt15minPriceAddersHistoryRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RTRDPA': 'RTRDPA', 'RTRDPRU': 'RTRDPRU', 'RTRDPRD': 'RTRDPRD', 'RTRDPRRS': 'RTRDPRRS', 'RTRDPECRS': 'RTRDPECRS', 'RTRDPNS': 'RTRDPNS', 'RepeatedHourFlag': 'repeatHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=({'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'DSTFlag': 'repeatHourFlag'},))
 
     def rt_15min_price_adders(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, RTRDPAFrom: Decimal | None = None, RTRDPATo: Decimal | None = None, RTRDPRUFrom: Decimal | None = None, RTRDPRUTo: Decimal | None = None, RTRDPRDFrom: Decimal | None = None, RTRDPRDTo: Decimal | None = None, RTRDPRRSFrom: Decimal | None = None, RTRDPRRSTo: Decimal | None = None, RTRDPECRSFrom: Decimal | None = None, RTRDPECRSTo: Decimal | None = None, RTRDPNSFrom: Decimal | None = None, RTRDPNSTo: Decimal | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_324_cd.Rt15minPriceAddersRow]:
         'Real-Time Price Adders for 15-Minute Settlement Interval'
@@ -6860,6 +11172,41 @@ class np6_325_cd:
         repeatHourFlag: bool | None
         systemLambda: Decimal | None
 
+    class RtdPriceAddersHistoryRow(Row):
+        RTDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        intervalID: int | None
+        intervalEnding: datetime | None
+        IERepeatHourFlag: bool | None
+        systemLambda: Decimal | None
+        RTRDPA: Decimal | None = None
+        RTRDPARUS: Decimal | None = None
+        RTRDPARDS: Decimal | None = None
+        RTRDPARRS: Decimal | None = None
+        RTRDPAECRS: Decimal | None = None
+        RTRDPANSS: Decimal | None = None
+        RTRRUC: Decimal | None = None
+        RTRRMR: Decimal | None = None
+        RTDNCLR: Decimal | None = None
+        RTDERS: Decimal | None = None
+        RTDCTIEImport: Decimal | None = None
+        RTDCTIEExport: Decimal | None = None
+        RTBLTImport: Decimal | None = None
+        RTBLTExport: Decimal | None = None
+        RTOLLSL: Decimal | None = None
+        RTOLHSL: Decimal | None = None
+        RTDLL: Decimal | None = None
+        BatchID: int | None = None
+        RTORPA: Decimal | None = None
+        RTOFFPA: Decimal | None = None
+        RTOLCAP: Decimal | None = None
+        RTOFFCAP: Decimal | None = None
+
+    @property
+    def rtd_price_adders_history(self) -> Archive[np6_325_cd.RtdPriceAddersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-325-cd', np6_325_cd.RtdPriceAddersHistoryRow, {'RTDTimestamp': 'RTDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'IntervalID': 'intervalID', 'IntervalEnding': 'intervalEnding', 'IERepeatedHourFlag': 'IERepeatHourFlag', 'SystemLambda': 'systemLambda', 'RTRDPA': 'RTRDPA', 'RTRDPARUS': 'RTRDPARUS', 'RTRDPARDS': 'RTRDPARDS', 'RTRDPARRS': 'RTRDPARRS', 'RTRDPAECRS': 'RTRDPAECRS', 'RTRDPANSS': 'RTRDPANSS', 'RTRRUC': 'RTRRUC', 'RTRRMR': 'RTRRMR', 'RTDNCLR': 'RTDNCLR', 'RTDERS': 'RTDERS', 'RTDCTIEIMPORT': 'RTDCTIEImport', 'RTDCTIEEXPORT': 'RTDCTIEExport', 'RTBLTIMPORT': 'RTBLTImport', 'RTBLTEXPORT': 'RTBLTExport', 'RTOLLSL': 'RTOLLSL', 'RTOLHSL': 'RTOLHSL', 'RTDLL': 'RTDLL'}, {}, member='*.csv', datetimes={'RTDTimestamp': '%m/%d/%Y %H:%M:%S', 'intervalEnding': '%m/%d/%Y %H:%M:%S'}, variants=({'BatchID': 'BatchID', 'RTDTimestamp': 'RTDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'IntervalID': 'intervalID', 'IntervalEnding': 'intervalEnding', 'IERepeatedHourFlag': 'IERepeatHourFlag', 'SystemLambda': 'systemLambda', 'RTORPA': 'RTORPA', 'RTOFFPA': 'RTOFFPA', 'RTOLCAP': 'RTOLCAP', 'RTOFFCAP': 'RTOFFCAP'},))
+
     def rtd_price_adders(self, *, RTDTimestampFrom: datetime | None = None, RTDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, intervalIDFrom: int | None = None, intervalIDTo: int | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, IERepeatHourFlag: bool | None = None, systemLambdaFrom: Decimal | None = None, systemLambdaTo: Decimal | None = None, RTRDPAFrom: Decimal | None = None, RTRDPATo: Decimal | None = None, RTRDPARUSFrom: Decimal | None = None, RTRDPARUSTo: Decimal | None = None, RTRDPARDSFrom: Decimal | None = None, RTRDPARDSTo: Decimal | None = None, RTRDPARRSFrom: Decimal | None = None, RTRDPARRSTo: Decimal | None = None, RTRDPAECRSFrom: Decimal | None = None, RTRDPAECRSTo: Decimal | None = None, RTRDPANSSFrom: Decimal | None = None, RTRDPANSSTo: Decimal | None = None, RTRRUCFrom: Decimal | None = None, RTRRUCTo: Decimal | None = None, RTRRMRFrom: Decimal | None = None, RTRRMRTo: Decimal | None = None, RTDNCLRFrom: Decimal | None = None, RTDNCLRTo: Decimal | None = None, RTDERSFrom: Decimal | None = None, RTDERSTo: Decimal | None = None, RTDCTIEImportFrom: Decimal | None = None, RTDCTIEImportTo: Decimal | None = None, RTDCTIEExportFrom: Decimal | None = None, RTDCTIEExportTo: Decimal | None = None, RTBLTImportFrom: Decimal | None = None, RTBLTImportTo: Decimal | None = None, RTBLTExportFrom: Decimal | None = None, RTBLTExportTo: Decimal | None = None, RTOLLSLFrom: Decimal | None = None, RTOLLSLTo: Decimal | None = None, RTOLHSLFrom: Decimal | None = None, RTOLHSLTo: Decimal | None = None, RTDLLFrom: Decimal | None = None, RTDLLTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_325_cd.RtdPriceAddersRow]:
         'RTD Indicative Price Adders'
         return self._client._page('/np6-325-cd/rtd_price_adders', np6_325_cd.RtdPriceAddersRow, {'RTDTimestampFrom': RTDTimestampFrom, 'RTDTimestampTo': RTDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'intervalIDFrom': intervalIDFrom, 'intervalIDTo': intervalIDTo, 'intervalEndingFrom': intervalEndingFrom, 'intervalEndingTo': intervalEndingTo, 'IERepeatHourFlag': IERepeatHourFlag, 'systemLambdaFrom': systemLambdaFrom, 'systemLambdaTo': systemLambdaTo, 'RTRDPAFrom': RTRDPAFrom, 'RTRDPATo': RTRDPATo, 'RTRDPARUSFrom': RTRDPARUSFrom, 'RTRDPARUSTo': RTRDPARUSTo, 'RTRDPARDSFrom': RTRDPARDSFrom, 'RTRDPARDSTo': RTRDPARDSTo, 'RTRDPARRSFrom': RTRDPARRSFrom, 'RTRDPARRSTo': RTRDPARRSTo, 'RTRDPAECRSFrom': RTRDPAECRSFrom, 'RTRDPAECRSTo': RTRDPAECRSTo, 'RTRDPANSSFrom': RTRDPANSSFrom, 'RTRDPANSSTo': RTRDPANSSTo, 'RTRRUCFrom': RTRRUCFrom, 'RTRRUCTo': RTRRUCTo, 'RTRRMRFrom': RTRRMRFrom, 'RTRRMRTo': RTRRMRTo, 'RTDNCLRFrom': RTDNCLRFrom, 'RTDNCLRTo': RTDNCLRTo, 'RTDERSFrom': RTDERSFrom, 'RTDERSTo': RTDERSTo, 'RTDCTIEImportFrom': RTDCTIEImportFrom, 'RTDCTIEImportTo': RTDCTIEImportTo, 'RTDCTIEExportFrom': RTDCTIEExportFrom, 'RTDCTIEExportTo': RTDCTIEExportTo, 'RTBLTImportFrom': RTBLTImportFrom, 'RTBLTImportTo': RTBLTImportTo, 'RTBLTExportFrom': RTBLTExportFrom, 'RTBLTExportTo': RTBLTExportTo, 'RTOLLSLFrom': RTOLLSLFrom, 'RTOLLSLTo': RTOLLSLTo, 'RTOLHSLFrom': RTOLHSLFrom, 'RTOLHSLTo': RTOLHSLTo, 'RTDLLFrom': RTDLLFrom, 'RTDLLTo': RTDLLTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6889,6 +11236,11 @@ class np6_326_cd:
         meterPrice: Decimal | None
         resourceName: str | None
         resourceType: str | None
+
+    @property
+    def rt_price_sog_history(self) -> Archive[np6_326_cd.RtPriceSogRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-326-cd', np6_326_cd.RtPriceSogRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'ResourceType': 'resourceType', 'ResourceName': 'resourceName', 'MeterName': 'meterName', 'MeterPrice': 'meterPrice', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
 
     def rt_price_sog(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, resourceType: str | None = None, resourceName: str | None = None, meterName: str | None = None, meterPriceFrom: Decimal | None = None, meterPriceTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_326_cd.RtPriceSogRow]:
         'Real-Time Price for SOG'
@@ -6922,6 +11274,25 @@ class np6_327_cd:
         stationName: str | None
         voltageLevel: Decimal | None
 
+    class LmpSogPriceAddersHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        resourceType: str | None
+        resourceName: str | None
+        stationName: str | None
+        voltageLevel: Decimal | None
+        meterName: str | None
+        meterLMP: Decimal | None
+        RTRDPA: Decimal | None = None
+        finalLMP: Decimal | None
+        RTORPA: Decimal | None = None
+        RTORDPA: Decimal | None = None
+
+    @property
+    def lmp_sog_price_adders_history(self) -> Archive[np6_327_cd.LmpSogPriceAddersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-327-cd', np6_327_cd.LmpSogPriceAddersHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'ResourceType': 'resourceType', 'ResourceName': 'resourceName', 'StationName': 'stationName', 'VoltageLevel': 'voltageLevel', 'MeterName': 'meterName', 'MeterLMP': 'meterLMP', 'RTRDPA': 'RTRDPA', 'FinalLMP': 'finalLMP'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'ResourceType': 'resourceType', 'ResourceName': 'resourceName', 'StationName': 'stationName', 'VoltageLevel': 'voltageLevel', 'MeterName': 'meterName', 'MeterLMP': 'meterLMP', 'RTORPA': 'RTORPA', 'RTORDPA': 'RTORDPA', 'FinalLMP': 'finalLMP'},))
+
     def lmp_sog_price_adders(self, *, resourceType: str | None = None, resourceName: str | None = None, stationName: str | None = None, voltageLevelFrom: Decimal | None = None, voltageLevelTo: Decimal | None = None, meterName: str | None = None, meterLMPFrom: Decimal | None = None, meterLMPTo: Decimal | None = None, RTRDPAFrom: Decimal | None = None, RTRDPATo: Decimal | None = None, finalLMPFrom: Decimal | None = None, finalLMPTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_327_cd.LmpSogPriceAddersRow]:
         'LMP By SOG Including Price Adders'
         return self._client._page('/np6-327-cd/lmp_sog_price_adders', np6_327_cd.LmpSogPriceAddersRow, {'resourceType': resourceType, 'resourceName': resourceName, 'stationName': stationName, 'voltageLevelFrom': voltageLevelFrom, 'voltageLevelTo': voltageLevelTo, 'meterName': meterName, 'meterLMPFrom': meterLMPFrom, 'meterLMPTo': meterLMPTo, 'RTRDPAFrom': RTRDPAFrom, 'RTRDPATo': RTRDPATo, 'finalLMPFrom': finalLMPFrom, 'finalLMPTo': finalLMPTo, 'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -6953,6 +11324,11 @@ class np6_328_cd:
         capREGUPRRSECRSNSPIN: Decimal | None
         capRRS: Decimal | None
         repeatHourFlag: bool | None
+
+    @property
+    def tot_as_res_cap_history(self) -> Archive[np6_328_cd.TotAsResCapRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-328-cd', np6_328_cd.TotAsResCapRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'CapREGUPTotal': 'capREGUP', 'CapREGDNTotal': 'capREGDN', 'CapRRSTotal': 'capRRS', 'CapECRSTotal': 'capECRS', 'CapNSPINTotal': 'capNSPIN', 'CapREGUP_RRSTotal': 'capREGUPRRS', 'CapREGUP_RRS_ECRSTotal': 'capREGUPRRSECRS', 'CapREGUP_RRS_ECRS_NSPINTotal': 'capREGUPRRSECRSNSPIN'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def tot_as_res_cap(self, *, capREGDNFrom: Decimal | None = None, capREGDNTo: Decimal | None = None, capRRSFrom: Decimal | None = None, capRRSTo: Decimal | None = None, capECRSFrom: Decimal | None = None, capECRSTo: Decimal | None = None, capNSPINFrom: Decimal | None = None, capNSPINTo: Decimal | None = None, capREGUPRRSFrom: Decimal | None = None, capREGUPRRSTo: Decimal | None = None, capREGUPRRSECRSFrom: Decimal | None = None, capREGUPRRSECRSTo: Decimal | None = None, capREGUPRRSECRSNSPINFrom: Decimal | None = None, capREGUPRRSECRSNSPINTo: Decimal | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, capREGUPFrom: Decimal | None = None, capREGUPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_328_cd.TotAsResCapRow]:
         'Total Capability of Resources Available to Provide Ancillary Service'
@@ -6986,6 +11362,11 @@ class np6_329_cd:
         intervalRepeatHourFlag: bool | None
         repeatHourFlag: bool | None
 
+    @property
+    def rtd_ind_mcpc_history(self) -> Archive[np6_329_cd.RtdIndMcpcRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-329-cd', np6_329_cd.RtdIndMcpcRow, {'RTDTimestamp': 'RTDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'IntervalID': 'intervalId', 'IntervalEnding': 'intervalEnding', 'IntervalEndingRepeatedHourFlag': 'intervalRepeatHourFlag', 'REGUP': 'REGUP', 'REGDN': 'REGDN', 'RRS': 'RRS', 'ECRS': 'ECRS', 'NSPIN': 'NSPIN'}, {}, member='*.csv', datetimes={'RTDTimestamp': '%m/%d/%Y %H:%M:%S', 'intervalEnding': '%m/%d/%Y %H:%M'}, variants=())
+
     def rtd_ind_mcpc(self, *, RRSFrom: Decimal | None = None, RRSTo: Decimal | None = None, ECRSFrom: Decimal | None = None, ECRSTo: Decimal | None = None, NSPINFrom: Decimal | None = None, NSPINTo: Decimal | None = None, RTDTimestampFrom: datetime | None = None, RTDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, intervalIdFrom: int | None = None, intervalIdTo: int | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, intervalRepeatHourFlag: bool | None = None, REGUPFrom: Decimal | None = None, REGUPTo: Decimal | None = None, REGDNFrom: Decimal | None = None, REGDNTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_329_cd.RtdIndMcpcRow]:
         'RTD Indicative Real-Time MCPC'
         return self._client._page('/np6-329-cd/rtd_ind_mcpc', np6_329_cd.RtdIndMcpcRow, {'RRSFrom': RRSFrom, 'RRSTo': RRSTo, 'ECRSFrom': ECRSFrom, 'ECRSTo': ECRSTo, 'NSPINFrom': NSPINFrom, 'NSPINTo': NSPINTo, 'RTDTimestampFrom': RTDTimestampFrom, 'RTDTimestampTo': RTDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'intervalIdFrom': intervalIdFrom, 'intervalIdTo': intervalIdTo, 'intervalEndingFrom': intervalEndingFrom, 'intervalEndingTo': intervalEndingTo, 'intervalRepeatHourFlag': intervalRepeatHourFlag, 'REGUPFrom': REGUPFrom, 'REGUPTo': REGUPTo, 'REGDNFrom': REGDNFrom, 'REGDNTo': REGDNTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7014,6 +11395,11 @@ class np6_331_cd:
         deliveryInt: int | None
         repeatHourFlag: bool | None
 
+    @property
+    def rt_clear_price_cap_history(self) -> Archive[np6_331_cd.RtClearPriceCapRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-331-cd', np6_331_cd.RtClearPriceCapRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInt', 'RepeatedHourFlag': 'repeatHourFlag', 'ASType': 'ASType', 'MCPC': 'MCPC'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={}, variants=())
+
     def rt_clear_price_cap(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntFrom: int | None = None, deliveryIntTo: int | None = None, repeatHourFlag: bool | None = None, ASType: str | None = None, MCPCFrom: Decimal | None = None, MCPCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_331_cd.RtClearPriceCapRow]:
         'Real-Time Clearing Prices for Capacity for 15-Minute Settlement Interval'
         return self._client._page('/np6-331-cd/rt_clear_price_cap', np6_331_cd.RtClearPriceCapRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'deliveryIntFrom': deliveryIntFrom, 'deliveryIntTo': deliveryIntTo, 'repeatHourFlag': repeatHourFlag, 'ASType': ASType, 'MCPCFrom': MCPCFrom, 'MCPCTo': MCPCTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7041,6 +11427,19 @@ class np6_332_cd:
         repeatedHourFlag: bool | None
         uncappedMCPC: Decimal | None
 
+    class RtClearPriceCapScedHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatedHourFlag: bool | None
+        ASType: str | None
+        cappedMCPC: Decimal | None = None
+        uncappedMCPC: Decimal | None = None
+        MCPC: Decimal | None = None
+
+    @property
+    def rt_clear_price_cap_sced_history(self) -> Archive[np6_332_cd.RtClearPriceCapScedHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-332-cd', np6_332_cd.RtClearPriceCapScedHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'ASType': 'ASType', 'CappedMCPC': 'cappedMCPC', 'UncappedMCPC': 'uncappedMCPC'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'ASType': 'ASType', 'MCPC': 'MCPC'},))
+
     def rt_clear_price_cap_sced(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatedHourFlag: bool | None = None, ASType: str | None = None, cappedMCPCFrom: Decimal | None = None, cappedMCPCTo: Decimal | None = None, uncappedMCPCFrom: Decimal | None = None, uncappedMCPCTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_332_cd.RtClearPriceCapScedRow]:
         'Real-Time Clearing Prices for Capacity by SCED Interval'
         return self._client._page('/np6-332-cd/rt_clear_price_cap_sced', np6_332_cd.RtClearPriceCapScedRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatedHourFlag': repeatedHourFlag, 'ASType': ASType, 'cappedMCPCFrom': cappedMCPCFrom, 'cappedMCPCTo': cappedMCPCTo, 'uncappedMCPCFrom': uncappedMCPCFrom, 'uncappedMCPCTo': uncappedMCPCTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7066,6 +11465,11 @@ class np6_344_cd:
         operatingDay: date | None
         repeatedHourFlag: bool | None
         valley: Decimal | None
+
+    @property
+    def act_sys_load_by_study_area_history(self) -> Archive[np6_344_cd.ActSysLoadByStudyAreaRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-344-cd', np6_344_cd.ActSysLoadByStudyAreaRow, {'OperatingDay': 'operatingDay', 'HourEnding': 'hourEnding', 'Valley': 'valley', 'DSTFlag': 'repeatedHourFlag'}, {'operatingDay': '%m/%d/%Y'}, member='*.csv', datetimes=None, variants=())
 
     def act_sys_load_by_study_area(self, *, hourEnding: str | None = None, valleyFrom: Decimal | None = None, valleyTo: Decimal | None = None, repeatedHourFlag: bool | None = None, operatingDayFrom: date | None = None, operatingDayTo: date | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_344_cd.ActSysLoadByStudyAreaRow]:
         'Actual System Load by Study Area'
@@ -7101,6 +11505,11 @@ class np6_345_cd:
         total: Decimal | None
         west: Decimal | None
 
+    @property
+    def act_sys_load_by_wzn_history(self) -> Archive[np6_345_cd.ActSysLoadByWznRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-345-cd', np6_345_cd.ActSysLoadByWznRow, {'OperDay': 'operatingDay', 'HourEnding': 'hourEnding', 'COAST': 'coast', 'EAST': 'east', 'FAR_WEST': 'farWest', 'NORTH': 'north', 'NORTH_C': 'northC', 'SOUTHERN': 'southern', 'SOUTH_C': 'southC', 'WEST': 'west', 'TOTAL': 'total', 'DSTFlag': 'DSTFlag'}, {'operatingDay': '%m/%d/%Y'}, member='*.csv', datetimes=None, variants=())
+
     def act_sys_load_by_wzn(self, *, operatingDayFrom: date | None = None, operatingDayTo: date | None = None, hourEnding: str | None = None, coastFrom: Decimal | None = None, coastTo: Decimal | None = None, eastFrom: Decimal | None = None, eastTo: Decimal | None = None, farWestFrom: Decimal | None = None, farWestTo: Decimal | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, northCFrom: Decimal | None = None, northCTo: Decimal | None = None, southernFrom: Decimal | None = None, southernTo: Decimal | None = None, southCFrom: Decimal | None = None, southCTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, totalFrom: Decimal | None = None, totalTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_345_cd.ActSysLoadByWznRow]:
         'Actual System Load by Weather Zone'
         return self._client._page('/np6-345-cd/act_sys_load_by_wzn', np6_345_cd.ActSysLoadByWznRow, {'operatingDayFrom': operatingDayFrom, 'operatingDayTo': operatingDayTo, 'hourEnding': hourEnding, 'coastFrom': coastFrom, 'coastTo': coastTo, 'eastFrom': eastFrom, 'eastTo': eastTo, 'farWestFrom': farWestFrom, 'farWestTo': farWestTo, 'northFrom': northFrom, 'northTo': northTo, 'northCFrom': northCFrom, 'northCTo': northCTo, 'southernFrom': southernFrom, 'southernTo': southernTo, 'southCFrom': southCFrom, 'southCTo': southCTo, 'westFrom': westFrom, 'westTo': westTo, 'totalFrom': totalFrom, 'totalTo': totalTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7131,6 +11540,11 @@ class np6_346_cd:
         total: Decimal | None
         west: Decimal | None
 
+    @property
+    def act_sys_load_by_fzn_history(self) -> Archive[np6_346_cd.ActSysLoadByFznRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-346-cd', np6_346_cd.ActSysLoadByFznRow, {'OperDay': 'operatingDay', 'HourEnding': 'hourEnding', 'NORTH': 'north', 'SOUTH': 'south', 'WEST': 'west', 'HOUSTON': 'houston', 'TOTAL': 'total', 'DSTFlag': 'DSTFlag'}, {'operatingDay': '%m/%d/%Y'}, member='*.csv', datetimes=None, variants=())
+
     def act_sys_load_by_fzn(self, *, operatingDayFrom: date | None = None, operatingDayTo: date | None = None, hourEnding: str | None = None, northFrom: Decimal | None = None, northTo: Decimal | None = None, southFrom: Decimal | None = None, southTo: Decimal | None = None, westFrom: Decimal | None = None, westTo: Decimal | None = None, houstonFrom: Decimal | None = None, houstonTo: Decimal | None = None, totalFrom: Decimal | None = None, totalTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_346_cd.ActSysLoadByFznRow]:
         'Actual System Load by Forecast Zone'
         return self._client._page('/np6-346-cd/act_sys_load_by_fzn', np6_346_cd.ActSysLoadByFznRow, {'operatingDayFrom': operatingDayFrom, 'operatingDayTo': operatingDayTo, 'hourEnding': hourEnding, 'northFrom': northFrom, 'northTo': northTo, 'southFrom': southFrom, 'southTo': southTo, 'westFrom': westFrom, 'westTo': westTo, 'houstonFrom': houstonFrom, 'houstonTo': houstonTo, 'totalFrom': totalFrom, 'totalTo': totalTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7159,6 +11573,11 @@ class np6_625_cd:
         seMVAR: Decimal | None
         seMW: Decimal | None
 
+    @property
+    def se_ld_rpt_ercot_gen_history(self) -> Archive[np6_625_cd.SeLdRptErcotGenRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-625-cd', np6_625_cd.SeLdRptErcotGenRow, {'SE_EXE_TIME': 'seExeTime', 'SE_EXE_TIME_DST': 'seExeTimeDST', 'SE_MW': 'seMW', 'SE_MVAR': 'seMVAR', 'SCADA_MW': 'scadaMW', 'SCADA_MVAR': 'scadaMVAR'}, {}, member='*.csv', datetimes={'seExeTime': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def se_ld_rpt_ercot_gen(self, *, scadaMWFrom: Decimal | None = None, scadaMWTo: Decimal | None = None, seExeTimeFrom: datetime | None = None, seExeTimeTo: datetime | None = None, seExeTimeDST: str | None = None, seMWFrom: Decimal | None = None, seMWTo: Decimal | None = None, seMVARFrom: Decimal | None = None, seMVARTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_625_cd.SeLdRptErcotGenRow]:
         'State Estimator Load Report - Total ERCOT Generation'
         return self._client._page('/np6-625-cd/se_ld_rpt_ercot_gen', np6_625_cd.SeLdRptErcotGenRow, {'scadaMWFrom': scadaMWFrom, 'scadaMWTo': scadaMWTo, 'seExeTimeFrom': seExeTimeFrom, 'seExeTimeTo': seExeTimeTo, 'seExeTimeDST': seExeTimeDST, 'seMWFrom': seMWFrom, 'seMWTo': seMWTo, 'seMVARFrom': seMVARFrom, 'seMVARTo': seMVARTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7185,6 +11604,11 @@ class np6_626_cd:
         TAGCTimestamp: datetime | None
         TEIDTIE: Decimal | None
         TIELineId: str | None
+
+    @property
+    def se_load_dcties_flows_history(self) -> Archive[np6_626_cd.SeLoadDctiesFlowsRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-626-cd', np6_626_cd.SeLoadDctiesFlowsRow, {'TAGCLAST_TIME': 'TAGCTimestamp', 'TAGCLAST_TIME_DST': 'TAGCTimeDST', 'TIE_LINE_ID': 'TIELineId', 'MW_TIE': 'MWTIE', 'TEID_TIE': 'TEIDTIE'}, {}, member='*.csv', datetimes={'TAGCTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def se_load_dcties_flows(self, *, TAGCTimestampFrom: datetime | None = None, TAGCTimestampTo: datetime | None = None, TAGCTimeDST: str | None = None, TIELineId: str | None = None, MWTIEFrom: Decimal | None = None, MWTIETo: Decimal | None = None, TEIDTIEFrom: Decimal | None = None, TEIDTIETo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_626_cd.SeLoadDctiesFlowsRow]:
         'State Estimator Load Report - DC Ties Flows'
@@ -7213,6 +11637,19 @@ class np6_787_cd:
         repeatedHourFlag: bool | None
         uncappedLMP: Decimal | None
 
+    class LmpElectricalBusHistoryRow(Row):
+        SCEDTimestamp: datetime | None
+        repeatedHourFlag: bool | None
+        electricalBus: str | None
+        cappedLMP: Decimal | None = None
+        uncappedLMP: Decimal | None = None
+        LMP: Decimal | None = None
+
+    @property
+    def lmp_electrical_bus_history(self) -> Archive[np6_787_cd.LmpElectricalBusHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-787-cd', np6_787_cd.LmpElectricalBusHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'ElectricalBus': 'electricalBus', 'CappedLMP': 'cappedLMP', 'UncappedLMP': 'uncappedLMP'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=({'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'ElectricalBus': 'electricalBus', 'LMP': 'LMP'},))
+
     def lmp_electrical_bus(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatedHourFlag: bool | None = None, electricalBus: str | None = None, cappedLMPFrom: Decimal | None = None, cappedLMPTo: Decimal | None = None, uncappedLMPFrom: Decimal | None = None, uncappedLMPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_787_cd.LmpElectricalBusRow]:
         'LMP by Electrical Bus'
         return self._client._page('/np6-787-cd/lmp_electrical_bus', np6_787_cd.LmpElectricalBusRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatedHourFlag': repeatedHourFlag, 'electricalBus': electricalBus, 'cappedLMPFrom': cappedLMPFrom, 'cappedLMPTo': cappedLMPTo, 'uncappedLMPFrom': uncappedLMPFrom, 'uncappedLMPTo': uncappedLMPTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7239,6 +11676,11 @@ class np6_788_cd:
         repeatHourFlag: bool | None
         settlementPoint: str | None
 
+    @property
+    def lmp_node_zone_hub_history(self) -> Archive[np6_788_cd.LmpNodeZoneHubRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-788-cd', np6_788_cd.LmpNodeZoneHubRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'SettlementPoint': 'settlementPoint', 'LMP': 'LMP'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def lmp_node_zone_hub(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, settlementPoint: str | None = None, LMPFrom: Decimal | None = None, LMPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_788_cd.LmpNodeZoneHubRow]:
         'LMPs by Resource Nodes, Load Zones and Trading Hubs'
         return self._client._page('/np6-788-cd/lmp_node_zone_hub', np6_788_cd.LmpNodeZoneHubRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'settlementPoint': settlementPoint, 'LMPFrom': LMPFrom, 'LMPTo': LMPTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7254,6 +11696,149 @@ class np6_788_cd:
     def lmp_node_zone_hub_iter_async(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, settlementPoint: str | None = None, LMPFrom: Decimal | None = None, LMPTo: Decimal | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> AsyncIterator[np6_788_cd.LmpNodeZoneHubRow]:
         'LMPs by Resource Nodes, Load Zones and Trading Hubs'
         return self._client._aiter('/np6-788-cd/lmp_node_zone_hub', np6_788_cd.LmpNodeZoneHubRow, {'SCEDTimestampFrom': SCEDTimestampFrom, 'SCEDTimestampTo': SCEDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'settlementPoint': settlementPoint, 'LMPFrom': LMPFrom, 'LMPTo': LMPTo, 'size': size, 'sort': sort, 'dir': dir})
+
+class np6_792_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class PriceAddersHistoryRow(Row):
+        sourceSheet: str | None = None
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        systemLambda: Decimal | None
+        RTRDPA: Decimal | None = None
+        RTRDPARUS: Decimal | None = None
+        RTRDPARDS: Decimal | None = None
+        RTRDPARRS: Decimal | None = None
+        RTRDPAECRS: Decimal | None = None
+        RTRDPANSS: Decimal | None = None
+        RTRRUC: Decimal | None
+        RTRRMR: Decimal | None
+        RTDNCLR: Decimal | None
+        RTDERS: Decimal | None
+        RTDCTIEIMPORT: Decimal | None = None
+        RTDCTIEEXPORT: Decimal | None = None
+        RTBLTIMPORT: Decimal | None = None
+        RTBLTEXPORT: Decimal | None = None
+        RTOLLSL: Decimal | None = None
+        RTOLHSL: Decimal | None
+        RTDLL: Decimal | None = None
+        batchId: int | None = None
+        PRC: Decimal | None = None
+        RTOLCAP: Decimal | None = None
+        RTOFFCAP: Decimal | None = None
+        RTORPA: Decimal | None = None
+        RTOFFPA: Decimal | None = None
+        RTBP: Decimal | None = None
+        RTOLNSRS: Decimal | None = None
+        RTCLRCAP: Decimal | None = None
+        RTCLRBP: Decimal | None = None
+        RTCLRLSL: Decimal | None = None
+        RTCLRNS: Decimal | None = None
+        RTCLRREG: Decimal | None = None
+        RTNCLRRRS: Decimal | None = None
+        RTCST30HSL: Decimal | None = None
+        RTOFFNSHSL: Decimal | None = None
+        RTOFF10: Decimal | None = None
+        RTOFF30: Decimal | None = None
+        RTORDPA: Decimal | None = None
+        RTOLLASL: Decimal | None = None
+        RTOLHASL: Decimal | None = None
+        RTRUCCST30HSL: Decimal | None = None
+        RTNCLRNSCAP: Decimal | None = None
+
+    @property
+    def price_adders_history(self) -> WorkbookArchive[np6_792_er.PriceAddersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np6-792-er', np6_792_er.PriceAddersHistoryRow, {'      SCED Timestamp      ': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'System Lamda': 'systemLambda', 'RTRDPA': 'RTRDPA', 'RTRDPARUS': 'RTRDPARUS', 'RTRDPARDS': 'RTRDPARDS', 'RTRDPARRS': 'RTRDPARRS', 'RTRDPAECRS': 'RTRDPAECRS', 'RTRDPANSS': 'RTRDPANSS', 'RTRRUC': 'RTRRUC', 'RTRRMR': 'RTRRMR', 'RTDNCLR': 'RTDNCLR', 'RTDERS': 'RTDERS', 'RTDCTIEIMPORT': 'RTDCTIEIMPORT', 'RTDCTIEEXPORT': 'RTDCTIEEXPORT', 'RTBLTIMPORT': 'RTBLTIMPORT', 'RTBLTEXPORT': 'RTBLTEXPORT', 'RTOLLSL': 'RTOLLSL', 'RTOLHSL': 'RTOLHSL', 'RTDLL': 'RTDLL'}, {}, sheets=('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), variants=({'Batch ID': 'batchId', '      SCED Timestamp      ': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'System Lamda': 'systemLambda', 'PRC': 'PRC', 'RTOLCAP': 'RTOLCAP', 'RTOFFCAP': 'RTOFFCAP', 'RTORPA': 'RTORPA', 'RTOFFPA': 'RTOFFPA', 'RTOLHSL': 'RTOLHSL', 'RTBP': 'RTBP', 'RTOLNSRS': 'RTOLNSRS', 'RTCLRCAP': 'RTCLRCAP', 'RTCLRBP': 'RTCLRBP', 'RTCLRLSL': 'RTCLRLSL', 'RTCLRNS': 'RTCLRNS', 'RTCLRREG': 'RTCLRREG', 'RTNCLRRRS': 'RTNCLRRRS', 'RTCST30HSL': 'RTCST30HSL', 'RTOFFNSHSL': 'RTOFFNSHSL', 'RTOFF10': 'RTOFF10', 'RTOFF30': 'RTOFF30', 'RTORDPA': 'RTORDPA', 'RTRRUC': 'RTRRUC', 'RTRRMR': 'RTRRMR', 'RTDNCLR': 'RTDNCLR', 'RTDERS': 'RTDERS', 'RTOLLASL': 'RTOLLASL', 'RTOLHASL': 'RTOLHASL'}, {'Batch ID': 'batchId', '      SCED Timestamp      ': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'System Lamda': 'systemLambda', 'PRC': 'PRC', 'RTOLCAP': 'RTOLCAP', 'RTOFFCAP': 'RTOFFCAP', 'RTORPA': 'RTORPA', 'RTOFFPA': 'RTOFFPA', 'RTOLHSL': 'RTOLHSL', 'RTBP': 'RTBP', 'RTOLNSRS': 'RTOLNSRS', 'RTCLRCAP': 'RTCLRCAP', 'RTCLRBP': 'RTCLRBP', 'RTCLRLSL': 'RTCLRLSL', 'RTCLRNS': 'RTCLRNS', 'RTCLRREG': 'RTCLRREG', 'RTNCLRRRS': 'RTNCLRRRS', 'RTCST30HSL': 'RTCST30HSL', 'RTOFFNSHSL': 'RTOFFNSHSL', 'RTRUCCST30HSL': 'RTRUCCST30HSL', 'RTORDPA': 'RTORDPA', 'RTRRUC': 'RTRRUC', 'RTRRMR': 'RTRRMR', 'RTDNCLR': 'RTDNCLR', 'RTDERS': 'RTDERS', 'RTDCTIEIMPORT': 'RTDCTIEIMPORT', 'RTDCTIEEXPORT': 'RTDCTIEEXPORT', 'RTBLTIMPORT': 'RTBLTIMPORT', 'RTBLTEXPORT': 'RTBLTEXPORT', 'RTOLLASL': 'RTOLLASL', 'RTOLHASL': 'RTOLHASL'}, {'Batch ID': 'batchId', '      SCED Timestamp      ': 'SCEDTimestamp', 'Repeated Hour Flag': 'repeatHourFlag', 'System Lamda': 'systemLambda', 'PRC': 'PRC', 'RTOLCAP': 'RTOLCAP', 'RTOFFCAP': 'RTOFFCAP', 'RTORPA': 'RTORPA', 'RTOFFPA': 'RTOFFPA', 'RTOLHSL': 'RTOLHSL', 'RTBP': 'RTBP', 'RTOLNSRS': 'RTOLNSRS', 'RTCLRCAP': 'RTCLRCAP', 'RTCLRBP': 'RTCLRBP', 'RTCLRLSL': 'RTCLRLSL', 'RTCLRNS': 'RTCLRNS', 'RTCLRREG': 'RTCLRREG', 'RTNCLRRRS': 'RTNCLRRRS', 'RTCST30HSL': 'RTCST30HSL', 'RTOFFNSHSL': 'RTOFFNSHSL', 'RTRUCCST30HSL': 'RTRUCCST30HSL', 'RTORDPA': 'RTORDPA', 'RTRRUC': 'RTRRUC', 'RTRRMR': 'RTRRMR', 'RTDNCLR': 'RTDNCLR', 'RTDERS': 'RTDERS', 'RTDCTIEIMPORT': 'RTDCTIEIMPORT', 'RTDCTIEEXPORT': 'RTDCTIEEXPORT', 'RTBLTIMPORT': 'RTBLTIMPORT', 'RTBLTEXPORT': 'RTBLTEXPORT', 'RTOLLASL': 'RTOLLASL', 'RTOLHASL': 'RTOLHASL', 'RTNCLRNSCAP': 'RTNCLRNSCAP'}))
+
+class np6_793_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class PriceAddersHistoryRow(Row):
+        sourceSheet: str | None = None
+        deliveryDate: date | None
+        deliveryHour: int | None
+        deliveryInterval: int | None
+        repeatHourFlag: bool | None
+        RTRDPA: Decimal | None = None
+        RTRDPRU: Decimal | None = None
+        RTRDPRD: Decimal | None = None
+        RTRDPRRS: Decimal | None = None
+        RTRDPECRS: Decimal | None = None
+        RTRDPNS: Decimal | None = None
+        RTRSVPOR: Decimal | None = None
+        RTRSVPOFF: Decimal | None = None
+        RTRDP: Decimal | None = None
+
+    @property
+    def price_adders_history(self) -> WorkbookArchive[np6_793_er.PriceAddersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np6-793-er', np6_793_er.PriceAddersHistoryRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRDPA': 'RTRDPA', 'RTRDPRU': 'RTRDPRU', 'RTRDPRD': 'RTRDPRD', 'RTRDPRRS': 'RTRDPRRS', 'RTRDPECRS': 'RTRDPECRS', 'RTRDPNS': 'RTRDPNS'}, {}, sheets=('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), variants=({'DeliveryDate': 'deliveryDate', 'DeliveryHour        ': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'RTRDP': 'RTRDP'}, {'DeliveryDate': 'deliveryDate', '         DeliveryHour                ': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'RTRDP': 'RTRDP'}, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'RTRDP': 'RTRDP'}, {'DeliveryDate': 'deliveryDate', 'DeliveryHour ': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'RepeatedHourFlag': 'repeatHourFlag', 'RTRSVPOR': 'RTRSVPOR', 'RTRSVPOFF': 'RTRSVPOFF', 'RTRDP': 'RTRDP'}))
+
+class np6_794_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class CapabilityHistoryRow(Row):
+        sourceSheet: str | None = None
+        SCEDTimestamp: datetime | None
+        repeatHourFlag: bool | None
+        CapREGUPTotal: Decimal | None
+        CapREGDNTotal: Decimal | None
+        CapRRSTotal: Decimal | None
+        CapECRSTotal: Decimal | None
+        CapNSPINTotal: Decimal | None
+        CapREGUP_RRSTotal: Decimal | None
+        CapREGUP_RRS_ECRSTotal: Decimal | None
+        CapREGUP_RRS_ECRS_NSPINTotal: Decimal | None
+
+    @property
+    def capability_history(self) -> WorkbookArchive[np6_794_er.CapabilityHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np6-794-er', np6_794_er.CapabilityHistoryRow, {'SCEDTimestamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'CapREGUPTotal': 'CapREGUPTotal', 'CapREGDNTotal': 'CapREGDNTotal', 'CapRRSTotal': 'CapRRSTotal', 'CapECRSTotal': 'CapECRSTotal', 'CapNSPINTotal': 'CapNSPINTotal', 'CapREGUP_RRSTotal': 'CapREGUP_RRSTotal', 'CapREGUP_RRS_ECRSTotal': 'CapREGUP_RRS_ECRSTotal', 'CapREGUP_RRS_ECRS_NSPINTotal': 'CapREGUP_RRS_ECRS_NSPINTotal'}, {}, sheets=('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), variants=())
+
+class np6_795_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class ClearingPricesHistoryRow(Row):
+        sourceSheet: str | None = None
+        SCEDTimestamp: datetime | None
+        ASType: str | None
+        cappedMCPC: Decimal | None = None
+        uncappedMCPC: Decimal | None = None
+        repeatHourFlag: bool | None
+        MCPC: Decimal | None = None
+
+    @property
+    def clearing_prices_history(self) -> WorkbookArchive[np6_795_er.ClearingPricesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np6-795-er', np6_795_er.ClearingPricesHistoryRow, {'SCED Timestamp': 'SCEDTimestamp', 'AS Type': 'ASType', 'CAPPED_MCPC': 'cappedMCPC', 'UNCAPPED_MCPC': 'uncappedMCPC', 'Repeated Hour Flag': 'repeatHourFlag'}, {}, sheets=('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), variants=({'SCED Timestamp': 'SCEDTimestamp', 'AS Type': 'ASType', 'MCPC': 'MCPC', 'Repeated Hour Flag': 'repeatHourFlag'},))
+
+class np6_796_er:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class ClearingPricesHistoryRow(Row):
+        sourceSheet: str | None = None
+        deliveryDate: date | None
+        deliveryHour: int | None
+        deliveryInterval: int | None
+        ASType: str | None
+        MCPC: Decimal | None
+        repeatHourFlag: bool | None
+
+    @property
+    def clearing_prices_history(self) -> WorkbookArchive[np6_796_er.ClearingPricesHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return WorkbookArchive(self._client, 'np6-796-er', np6_796_er.ClearingPricesHistoryRow, {'Delivery Date': 'deliveryDate', 'Delivery Hour': 'deliveryHour', 'Delivery Interval': 'deliveryInterval', 'AS Type': 'ASType', 'MCPC': 'MCPC', 'Repeated Hour Flag': 'repeatHourFlag'}, {}, sheets=('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), variants=())
 
 class np6_86_cd:
     def __init__(self, client: Transport) -> None:
@@ -7275,6 +11860,11 @@ class np6_86_cd:
         toStationkV: Decimal | None
         value: Decimal | None
         violatedMW: Decimal | None
+
+    @property
+    def shdw_prices_bnd_trns_const_history(self) -> Archive[np6_86_cd.ShdwPricesBndTrnsConstRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-86-cd', np6_86_cd.ShdwPricesBndTrnsConstRow, {'SCEDTimeStamp': 'SCEDTimestamp', 'RepeatedHourFlag': 'repeatedHourFlag', 'ConstraintID': 'constraintID', 'ConstraintName': 'constraintName', 'ContingencyName': 'contingencyName', 'ShadowPrice': 'shadowPrice', 'MaxShadowPrice': 'maxShadowPrice', 'Limit': 'limit', 'Value': 'value', 'ViolatedMW': 'violatedMW', 'FromStation': 'fromStation', 'ToStation': 'toStation', 'FromStationkV': 'fromStationkV', 'ToStationkV': 'toStationkV', 'CCTStatus': 'CCTStatus'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def shdw_prices_bnd_trns_const(self, *, fromStation: str | None = None, toStation: str | None = None, fromStationkVFrom: Decimal | None = None, fromStationkVTo: Decimal | None = None, toStationkVFrom: Decimal | None = None, toStationkVTo: Decimal | None = None, CCTStatus: str | None = None, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatedHourFlag: bool | None = None, constraintIDFrom: int | None = None, constraintIDTo: int | None = None, constraintName: str | None = None, contingencyName: str | None = None, shadowPriceFrom: Decimal | None = None, shadowPriceTo: Decimal | None = None, maxShadowPriceFrom: Decimal | None = None, maxShadowPriceTo: Decimal | None = None, limitFrom: Decimal | None = None, limitTo: Decimal | None = None, valueFrom: Decimal | None = None, valueTo: Decimal | None = None, violatedMWFrom: Decimal | None = None, violatedMWTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_86_cd.ShdwPricesBndTrnsConstRow]:
         'SCED Shadow Prices and Binding Transmission Constraints'
@@ -7305,6 +11895,11 @@ class np6_905_cd:
         settlementPointPrice: Decimal | None
         settlementPointType: str | None
 
+    @property
+    def spp_node_zone_hub_history(self) -> Archive[np6_905_cd.SppNodeZoneHubRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-905-cd', np6_905_cd.SppNodeZoneHubRow, {'DeliveryDate': 'deliveryDate', 'DeliveryHour': 'deliveryHour', 'DeliveryInterval': 'deliveryInterval', 'SettlementPointName': 'settlementPoint', 'SettlementPointType': 'settlementPointType', 'SettlementPointPrice': 'settlementPointPrice', 'DSTFlag': 'DSTFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes=None, variants=())
+
     def spp_node_zone_hub(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, deliveryHourFrom: int | None = None, deliveryHourTo: int | None = None, deliveryIntervalFrom: int | None = None, deliveryIntervalTo: int | None = None, settlementPoint: str | None = None, settlementPointType: str | None = None, settlementPointPriceFrom: Decimal | None = None, settlementPointPriceTo: Decimal | None = None, DSTFlag: bool | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_905_cd.SppNodeZoneHubRow]:
         'Settlement Point Prices at Resource Nodes, Hubs and Load Zones'
         return self._client._page('/np6-905-cd/spp_node_zone_hub', np6_905_cd.SppNodeZoneHubRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'deliveryHourFrom': deliveryHourFrom, 'deliveryHourTo': deliveryHourTo, 'deliveryIntervalFrom': deliveryIntervalFrom, 'deliveryIntervalTo': deliveryIntervalTo, 'settlementPoint': settlementPoint, 'settlementPointType': settlementPointType, 'settlementPointPriceFrom': settlementPointPriceFrom, 'settlementPointPriceTo': settlementPointPriceTo, 'DSTFlag': DSTFlag, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7331,6 +11926,11 @@ class np6_915_cd:
         repeatHourFlag: bool | None
         sumHDL: Decimal | None
         sumLDL: Decimal | None
+
+    @property
+    def sum_hdl_ldl_history(self) -> Archive[np6_915_cd.SumHdlLdlRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-915-cd', np6_915_cd.SumHdlLdlRow, {'SCED_TimeStamp': 'SCEDTimestamp', 'Repeated_Hour_Flag': 'repeatHourFlag', 'GTBD': 'GTBD', 'SUM_HDL': 'sumHDL', 'SUM_LDL': 'sumLDL'}, {}, member='*.csv', datetimes={'SCEDTimestamp': '%m/%d/%Y %H:%M:%S'}, variants=())
 
     def sum_hdl_ldl(self, *, SCEDTimestampFrom: datetime | None = None, SCEDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, GTBDFrom: Decimal | None = None, GTBDTo: Decimal | None = None, sumHDLFrom: Decimal | None = None, sumHDLTo: Decimal | None = None, sumLDLFrom: Decimal | None = None, sumLDLTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_915_cd.SumHdlLdlRow]:
         'Summary Report of HDL and LDL'
@@ -7362,6 +11962,11 @@ class np6_970_cd:
         settlementPoint: str | None
         settlementPointType: str | None
 
+    @property
+    def rtd_lmp_node_zone_hub_history(self) -> Archive[np6_970_cd.RtdLmpNodeZoneHubRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np6-970-cd', np6_970_cd.RtdLmpNodeZoneHubRow, {'RTDTimestamp': 'RTDTimestamp', 'RepeatedHourFlag': 'repeatHourFlag', 'IntervalId': 'intervalId', 'IntervalEnding': 'intervalEnding', 'IntervalRepeatedHourFlag': 'intervalRepeatHourFlag', 'SettlementPoint': 'settlementPoint', 'SettlementPointType': 'settlementPointType', 'LMP': 'LMP'}, {}, member='*.csv', datetimes={'RTDTimestamp': '%m/%d/%Y %H:%M:%S', 'intervalEnding': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def rtd_lmp_node_zone_hub(self, *, RTDTimestampFrom: datetime | None = None, RTDTimestampTo: datetime | None = None, repeatHourFlag: bool | None = None, intervalIdFrom: int | None = None, intervalIdTo: int | None = None, intervalEndingFrom: datetime | None = None, intervalEndingTo: datetime | None = None, intervalRepeatHourFlag: bool | None = None, settlementPoint: str | None = None, settlementPointType: str | None = None, LMPFrom: Decimal | None = None, LMPTo: Decimal | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np6_970_cd.RtdLmpNodeZoneHubRow]:
         'RTD Indicative LMPs by Resource Nodes, Load Zones and Hubs'
         return self._client._page('/np6-970-cd/rtd_lmp_node_zone_hub', np6_970_cd.RtdLmpNodeZoneHubRow, {'RTDTimestampFrom': RTDTimestampFrom, 'RTDTimestampTo': RTDTimestampTo, 'repeatHourFlag': repeatHourFlag, 'intervalIdFrom': intervalIdFrom, 'intervalIdTo': intervalIdTo, 'intervalEndingFrom': intervalEndingFrom, 'intervalEndingTo': intervalEndingTo, 'intervalRepeatHourFlag': intervalRepeatHourFlag, 'settlementPoint': settlementPoint, 'settlementPointType': settlementPointType, 'LMPFrom': LMPFrom, 'LMPTo': LMPTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7391,6 +11996,20 @@ class np7_464_cd:
         sink: str | None
         source: str | None
 
+    class DamPtpOptionPriceReportHistoryRow(Row):
+        postedDatetime: datetime | None = None
+        deliveryDate: date | None
+        hourEnding: str | None
+        price: Decimal | None
+        source: str | None
+        sink: str | None
+        repeatedHourFlag: bool | None
+
+    @property
+    def dam_ptp_option_price_report_history(self) -> Archive[np7_464_cd.DamPtpOptionPriceReportHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np7-464-cd', np7_464_cd.DamPtpOptionPriceReportHistoryRow, {'DeliveryDate': 'deliveryDate', 'HourEnding': 'hourEnding', 'Price': 'price', 'Source': 'source', 'Sink': 'sink', 'DSTFlag': 'repeatedHourFlag'}, {'deliveryDate': '%m/%d/%Y'}, member='*.csv', datetimes={'postedDatetime': '%m/%d/%Y %H:%M:%S'}, variants=())
+
     def dam_ptp_option_price_report(self, *, deliveryDateFrom: date | None = None, deliveryDateTo: date | None = None, hourEnding: str | None = None, priceFrom: Decimal | None = None, priceTo: Decimal | None = None, source: str | None = None, sink: str | None = None, repeatedHourFlag: bool | None = None, postedDatetimeFrom: datetime | None = None, postedDatetimeTo: datetime | None = None, page: int | None = None, size: int | None = None, sort: str | None = None, dir: str | None = None) -> Page[np7_464_cd.DamPtpOptionPriceReportRow]:
         'Day Ahead Point-to-Point Option Price Report'
         return self._client._page('/np7-464-cd/dam_ptp_option_price_report', np7_464_cd.DamPtpOptionPriceReportRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'priceFrom': priceFrom, 'priceTo': priceTo, 'source': source, 'sink': sink, 'repeatedHourFlag': repeatedHourFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'page': page, 'size': size, 'sort': sort, 'dir': dir})
@@ -7407,12 +12026,47 @@ class np7_464_cd:
         'Day Ahead Point-to-Point Option Price Report'
         return self._client._aiter('/np7-464-cd/dam_ptp_option_price_report', np7_464_cd.DamPtpOptionPriceReportRow, {'deliveryDateFrom': deliveryDateFrom, 'deliveryDateTo': deliveryDateTo, 'hourEnding': hourEnding, 'priceFrom': priceFrom, 'priceTo': priceTo, 'source': source, 'sink': sink, 'repeatedHourFlag': repeatedHourFlag, 'postedDatetimeFrom': postedDatetimeFrom, 'postedDatetimeTo': postedDatetimeTo, 'size': size, 'sort': sort, 'dir': dir})
 
+class np7_535_sg:
+    def __init__(self, client: Transport) -> None:
+        self._client = client
+
+
+    class PathAddersHistoryRow(Row):
+        targetDate: date | None
+        source: str | None
+        sink: str | None
+        timeOfUse: str | None
+        startDate: date | None
+        ACI99: Decimal | None
+        ACP: Decimal | None
+
+    @property
+    def path_adders_history(self) -> Archive[np7_535_sg.PathAddersHistoryRow]:
+        """Historical report rows, including files predating the API."""
+        return Archive(self._client, 'np7-535-sg', np7_535_sg.PathAddersHistoryRow, {'TargetDate': 'targetDate', 'Source': 'source', 'Sink': 'sink', 'TimeOfUse': 'timeOfUse', 'StartDate': 'startDate', 'ACI99': 'ACI99', 'ACP': 'ACP'}, {'targetDate': '%m/%d/%Y', 'startDate': '%m/%d/%Y'}, member='*.CSV', datetimes=None, variants=())
+
 class Client(Transport):
     """ERCOT public data, with generated typed product methods."""
 
     @property
+    def copg_316(self) -> copg_316:
+        return copg_316(self)
+
+    @property
+    def eia_930_cd(self) -> eia_930_cd:
+        return eia_930_cd(self)
+
+    @property
+    def eia_930_er(self) -> eia_930_er:
+        return eia_930_er(self)
+
+    @property
     def gen_55_cd(self) -> gen_55_cd:
         return gen_55_cd(self)
+
+    @property
+    def np1_300(self) -> np1_300:
+        return np1_300(self)
 
     @property
     def np1_301(self) -> np1_301:
@@ -7421,6 +12075,14 @@ class Client(Transport):
     @property
     def np1_302(self) -> np1_302:
         return np1_302(self)
+
+    @property
+    def np1_346_er(self) -> np1_346_er:
+        return np1_346_er(self)
+
+    @property
+    def np3_108(self) -> np3_108:
+        return np3_108(self)
 
     @property
     def np3_161_cd(self) -> np3_161_cd:
@@ -7517,6 +12179,10 @@ class Client(Transport):
     @property
     def np3_987_ex(self) -> np3_987_ex:
         return np3_987_ex(self)
+
+    @property
+    def np3_988_er(self) -> np3_988_er:
+        return np3_988_er(self)
 
     @property
     def np3_990_ex(self) -> np3_990_ex:
@@ -7619,6 +12285,10 @@ class Client(Transport):
         return np4_443_cd(self)
 
     @property
+    def np4_494_er(self) -> np4_494_er:
+        return np4_494_er(self)
+
+    @property
     def np4_523_cd(self) -> np4_523_cd:
         return np4_523_cd(self)
 
@@ -7671,6 +12341,10 @@ class Client(Transport):
         return np4_752_cd(self)
 
     @property
+    def np4_765_er(self) -> np4_765_er:
+        return np4_765_er(self)
+
+    @property
     def np4_790_cd(self) -> np4_790_cd:
         return np4_790_cd(self)
 
@@ -7681,6 +12355,10 @@ class Client(Transport):
     @property
     def np5_108_cd(self) -> np5_108_cd:
         return np5_108_cd(self)
+
+    @property
+    def np5_520_er(self) -> np5_520_er:
+        return np5_520_er(self)
 
     @property
     def np5_525_cd(self) -> np5_525_cd:
@@ -7779,6 +12457,26 @@ class Client(Transport):
         return np6_788_cd(self)
 
     @property
+    def np6_792_er(self) -> np6_792_er:
+        return np6_792_er(self)
+
+    @property
+    def np6_793_er(self) -> np6_793_er:
+        return np6_793_er(self)
+
+    @property
+    def np6_794_er(self) -> np6_794_er:
+        return np6_794_er(self)
+
+    @property
+    def np6_795_er(self) -> np6_795_er:
+        return np6_795_er(self)
+
+    @property
+    def np6_796_er(self) -> np6_796_er:
+        return np6_796_er(self)
+
+    @property
     def np6_86_cd(self) -> np6_86_cd:
         return np6_86_cd(self)
 
@@ -7797,3 +12495,7 @@ class Client(Transport):
     @property
     def np7_464_cd(self) -> np7_464_cd:
         return np7_464_cd(self)
+
+    @property
+    def np7_535_sg(self) -> np7_535_sg:
+        return np7_535_sg(self)

@@ -1,0 +1,23 @@
+{
+  "source": "https://www.ercot.com/mktinfo/metering/dlfmethodology",
+  "files": 28,
+  "years": [
+    2001,
+    2026
+  ],
+  "totals": {
+    "numericParameters": 1398,
+    "rows": 466,
+    "modernRows": 352,
+    "legacyRows": 114
+  },
+  "defaultProtectedOriginals": 17,
+  "verification": "All parameters, baseline values, dates, formula families and source identity compared with direct xlrd/openpyxl reads of original summary workbooks; protected copies decoded separately using msoffcrypto-tool and the built-in Excel workbook-protection key. The same decryption library is used by the SDK.",
+  "fixtures": "All 28 complete summary workbooks retained byte-for-byte, including original protection, plus the complete discovery HTML. Provider methodology attachments remain available through download().",
+  "limits": [
+    "Filename year is not an effective or publication date.",
+    "Baseline periods describe load inputs, not coefficient applicability.",
+    "The 2026 workbook Start heading says 2025; both labels are retained.",
+    "Example curve outputs are not measured market data and are not emitted."
+  ]
+}

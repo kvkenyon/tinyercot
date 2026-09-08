@@ -1,0 +1,4 @@
+DeliveryDate,DeliveryHour,DeliveryInterval,SettlementPointName,SettlementPointType,SettlementPointPrice,DSTFlag
+09/07/2026,11,3,7RNCHSLR_ALL,RN,24.76,N
+09/07/2026,11,3,A4_DGR1_RN,RN,24.58,N
+09/07/2026,11,3,A4_DGR2_RN,RN,24.58,N

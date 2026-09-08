@@ -1,0 +1,85 @@
+{
+  "checkedAt": "2026-09-08T13:51:56.361521+00:00",
+  "decoderCommit": "e922b11df888971f097531cbb6deb0f7862916fe",
+  "scope": "Complete saved intermediate/annual CSV samples previously covered only by the cross-product header/first-three-row audit. Every source row is decoded through the concrete generated history reader; row counts are cross-checked with csv.DictReader. This is not every retained publication and is not an independent numerical-value comparison. No network or credentials used.",
+  "auditEntries": 228,
+  "reusedEntries": 7,
+  "files": 221,
+  "rowsDecoded": 28881274,
+  "products": [
+    "np3-560-cd",
+    "np3-908-er",
+    "np3-911-er",
+    "np3-965-er",
+    "np3-966-er",
+    "np3-991-ex",
+    "np4-732-cd",
+    "np4-745-cd"
+  ],
+  "readers": 92,
+  "manifest": "intermediate-full-files.csv",
+  "manifestSha256": "caa8fd574df1ba08e9519a2e42c525c142e955499d24a37c8a51651ff8553e9e",
+  "decoderHashes": {
+    "tinyercot/_history.py": "9ff9e1243e35ca6a65f4e990bdd8d3e0568043f4590c101b67e8d32d69cf499e",
+    "tinyercot/_generated.py": "4add31219447d92ec33bf16f4096a6745799d61c36b272ab2edba095e0c836c2",
+    "tools/inputs/history-formats.json": "2566844e8cebcc6b40d42813d32074d474fbd2319742457a49684e1dba66a53e"
+  },
+  "existingOldestCurrentReceipts": {
+    "files": 433,
+    "scope": "Each reader/member identity in the oldest/current member audit matches an existing per-product complete-file rows_decoded receipt. Those passing files were not decoded again in this run."
+  },
+  "annualPriceSourcesExcludedByNoMisScope": [
+    {
+      "product": "np4-181-er",
+      "url": "https://www.ercot.com/mp/data-products/data-product-details?id=NP4-181-ER",
+      "productPageSha256": "dce272976ea74a90f8a1fd0552a3b7fae042f0098bab3630a7b6a57b5e3eab36",
+      "archiveSystem": "ICE",
+      "reportTypeId": "13091",
+      "routes": [
+        {
+          "type_s": "ICE Data Product",
+          "url_s": "13091",
+          "dataClassification_s": "Public",
+          "internal-name": "Historical DAM Clearing Prices for Capacity"
+        }
+      ],
+      "directFiles": [],
+      "hasMisListRoute": true
+    },
+    {
+      "product": "np4-180-er",
+      "url": "https://www.ercot.com/mp/data-products/data-product-details?id=NP4-180-ER",
+      "productPageSha256": "d9ef49bcd83f4215168915ced9f129a0b1ca9e23a752b72a78c714a2584e5184",
+      "archiveSystem": "ICE",
+      "reportTypeId": "13060",
+      "routes": [
+        {
+          "type_s": "ICE Data Product",
+          "url_s": "13060",
+          "dataClassification_s": "Public",
+          "internal-name": "Historical DAM Load Zone and Hub Prices"
+        }
+      ],
+      "directFiles": [],
+      "hasMisListRoute": true
+    },
+    {
+      "product": "np6-785-er",
+      "url": "https://www.ercot.com/mp/data-products/data-product-details?id=NP6-785-ER",
+      "productPageSha256": "f11c58af1248d340578b9d7d6d9ff2e61846af9a4f7c6c9990ae252c7148b79b",
+      "archiveSystem": "ICE",
+      "reportTypeId": "13061",
+      "routes": [
+        {
+          "type_s": "ICE Data Product",
+          "url_s": "13061",
+          "dataClassification_s": "Public",
+          "internal-name": "Historical RTM Load Zone and Hub Prices"
+        }
+      ],
+      "directFiles": [],
+      "hasMisListRoute": true
+    }
+  ],
+  "reusedEntryScope": "Seven source/member entries appear in both the intermediate and annual audits. They were checked twice but are counted once in this manifest and row total."
+}

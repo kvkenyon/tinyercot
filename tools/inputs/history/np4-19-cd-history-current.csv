@@ -1,0 +1,4 @@
+DeliveryDate,HourEnding,AncillaryType,Price,Quantity,DSTFlag
+09/08/2026,01:00,ECRSM, 0, 124,N
+09/08/2026,01:00,ECRSM, 0.01, 247.8,N
+09/08/2026,02:00,ECRSM, 0, 127.8,N

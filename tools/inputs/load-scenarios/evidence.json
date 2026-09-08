@@ -1,0 +1,319 @@
+{
+  "checkedOn": "2026-09-08",
+  "scope": "All eight regional hourly weather-year scenario workbooks linked from the public 2025 load-forecast page. Forecast target dates, not realized demand history.",
+  "discovery": [
+    {
+      "title": "Coast",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/Coast.xlsx"
+    },
+    {
+      "title": "East",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/East.xlsx"
+    },
+    {
+      "title": "Far West",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/FWest.xlsx"
+    },
+    {
+      "title": "North Central",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/Ncent.xlsx"
+    },
+    {
+      "title": "North",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/North.xlsx"
+    },
+    {
+      "title": "South Central",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/SCENT.xlsx"
+    },
+    {
+      "title": "South",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/South.xlsx"
+    },
+    {
+      "title": "West",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/West.xlsx"
+    }
+  ],
+  "rows": 771233,
+  "weatherYearValues": 34704958,
+  "componentValues": 3566972,
+  "numericValues": 38271930,
+  "sourceMarkerCells": 12,
+  "verification": "Complete original-cell comparisons with separately specified source column positions for dates, hours, predictions and components. Both final runtime and reference use openpyxl to retain spreadsheet error labels. All source error and text markers, zone labels, original row positions, date differences and hour multiplicities are compared. Runtime chooses columns by header names. Empty formatted rows are not data.",
+  "decoderSha256": {
+    "tinyercot/_load_scenarios.py": "bd165d084a56f80eff1fba56830ea82d571711c3271bbc064a635d35996a349b",
+    "tinyercot/_hourly_forecasts.py": "9988211832a2f61411c9bf5dcaea38e36d2c6e5b21683eddbca2b4e544eeb142",
+    "tinyercot/_load.py": "9c669a11f2fc07c3e2a6eba739f902f2c1e52cf657a9cc4ca5f2f9ac55e73f16"
+  },
+  "comparisonScriptSha256": "b0431bc6ad4ad8db12ffc68138169ec1d4b1fdde20a931c0714e4a98d98b30d7",
+  "fixtureScope": "First49 original worksheet rows including headers in all eight XLSX files. Later XML row elements removed, retained row bytes and other ZIP members unchanged. Additional South excerpt retains header and all twelve original rows containing #REF! errors or literal dot markers. Expected cells independently captured from original worksheets. These are excerpts, not whole source files.",
+  "fixtureScripts": {
+    "make_weather_scenario_fixtures.py": "54fd1656b798e85c6af11c701933ff7a6f1e31bfd7c68b943ea1348667807d5a",
+    "add_scenario_error_fixture.py": "97d1a4b579b311871ae567785cc6e39dd0973fb0e55f0f8c2ec29fe8ec358804"
+  },
+  "limits": [
+    "No inferred units, timezone, DST flags or forecast availability timestamps.",
+    "Predictions are not relabelled as net demand or recombined with the separate adjustments.",
+    "File row counts differ; no regional clock gaps or repeat hours are filled or dropped.",
+    "MIS and separate ESR API excluded."
+  ],
+  "files": [
+    {
+      "title": "Coast",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/Coast.xlsx",
+      "bytes": 71566674,
+      "sha256": "669a04b9bd5b5185a71cd8a667dc62a58a6cfbd0190465c6f896186c3488bc34",
+      "errorRows": [],
+      "rows": 96408,
+      "weatherYearValues": 4338360,
+      "componentValues": 482040,
+      "numericValues": 4820400,
+      "dateFrom": "2025-01-01",
+      "dateTo": "2035-12-31",
+      "duplicateHours": 11,
+      "sourceDateDifferences": 0,
+      "hoursPerDay": {
+        "23": 11,
+        "24": 3995,
+        "25": 11
+      },
+      "elapsedSeconds": 56.11,
+      "dateOffset": 1,
+      "zoneColumn": 50
+    },
+    {
+      "title": "East",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/East.xlsx",
+      "bytes": 70745927,
+      "sha256": "f1f2772b20a50a097c2715663bbebb82865378b11db62c9b9cfdc3c85dcb46de",
+      "errorRows": [],
+      "rows": 96397,
+      "weatherYearValues": 4337865,
+      "componentValues": 385588,
+      "numericValues": 4723453,
+      "dateFrom": "2025-01-01",
+      "dateTo": "2035-12-31",
+      "duplicateHours": 0,
+      "sourceDateDifferences": 0,
+      "hoursPerDay": {
+        "23": 11,
+        "24": 4006
+      },
+      "elapsedSeconds": 57.02,
+      "dateOffset": 1,
+      "zoneColumn": 50
+    },
+    {
+      "title": "Far West",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/FWest.xlsx",
+      "bytes": 71607380,
+      "sha256": "7f84bce206f5bb2e6f8671bb218a4dc94ae6c67eb56158f0853adb0fca5daf85",
+      "errorRows": [],
+      "rows": 96408,
+      "weatherYearValues": 4338360,
+      "componentValues": 482040,
+      "numericValues": 4820400,
+      "dateFrom": "2025-01-01",
+      "dateTo": "2035-12-31",
+      "duplicateHours": 11,
+      "sourceDateDifferences": 0,
+      "hoursPerDay": {
+        "23": 11,
+        "24": 3995,
+        "25": 11
+      },
+      "elapsedSeconds": 57.24,
+      "dateOffset": 1,
+      "zoneColumn": 50
+    },
+    {
+      "title": "North Central",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/Ncent.xlsx",
+      "bytes": 71851812,
+      "sha256": "bd6409a1fe11386a6afc013f6966e021642baea773f076f0663b64760d0ef455",
+      "errorRows": [],
+      "rows": 96408,
+      "weatherYearValues": 4338360,
+      "componentValues": 482040,
+      "numericValues": 4820400,
+      "dateFrom": "2025-01-01",
+      "dateTo": "2035-12-31",
+      "duplicateHours": 11,
+      "sourceDateDifferences": 0,
+      "hoursPerDay": {
+        "23": 11,
+        "24": 3995,
+        "25": 11
+      },
+      "elapsedSeconds": 57.73,
+      "dateOffset": 1,
+      "zoneColumn": 50
+    },
+    {
+      "title": "North",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/North.xlsx",
+      "bytes": 71759375,
+      "sha256": "832c75e8597eba8dba5ade3cb5a87cf808a55fe688b6c718bf684b4e1800941e",
+      "errorRows": [],
+      "rows": 96408,
+      "weatherYearValues": 4338360,
+      "componentValues": 482040,
+      "numericValues": 4820400,
+      "dateFrom": "2025-01-01",
+      "dateTo": "2035-12-31",
+      "duplicateHours": 11,
+      "sourceDateDifferences": 0,
+      "hoursPerDay": {
+        "23": 11,
+        "24": 3995,
+        "25": 11
+      },
+      "elapsedSeconds": 58.32,
+      "dateOffset": 1,
+      "zoneColumn": 50
+    },
+    {
+      "title": "South Central",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/SCENT.xlsx",
+      "bytes": 81968322,
+      "sha256": "30d467d042743f783f0ca3a09373aa15196c214da57beeacd142e82475b2d05c",
+      "errorRows": [],
+      "rows": 96408,
+      "weatherYearValues": 4338360,
+      "componentValues": 482040,
+      "numericValues": 4820400,
+      "dateFrom": "2025-01-01",
+      "dateTo": "2035-12-31",
+      "duplicateHours": 11,
+      "sourceDateDifferences": 0,
+      "hoursPerDay": {
+        "23": 11,
+        "24": 3995,
+        "25": 11
+      },
+      "elapsedSeconds": 83.15,
+      "dateOffset": 1,
+      "zoneColumn": null
+    },
+    {
+      "title": "South",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/South.xlsx",
+      "bytes": 69747135,
+      "sha256": "9cab37fe5a2094edf295677c3cceb91735390416412624ccea038e2241c783f4",
+      "errorRows": [
+        {
+          "sourceRow": 27984,
+          "markers": {
+            "Pred_2017": "#REF!"
+          }
+        },
+        {
+          "sourceRow": 27985,
+          "markers": {
+            "Pred_2017": "#REF!"
+          }
+        },
+        {
+          "sourceRow": 27986,
+          "markers": {
+            "Pred_2017": "#REF!"
+          }
+        },
+        {
+          "sourceRow": 28007,
+          "markers": {
+            "Pred_2017": "."
+          }
+        },
+        {
+          "sourceRow": 28031,
+          "markers": {
+            "Pred_2017": "."
+          }
+        },
+        {
+          "sourceRow": 28055,
+          "markers": {
+            "Pred_2017": "."
+          }
+        },
+        {
+          "sourceRow": 63068,
+          "markers": {
+            "Pred_2017": "."
+          }
+        },
+        {
+          "sourceRow": 63115,
+          "markers": {
+            "Pred_2017": "."
+          }
+        },
+        {
+          "sourceRow": 80562,
+          "markers": {
+            "Pred_2017": "#REF!"
+          }
+        },
+        {
+          "sourceRow": 80563,
+          "markers": {
+            "Pred_2017": "#REF!"
+          }
+        },
+        {
+          "sourceRow": 80564,
+          "markers": {
+            "Pred_2017": "#REF!"
+          }
+        },
+        {
+          "sourceRow": 80565,
+          "markers": {
+            "Pred_2017": "#REF!"
+          }
+        }
+      ],
+      "rows": 96398,
+      "weatherYearValues": 4337898,
+      "componentValues": 385592,
+      "numericValues": 4723490,
+      "dateFrom": "2025-01-01",
+      "dateTo": "2035-12-31",
+      "duplicateHours": 11,
+      "sourceDateDifferences": 0,
+      "hoursPerDay": {
+        "23": 21,
+        "24": 3985,
+        "25": 11
+      },
+      "elapsedSeconds": 53.4,
+      "dateOffset": 0,
+      "zoneColumn": 49
+    },
+    {
+      "title": "West",
+      "url": "https://www.ercot.com/files/docs/2025/08/22/West.xlsx",
+      "bytes": 69356115,
+      "sha256": "276ce675a8661eb813ccaea0af9e8e4a6e2b01a98ee0f8545e0e600a97d53773",
+      "errorRows": [],
+      "rows": 96398,
+      "weatherYearValues": 4337395,
+      "componentValues": 385592,
+      "numericValues": 4722987,
+      "dateFrom": "2025-01-01",
+      "dateTo": "2035-12-31",
+      "duplicateHours": 11,
+      "sourceDateDifferences": 0,
+      "hoursPerDay": {
+        "23": 21,
+        "24": 3985,
+        "25": 11
+      },
+      "elapsedSeconds": 54.57,
+      "dateOffset": 0,
+      "zoneColumn": 49
+    }
+  ]
+}

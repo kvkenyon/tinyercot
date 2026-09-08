@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "totalRecords": 54490,
+    "pageSize": 1,
+    "totalPages": 54490,
+    "currentPage": 54490,
+    "query": {
+      "parameterCount": 0,
+      "parameters": {},
+      "sortedBy": "postDatetime: DESC"
+    }
+  },
+  "product": {
+    "productId": "RPTESR-M",
+    "name": "Energy Storage Resource Four Second Data",
+    "reportTypeId": 10011001
+  },
+  "archives": [
+    {
+      "docId": 100500,
+      "friendlyName": "EnergyStorageResources_20250529202753",
+      "postDatetime": "2025-05-29T20:27:53.000",
+      "_links": {
+        "endpoint": {
+          "href": "https://api.ercot.com/api/public-data/archive/rptesr-m?download=100500"
+        }
+      }
+    }
+  ],
+  "_links": {
+    "self": {
+      "href": "https://api.ercot.com/api/public-data/archive/rptesr-m"
+    },
+    "parent": {
+      "href": "https://api.ercot.com/api/public-data"
+    }
+  }
+}

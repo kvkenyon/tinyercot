@@ -1,0 +1,97 @@
+{
+  "checkedAt": "2026-09-08T03:31:47.197178+00:00",
+  "marketDay": "2026-09-01",
+  "settlementPoint": "HB_HOUSTON",
+  "rows": {
+    "dam_prices": 24,
+    "rt_prices": 96,
+    "dam_ancillary_prices": 120,
+    "actual_load": 24
+  },
+  "ancillaryTypes": [
+    "ECRS",
+    "NSPIN",
+    "REGDN",
+    "REGUP",
+    "RRS"
+  ],
+  "firstRows": {
+    "dam_prices": {
+      "DSTFlag": false,
+      "deliveryDate": "2026-09-01",
+      "hourEnding": "01:00",
+      "settlementPoint": "HB_HOUSTON",
+      "settlementPointPrice": "25.79"
+    },
+    "rt_prices": {
+      "DSTFlag": false,
+      "deliveryDate": "2026-09-01",
+      "deliveryHour": 1,
+      "deliveryInterval": 1,
+      "settlementPoint": "HB_HOUSTON",
+      "settlementPointPrice": "36.35",
+      "settlementPointType": "HU"
+    },
+    "dam_ancillary_prices": {
+      "DSTFlag": false,
+      "MCPC": "0.19",
+      "ancillaryType": "RRS",
+      "deliveryDate": "2026-09-01",
+      "hourEnding": "01:00"
+    },
+    "actual_load": {
+      "DSTFlag": false,
+      "coast": "16195.48",
+      "east": "2218.43",
+      "farWest": "7831.93",
+      "hourEnding": "01:00",
+      "north": "1860.38",
+      "northC": "18904.07",
+      "operatingDay": "2026-09-01",
+      "southC": "11129.06",
+      "southern": "5415.08",
+      "total": "65688.68",
+      "west": "2134.26"
+    }
+  },
+  "forecastRows": 192,
+  "forecastDocument": {
+    "docId": 642522821,
+    "friendlyName": "LFCWEATHERNP3561_csv",
+    "postDatetime": "2019-01-01T00:30:00"
+  },
+  "forecastsWithMissingEmbeddedPostedTime": 192,
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/public-reports/np4-190-cd/dam_stlmnt_pnt_prices",
+      "query": "deliveryDateFrom=2026-09-01&deliveryDateTo=2026-09-01&settlementPoint=HB_HOUSTON&page=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/public-reports/np6-905-cd/spp_node_zone_hub",
+      "query": "deliveryDateFrom=2026-09-01&deliveryDateTo=2026-09-01&settlementPoint=HB_HOUSTON&page=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/public-reports/np4-188-cd/dam_clear_price_for_cap",
+      "query": "deliveryDateFrom=2026-09-01&deliveryDateTo=2026-09-01&page=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/public-reports/np6-345-cd/act_sys_load_by_wzn",
+      "query": "operatingDayFrom=2026-09-01&operatingDayTo=2026-09-01&page=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/public-reports/archive/np3-561-cd",
+      "query": "page=1&size=1000&postDatetimeFrom=2019-01-01T00%3A30%3A00&postDatetimeTo=2019-01-01T00%3A30%3A00"
+    },
+    {
+      "method": "POST",
+      "path": "/api/public-reports/archive/np3-561-cd/download",
+      "query": ""
+    }
+  ],
+  "checks": "Every exported line reparsed through its concrete SDK row model. Selected price point/day and RT intervals/hours verified; load operating day and original forecast document identity/time verified. This is workflow verification, not an independent numerical source comparison or an investment/backtest claim."
+}

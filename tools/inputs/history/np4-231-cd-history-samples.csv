@@ -1,0 +1,4 @@
+MarketType,FromEBName,ToEBName,Type,Priority
+DAM,0014_EB,DOWGEN_040,Equal,1
+DAM,0014_EB,EB_DOWAUTO2,Equal,2
+DAM,0014_EB,EB_DOWAUTO5,Equal,3

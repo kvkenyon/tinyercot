@@ -1,0 +1,240 @@
+[
+  {
+    "endpoint": "gen-55-cd/hrly_rt_load_fcast_actual",
+    "fixture": "gen-55-cd-history-current.csv",
+    "file": "cdr.00013499.0000000000000000.20260907.122000.HOURLYLFvsACTUALGEN55.csv",
+    "csv_rows": 48,
+    "first_row": {
+      "DSTFlag": false,
+      "actualLoad": "64360.71",
+      "currentDayFcast": "64907.8108",
+      "currentDayHSL": "87517.2",
+      "dayAheadFcast": "63314.2292",
+      "dayAheadHSL": "89854.7",
+      "deliveryDate": "2026-09-06",
+      "hourEnding": 1
+    },
+    "rows_decoded": 48
+  },
+  {
+    "endpoint": "gen-55-cd/hrly_rt_load_fcast_actual",
+    "fixture": "gen-55-cd-history-samples.csv",
+    "file": "cdr.00013499.0000000000000000.20151210.182000.HOURLYLFvsACTUALGEN55.csv",
+    "csv_rows": 72,
+    "first_row": {
+      "DSTFlag": false,
+      "actualLoad": "28376.64",
+      "currentDayFcast": "28464.0787",
+      "currentDayHSL": "38609.3",
+      "dayAheadFcast": "28079.7598",
+      "dayAheadHSL": "38909.7",
+      "deliveryDate": "2015-12-09",
+      "hourEnding": 1
+    },
+    "rows_decoded": 72
+  },
+  {
+    "endpoint": "np3-560-cd/7d_load_fcast_by_fzn",
+    "fixture": "np3-560-cd-history-current.csv",
+    "file": "cdr.00012311.0000000000000000.20260907.113000.LFCCONGESTNP3560.csv",
+    "csv_rows": 192,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "1:00",
+      "north": "22122.619443518067837",
+      "south": "17020.729026806640625",
+      "west": "10014.988855944825288",
+      "houston": "14624.82368447265625",
+      "systemTotal": "63783.16101074219",
+      "DSTFlag": false
+    },
+    "rows_decoded": 192
+  },
+  {
+    "endpoint": "np3-560-cd/7d_load_fcast_by_fzn",
+    "fixture": "np3-560-cd-history-samples.csv",
+    "file": "cdr.00012311.0000000000000000.20190101.003000.LFCCONGESTNP3560.csv",
+    "csv_rows": 192,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2019-01-01",
+      "hourEnding": "1:00",
+      "north": "13164.23181750488554",
+      "south": "10072.271223266608298",
+      "west": "4484.003995947268662",
+      "houston": "9231.9860052734375",
+      "systemTotal": "36952.4930419922",
+      "DSTFlag": false
+    },
+    "rows_decoded": 192
+  },
+  {
+    "endpoint": "np3-561-cd/7d_load_fcast_by_wzn",
+    "fixture": "np3-561-cd-history-current.csv",
+    "file": "cdr.00012312.0000000000000000.20260907.113000.LFCWEATHERNP3561.csv",
+    "csv_rows": 192,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "1:00",
+      "coast": "15153.1943",
+      "east": "2058.1025",
+      "farWest": "7683.0674",
+      "north": "1892.4691",
+      "northCentral": "19082.3848",
+      "southCentral": "10498.6553",
+      "southern": "5282.5381",
+      "west": "2132.7495",
+      "systemTotal": "63783.161",
+      "DSTFlag": false
+    },
+    "rows_decoded": 192
+  },
+  {
+    "endpoint": "np3-561-cd/7d_load_fcast_by_wzn",
+    "fixture": "np3-561-cd-history-samples.csv",
+    "file": "cdr.00012312.0000000000000000.20190101.003000.LFCWEATHERNP3561.csv",
+    "csv_rows": 192,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2019-01-01",
+      "hourEnding": "1:00",
+      "coast": "9566.0996",
+      "east": "1414.37",
+      "farWest": "2954.29",
+      "north": "942.583",
+      "northCentral": "11252.9004",
+      "southCentral": "6163.46",
+      "southern": "3024.51",
+      "west": "1634.28",
+      "systemTotal": "36952.493",
+      "DSTFlag": false
+    },
+    "rows_decoded": 192
+  },
+  {
+    "endpoint": "np3-562-cd/ih_load_fcast_by_wzn",
+    "fixture": "np3-562-cd-history-current.csv",
+    "file": "cdr.00016553.0000000000000000.20260907.122700.INTRAHRLOADFCASTNP3562.csv",
+    "csv_rows": 48,
+    "first_row": {
+      "postedDatetime": null,
+      "intervalEnding": "2026-09-07T12:30:00",
+      "coast": "19700.279296875",
+      "east": "2558.06982421875",
+      "farWest": "8089.20166015625",
+      "north": "2374.83154296875",
+      "northCentral": "24508.83984375",
+      "southCentral": "13110.443359375",
+      "southern": "6365.06103515625",
+      "west": "2520.98071289062",
+      "systemTotal": "79227.7109375",
+      "model": "A6",
+      "inUseFlag": false,
+      "DSTFlag": false
+    },
+    "rows_decoded": 48
+  },
+  {
+    "endpoint": "np3-562-cd/ih_load_fcast_by_wzn",
+    "fixture": "np3-562-cd-history-samples.csv",
+    "file": "cdr.00016553.0000000000000000.20260326.114200.INTRAHRLOADFCASTNP3562.csv",
+    "csv_rows": 48,
+    "first_row": {
+      "postedDatetime": null,
+      "intervalEnding": "2026-03-26T11:45:00",
+      "coast": "14440.2001953125",
+      "east": "1592.41003417969",
+      "farWest": "7492.72021484375",
+      "north": "2101.72998046875",
+      "northCentral": "14991.2998046875",
+      "southCentral": "8430.83984375",
+      "southern": "4567.33984375",
+      "west": "1421.42004394531",
+      "systemTotal": "55037.9609375",
+      "model": "E",
+      "inUseFlag": true,
+      "DSTFlag": false
+    },
+    "rows_decoded": 48
+  },
+  {
+    "endpoint": "np3-565-cd/lf_by_model_weather_zone",
+    "fixture": "np3-565-cd-history-current.csv",
+    "file": "cdr.00014837.0000000000000000.20260907.113000.LFMODWEATHERNP3565.csv",
+    "csv_rows": 1536,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "1:00",
+      "coast": "15084.543",
+      "east": "2044.0164",
+      "farWest": "7845.854",
+      "north": "1883.9669",
+      "northCentral": "18833.4199",
+      "southCentral": "10348.3779",
+      "southern": "5255.5454",
+      "west": "2072.2061",
+      "systemTotal": "63367.9296",
+      "model": "A3",
+      "inUseFlag": false,
+      "DSTFlag": false
+    },
+    "rows_decoded": 1536
+  },
+  {
+    "endpoint": "np3-565-cd/lf_by_model_weather_zone",
+    "fixture": "np3-565-cd-history-samples.csv",
+    "file": "cdr.00014837.0000000000000000.20170629.113002.LFMODWEATHERNP3565.csv",
+    "csv_rows": 1152,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2017-06-29",
+      "hourEnding": "1:00",
+      "coast": "12042.5664",
+      "east": "1585.0483",
+      "farWest": "2329.0618",
+      "north": "996.0685",
+      "northCentral": "13191.9385",
+      "southCentral": "7140.873",
+      "southern": "3232.8601",
+      "west": "1461.603",
+      "systemTotal": "41980.0196",
+      "model": "A3",
+      "inUseFlag": false,
+      "DSTFlag": false
+    },
+    "rows_decoded": 1152
+  },
+  {
+    "endpoint": "np3-566-cd/lf_by_model_study_area",
+    "fixture": "np3-566-cd-history-current.csv",
+    "file": "cdr.00015953.0000000000000000.20260907.113000.LFMODSTUDYAREA3566.csv",
+    "csv_rows": 768,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-07",
+      "hourEnding": "1:00",
+      "valley": "1781.154",
+      "model": "E",
+      "DSTFlag": false
+    },
+    "rows_decoded": 768
+  },
+  {
+    "endpoint": "np3-566-cd/lf_by_model_study_area",
+    "fixture": "np3-566-cd-history-samples.csv",
+    "file": "cdr.00015953.0000000000000000.20190207.173000.LFMODSTUDYAREA3566.csv",
+    "csv_rows": 768,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2019-02-07",
+      "hourEnding": "1:00",
+      "valley": "962.75",
+      "model": "E",
+      "DSTFlag": false
+    },
+    "rows_decoded": 768
+  }
+]

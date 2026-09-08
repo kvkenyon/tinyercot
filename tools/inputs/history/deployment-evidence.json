@@ -1,0 +1,124 @@
+[
+  {
+    "endpoint": "np5-525-cd/wruc_as_deploy_factors",
+    "fixture": "np5-525-cd-history-current.csv",
+    "file": "cdr.00024897.0000000000000000.20260907.025218.WRUCASDFNP5525.csv",
+    "csv_rows": 864,
+    "first_row": {
+      "postedDatetime": null,
+      "RUCTimestamp": "2026-09-07T01:05:38",
+      "deliveryDate": "2026-09-08",
+      "deliveryHour": "01:00",
+      "ASType": "ECRS",
+      "ASDeploymentFactors": "0.05",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 864
+  },
+  {
+    "endpoint": "np5-525-cd/wruc_as_deploy_factors",
+    "fixture": "np5-525-cd-history-samples.csv",
+    "file": "cdr.00024897.0000000000000000.20251205.025832.WRUCASDFNP5525.csv",
+    "csv_rows": 720,
+    "first_row": {
+      "postedDatetime": null,
+      "RUCTimestamp": "2025-12-05T01:23:32",
+      "deliveryDate": "2025-12-06",
+      "deliveryHour": "01:00",
+      "ASType": "ECRS",
+      "ASDeploymentFactors": "0.04",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 720
+  },
+  {
+    "endpoint": "np5-526-cd/proj_as_deploy_factor",
+    "fixture": "np5-526-cd-history-current.csv",
+    "file": "cdr.00024886.0000000000000000.20260907.055500.ProjectedASDFNP5526.csv",
+    "csv_rows": 144,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2026-09-08",
+      "hourEnding": "01:00",
+      "ASType": "ECRS",
+      "ASDeploymentFactors": "0.05",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 144
+  },
+  {
+    "endpoint": "np5-526-cd/proj_as_deploy_factor",
+    "fixture": "np5-526-cd-history-samples.csv",
+    "file": "cdr.00024886.0000000000000000.20251205.045501.ProjectedASDFNP5526.csv",
+    "csv_rows": 144,
+    "first_row": {
+      "postedDatetime": null,
+      "deliveryDate": "2025-12-06",
+      "hourEnding": "01:00",
+      "ASType": "ECRS",
+      "ASDeploymentFactors": "0.04",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 144
+  },
+  {
+    "endpoint": "np5-527-cd/druc_as_deploy_factors",
+    "fixture": "np5-527-cd-history-current.csv",
+    "file": "cdr.00024895.0000000000000000.20260906.145705.DRUCASDFNP5527.csv",
+    "csv_rows": 144,
+    "first_row": {
+      "ASDeploymentFactors": "0.05",
+      "ASType": "ECRS",
+      "RUCTimestamp": "2026-09-06T14:33:04",
+      "deliveryDate": "2026-09-07",
+      "deliveryHour": "01:00",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 144
+  },
+  {
+    "endpoint": "np5-527-cd/druc_as_deploy_factors",
+    "fixture": "np5-527-cd-history-samples.csv",
+    "file": "cdr.00024895.0000000000000000.20251205.145924.DRUCASDFNP5527.csv",
+    "csv_rows": 144,
+    "first_row": {
+      "ASDeploymentFactors": "0.04",
+      "ASType": "ECRS",
+      "RUCTimestamp": "2025-12-05T14:33:01",
+      "deliveryDate": "2025-12-06",
+      "deliveryHour": "01:00",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 144
+  },
+  {
+    "endpoint": "np5-528-cd/hruc_as_deploy_factors",
+    "fixture": "np5-528-cd-history-current.csv",
+    "file": "cdr.00024896.0000000000000000.20260907.121750.HRUCASDFNP5528.csv",
+    "csv_rows": 66,
+    "first_row": {
+      "ASDeploymentFactors": "0",
+      "ASType": "ECRS",
+      "RUCTimestamp": "2026-09-07T12:03:03",
+      "deliveryDate": "2026-09-07",
+      "deliveryHour": "14:00",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 66
+  },
+  {
+    "endpoint": "np5-528-cd/hruc_as_deploy_factors",
+    "fixture": "np5-528-cd-history-samples.csv",
+    "file": "cdr.00024896.0000000000000000.20251205.001542.HRUCASDFNP5528.csv",
+    "csv_rows": 138,
+    "first_row": {
+      "ASDeploymentFactors": "0.05",
+      "ASType": "ECRS",
+      "RUCTimestamp": "2025-12-05T00:07:23",
+      "deliveryDate": "2025-12-05",
+      "deliveryHour": "02:00",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 138
+  }
+]

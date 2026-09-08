@@ -1,0 +1,138 @@
+[
+  {
+    "endpoint": "np6-328-cd/tot_as_res_cap",
+    "fixture": "np6-328-cd-history-current.csv",
+    "file": "cdr.00024887.0000000000000000.20260907.125023.TotASResCapabilityNP6328_20260907_125020.csv",
+    "csv_rows": 1,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-07T12:50:20",
+      "capECRS": "29013.7",
+      "capNSPIN": "22752.9",
+      "capREGDN": "7660.3",
+      "capREGUP": "28179",
+      "capREGUPRRS": "35878.2",
+      "capREGUPRRSECRS": "41029.5",
+      "capREGUPRRSECRSNSPIN": "50797.4",
+      "capRRS": "22879.1",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 1
+  },
+  {
+    "endpoint": "np6-328-cd/tot_as_res_cap",
+    "fixture": "np6-328-cd-history-samples.csv",
+    "file": "cdr.00024887.0000000000000000.20251205.000521.TotASResCapabilityNP6328_20251204_234516.csv",
+    "csv_rows": 5,
+    "first_row": {
+      "SCEDTimestamp": "2025-12-04T23:45:16",
+      "capECRS": "16069.9",
+      "capNSPIN": "17461.9",
+      "capREGDN": "12833.7",
+      "capREGUP": "17467.1",
+      "capREGUPRRS": "25063.6",
+      "capREGUPRRSECRS": "30106.1",
+      "capREGUPRRSECRSNSPIN": "39599.4",
+      "capRRS": "15920.6",
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 5
+  },
+  {
+    "endpoint": "np6-329-cd/rtd_ind_mcpc",
+    "fixture": "np6-329-cd-history-current.csv",
+    "file": "cdr.00024889.0000000000000000.20260907.125141.RTDMCPCNP6329_20260907_125004.csv",
+    "csv_rows": 24,
+    "first_row": {
+      "ECRS": "0.01",
+      "NSPIN": "0.04",
+      "REGDN": "4.05",
+      "REGUP": "2.96",
+      "RRS": "0.01",
+      "RTDTimestamp": "2026-09-07T12:50:04",
+      "intervalEnding": "2026-09-07T12:55:00",
+      "intervalId": 1,
+      "intervalRepeatHourFlag": false,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 24
+  },
+  {
+    "endpoint": "np6-329-cd/rtd_ind_mcpc",
+    "fixture": "np6-329-cd-history-samples.csv",
+    "file": "cdr.00024889.0000000000000000.20251205.000043.RTDMCPCNP6329_20251205_000003.csv",
+    "csv_rows": 11,
+    "first_row": {
+      "ECRS": "0.31",
+      "NSPIN": "2.37",
+      "REGDN": "5.69",
+      "REGUP": "2.96",
+      "RRS": "0.31",
+      "RTDTimestamp": "2025-12-05T00:00:03",
+      "intervalEnding": "2025-12-05T00:05:00",
+      "intervalId": 1,
+      "intervalRepeatHourFlag": false,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 11
+  },
+  {
+    "endpoint": "np6-331-cd/rt_clear_price_cap",
+    "fixture": "np6-331-cd-history-current.csv",
+    "file": "cdr.00024898.0000000000000000.20260907.124700.MCPC15MinNP6331.csv",
+    "csv_rows": 5,
+    "first_row": {
+      "ASType": "ECRS",
+      "MCPC": "0.01",
+      "deliveryDate": "2026-09-07",
+      "deliveryHour": 13,
+      "deliveryInt": 3,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 5
+  },
+  {
+    "endpoint": "np6-331-cd/rt_clear_price_cap",
+    "fixture": "np6-331-cd-history-samples.csv",
+    "file": "cdr.00024898.0000000000000000.20251205.000200.MCPC15MinNP6331.csv",
+    "csv_rows": 5,
+    "first_row": {
+      "ASType": "ECRS",
+      "MCPC": "9.34",
+      "deliveryDate": "2025-12-04",
+      "deliveryHour": 24,
+      "deliveryInt": 4,
+      "repeatHourFlag": false
+    },
+    "rows_decoded": 5
+  },
+  {
+    "endpoint": "np6-332-cd/rt_clear_price_cap_sced",
+    "fixture": "np6-332-cd-history-current.csv",
+    "file": "cdr.00024891.0000000000000000.20260907.125022.SCEDMCPCNP6332.csv",
+    "csv_rows": 5,
+    "first_row": {
+      "SCEDTimestamp": "2026-09-07T12:50:20",
+      "repeatedHourFlag": false,
+      "ASType": "ECRS",
+      "cappedMCPC": "0.01",
+      "uncappedMCPC": "0.01",
+      "MCPC": null
+    },
+    "rows_decoded": 5
+  },
+  {
+    "endpoint": "np6-332-cd/rt_clear_price_cap_sced",
+    "fixture": "np6-332-cd-history-samples.csv",
+    "file": "cdr.00024891.0000000000000000.20251205.000520.SCEDMCPCNP6332.csv",
+    "csv_rows": 5,
+    "first_row": {
+      "SCEDTimestamp": "2025-12-05T00:05:17",
+      "repeatedHourFlag": false,
+      "ASType": "ECRS",
+      "cappedMCPC": null,
+      "uncappedMCPC": null,
+      "MCPC": "0.47"
+    },
+    "rows_decoded": 5
+  }
+]

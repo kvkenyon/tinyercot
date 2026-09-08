@@ -28,12 +28,19 @@ def name(value: str) -> str:
     return "_" + value if value[0].isdigit() or keyword.iskeyword(value) else value
 
 
-def generate(*, allow_incomplete: bool = False) -> None:
-    operations = json.loads((INPUTS / "operations.json").read_text())
-    schemas = json.loads((ROOT / "api_response_fields.json").read_text())
+def generate(*, allow_incomplete: bool = False, esr: bool = False) -> None:
+    inputs = INPUTS / "esr" if esr else INPUTS
+    client_name = "ESRClient" if esr else "Client"
+    output_name = "_generated_esr.py" if esr else "_generated.py"
+    operations = json.loads((inputs / "operations.json").read_text())
+    schema_path = (
+        inputs / "response-fields.json" if esr else ROOT / "api_response_fields.json"
+    )
+    schemas = json.loads(schema_path.read_text())
     overrides = json.loads((INPUTS / "type-overrides.json").read_text())
     row_fields = json.loads((INPUTS / "row-fields.json").read_text())
     defaults = json.loads((INPUTS / "query-defaults.json").read_text())
+    history = json.loads((inputs / "history-formats.json").read_text())
     groups = {}
     missing = []
     for op in operations:
@@ -47,6 +54,12 @@ def generate(*, allow_incomplete: bool = False) -> None:
             schemas[path] = {name: schemas[path][name] for name in row_fields[path]}
         product, method = path.split("/")
         groups.setdefault(product, []).append((method, op, schemas[path]))
+    for path, contract in history.items():
+        if contract.get("archive_only"):
+            product, method = path.split("/")
+            groups.setdefault(product, []).append(
+                (method, {"urlTemplate": "/" + path, "historyOnly": True}, {})
+            )
     if missing and not allow_incomplete:
         raise ValueError("Missing response schemas for: " + ", ".join(missing))
     if missing:
@@ -59,9 +72,12 @@ def generate(*, allow_incomplete: bool = False) -> None:
         "from decimal import Decimal",
         "from typing import ClassVar",
         "from ._client import Transport, Page, Row",
+        "from ._history import Archive, EiaHour",
+        "from ._xlsx import WorkbookArchive",
+        "from ._pdf import PdfArchive, PdfChartArchive",
         "",
     ]
-    lines.append(f"__all__ = {['Client', *[name(p) for p in sorted(groups)]]!r}")
+    lines.append(f"__all__ = {[client_name, *[name(p) for p in sorted(groups)]]!r}")
     for product, endpoints in sorted(groups.items()):
         cls = name(product)
         lines += [
@@ -75,22 +91,73 @@ def generate(*, allow_incomplete: bool = False) -> None:
             row = name(
                 "".join(s.capitalize() for s in method.strip("_").split("_")) + "Row"
             )
-            lines += [f"    class {row}(Row):"]
             path = op["urlTemplate"].lstrip("/")
-            if path in row_fields:
-                lines.append(
-                    f"        __source_fields__: ClassVar[tuple[str, ...]] = {tuple(row_fields[path])!r}"
+            if not op.get("historyOnly"):
+                lines += [f"    class {row}(Row):"]
+                if path in row_fields:
+                    lines.append(
+                        f"        __source_fields__: ClassVar[tuple[str, ...]] = {tuple(row_fields[path])!r}"
+                    )
+                for field, kind in fields.items():
+                    if not field.isidentifier() or keyword.iskeyword(field):
+                        raise ValueError(f"Unsupported field name: {product}/{field}")
+                    # Nullable responses are represented explicitly; absent required fields still fail.
+                    field_type = (
+                        overrides.get(op["urlTemplate"].lstrip("/"), {})
+                        .get(field, {})
+                        .get("type", FIELDS[kind])
+                    )
+                    lines += [f"        {field}: {field_type} | None"]
+            if path in history:
+                contract = history[path]
+                archive_row = row
+                reader = "WorkbookArchive" if "sheets" in contract else "Archive"
+                if "pdf" in contract:
+                    reader = "PdfArchive"
+                if "charts" in contract:
+                    reader = "PdfChartArchive"
+                if "fields" in contract:
+                    archive_row = row.removesuffix("Row") + "HistoryRow"
+                    lines += ["", f"    class {archive_row}(Row):"]
+                    layouts = [contract["columns"], *contract.get("variants", [])]
+                    for field, field_type in contract["fields"].items():
+                        default = (
+                            " = None"
+                            if any(field not in layout.values() for layout in layouts)
+                            else ""
+                        )
+                        lines.append(f"        {field}: {field_type} | None{default}")
+                options = (
+                    f"sheets={tuple(contract['sheets'])!r}, variants={tuple(contract.get('variants', []))!r}"
+                    if "sheets" in contract
+                    else f"member={contract.get('member', '*.csv')!r}, datetimes={contract.get('datetimes')!r}, variants={tuple(contract.get('variants', []))!r}"
                 )
-            for field, kind in fields.items():
-                if not field.isidentifier() or keyword.iskeyword(field):
-                    raise ValueError(f"Unsupported field name: {product}/{field}")
-                # Nullable responses are represented explicitly; absent required fields still fail.
-                field_type = (
-                    overrides.get(op["urlTemplate"].lstrip("/"), {})
-                    .get(field, {})
-                    .get("type", FIELDS[kind])
-                )
-                lines += [f"        {field}: {field_type} | None"]
+                if "document" in contract:
+                    options += f", document={contract['document']!r}"
+                if "pdf" in contract:
+                    options = ", ".join(
+                        f"{key}={value!r}" for key, value in contract["pdf"].items()
+                    )
+                    numbers = tuple(
+                        field
+                        for field, kind in contract["fields"].items()
+                        if kind in {"Decimal", "int"}
+                    )
+                    options += f", numbers={numbers!r}, datetimes={contract.get('datetimes', {})!r}"
+                if "charts" in contract:
+                    charts = {
+                        field: tuple(spec) for field, spec in contract["charts"].items()
+                    }
+                    options = f"charts={charts!r}"
+                lines += [
+                    "",
+                    "    @property",
+                    f"    def {method}_history(self) -> {reader}[{cls}.{archive_row}]:",
+                    '        """Historical report rows, including files predating the API."""',
+                    f"        return {reader}(self._client, {product!r}, {cls}.{archive_row}, {contract['columns']!r}, {contract['dates']!r}, {options})",
+                ]
+            if op.get("historyOnly"):
+                continue
             params = (op.get("request") or {}).get("queryParameters", [])
             for mode, prefix, result, helper in [
                 ("", "def", f"Page[{cls}.{row}]", "_page"),
@@ -119,9 +186,14 @@ def generate(*, allow_incomplete: bool = False) -> None:
                 ]
         lines.append("")
     lines += [
-        "class Client(Transport):",
+        f"class {client_name}(Transport):",
         '    """ERCOT public data, with generated typed product methods."""',
     ]
+    if esr:
+        lines += [
+            '    _base_url = "https://api.ercot.com/api/public-data"',
+            '    _subscription_key_env = "ERCOT_ESR_SUBSCRIPTION_KEY"',
+        ]
     for product in sorted(groups):
         cls = name(product)
         lines += [
@@ -130,9 +202,9 @@ def generate(*, allow_incomplete: bool = False) -> None:
             f"    def {cls}(self) -> {cls}:",
             f"        return {cls}(self)",
         ]
-    (ROOT / "tinyercot" / "_generated.py").write_text("\n".join(lines) + "\n")
+    (ROOT / "tinyercot" / output_name).write_text("\n".join(lines) + "\n")
     print(
-        f"Generated {sum(map(len, groups.values()))} endpoints in {len(groups)} products"
+        f"Generated {sum(not op.get('historyOnly', False) for entries in groups.values() for _, op, _ in entries)} API endpoints in {len(groups)} product namespaces"
     )
 
 
@@ -143,4 +215,6 @@ if __name__ == "__main__":
         action="store_true",
         help="Generate available contracts during discovery; never a completeness claim",
     )
-    generate(allow_incomplete=parser.parse_args().allow_incomplete)
+    args = parser.parse_args()
+    generate(allow_incomplete=args.allow_incomplete)
+    generate(allow_incomplete=args.allow_incomplete, esr=True)

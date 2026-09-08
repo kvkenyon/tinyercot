@@ -1,0 +1,197 @@
+[
+  {
+    "url": "https://www.ercot.com/files/docs/2025/04/08/2025-ERCOT-Monthly-Peak-Demand-and-Energy-Forecast.xlsx",
+    "title": "2025 ERCOT Monthly Peak Demand and Energy Forecast",
+    "sha256": "cf2f50b9f9846f6d378715b7027a58bbeda926ce43626178e0604e48866e2e75",
+    "bytes": 27202,
+    "file": "a786c1c6b50a-2025-ERCOT-Monthly-Peak-Demand-and-Energy-Forecast.xlsx",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 3,
+        "lastRow": 242,
+        "column": 1,
+        "headerRow": 2,
+        "title": "ERCOT Adjusted Forecast"
+      },
+      {
+        "sheet": "Sheet1",
+        "firstRow": 3,
+        "lastRow": 243,
+        "column": 6,
+        "headerRow": 2,
+        "title": "TSP Provided Forecast"
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2014/07/24/ercot_monthly_peak_demand_and_energy_forecast1.xls",
+    "title": "ERCOT Monthly Peak Demand and Energy Forecast",
+    "sha256": "4fe6ea1d6b5194083b8e46358534d820a5cecdff31a9f4f4d3bc3f9a81418ad8",
+    "bytes": 33280,
+    "file": "861f4048e3ea-ercot_monthly_peak_demand_and_energy_forecast1.xls",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 135,
+        "column": 1,
+        "headerRow": 3,
+        "title": "ERCOT - Monthly Forecast of Peak Demand and Energy"
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2017/01/11/ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2016.xls",
+    "title": "ERCOT Monthly Peak Demand and Energy Forecast 2016",
+    "sha256": "c4a3ed7748f4704047b2520dc55eca3d1b99bd6eb83c7a1c6f000893b1169c87",
+    "bytes": 29696,
+    "file": "53123807a8bc-ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2016.xls",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 123,
+        "column": 1,
+        "headerRow": 3,
+        "title": "ERCOT - Monthly Forecast of Peak Demand and Energy"
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2016/12/12/ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2017.xls",
+    "title": "ERCOT Monthly Peak Demand and Energy Forecast 2017",
+    "sha256": "7de4384b910733962c0290cc33890426b0e754c13de1a32b90cfb398cc81d076",
+    "bytes": 35328,
+    "file": "def7997f9048-ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2017.xls",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 123,
+        "column": 1,
+        "headerRow": 3,
+        "title": "ERCOT - Monthly Forecast of Peak Demand and Energy"
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2017/12/15/ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2018_2027.xls",
+    "title": "2018 ERCOT Monthly Peak Demand and Energy Forecast",
+    "sha256": "e470c73914cae24868716f4c86f7efe9a3f3f61e1786427699d1735db45fb7b6",
+    "bytes": 36864,
+    "file": "fe6fca6ee85b-ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2018_2027.xls",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 123,
+        "column": 1,
+        "headerRow": 3,
+        "title": "ERCOT - Monthly Forecast of Peak Demand and Energy"
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2018/12/11/ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2019_2028.xlsx",
+    "title": "2019 ERCOT Monthly Peak Demand and Energy Forecast",
+    "sha256": "4e104aeab396bfd32d1eb21f2d9d82879f205bb476f293fce00c0418b47a6d03",
+    "bytes": 17460,
+    "file": "8a61fe530891-ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2019_2028.xlsx",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 123,
+        "column": 1,
+        "headerRow": 3,
+        "title": "ERCOT - Monthly Forecast of Peak Demand and Energy"
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2019/12/16/ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2020_2029.xlsx",
+    "title": "2020 ERCOT Monthly Peak Demand and Energy Forecast",
+    "sha256": "5dd5c23b44350a1a141eab5651a2def68bdb9450e327581deb4390d38963ae24",
+    "bytes": 17541,
+    "file": "49556659a9df-ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2020_2029.xlsx",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 123,
+        "column": 1,
+        "headerRow": 3,
+        "title": "ERCOT - Monthly Forecast of Peak Demand and Energy"
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2020/12/28/ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2021_2030.xlsx",
+    "title": "2021 ERCOT Monthly Peak Demand and Energy Forecast",
+    "sha256": "0e2dbd49829154aca0ff9f336fd385e31fa581cb36c0296e4582e1f0ec1f717c",
+    "bytes": 17476,
+    "file": "4c0e0ebfdc8a-ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2021_2030.xlsx",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 123,
+        "column": 1,
+        "headerRow": 3,
+        "title": "ERCOT - Monthly Forecast of Peak Demand and Energy"
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2022/02/10/ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2022_2031.xlsx",
+    "title": "2022 ERCOT Monthly Peak Demand and Energy Forecast",
+    "sha256": "7c9ef4786c97c789422aaf48bd1c32f3d5bba3e99bf72d47f35fb5007ecb8cae",
+    "bytes": 16387,
+    "file": "b33087fcf830-ERCOT_Monthly_Peak_Demand_and_Energy_Forecast_2022_2031.xlsx",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 123,
+        "column": 1,
+        "headerRow": 3,
+        "title": "ERCOT - Monthly Forecast of Peak Demand and Energy"
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2023/01/18/ERCOT-Monthly-Peak-Demand-and-Energy-Forecast-2023-2032.xlsx",
+    "title": "2023 ERCOT Monthly Peak Demand and Energy Forecast",
+    "sha256": "be01712f33d422a522b256ceb54c21886354068377acf2426633884a2e207192",
+    "bytes": 16332,
+    "file": "0315b3e8d5fb-ERCOT-Monthly-Peak-Demand-and-Energy-Forecast-2023-2032.xlsx",
+    "tables": [
+      {
+        "sheet": "Sheet1",
+        "firstRow": 4,
+        "lastRow": 123,
+        "column": 1,
+        "headerRow": 3,
+        "title": "ERCOT - Monthly Forecast of Peak Demand and Energy"
+      }
+    ]
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2024/07/18/2024-ERCOT-Monthly-Peak-Demand-and-Energy-Forecast.xlsx",
+    "title": "2024 ERCOT Monthly Peak Demand and Energy Forecast",
+    "sha256": "090f9b764f28e922e5b6f24d707f4b93bc96bacfce61ca619b4072c37bd9a7ee",
+    "bytes": 16521,
+    "file": "148fde8a58e0-2024-ERCOT-Monthly-Peak-Demand-and-Energy-Forecast.xlsx",
+    "tables": [
+      {
+        "sheet": "Monthly Peak and Energy",
+        "firstRow": 2,
+        "lastRow": 133,
+        "column": 1,
+        "headerRow": 1,
+        "title": null
+      }
+    ]
+  }
+]

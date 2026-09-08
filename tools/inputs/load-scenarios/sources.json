@@ -1,0 +1,336 @@
+[
+  {
+    "title": "Coast",
+    "url": "https://www.ercot.com/files/docs/2025/08/22/Coast.xlsx",
+    "bytes": 71566674,
+    "sha256": "669a04b9bd5b5185a71cd8a667dc62a58a6cfbd0190465c6f896186c3488bc34",
+    "file": "Coast.xlsx",
+    "fixtureSha256": "243e84ded57eb6564f3336c9d9756c13ad670adfcdb0a63da65ad581be7ecef5",
+    "fixtureBytes": 40431,
+    "dateOffset": 1,
+    "zoneColumn": 50,
+    "components": [
+      [
+        "electricVehicles",
+        51
+      ],
+      [
+        "rooftopPV",
+        52
+      ],
+      [
+        "largeFlexibleLoad",
+        53
+      ],
+      [
+        "contractedLoad",
+        54
+      ],
+      [
+        "officerLetterLoad",
+        55
+      ]
+    ],
+    "sheet": "Coast",
+    "clockColumns": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "title": "East",
+    "url": "https://www.ercot.com/files/docs/2025/08/22/East.xlsx",
+    "bytes": 70745927,
+    "sha256": "f1f2772b20a50a097c2715663bbebb82865378b11db62c9b9cfdc3c85dcb46de",
+    "file": "East.xlsx",
+    "fixtureSha256": "501a1e8b60886c96f70e1b7f29cb40a4778303bfef0c0290e4ee89e91ad1a085",
+    "fixtureBytes": 40239,
+    "dateOffset": 1,
+    "zoneColumn": 50,
+    "components": [
+      [
+        "electricVehicles",
+        51
+      ],
+      [
+        "rooftopPV",
+        52
+      ],
+      [
+        "contractedLoad",
+        53
+      ],
+      [
+        "officerLetterLoad",
+        54
+      ]
+    ],
+    "sheet": "East",
+    "clockColumns": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "title": "Far West",
+    "url": "https://www.ercot.com/files/docs/2025/08/22/FWest.xlsx",
+    "bytes": 71607380,
+    "sha256": "7f84bce206f5bb2e6f8671bb218a4dc94ae6c67eb56158f0853adb0fca5daf85",
+    "file": "FWest.xlsx",
+    "fixtureSha256": "5d337b4eb4666ba3313f70c95c4d5abcd4a5071b1031cd9181ab589fce84dd67",
+    "fixtureBytes": 40400,
+    "dateOffset": 1,
+    "zoneColumn": 50,
+    "components": [
+      [
+        "electricVehicles",
+        51
+      ],
+      [
+        "rooftopPV",
+        52
+      ],
+      [
+        "largeFlexibleLoad",
+        53
+      ],
+      [
+        "contractedLoad",
+        54
+      ],
+      [
+        "officerLetterLoad",
+        55
+      ]
+    ],
+    "sheet": "FWest",
+    "clockColumns": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "title": "North Central",
+    "url": "https://www.ercot.com/files/docs/2025/08/22/Ncent.xlsx",
+    "bytes": 71851812,
+    "sha256": "bd6409a1fe11386a6afc013f6966e021642baea773f076f0663b64760d0ef455",
+    "file": "Ncent.xlsx",
+    "fixtureSha256": "19264b1bc5a5ead43beaaee7bdd4a4b7f4177b0a84d3c5caae37c37982670639",
+    "fixtureBytes": 40970,
+    "dateOffset": 1,
+    "zoneColumn": 50,
+    "components": [
+      [
+        "electricVehicles",
+        51
+      ],
+      [
+        "rooftopPV",
+        52
+      ],
+      [
+        "largeFlexibleLoad",
+        53
+      ],
+      [
+        "contractedLoad",
+        54
+      ],
+      [
+        "officerLetterLoad",
+        55
+      ]
+    ],
+    "sheet": "NCENT",
+    "clockColumns": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "title": "North",
+    "url": "https://www.ercot.com/files/docs/2025/08/22/North.xlsx",
+    "bytes": 71759375,
+    "sha256": "832c75e8597eba8dba5ade3cb5a87cf808a55fe688b6c718bf684b4e1800941e",
+    "file": "North.xlsx",
+    "fixtureSha256": "ffecc77d180f28e83dddad63bdc426bf957114ecadbe65b43061aacc9206ee9d",
+    "fixtureBytes": 40589,
+    "dateOffset": 1,
+    "zoneColumn": 50,
+    "components": [
+      [
+        "electricVehicles",
+        51
+      ],
+      [
+        "rooftopPV",
+        52
+      ],
+      [
+        "largeFlexibleLoad",
+        53
+      ],
+      [
+        "contractedLoad",
+        54
+      ],
+      [
+        "officerLetterLoad",
+        55
+      ]
+    ],
+    "sheet": "North",
+    "clockColumns": [
+      4,
+      2,
+      3,
+      0,
+      1
+    ]
+  },
+  {
+    "title": "South Central",
+    "url": "https://www.ercot.com/files/docs/2025/08/22/SCENT.xlsx",
+    "bytes": 81968322,
+    "sha256": "30d467d042743f783f0ca3a09373aa15196c214da57beeacd142e82475b2d05c",
+    "file": "SCENT.xlsx",
+    "fixtureSha256": "153bd35451be1cc74932491bc8ccb781402481eefaca89d4b28a3344aaa40431",
+    "fixtureBytes": 41253,
+    "dateOffset": 1,
+    "zoneColumn": null,
+    "components": [
+      [
+        "rooftopPV",
+        50
+      ],
+      [
+        "electricVehicles",
+        51
+      ],
+      [
+        "largeFlexibleLoad",
+        52
+      ],
+      [
+        "contractedLoad",
+        53
+      ],
+      [
+        "officerLetterLoad",
+        54
+      ]
+    ],
+    "sheet": "SCENT",
+    "clockColumns": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "title": "South",
+    "url": "https://www.ercot.com/files/docs/2025/08/22/South.xlsx",
+    "bytes": 69747135,
+    "sha256": "9cab37fe5a2094edf295677c3cceb91735390416412624ccea038e2241c783f4",
+    "file": "South.xlsx",
+    "fixtureSha256": "47f3247f8f44f5acc9f00f3e97ab2f6d5b9c8d7f3ad73010ab101a9d73e0c3ac",
+    "fixtureBytes": 40226,
+    "dateOffset": 0,
+    "zoneColumn": 49,
+    "components": [
+      [
+        "electricVehicles",
+        50
+      ],
+      [
+        "rooftopPV",
+        51
+      ],
+      [
+        "contractedLoad",
+        52
+      ],
+      [
+        "officerLetterLoad",
+        53
+      ]
+    ],
+    "sheet": "South",
+    "clockColumns": [
+      null,
+      0,
+      1,
+      2,
+      3
+    ],
+    "errorExcerpt": {
+      "file": "South-error.xlsx",
+      "sourceRows": [
+        27984,
+        27985,
+        27986,
+        28007,
+        28031,
+        28055,
+        63068,
+        63115,
+        80562,
+        80563,
+        80564,
+        80565
+      ],
+      "sha256": "073a492d6f58beb34481499946bd6012965ab65259fe0d53f0182502e4f09e50"
+    }
+  },
+  {
+    "title": "West",
+    "url": "https://www.ercot.com/files/docs/2025/08/22/West.xlsx",
+    "bytes": 69356115,
+    "sha256": "276ce675a8661eb813ccaea0af9e8e4a6e2b01a98ee0f8545e0e600a97d53773",
+    "file": "West.xlsx",
+    "fixtureSha256": "c2eddba4b8cb8c1df9dd607f6e8a2cdca60980f9c00fc39fa119d791be73e1cd",
+    "fixtureBytes": 39734,
+    "dateOffset": 0,
+    "zoneColumn": 49,
+    "components": [
+      [
+        "electricVehicles",
+        50
+      ],
+      [
+        "rooftopPV",
+        51
+      ],
+      [
+        "contractedLoad",
+        52
+      ],
+      [
+        "officerLetterLoad",
+        53
+      ]
+    ],
+    "sheet": "West",
+    "clockColumns": [
+      null,
+      0,
+      1,
+      2,
+      3
+    ]
+  }
+]

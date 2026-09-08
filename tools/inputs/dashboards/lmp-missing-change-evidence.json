@@ -1,0 +1,17 @@
+{
+  "checked": "2026-09-08",
+  "url": "https://www.ercot.com/content/cdr/html/current_np6788.html",
+  "fixture": "current_np6788-missing-change.zip",
+  "uncompressedSha256": "aca9219e42baae545cbc5cf1819c8aae7000fb1c3754a88b742c99c7094d9ad8",
+  "compressedSha256": "4eb483a91d985448ad5ae5bec3e8914e9de6316aeac7cd44a2513be41b3e9fd1",
+  "originalBytes": 383603,
+  "compressedBytes": 21762,
+  "settlementPoints": 1123,
+  "unavailableLmpChanges": [
+    "APPALOSA_ALL",
+    "HB_NORTH",
+    "MIDP_SLR_RN"
+  ],
+  "allSourceFieldsCompared": true,
+  "limits": "One complete live snapshot. Only the observed LMP change marker is normalized; unsupported price text remains an error."
+}

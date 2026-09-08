@@ -1,0 +1,177 @@
+{
+  "checkedAt": "2026-09-07T23:51:56.256903+00:00",
+  "sources": [
+    {
+      "file": "2007.txt",
+      "sha256": "dc04e9c9cec947110369b45723d77e5dbc817ae52a5f00007a0ca801d4bd6d81",
+      "rows": 38768,
+      "zones": {
+        "240": 9692,
+        "242": 9692,
+        "244": 9692,
+        "246": 9692
+      },
+      "firstPeriodEnding": "2007-01-01 00:15:00",
+      "lastPeriodEnding": "2007-04-12 00:00:00",
+      "firstOperatingDay": "2007-01-01",
+      "lastOperatingDay": "2007-04-11",
+      "minMW": "641",
+      "maxMW": "21864",
+      "duplicatePeriodZoneRows": 0,
+      "missingWholeOperatingDays": [],
+      "decodedRowsSha256": "7b89f1b79f1052613b84d2278c6e3623abb2897abbaa9a2321af5640c033f7b5"
+    },
+    {
+      "file": "2006.txt",
+      "sha256": "ae946bc3906d2d613a72494fef3cbd9b165ee033783b2e7de950d5342fb5b8bf",
+      "rows": 175180,
+      "zones": {
+        "230": 35036,
+        "232": 35036,
+        "234": 35036,
+        "236": 35036,
+        "238": 35036
+      },
+      "firstPeriodEnding": "2006-01-01 00:15:00",
+      "lastPeriodEnding": "2007-01-01 00:00:00",
+      "firstOperatingDay": "2006-01-01",
+      "lastOperatingDay": "2006-12-31",
+      "minMW": "399",
+      "maxMW": "22395",
+      "duplicatePeriodZoneRows": 0,
+      "missingWholeOperatingDays": [],
+      "decodedRowsSha256": "68ff7e108ce17c19ac1ad9214af9c351f44740af4c2feba407eb3447378d2d25"
+    },
+    {
+      "file": "2005.txt",
+      "sha256": "e2512f991c290db0b7c1272e83c7a50ba8cae7ccfc4b06c00b566a79b9f61f7c",
+      "rows": 175180,
+      "zones": {
+        "220": 35036,
+        "222": 35036,
+        "224": 35036,
+        "226": 35036,
+        "228": 35036
+      },
+      "firstPeriodEnding": "2005-01-01 00:15:00",
+      "lastPeriodEnding": "2006-01-01 00:00:00",
+      "firstOperatingDay": "2005-01-01",
+      "lastOperatingDay": "2005-12-31",
+      "minMW": "423",
+      "maxMW": "19653",
+      "duplicatePeriodZoneRows": 0,
+      "missingWholeOperatingDays": [],
+      "decodedRowsSha256": "aea0cf1af635f8bf72de92c9bcde73b30b1056930d6cff646bb790d1ebb3f19f"
+    },
+    {
+      "file": "2004.txt",
+      "sha256": "88d2611aecb685e1dc1e33d116faca3b143395f136c07b9693d65f9c2ffffd96",
+      "rows": 175660,
+      "zones": {
+        "130": 35132,
+        "132": 35132,
+        "134": 35132,
+        "136": 35132,
+        "138": 35132
+      },
+      "firstPeriodEnding": "2004-01-01 00:15:00",
+      "lastPeriodEnding": "2005-01-01 00:00:00",
+      "firstOperatingDay": "2004-01-01",
+      "lastOperatingDay": "2004-12-31",
+      "minMW": "512",
+      "maxMW": "21582",
+      "duplicatePeriodZoneRows": 0,
+      "missingWholeOperatingDays": [],
+      "decodedRowsSha256": "b578462e118bf0bbd3dce6b0fa414c9b04f4baecc8371b5940c667422c50a04d"
+    },
+    {
+      "file": "2003.txt",
+      "sha256": "ff991ebba3f7ce7f46f79719f01134124c83e34895032ed56174d34ae26ae209",
+      "rows": 140144,
+      "zones": {
+        "106": 35036,
+        "108": 35036,
+        "110": 35036,
+        "112": 35036
+      },
+      "firstPeriodEnding": "2003-01-01 00:15:00",
+      "lastPeriodEnding": "2004-01-01 00:00:00",
+      "firstOperatingDay": "2003-01-01",
+      "lastOperatingDay": "2003-12-31",
+      "minMW": "522",
+      "maxMW": "30726",
+      "duplicatePeriodZoneRows": 0,
+      "missingWholeOperatingDays": [],
+      "decodedRowsSha256": "89c1c14df3314058450a7c144aebcbfca790542144acf5bc3738a8a0ac974e4b"
+    },
+    {
+      "file": "2002.txt",
+      "sha256": "d91884655a375b886e6204475957025d24100a614f7e6475ca46f18cd30233f5",
+      "rows": 140144,
+      "zones": {
+        "96": 35036,
+        "98": 35036,
+        "100": 35036,
+        "102": 35036
+      },
+      "firstPeriodEnding": "2002-01-01 00:15:00",
+      "lastPeriodEnding": "2003-01-01 00:00:00",
+      "firstOperatingDay": "2002-01-01",
+      "lastOperatingDay": "2002-12-31",
+      "minMW": "1011",
+      "maxMW": "23559",
+      "duplicatePeriodZoneRows": 0,
+      "missingWholeOperatingDays": [],
+      "decodedRowsSha256": "587fd356376b851e9ea58404428d941d7d9375fe67ade4bd41cc1da37b64fb07"
+    },
+    {
+      "file": "2001.txt",
+      "sha256": "c1d8ff5b1c74d8d1e144930a9ac394df3e2876bc0c3b88fd61aac5257d4571ed",
+      "rows": 44064,
+      "zones": {
+        "24": 14688,
+        "26": 14688,
+        "28": 14688
+      },
+      "firstPeriodEnding": "2001-07-31 00:15:00",
+      "lastPeriodEnding": "2002-01-01 00:00:00",
+      "firstOperatingDay": "2001-07-31",
+      "lastOperatingDay": "2001-12-31",
+      "minMW": "676",
+      "maxMW": "47060",
+      "duplicatePeriodZoneRows": 0,
+      "missingWholeOperatingDays": [
+        "2001-08-09"
+      ],
+      "decodedRowsSha256": "24ab205a22aa2730c9ea72f184117dace69f92c289c718f1f94fbbf71981266f"
+    }
+  ],
+  "download": {
+    "url": "https://www.ercot.com/files/docs/2007/04/23/historical_generation_scheduled_by_zone.zip",
+    "bytes": 4027506,
+    "sha256": "230da4f06c764dcfb8548b0dcba13b4fb67650b7785de5632c7c7196ddb72bd5"
+  },
+  "scope": "Every period-ending timestamp, zone ID and scheduled MW value matched an independent direct source read for all seven yearly reports. No zone-name mapping, timezone conversion or gap filling.",
+  "totalRows": 889140,
+  "anonymousWorkflow": {
+    "checkedAt": "2026-09-07T23:54:32.765633+00:00",
+    "method": "Client().zonal_generation.rows(date_from=date(2001,7,31),date_to=date(2001,7,31))",
+    "credentials": "none",
+    "rows": 288,
+    "zones": [
+      24,
+      26,
+      28
+    ],
+    "firstPeriodEnding": "2001-07-31T00:15:00",
+    "lastPeriodEnding": "2001-08-01T00:00:00",
+    "firstScheduledMW": "3490"
+  },
+  "indexUrl": "https://www.ercot.com/gridinfo/generation",
+  "notes": [
+    "This is a fixed public historical snapshot of schedules, not actual generation. The source provides local CPT period endings without timezone offsets or zone names.",
+    "Historical zone IDs change between annual files and are not mapped to current zones. Date filtering uses the start date of each 15-minute interval, retaining midnight period endings in the previous operating day.",
+    "August 9, 2001 is missing entirely. Source records and gaps remain unchanged; no duplicate rows are removed and no missing intervals are synthesized.",
+    "The original outer ZIP and its seven nested annual ZIPs are retained as the regression fixture. Every decoded timestamp, zone ID and MW value matched an independent source read."
+  ]
+}

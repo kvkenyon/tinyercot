@@ -1,0 +1,4 @@
+DeliveryDate,DeliveryHour,DeliveryInterval,RepeatedHourFlag,ASType,MCPC
+12/04/2025,24,4,N,ECRS,9.34
+12/04/2025,24,4,N,NSPIN,9.34
+12/04/2025,24,4,N,REGDN,9.96
