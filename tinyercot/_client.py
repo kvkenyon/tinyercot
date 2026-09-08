@@ -15,6 +15,7 @@ import httpx
 from httpx_retries import Retry, RetryTransport
 from pydantic import BaseModel, ConfigDict, Field
 
+from ._capacity import CapacityChanges
 from ._coincident_peaks import CoincidentPeaks
 from ._dashboards import Dashboards
 from ._fuel_mix import FuelMix
@@ -385,6 +386,10 @@ class Transport:
     @property
     def resource_outlook(self) -> ResourceOutlook:
         return ResourceOutlook(self._http)
+
+    @property
+    def capacity_changes(self) -> CapacityChanges:
+        return CapacityChanges(self._http)
 
     @property
     def hourly_load(self) -> HourlyLoad:

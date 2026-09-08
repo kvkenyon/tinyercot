@@ -758,6 +758,59 @@ contain 526 category rows (727 expected-capacity values), 338 balance rows (461
 scenario values), all 33 metrics, and the missing heading. Fixtures stay outside
 the wheel; category hierarchy requires the `files` extra and original XLSX format.
 
+## Capacity changes and project histories
+
+`Client.capacity_changes` discovers all **169 linked XLSX workbooks** on the
+[resource page](https://www.ercot.com/gridinfo/resource) and its 26 historical-year
+indexes. The source set covers **96 reporting months, August 2018–July 2026**,
+including annual/monthly companion files and corrections. The current and
+historical link captures were compared with the SDK discovery results, including
+the older `Monthly Capacity Changes` title and capitalization differences.
+
+The project reader exposes **42,628 records**. Every named field was compared
+with the original workbooks, including projected COD, agreement and synchronization
+dates, original identifiers, source year, technology, MW rating and financial
+security. Repeated headers and one-cell group/footnote rows are not projects.
+Resource codes in the INR column remain valid identifiers. The source year can
+differ from the projected-COD year and is preserved independently.
+
+There are 82 missing agreement dates and 13 literal agreement-status strings:
+`12/31/1899` once, `Not Required` once and `Date Not Available` eleven times.
+The literal 1899 marker is not converted into a real agreement date. The source
+also has 52 missing fuel values and 58 missing financial-security values. Original
+October 2023 reports retain their blanks; corrected versions retain the filled
+values and the accompanying correction text. Comments about partial or rescinded
+synchronization approval remain attached to their project records.
+
+The totals reader exposes **16,554 rows with 92,312 numeric values and four blank
+capacity cells**, all compared against the original source. Installed, synchronized
+and operational measures retain separate typed fields. The combined installed/
+operational-and-signed measures retain their original column labels; they are not
+substituted for a total including every planned category. Other-planned capacity,
+distributed generation, small generators and DGR comments stay distinct.
+
+Periods comprise 10,722 integer years, 4,770 dates under `Month/Year`, and **1,062
+dates under a `Year` heading**. The reader keeps each original period and heading,
+including the twentieth day used in monthly charts. Period years span 1999–2033;
+later points are source projections, not observed future capacity. A September
+2018 battery sheet has seven annual totals and no project table; both readers
+handle that distinction. Values from parent totals, components and companion
+reports should not be added indiscriminately.
+
+Live queries retain `sourceFile` with the original URL and title, distinguishing
+the two November 2018 downloads that share a filename. Saved ZIPs retain member
+paths. Different companion-file dates are not reconciled: July 2026 reports give
+different projected CODs for the Wise County repower project. A report-month label
+or source URL does not prove immutable publication time or actual commissioning.
+
+Source URLs, hashes and per-file counts are recorded compactly in
+`tools/inputs/public-capacity-changes-sources.csv`; comparison details and fixture
+provenance are in `public-capacity-changes-evidence.json`. Seventeen complete
+original workbooks are retained in the test ZIP, with URL-date folders preserving
+same-name revisions. Fixtures and evidence are excluded from the wheel. Coverage
+here concerns the underlying project and capacity tables; it does not assert that
+every chart-specific annotation or other resource-page document is parsed.
+
 ## Historical IDR compliance summaries
 
 `Client.idr_compliance` discovers and reads all seven direct filing archives

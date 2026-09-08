@@ -581,6 +581,46 @@ and explanatory notes preserve changes in their definitions; they are distinct
 from actual capacity, demand or reserve observations. Embedded risk charts and
 image-only probability tables are outside these readers.
 
+### Capacity changes and project history
+
+`capacity_changes` reads the project tables and annual/monthly capacity series
+behind ERCOT's Capacity Changes by Fuel Type charts, using `tinyercot[files]`:
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    for project in ercot.capacity_changes.projects(
+        where=lambda p: (
+            p.reportMonth == date(2026, 7, 1) and p.sourceSheet == "Battery Chart"
+        ),
+    ):
+        print(project.identifier, project.capacityMW, project.projectedCOD)
+```
+
+All 169 linked workbooks are supported: 42,628 project records and 16,554
+capacity-series rows, covering every reporting month from August 2018 through
+July 2026. `totals()` exposes installed, synchronized, operational and planned
+capacity measures as separate typed fields. Source periods span 1999–2033 and
+include future projections. Annual points retain an integer year; monthly points
+retain their original full date, including dates under a source `Year` heading.
+
+`files()` discovers current and archived-year links; `download(file)` returns the
+original bytes. `read_projects(data, filename=..., source_file=..., where=...)`
+and `read_totals(...)` query saved workbooks or ZIPs. `source_file` accepts a
+`PublicFile` to retain its URL and title; live queries supply it automatically.
+Saved reads use member filenames for `reportMonth`, leaving it `None` if unknown.
+File names and URLs do not establish point-in-time public availability.
+
+Project identifiers can be INRs or resource codes. Projected CODs, reported years,
+agreement dates and synchronization approvals stay separate. Original status
+strings, missing fields, small-generator groups, comments and corrections remain
+visible. Companion reports and revisions are retained, including different URLs
+with the same filename. Neither file variant nor a projected service date implies
+that a project is commercially operating. Missing capacities remain `None`,
+distinct from zero; `sourceColumns` records which measures were published.
+
 ### Historical IDR compliance summaries
 
 `idr_compliance` exposes the public historical market/TDSP summary tables with

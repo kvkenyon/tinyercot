@@ -85,6 +85,53 @@ class _PublicFiles:
         return response.content
 
 
+class _ResourceLinks(_FileLinks):
+    def __init__(self, index_url: str, title_pattern: str) -> None:
+        super().__init__(index_url, title_pattern)
+        self.years: set[str] = set()
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        super().handle_starttag(tag, attrs)
+        if tag == "a" and self.href:
+            url = urljoin(self.index_url, self.href)
+            parts = urlsplit(url)
+            if (
+                parts.scheme == "https"
+                and parts.netloc == "www.ercot.com"
+                and re.fullmatch(r"/gridinfo/resource/\d{4}", parts.path)
+            ):
+                self.years.add(url)
+
+
+class _ResourceFiles(_PublicFiles):
+    index_url = "https://www.ercot.com/gridinfo/resource"
+
+    def files(self) -> list[PublicFile]:
+        """Discover resource workbooks in current and linked historical indexes."""
+
+        def links(url: str) -> _ResourceLinks:
+            response = self._http.get(url, follow_redirects=True)
+            response.raise_for_status()
+            parser = _ResourceLinks(url, self.title_pattern)
+            parser.feed(response.text)
+            return parser
+
+        current = links(self.index_url)
+        files = dict(current.files)
+        for url in sorted(current.years):
+            files.update(links(url).files)
+        workbooks = [
+            f
+            for f in files.values()
+            if urlsplit(f.url).path.lower().endswith((".xlsx", ".xls"))
+        ]
+        if not workbooks:
+            raise ValueError(
+                "No matching resource workbooks found in ERCOT's public indexes"
+            )
+        return sorted(workbooks, key=lambda f: f.url)
+
+
 class _PublicTable(_PublicFiles, ABC, Generic[T]):
     def rows(self, *, where: Callable[[T], bool] | None = None) -> Iterator[T]:
         """Read every linked file with an optional typed predicate."""

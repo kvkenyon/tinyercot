@@ -1,0 +1,172 @@
+{
+  "checkedAt": "2026-09-08T10:51:53.474202+00:00",
+  "sourceManifest": "public-capacity-changes-sources.csv",
+  "sourceManifestSha256": "f0479fa993badaade1295beac82f22713edb6e9bf487945f6c51aedf47b09247",
+  "discovery": {
+    "capacityWorkbooks": 169,
+    "moraWorkbooks": 37,
+    "pagesPerDiscovery": 27,
+    "source": "Captured current-page link set plus all original historical-year HTML pages; URL encoding normalized for comparison against downloaded inventories."
+  },
+  "comparison": {
+    "counts": {
+      "totalNumericCells": 92312,
+      "projectRows": 42628,
+      "totalRows": 16554,
+      "totalBlankCells": 4
+    },
+    "missingProjectFields": {
+      "approvedForSynchronization": 16146,
+      "comments": 221,
+      "interconnectionAgreementSigned": 82,
+      "financialSecurity": 58,
+      "fuel": 52
+    },
+    "agreementStatuses": {
+      "12/31/1899": 1,
+      "Not Required": 1,
+      "Date Not Available": 11
+    },
+    "sourceGroups": {
+      "None": 40388,
+      "DGRs": 134,
+      "Small Generator": 38,
+      "Small Generators": 2068
+    },
+    "periodTypes": {
+      "Year:int": 10722,
+      "Year:date": 1062,
+      "Month/Year:date": 4770
+    },
+    "firstReportMonth": "2018-08-01",
+    "lastReportMonth": "2026-07-01",
+    "uniqueReportMonths": 96,
+    "firstPeriodYear": 1999,
+    "lastPeriodYear": 2033,
+    "comparison": "All project fields and every named capacity-series cell compared against original openpyxl values. Independent source-row completeness, date/status types, original column/group/period labels, correction/footnote text and actual source URLs checked. No SDK parsing helper used for expected values."
+  },
+  "fixture": {
+    "path": "tools/inputs/public-tables/capacity-changes.zip",
+    "bytes": 1313683,
+    "sha256": "552fc4efb2d2f85da92f4109d2ab853b3193a1702232b1ee86cdb16e30978329",
+    "files": [
+      {
+        "member": "2018/10/02/Capacity_Changes_by_Fuel_Type_Charts_September_2018.xlsx",
+        "url": "https://www.ercot.com/files/docs/2018/10/02/Capacity_Changes_by_Fuel_Type_Charts_September_2018.xlsx",
+        "sha256": "06e4e25504c71bff2a28193d7c23f21e8abde907e2e71496cd881c6863b1bc6c",
+        "bytes": 70601
+      },
+      {
+        "member": "2018/12/04/Capacity_Changes_by_Fuel_Type_Charts_November_2018.xlsx",
+        "url": "https://www.ercot.com/files/docs/2018/12/04/Capacity_Changes_by_Fuel_Type_Charts_November_2018.xlsx",
+        "sha256": "3e450d89f54a232fdc985467a8e69c61d86cd1af55d09df37612849cfcf241cc",
+        "bytes": 74113
+      },
+      {
+        "member": "2018/12/11/Capacity_Changes_by_Fuel_Type_Charts_November_2018.xlsx",
+        "url": "https://www.ercot.com/files/docs/2018/12/11/Capacity_Changes_by_Fuel_Type_Charts_November_2018.xlsx",
+        "sha256": "3e450d89f54a232fdc985467a8e69c61d86cd1af55d09df37612849cfcf241cc",
+        "bytes": 74113
+      },
+      {
+        "member": "2019/01/09/Capacity_Changes_by_Fuel_Type_Charts_December_2018.xlsx",
+        "url": "https://www.ercot.com/files/docs/2019/01/09/Capacity_Changes_by_Fuel_Type_Charts_December_2018.xlsx",
+        "sha256": "8bdf23f280a9eef4f29141359dc30d59913ff0eea0860afd5b0259d1742f70a9",
+        "bytes": 74877
+      },
+      {
+        "member": "2019/02/06/CapacityChangesbyFuelTypeCharts_January_2019.xlsx",
+        "url": "https://www.ercot.com/files/docs/2019/02/06/CapacityChangesbyFuelTypeCharts_January_2019.xlsx",
+        "sha256": "484e5becfcc8a319f8bec49ae784644344aab1d5ae8725bdc9463a397b003e2a",
+        "bytes": 75538
+      },
+      {
+        "member": "2019/03/11/Capacity_Changes_by_Fuel_Type_Charts_February_2019.xlsx",
+        "url": "https://www.ercot.com/files/docs/2019/03/11/Capacity_Changes_by_Fuel_Type_Charts_February_2019.xlsx",
+        "sha256": "d21cac3d5910c92f2504bb6b47600336a65b9bef8f76e1b00f6d4e825325f56b",
+        "bytes": 72922
+      },
+      {
+        "member": "2020/12/09/Capacity_Changes_by_Fuel_Type_Charts_November_2020_monthly.xlsx",
+        "url": "https://www.ercot.com/files/docs/2020/12/09/Capacity_Changes_by_Fuel_Type_Charts_November_2020_monthly.xlsx",
+        "sha256": "e98879f3c826540222e56c093a02e210321cd0f40577aff9abd78b06680e1479",
+        "bytes": 60974
+      },
+      {
+        "member": "2022/01/06/CapacityChangesFuelTypeCharts_December_2021_PlannedMonthly.xlsx",
+        "url": "https://www.ercot.com/files/docs/2022/01/06/CapacityChangesFuelTypeCharts_December_2021_PlannedMonthly.xlsx",
+        "sha256": "e0459d115edd91ee3423adc63bcf1f9f27440593f28c369d89262034c9fa7cd3",
+        "bytes": 86197
+      },
+      {
+        "member": "2022/04/06/Capacity_Changes_by_Fuel_Type_Charts_March_2022.xlsx",
+        "url": "https://www.ercot.com/files/docs/2022/04/06/Capacity_Changes_by_Fuel_Type_Charts_March_2022.xlsx",
+        "sha256": "991c43ad41f5593e7d17fe75157d3aab4fb884efd61f313dbc31deda7fd4f273",
+        "bytes": 87376
+      },
+      {
+        "member": "2022/12/06/Capacity Changes by Fuel Type Charts_November_2022.xlsx",
+        "url": "https://www.ercot.com/files/docs/2022/12/06/Capacity%20Changes%20by%20Fuel%20Type%20Charts_November_2022.xlsx",
+        "sha256": "d4aa69d9260b78b48d7047be81885ffced192ac25143786b1bc53fc6bf74fb50",
+        "bytes": 92646
+      },
+      {
+        "member": "2023/11/07/Capacity-Changes-by-Fuel-Type-Charts_October_2023.xlsx",
+        "url": "https://www.ercot.com/files/docs/2023/11/07/Capacity-Changes-by-Fuel-Type-Charts_October_2023.xlsx",
+        "sha256": "c70625ab41cb6d3e6b931ad7ba2ed273aa46a921ea996395f5b66a0cf39a95ab",
+        "bytes": 101937
+      },
+      {
+        "member": "2023/11/07/Capacity-Changes-by-Fuel-Type-Charts_October_2023_PlannedMonthly.xlsx",
+        "url": "https://www.ercot.com/files/docs/2023/11/07/Capacity-Changes-by-Fuel-Type-Charts_October_2023_PlannedMonthly.xlsx",
+        "sha256": "89a63dd534c2cfc770a3a8de51a972b3fc150a2be7cb8269fbddc05a8a34ccff",
+        "bytes": 98149
+      },
+      {
+        "member": "2023/11/13/Capacity Changes by Fuel Type Charts_October_2023_PlannedMonthly_Corrected.xlsx",
+        "url": "https://www.ercot.com/files/docs/2023/11/13/Capacity%20Changes%20by%20Fuel%20Type%20Charts_October_2023_PlannedMonthly_Corrected.xlsx",
+        "sha256": "ebf5de77374cbec2286d8ed52dc577e4ff6f216b3a7719620911f45c5dd2d3a2",
+        "bytes": 100513
+      },
+      {
+        "member": "2023/11/13/Capacity-Changes-by-Fuel-Type-Charts_October_2023_Corrected.xlsx",
+        "url": "https://www.ercot.com/files/docs/2023/11/13/Capacity-Changes-by-Fuel-Type-Charts_October_2023_Corrected.xlsx",
+        "sha256": "cc01847328337925ecc0e906262913f5d4ccac47b9cfd7ca5e8dae757b1e02b6",
+        "bytes": 105059
+      },
+      {
+        "member": "2025/05/09/Capacity-Changes-by-Fuel-Type-Charts_April_2025.xlsx",
+        "url": "https://www.ercot.com/files/docs/2025/05/09/Capacity-Changes-by-Fuel-Type-Charts_April_2025.xlsx",
+        "sha256": "8ee3fbd4a85ec384e5d64baa71469351be7da4b9d29fb30575057a279170bc44",
+        "bytes": 109737
+      },
+      {
+        "member": "2026/08/07/Capacity-Changes-by-Fuel-Type-Charts_July_2026.xlsx",
+        "url": "https://www.ercot.com/files/docs/2026/08/07/Capacity-Changes-by-Fuel-Type-Charts_July_2026.xlsx",
+        "sha256": "c393be4ba1a753ad4d7cd1b97e7d543f98a9d7dce2a8a156def5bd5f7a928ff1",
+        "bytes": 115980
+      },
+      {
+        "member": "2026/08/07/Capacity-Changes-by-Fuel-Type-Charts_July_2026_PlannedMonthly.xlsx",
+        "url": "https://www.ercot.com/files/docs/2026/08/07/Capacity-Changes-by-Fuel-Type-Charts_July_2026_PlannedMonthly.xlsx",
+        "sha256": "47dc9675ba749d15d9834ebc1964da93a81e482e80c07bbe80404032b49a25a1",
+        "bytes": 95498
+      }
+    ],
+    "selection": "Complete original workbooks with old/shifted headers, synchronization fields, source agreement status strings, project and DGR comments, absent project table, monthly dates under Year headers, original/corrected small-generator security fields, same-name source revisions and different companion-file projected dates. Also includes a singular Small Generator group and original blank small-generator totals.",
+    "projectRows": 3970,
+    "totalRows": 1656
+  },
+  "decoder": {
+    "path": "tinyercot/_capacity.py",
+    "sha256": "99aa5b54ab12f5e0e125a49ef3332a58c351ae20c23a8578bb40594b17d9c17e"
+  },
+  "limitations": [
+    "Reporting months come from original filenames, not an inferred immutable publication timestamp.",
+    "Project dates are projected or agreement/synchronization milestones, not proof of commercial operation. Source project years can differ from projected COD years.",
+    "Companion reports and source revisions remain separate, even where filenames or project identifiers repeat.",
+    "Original installed, synchronized, operational and signed-project capacity categories remain separate; no totals are recalculated.",
+    "Source totals contain historical periods and future projections through 2033; source period labels can say Year while containing full monthly dates.",
+    "Underlying project and capacity tables are covered. Other resource documents and chart-specific annotations are not claimed as structured data."
+  ]
+}

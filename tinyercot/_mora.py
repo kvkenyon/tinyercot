@@ -9,13 +9,12 @@ from decimal import Decimal
 from io import BytesIO
 from time import strptime
 from typing import TYPE_CHECKING, Literal, cast
-from urllib.parse import urljoin, urlsplit
 
 from pydantic import BaseModel, ConfigDict
 
 from ._legacy_load import _number
 from ._load import _sheets, _workbooks
-from ._public_tables import PublicFile, _FileLinks, _PublicFiles
+from ._public_tables import _ResourceFiles
 
 if TYPE_CHECKING:
     from openpyxl.worksheet._read_only import ReadOnlyWorksheet
@@ -213,50 +212,10 @@ class MoraBalance(_MoraTableRow):
     values: list[MoraScenarioValue]
 
 
-class _MoraLinks(_FileLinks):
-    def __init__(self, index_url: str, title_pattern: str) -> None:
-        super().__init__(index_url, title_pattern)
-        self.years: set[str] = set()
-
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        super().handle_starttag(tag, attrs)
-        if tag == "a" and self.href:
-            url = urljoin(self.index_url, self.href)
-            parts = urlsplit(url)
-            if (
-                parts.scheme == "https"
-                and parts.netloc == "www.ercot.com"
-                and re.fullmatch(r"/gridinfo/resource/\d{4}", parts.path)
-            ):
-                self.years.add(url)
-
-
-class ResourceOutlook(_PublicFiles):
+class ResourceOutlook(_ResourceFiles):
     """Discover MORA workbooks, including links in the historical year indexes."""
 
-    index_url = "https://www.ercot.com/gridinfo/resource"
     title_pattern = r"Monthly Outlook for Resource Adequacy \(MORA\) .+"
-
-    def files(self) -> list[PublicFile]:
-        def links(url: str) -> _MoraLinks:
-            response = self._http.get(url, follow_redirects=True)
-            response.raise_for_status()
-            parser = _MoraLinks(url, self.title_pattern)
-            parser.feed(response.text)
-            return parser
-
-        current = links(self.index_url)
-        files = dict(current.files)
-        for url in sorted(current.years):
-            files.update(links(url).files)
-        workbooks = [
-            f
-            for f in files.values()
-            if urlsplit(f.url).path.lower().endswith((".xlsx", ".xls"))
-        ]
-        if not workbooks:
-            raise ValueError("No MORA workbooks found in ERCOT's public indexes")
-        return sorted(workbooks, key=lambda f: f.url)
 
     def percentiles(
         self, *, where: Callable[[MoraPercentile], bool] | None = None

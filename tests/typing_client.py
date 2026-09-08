@@ -5,6 +5,8 @@ from typing import assert_type
 
 from tinyercot import (
     Archive,
+    CapacityProject,
+    CapacityTotals,
     Client,
     CoincidentPeakAllocation,
     CrrTimeOfUse,
@@ -42,6 +44,23 @@ from tinyercot import (
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    assert_type(client.capacity_changes.files(), list[PublicFile])
+    assert_type(
+        client.capacity_changes.projects(where=lambda r: r.fuel == "Battery"),
+        Iterator[CapacityProject],
+    )
+    assert_type(client.capacity_changes.read_projects(b""), Iterator[CapacityProject])
+    assert_type(client.capacity_changes.totals(), Iterator[CapacityTotals])
+    assert_type(client.capacity_changes.read_totals(b""), Iterator[CapacityTotals])
+    capacity_project = next(client.capacity_changes.projects())
+    assert_type(capacity_project.projectedCOD, date)
+    assert_type(capacity_project.interconnectionAgreementSigned, date | str | None)
+    assert_type(capacity_project.sourceFile, PublicFile | None)
+    capacity_total = next(client.capacity_changes.totals())
+    assert_type(capacity_total.period, int | date)
+    assert_type(capacity_total.cumulativeOperationalMW, Decimal | None)
 
 with Client() as client:
     assert_type(client.resource_outlook.files(), list[PublicFile])

@@ -1,5 +1,7 @@
 """Tiny, fully typed access to ERCOT public data."""
 
+from ._capacity import CapacityProject as CapacityProject
+from ._capacity import CapacityTotals as CapacityTotals
 from ._client import Document as Document
 from ._client import History as History
 from ._client import Page as Page
