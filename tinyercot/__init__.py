@@ -48,6 +48,10 @@ from ._loss_coefficients import (
 )
 from ._loss_factors import LossFactorDay as LossFactorDay
 from ._loss_factors import LossFactorInterval as LossFactorInterval
+from ._monthly_performance import ForecastPerformanceSeries as ForecastPerformanceSeries
+from ._monthly_performance import (
+    MonthlyLoadForecastPerformance as MonthlyLoadForecastPerformance,
+)
 from ._mora import MoraBalance as MoraBalance
 from ._mora import MoraBalanceMetric as MoraBalanceMetric
 from ._mora import MoraCapacity as MoraCapacity

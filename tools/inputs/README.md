@@ -11,6 +11,8 @@ client offline, without ERCOT credentials or a separately initialized submodule.
 - `forecast-performance/` contains six metric-workbook regression samples and
   source/verification manifests for all 48 complete-file comparisons. Original
   error cells and source row coordinates are retained.
+- `monthly-performance/` keeps all 15 original monthly forecast/backcast
+  workbooks, their source hashes and complete-table comparison results.
 - `samples/` contains captured report responses, exercised against every generated
   endpoint's typed row model and mocked HTTP retrieval.
 - `dashboards/` and catalog/archive/bundle samples exercise public dashboard and

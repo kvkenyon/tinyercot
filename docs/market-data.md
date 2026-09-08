@@ -54,6 +54,8 @@ For published forecast-error analysis, `load_forecast_performance` supplies
 actual/selected hourly series and separate error summaries for ERCOT and the
 eight weather zones. See the [performance workflow](usage.md#hourly-load-forecast-performance);
 these workbooks do not establish original forecast issue times.
+`monthly_forecast_performance` adds the published monthly horizon errors,
+backcasts and targets through its [monthly workflow](usage.md#monthly-forecast-and-backcast-performance).
 
 **Trading and forecasting:** preserve publication metadata for forecasts,
 resource reports, and delayed disclosures. `history.publications()` keeps each
@@ -143,8 +145,7 @@ and adjustment components separate, with source target dates through 2035.
 All 242 report queries in the verified Public Reports inventory have typed
 methods, and all their report tables have history readers. That does not prove
 that every intermediate historical file format is supported or every public
-website dataset has been decoded. Remaining website coverage includes the separate monthly Forecast/Backcast
-summary workbooks and the
+website dataset has been decoded. Remaining website coverage includes the
 winter reliability-standard hourly forecast. Further historical layout verification is also
 needed for core market products. Broad legacy document extraction is deferred
 while market-data coverage and usability take priority.

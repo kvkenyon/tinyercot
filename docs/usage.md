@@ -1401,7 +1401,7 @@ with Client() as ercot:
 filename=...)` decode saved originals; both accept a typed `where` predicate.
 `files()` discovers the metric workbooks even when ERCOT labels the link
 "Backcast", as it does for January and February 2026. The separate monthly
-Forecast/Backcast workbooks are not passed to this hourly reader.
+Forecast/Backcast workbooks use `monthly_forecast_performance`, described below.
 
 Hourly rows preserve the source `actual`, `selected`, `A3`, `A6`, `E`, `E1`,
 `E2`, `E3`, `M`, and `X` values where published, plus errors, under/over
@@ -1427,3 +1427,45 @@ the secondary clock is recorded as a marker instead of becoming a date.
 records also include `sourceColumn` and `sourceBucket`. These files support
 forecast-error analysis but do not establish what was available at a historical
 trading decision time.
+
+## Monthly forecast and backcast performance
+
+`monthly_forecast_performance` reads all 15 linked monthly performance
+workbooks using the existing `files` extra. Its typed series distinguish
+Day-Ahead RUC, 6 Hour-Ahead, 3 Hour-Ahead, Goal, Stretch, Backcast and
+Day-Ahead Backcast.
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    for row in ercot.monthly_forecast_performance.rows(
+        where=lambda r: r.kind == "forecast" and r.month >= date(2025, 1, 1)
+    ):
+        print(row.sourceFile, row.month, row.series, row.percent)
+```
+
+`files()`, `download(file)`, and `read(workbook_bytes, filename=...)` support
+saved-file workflows; `read` also accepts a typed predicate. The `month` field
+is the first day of the calendar month. `sourceDate` retains the original date
+when the source uses an Excel date, including its otherwise undisplayed day.
+Year/month grids instead supply a month number under an explicit year header.
+
+`value` retains the raw `Decimal`. `percent` converts only explicit Excel
+percentage fractions: a source value of `0.0141` formatted as `0.00%` gives
+`1.41`. Older plain-number Backcast tables retain their values and return
+`percent=None`; the reader does not infer a scale from magnitude. The original
+`sourceNumberFormat` remains available.
+
+`kind` separates `forecast`, `backcast`, and `target`; Goal and Stretch are
+targets rather than measured errors. Blank future months remain records with
+`value=None`. The year/month Backcast grid and rolling Day-Ahead Backcast table
+remain distinct even when their months overlap. Different publication vintages
+also remain separate; retain `sourceFile`, series and cell coordinates when
+comparing them.
+
+ERCOT describes backcasts as model runs using actual weather and calendar
+inputs. They do not establish a forecast that was available in advance. See
+[ERCOT's explanation](https://www.ercot.com/gridinfo/load/forecast/2025) and the
+[verification receipt](../tools/inputs/monthly-performance/evidence.json).

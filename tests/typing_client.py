@@ -896,3 +896,21 @@ with Client() as client:
     summary = next(client.load_forecast_performance.summaries())
     assert_type(summary.hour, int | None)
     assert_type(summary.frequencyUnder, int | None)
+
+from tinyercot import MonthlyLoadForecastPerformance
+
+with Client() as client:
+    assert_type(
+        client.monthly_forecast_performance.rows(),
+        Iterator[MonthlyLoadForecastPerformance],
+    )
+    assert_type(
+        client.monthly_forecast_performance.read(b""),
+        Iterator[MonthlyLoadForecastPerformance],
+    )
+    monthly_error = next(client.monthly_forecast_performance.rows())
+    assert_type(monthly_error.month, date)
+    assert_type(monthly_error.sourceDate, date | None)
+    assert_type(monthly_error.value, Decimal | None)
+    assert_type(monthly_error.percent, Decimal | None)
+    assert_type(monthly_error.kind, Literal["forecast", "backcast", "target"])

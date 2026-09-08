@@ -1501,3 +1501,31 @@ hourly MAPE formula multiplies absolute relative error by 100, and its Monthly
 cell averages that MAPE column; the reader preserves cached values rather than
 recomputing them. [Complete comparison receipt](../tools/inputs/forecast-performance/evidence.json)
 and [regression source coordinates](../tools/inputs/forecast-performance/samples.json).
+
+## Monthly forecast-performance tables
+
+`Client.monthly_forecast_performance` reads all 15 linked monthly Forecast/Backcast
+workbooks. Live discovery matches the captured index, and fresh downloads of
+all 15 originals match the committed fixture hashes byte for byte. The two
+hourly Metrics files misleadingly linked as Backcast are handled by the
+separate hourly reader.
+
+Every monthly table cell was compared across the complete originals:
+**3,330 records**, including **3,255 numeric values** and 75 blank future
+values. Each file contains 125 forecast/target records, 72 year/month Backcast
+records and 25 rolling Day-Ahead Backcast records. Source month labels span
+January 2020–December 2026; the latest nonempty month is August 2026. Those
+counts include overlapping tables and publication vintages, not unique months.
+
+The 2,250 explicitly percentage-formatted values support a typed `percent`
+conversion. Unlabelled Backcast scales remain raw `value` numbers with
+`percent=None`. Original Excel date days, formats, source series, notes and
+coordinates are retained. Calendar months are normalized separately, and
+Goal/Stretch targets are distinct from forecast/backcast errors.
+
+The complete source fixtures total 522,853 bytes before outer ZIP compression.
+Tests compare all monthly values, labels, date pairs and number formats, plus
+discovery, source metadata, scale handling and blank future values. Charts,
+external chart references, an empty Average label, and two unlabelled diagnostic
+error cells outside the monthly tables are not interpreted as additional
+observations. [Verification receipt](../tools/inputs/monthly-performance/evidence.json).
