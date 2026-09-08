@@ -109,6 +109,12 @@ Four [original publications](../tools/inputs/history/adder-intermediate-original
 cover the 29–34-column layouts in regression tests, with all 128 source values
 compared. [Source metadata](../tools/inputs/history/adder-intermediate-evidence.json)
 records their URLs and hashes. `RTORDPA` is not relabeled as `RTRDPA`.
+The 15-minute reader likewise retains legacy `RTRDP`. Indicative RTD history
+retains `RTORDPA`, `RTDLRRRS`, `RTOLLASL`, `RTOLHASL` and `RTNCLRECRS` without
+substituting newer fields; run and target timestamps remain distinct. Five
+complete [original publications](../tools/inputs/history/related-adder-evidence.json)
+cover the intermediate 15-minute and RTD layouts in tests, comparing all 35 rows
+and 707 source values. Missing fields remain `None`.
 The same `_history` workflow covers RTD indicative adders, state-estimator total
 generation and DC-tie flows, HDL/LDL summaries, and SCED shadow prices. Publication
 bounds select archive files; typed predicates can select timestamps, ties, or

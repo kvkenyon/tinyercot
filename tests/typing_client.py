@@ -365,6 +365,15 @@ with Client() as client:
         assert_type(adder.RTNCLRNSCAP, Decimal | None)
         assert_type(adder.RTNCLRECRS, Decimal | None)
 
+    for quarter_hour in client.np6_324_cd.rt_15min_price_adders_history.rows():
+        assert_type(quarter_hour.RTRDP, Decimal | None)
+    for rtd_adder in client.np6_325_cd.rtd_price_adders_history.rows():
+        assert_type(rtd_adder.RTORDPA, Decimal | None)
+        assert_type(rtd_adder.RTDLRRRS, Decimal | None)
+        assert_type(rtd_adder.RTOLLASL, Decimal | None)
+        assert_type(rtd_adder.RTOLHASL, Decimal | None)
+        assert_type(rtd_adder.RTNCLRECRS, Decimal | None)
+
     for forecast in client.np3_561_cd._7d_load_fcast_by_wzn_history.rows():
         assert_type(forecast.hourEnding, str | None)
         assert_type(forecast.coast, Decimal | None)

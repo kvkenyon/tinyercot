@@ -587,7 +587,91 @@ def test_operation_historical_formats(sample):
                 ]
             ),
         }
+    elif product == "np6-324-cd":
+        expected = {**expected, "RTRDP": None}
+    elif product == "np6-325-cd":
+        expected = {
+            **expected,
+            **dict.fromkeys(
+                [
+                    "RTORDPA",
+                    "RTDLRRRS",
+                    "RTOLLASL",
+                    "RTOLHASL",
+                    "RTNCLRECRS",
+                ]
+            ),
+        }
     assert rows[0].model_dump(mode="json") == expected
+
+
+@pytest.mark.parametrize(
+    "product,method,fixture,count",
+    [
+        ("np6_324_cd", "rt_15min_price_adders_history", "adder-15min-originals.zip", 2),
+        ("np6_325_cd", "rtd_price_adders_history", "adder-rtd-originals.zip", 33),
+    ],
+)
+def test_related_historical_adders_match_complete_originals(
+    product, method, fixture, count
+):
+    data = (INPUTS / fixture).read_bytes()
+    with Client() as client:
+        rows = list(getattr(getattr(client, product), method).read(data))
+    originals = []
+    with ZipFile(BytesIO(data)) as publications:
+        for name in publications.namelist():
+            with ZipFile(BytesIO(publications.read(name))) as publication:
+                content = publication.read(publication.namelist()[0]).decode(
+                    "utf-8-sig"
+                )
+                originals.extend(
+                    csv.DictReader(
+                        line for line in content.splitlines() if line.strip()
+                    )
+                )
+    assert len(rows) == len(originals) == count
+    aliases = {
+        "SystemLambda": "systemLambda",
+        "DeliveryHour": "deliveryHour",
+        "DeliveryInterval": "deliveryInterval",
+        "IntervalID": "intervalID",
+        "IntervalEnding": "intervalEnding",
+        "RepeatedHourFlag": "repeatHourFlag",
+        "DSTFlag": "repeatHourFlag",
+        "IERepeatedHourFlag": "IERepeatHourFlag",
+        "RTDCTIEIMPORT": "RTDCTIEImport",
+        "RTDCTIEEXPORT": "RTDCTIEExport",
+        "RTBLTIMPORT": "RTBLTImport",
+        "RTBLTEXPORT": "RTBLTExport",
+    }
+    for row, source in zip(rows, originals, strict=True):
+        expected = {}
+        for column, value in source.items():
+            field = aliases.get(column, column)
+            if column == "DeliveryDate":
+                month, day, year = map(int, value.split("/"))
+                expected["deliveryDate"] = date(year, month, day)
+            elif column in {"RTDTimestamp", "IntervalEnding"}:
+                expected[field] = datetime.strptime(value, "%m/%d/%Y %H:%M:%S")  # noqa: DTZ007
+            elif column in {"RepeatedHourFlag", "DSTFlag", "IERepeatedHourFlag"}:
+                assert value in {"Y", "N"}
+                expected[field] = value == "Y"
+            elif column in {
+                "BatchID",
+                "IntervalID",
+                "DeliveryHour",
+                "DeliveryInterval",
+            }:
+                expected[field] = int(value)
+            else:
+                expected[field] = Decimal(value)
+        actual = row.model_dump()
+        assert {field: actual[field] for field in expected} == expected
+        assert all(
+            value is None for field, value in actual.items() if field not in expected
+        )
+        assert row.RTRDPA is None
 
 
 def test_intermediate_price_adders_match_complete_originals():
