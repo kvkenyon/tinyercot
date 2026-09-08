@@ -15,6 +15,8 @@ from tinyercot import (
     Page,
     ProfileArchive,
     ProfileHour,
+    ProfileKey,
+    ProfileKeyArchive,
     ProfileSeries,
     ScheduledGeneration,
     WeatherZoneLoad,
@@ -31,6 +33,11 @@ with Client() as client:
     assert_type(client.generation_profiles.rows(profiles[0]), Iterator[ProfileHour])
     assert_type(client.generation_profiles.read(b""), Iterator[ProfileHour])
     assert_type(client.generation_profiles.read_series(b""), list[ProfileSeries])
+    keys = client.generation_profiles.keys(study_year=2021)
+    assert_type(keys, list[ProfileKeyArchive])
+    assert_type(client.generation_profiles.key(profiles[0]), ProfileKey)
+    assert_type(client.generation_profiles.key(keys[0]), ProfileKey)
+    assert_type(client.generation_profiles.read_key(b""), ProfileKey)
 
 with Client() as client:
     assert_type(
