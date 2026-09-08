@@ -19,6 +19,7 @@ from ._capacity import CapacityChanges
 from ._coincident_peaks import CoincidentPeaks
 from ._dashboards import Dashboards
 from ._distribution_losses import DistributionLossCoefficients
+from ._forecast_performance import LoadForecastPerformance
 from ._fuel_mix import FuelMix
 from ._generation_profiles import GenerationProfiles
 from ._hourly_forecasts import HourlyLoadForecasts
@@ -372,6 +373,10 @@ class Transport:
     @property
     def weekly_peak_forecasts(self) -> WeeklyPeakForecasts:
         return WeeklyPeakForecasts(self._http)
+
+    @property
+    def load_forecast_performance(self) -> LoadForecastPerformance:
+        return LoadForecastPerformance(self._http)
 
     @property
     def hourly_load_scenarios(self) -> HourlyLoadScenarios:

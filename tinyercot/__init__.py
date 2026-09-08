@@ -15,6 +15,10 @@ from ._distribution_losses import (
     DistributionLossCoefficient as DistributionLossCoefficient,
 )
 from ._energy import EnergyInterval as EnergyInterval
+from ._forecast_performance import LoadForecastErrorSummary as LoadForecastErrorSummary
+from ._forecast_performance import (
+    LoadForecastPerformanceHour as LoadForecastPerformanceHour,
+)
 from ._fuel_mix import FuelMixArchive as FuelMixArchive
 from ._fuel_mix import FuelMixDay as FuelMixDay
 from ._fuel_mix import FuelMixInterval as FuelMixInterval

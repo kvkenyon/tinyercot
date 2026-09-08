@@ -89,7 +89,7 @@ generated query and its history reader through `ESRClient`, using
 and source freshness. MIS remains outside the current scope.
 
 Direct public services include `hourly_load`, `fuel_mix`, `load_profiles`,
-`loss_factors`, and `dashboards`. Install `tinyercot[files]` for XLS/XLSX/XLSB readers
+`loss_factors`, `load_forecast_performance`, and `dashboards`. Install `tinyercot[files]` for XLS/XLSX/XLSB readers
 or `tinyercot[pdf]` for supported PDF tables. Detailed source-specific examples
 remain in the [usage reference](docs/usage.md).
 

@@ -1468,3 +1468,36 @@ The shared transport normalizes ESR metadata identifiers through aliases while
 selecting the ESR base URL and separate subscription key. No bundles were
 available to verify a live bundle download, and intervening archives have not
 all been compared. [Verification receipt](../tools/inputs/esr/evidence.json).
+
+## Hourly forecast-performance workbooks
+
+`Client.load_forecast_performance` discovers all 48 currently linked hourly
+metric workbooks from the load-forecast index and its annual pages. The two
+2026 files have misleading Backcast link titles, so discovery also checks their
+actual Metrics filenames. The separate monthly Forecast/Backcast workbooks
+are not claimed by this reader.
+
+Complete source-cell comparisons cover **316,123 hourly/calculation rows**,
+**21,150 summary rows**, and **4,412,079 numeric values** in the 48 original
+files (73,656,757 bytes). Of the hourly/calculation rows, 315,668 have a timestamp;
+source timestamps range from February 1, 2022 01:00 through March 1, 2026 00:00.
+These are source records, not unique observations or proof of uninterrupted
+history. ERCOT and all eight weather zones retain their separate series.
+
+The hourly reader preserves original actual/selected/model-code values and
+published errors. Summaries distinguish average errors, frequency counts and
+monthly MAPE, including the older layout's vertically stacked chart tables.
+Duplicate pivot/helper tables are not added as extra market observations.
+Six regression fixtures retain original sample and error cells from both
+layouts, including the December 2023 negative/fractional Hour values and
+calculation-only tails. Source Hour numbers remain `sourceHour`; valid whole
+1–24 values additionally populate `hour`. Missing actuals remain missing.
+
+The 924 preserved markers include Excel errors such as `#DIV/0!` and
+zero/time-only secondary clocks. Timestamps, row locations and publication-file
+identity remain separate from summary buckets; no issuance time or timezone is
+inferred. All values retain their published scale. The November 2025 source's
+hourly MAPE formula multiplies absolute relative error by 100, and its Monthly
+cell averages that MAPE column; the reader preserves cached values rather than
+recomputing them. [Complete comparison receipt](../tools/inputs/forecast-performance/evidence.json)
+and [regression source coordinates](../tools/inputs/forecast-performance/samples.json).

@@ -8,6 +8,9 @@ client offline, without ERCOT credentials or a separately initialized submodule.
 - `esr/` contains the separate ESR operation/response contracts, archive mapping,
   original nested ZIPs, API captures and the live verification receipt. It feeds
   the same generator and ESR routing/history regression tests.
+- `forecast-performance/` contains six metric-workbook regression samples and
+  source/verification manifests for all 48 complete-file comparisons. Original
+  error cells and source row coordinates are retained.
 - `samples/` contains captured report responses, exercised against every generated
   endpoint's typed row model and mocked HTTP retrieval.
 - `dashboards/` and catalog/archive/bundle samples exercise public dashboard and

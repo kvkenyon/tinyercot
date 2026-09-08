@@ -1375,3 +1375,55 @@ local time. The latest returned record was **not current operational data**.
 Three complete archives (225 rows) matched the API and original source cells;
 this is not a full-retention completeness check. See the
 [ESR evidence](../tools/inputs/esr/evidence.json).
+
+## Hourly load forecast performance
+
+`Client.load_forecast_performance` reads the public mid-term load metric
+workbooks, with ERCOT and all eight weather zones kept separate. The `files`
+extra is required for workbook decoding.
+
+```python
+from tinyercot import Client
+
+with Client() as ercot:
+    for row in ercot.load_forecast_performance.rows(
+        where=lambda r: r.region == "ERCOT" and r.timestamp is not None
+    ):
+        print(row.timestamp, row.actual, row.selected, row.error)
+
+    for summary in ercot.load_forecast_performance.summaries(
+        where=lambda r: r.region == "ERCOT" and r.kind == "frequency"
+    ):
+        print(summary.sourceFile, summary.hour, summary.frequencyUnder)
+```
+
+`read(workbook_bytes, filename=...)` and `read_summaries(workbook_bytes,
+filename=...)` decode saved originals; both accept a typed `where` predicate.
+`files()` discovers the metric workbooks even when ERCOT labels the link
+"Backcast", as it does for January and February 2026. The separate monthly
+Forecast/Backcast workbooks are not passed to this hourly reader.
+
+Hourly rows preserve the source `actual`, `selected`, `A3`, `A6`, `E`, `E1`,
+`E2`, `E3`, `M`, and `X` values where published, plus errors, under/over
+frequencies, and MAPE. Model codes retain their source names; the reader does
+not infer their horizons or forecast issuance times. `timestamp` and the older
+layout's separate `errorTimestamp` remain independent. `sourceHour` preserves
+the original numeric Hour cell; `hour` is populated only for whole values 1–24.
+Some December 2023 Hour cells are negative or fractional, so their timestamps
+are not rewritten to agree with that column.
+
+The summary kinds are `average_error`, `frequency`, and `monthly_mape`. Older
+sheets stack average and frequency blocks in the same columns; these become
+separate records. Summary buckets do not acquire dates from adjacent hourly
+rows. Original pivot/helper tables and chart graphics are not returned as
+additional observations. Source values and scales are retained without unit
+conversion, including MAPE.
+
+Missing actuals remain `None`. Spreadsheet error text is retained in
+`sourceMarkers`, with the corresponding numeric field set to `None`.
+Calculation-only rows can have no timestamp, and a time-only or zero value in
+the secondary clock is recorded as a marker instead of becoming a date.
+`sourceFile`, worksheet and row preserve the publication context; summary
+records also include `sourceColumn` and `sourceBucket`. These files support
+forecast-error analysis but do not establish what was available at a historical
+trading decision time.

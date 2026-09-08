@@ -870,3 +870,29 @@ with ESRClient() as esr:
     esr_row = next(esr.rptesr_m._4_sec_esr_charging_mw_iter())
     assert_type(esr_row.ESRChargingMW, Decimal | None)
     assert_type(esr_row.AGCExecTimeUTC, datetime | None)
+
+from tinyercot import LoadForecastErrorSummary, LoadForecastPerformanceHour
+
+with Client() as client:
+    assert_type(
+        client.load_forecast_performance.rows(), Iterator[LoadForecastPerformanceHour]
+    )
+    assert_type(
+        client.load_forecast_performance.read(b""),
+        Iterator[LoadForecastPerformanceHour],
+    )
+    assert_type(
+        client.load_forecast_performance.summaries(), Iterator[LoadForecastErrorSummary]
+    )
+    assert_type(
+        client.load_forecast_performance.read_summaries(b""),
+        Iterator[LoadForecastErrorSummary],
+    )
+    performance = next(client.load_forecast_performance.rows())
+    assert_type(performance.timestamp, datetime | None)
+    assert_type(performance.selected, Decimal | None)
+    assert_type(performance.X, Decimal | None)
+    assert_type(performance.sourceMarkers, dict[str, str])
+    summary = next(client.load_forecast_performance.summaries())
+    assert_type(summary.hour, int | None)
+    assert_type(summary.frequencyUnder, int | None)
