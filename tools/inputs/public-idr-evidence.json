@@ -1,0 +1,346 @@
+{
+  "checkedAt": "2026-09-08T08:20:57.848392+00:00",
+  "indexUrl": "https://www.ercot.com/mktinfo/data_agg/idr_pcv",
+  "indexSha256": "6169b67bd0bdd304f03908dd06c167e8f35eacffd6e2fe86364c94ce3490fcbd",
+  "comparison": {
+    "archives": [
+      {
+        "url": "https://www.ercot.com/files/docs/2004/12/13/idr_pcv_2003.zip",
+        "title": "IDR PCV 2003",
+        "bytes": 502635,
+        "sha256": "75ffb6e045f6bfbbd0362ceb9e5543e6caf42c1429963348d9979d843f9532fd",
+        "records": 48150,
+        "numericValues": 46640,
+        "statusCounts": {
+          "#N/A": 1510
+        },
+        "emptyValues": 0,
+        "firstOperatingDate": "2002-01-01",
+        "lastOperatingDate": "2003-01-21",
+        "distinctOperatingDates": 386,
+        "firstRunDate": "2003-01-02",
+        "lastRunDate": "2003-10-09",
+        "distinctRunDates": 156,
+        "entityLabels": [
+          "AEP-C",
+          "AEP-N",
+          "Brazos",
+          "CPL",
+          "CenterPt",
+          "LCRA",
+          "MVEC",
+          "ONCOR",
+          "Rayburn",
+          "STEC",
+          "Shrylnd",
+          "System",
+          "TNMP",
+          "WTU"
+        ],
+        "uniqueWorkbookNames": 179
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2005/04/06/idr_pcv_2004.zip",
+        "title": "IDR PCV 2004",
+        "bytes": 519640,
+        "sha256": "bbbf72fdc190e5fe32684ca0157aa475236b19f844a732a2e6412c73391e6bd7",
+        "records": 93287,
+        "numericValues": 83687,
+        "statusCounts": {
+          "Not MRE For Date": 9600
+        },
+        "emptyValues": 0,
+        "firstOperatingDate": "2003-01-01",
+        "lastOperatingDate": "2004-08-03",
+        "distinctOperatingDates": 581,
+        "firstRunDate": "2004-05-28",
+        "lastRunDate": "2004-12-31",
+        "distinctRunDates": 207,
+        "entityLabels": [
+          "AEP-C",
+          "AEP-N",
+          "BPUB",
+          "Brazos",
+          "CenterPt",
+          "Garland",
+          "HCEC",
+          "LCRA",
+          "Market",
+          "NEC",
+          "ONCOR",
+          "RGEC",
+          "Rayburn",
+          "STEC",
+          "Sharyland",
+          "TNMP",
+          "TXU"
+        ],
+        "uniqueWorkbookNames": 226
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2006/05/02/idr_pcv_2005.zip",
+        "title": "IDR PCV 2005",
+        "bytes": 1158197,
+        "sha256": "ae4f13ddf9c7e6a68aced61de65e238d73b18d1e55df70cb5dba46788d400749",
+        "records": 197344,
+        "numericValues": 176571,
+        "statusCounts": {
+          "Not MRE For Date": 20773
+        },
+        "emptyValues": 0,
+        "firstOperatingDate": "2002-08-10",
+        "lastOperatingDate": "2005-11-15",
+        "distinctOperatingDates": 505,
+        "firstRunDate": "2005-01-01",
+        "lastRunDate": "2005-12-31",
+        "distinctRunDates": 365,
+        "entityLabels": [
+          "AEP-C",
+          "AEP-N",
+          "BPUB",
+          "Brazos",
+          "CenterPt",
+          "Garland",
+          "HCEC",
+          "LCRA",
+          "Market",
+          "NEC",
+          "RGEC",
+          "Rayburn",
+          "STEC",
+          "Sharyland",
+          "TNMP",
+          "TXU"
+        ],
+        "uniqueWorkbookNames": 479
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2007/01/05/idr_pcv_2006.zip",
+        "title": "IDR PCV 2006",
+        "bytes": 908606,
+        "sha256": "78faa51d9777df2dadac146dd9fc3cf1f671565425d77dcf8e2cd0f68c251bca",
+        "records": 175280,
+        "numericValues": 174213,
+        "statusCounts": {
+          "Not MRE For Date": 1067
+        },
+        "emptyValues": 0,
+        "firstOperatingDate": "2005-04-20",
+        "lastOperatingDate": "2006-08-02",
+        "distinctOperatingDates": 396,
+        "firstRunDate": "2006-01-01",
+        "lastRunDate": "2006-12-31",
+        "distinctRunDates": 364,
+        "entityLabels": [
+          "AEP-C",
+          "AEP-N",
+          "BPUB",
+          "Brazos",
+          "CenterPt",
+          "Garland",
+          "HCEC",
+          "LCRA",
+          "Market",
+          "NEC",
+          "RGEC",
+          "Rayburn",
+          "STEC",
+          "Sharyland",
+          "TNMP",
+          "TXU"
+        ],
+        "uniqueWorkbookNames": 369
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2008/01/03/idr_pcv_2007.zip",
+        "title": "IDR PCV 2007",
+        "bytes": 927510,
+        "sha256": "972470220bf8738b48f26cd6e41ec2c037c1ee770e9fd9380b6b94afe8e8c2a8",
+        "records": 175072,
+        "numericValues": 175072,
+        "statusCounts": {},
+        "emptyValues": 0,
+        "firstOperatingDate": "2006-04-17",
+        "lastOperatingDate": "2007-08-02",
+        "distinctOperatingDates": 405,
+        "firstRunDate": "2007-01-01",
+        "lastRunDate": "2007-12-31",
+        "distinctRunDates": 356,
+        "entityLabels": [
+          "AEP-C",
+          "AEP-N",
+          "BPUB",
+          "Brazos",
+          "CenterPt",
+          "Garland",
+          "HCEC",
+          "LCRA",
+          "Market",
+          "NEC",
+          "RGEC",
+          "Rayburn",
+          "STEC",
+          "Sharyland",
+          "TNMP",
+          "TXU"
+        ],
+        "uniqueWorkbookNames": 384
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2009/01/05/idr_pcv_2008.zip",
+        "title": "IDR PCV 2008",
+        "bytes": 994982,
+        "sha256": "06a435a7e4dacc0be89b872d035b1953b3326b0ccceb0a84874a362edf829b63",
+        "records": 173858,
+        "numericValues": 173858,
+        "statusCounts": {},
+        "emptyValues": 0,
+        "firstOperatingDate": "2006-06-06",
+        "lastOperatingDate": "2008-08-02",
+        "distinctOperatingDates": 413,
+        "firstRunDate": "2008-01-01",
+        "lastRunDate": "2008-12-31",
+        "distinctRunDates": 354,
+        "entityLabels": [
+          "AEP-C",
+          "AEP-N",
+          "BPUB",
+          "Brazos",
+          "CenterPt",
+          "Cherokee",
+          "Garland",
+          "HCEC",
+          "LCRA",
+          "Market",
+          "NEC",
+          "RGEC",
+          "Rayburn",
+          "STEC",
+          "Sharyland",
+          "TNMP",
+          "TXU",
+          "Wood"
+        ],
+        "uniqueWorkbookNames": 385
+      },
+      {
+        "url": "https://www.ercot.com/files/docs/2009/03/02/idr_pcv_2009.zip",
+        "title": "IDR PCV 2009",
+        "bytes": 171224,
+        "sha256": "aba98a485e614545f79d4a5b1b59078f87ab25f9b19ee1ce67d23249ff485031",
+        "records": 31860,
+        "numericValues": 31860,
+        "statusCounts": {},
+        "emptyValues": 0,
+        "firstOperatingDate": "2008-07-05",
+        "lastOperatingDate": "2008-09-30",
+        "distinctOperatingDates": 88,
+        "firstRunDate": "2009-01-01",
+        "lastRunDate": "2009-02-28",
+        "distinctRunDates": 59,
+        "entityLabels": [
+          "AEP-C",
+          "AEP-N",
+          "BPUB",
+          "Brazos",
+          "CenterPt",
+          "Cherokee",
+          "Garland",
+          "HCEC",
+          "LCRA",
+          "Market",
+          "NEC",
+          "RGEC",
+          "Rayburn",
+          "STEC",
+          "Sharyland",
+          "TNMP",
+          "TXU",
+          "Wood"
+        ],
+        "uniqueWorkbookNames": 59
+      }
+    ],
+    "records": 894851,
+    "numericValuesCompared": 861901,
+    "statusValuesCompared": 32950,
+    "scope": "Every dated source summary cell in all seven published archives compared independently, including numeric values, text markers, Excel errors, empty cells, operating/run dates, provider labels, and original source workbook identities. Repeated vintages and overlapping annual archives retained.",
+    "skippedZeroDateTemplateRows": 519,
+    "skippedZeroDateErrorCells": 5190
+  },
+  "fixture": {
+    "path": "idr/historical.zip",
+    "bytes": 36388,
+    "sha256": "6d93a05a51725a2973bfa4cdff6cc5417743b29a20682eb094952145eb1aedef",
+    "method": "Thirteen original XLS workbooks retained byte-for-byte, covering every provider-column layout, Trade Day/Date headers, Excel/embedded/multiline run dates, dated Excel errors, zero-date placeholders, and Not MRE For Date markers. Empty worksheets retained.",
+    "workbooks": [
+      {
+        "sourceArchive": "idr_pcv_2003.zip",
+        "member": "IDR PCV as of 05.23.2003.xls",
+        "sourceSha256": "2e565c253fbab8fde51b6ab1f6c96e830215e26b72d83467b001e0861898758c"
+      },
+      {
+        "sourceArchive": "idr_pcv_2003.zip",
+        "member": "IDR PCV as of 05.14.2003.xls",
+        "sourceSha256": "c66f36b76c3b0eda96e16f2da5d9ef77ad4a1a02fa709eeb9101950ae4b6f5a7"
+      },
+      {
+        "sourceArchive": "idr_pcv_2003.zip",
+        "member": "IDR PCV as of 05.28.2003.xls",
+        "sourceSha256": "a45fc63e3be85d9ee42d0b1d67e54ece1df4e52eb66bb2a1ca00e15ea13a66cb"
+      },
+      {
+        "sourceArchive": "idr_pcv_2003.zip",
+        "member": "IDR PCV as of 06.28.2003.xls",
+        "sourceSha256": "fe6aec06339875ec198ba7b3baf8f85d6b7dde2d2527ed34553188a11275df82"
+      },
+      {
+        "sourceArchive": "idr_pcv_2003.zip",
+        "member": "IDR PCV as of 07.30.2003.xls",
+        "sourceSha256": "5bb6df5af1644add65c47d701ffa355f96333d8185e8c761a2a6506da7eec593"
+      },
+      {
+        "sourceArchive": "idr_pcv_2003.zip",
+        "member": "IDR PCV as of 01.10.2003.xls",
+        "sourceSha256": "2787093f5c15e7f718b13d7baf63956eca7d49aedb7a73e784210c3b2438fb8f"
+      },
+      {
+        "sourceArchive": "idr_pcv_2003.zip",
+        "member": "IDR PCV as of 01.03.2003.xls",
+        "sourceSha256": "cd679583be333767f062609123935c742eea59acc3ae0c3e69aab55f2ea6eba4"
+      },
+      {
+        "sourceArchive": "idr_pcv_2003.zip",
+        "member": "IDR PCV as of 01.02.2003.xls",
+        "sourceSha256": "7ff46311d954a2e3378c963d1abd10ad88a4ef5fa59f97d82eb8ac69faf0ba42"
+      },
+      {
+        "sourceArchive": "idr_pcv_2004.zip",
+        "member": "rpt.00000216.0000000000000000.IDRPCV0731041400.xls",
+        "sourceSha256": "6a6ee38653a9b904aa8a3f5a41a3c15a5044f82f0e4c75e13b2bf5d3e5ca7ce0"
+      },
+      {
+        "sourceArchive": "idr_pcv_2004.zip",
+        "member": "rpt.00000216.0000000000000000.IDRPCV0930041400.xls",
+        "sourceSha256": "1239254c676583366d59cabf38b57cd38e49dfaeb2265a1bb836e159615398eb"
+      },
+      {
+        "sourceArchive": "idr_pcv_2004.zip",
+        "member": "rpt.00000216.0000000000000000.IDRPCV0528041510.xls",
+        "sourceSha256": "45fc498dcfddb701f81b5da87a5b01c7ed378c8c0780de6355c0a06ca33f8456"
+      },
+      {
+        "sourceArchive": "idr_pcv_2008.zip",
+        "member": "rpt.00000216.0000000000000000.IDRPCV0102081732.xls",
+        "sourceSha256": "c5eaa9a07bfafd2d964831e95b46fde6d12697365a9389b7b63f8034c9920a76"
+      },
+      {
+        "sourceArchive": "idr_pcv_2009.zip",
+        "member": "rpt.00000216.0000000000000000.IDRPCV0104091730.xls",
+        "sourceSha256": "4c1e1c855ea8c5ffd13db0afa8a025c47dbd1275b3d03a94cabb0ecc818b7c95"
+      }
+    ]
+  },
+  "decoderSha256": "0fde4861cd005db0282066952c2465efdee32b0c119a65f0bd7d75d1b1f0b3a5",
+  "sharedSpreadsheetDecoderSha256": "c4a5eea7f33746f8297e983ad6146927d6fd664051d6578d4ebe9173fa16fe2b"
+}

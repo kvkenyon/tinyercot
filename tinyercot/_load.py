@@ -316,7 +316,7 @@ def _workbook_member(archive: ZipFile, member: ZipInfo, data: bytes) -> bytes:
 
 
 def _sheets(
-    data: bytes, *, date_columns: tuple[int, ...] = (0,)
+    data: bytes, *, date_columns: tuple[int, ...] = (0,), preserve_types: bool = False
 ) -> Iterator[tuple[str, Iterator[tuple[object, ...]]]]:
     if data.startswith(b"\xd0\xcf\x11\xe0"):
         try:
@@ -333,6 +333,18 @@ def _sheets(
                 ) -> Iterator[tuple[object, ...]]:
                     for i in range(sheet.nrows):
                         values: list[object] = list(sheet.row_values(i))
+                        if preserve_types:
+                            for j, cell in enumerate(sheet.row(i)):
+                                if cell.ctype == xlrd.XL_CELL_DATE:
+                                    values[j] = xlrd.xldate_as_datetime(
+                                        float(cell.value), book.datemode
+                                    )
+                                elif cell.ctype == xlrd.XL_CELL_ERROR:
+                                    values[j] = xlrd.error_text_from_code[
+                                        int(cell.value)
+                                    ]
+                                elif cell.ctype == xlrd.XL_CELL_BOOLEAN:
+                                    values[j] = bool(cell.value)
                         for column in date_columns:
                             value = values[column] if len(values) > column else None
                             if i and isinstance(value, float):

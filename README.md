@@ -355,6 +355,35 @@ label, not proof of public availability. Two malformed date labels remain in
 `sourceDateLabel` with `snapshotDate=None`: unbounded reads include them, while
 date bounds exclude them. Five records retain an unknown weather zone as `None`.
 
+### Historical IDR compliance summaries
+
+`idr_compliance` exposes the public historical market/TDSP summary tables with
+`tinyercot[files]`, without API credentials:
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    for row in ercot.idr_compliance.rows(
+        date_from=date(2008, 7, 8), date_to=date(2008, 7, 8), entity="Market"
+    ):
+        print(row.operatingDay, row.reportRunDate, row.compliance, row.status)
+```
+
+`archives()` discovers the annual filing links; `download(archive)` returns the
+original ZIP; `read(data, filename=..., ...)` decodes saved ZIPs or workbooks.
+Bounds are inclusive operating dates. Every archive is considered because filings
+can report much earlier dates. Repeated report vintages and original entity labels
+remain separate. The seven published archives contain 894,851 dated records,
+with operating dates spanning January 2002–September 2008.
+
+`compliance` retains the source numeric scale. Excel errors and text such as
+`Not MRE For Date` remain in `status`, with `compliance=None`. Zero-date template
+rows filled entirely with `#N/A` are skipped. `reportRunDate` is the date printed
+in the workbook, not proof of public availability. Source member/sheet names and
+the outer archive filename, when supplied, remain attached to each record.
+
 ### Historical zonal weather
 
 `historical_weather` reads ERCOT's direct public archive with `tinyercot[files]`:

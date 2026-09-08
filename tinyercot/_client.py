@@ -18,6 +18,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from ._coincident_peaks import CoincidentPeaks
 from ._dashboards import Dashboards
 from ._fuel_mix import FuelMix
+from ._idr import IdrComplianceHistory
 from ._load import HourlyLoad
 from ._load_profiles import LoadProfiles
 from ._weather import HistoricalWeather
@@ -351,6 +352,10 @@ class Transport:
     @property
     def historical_weather(self) -> HistoricalWeather:
         return HistoricalWeather(self._http)
+
+    @property
+    def idr_compliance(self) -> IdrComplianceHistory:
+        return IdrComplianceHistory(self._http)
 
     @property
     def hourly_load(self) -> HourlyLoad:

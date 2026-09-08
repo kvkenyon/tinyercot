@@ -15,6 +15,7 @@ from ._fuel_mix import FuelMixTotal as FuelMixTotal
 from ._generated import *
 from ._history import Archive as Archive
 from ._history import Publication as Publication
+from ._idr import IdrCompliance as IdrCompliance
 from ._legacy_load import LegacyHourlyLoad as LegacyHourlyLoad
 from ._load import LoadArchive as LoadArchive
 from ._load import WeatherZoneLoad as WeatherZoneLoad
