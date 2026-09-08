@@ -1,6 +1,6 @@
 {
   "checkedAt": "2026-09-07T22:33:14.543626+00:00",
-  "scope": "All 25 directly linked 2002-2026 weather-zone archives downloaded. All load cells compared for each successfully decoded workbook. The 2026 ZIP fails CRC; two downloads were identical. Earlier hourly formats are checked separately in public-legacy-hourly-load-evidence.json; companion forecasts remain outside these hourly readers.",
+  "scope": "All 25 directly linked 2002-2026 weather-zone archives downloaded. All load cells independently compared for each decoded workbook. The 2026 ZIP has stale central-directory CRC/sizes; recovery verifies the local header CRC/size and workbook contents as recorded below. Earlier hourly formats are checked separately in public-legacy-hourly-load-evidence.json; companion forecasts remain outside these hourly readers.",
   "archives": [
     {
       "url": "https://www.ercot.com/files/docs/2026/02/10/Native_Load_2026.zip",
@@ -9,7 +9,12 @@
       "bytes": 722951,
       "sha256": "3a642883ab3889c23650cde4cf6bade371c62999ee4c54bfdda6f8063422aef0",
       "year": 2026,
-      "error": "BadZipFile: Bad CRC-32 for file 'Native_Load_2026.xlsx'"
+      "standardZipError": "BadZipFile: Bad CRC-32 for file 'Native_Load_2026.xlsx'",
+      "rows": 5087,
+      "firstOperatingDay": "2026-01-01",
+      "lastOperatingDay": "2026-07-31",
+      "sourceLoadValuesCompared": 45783,
+      "recoveredUsingVerifiedLocalHeader": true
     },
     {
       "url": "https://www.ercot.com/files/docs/2025/02/11/Native_Load_2025.zip",
@@ -762,7 +767,7 @@
     "The republished 2002 and 2003 workbooks already contain the eight weather-zone columns, despite the older index description of a 2003 transition.",
     "The source-labelled 1997 ZIP 97frc714.zip actually contains 1996 EEI load files and companion forecasts. Do not infer operating dates from index year labels.",
     "The 1998 workbook contains load-serving-entity columns plus control-area mappings; it reports kW, not the same weather-zone table shape.",
-    "The 2026 ZIP was downloaded twice with identical bytes and identical failed CRC. The reader propagates the integrity failure.",
+    "The 2026 ZIP repeatedly fails standard central-directory CRC validation. Its complete local member has valid sizes/CRC; the workbook reader now recovers it using those checked local fields, as documented in localHeaderRecovery.",
     "Native Load 2016 contains a timestamp for November 6 hour 24 with all nine load values absent. These are None, not zero."
   ],
   "fixtures": [
@@ -837,5 +842,31 @@
     "apiFirstOperatingDay": "2017-12-31",
     "apiLastOperatingDay": "2018-01-30",
     "independentRawComparison": "The same 720-hour/6480-cell result was reproduced directly from CSV dictionaries and openpyxl worksheet cells, without SDK models or readers."
+  },
+  "localHeaderRecovery": {
+    "checkedAt": "2026-09-08T04:31:16.239096+00:00",
+    "url": "https://www.ercot.com/files/docs/2026/02/10/Native_Load_2026.zip",
+    "originalBytes": 722951,
+    "originalSha256": "3a642883ab3889c23650cde4cf6bade371c62999ee4c54bfdda6f8063422aef0",
+    "centralDirectory": {
+      "crc": "0x9e502d59",
+      "compressedBytes": 722755,
+      "uncompressedBytes": 731861
+    },
+    "localHeader": {
+      "crc": "0x46e4b781",
+      "compressedBytes": 632827,
+      "uncompressedBytes": 641533
+    },
+    "localCrcAndSizeVerified": true,
+    "innerMembersWithValidCrc": 11,
+    "rows": 5087,
+    "loadCellsCompared": 45783,
+    "firstOperatingDay": "2026-01-01",
+    "lastOperatingDay": "2026-07-31",
+    "firstTotal": "46299.897428",
+    "lastTotal": "71506.161665",
+    "allRowsMatchIndependentSource": true,
+    "scope": "Live anonymous weather_zones retrieval; every emitted date/hour/DST/provenance field and all nine load cells compared to openpyxl source values after independent local-header decompression. Local sizes/CRC and every inner XLSX member CRC verified; source bytes remain unchanged. No API substitution or inferred values."
   }
 }

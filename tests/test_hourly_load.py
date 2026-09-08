@@ -2,7 +2,8 @@ from datetime import date
 from decimal import Decimal
 from io import BytesIO
 from pathlib import Path
-from zipfile import ZIP_STORED, BadZipFile, ZipFile
+from struct import pack_into, unpack_from
+from zipfile import ZIP_DEFLATED, ZIP_STORED, BadZipFile, ZipFile
 
 import httpx
 import pytest
@@ -189,3 +190,71 @@ def test_zip_integrity_errors_propagate():
     corrupt = data.getvalue().replace(b"original-content", b"modified-content")
     with Client() as client, pytest.raises(BadZipFile, match="CRC"):
         list(client.hourly_load.read_weather_zones(corrupt))
+
+
+def stale_directory(compression=ZIP_DEFLATED):
+    content = workbook(
+        [
+            "Hour Ending",
+            "COAST",
+            "EAST",
+            "FWEST",
+            "NORTH",
+            "NCENT",
+            "SOUTH",
+            "SCENT",
+            "WEST",
+            "ERCOT",
+        ],
+        ["01/01/2026 01:00", 1, 2, 3, 4, 5, 6, 7, 8, 36],
+    )
+    output = BytesIO()
+    with ZipFile(output, "w", compression=compression) as archive:
+        archive.writestr("Native_Load_2026.xlsx", content)
+    data = bytearray(output.getvalue())
+    end = data.rfind(b"PK\x05\x06")
+    directory = unpack_from("<I", data, end + 16)[0]
+    # Like the published ZIP, leave the member and its local header intact
+    # while making all three central-directory values disagree with them.
+    crc, compressed, size = unpack_from("<III", data, directory + 16)
+    pack_into("<III", data, directory + 16, crc ^ 1, compressed + 1, size + 1)
+    return data
+
+
+@pytest.mark.parametrize("compression", [ZIP_STORED, ZIP_DEFLATED])
+@pytest.mark.parametrize("nested", [False, True])
+def test_stale_directory_recovers_locally_verified_workbook(compression, nested):
+    data = bytes(stale_directory(compression))
+    with ZipFile(BytesIO(data)) as archive, pytest.raises(BadZipFile):
+        archive.read(archive.namelist()[0])
+    if nested:
+        output = BytesIO()
+        with ZipFile(output, "w") as archive:
+            archive.writestr("annual.zip", data)
+        data = output.getvalue()
+    with Client() as client:
+        (row,) = client.hourly_load.read_weather_zones(data)
+    assert row.operatingDay == date(2026, 1, 1)
+    assert row.sourceMember == "Native_Load_2026.xlsx"
+    assert [getattr(row, name) for name in COLUMNS] == [
+        Decimal(n) for n in (1, 2, 3, 4, 5, 6, 7, 8, 36)
+    ]
+
+
+@pytest.mark.parametrize("damage", ["payload", "crc", "size", "descriptor"])
+def test_stale_directory_does_not_bypass_local_integrity(damage):
+    data = stale_directory(ZIP_STORED)
+    if damage == "payload":
+        name_length, extra_length = unpack_from("<HH", data, 26)
+        data[30 + name_length + extra_length] ^= 1
+    elif damage == "crc":
+        pack_into("<I", data, 14, 0)
+    elif damage == "size":
+        pack_into("<I", data, 22, unpack_from("<I", data, 22)[0] + 1)
+    else:
+        end = data.rfind(b"PK\x05\x06")
+        directory = unpack_from("<I", data, end + 16)[0]
+        pack_into("<H", data, 6, 8)
+        pack_into("<H", data, directory + 8, 8)
+    with Client() as client, pytest.raises(BadZipFile):
+        list(client.hourly_load.read_weather_zones(bytes(data)))

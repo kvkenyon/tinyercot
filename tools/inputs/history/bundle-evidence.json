@@ -3871,5 +3871,90 @@
       ],
       "conclusion": "The missing December 2025 day is also absent from the report query, while both adjacent days return 24 rows. Queries for the three older short days and their adjacent control dates all return zero rows, so query access did not recover their missing hours; this does not establish a retention cutoff."
     }
+  },
+  "fullAncillaryPriceBackfillCheck": {
+    "startedAt": "2026-09-08T04:24:34.767263+00:00",
+    "finishedAt": "2026-09-08T04:38:36.933901+00:00",
+    "product": "NP4-188-CD",
+    "scope": "Unbounded SDK backfill of every listed archive and bundle publication at this snapshot, with every typed row independently compared to downloaded source CSV fields using stdlib CSV/date/Decimal. Original document IDs deduplicate exact source copies; distinct publications and repeated rows are preserved. No claim about other products or availability before the first retained source row.",
+    "archivePublications": 4513,
+    "bundlePublications": 103,
+    "uniqueOriginalPublications": 4513,
+    "bundleOnlyPublications": 0,
+    "rows": 461736,
+    "sourceCellsCompared": 2308680,
+    "firstDeliveryDate": "2014-05-02",
+    "lastDeliveryDate": "2026-09-08",
+    "deliveryDates": 4513,
+    "missingDeliveryDates": [],
+    "rowsPerDayHistogram": {
+      "120": 1181,
+      "115": 3,
+      "125": 3,
+      "96": 3308,
+      "92": 9,
+      "100": 9
+    },
+    "serviceRows": {
+      "RRS": 108312,
+      "ECRS": 28488,
+      "REGDN": 108312,
+      "NSPIN": 108312,
+      "REGUP": 108312
+    },
+    "sourceLayouts": {
+      "DeliveryDate,HourEnding,AncillaryType,MCPC,DSTFlag": 4513
+    },
+    "allListedArchivesIncluded": true,
+    "allTypedRowsMatchIndependentSource": true,
+    "sourceManifestSha256": "81e0b03b7b6e2bf1bf58df8306fe552d6228189bbe7956c3bac53e0f150aee1d",
+    "downloadSummary": {
+      "bundles": 103,
+      "archiveBatches": 2,
+      "individualArchivePublications": 1379,
+      "bytes": 4703288,
+      "manifestSha256": "999978f615be37f70c604c5570606d120a60a8bb5e96e6275c3747602998b169"
+    },
+    "serviceIntervals": {
+      "scope": "Each source delivery date/service has the expected number of unique hour-ending/DST-flag pairs for the America/Chicago clock day. Service date continuity is checked within its observed first/last dates; no availability before first observation is inferred.",
+      "anomalies": [],
+      "serviceAvailability": [
+        {
+          "service": "ECRS",
+          "firstDeliveryDate": "2023-06-10",
+          "lastDeliveryDate": "2026-09-08",
+          "deliveryDates": 1187,
+          "missingDatesWithinObservedRange": []
+        },
+        {
+          "service": "NSPIN",
+          "firstDeliveryDate": "2014-05-02",
+          "lastDeliveryDate": "2026-09-08",
+          "deliveryDates": 4513,
+          "missingDatesWithinObservedRange": []
+        },
+        {
+          "service": "REGDN",
+          "firstDeliveryDate": "2014-05-02",
+          "lastDeliveryDate": "2026-09-08",
+          "deliveryDates": 4513,
+          "missingDatesWithinObservedRange": []
+        },
+        {
+          "service": "REGUP",
+          "firstDeliveryDate": "2014-05-02",
+          "lastDeliveryDate": "2026-09-08",
+          "deliveryDates": 4513,
+          "missingDatesWithinObservedRange": []
+        },
+        {
+          "service": "RRS",
+          "firstDeliveryDate": "2014-05-02",
+          "lastDeliveryDate": "2026-09-08",
+          "deliveryDates": 4513,
+          "missingDatesWithinObservedRange": []
+        }
+      ]
+    }
   }
 }

@@ -219,6 +219,13 @@ November 4, 2014; August 4, 2015; and March 15, 2016. These source gaps remain
 explicit; rows are not synthesized. See `tools/inputs/history/bundle-evidence.json`
 for the full-source check and adjacent-day query controls.
 
+A full DAM ancillary-price backfill (NP4-188-CD) returned **461,736 rows** from
+all 4,513 retained publications, spanning May 2, 2014–September 8, 2026. Every
+field matched independent CSV parsing. Each service had continuous dates and
+the expected daily count of unique hour/DST pairs within its observed range;
+ECRS first appeared on June 10, 2023. The full-source check is also recorded in
+`tools/inputs/history/bundle-evidence.json`.
+
 Weather-zone load forecasts had only five listed bundles, starting March 2026,
 despite archives extending to 2019. Archive access therefore matters for complete
 backfills. The oldest retrieved load-forecast publication contained 192 rows and
@@ -266,11 +273,13 @@ unrounded converted clock retained in `sourceHourEnding`. Load values use
 
 All 24 workbooks for 2002–2025 decoded: 210,384 hourly rows, with every one of the
 1,893,456 load cells compared against its source (including nine absent cells).
-The 2016 workbook has an hour with all nine values missing. In the September 2026
-check, the linked **2026 ZIP failed its CRC check on two identical downloads**;
-that integrity error propagates. Bound queries through 2025 to read the verified
-completed years. The index has no 2001 file. See
-`tools/inputs/public-hourly-load-evidence.json` for the inventory and source issues.
+The 2016 workbook has an hour with all nine values missing. The linked 2026 ZIP
+has stale directory metadata but an intact workbook. The reader recovers it using
+the member's local sizes and checksum: all **5,087 hourly rows through July 31,
+2026** and **45,783 load values** matched the source. Checksum failures and
+incorrect local sizes still raise. Downloads retain the original bytes. The
+index has no 2001 file. See `tools/inputs/public-hourly-load-evidence.json` for
+the inventory, source comparison and recovery details.
 
 The annual files and `np6_345_cd.act_sys_load_by_wzn_history` retain different
 published values. Across 720 matching January 2018 hours, all 6,480 compared load

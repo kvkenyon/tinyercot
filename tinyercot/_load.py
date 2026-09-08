@@ -4,14 +4,16 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterator
+from copy import copy
 from datetime import date, datetime, timedelta
 from decimal import Decimal
 from html.parser import HTMLParser
 from io import BytesIO
+from struct import unpack
 from time import strptime
 from typing import Literal
 from urllib.parse import urljoin, urlsplit
-from zipfile import ZipFile
+from zipfile import BadZipFile, ZipFile, ZipInfo
 
 import httpx
 from pydantic import BaseModel, ConfigDict
@@ -261,8 +263,6 @@ class HourlyLoad:
 
 
 def _workbooks(data: bytes) -> Iterator[tuple[str, bytes]]:
-    from ._history import _archive_files
-
     if data.startswith(b"\xd0\xcf\x11\xe0"):
         yield "workbook.xls", data
         return
@@ -270,9 +270,42 @@ def _workbooks(data: bytes) -> Iterator[tuple[str, bytes]]:
         if "[Content_Types].xml" in archive.namelist():
             yield "workbook.xlsx", data
             return
-    for name, content in _archive_files(data, "*"):
-        if name.lower().endswith((".xls", ".xlsx")):
-            yield name, content
+        for member in archive.infolist():
+            name = member.filename
+            if name.lower().endswith((".xls", ".xlsx")):
+                yield name, _workbook_member(archive, member, data)
+            elif name.lower().endswith(".zip"):
+                yield from _workbooks(_workbook_member(archive, member, data))
+
+
+def _workbook_member(archive: ZipFile, member: ZipInfo, data: bytes) -> bytes:
+    try:
+        return archive.read(member)
+    except BadZipFile:
+        # ERCOT's 2026 annual ZIP has stale directory sizes/CRC, but a complete
+        # local header and intact workbook. Retry using that header; ZipFile
+        # still verifies the filename, member boundaries and local CRC.
+        header = data[member.header_offset : member.header_offset + 30]
+        if len(header) != 30 or header[:4] != b"PK\x03\x04":
+            raise
+        _, _, flags, method, _, _, crc, compressed, size, _, _ = unpack(
+            "<4s5H3I2H", header
+        )
+        if (
+            flags != member.flag_bits
+            or flags & 9  # Encrypted entries or sizes supplied by a descriptor.
+            or method != member.compress_type
+            or max(compressed, size) == 0xFFFFFFFF  # ZIP64 needs extra fields.
+            or (crc, compressed, size)
+            == (member.CRC, member.compress_size, member.file_size)
+        ):
+            raise
+        local = copy(member)
+        local.CRC, local.compress_size, local.file_size = crc, compressed, size
+        content = archive.read(local)
+        if len(content) != size:
+            raise BadZipFile(f"{member.filename}: local uncompressed size mismatch")
+        return content
 
 
 def _sheets(data: bytes) -> Iterator[tuple[str, Iterator[tuple[object, ...]]]]:
