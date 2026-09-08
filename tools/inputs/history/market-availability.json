@@ -1,0 +1,284 @@
+{
+  "checkedAt": "2026-09-08T02:50:46.762333+00:00",
+  "supplementalCheckedAt": "2026-09-08T02:54:10.989159+00:00",
+  "scope": "Point-in-time listing boundaries, not a claim of uninterrupted row coverage. Archive bounds freeze publication time. Bundle dates describe bundle posting rather than member issue time.",
+  "source": "ERCOT Public Reports API /archive/{product} and /bundle/{product}; archive final page checked after confirming postDatetime DESC order.",
+  "archivePostedTo": "2026-09-07T21:50:46.762324",
+  "supplementalArchivePostedTo": "2026-09-07T21:54:10.987725",
+  "products": [
+    {
+      "product": "np4-190-cd",
+      "name": "DAM settlement prices",
+      "archiveDocuments": 4513,
+      "earliestArchive": {
+        "docId": 446428304,
+        "friendlyName": "DAMSPNP4190_csv",
+        "postDatetime": "2014-05-01T12:59:25"
+      },
+      "latestArchive": {
+        "docId": 1271688868,
+        "friendlyName": "DAMSPNP4190_csv",
+        "postDatetime": "2026-09-07T12:32:52"
+      },
+      "bundleCount": 103,
+      "earliestBundlePostedAt": "2018-01-31T23:59:59",
+      "latestBundlePostedAt": "2026-08-31T23:59:59"
+    },
+    {
+      "product": "np6-905-cd",
+      "name": "Real-time settlement prices",
+      "archiveDocuments": 433143,
+      "earliestArchive": {
+        "docId": 446376890,
+        "friendlyName": "SPPHLZNP6905_20140501_0000_csv",
+        "postDatetime": "2014-05-01T00:02:05.910000"
+      },
+      "latestArchive": {
+        "docId": 1271834511,
+        "friendlyName": "SPPHLZNP6905_20260907_2145_csv",
+        "postDatetime": "2026-09-07T21:47:01"
+      },
+      "bundleCount": 103,
+      "earliestBundlePostedAt": "2018-01-31T23:59:59",
+      "latestBundlePostedAt": "2026-08-31T23:59:59"
+    },
+    {
+      "product": "np4-188-cd",
+      "name": "DAM ancillary-service prices",
+      "archiveDocuments": 4513,
+      "earliestArchive": {
+        "docId": 446428298,
+        "friendlyName": "DAMCPCNP4188_csv",
+        "postDatetime": "2014-05-01T12:59:23"
+      },
+      "latestArchive": {
+        "docId": 1271688863,
+        "friendlyName": "DAMCPCNP4188_csv",
+        "postDatetime": "2026-09-07T12:32:52"
+      },
+      "bundleCount": 103,
+      "earliestBundlePostedAt": "2018-01-31T23:59:59",
+      "latestBundlePostedAt": "2026-08-31T23:59:59"
+    },
+    {
+      "product": "np6-345-cd",
+      "name": "Actual system load by weather zone",
+      "archiveDocuments": 4512,
+      "earliestArchive": {
+        "docId": 446396866,
+        "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+        "postDatetime": "2014-05-01T05:50:00"
+      },
+      "latestArchive": {
+        "docId": 1271571171,
+        "friendlyName": "ACTUALSYSLOADWZNP6345_csv",
+        "postDatetime": "2026-09-07T05:50:00"
+      },
+      "bundleCount": 102,
+      "earliestBundlePostedAt": "2018-01-31T23:59:59",
+      "latestBundlePostedAt": "2026-06-30T23:59:59"
+    },
+    {
+      "product": "np3-561-cd",
+      "name": "Weather-zone load forecast",
+      "archiveDocuments": 67363,
+      "earliestArchive": {
+        "docId": 642522821,
+        "friendlyName": "LFCWEATHERNP3561_csv",
+        "postDatetime": "2019-01-01T00:30:00"
+      },
+      "latestArchive": {
+        "docId": 1271830404,
+        "friendlyName": "LFCWEATHERNP3561_csv",
+        "postDatetime": "2026-09-07T21:30:00"
+      },
+      "bundleCount": 5,
+      "earliestBundlePostedAt": "2026-03-31T23:59:59",
+      "latestBundlePostedAt": "2026-08-31T23:59:59"
+    },
+    {
+      "product": "np4-732-cd",
+      "name": "Wind actual/forecast",
+      "archiveDocuments": 108259,
+      "earliestArchive": {
+        "docId": 446378693,
+        "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+        "postDatetime": "2014-05-01T00:32:32.026000"
+      },
+      "latestArchive": {
+        "docId": 1271821829,
+        "friendlyName": "WPPHRLYAVGACTNP4732_csv",
+        "postDatetime": "2026-09-07T20:55:12"
+      },
+      "bundleCount": 102,
+      "earliestBundlePostedAt": "2018-01-31T23:59:59",
+      "latestBundlePostedAt": "2026-06-30T23:59:59"
+    },
+    {
+      "product": "np4-737-cd",
+      "name": "Solar actual/forecast",
+      "archiveDocuments": 92683,
+      "earliestArchive": {
+        "docId": 509506529,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2016-02-10T00:31:11.247000"
+      },
+      "latestArchive": {
+        "docId": 1271821820,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2026-09-07T20:55:12"
+      },
+      "bundleCount": 102,
+      "earliestBundlePostedAt": "2018-01-31T23:59:59",
+      "latestBundlePostedAt": "2026-06-30T23:59:59"
+    },
+    {
+      "product": "np1-346-er",
+      "name": "Unplanned resource outages",
+      "archiveDocuments": 1371,
+      "earliestArchive": {
+        "docId": 881371516,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2022-12-07T05:06:18"
+      },
+      "latestArchive": {
+        "docId": 1271555662,
+        "friendlyName": "UnplannedResOutage",
+        "postDatetime": "2026-09-07T05:01:06"
+      },
+      "bundleCount": 44,
+      "earliestBundlePostedAt": "2022-12-31T23:59:59",
+      "latestBundlePostedAt": "2026-08-31T23:59:59"
+    },
+    {
+      "product": "np6-331-cd",
+      "name": "Real-time ancillary prices (15 min)",
+      "archiveDocuments": 23895,
+      "earliestArchive": {
+        "docId": 1167875528,
+        "friendlyName": "MCPC15MinNP6331_csv",
+        "postDatetime": "2025-12-05T00:02:00"
+      },
+      "latestArchive": {
+        "docId": 1271834710,
+        "friendlyName": "MCPC15MinNP6331_csv",
+        "postDatetime": "2026-09-07T21:47:00"
+      },
+      "bundleCount": 8,
+      "earliestBundlePostedAt": "2025-12-31T23:59:59",
+      "latestBundlePostedAt": "2026-08-31T23:59:59"
+    },
+    {
+      "product": "np6-332-cd",
+      "name": "Real-time ancillary prices (SCED)",
+      "archiveDocuments": 80639,
+      "earliestArchive": {
+        "docId": 1167876108,
+        "friendlyName": "SCEDMCPCNP6332_csv",
+        "postDatetime": "2025-12-05T00:05:21"
+      },
+      "latestArchive": {
+        "docId": 1271835600,
+        "friendlyName": "SCEDMCPCNP6332_csv",
+        "postDatetime": "2026-09-07T21:50:25"
+      },
+      "bundleCount": 8,
+      "earliestBundlePostedAt": "2025-12-31T23:59:59",
+      "latestBundlePostedAt": "2026-08-31T23:59:59"
+    },
+    {
+      "product": "np6-86-cd",
+      "name": "SCED binding constraints",
+      "archiveDocuments": 96576,
+      "earliestArchive": {
+        "docId": 446377120,
+        "friendlyName": "SCEDBTCNP686_csv",
+        "postDatetime": "2014-05-01T00:05:01.326000"
+      },
+      "latestArchive": {
+        "docId": 1271824076,
+        "friendlyName": "SCEDBTCNP686_csv",
+        "postDatetime": "2026-09-07T21:05:00"
+      },
+      "bundleCount": 103,
+      "earliestBundlePostedAt": "2018-01-31T23:59:59",
+      "latestBundlePostedAt": "2026-08-31T23:59:59"
+    },
+    {
+      "product": "np3-233-cd",
+      "name": "Hourly resource outage capacity",
+      "archiveDocuments": 108277,
+      "earliestArchive": {
+        "docId": 446376882,
+        "friendlyName": "HRLYRESOUTCAPNP3233_csv",
+        "postDatetime": "2014-05-01T00:00:40.455000"
+      },
+      "latestArchive": {
+        "docId": 1271823184,
+        "friendlyName": "HRLYRESOUTCAPNP3233_csv",
+        "postDatetime": "2026-09-07T21:00:47"
+      },
+      "bundleCount": 102,
+      "earliestBundlePostedAt": "2018-01-31T23:59:59",
+      "latestBundlePostedAt": "2026-06-30T23:59:59"
+    },
+    {
+      "product": "np6-329-cd",
+      "name": "Indicative real-time ancillary prices",
+      "archiveDocuments": 79661,
+      "earliestArchive": {
+        "docId": 1167875194,
+        "friendlyName": "RTDMCPCNP6329_20251205_000003_csv",
+        "postDatetime": "2025-12-05T00:00:44"
+      },
+      "latestArchive": {
+        "docId": 1271835680,
+        "friendlyName": "RTDMCPCNP6329_20260907_215003_csv",
+        "postDatetime": "2026-09-07T21:51:37"
+      },
+      "bundleCount": 8,
+      "earliestBundlePostedAt": "2025-12-31T23:59:59",
+      "latestBundlePostedAt": "2026-08-31T23:59:59"
+    }
+  ],
+  "forecastPublicationCheck": {
+    "document": {
+      "docId": 642522821,
+      "friendlyName": "LFCWEATHERNP3561_csv",
+      "postDatetime": "2019-01-01T00:30:00"
+    },
+    "kind": "archive",
+    "rows": 192,
+    "firstRow": {
+      "postedDatetime": null,
+      "deliveryDate": "2019-01-01",
+      "hourEnding": "1:00",
+      "coast": "9566.0996",
+      "east": "1414.37",
+      "farWest": "2954.29",
+      "north": "942.583",
+      "northCentral": "11252.9004",
+      "southCentral": "6163.46",
+      "southern": "3024.51",
+      "west": "1634.28",
+      "systemTotal": "36952.493",
+      "DSTFlag": false
+    },
+    "lastRow": {
+      "postedDatetime": null,
+      "deliveryDate": "2019-01-08",
+      "hourEnding": "24:00",
+      "coast": "9504.0664",
+      "east": "1249.0825",
+      "farWest": "2947.9585",
+      "north": "843.338",
+      "northCentral": "10714.7715",
+      "southCentral": "5352.1475",
+      "southern": "2492.3286",
+      "west": "1507.5747",
+      "systemTotal": "34611.2677",
+      "DSTFlag": false
+    },
+    "rowsWithEmbeddedPostedDatetime": 0
+  }
+}

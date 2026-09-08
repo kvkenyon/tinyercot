@@ -80,6 +80,29 @@ with Client() as ercot:
         print(price.deliveryDate, price.settlementPointPrice)
 ```
 
+For forecast backtests, keep the publication metadata alongside the typed rows:
+
+```python
+with Client() as ercot:
+    forecasts = ercot.np3_561_cd._7d_load_fcast_by_wzn_history
+    for publication in forecasts.publications(
+        posted_from=datetime(2019, 1, 1),
+        posted_to=datetime(2019, 1, 1, 6),
+    ):
+        posted_at = publication.document.postDatetime
+        for forecast in publication.rows:
+            print(posted_at, forecast.deliveryDate, forecast.systemTotal)
+```
+
+`publications()` yields `Publication[Row]`: the original typed `Document`, its
+`kind`, and a lazy iterator of typed `rows`. Listing alone does not download the
+payload; consume rows while the client is open. Separate publications keep their
+identities even when their row values match. This also works for workbook/PDF
+history readers and with `kind="bundle"`. A bundle's posting time describes the
+bundle, **not** when its component forecasts were available. Embedded row fields
+remain unchanged: older forecast CSVs omit `postedDatetime`, so that field stays
+`None` while archive publication metadata is available separately.
+
 Publication timestamps are ERCOT local timestamps, and both bounds are inclusive.
 They select files by **publication date**, which can differ from the dates inside
 them. The predicate filters typed rows after download. With no publication bounds,
@@ -134,6 +157,25 @@ If both bundle
 download routes fail, the error propagates. Automatic selection between monthly
 bundles and individual archives is not implemented yet. Unsupported CSV layouts
 raise with the member name instead of silently dropping data.
+
+The September 2026 live listing audit found these earliest archive posting dates
+for key market products (these are publication boundaries, not proof of continuous
+row coverage):
+
+| Data | Earliest archive posting |
+| --- | --- |
+| DAM/RT settlement prices, DAM AS prices, actual load, wind, SCED constraints, hourly outage capacity | May 1, 2014 |
+| Solar actual/forecast | February 10, 2016 |
+| Weather-zone load forecasts | January 1, 2019 |
+| Unplanned resource outages | December 7, 2022 |
+| RT AS prices by settlement/SCED interval and indicative RT AS prices | December 5, 2025 |
+
+Weather-zone load forecasts had only five listed bundles, starting March 2026,
+despite archives extending to 2019. Archive access therefore matters for complete
+backfills. The oldest retrieved load-forecast publication contained 192 rows and
+no embedded posting timestamps; `publications()` preserves its January 1, 2019
+00:30 archive timestamp separately. Counts, original listing entries and the live
+forecast check are recorded in `tools/inputs/history/market-availability.json`.
 
 Listing metadata includes the server's total and page counts; `iter_documents()` streams all listing pages.
 
