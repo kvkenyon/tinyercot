@@ -1073,15 +1073,15 @@ with Client() as ercot:
 `GenerationProfileHour` supplies a date, the source's HHMM clock and a typed
 `dict[str, Decimal | None]` of MW values keyed by the original column labels.
 `GenerationProfileSite` exposes embedded site IDs, capacities, county, CDR zone,
-common name and plant status when supplied. Separate key workbooks are not
+common name, plant status and solar tracking system when supplied. Separate key workbooks are not
 implicitly joined; identifiers and capacities can change between vintages.
 
 CSV clock strings, including leading zeros, are preserved in `sourceTime`, and
-`sourceTimeColumn` preserves `TIME` versus `TIME_CST`. No UTC offset or hour-ending
+`sourceTimeColumn` preserves `TIME`, `TIME_CST` or the older `HHMM(CST)` label. No UTC offset or hour-ending
 interpretation is inferred. Repeated clocks, missing values, overlapping files
 and dates outside filename labels survive unchanged. Saved CSVs, workbooks and
 ZIPs containing supported tables can be read locally. Unsupported layouts raise;
-older ZIP formats and all Excel vintages are not yet verified. See the
+some older ZIP formats and workbook vintages remain unverified. See the
 [coverage evidence](data-coverage.md#modeled-generation-profiles).
 
 The separate keys can be discovered and read with the same service:
@@ -1116,3 +1116,12 @@ Use matching vintages and inspect unmatched identifiers before joining. In the
 spellings. Published summaries are also retained independently: the 1980–2020
 solar key reports 313 utility profiles while its detailed scenario totals sum
 to 331. `sourceDate` is the workbook's own date, not an asserted publication time.
+
+
+Older wind CSVs can contain independently dated tables side by side.
+`sourceBlock` identifies each table (starting at 1) on both hourly records and
+site metadata. The reader emits each block with its own date, clock and sites;
+for example, a 2011 onshore table can share a file with 2013 offshore data.
+Entirely empty trailing blocks produce no records. Records are emitted in source
+row/block order, which need not be chronological across blocks. The original
+`YYYYMMDD`/`HHMM(CST)` headers are supported alongside newer `DATE`/`TIME` layouts.

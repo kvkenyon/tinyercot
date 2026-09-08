@@ -756,3 +756,10 @@ with Client() as client:
     assert_type(generation_key.sites[0].capacityMW, Decimal | None)
     assert_type(generation_key.sites[0].tilt, Decimal | Literal["Lat", "NA"] | None)
     assert_type(generation_key.sites[0].queuedModelFlag, bool | None)
+
+with Client() as client:
+    generation_block = next(client.generation_profiles.read(b""))
+    assert_type(generation_block.sourceBlock, int)
+    generation_site = next(client.generation_profiles.sites(b""))
+    assert_type(generation_site.sourceBlock, int)
+    assert_type(generation_site.tracking, str | None)

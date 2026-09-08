@@ -1228,3 +1228,42 @@ The four unchanged originals total 183,426 bytes under
 legend checks and identifier mismatch are recorded in `evidence.json`. Tests
 exercise the originals, source-summary discrepancies, nested workbook ZIPs and
 credential-free discovery/downloads. Fixtures remain excluded from the wheel.
+
+
+### Older wind archives and hypothetical-solar workbooks
+
+The generation-profile reader supports the older `YYYYMMDD` / `HHMM(CST)` CSV
+headers and separates side-by-side date/clock tables into independently dated
+records. `sourceBlock` identifies the original table on both records and site
+metadata. Timestamp columns never enter the MW mapping, and an entirely empty
+trailing block does not create an observation.
+
+All **76 CSV members in seven wind archives** were inspected. They contain
+**40 distinct CSV bodies**, with 36 byte-identical copies reused across archives.
+Independent CSV comparisons cover every date, clock and MW value in those 40
+bodies: **499,446 decoded records and 40,418,046 generation values**. These counts
+retain overlapping source data; they are not unique market observations.
+
+In `ERCOT_onshore_2011.CSV`, the first table contains 2011 data while the adjacent
+offshore table contains 2013 data. The last six rows have an empty, shortened
+offshore block. The parser retains 8,760 onshore and 8,754 offshore records with
+their respective dates. Single-table files can also extend beyond filename years:
+the 2016 wind files begin December 31, 2015 at 18:00 and end December 31, 2016 at
+23:00. Clocks are retained without an inferred UTC conversion.
+
+Both 2020–2021 hypothetical-solar workbooks were compared completely, covering
+**35,088 hourly records and 5,228,112 generation values** across 149 sites per
+workbook. All embedded site metadata was checked, including `SINGLE`/`DUAL`
+tracking, 50 MW capacities, counties, CDR zones and hypothetical plant status.
+The reader now exposes the original `Tracking` field as `site.tracking`.
+
+Original file/member hashes, archive overlap and comparison scope are recorded
+in `tools/inputs/generation-profiles/formats/evidence.json` and
+`legacy-wind-members.csv`. Regression tests use the original 2015 wind ZIP,
+a complete original compound-table CSV member and the unchanged dual-axis
+workbook. Fixtures are excluded from the installed wheel.
+
+Remaining profile formats include the two older wind-shape workbook layouts and
+the earliest solar shapes, whose columns include weather years and `TMY3`.
+Those solar shapes require separate treatment of units and non-calendar-year
+values. Fifteen of the nineteen newer profile workbooks remain unverified.

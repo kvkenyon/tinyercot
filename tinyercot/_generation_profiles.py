@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 from collections.abc import Iterator
+from dataclasses import dataclass
 from datetime import date
 from decimal import Decimal
 from io import BytesIO, TextIOWrapper
@@ -31,8 +32,10 @@ class GenerationProfileSite(BaseModel):
     newFor: str | None = None
     newForLabel: str | None = None
     plantStatus: str | None = None
+    tracking: str | None = None
     sourceMember: str
     sourceSheet: str
+    sourceBlock: int = 1
 
 
 class GenerationProfileHour(BaseModel):
@@ -53,6 +56,7 @@ class GenerationProfileHour(BaseModel):
     generationMW: dict[str, Decimal | None]
     sourceMember: str
     sourceSheet: str
+    sourceBlock: int = 1
 
 
 def _tables(
@@ -72,53 +76,72 @@ def _tables(
             yield filename, "", (tuple(row) for row in csv.reader(stream))
 
 
-def _header(
+@dataclass
+class _Block:
+    start: int
+    stop: int
+    clock: str
+    sites: list[GenerationProfileSite]
+
+
+def _headers(
     rows: Iterator[tuple[object, ...]], member: str, sheet: str
-) -> tuple[int, str, list[GenerationProfileSite]]:
+) -> list[_Block]:
     metadata: list[tuple[object, ...]] = []
     for row in islice(rows, 32):
-        clock_column = next(
-            (label for label in ("TIME", "TIME_CST") if label in row), None
-        )
-        if "DATE" in row and clock_column:
-            start = row.index(clock_column) + 1
-            if row.index("DATE") != start - 2 or start not in (2, 3):
+        starts = [
+            i + 2
+            for i, label in enumerate(row[:-1])
+            if label in ("DATE", "YYYYMMDD")
+            and row[i + 1] in ("TIME", "TIME_CST", "HHMM(CST)")
+        ]
+        if starts:
+            if starts[0] not in (2, 3):
                 raise ValueError(f"{member}: unexpected profile date/time columns")
-            columns = [str(cell) for cell in row[start:]]
-            if not columns or len(set(columns)) != len(columns):
-                raise ValueError(f"{member}: missing or duplicate profile columns")
-            sites = []
-            for i, column in enumerate(columns, start):
-                site_id, _, capacity = column.partition(":capacity=")
-                site = GenerationProfileSite(
-                    column=column,
-                    siteId=site_id,
-                    capacityMW=_number(capacity) if capacity else None,
-                    sourceMember=member,
-                    sourceSheet=sheet,
-                )
-                for cells in metadata:
-                    value = cells[i] if i < len(cells) else None
-                    label = str(cells[1] or "").strip() if len(cells) > 1 else ""
-                    text = str(value) if value is not None else None
-                    if not label and text:
-                        site.siteId = text
-                    elif label == "MWAC":
-                        site.capacityMW = _number(value)
-                    elif label == "Common Name":
-                        site.commonName = text
-                    elif label == "County":
-                        site.county = text
-                    elif label == "CDR Zone":
-                        site.cdrZone = text
-                    elif label.startswith("New for "):
-                        site.newFor, site.newForLabel = text, label
-                    elif label == "Plant Status":
-                        site.plantStatus = text
-                sites.append(site)
-            return start, clock_column, sites
+            blocks = []
+            stops = [start - 2 for start in starts[1:]] + [len(row)]
+            for block_number, (start, stop) in enumerate(
+                zip(starts, stops, strict=True), 1
+            ):
+                columns = [str(cell) for cell in row[start:stop]]
+                if not columns or len(set(columns)) != len(columns):
+                    raise ValueError(f"{member}: missing or duplicate profile columns")
+                sites = []
+                for i, column in enumerate(columns, start):
+                    site_id, _, capacity = column.partition(":capacity=")
+                    site = GenerationProfileSite(
+                        column=column,
+                        siteId=site_id,
+                        capacityMW=_number(capacity) if capacity else None,
+                        sourceMember=member,
+                        sourceSheet=sheet,
+                        sourceBlock=block_number,
+                    )
+                    for cells in metadata:
+                        value = cells[i] if i < len(cells) else None
+                        label = str(cells[1] or "").strip() if len(cells) > 1 else ""
+                        text = str(value) if value is not None else None
+                        if not label and text:
+                            site.siteId = text
+                        elif label == "MWAC":
+                            site.capacityMW = _number(value)
+                        elif label == "Common Name":
+                            site.commonName = text
+                        elif label == "County":
+                            site.county = text
+                        elif label == "CDR Zone":
+                            site.cdrZone = text
+                        elif label.startswith("New for "):
+                            site.newFor, site.newForLabel = text, label
+                        elif label == "Plant Status":
+                            site.plantStatus = text
+                        elif label == "Tracking":
+                            site.tracking = text
+                    sites.append(site)
+                blocks.append(_Block(start, stop, str(row[start - 1]), sites))
+            return blocks
         metadata.append(row)
-    raise ValueError(f"{member} {sheet}: no supported DATE/TIME profile table")
+    raise ValueError(f"{member} {sheet}: no supported date/time profile table")
 
 
 class GenerationProfiles(_PublicTable[GenerationProfileHour]):
@@ -161,33 +184,41 @@ class GenerationProfiles(_PublicTable[GenerationProfileHour]):
     ) -> Iterator[GenerationProfileSite]:
         """Read embedded column metadata; separate key workbooks are not joined."""
         for member, sheet, rows in _tables(data, filename):
-            _, _, sites = _header(rows, member, sheet)
-            yield from sites
+            for block in _headers(rows, member, sheet):
+                yield from block.sites
 
     def _read(self, data: bytes, filename: str) -> Iterator[GenerationProfileHour]:
         found = False
         for member, sheet, rows in _tables(data, filename):
-            start, clock_column, sites = _header(rows, member, sheet)
+            blocks = _headers(rows, member, sheet)
             found = True
-            columns = [site.column for site in sites]
             for row in rows:
                 if not row or all(value in (None, "") for value in row):
                     continue
-                if len(row) != start + len(columns):
+                if len(row) > blocks[-1].stop:
                     raise ValueError(f"{member}: profile row width differs from header")
-                clock = str(row[start - 1])
-                yield GenerationProfileHour(
-                    profileDate=date.fromisoformat(str(row[start - 2])),
-                    timeHHMM=int(clock),
-                    sourceTime=clock,
-                    sourceTimeColumn=clock_column,
-                    sourceYear=int(str(row[0])) if start == 3 else None,
-                    generationMW={
-                        column: _number(value)
-                        for column, value in zip(columns, row[start:], strict=True)
-                    },
-                    sourceMember=member,
-                    sourceSheet=sheet,
-                )
+                for number, block in enumerate(blocks, 1):
+                    start, stop = block.start, block.stop
+                    if all(value in (None, "") for value in row[start - 2 : stop]):
+                        continue
+                    if len(row) < stop:
+                        raise ValueError(f"{member}: profile block has missing columns")
+                    clock = str(row[start - 1])
+                    yield GenerationProfileHour(
+                        profileDate=date.fromisoformat(str(row[start - 2])),
+                        timeHHMM=int(clock),
+                        sourceTime=clock,
+                        sourceTimeColumn=block.clock,
+                        sourceYear=int(str(row[0])) if start == 3 else None,
+                        generationMW={
+                            site.column: _number(value)
+                            for site, value in zip(
+                                block.sites, row[start:stop], strict=True
+                            )
+                        },
+                        sourceMember=member,
+                        sourceSheet=sheet,
+                        sourceBlock=number,
+                    )
         if not found:
             raise ValueError(f"{filename}: no profile CSV or workbook found")

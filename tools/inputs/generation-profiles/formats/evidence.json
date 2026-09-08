@@ -1,0 +1,102 @@
+{
+  "checkedAt": "2026-09-08",
+  "readerSha256": "4b304fc6f443462a478f0aeb2b4f39a007394751039f292f4572341692336289",
+  "scope": "Every date, clock and MW value in 40 distinct complete CSV bodies compared independently with csv.reader; duplicate byte-identical bodies reused across seven archives are recorded separately. Hypothetical solar workbooks compared with openpyxl, including all embedded site metadata. Values use source numeric precision as exposed by openpyxl; no XML-decimal exactness claim.",
+  "wind": {
+    "uniqueBodies": 40,
+    "rows": 499446,
+    "values": 40418046,
+    "reusedBodies": 36,
+    "archives": [
+      {
+        "title": "Wind shapes 1997-2014 (1997-2012 are updates of original files)",
+        "url": "https://www.ercot.com/files/docs/2015/09/23/ercot_wind_shapes_updates_1997_2013_new_2014.zip",
+        "sha256": "375f4342711ad2d68ab57247817c073f46047e1a1f9ad2a4df16bb213e660108",
+        "bytes": 71512340
+      },
+      {
+        "title": "ERCOT 2015 Historical Hourly Wind Generation Profiles",
+        "url": "https://www.ercot.com/files/docs/2017/02/17/2015_Wind_Profiles.zip",
+        "sha256": "4334ebb30e843c5415922cd22b462ac3da272e4256f159da0eb0726f12ec81dd",
+        "bytes": 3831587
+      },
+      {
+        "title": "ERCOT 2014 Historical Hourly Wind Generation Profiles",
+        "url": "https://www.ercot.com/files/docs/2017/02/17/ERCOT_2014_Profiles.zip",
+        "sha256": "b630d4b4daa32af7d30bee647901a7e8760fc0f112ef2918b86e2a667a3422fe",
+        "bytes": 3856820
+      },
+      {
+        "title": "ERCOT 1997-2013 Offshore Wind Generation Profiles",
+        "url": "https://www.ercot.com/files/docs/2017/02/17/ERCOT_offshore_1997-2013.zip",
+        "sha256": "fe3b1cfdd721943bf8138e612ff0edebfff6c8756fafc51c5eb03dcf1ddcffd1",
+        "bytes": 1470643
+      },
+      {
+        "title": "ERCOT 1997-2004 Onshore Wind Generation Profiles",
+        "url": "https://www.ercot.com/files/docs/2017/02/17/ERCOT_onshore_1997-2004.zip",
+        "sha256": "aae15d744c80dcc65d50a2e40b1126ec6f121804f4f0cf9fb90c972bdc623b82",
+        "bytes": 30890824
+      },
+      {
+        "title": "ERCOT 2005-2013 Onshore Wind Generation Profiles",
+        "url": "https://www.ercot.com/files/docs/2017/02/17/ERCOT_onshore_2005-2013.zip",
+        "sha256": "fd54f7f8ba605dff1380d9616e98301a8bee7f3b0cff7219785690aedd91af56",
+        "bytes": 34832158
+      },
+      {
+        "title": "ERCOT 2016 Historical Wind Generation Profiles",
+        "url": "https://www.ercot.com/files/docs/2018/01/30/ERCOT_WindProfiles_2016.zip",
+        "sha256": "898f302248d9054d761170bf69ff46e6999db822336348f4308a99c4404ef2ab",
+        "bytes": 3618811
+      }
+    ]
+  },
+  "windMemberManifest": "legacy-wind-members.csv",
+  "hypotheticalSolar": [
+    {
+      "url": "https://www.ercot.com/files/docs/2022/12/19/ERCOT-Hypothetical-DualAxis-SolarPVProfiles-2020-2021-CST-CDT.xlsx",
+      "sha256": "60d0eb33800b5a4fe3df59a52df59d2cec5ce177dca796433dd5b34532139e6a",
+      "bytes": 14634931,
+      "sites": 149,
+      "rows": 17544,
+      "values": 2614056,
+      "first": [
+        "2020-01-01",
+        0
+      ],
+      "last": [
+        "2021-12-31",
+        2300
+      ],
+      "elapsed": 19.75
+    },
+    {
+      "url": "https://www.ercot.com/files/docs/2022/12/19/ERCOT-Hypothetical-SingleAxis-SolarPVProfiles-2020-2021-CST-CDT.xlsx",
+      "sha256": "37062dcd5ddb753738db2a3e6789f26e0591b3e62b9acf4021edd5a954c457ba",
+      "bytes": 14806204,
+      "sites": 149,
+      "rows": 17544,
+      "values": 2614056,
+      "first": [
+        "2020-01-01",
+        0
+      ],
+      "last": [
+        "2021-12-31",
+        2300
+      ],
+      "elapsed": 19.85
+    }
+  ],
+  "sourceDetails": [
+    "An ERCOT_onshore_2011.CSV row contains a 2011 onshore table and a separately dated 2013 offshore table; sourceBlock preserves their identity.",
+    "Six final rows in that file have an empty, shortened offshore block. No offshore records are synthesized.",
+    "Original source records are preserved; totals do not count unique site/timestamp observations across overlapping tables and publications."
+  ],
+  "remainingFormats": [
+    "The two older existing/hypothetical wind-shape workbook layouts are not yet supported. Their four linked URLs resolve to two distinct cached workbook ZIP contents.",
+    "The oldest solar shapes have Date (MM/DD), Time (HH:MM), weather-year columns and TMY3; their units and non-calendar-year representation require separate handling.",
+    "Fifteen of the nineteen newer profile workbooks remain unverified; discovery alone is not evidence of parsing or complete retention."
+  ]
+}

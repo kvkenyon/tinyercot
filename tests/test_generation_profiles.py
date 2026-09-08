@@ -191,3 +191,56 @@ def test_direct_file_discovery_and_download_without_credentials():
 def test_unrecognized_or_lossy_layout_raises(data):
     with Client() as client, pytest.raises(ValueError):
         list(client.generation_profiles.read(data))
+
+
+def test_older_wind_clock_alias_and_archive_boundaries():
+    data = (FIXTURES / "formats/2015_Wind_Profiles.zip").read_bytes()
+    with Client() as client:
+        row = next(client.generation_profiles.read(data, filename="2015.zip"))
+        sites = list(client.generation_profiles.sites(data, filename="2015.zip"))
+    assert row.profileDate == date(2014, 12, 31)
+    assert row.sourceTimeColumn == "HHMM(CST)"
+    assert row.timeHHMM == 1800
+    assert row.sourceMember == "2015.zip/ERCOT_offshore_2015.CSV"
+    assert sites[0].capacityMW == Decimal("500.0")
+    assert row.generationMW[sites[0].column] == Decimal("452.3")
+
+
+def test_side_by_side_original_tables_keep_their_own_dates():
+    from collections import Counter
+    from itertools import chain
+
+    data = (FIXTURES / "formats/legacy-compound.zip").read_bytes()
+    with Client() as client:
+        sites = list(client.generation_profiles.sites(data))
+        rows = client.generation_profiles.read(data)
+        onshore, offshore = next(rows), next(rows)
+        assert onshore.profileDate == date(2011, 1, 1)
+        assert offshore.profileDate == date(2013, 1, 1)
+        assert onshore.sourceBlock == 1 and offshore.sourceBlock == 2
+        counts = Counter()
+        for row in chain([onshore, offshore], rows):
+            assert row.profileDate.year == {1: 2011, 2: 2013}[row.sourceBlock]
+            assert len(row.generationMW) == {1: 225, 2: 3}[row.sourceBlock]
+            assert "YYYYMMDD" not in row.generationMW
+            assert "HHMM(CST)" not in row.generationMW
+            counts[row.sourceBlock] += 1
+    # Six short trailing rows have an entirely empty offshore block.
+    assert counts == {1: 8760, 2: 8754}
+    assert Counter(site.sourceBlock for site in sites) == {1: 225, 2: 3}
+
+
+def test_hypothetical_solar_tracking_metadata():
+    name = "ERCOT-Hypothetical-DualAxis-SolarPVProfiles-2020-2021-CST-CDT.xlsx"
+    data = (FIXTURES / "formats" / name).read_bytes()
+    with Client() as client:
+        sites = list(client.generation_profiles.sites(data, filename=name))
+        row = next(client.generation_profiles.read(data, filename=name))
+    assert len(sites) == 149
+    assert all(site.tracking == "DUAL" for site in sites)
+    assert all(site.plantStatus == "Hypothetical" for site in sites)
+    assert all(site.capacityMW == 50 for site in sites)
+    assert sites[0].commonName == "NA"
+    assert sites[0].siteId == sites[0].column == "SITE_00004"
+    assert sites[0].county == "Presidio"
+    assert sites[0].sourceBlock == row.sourceBlock == 1
