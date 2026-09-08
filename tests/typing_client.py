@@ -934,3 +934,23 @@ with Client() as client:
     assert_type(
         client.dashboards.actual_weather_zone_load().data[0].values["COAST"], Decimal
     )
+
+
+with Client() as client:
+    demand = client.dashboards.system_demand().nextDay.data[0]
+    assert_type(demand.dayAheadForecast, Decimal | None)
+    assert_type(demand.dayAheadHsl, Decimal | None)
+    assert_type(demand.currentLoadForecast, Decimal)
+
+
+with Client() as client:
+    wind_solar = next(
+        iter(client.dashboards.combined_wind_solar().nextDay.data.values())
+    )
+    assert_type(wind_solar.copHslWindDayAhead, Decimal | None)
+    assert_type(wind_solar.stwpfDayAhead, Decimal | None)
+    assert_type(wind_solar.wgrppDayAhead, Decimal | None)
+    assert_type(wind_solar.copHslSolarDayAhead, Decimal | None)
+    assert_type(wind_solar.stppfDayAhead, Decimal | None)
+    assert_type(wind_solar.pvgrppDayAhead, Decimal | None)
+    assert_type(wind_solar.stwpf, Decimal)

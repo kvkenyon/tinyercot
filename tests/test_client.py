@@ -561,3 +561,81 @@ def test_bundle_get_failure_propagates():
     ):
         client.download("NP4-190-CD", [-123], kind="bundle")
     assert error.value.response.status_code == 404
+
+
+@pytest.mark.parametrize(
+    "filename", ["system-wide-demand.json", "system-wide-demand-before-day-ahead.json"]
+)
+def test_system_demand_preserves_available_data_before_day_ahead_publication(filename):
+    from datetime import datetime
+    from decimal import Decimal
+
+    raw = (INPUTS / "dashboards" / filename).read_bytes()
+    body = json.loads(raw, parse_float=Decimal)
+    with httpx.Client(
+        transport=httpx.MockTransport(lambda _: httpx.Response(200, content=raw))
+    ) as http:
+        snapshot = Client(client=http).dashboards.system_demand()
+    missing_forecasts = 0
+    for name in ("previousDay", "currentDay", "nextDay"):
+        for row, source in zip(
+            getattr(snapshot, name).data, body[name]["data"], strict=True
+        ):
+            assert row.timestamp == datetime.fromisoformat(source["timestamp"])
+            assert row.hourEnding == source["hourEnding"]
+            assert row.epoch == source["epoch"]
+            assert row.dstFlag == source["dstFlag"]
+            for key in (
+                "currentLoadForecast",
+                "dayAheadForecast",
+                "currentDayHsl",
+                "dayAheadHsl",
+                "systemLoad",
+            ):
+                value = source.get(key)
+                assert getattr(row, key) == (
+                    Decimal(value) if value is not None else None
+                )
+            missing_forecasts += row.dayAheadForecast is None
+    if filename.endswith("before-day-ahead.json"):
+        assert missing_forecasts == 24
+        assert snapshot.currentDay.data[0].systemLoad == Decimal("66748.26")
+        assert all(row.dayAheadHsl is None for row in snapshot.nextDay.data)
+        assert all(row.currentLoadForecast is not None for row in snapshot.nextDay.data)
+
+
+@pytest.mark.parametrize(
+    "filename", ["combine-wind-solar.json", "combine-wind-solar-before-day-ahead.json"]
+)
+def test_wind_solar_preserves_null_day_ahead_forecasts_and_actual_zeroes(filename):
+    from datetime import datetime
+    from decimal import Decimal
+
+    raw = (INPUTS / "dashboards" / filename).read_bytes()
+    body = json.loads(raw, parse_float=Decimal)
+    with httpx.Client(
+        transport=httpx.MockTransport(lambda _: httpx.Response(200, content=raw))
+    ) as http:
+        snapshot = Client(client=http).dashboards.combined_wind_solar()
+    for name in ("currentDay", "nextDay"):
+        actual = getattr(snapshot, name).data
+        assert actual.keys() == body[name]["data"].keys()
+        for key, source in body[name]["data"].items():
+            for field, value in actual[key].model_dump().items():
+                original = source.get(field)
+                if field == "timestamp":
+                    assert value == datetime.fromisoformat(original)
+                else:
+                    assert value == original
+    if filename.endswith("before-day-ahead.json"):
+        for row in snapshot.nextDay.data.values():
+            assert row.copHslWindDayAhead is None
+            assert row.stwpfDayAhead is None
+            assert row.wgrppDayAhead is None
+            assert row.copHslSolarDayAhead is None
+            assert row.stppfDayAhead is None
+            assert row.pvgrppDayAhead is None
+            assert row.stwpf is not None
+        first = next(iter(snapshot.currentDay.data.values()))
+        assert first.copHslSolarDayAhead == Decimal(0)
+        assert first.stppfDayAhead == Decimal(0)

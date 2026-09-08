@@ -380,15 +380,15 @@ class WindSolarRow(DashboardModel):
     copHslWind: Decimal
     stwpf: Decimal
     wgrpp: Decimal
-    copHslWindDayAhead: Decimal
-    stwpfDayAhead: Decimal
-    wgrppDayAhead: Decimal
+    copHslWindDayAhead: Decimal | None
+    stwpfDayAhead: Decimal | None
+    wgrppDayAhead: Decimal | None
     copHslSolar: Decimal
     stppf: Decimal
     pvgrpp: Decimal
-    copHslSolarDayAhead: Decimal
-    stppfDayAhead: Decimal
-    pvgrppDayAhead: Decimal
+    copHslSolarDayAhead: Decimal | None
+    stppfDayAhead: Decimal | None
+    pvgrppDayAhead: Decimal | None
     timestamp: datetime
     epoch: int
 
@@ -408,9 +408,9 @@ class DemandRow(DashboardModel):
     hourEnding: int
     dstFlag: str
     currentLoadForecast: Decimal
-    dayAheadForecast: Decimal
+    dayAheadForecast: Decimal | None = None
     currentDayHsl: Decimal | None = None
-    dayAheadHsl: Decimal
+    dayAheadHsl: Decimal | None = None
     systemLoad: Decimal | None = None
     timestamp: datetime
     epoch: int

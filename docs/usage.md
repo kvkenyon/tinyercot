@@ -965,6 +965,16 @@ exposes 60 values across 12 named source groups, including battery capacity and
 reserve awards. Both are public and require no credentials. Values are in MW;
 SCED capacity does not account for individual resource ramp-rate or duration limits.
 
+`ercot.dashboards.system_demand()` returns previous, current and next-day load,
+forecasts and high-sustained limits. Before day-ahead publication, ERCOT can omit
+`dayAheadForecast` and `dayAheadHsl`; both are typed `Decimal | None` and return
+`None` while the available series remain usable. Missing values are not zeroes.
+The six day-ahead wind/solar forecast and capacity fields returned by
+`combined_wind_solar()` likewise retain ERCOT's explicit `null` values as `None`
+until publication; observed zero generation remains zero.
+The current/previous-day Load Forecast vs. Actual graphics repeat these series
+rounded to whole MW; the JSON dashboard retains the published decimal precision.
+
 `ercot.dashboards.real_time_conditions()` reads the public system-conditions table,
 including frequency, instantaneous time error, consecutive BAAL exceedances,
 demand, capacity, generation, inertia and all five DC ties. Its `lastUpdated`

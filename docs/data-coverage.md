@@ -1551,3 +1551,21 @@ market message for November 3; no coverage is claimed for those missing prices.
 Three older sampled dates (2010-12-01, 2014-05-01, 2020-01-01) returned 404 for
 all five routes. These observations establish neither earliest retention nor
 continuous coverage. See `tools/inputs/market-displays/evidence.json`.
+
+
+### Demand dashboard before day-ahead publication
+
+The September 8, 2026 afternoon `system-wide-demand.json` response omitted
+`dayAheadForecast` and `dayAheadHsl` from all 24 next-day hours. These values
+are now optional typed decimals. The rest of the response remains available,
+including the current day's actual load and next day's current load forecast.
+Original pre-publication and published-response regression fixtures compare all
+five demand/capacity series, clocks and flags. The 217 chart points in the current
+and previous-day Load Forecast vs. Actual HTML matched the existing typed JSON
+series after rounding to whole MW (ties to even). This checks those two snapshots,
+not historical publication timing. See `tools/inputs/dashboards/demand-availability-evidence.json`.
+
+The combined wind/solar dashboard has the same publication boundary: all six
+next-day day-ahead fields were explicitly null in 24 rows (144 values). Their
+types now admit `None`; full original pre-publication and published captures
+verify that current forecasts and observed zero generation remain intact.
