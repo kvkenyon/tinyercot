@@ -73,8 +73,9 @@ nine workbook products and five PDF readers. The same readers support individual
 archives and monthly bundles.
 
 The other three captured catalog products returned empty archive and bundle
-listings. Historical layouts are still being checked; the examples and source
-evidence below describe the formats and periods verified so far.
+listings, rechecked in the release audit. The examples and source evidence below
+describe the verified historical formats and periods; they do not establish
+gap-free coverage of every retained publication.
 
 ```python
 from datetime import datetime

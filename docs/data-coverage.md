@@ -275,16 +275,17 @@ summaries (NP3-910) have 26 typed history readers, including their regional
 tables. Historical PTP bid IDs remain strings. Older non-wind generation fields
 remain separate from non-intermittent generation; absent storage or solar
 fields remain `None`. DSR load summaries are present in the sampled 2014 archive
-but absent from the sampled current ZIP; reading that file with the DSR reader
-raises a missing-table error.
+but absent from the sampled current ZIP. Explicit `read()` and `download()`
+raise a missing-table error; `backfill()` skips that absent table.
 
 SCED energy-curve history (NP3-908) has readers for wind, solar, non-intermittent
 and storage supply and controllable-load demand, including four regional tables
 for each. Older files also contain DAM demand, supply and minimum-supply curves
 under `_2d_agg_dam_*_history`, plus separate `_2d_agg_esc_non_wind*_history`
 readers. These older categories are retained explicitly. The sampled March 2014
-ZIP contains tables no longer included in the sampled August 2026 ZIP; requesting
-a missing table raises an error. Header-only tables yield no rows.
+ZIP contains tables no longer included in the sampled August 2026 ZIP. Explicit
+`read()` and `download()` reject missing tables; `backfill()` skips them.
+Header-only tables yield no rows.
 
 DAM ancillary-service disclosures (NP3-911) have 36 readers matching the API
 report tables and seven legacy RRS readers. Aggregate offer curves and the newer
@@ -292,8 +293,9 @@ DAM-specific curves keep separate `_2d_agg_as_offers_*_history` and
 `_2d_agg_dam_as_offers_*_history` names. Legacy RRS load/generation cleared and
 self-arranged quantities, and `RRSNC`, `RRSLD`, `RRSGN` offer curves, remain
 separate from newer RRS response categories. The sampled 2014, 2025 and current
-archives cover different sets of tables; a missing table raises an error rather
-than silently substituting another category.
+archives cover different sets of tables. Explicit `read()` and `download()`
+reject missing tables; `backfill()` skips them. No reader substitutes another
+category for an absent table.
 
 COP adjustment-period snapshots (NP1-301) and ancillary-service obligations
 (NP1-302) have typed history readers. COP history preserves combined legacy

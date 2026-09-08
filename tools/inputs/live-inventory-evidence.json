@@ -1770,5 +1770,149 @@
       "queryParameterDefinitions": 15,
       "detailSha256": "f0f463f13e6ddd059e2a7f0d394b63a45fe6ae3d4c11d13231e4cc7a47254cfc"
     }
-  ]
+  ],
+  "releaseAudit": {
+    "checkedAt": "2026-09-08T04:00:06.399876+00:00",
+    "runtimeCommit": "a45bcf33d1ef0ed1932f4706652bb574330a4402",
+    "scope": "Rechecked live operation methods/paths, catalog artifacts, all 11 typed dashboard methods, the three empty products, and direct public file indexes. Statically checked every generated history property has a concrete Pydantic row type and all report queries have historical contracts. Full current test suite and required mechanical checks passed. Parameter-detail evidence above retains its original check date. Historical source comparisons remain sampled as described in their own evidence files; this is not an exhaustive download of every retained publication or a claim of gap-free history.",
+    "operations": {
+      "pageSizes": [
+        100,
+        100,
+        49
+      ],
+      "count": 249,
+      "added": [],
+      "removed": []
+    },
+    "catalog": {
+      "products": 116,
+      "artifacts": 242,
+      "missingGeneratedQueries": [],
+      "queriesAbsentFromCatalog": []
+    },
+    "dashboards": [
+      {
+        "method": "fuel_mix",
+        "status": "pass",
+        "type": "FuelMixSnapshot"
+      },
+      {
+        "method": "grid_conditions",
+        "status": "pass",
+        "type": "GridConditionsSnapshot"
+      },
+      {
+        "method": "energy_storage",
+        "status": "pass",
+        "type": "EsrSnapshot"
+      },
+      {
+        "method": "generation_outages",
+        "status": "pass",
+        "type": "GenerationOutagesSnapshot"
+      },
+      {
+        "method": "dc_tie_flows",
+        "status": "pass",
+        "type": "DcTieSnapshot"
+      },
+      {
+        "method": "system_prices",
+        "status": "pass",
+        "type": "SystemPricesSnapshot"
+      },
+      {
+        "method": "supply_demand",
+        "status": "pass",
+        "type": "SupplyDemandSnapshot"
+      },
+      {
+        "method": "combined_wind_solar",
+        "status": "pass",
+        "type": "WindSolarSnapshot"
+      },
+      {
+        "method": "system_demand",
+        "status": "pass",
+        "type": "DemandSnapshot"
+      },
+      {
+        "method": "ancillary_services",
+        "status": "pass",
+        "type": "AncillarySnapshot"
+      },
+      {
+        "method": "weather_forecast",
+        "status": "pass",
+        "type": "list"
+      }
+    ],
+    "emptyProducts": [
+      {
+        "product": "NP6-569-CD",
+        "kind": "archives",
+        "totalRecords": 0
+      },
+      {
+        "product": "NP6-569-CD",
+        "kind": "bundles",
+        "totalRecords": 0
+      },
+      {
+        "product": "NP6-655-CD",
+        "kind": "archives",
+        "totalRecords": 0
+      },
+      {
+        "product": "NP6-655-CD",
+        "kind": "bundles",
+        "totalRecords": 0
+      },
+      {
+        "product": "NP6-913-CD",
+        "kind": "archives",
+        "totalRecords": 0
+      },
+      {
+        "product": "NP6-913-CD",
+        "kind": "bundles",
+        "totalRecords": 0
+      }
+    ],
+    "static": {
+      "queries": 242,
+      "historyReaders": 289,
+      "historyFormats": {
+        "csv": 275,
+        "workbook": 9,
+        "pdf": 5
+      },
+      "products": 113,
+      "typedHistoryFields": 3434,
+      "nonemptyCapturedQuerySamples": 242,
+      "wheelBytes": 169393,
+      "runtimeModules": 11,
+      "wheelMatchesCurrentRuntime": true,
+      "generatedSha256": "4add31219447d92ec33bf16f4096a6745799d61c36b272ab2edba095e0c836c2"
+    },
+    "publicFileIndexes": {
+      "checkedAt": "2026-09-08T04:02:33.652496+00:00",
+      "hourlyLoadLinks": 33,
+      "fuelMixLinks": 3,
+      "nativeLoad2026": {
+        "url": "https://www.ercot.com/files/docs/2026/02/10/Native_Load_2026.zip",
+        "bytes": 722951,
+        "sha256": "3a642883ab3889c23650cde4cf6bade371c62999ee4c54bfdda6f8063422aef0",
+        "badMember": "Native_Load_2026.xlsx"
+      }
+    },
+    "checks": {
+      "pytest": "934 passed in 60.19s",
+      "mypy": "strict; 16 source files including examples",
+      "ruff": "check and format passed",
+      "generator": "242 endpoints, 113 namespaces; byte-identical output",
+      "wheel": "11 runtime modules byte-identical to checkout; py.typed present; fixtures, tests, examples and tools excluded"
+    }
+  }
 }
