@@ -684,8 +684,8 @@ point-in-time public availability.
 
 Evidence is in `tools/inputs/public-mora-percentiles-evidence.json`. The fixture
 retains nine complete original workbooks, byte-for-byte, containing 6,006 values
-and every supported metric family. Resource-detail tables have a separate reader
-described below; capacity-summary and other MORA tables remain uncovered.
+and every supported metric family. Resource-detail, capacity-summary and
+load/resource-balance tables have separate readers described below.
 
 ## MORA resource capacities
 
@@ -718,6 +718,45 @@ Summaries and their underlying unit capacities should not be added together.
 comparison. Tests reuse the nine complete originals in `mora-percentiles.zip`
 and add three complete originals in `mora-resources.zip` for service dates,
 missing categories and helper columns. Fixtures are excluded from the wheel.
+
+## MORA category capacities and load/resource balance
+
+The `capacities()` / `read_capacities()` readers expose **1,494 category rows**,
+with **1,494 installed-capacity values and 1,854 expected-capacity values**.
+`balance()` / `read_balance()` expose **990 load/resource-balance rows**, with
+**1,221 scenario values across 33 typed metrics**. All **4,569 numeric cells**
+in both sheets of the same 37 workbooks were independently compared with the
+source, including row coverage, scenario labels, report months, notes, clocks,
+time-zone labels and category hierarchy. No numeric cell was blank in this capture.
+
+Category rows distinguish operational, planned and total resources. The original
+Excel indentation supplies `resourcePath`, keeping e.g. Wind/Other separate from
+Storage/Other. Indentation levels need not be consecutive. Parent and child rows
+both retain their source values and must not be added together. Installed capacity
+is stored once per category; expected values form a typed list of scenarios.
+The March 2024 expected-capacity header is blank and remains `None`.
+
+Older workbooks publish two scenario columns. December 2023 has 8 a.m. and 5 p.m.
+values; March 2024 distinguishes late-March conditions at 6 p.m. from early-March
+cold conditions at 8 a.m. April 2024 includes two different wind scenarios at the
+same 8 p.m. hour. Each original scenario label is retained, with its parsed local
+clock and explicit CST/CDT label where present. The 840 scenario values without
+a zone retain `timeZone=None`; the others comprise 1,692 CDT and 543 CST values.
+No dated operating hour or UTC timestamp is inferred from the reporting month.
+
+Balance metrics retain distinct large-load and large-flexible-load adjustments,
+and distinguish thermal capacity that explicitly excludes emergency agreements.
+Original metric labels and source notes accompany the stable typed names. These
+are forecast/scenario quantities, not realized demand, supply or operating reserves.
+The scenario tables do not provide the hour-by-hour probability images or embedded
+risk-chart data; those are not counted in this coverage.
+
+`tools/inputs/public-mora-summaries-evidence.json` records the source comparisons.
+Tests reuse twelve original workbooks already retained for other MORA readers and
+add the complete March 2024 workbook in `mora-summaries.zip`. The thirteen originals
+contain 526 category rows (727 expected-capacity values), 338 balance rows (461
+scenario values), all 33 metrics, and the missing heading. Fixtures stay outside
+the wheel; category hierarchy requires the `files` extra and original XLSX format.
 
 ## Historical IDR compliance summaries
 

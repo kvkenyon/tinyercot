@@ -21,8 +21,12 @@ from tinyercot import (
     LoadProfileDay,
     LossFactorDay,
     MonthlyCoincidentPeak,
+    MoraBalance,
+    MoraBalanceMetric,
+    MoraCapacity,
     MoraPercentile,
     MoraResource,
+    MoraScenarioValue,
     Page,
     PolrUsage,
     Publication,
@@ -63,6 +67,18 @@ with Client() as client:
     assert_type(mora_resource.inService, int | date | str | None)
     assert_type(mora_resource.installedCapacityMW, Decimal | None)
     assert_type(mora_resource.reportedCapacityMW, Decimal | None)
+    assert_type(client.resource_outlook.capacities(), Iterator[MoraCapacity])
+    assert_type(client.resource_outlook.read_capacities(b""), Iterator[MoraCapacity])
+    mora_capacity = next(client.resource_outlook.capacities())
+    assert_type(mora_capacity.resourcePath, list[str])
+    assert_type(mora_capacity.availableCapacity, list[MoraScenarioValue])
+    assert_type(mora_capacity.availableCapacity[0].hourEnding, time)
+    assert_type(mora_capacity.availableCapacity[0].valueMW, Decimal | None)
+    assert_type(client.resource_outlook.balance(), Iterator[MoraBalance])
+    assert_type(client.resource_outlook.read_balance(b""), Iterator[MoraBalance])
+    mora_balance = next(client.resource_outlook.balance())
+    assert_type(mora_balance.metric, MoraBalanceMetric)
+    assert_type(mora_balance.values, list[MoraScenarioValue])
 
 with Client() as client:
     assert_type(client.indicative_ordc.files(), list[PublicFile])

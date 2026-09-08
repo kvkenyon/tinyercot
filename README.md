@@ -541,8 +541,45 @@ Installed and reported capacities remain separate decimals, with their original
 rating labels and explanatory notes. A seasonal rating or planned service date
 does not establish available generation; battery fleet contribution is calculated
 separately by ERCOT. Missing capacities remain `None`, and negative adjustments
-are preserved. Other MORA capacity-summary and monthly-risk tables are not yet
-parsed.
+are preserved.
+
+`resource_outlook.capacities()` reads category-level installed and expected
+available capacity. For example, to query ERCOT's expected battery contribution:
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    for row in ercot.resource_outlook.capacities(
+        where=lambda r: (
+            r.reportMonth == date(2026, 11, 1)
+            and r.section == "operational"
+            and r.resourcePath[-1] == "Batteries"
+        ),
+    ):
+        for scenario in row.availableCapacity:
+            print(scenario.hourEnding, scenario.timeZone, scenario.valueMW)
+```
+
+`resourcePath` preserves the category hierarchy; parent and child totals overlap.
+Installed capacity appears once on each row, while `availableCapacity` keeps
+every published scenario separately. Older reports can have two hours, or two
+scenarios at the same hour. `sourceScenario` retains that distinction. The source
+clock is a typed `time`, with `timeZone=None` when ERCOT omits CST/CDT.
+
+`resource_outlook.balance()` reads the monthly load/resource balance using 33
+typed metric names, such as `average_weather_load`, `storage_capacity`,
+`planned_thermal_outages` and `normal_condition_reserves`. Each row's `values`
+contains the scenario values in MW. Use typed predicates to select a month or
+metric. `read_capacities(data, ...)` reads saved XLSX files/ZIPs and
+`read_balance(data, ...)` reads saved workbooks/ZIPs. Together these readers cover
+all 4,569 numeric cells in the two tables across the 37 linked workbooks.
+
+These are ERCOT's forecast assumptions and scenario results. Source metric labels
+and explanatory notes preserve changes in their definitions; they are distinct
+from actual capacity, demand or reserve observations. Embedded risk charts and
+image-only probability tables are outside these readers.
 
 ### Historical IDR compliance summaries
 

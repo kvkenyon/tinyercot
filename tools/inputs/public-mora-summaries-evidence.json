@@ -1,0 +1,463 @@
+{
+  "checkedAt": "2026-09-08T10:18:49.064319+00:00",
+  "indexUrl": "https://www.ercot.com/gridinfo/resource",
+  "sourceManifest": "public-mora-percentiles-evidence.json (same 37 original workbook URLs, byte sizes and SHA-256 hashes)",
+  "comparison": {
+    "files": [
+      {
+        "file": "MORA_Apr2024.xlsx",
+        "sha256": "d7f946ec8dfe60a0e3e693332359ee2d0cdfdf1bc9c9dcf5a346fe2e071e0ba2",
+        "reportMonth": "2024-04-01",
+        "capacityRows": 39,
+        "installedCapacityValues": 39,
+        "availableCapacityValues": 78,
+        "balanceRows": 27,
+        "balanceValues": 54
+      },
+      {
+        "file": "MORA_April2025.xlsx",
+        "sha256": "a6d686843c9e82e3b26d1d77948a2f1b8f53ce11d1dbc04586a04e8a027cb10e",
+        "reportMonth": "2025-04-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 28,
+        "balanceValues": 28
+      },
+      {
+        "file": "MORA_April2026.xlsx",
+        "sha256": "ceede0527fa894ed2cc1f84ea2269ab3f2408a13c45a894e5f83d7fc7a6d9ea5",
+        "reportMonth": "2026-04-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 27,
+        "balanceValues": 27
+      },
+      {
+        "file": "MORA_August2024.xlsx",
+        "sha256": "7220ed1ce0a99f367fd0ffb2af007c087a0c9a0134ccfe71c30cc2b4f66abb3c",
+        "reportMonth": "2024-08-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 27,
+        "balanceValues": 27
+      },
+      {
+        "file": "MORA_August2025.xlsx",
+        "sha256": "8828d0e39933acffcf85c0ce4869a98009dfade35694f6ff7f9c581d7ae354ca",
+        "reportMonth": "2025-08-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 26,
+        "balanceValues": 26
+      },
+      {
+        "file": "MORA_August2026.xlsx",
+        "sha256": "4385cb7a9b0306855d7838ca10b41da47e15b940ce9f7761c2577446f3fcccd0",
+        "reportMonth": "2026-08-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 27,
+        "balanceValues": 27
+      },
+      {
+        "file": "MORA_December2023.xlsx",
+        "sha256": "c51d068752de8d710574bd0ad803a5ef96a36e8dfe2e16da5d31638578a56c5d",
+        "reportMonth": "2023-12-01",
+        "capacityRows": 42,
+        "installedCapacityValues": 42,
+        "availableCapacityValues": 84,
+        "balanceRows": 21,
+        "balanceValues": 42
+      },
+      {
+        "file": "MORA_December2023_v2.xlsx",
+        "sha256": "c09eee27ab862eb388613dfb51d83a0fcc81f783b549639cfd7ec52209884fa8",
+        "reportMonth": "2023-12-01",
+        "capacityRows": 42,
+        "installedCapacityValues": 42,
+        "availableCapacityValues": 84,
+        "balanceRows": 21,
+        "balanceValues": 42
+      },
+      {
+        "file": "MORA_December2024.xlsx",
+        "sha256": "6dcbc33f2996efee9a49a863b76234876410b8b97a3099433b0aa618dc03b5c3",
+        "reportMonth": "2024-12-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 28,
+        "balanceValues": 28
+      },
+      {
+        "file": "MORA_December2025.xlsx",
+        "sha256": "747e6143310d18277698587d5d36e65e5d078141b41101294ea15f2ebae2fcbf",
+        "reportMonth": "2025-12-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 27,
+        "balanceValues": 27
+      },
+      {
+        "file": "MORA_February2024.xlsx",
+        "sha256": "27438c0ef50a25d6fcfd610213043ed93c70f928fdce490f2d6a7108b5d8177c",
+        "reportMonth": "2024-02-01",
+        "capacityRows": 39,
+        "installedCapacityValues": 39,
+        "availableCapacityValues": 78,
+        "balanceRows": 27,
+        "balanceValues": 54
+      },
+      {
+        "file": "MORA_February2026.xlsx",
+        "sha256": "6d77b784cfac49ee55671dfacd037720fc8452eef0527a87328daa95189cf6b1",
+        "reportMonth": "2026-02-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 27,
+        "balanceValues": 27
+      },
+      {
+        "file": "MORA_January2024.xlsx",
+        "sha256": "72be33b6341553a9e18b5a8e5340bdda37ec499ab38588213d8f401f4cf0b016",
+        "reportMonth": "2024-01-01",
+        "capacityRows": 42,
+        "installedCapacityValues": 42,
+        "availableCapacityValues": 84,
+        "balanceRows": 27,
+        "balanceValues": 54
+      },
+      {
+        "file": "MORA_January2025.xlsx",
+        "sha256": "102fa1b7f8b90723fe9e1c7355147f41fee2209bd769f16c181c52cd033094e4",
+        "reportMonth": "2025-01-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 28,
+        "balanceValues": 28
+      },
+      {
+        "file": "MORA_January2026.xlsx",
+        "sha256": "17faffa3b926100c242336bb4c2b72922e83f4bfa000f778847802c0fc0b6125",
+        "reportMonth": "2026-01-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 27,
+        "balanceValues": 27
+      },
+      {
+        "file": "MORA_July2024.xlsx",
+        "sha256": "40dc306a5bd647f434334fddef75f7ce5f87bcc6496ab92bae2b1b689afa2b75",
+        "reportMonth": "2024-07-01",
+        "capacityRows": 39,
+        "installedCapacityValues": 39,
+        "availableCapacityValues": 78,
+        "balanceRows": 27,
+        "balanceValues": 54
+      },
+      {
+        "file": "MORA_July2025.xlsx",
+        "sha256": "1096b3386aa55c55857b4846e775e28b009175b54fa05deffcd7380f687e9d67",
+        "reportMonth": "2025-07-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 26,
+        "balanceValues": 26
+      },
+      {
+        "file": "MORA_July2026.xlsx",
+        "sha256": "5bbac07bb05360bb755aa66777aff30da772f0a0e3c51cd99296c02c012e7328",
+        "reportMonth": "2026-07-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 27,
+        "balanceValues": 27
+      },
+      {
+        "file": "MORA_June2024.xlsx",
+        "sha256": "eab706971b4853602f71760d5d01108003c9bccdf63eafa3d5e458c4ef66922d",
+        "reportMonth": "2024-06-01",
+        "capacityRows": 39,
+        "installedCapacityValues": 39,
+        "availableCapacityValues": 78,
+        "balanceRows": 27,
+        "balanceValues": 54
+      },
+      {
+        "file": "MORA_June2025.xlsx",
+        "sha256": "0017de75216f284bcdf1d98c58be2275fb25e0514ec215ff5b179bd9a7e47b38",
+        "reportMonth": "2025-06-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 28,
+        "balanceValues": 28
+      },
+      {
+        "file": "MORA_June2026.xlsx",
+        "sha256": "c7932aaa846dbad76f5fbab8d7cf7ff9846d6fc4e7b717ac04edd4df2e023622",
+        "reportMonth": "2026-06-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 27,
+        "balanceValues": 27
+      },
+      {
+        "file": "MORA_March2024.xlsx",
+        "sha256": "cb034be04a07b31c2d71660419a335916b66cb9c976c50f04242db4e7d79f80c",
+        "reportMonth": "2024-03-01",
+        "capacityRows": 39,
+        "installedCapacityValues": 39,
+        "availableCapacityValues": 78,
+        "balanceRows": 27,
+        "balanceValues": 54
+      },
+      {
+        "file": "MORA_March2025.xlsx",
+        "sha256": "09e5c728158d48f5bcc7ca59428da8a3983cf4d4f9eab9c12ee475037ec45f5c",
+        "reportMonth": "2025-03-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 28,
+        "balanceValues": 28
+      },
+      {
+        "file": "MORA_March2026.xlsx",
+        "sha256": "8e2ea66027e8feb80e6f29f05e72a5d6626ada616c953c50785b4e3cba261e61",
+        "reportMonth": "2026-03-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 27,
+        "balanceValues": 27
+      },
+      {
+        "file": "MORA_May2024.xlsx",
+        "sha256": "9ebdf7954d35759902c6c7a6ff78bf84526f7157b1532a1a994a0796a8a51985",
+        "reportMonth": "2024-05-01",
+        "capacityRows": 39,
+        "installedCapacityValues": 39,
+        "availableCapacityValues": 78,
+        "balanceRows": 27,
+        "balanceValues": 54
+      },
+      {
+        "file": "MORA_May2025.xlsx",
+        "sha256": "cf78cfe488c09b4ec856868d6a8b7e43558dddc91bfa91aa4650aadebcaecde7",
+        "reportMonth": "2025-05-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 28,
+        "balanceValues": 28
+      },
+      {
+        "file": "MORA_May2026.xlsx",
+        "sha256": "2935c5ef1050c85f7ce0345aec9b045f21a560b0dc9200907d7e3a0daeb5deec",
+        "reportMonth": "2026-05-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 27,
+        "balanceValues": 27
+      },
+      {
+        "file": "MORA_November2024.xlsx",
+        "sha256": "a25b8f0c32e243f08c2f82f610bc1cdb8d581530db9fe3970c4ee788aa766779",
+        "reportMonth": "2024-11-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 28,
+        "balanceValues": 28
+      },
+      {
+        "file": "MORA_November2025.xlsx",
+        "sha256": "3454fca0408809b2cd53e1444852b723f3230d6ae3173833a6353fe733b915ed",
+        "reportMonth": "2025-11-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 27,
+        "balanceValues": 27
+      },
+      {
+        "file": "MORA_November2026.xlsx",
+        "sha256": "c219e33a65adc4f568ef8f85f7f072322cba81d1cf64fa0bda3f0c7b78391c7d",
+        "reportMonth": "2026-11-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 26,
+        "balanceValues": 26
+      },
+      {
+        "file": "MORA_October2024.xlsx",
+        "sha256": "cd1cb141a3509e55e8e96c657efece688149c0febccb21f2b6eea942caeb3fcb",
+        "reportMonth": "2024-10-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 28,
+        "balanceValues": 28
+      },
+      {
+        "file": "MORA_October2025.xlsx",
+        "sha256": "63179a2b73169028586a602326ec9a4a40b3c6c1534bc76d6c2aa00b6bce749e",
+        "reportMonth": "2025-10-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 26,
+        "balanceValues": 26
+      },
+      {
+        "file": "MORA_October2026.xlsx",
+        "sha256": "feb81bc87e9ef62bf4c3156f9e34dd13f126edd7564320cf8c2831037109c4d3",
+        "reportMonth": "2026-10-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 26,
+        "balanceValues": 26
+      },
+      {
+        "file": "MORA_September2024.xlsx",
+        "sha256": "2a35f32c62b6526b9b42edcd99c1bb43f2206752c77e370c95032c606d1ccdf9",
+        "reportMonth": "2024-09-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 28,
+        "balanceValues": 28
+      },
+      {
+        "file": "MORA_September2025.xlsx",
+        "sha256": "38fd590902826a3731c6c3fa1887b541e9090de843ebde25b7d5138c0fcdd844",
+        "reportMonth": "2025-09-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 26,
+        "balanceValues": 26
+      },
+      {
+        "file": "MORA_September2026.xlsx",
+        "sha256": "de004e9e58ab4826ac74858ffb117568a68c06a82cbd353611def84d321574fb",
+        "reportMonth": "2026-09-01",
+        "capacityRows": 41,
+        "installedCapacityValues": 41,
+        "availableCapacityValues": 41,
+        "balanceRows": 26,
+        "balanceValues": 26
+      },
+      {
+        "file": "mora_february2025.xlsx",
+        "sha256": "4775ab159650c637f27db0de9b5f43eec82f1182a1d1242ff448d217ffa71fff",
+        "reportMonth": "2025-02-01",
+        "capacityRows": 40,
+        "installedCapacityValues": 40,
+        "availableCapacityValues": 40,
+        "balanceRows": 28,
+        "balanceValues": 28
+      }
+    ],
+    "counts": {
+      "capacityRows": 1494,
+      "installedCapacityValues": 1494,
+      "availableCapacityValues": 1854,
+      "balanceRows": 990,
+      "balanceValues": 1221
+    },
+    "metricRows": {
+      "average_weather_load": 37,
+      "large_load_adjustment": 10,
+      "total_load": 20,
+      "dispatchable_capacity": 37,
+      "thermal_capacity": 24,
+      "storage_capacity": 37,
+      "hydro_capacity": 37,
+      "thermal_outages": 37,
+      "planned_thermal_outages": 37,
+      "unplanned_thermal_outages": 37,
+      "available_dispatchable_capacity": 37,
+      "wind_capacity": 37,
+      "solar_capacity": 37,
+      "available_non_dispatchable_capacity": 37,
+      "dc_tie_net_imports": 37,
+      "available_resources": 37,
+      "emergency_response_service": 35,
+      "distribution_voltage_reduction": 35,
+      "large_load_curtailment": 25,
+      "emergency_resources_before_eea": 37,
+      "responsive_reserve_load_resources": 35,
+      "non_spin_load_resources": 35,
+      "ecrs_load_resources": 35,
+      "emergency_resources_during_eea": 37,
+      "total_emergency_resources": 37,
+      "normal_condition_reserves": 37,
+      "emergency_condition_reserves": 37,
+      "large_flexible_load_adjustment": 10,
+      "tdsp_load_management": 27,
+      "thermal_capacity_excluding_emergency_agreements": 13,
+      "rmr_and_other_agreement_capacity": 13,
+      "crypto_demand_response": 4,
+      "large_flexible_load_curtailment": 3
+    },
+    "scenarioTimeZones": {
+      "None": 840,
+      "CDT": 1692,
+      "CST": 543
+    },
+    "comparison": "Every numeric source cell in both sheets compared to the typed reader, with source-row completeness, source labels, report dates, notes, scenario columns, clocks/time-zone labels and resource hierarchy checked independently against original openpyxl cells. No SDK parsing helpers used for expected values."
+  },
+  "fixtures": {
+    "reused": [
+      "tools/inputs/public-tables/mora-percentiles.zip",
+      "tools/inputs/public-tables/mora-resources.zip"
+    ],
+    "added": {
+      "path": "tools/inputs/public-tables/mora-summaries.zip",
+      "bytes": 255089,
+      "sha256": "7747b972b83e9e9548213eccc4eea2e6090d8727bcb6573a548730ee8ce1848b",
+      "files": [
+        {
+          "member": "MORA_March2024.xlsx",
+          "bytes": 287785,
+          "sha256": "cb034be04a07b31c2d71660419a335916b66cb9c976c50f04242db4e7d79f80c"
+        }
+      ],
+      "selection": "Complete original March 2024 workbook; captures a missing expected-capacity heading and distinct early/late March scenarios. Other summary tests reuse originals already retained in mora-percentiles.zip and mora-resources.zip."
+    },
+    "totalWorkbooks": 13,
+    "capacityRows": 526,
+    "availableCapacityValues": 727,
+    "balanceRows": 338,
+    "balanceValues": 461,
+    "distinctBalanceMetrics": 33
+  },
+  "decoder": {
+    "path": "tinyercot/_mora.py",
+    "sha256": "93343786c43ff1d00c6bac1938dcd85aa8b0e0b0b6f0e9bba376e282a765a9af"
+  },
+  "limitations": [
+    "Category capacities and the numeric Loads and Resources table only; embedded risk-chart and probability-image contents are not covered.",
+    "Scenario columns may represent different hours or different conditions at the same hour. Original labels stay separate.",
+    "Original category indentation defines overlapping parent/child rows; installed capacity is not repeated for each scenario.",
+    "These are forecasts and scenario assumptions, not measured demand, generation or reserves. Changes in metric definitions and footnotes remain explicit.",
+    "Missing zone labels remain None. Reporting months and original file names do not prove point-in-time public availability."
+  ]
+}
