@@ -6,14 +6,17 @@ from typing import assert_type
 from tinyercot import (
     Archive,
     Client,
+    Document,
     FuelMixArchive,
     FuelMixDay,
     FuelMixTotal,
     LegacyHourlyLoad,
     LoadArchive,
     Page,
+    Publication,
     ScheduledGeneration,
     WeatherZoneLoad,
+    np3_561_cd,
     np3_966_er,
     np3_988_er,
     np4_190_cd,
@@ -335,4 +338,18 @@ with Client() as client:
     assert_type(
         client.hourly_load.read_legacy(b"", filename="erceei95.txt"),
         Iterator[LegacyHourlyLoad],
+    )
+
+with Client() as client:
+    forecast_publications = (
+        client.np3_561_cd._7d_load_fcast_by_wzn_history.publications()
+    )
+    assert_type(
+        forecast_publications,
+        Iterator[Publication[np3_561_cd._7dLoadFcastByWznHistoryRow]],
+    )
+    forecast_publication = next(forecast_publications)
+    assert_type(forecast_publication.document, Document)
+    assert_type(
+        forecast_publication.rows, Iterator[np3_561_cd._7dLoadFcastByWznHistoryRow]
     )

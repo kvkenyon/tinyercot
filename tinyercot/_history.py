@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import re
 from collections.abc import Callable, Iterable, Iterator
+from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 from decimal import Decimal
 from fnmatch import fnmatchcase
@@ -17,7 +18,7 @@ from zipfile import ZipFile
 from pydantic import BaseModel, BeforeValidator
 
 if TYPE_CHECKING:
-    from ._client import Transport
+    from ._client import Document, Transport
 
 T = TypeVar("T", bound=BaseModel)
 
@@ -53,6 +54,20 @@ def _eia_hour(value: object) -> object:
 
 
 EiaHour = Annotated[Decimal | datetime, BeforeValidator(_eia_hour)]
+
+
+@dataclass(frozen=True)
+class Publication(Generic[T]):
+    """One listing entry and its lazily decoded rows.
+
+    For archives, document.postDatetime is the report's listed publication time.
+    For bundles it is the bundle's posting time, not the original availability of
+    its individual reports. Consume rows while the Client remains open.
+    """
+
+    document: Document
+    kind: Literal["archive", "bundle"]
+    rows: Iterator[T]
 
 
 class Archive(Generic[T]):
@@ -200,6 +215,42 @@ class Archive(Generic[T]):
             ):
                 continue
             yield from self.read(data)
+
+    def publications(
+        self,
+        *,
+        kind: Literal["archive", "bundle"] = "archive",
+        posted_from: datetime | None = None,
+        posted_to: datetime | None = None,
+    ) -> Iterator[Publication[T]]:
+        """Keep listing metadata with each report's rows for as-issued analysis.
+
+        Listing pages are fetched as needed. A document is downloaded only when
+        its rows are consumed, allowing metadata-only selection before download.
+        Each report is downloaded individually to preserve its source identity.
+        Corrections and repeated rows are retained; no forecast issue time is
+        inferred from a delivery date, filename or bundle timestamp.
+        """
+        if (
+            posted_from is not None
+            and posted_to is not None
+            and posted_from > posted_to
+        ):
+            raise ValueError("posted_from must not be after posted_to")
+        for document in self._client.iter_documents(
+            self._product, kind=kind, posted_from=posted_from, posted_to=posted_to
+        ):
+            if (
+                kind == "archive"
+                and self._document is not None
+                and not fnmatchcase(
+                    document.friendlyName.lower(), self._document.lower()
+                )
+            ):
+                continue
+            yield Publication(
+                document, kind, self.download([document.docId], kind=kind)
+            )
 
     def rows(
         self,
