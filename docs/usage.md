@@ -984,7 +984,10 @@ returns the current snapshot; it does not provide a historical archive.
 `ercot.dashboards.real_time_lmps()` reads the latest public settlement-point table.
 Use `hubs_and_zones=True` for the hubs/load-zones display. Each row keeps `LMP`,
 `lmpChange`, `lmpWithAdder` and `lmpWithAdderChange` separate; changes are the
-published five-minute changes. The snapshot includes `RTRDPA` and the display
+published five-minute changes. An unavailable `lmpChange`, displayed by ERCOT
+as `-`, is typed `Decimal | None` and returned as `None`; the row and its other
+prices remain available. Zero and negative changes remain numeric.
+The snapshot includes `RTRDPA` and the display
 update time, which also has no UTC offset. For historical LMPs and adders, use
 the generated report-query and `_history` methods.
 

@@ -7,7 +7,14 @@ from html.parser import HTMLParser
 from typing import Generic, Literal, TypeVar, get_args
 
 import httpx
-from pydantic import BaseModel, ConfigDict, Field, RootModel, model_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    RootModel,
+    field_validator,
+    model_validator,
+)
 
 T = TypeVar("T", bound=BaseModel)
 
@@ -43,9 +50,14 @@ class RealTimeConditions(DashboardModel):
 class RealTimeLmp(DashboardModel):
     settlementPoint: str = Field(alias="Settlement Point")
     LMP: Decimal = Field(alias="LMP")
-    lmpChange: Decimal = Field(alias="5 Min Change to LMP")
+    lmpChange: Decimal | None = Field(alias="5 Min Change to LMP")
     lmpWithAdder: Decimal = Field(alias="RTRDPA + LMP")
     lmpWithAdderChange: Decimal = Field(alias="5 Min Change to RTRDPA + LMP")
+
+    @field_validator("lmpChange", mode="before")
+    @classmethod
+    def _unavailable_change(cls, value: object) -> object:
+        return None if value == "-" else value
 
 
 class RealTimeLmpSnapshot(DashboardModel):

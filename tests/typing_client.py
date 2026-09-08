@@ -652,6 +652,7 @@ with Client() as client:
     assert_type(lmps.lastUpdated, datetime)
     assert_type(lmps.RTRDPA, Decimal)
     assert_type(lmps.data[0].LMP, Decimal)
+    assert_type(lmps.data[0].lmpChange, Decimal | None)
     assert_type(lmps.data[0].lmpWithAdderChange, Decimal)
 
 

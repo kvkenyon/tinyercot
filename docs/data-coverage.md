@@ -1569,3 +1569,13 @@ The combined wind/solar dashboard has the same publication boundary: all six
 next-day day-ahead fields were explicitly null in 24 rows (144 values). Their
 types now admit `None`; full original pre-publication and published captures
 verify that current forecasts and observed zero generation remain intact.
+
+
+### Unavailable public LMP changes
+
+A September 8, 2026 public LMP snapshot contained `-` in the five-minute LMP
+change column for APPALOSA_ALL, HB_NORTH and MIDP_SLR_RN. `lmpChange` now admits
+`None` for this marker, so all 1,123 settlement-point rows remain accessible.
+Prices and the changes including adders remain exactly as published. The complete
+original HTML is compressed in the regression fixture; every displayed field is
+compared, with separate cases for negative changes, zero and unrecognized text.

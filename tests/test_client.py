@@ -639,3 +639,57 @@ def test_wind_solar_preserves_null_day_ahead_forecasts_and_actual_zeroes(filenam
         first = next(iter(snapshot.currentDay.data.values()))
         assert first.copHslSolarDayAhead == Decimal(0)
         assert first.stppfDayAhead == Decimal(0)
+
+
+def test_real_time_lmps_preserve_prices_when_a_change_is_unavailable():
+    import re
+    from decimal import Decimal
+    from html import unescape
+    from zipfile import ZipFile
+
+    with ZipFile(INPUTS / "dashboards/current_np6788-missing-change.zip") as archive:
+        body = archive.read("current_np6788.html").decode()
+    with httpx.Client(
+        transport=httpx.MockTransport(lambda _: httpx.Response(200, text=body))
+    ) as http:
+        snapshot = Client(client=http).dashboards.real_time_lmps()
+    rows = [
+        [
+            " ".join(unescape(re.sub(r"<[^>]+>", " ", c)).split())
+            for c in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.DOTALL)
+        ]
+        for tr in re.findall(r"<tr[^>]*>(.*?)</tr>", body, re.DOTALL)
+    ][2:]
+    assert len(snapshot.data) == len(rows) == 1123
+    missing = []
+    for typed, raw in zip(snapshot.data, rows, strict=True):
+        assert typed.settlementPoint == raw[0]
+        assert typed.LMP == Decimal(raw[1])
+        assert typed.lmpChange == (None if raw[2] == "-" else Decimal(raw[2]))
+        assert typed.lmpWithAdder == Decimal(raw[3])
+        assert typed.lmpWithAdderChange == Decimal(raw[4])
+        if typed.lmpChange is None:
+            missing.append(typed.settlementPoint)
+    assert missing == ["APPALOSA_ALL", "HB_NORTH", "MIDP_SLR_RN"]
+
+
+@pytest.mark.parametrize("change", ["-1.25", "0.00", "unrecognized"])
+def test_price_change_marker_does_not_hide_real_numbers_or_invalid_data(change):
+    from decimal import Decimal
+
+    from tinyercot._dashboards import RealTimeLmp
+
+    values = {
+        "Settlement Point": "HB_NORTH",
+        "LMP": "-12.50",
+        "5 Min Change to LMP": change,
+        "RTRDPA + LMP": "-12.40",
+        "5 Min Change to RTRDPA + LMP": "0.00",
+    }
+    if change == "unrecognized":
+        with pytest.raises(ValueError):
+            RealTimeLmp.model_validate(values)
+    else:
+        row = RealTimeLmp.model_validate(values)
+        assert row.lmpChange == Decimal(change)
+        assert row.LMP == Decimal("-12.50")
