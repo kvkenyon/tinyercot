@@ -1054,7 +1054,8 @@ from tinyercot import Client
 
 with Client() as ercot:
     source = next(
-        file for file in ercot.generation_profiles.files()
+        file
+        for file in ercot.generation_profiles.files()
         if file.url.endswith(
             "ERCOT-OperationalPlanned-SolarPVProfiles-2020-2021-CST-CDT.xlsx"
         )
@@ -1082,3 +1083,36 @@ and dates outside filename labels survive unchanged. Saved CSVs, workbooks and
 ZIPs containing supported tables can be read locally. Unsupported layouts raise;
 older ZIP formats and all Excel vintages are not yet verified. See the
 [coverage evidence](data-coverage.md#modeled-generation-profiles).
+
+The separate keys can be discovered and read with the same service:
+
+```python
+with Client() as ercot:
+    source = next(
+        file
+        for file in ercot.generation_profiles.key_files()
+        if file.url.endswith("ERCOT-SolarPVProfiles-1980-2021-Key-public.xlsx")
+    )
+    key = next(
+        ercot.generation_profiles.read_keys(
+            ercot.generation_profiles.download(source), filename=source.title
+        )
+    )
+    for plant in key.sites:
+        if plant.cdrZone == "West" and plant.unitCode:
+            print(plant.unitCode, plant.capacityMW)
+```
+
+`GenerationProfileKey` contains typed site/unit rows, published summary counts,
+source title/date and notes with worksheet locations. Site rows retain source row
+numbers, numeric site IDs, unit codes, location, capacity and available equipment
+metadata. `tilt` preserves the source's `Lat` and `NA` labels as well as numbers.
+`queuedModelFlag` reads the wind key's colour legend; `None` means no such legend
+was supplied. Multiple unit codes for the same site remain separate records.
+
+Use matching vintages and inspect unmatched identifiers before joining. In the
+1980–2021 solar key, `TREBA_UNIT 1` contains a space absent from the profile column
+`TREBA_UNIT1`; 163 of 164 unit codes match exactly. The SDK preserves both source
+spellings. Published summaries are also retained independently: the 1980–2020
+solar key reports 313 utility profiles while its detailed scenario totals sum
+to 331. `sourceDate` is the workbook's own date, not an asserted publication time.

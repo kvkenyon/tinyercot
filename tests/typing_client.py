@@ -18,6 +18,9 @@ from tinyercot import (
     FuelMixDay,
     FuelMixTotal,
     GenerationProfileHour,
+    GenerationProfileKey,
+    GenerationProfileKeySite,
+    GenerationProfileKeySummary,
     GenerationProfileSite,
     IdrCompliance,
     IndicativeOrdcPrice,
@@ -742,3 +745,14 @@ with Client() as client:
     generation_profile_hour = next(client.generation_profiles.read(b""))
     assert_type(generation_profile_hour.generationMW, dict[str, Decimal | None])
     assert_type(generation_profile_hour.profileDate, date)
+
+with Client() as client:
+    assert_type(
+        client.generation_profiles.read_keys(b""), Iterator[GenerationProfileKey]
+    )
+    generation_key = next(client.generation_profiles.read_keys(b""))
+    assert_type(generation_key.sites, list[GenerationProfileKeySite])
+    assert_type(generation_key.summaries, list[GenerationProfileKeySummary])
+    assert_type(generation_key.sites[0].capacityMW, Decimal | None)
+    assert_type(generation_key.sites[0].tilt, Decimal | Literal["Lat", "NA"] | None)
+    assert_type(generation_key.sites[0].queuedModelFlag, bool | None)

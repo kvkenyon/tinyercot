@@ -1190,10 +1190,41 @@ These are **modeled generation scenarios**, not metered historical generation or
 point-in-time forecasts. The source's [development report](https://www.ercot.com/files/docs/2022/12/19/ERCOT_1980-2021_WindSolarGenProfiles_FINAL_public.pdf)
 describes weather reconstruction and calibration to generation observations.
 Separate profile vintages should not be combined as an observed fleet history.
-Older ZIP layouts, the remaining Excel vintages and separate key workbook tables
-remain unverified or unsupported; this addition does not close those gaps.
+Older ZIP layouts and the remaining Excel profile vintages remain unverified
+or unsupported; this addition does not close those gaps. The four companion key
+workbooks are covered below.
 
 `tools/inputs/generation-profiles/evidence.json` records the eight original file
 URLs, hashes, counts and boundaries. `profiles.zip` retains three complete,
 unchanged originals for regression tests; `csv-header-samples.json` explicitly
 contains only captured header/row excerpts. All fixtures stay outside the wheel.
+
+
+### Generation-profile site keys
+
+`generation_profiles.key_files()` discovers all four directly linked wind/solar
+key workbooks for the 1980–2020 and 1980–2021 profile vintages. `read_keys()` yields
+`GenerationProfileKey` objects containing typed site/unit rows, summary rows and
+located source notes. Fresh downloads match all four original fixture hashes.
+
+All source cells in **11 site/unit tables (1,828 rows)** and all numeric summary
+rows (**32 rows**) were compared with independent original worksheet positions.
+The reader preserves both solar table sections across repeated headers, detailed
+wind unit mappings, distributed-solar metro and rural metadata, capacities,
+coordinates, equipment descriptions and source labels such as `Lat`/`NA` tilt.
+The older wind workbook's legend marks four sites and twelve unit rows as modeled
+queued plants; those flags were checked without mistaking the adjacent legend for
+a site's own flag. The newer workbooks have no such legend and return `None`.
+
+Two source inconsistencies remain explicit. The 1980–2020 solar summary reports
+313 utility profiles while detailed scenario totals sum to 331. In the
+1980–2021 solar publication, 163 of 164 key unit codes match profile columns;
+`TREBA_UNIT 1` in the key differs from `TREBA_UNIT1` in the profile. Neither is
+silently normalized or repaired. Site families and publication vintages are never
+automatically joined.
+
+The four unchanged originals total 183,426 bytes under
+`tools/inputs/generation-profiles/keys/`; their source URLs, hashes, table counts,
+legend checks and identifier mismatch are recorded in `evidence.json`. Tests
+exercise the originals, source-summary discrepancies, nested workbook ZIPs and
+credential-free discovery/downloads. Fixtures remain excluded from the wheel.

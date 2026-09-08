@@ -12,6 +12,7 @@ from zipfile import ZipFile
 
 from pydantic import BaseModel, ConfigDict
 
+from ._generation_keys import GenerationProfileKey, read_keys
 from ._legacy_load import _number
 from ._load import _sheets
 from ._public_tables import PublicFile, _PublicTable, _year_files
@@ -138,6 +139,22 @@ class GenerationProfiles(_PublicTable[GenerationProfileHour]):
             if file.url.lower().endswith((".csv", ".xlsx", ".zip"))
             and "key" not in file.title.lower()
         ]
+
+    def key_files(self) -> list[PublicFile]:
+        """Discover the separately published wind/solar site-key workbooks."""
+        return [
+            file
+            for file in _year_files(
+                self._http, self.index_url, r"(?i).*profiles?.*key.*"
+            )
+            if file.url.lower().endswith(".xlsx")
+        ]
+
+    def read_keys(
+        self, data: bytes, *, filename: str = "profile-key.xlsx"
+    ) -> Iterator[GenerationProfileKey]:
+        """Read saved site keys and their published summaries without joining vintages."""
+        yield from read_keys(data, filename)
 
     def sites(
         self, data: bytes, *, filename: str = "profiles"
