@@ -155,6 +155,15 @@ newer regional values. RUC and SCED timestamps retain their seconds, and DC-tie
 schedules retain both GMT and local interval-ending fields. System-adequacy
 hour-ending labels remain strings, including `24:00`.
 
+System-adequacy history maps the legacy `OfflineAvailableMW` column to
+`offAvailMW`, the same system total as newer `OfflineAvailableMWTotal` columns.
+The [original 2015 fixture](../tools/inputs/history/adequacy-offline-original.zip)
+checks all 168 rows and six source fields, including zero and nonzero capacity;
+unpublished regional and ancillary-service fields remain `None`.
+[Source metadata](../tools/inputs/history/adequacy-offline-evidence.json) records
+the original download and hash. Annual samples from 2015–2025 decode, but do not
+establish uninterrupted history or exact format-transition dates.
+
 Ancillary-service offers and sales, peaker net margin, system-wide offer caps,
 RMR deployments, and day-ahead point-to-point option prices also expose typed
 `_history` readers. Legacy offers retain `RRS` separately from later RRS
