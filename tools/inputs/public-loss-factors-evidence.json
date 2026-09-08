@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-09-08T08:42:07.982284+00:00",
+  "indexUrl": "https://www.ercot.com/mktinfo/data_agg",
+  "indexSha256": "fa87d35c9450ce02a452b037c82a09dd38848861fc1de7f82b37ce15e9f85e72",
+  "archives": [
+    {
+      "year": 2026,
+      "title": "Historical Loss Factors_2026-01-01_thru_2026-07-31_20260706",
+      "url": "https://www.ercot.com/files/docs/2025/02/14/Historical-Loss-Factors_2026-01-01_thru_2026-07-31_20260805.xlsx"
+    }
+  ],
+  "comparison": {
+    "source": "Historical-Loss-Factors_2026-01-01_thru_2026-07-31_20260805.xlsx",
+    "sha256": "699b6352cfc89f21350f1ada55093e6f195de0135545c9e9fff9e12dc68c3eb6",
+    "bytes": 6399890,
+    "rows": 7632,
+    "sheets": {
+      "ACTUAL_TLF": 212,
+      "FORECASTED_TLF": 212,
+      "ACTUAL_DLF": 3604,
+      "FORECASTED_DLF": 3604
+    },
+    "intervalCells": 763200,
+    "numericCells": 732528,
+    "blankCells": 30672,
+    "firstDay": "2026-01-01",
+    "lastDay": "2026-07-31",
+    "uniqueDays": 212,
+    "series": 36,
+    "comparison": "Every source row, identifier, timestamp and interval cell independently compared with original openpyxl values; no SDK parsing helpers used for expected values."
+  },
+  "fixture": {
+    "path": "tools/inputs/loss-factors/historical.xlsx",
+    "sha256": "4ec56bf01a10130a5cad39cee981d9f896374f4601e7a06d8339fb71f683c57d",
+    "bytes": 135150,
+    "sheets": {
+      "ACTUAL_TLF": 4,
+      "FORECASTED_TLF": 4,
+      "ACTUAL_DLF": 68,
+      "FORECASTED_DLF": 68
+    },
+    "rows": 144,
+    "selection": "All series on January 1, March 8 (short day), March 9, and July 31, 2026. Original cell XML retained, rows removed and coordinates renumbered; source dimension preserved."
+  },
+  "decoderSha256": "67dd1cada25a6dfeaed5d8f8974b07ec6b1bf9a540c975f790e4d24b0ea2e1b4",
+  "limitations": [
+    "Direct workbook only; MIS feeds not queried. No older history inferred from URL dates.",
+    "STARTTIME and LSTIME retain source values, with no inferred timezone or proof of public availability.",
+    "100 original interval positions retained. Numeric factors are unscaled and never applied implicitly."
+  ]
+}

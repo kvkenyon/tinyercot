@@ -543,6 +543,35 @@ including repeated dimension combinations with distinct counts. Blank trailing
 rows are skipped; counts are neither aggregated nor filled. Source comparisons
 and an eleven-workbook fixture are recorded in the load-profile evidence file.
 
+## Historical settlement loss factors
+
+`Client.loss_factors` discovers the direct historical workbooks on the
+[data aggregation page](https://www.ercot.com/mktinfo/data_agg). The inspected
+download contains four tables: actual and forecast transmission loss factors,
+and actual and forecast distribution loss factors. All 7,632 source records,
+732,528 numeric factors and 30,672 blank interval cells were independently
+compared with the original workbook, including identifiers and both timestamps.
+There are 36 series across 212 consecutive operating dates, January 1–July 31,
+2026. Distribution data contains 17 TDSP/loss-code combinations for each kind.
+
+Each typed record preserves all 100 numbered INTV columns as `intervals`, with
+blank factors remaining `None`. March 8 has 92 populated intervals per series;
+the other inspected days have 96. No wall-clock or UTC mapping is inferred from
+these positions. Factors are unscaled and never applied to other series
+implicitly. Original recorder and TDSP/loss-code labels stay attached.
+`sourceStartTime` and `sourceLastTime` retain STARTTIME/LSTIME without inferred
+timezones; LSTIME is not evidence of public availability. Inclusive date bounds
+use the date in STARTTIME, and `where` accepts a typed predicate over the record.
+
+The index label's version suffix differs from its actual download URL. Discovery
+uses the href and queries workbook dates, rather than constructing filenames or
+assuming label dates establish coverage. Current transmission loss-factor product
+pages NP13-14-SG and NP13-268-SG use MIS routes, excluded here. No claim of older
+direct loss-factor history is made. Overlapping saved files remain separate.
+Evidence and fixture provenance are in `tools/inputs/public-loss-factors-evidence.json`;
+the fixture retains original cell XML for all series on four dates, including
+the short day and both ends of the inspected history.
+
 ## Historical IDR compliance summaries
 
 `Client.idr_compliance` discovers and reads all seven direct filing archives

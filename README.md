@@ -355,6 +355,39 @@ label, not proof of public availability. Two malformed date labels remain in
 `sourceDateLabel` with `snapshotDate=None`: unbounded reads include them, while
 date bounds exclude them. Five records retain an unknown weather zone as `None`.
 
+### Historical settlement loss factors
+
+`loss_factors` reads the directly published actual/forecast transmission and
+distribution loss-factor workbooks with `tinyercot[files]`, without credentials:
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    for day in ercot.loss_factors.rows(
+        date_from=date(2026, 1, 1),
+        date_to=date(2026, 1, 31),
+        where=lambda r: r.kind == "actual" and r.level == "distribution",
+    ):
+        print(day.operatingDay, day.tdsp, day.lossCode, day.intervals[0].factor)
+```
+
+`archives()` discovers the current direct links; `download(archive)` returns the
+original workbook; `read(data, filename=..., ...)` also accepts saved workbooks
+and ZIPs with the same inclusive operating-date bounds and typed `where` filter.
+All 100 numbered interval columns remain in order, including blank cells as
+`None`. Factors retain their original scale and are never applied to load
+implicitly. Source recorder, TDSP/loss-code labels, member and sheet are retained.
+`sourceStartTime` and `sourceLastTime` preserve STARTTIME/LSTIME without inferred
+timezones or a claim that LSTIME establishes public availability.
+
+The inspected direct workbook contains 7,632 series/day records spanning all
+212 days of January–July 2026, with 732,528 numeric factors. This is the coverage
+of that download; older history is not inferred from its URL or current index.
+Overlapping downloads remain separate. Current MIS loss-factor feeds are outside
+this client's scope.
+
 ### Historical IDR compliance summaries
 
 `idr_compliance` exposes the public historical market/TDSP summary tables with

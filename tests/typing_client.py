@@ -17,6 +17,7 @@ from tinyercot import (
     LoadProfileAdjustment,
     LoadProfileCount,
     LoadProfileDay,
+    LossFactorDay,
     MonthlyCoincidentPeak,
     Page,
     Publication,
@@ -30,6 +31,20 @@ from tinyercot import (
     np3_988_er,
     np4_190_cd,
 )
+
+with Client() as client:
+    assert_type(client.loss_factors.archives(), list[LoadArchive])
+    assert_type(client.loss_factors.read(b""), Iterator[LossFactorDay])
+    assert_type(
+        client.loss_factors.rows(where=lambda r: r.kind == "actual"),
+        Iterator[LossFactorDay],
+    )
+    loss_day = next(client.loss_factors.rows())
+    assert_type(loss_day.operatingDay, date)
+    assert_type(loss_day.sourceStartTime, datetime)
+    assert_type(loss_day.sourceLastTime, datetime)
+    assert_type(loss_day.tdsp, str | None)
+    assert_type(loss_day.intervals[0].factor, Decimal | None)
 
 with Client() as client:
     assert_type(client.idr_compliance.archives(), list[LoadArchive])
