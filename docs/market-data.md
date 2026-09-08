@@ -75,7 +75,8 @@ The September 2026 checks establish different levels of evidence:
 | Actual weather-zone load | April 30, 2014–September 6, 2026; 108,285 rows | Every field compared; December 4, 2025 and three older hour-ending-24 observations are absent |
 | Wind actuals and forecasts | Reported period fields span April 29, 2014–September 15, 2026; 21,676,139 report rows | Every field compared across all enumerated archives and bundles; overlapping vintages and future forecast periods are included |
 | RT settlement prices, SCED constraints, hourly outage capacity | Earliest archive posting observed May 1, 2014 | Listing bounds and sampled layouts; complete intervening rows have not been compared |
-| Solar actuals/forecasts | Earliest archive posting observed February 10, 2016 | Listing bounds and sampled layouts |
+| System-wide hourly solar actuals/forecasts | Reported period fields span February 8, 2016–September 15, 2026; 20,035,246 report rows | Every field compared across all enumerated archives and bundles; overlapping vintages and future forecast periods are included |
+| Regional and five-minute solar reports | Product-specific historical samples | Sampled layouts; complete retained histories have not been compared |
 | Weather-zone load forecasts | Earliest archive posting observed January 1, 2019 | Oldest forecast decoded with original publication metadata; bundles cover a shorter period |
 | RT ancillary-service prices | Earliest archive posting observed December 5, 2025 | Listing bounds and sampled workbook layouts |
 
@@ -91,6 +92,12 @@ covers 108,275 original publications and all five retained layouts. Independent
 source-file accounting and a fresh publication-bounded listing check agree with
 the backfill. Its forecast periods extend beyond the retrieval day; this is not
 a claim of future actual generation or continuous hourly observations.
+
+The [complete system-wide hourly solar comparison](../tools/inputs/history/solar-backfill-evidence.json)
+covers 92,700 original publications across all three retained layouts. All ten
+typed fields match the source CSV values. Independent file accounting and a
+fresh publication-bounded archive count agree; this result does not extend to
+the separate regional or five-minute solar products.
 
 These are recorded checks, not promises of permanent ERCOT retention. Publication
 boundaries are not delivery-date boundaries. The [source coverage notes](data-coverage.md)

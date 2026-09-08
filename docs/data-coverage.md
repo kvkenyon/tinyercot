@@ -1613,3 +1613,41 @@ retain archive posting metadata when evaluating forecasts as issued.
 [Full comparison and source-accounting receipt](../tools/inputs/history/wind-backfill-evidence.json)
 records the row-model fields, layouts, reader hashes, manifest hashes, listing
 recheck and limits. Source downloads remain outside the installed package.
+
+### Complete retained system-wide hourly solar backfill
+
+The September 8, 2026 unbounded `np4_737_cd.spp_hrly_avrg_actl_fcast_history`
+backfill compared **20,035,246 rows across 92,700 original publications**, using
+102 monthly bundles and 19 archive download batches. All ten typed fields in
+every row matched independent stdlib CSV/date/Decimal decoding. The three
+retained layouts include the older full hour-ending timestamp, the later
+delivery-date/hour format, and the newer generation/HSL columns. No runtime or
+generated-reader changes were needed.
+
+Independent recursive file accounting agrees on every original CSV hash and
+row count, and all captured archive IDs appear in the decoded sources. The
+paginated listing contained one repeated document ID; the backfill retrieved
+each original publication once. A fresh listing bounded at the captured latest
+publication agrees on 92,700 unique documents and both publication endpoints.
+No bundle-only publications were found in this snapshot.
+
+Archive postings span February 10, 2016 at 00:31:11.247 through September 8, 2026
+at 13:55:14, with no supplied UTC offset. Source period fields remain separate:
+
+| Source period field | First | Last |
+| --- | --- | --- |
+| `hourEndingTimestamp` | February 8, 2016 00:00 | June 30, 2016 09:00 |
+| `deliveryDate` | June 21, 2016 | September 15, 2026 |
+
+Actual generation, the two forecast series, available HSL fields, missing values
+and DST flags retain their source values. Rows overlap across forecast vintages;
+these counts are not unique observed hours, and later forecast periods are not
+future actual generation. This check does not establish continuous observations,
+earlier ERCOT holdings, an atomic listing snapshot, or full coverage of the
+separate regional/five-minute solar products. Use `publications()` to retain
+original archive posting metadata when evaluating forecasts as issued.
+
+[Full comparison and source-accounting receipt](../tools/inputs/history/solar-backfill-evidence.json)
+records the fields, layouts, source and reader hashes, listing recheck and
+limitations. Large source downloads remain outside the repository and installed
+package.
