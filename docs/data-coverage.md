@@ -141,8 +141,16 @@ Outage and adequacy history includes seven-day and longer planned-outage margins
 hourly resource outage capacity, short-term system adequacy, hourly RUC status,
 and approved DC-tie schedules. For example,
 `ercot.np3_233_cd.hourly_res_outage_cap_history.rows(...)` reads old system totals
-as `totalResourceMW` and `totalIRRMW`; regional fields absent from those files
-remain `None`. Old RUC reports similarly preserve `sumSCEDTotal` separately from
+as `totalResourceMW`, `totalIRRMW`, and, where published,
+`totalNewEquipResourceMW`; regional fields absent from those files remain `None`.
+The 2019 and 2020 samples include the system-wide new-equipment total, which is
+absent from the earlier four-column layout. Two complete original publications
+in [the regression fixture](../tools/inputs/history/outage-equipment-originals.zip)
+cover all 336 rows and 1,680 source values;
+[source metadata](../tools/inputs/history/outage-equipment-evidence.json) records
+their download URLs and hashes. These samples establish layout support, not uninterrupted
+retention or exact format-transition dates.
+Old RUC reports similarly preserve `sumSCEDTotal` separately from
 newer regional values. RUC and SCED timestamps retain their seconds, and DC-tie
 schedules retain both GMT and local interval-ending fields. System-adequacy
 hour-ending labels remain strings, including `24:00`.

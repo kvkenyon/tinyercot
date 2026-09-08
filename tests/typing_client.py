@@ -368,6 +368,7 @@ with Client() as client:
 
     for capacity in client.np3_233_cd.hourly_res_outage_cap_history.rows():
         assert_type(capacity.totalResourceMW, int | None)
+        assert_type(capacity.totalNewEquipResourceMW, int | None)
     for adequacy in client.np3_763_cd.st_sys_adequacy_history.rows():
         assert_type(adequacy.hourEnding, str | None)
     for ruc in client.np3_764_cd.hrly_ruc_online_sced_offline_cop_history.rows():

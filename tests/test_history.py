@@ -666,7 +666,38 @@ def test_adequacy_historical_formats(sample):
             )
         )
     assert len(rows) == min(3, sample["csv_rows"])
-    assert rows[0].model_dump(mode="json") == sample["first_row"]
+    expected = sample["first_row"]
+    if product == "np3-233-cd":
+        # These older receipts predate the additional legacy field.
+        expected = {**expected, "totalNewEquipResourceMW": None}
+    assert rows[0].model_dump(mode="json") == expected
+
+
+def test_legacy_outage_new_equipment_totals_match_complete_originals():
+    data = (INPUTS / "outage-equipment-originals.zip").read_bytes()
+    with Client() as client:
+        rows = list(client.np3_233_cd.hourly_res_outage_cap_history.read(data))
+    expected = []
+    with ZipFile(BytesIO(data)) as publications:
+        for name in publications.namelist():
+            with ZipFile(BytesIO(publications.read(name))) as publication:
+                for member in publication.namelist():
+                    source = publication.read(member).decode("utf-8-sig")
+                    expected.extend(csv.DictReader(StringIO(source)))
+    assert len(rows) == len(expected) == 336
+    for row, original in zip(rows, expected, strict=True):
+        month, day, year = map(int, original["Date"].split("/"))
+        assert row.operatingDate == date(year, month, day)
+        assert row.hourEnding == int(original["HourEnding"])
+        assert row.totalResourceMW == int(original["TotalResourceMW"])
+        assert row.totalIRRMW == int(original["TotalIRRMW"])
+        assert row.totalNewEquipResourceMW == int(original["TotalNewEquipResourceMW"])
+        assert row.postedDatetime is None
+        assert all(
+            value is None
+            for field, value in row.model_dump().items()
+            if "Zone" in field
+        )
 
 
 def test_legacy_outage_and_ruc_totals_are_not_assigned_to_regions():
@@ -681,6 +712,7 @@ def test_legacy_outage_and_ruc_totals_are_not_assigned_to_regions():
         )
         assert outage.totalResourceMW == 18542
         assert outage.totalIRRMW == 685
+        assert outage.totalNewEquipResourceMW is None
         assert outage.totalResourceMWZoneSouth is None
         ruc = next(
             client.np3_764_cd.hrly_ruc_online_sced_offline_cop_history.read(

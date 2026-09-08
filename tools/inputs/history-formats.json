@@ -3143,6 +3143,13 @@
         "HourEnding": "hourEnding",
         "TotalResourceMW": "totalResourceMW",
         "TotalIRRMW": "totalIRRMW"
+      },
+      {
+        "Date": "operatingDate",
+        "HourEnding": "hourEnding",
+        "TotalResourceMW": "totalResourceMW",
+        "TotalIRRMW": "totalIRRMW",
+        "TotalNewEquipResourceMW": "totalNewEquipResourceMW"
       }
     ],
     "fields": {
@@ -3162,7 +3169,8 @@
       "totalNewEquipResourceMWZoneWest": "int",
       "totalNewEquipResourceMWZoneHouston": "int",
       "totalResourceMW": "int",
-      "totalIRRMW": "int"
+      "totalIRRMW": "int",
+      "totalNewEquipResourceMW": "int"
     }
   },
   "np3-763-cd/st_sys_adequacy": {
