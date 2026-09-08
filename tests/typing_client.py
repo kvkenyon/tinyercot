@@ -358,6 +358,12 @@ with Client() as client:
     for adder in client.np6_323_cd.rt_price_adder_sced_history.rows():
         assert_type(adder.RTORPA, Decimal | None)
         assert_type(adder.RTRDPA, Decimal | None)
+        assert_type(adder.RTORDPA, Decimal | None)
+        assert_type(adder.RTRUCCST30HSL, Decimal | None)
+        assert_type(adder.RTOLLASL, Decimal | None)
+        assert_type(adder.RTOLHASL, Decimal | None)
+        assert_type(adder.RTNCLRNSCAP, Decimal | None)
+        assert_type(adder.RTNCLRECRS, Decimal | None)
 
     for forecast in client.np3_561_cd._7d_load_fcast_by_wzn_history.rows():
         assert_type(forecast.hourEnding, str | None)

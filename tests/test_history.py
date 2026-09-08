@@ -572,7 +572,64 @@ def test_operation_historical_formats(sample):
             )
         )
     assert len(rows) == min(3, sample["csv_rows"])
-    assert rows[0].model_dump(mode="json") == sample["first_row"]
+    expected = sample["first_row"]
+    if product == "np6-323-cd":
+        expected = {
+            **expected,
+            **dict.fromkeys(
+                [
+                    "RTRUCCST30HSL",
+                    "RTORDPA",
+                    "RTOLLASL",
+                    "RTOLHASL",
+                    "RTNCLRNSCAP",
+                    "RTNCLRECRS",
+                ]
+            ),
+        }
+    assert rows[0].model_dump(mode="json") == expected
+
+
+def test_intermediate_price_adders_match_complete_originals():
+    data = (INPUTS / "adder-intermediate-originals.zip").read_bytes()
+    with Client() as client:
+        rows = list(client.np6_323_cd.rt_price_adder_sced_history.read(data))
+    originals = []
+    with ZipFile(BytesIO(data)) as publications:
+        for name in publications.namelist():
+            with ZipFile(BytesIO(publications.read(name))) as publication:
+                content = publication.read(publication.namelist()[0]).decode(
+                    "utf-8-sig"
+                )
+                originals.extend(
+                    csv.DictReader(
+                        line for line in content.splitlines() if line.strip()
+                    )
+                )
+    assert len(rows) == len(originals) == 4
+    assert sorted(map(len, originals)) == [29, 32, 33, 34]
+    for row, source in zip(rows, originals, strict=True):
+        expected = {}
+        for field, value in source.items():
+            if field == "SCEDTimestamp":
+                expected[field] = datetime.strptime(value, "%m/%d/%Y %H:%M:%S")  # noqa: DTZ007
+            elif field == "RepeatedHourFlag":
+                assert value in {"Y", "N"}
+                expected["repeatHourFlag"] = value == "Y"
+            elif field == "BatchID":
+                expected[field] = int(value)
+            else:
+                expected["systemLambda" if field == "SystemLambda" else field] = (
+                    Decimal(value)
+                )
+        actual = row.model_dump()
+        assert {field: actual[field] for field in expected} == expected
+        assert all(
+            value is None for field, value in actual.items() if field not in expected
+        )
+        assert row.RTRDPA is None
+    assert any(row.RTORDPA and row.RTORDPA > 0 for row in rows)
+    assert any(row.RTNCLRECRS and row.RTNCLRECRS > 0 for row in rows)
 
 
 def test_legacy_lambda_and_ordc_fields_remain_distinct():
