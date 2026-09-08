@@ -388,3 +388,12 @@ with Client() as client:
     assert_type(lmps.RTRDPA, Decimal)
     assert_type(lmps.data[0].LMP, Decimal)
     assert_type(lmps.data[0].lmpWithAdderChange, Decimal)
+
+
+with Client() as client:
+    rtd_display = client.dashboards.indicative_prices("HB_HOUSTON")
+    assert_type(rtd_display.lastSCEDTimestamp, datetime)
+    assert_type(rtd_display.data[0].RTDTimestamp, datetime)
+    assert_type(rtd_display.data[0].actualLMP, Decimal)
+    assert_type(rtd_display.data[0].intervals[0].minutesAhead, int)
+    assert_type(rtd_display.data[0].intervals[0].LMP, Decimal)

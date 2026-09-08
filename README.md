@@ -444,5 +444,13 @@ published five-minute changes. The snapshot includes `RTRDPA` and the display
 update time, which also has no UTC offset. For historical LMPs and adders, use
 the generated report-query and `_history` methods.
 
+`ercot.dashboards.indicative_prices("HB_HOUSTON")` returns recent RTD runs for any
+of the 15 published hubs/load zones. Each run retains its `RTDTimestamp`, the
+display’s `actualLMP` value, and typed `intervals` with `intervalId`, `minutesAhead`
+and `LMP`. The interval prices include reliability deployment adders, exposed by
+`includesReliabilityAdder=True`. The separate `lastSCEDTimestamp` and run times
+remain naive; no absolute interval timestamp is inferred from a minute offset.
+For the longer historical record, use `np6_970_cd.rtd_lmp_node_zone_hub_history`.
+
 Detailed field mappings, historical layout changes and source limitations are
 recorded in [data coverage](docs/data-coverage.md).

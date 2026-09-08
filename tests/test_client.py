@@ -408,6 +408,83 @@ def test_public_lmps_reject_unknown_price_components(old, new):
         Client(client=http).dashboards.real_time_lmps()
 
 
+@pytest.mark.parametrize("point", ["HB_BUSAVG", "HB_HOUSTON"])
+def test_indicative_prices_preserve_runs_horizons_and_adder_semantics(point):
+    from datetime import datetime
+    from decimal import Decimal
+
+    name = "rtd_ind_lmp_lz_hb" + ("" if point == "HB_BUSAVG" else "_" + point)
+    body = (INPUTS / "dashboards" / f"{name}.html").read_text()
+
+    def handler(request):
+        assert request.url.path == f"/content/cdr/html/{name}.html"
+        assert "authorization" not in request.headers
+        return httpx.Response(200, text=body)
+
+    with httpx.Client(transport=httpx.MockTransport(handler)) as http:
+        result = Client(client=http).dashboards.indicative_prices(point)
+    assert result.settlementPoint == point
+    assert result.includesReliabilityAdder is True
+    assert result.lastSCEDTimestamp == datetime.fromisoformat("2026-09-08T01:05:16")
+    assert result.lastSCEDTimestamp.tzinfo is None
+    assert len(result.data) == 2
+    run = result.data[0]
+    assert run.RTDTimestamp == datetime.fromisoformat("2026-09-08T01:05:03")
+    assert run.actualLMP == Decimal("36.14")
+    assert [interval.intervalId for interval in run.intervals] == list(range(1, 12))
+    assert [interval.minutesAhead for interval in run.intervals] == list(
+        range(5, 60, 5)
+    )
+    assert [interval.LMP for interval in run.intervals] == list(
+        map(
+            Decimal,
+            [
+                "36.14",
+                "34.57",
+                "32.33",
+                "31.92",
+                "31.41",
+                "31.07",
+                "30.69",
+                "30.12",
+                "29.69",
+                "29.47",
+                "29.40",
+            ],
+        )
+    )
+    assert type(result).model_validate_json(result.model_dump_json()) == result
+
+
+@pytest.mark.parametrize("point", ["INVALID", "HB_HOUSTON"])
+def test_indicative_prices_reject_unknown_or_mismatched_points(point):
+    body = (INPUTS / "dashboards/rtd_ind_lmp_lz_hb.html").read_text()
+    with (
+        httpx.Client(
+            transport=httpx.MockTransport(lambda _: httpx.Response(200, text=body))
+        ) as http,
+        pytest.raises(ValueError),
+    ):
+        Client(client=http).dashboards.indicative_prices(point)
+
+
+@pytest.mark.parametrize("change", ["horizon", "missing_price"])
+def test_indicative_prices_reject_ambiguous_or_truncated_horizons(change):
+    body = (INPUTS / "dashboards/rtd_ind_lmp_lz_hb.html").read_text()
+    if change == "horizon":
+        body = body.replace("(Time+55)", "(Unknown)")
+    else:
+        assert '<td class="labelClassCenter">29.40</td>' in body
+        body = body.replace('<td class="labelClassCenter">29.40</td>', "", 1)
+    with (
+        httpx.Client(
+            transport=httpx.MockTransport(lambda _: httpx.Response(200, text=body))
+        ) as http,
+        pytest.raises(ValueError),
+    ):
+        Client(client=http).dashboards.indicative_prices()
+
+
 def test_single_bundle_400_uses_published_get_download():
     calls = []
 

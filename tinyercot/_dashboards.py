@@ -1,9 +1,10 @@
 """Typed public dashboard payloads; source labels and sections are preserved."""
 
+import re
 from datetime import date, datetime
 from decimal import Decimal
 from html.parser import HTMLParser
-from typing import Literal, TypeVar
+from typing import Literal, TypeVar, get_args
 
 import httpx
 from pydantic import BaseModel, ConfigDict, Field, RootModel, model_validator
@@ -55,6 +56,46 @@ class RealTimeLmpSnapshot(DashboardModel):
     data: list[RealTimeLmp]
 
 
+HubOrLoadZone = Literal[
+    "HB_BUSAVG",
+    "HB_HOUSTON",
+    "HB_HUBAVG",
+    "HB_NORTH",
+    "HB_PAN",
+    "HB_SOUTH",
+    "HB_WEST",
+    "LZ_AEN",
+    "LZ_CPS",
+    "LZ_HOUSTON",
+    "LZ_LCRA",
+    "LZ_NORTH",
+    "LZ_RAYBN",
+    "LZ_SOUTH",
+    "LZ_WEST",
+]
+
+
+class RtdInterval(DashboardModel):
+    intervalId: int
+    minutesAhead: int
+    LMP: Decimal
+
+
+class RtdRun(DashboardModel):
+    RTDTimestamp: datetime
+    actualLMP: Decimal
+    intervals: list[RtdInterval]
+
+
+class RtdSnapshot(DashboardModel):
+    """Public RTD display; indicative interval prices include reliability adders."""
+
+    settlementPoint: HubOrLoadZone
+    lastSCEDTimestamp: datetime
+    includesReliabilityAdder: Literal[True] = True
+    data: list[RtdRun]
+
+
 class _DisplayTable(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -70,7 +111,11 @@ class _DisplayTable(HTMLParser):
         if tag == "br" and self.tag:
             self.text += " "
         classes = (dict(attrs).get("class") or "").split()
-        if tag == "td" or (tag == "div" and "schedTime" in classes):
+        if (
+            tag == "td"
+            or (tag == "div" and "schedTime" in classes)
+            or (tag == "option" and "selected" in dict(attrs))
+        ):
             self.tag, self.text = tag, ""
 
     def handle_data(self, data: str) -> None:
@@ -82,10 +127,17 @@ class _DisplayTable(HTMLParser):
             text = " ".join(self.text.split())
             if tag == "td":
                 self.cells.append(text)
+            elif tag == "option":
+                self.values["settlementPoint"] = text
             else:
+                label, timestamp = text.split(": ", 1)
+                key = {
+                    "Last Updated": "lastUpdated",
+                    "Last SCED Date and Time": "lastSCEDTimestamp",
+                }[label]
                 # The public display supplies no UTC offset, including at DST folds.
-                self.values["lastUpdated"] = datetime.strptime(  # noqa: DTZ007
-                    text.removeprefix("Last Updated: "), "%b %d, %Y %H:%M:%S"
+                self.values[key] = datetime.strptime(  # noqa: DTZ007
+                    timestamp, "%b %d, %Y %H:%M:%S"
                 )
             self.tag = None
         if tag == "tr" and self.cells:
@@ -607,6 +659,49 @@ class Dashboards:
                 ],
             }
         )
+
+    def indicative_prices(
+        self, settlement_point: HubOrLoadZone = "HB_BUSAVG"
+    ) -> RtdSnapshot:
+        """Recent RTD runs and published horizons, including reliability adders."""
+        if settlement_point not in get_args(HubOrLoadZone):
+            raise ValueError("Expected a published hub or load zone")
+        suffix = "" if settlement_point == "HB_BUSAVG" else f"_{settlement_point}"
+        parser = self._html(f"rtd_ind_lmp_lz_hb{suffix}")
+        if parser.values.get("settlementPoint") != settlement_point:
+            raise ValueError(
+                "The RTD display does not match the requested settlement point"
+            )
+        if (
+            not parser.rows
+            or len(parser.rows[0]) < 3
+            or parser.rows[0][:2] != ["RTD Date and Time", "Actual LMP"]
+        ):
+            raise ValueError("No recognized RTD price table in the public display")
+        horizons = []
+        for header in parser.rows[0][2:]:
+            match = re.fullmatch(r"RTD Int (\d+) \(Time\+(\d+)\)", header)
+            if match is None:
+                raise ValueError(f"Unrecognized RTD horizon: {header}")
+            horizons.append((int(match[1]), int(match[2])))
+        runs = []
+        for row in parser.rows[1:]:
+            runs.append(
+                RtdRun(
+                    # The source supplies neither an offset nor a repeated-hour flag.
+                    RTDTimestamp=datetime.strptime(row[0], "%m/%d/%Y %H:%M:%S"),  # noqa: DTZ007
+                    actualLMP=Decimal(row[1]),
+                    intervals=[
+                        RtdInterval(
+                            intervalId=index, minutesAhead=minutes, LMP=Decimal(price)
+                        )
+                        for (index, minutes), price in zip(
+                            horizons, row[2:], strict=True
+                        )
+                    ],
+                )
+            )
+        return RtdSnapshot.model_validate({**parser.values, "data": runs})
 
     def energy_storage(self) -> EsrSnapshot:
         return self._get("energy-storage-resources", EsrSnapshot)

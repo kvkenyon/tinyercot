@@ -2034,5 +2034,50 @@
       }
     ],
     "fixtures": "Full hubs/load-zones display body (15 points) and the first two data rows of the full settlement-point display, preserving source headers, metadata and nested adder table; tracking scripts excluded and line endings normalized."
+  },
+  "publicRtdDisplayCheck": {
+    "checkedAt": "2026-09-08T06:07:48.958949+00:00",
+    "credentialsUsed": false,
+    "allPublishedPointOptionsCovered": true,
+    "allSourceValuesMatched": true,
+    "includesReliabilityAdderVerifiedFromSourceText": true,
+    "sourceTimestampsHaveOffsets": false,
+    "scope": "All 15 point options currently published by the public RTD display. Actual SDK requests; every run timestamp, Actual LMP value, interval id, displayed minute offset, forecast price and last SCED timestamp compared with independent regex/Decimal extraction from each original response.",
+    "runs": 360,
+    "forecastPrices": 3960,
+    "runsPerPoint": 24,
+    "forecastHorizonsMinutes": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55
+    ],
+    "sourceHashesByPoint": {
+      "HB_BUSAVG": "1f5e6af5fcdd0d0a5c79a34a81f2c59f31b5450269b439e5db4a23751f5c4c9d",
+      "HB_HOUSTON": "71626d2823ab7be24e113ea89f4f1e2e9df26eef1e770579d0960640f5cff37a",
+      "HB_HUBAVG": "9315db5b56c68553dbe3cdee6d4690e5b4edd1f3bfc5c4f7be9250ff886f3a4c",
+      "HB_NORTH": "dd38043eed4151ed4f0b66bf392a8fe693698784c7e4088f31d5b126836e6817",
+      "HB_PAN": "6f5cfa283260a11d6d980429faf1b9da1545032aea0f18e4b0200fa0a354784e",
+      "HB_SOUTH": "85920e8354b182df2f818f216badd3429a5107d3d109fca06f19f80e3a942b14",
+      "HB_WEST": "c51f147cff86b0d25466dc08a70cf6eaba03e31a1d18d64dead8d5419a358710",
+      "LZ_AEN": "e4d8518db41741dd965facd5ce89875a1711d4b539d42713ef31cbee689b5840",
+      "LZ_CPS": "a99616ad789fafc1e80762a74ed2a37aee2ea50e3ef1fab2597f6b7999334f18",
+      "LZ_HOUSTON": "b4ddf09bac3da7434fc92f9705f7257c5bf1c47f4165996cd8d08c644f2ca1c0",
+      "LZ_LCRA": "4d2636f64614eee1049e3e70d72b7d92937ce77e306482d46cc8ae6d1bf2a90a",
+      "LZ_NORTH": "bb0a68d122e5e3e4cfe42a10c5558a9d39b060e44522b93dabe6ad803cbc46b3",
+      "LZ_RAYBN": "cb94ab472879967cb9e2b9aec18318a4e53fa94a06a4c253b07d29f17a0fcec6",
+      "LZ_SOUTH": "d655bf0030de1a5faef487b97e63e9297a34b8db5e5e7d1ba420acff9728e32d",
+      "LZ_WEST": "e973889bd90d2f4aec15a28679130b25695c5406d8631725f1bd05c528ead0c8"
+    },
+    "sourcePage": "https://www.ercot.com/content/cdr/html/rtd_ind_lmp_lz_hb.html",
+    "pointRoutes": "HB_BUSAVG uses the source page; other points use rtd_ind_lmp_lz_hb_{POINT}.html, matching the actual published selector options.",
+    "fixtures": "First two runs of the actual HB_BUSAVG and HB_HOUSTON display bodies, retaining selector/header/last-SCED metadata and all horizon values; tracking scripts excluded and line endings normalized."
   }
 }
