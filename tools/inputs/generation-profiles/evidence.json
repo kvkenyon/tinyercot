@@ -1,0 +1,186 @@
+{
+  "checkedAt": "2026-09-08",
+  "scope": "Every DATE, TIME and generation value in eight complete original downloads compared with csv.reader or openpyxl independently of the typed reader. Spreadsheet comparisons use stored numeric values exposed by openpyxl, not original XML decimal lexemes. These are modeled planning profiles, not observed generation or point-in-time forecasts.",
+  "rows": 789073,
+  "generationValues": 18187437,
+  "methodologyUrl": "https://www.ercot.com/files/docs/2022/12/19/ERCOT_1980-2021_WindSolarGenProfiles_FINAL_public.pdf",
+  "files": [
+    {
+      "file": "ERCOT_SolarPVProfiles_Metro-Distributed_1980-2020_CST.csv",
+      "sha256": "2519363ad87002fa9c77c9e81a926d67d7b6f6be29d229aada0fafe4649222bb",
+      "rows": 359424,
+      "values": 4313088,
+      "sites": 12,
+      "first": [
+        "1980-01-01",
+        0
+      ],
+      "last": [
+        "2020-12-31",
+        2300
+      ],
+      "consecutiveRepeatedClocks": [],
+      "elapsed": 5.99,
+      "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_SolarPVProfiles_Metro-Distributed_1980-2020_CST.csv"
+    },
+    {
+      "file": "ERCOT_SolarPVProfiles_Rural-Distributed_1980-2020_CST.csv",
+      "sha256": "e52a3a7fe13039a876bf7af384bd7ce90c59b3712044ede6cff1302d8128ef4a",
+      "rows": 359424,
+      "values": 2156544,
+      "sites": 6,
+      "first": [
+        "1980-01-01",
+        0
+      ],
+      "last": [
+        "2020-12-31",
+        2300
+      ],
+      "consecutiveRepeatedClocks": [],
+      "elapsed": 4.33,
+      "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_SolarPVProfiles_Rural-Distributed_1980-2020_CST.csv"
+    },
+    {
+      "file": "ERCOT_SolarPVProfiles_Hypothetical-DualAxis_2020_CST.csv",
+      "sha256": "43a404f66fc0db009bf94cd4f231cfade78f8260732255b60f695293ea5d9c03",
+      "rows": 8784,
+      "values": 1220976,
+      "sites": 139,
+      "first": [
+        "2020-01-01",
+        0
+      ],
+      "last": [
+        "2020-12-31",
+        2300
+      ],
+      "consecutiveRepeatedClocks": [],
+      "elapsed": 0.99,
+      "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_SolarPVProfiles_Hypothetical-DualAxis_2020_CST.csv"
+    },
+    {
+      "file": "ERCOT_SolarPVProfiles_Hypothetical-SingleAxis_2020_CST.csv",
+      "sha256": "f3efc3ae0349e7012ab37506f84c7d13626210d033a22952856690217e6000e6",
+      "rows": 8784,
+      "values": 1220976,
+      "sites": 139,
+      "first": [
+        "2020-01-01",
+        0
+      ],
+      "last": [
+        "2020-12-31",
+        2300
+      ],
+      "consecutiveRepeatedClocks": [],
+      "elapsed": 1.0,
+      "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_SolarPVProfiles_Hypothetical-SingleAxis_2020_CST.csv"
+    },
+    {
+      "file": "ERCOT_WindProfiles_Operational-Planned_2020_CST.csv",
+      "sha256": "f8ac61379600ca5e980304ae80002d311667c3e6a99c579d36f09c96d3879c8c",
+      "rows": 8784,
+      "values": 1361520,
+      "sites": 155,
+      "first": [
+        "2020-01-01",
+        0
+      ],
+      "last": [
+        "2020-12-31",
+        2300
+      ],
+      "consecutiveRepeatedClocks": [],
+      "elapsed": 1.24,
+      "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_WindProfiles_Operational-Planned_2020_CST.csv"
+    },
+    {
+      "file": "ERCOT_WindProfiles_Hypothetical_2020_CST.csv",
+      "sha256": "724765f92cfbf037acfbea236b9ebf9941211df6c6d4e177442193a6e0d4683a",
+      "rows": 8784,
+      "values": 1300032,
+      "sites": 148,
+      "first": [
+        "2020-01-01",
+        0
+      ],
+      "last": [
+        "2020-12-31",
+        2300
+      ],
+      "consecutiveRepeatedClocks": [],
+      "elapsed": 1.22,
+      "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_WindProfiles_Hypothetical_2020_CST.csv"
+    },
+    {
+      "file": "ERCOT-OperationalPlanned-SolarPVProfiles-2020-2021-CST-CDT.xlsx",
+      "sha256": "d351f739b86d25da269aa5bfd9eb70dbc8527dab98fea3a56a7b135363f3e3c5",
+      "rows": 17544,
+      "values": 2877216,
+      "sites": 164,
+      "first": [
+        "2020-01-01",
+        0
+      ],
+      "last": [
+        "2021-12-31",
+        2300
+      ],
+      "consecutiveRepeatedClocks": [
+        [
+          "2020-11-01",
+          100
+        ],
+        [
+          "2021-11-07",
+          100
+        ]
+      ],
+      "elapsed": 21.84,
+      "url": "https://www.ercot.com/files/docs/2022/12/19/ERCOT-OperationalPlanned-SolarPVProfiles-2020-2021-CST-CDT.xlsx"
+    },
+    {
+      "file": "ERCOT-OperationalPlanned-WindProfiles-2020-2021-CST-CDT.xlsx",
+      "sha256": "067b9f02652397df1f5e794b0945b5c38609ec85da84bce6c0c53862221677e6",
+      "rows": 17545,
+      "values": 3737085,
+      "sites": 213,
+      "first": [
+        "2020-01-01",
+        0
+      ],
+      "last": [
+        "2022-01-01",
+        0
+      ],
+      "consecutiveRepeatedClocks": [
+        [
+          "2020-11-01",
+          100
+        ],
+        [
+          "2021-11-07",
+          100
+        ]
+      ],
+      "elapsed": 31.45,
+      "url": "https://www.ercot.com/files/docs/2022/12/19/ERCOT-OperationalPlanned-WindProfiles-2020-2021-CST-CDT.xlsx"
+    }
+  ],
+  "limits": [
+    "25 CSV header samples cover the first two source rows only; the eight complete-file comparisons are listed separately.",
+    "Other Excel vintages, separate site-key workbooks and older ZIP layouts have not all been decoded or verified.",
+    "Repeated clocks and rows beyond filename date ranges are retained. No timezone or hour-start/end convention is inferred.",
+    "Do not merge different profile vintages or treat modeled historical output as contemporaneously available data."
+  ],
+  "embeddedWorkbookSitesCompared": 377,
+  "discovery": {
+    "files": 69,
+    "csv": 25,
+    "xlsx": 19,
+    "zip": 25,
+    "note": "Live index discovery; discovery does not establish decoder support for each linked file."
+  },
+  "readerSha256": "802be208ad4f35fa297b196f5ceed64dd67c5c7f3acd83b8a23d8462259d7777"
+}

@@ -20,6 +20,8 @@ from ._fuel_mix import FuelMixDay as FuelMixDay
 from ._fuel_mix import FuelMixInterval as FuelMixInterval
 from ._fuel_mix import FuelMixTotal as FuelMixTotal
 from ._generated import *
+from ._generation_profiles import GenerationProfileHour as GenerationProfileHour
+from ._generation_profiles import GenerationProfileSite as GenerationProfileSite
 from ._history import Archive as Archive
 from ._history import Publication as Publication
 from ._idr import IdrCompliance as IdrCompliance

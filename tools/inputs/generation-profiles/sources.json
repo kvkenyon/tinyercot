@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_SolarPVProfiles_Hypothetical-DualAxis_2020_CST.csv",
+    "title": "ERCOT Hypothetical Dual Axis Solar PV Profiles 2020",
+    "bytes": 5141649,
+    "sha256": "43a404f66fc0db009bf94cd4f231cfade78f8260732255b60f695293ea5d9c03"
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2021/12/07/ERCOT_WindProfiles_Operational-Planned_2020_CST.csv",
+    "title": "ERCOT Wind Operational and Planned 2020",
+    "bytes": 9339820,
+    "sha256": "f8ac61379600ca5e980304ae80002d311667c3e6a99c579d36f09c96d3879c8c"
+  },
+  {
+    "url": "https://www.ercot.com/files/docs/2022/12/19/ERCOT-OperationalPlanned-SolarPVProfiles-2020-2021-CST-CDT.xlsx",
+    "title": "ERCOT Operational Planned Solar PV Profiles 2020-2021",
+    "bytes": 17281139,
+    "sha256": "d351f739b86d25da269aa5bfd9eb70dbc8527dab98fea3a56a7b135363f3e3c5"
+  }
+]

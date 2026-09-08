@@ -17,6 +17,8 @@ from tinyercot import (
     FuelMixArchive,
     FuelMixDay,
     FuelMixTotal,
+    GenerationProfileHour,
+    GenerationProfileSite,
     IdrCompliance,
     IndicativeOrdcPrice,
     LegacyHourlyLoad,
@@ -733,3 +735,10 @@ with Client() as client:
     if cp_monthly.settlementRun:
         assert_type(cp_monthly.settlementRun.runDate, date | None)
         assert_type(cp_monthly.settlementRun.runTime, time | None)
+
+with Client() as client:
+    assert_type(client.generation_profiles.read(b""), Iterator[GenerationProfileHour])
+    assert_type(client.generation_profiles.sites(b""), Iterator[GenerationProfileSite])
+    generation_profile_hour = next(client.generation_profiles.read(b""))
+    assert_type(generation_profile_hour.generationMW, dict[str, Decimal | None])
+    assert_type(generation_profile_hour.profileDate, date)

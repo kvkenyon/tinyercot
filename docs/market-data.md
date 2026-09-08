@@ -96,6 +96,14 @@ sorted; distinct correction publications remain separate. Do not treat the
 number of returned rows as a count of unique operating intervals. For
 publication-aware exports, use the forecast-vintage example instead.
 
+## Weather and fleet scenarios
+
+[Modeled generation profiles](usage.md#modeled-wind-and-solar-generation-profiles)
+provide typed wind and solar planning series, with verified samples extending
+back to 1980. Use them for resource and fleet scenarios. They describe modeled
+plants under reconstructed weather, rather than the observed historical fleet;
+they must not be treated as historical forecasts in a trading backtest.
+
 ## Current limits
 
 All 242 report queries in the verified Public Reports inventory have typed

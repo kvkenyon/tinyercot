@@ -1161,3 +1161,39 @@ scope, and totals. The same evidence records the separately listed annual DAM/RT
 hub/load-zone and DAM ancillary-price products that use ICE/MIS routes; those
 remain outside the no-MIS scope. Their oldest years were not queried, so the
 Public Reports archive bounds are not a claim about all price history ERCOT holds.
+
+## Modeled generation profiles
+
+`Client.generation_profiles` adds typed access to direct wind and solar planning
+profile downloads on the resource adequacy pages. It supports `DATE` with `TIME`
+or `TIME_CST` CSV layouts (including an extra leading year column), embedded
+Excel site metadata, and ZIPs containing those supported tables. Source column
+labels are retained as keys in `GenerationProfileHour.generationMW`; site
+metadata has its own `GenerationProfileSite` model.
+
+Eight complete original downloads were checked against separate CSV/openpyxl
+reads: **789,073 hourly rows and 18,187,437 generation values**. They cover the
+1980–2020 metropolitan and rural distributed-solar series, 2020 single/dual-axis
+hypothetical solar and operational/planned/hypothetical wind CSVs, and the
+2020–2021 operational/planned solar and wind workbooks. The workbook numeric
+comparison uses openpyxl's stored-number interpretation, not exact XML lexemes.
+All embedded metadata fields for 377 workbook sites were also compared. Live
+discovery found 69 datasets: 25 CSVs, 19 workbooks and 25 ZIPs.
+All 25 discovered direct CSV header samples and their first two rows also decode;
+that sample check does not establish their complete-file coverage.
+
+Both workbooks retain repeated 01:00 clocks on November 1, 2020 and November 7,
+2021. The wind workbook also contains January 1, 2022 at 00:00; its filename ends
+in 2020–2021. The parser neither clips dates to filenames nor deduplicates clocks.
+
+These are **modeled generation scenarios**, not metered historical generation or
+point-in-time forecasts. The source's [development report](https://www.ercot.com/files/docs/2022/12/19/ERCOT_1980-2021_WindSolarGenProfiles_FINAL_public.pdf)
+describes weather reconstruction and calibration to generation observations.
+Separate profile vintages should not be combined as an observed fleet history.
+Older ZIP layouts, the remaining Excel vintages and separate key workbook tables
+remain unverified or unsupported; this addition does not close those gaps.
+
+`tools/inputs/generation-profiles/evidence.json` records the eight original file
+URLs, hashes, counts and boundaries. `profiles.zip` retains three complete,
+unchanged originals for regression tests; `csv-header-samples.json` explicitly
+contains only captured header/row excerpts. All fixtures stay outside the wheel.

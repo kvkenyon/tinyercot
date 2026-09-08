@@ -1035,3 +1035,50 @@ point. November's chart says 8 p.m. while its scenario says 7 p.m.; both hours
 remain separate fields. These are simulated risk curves, not observed outcomes.
 Reports with only graphical images return no numeric curve points; the original
 reports remain available through `resource_outlook.download(file)`.
+
+## Modeled wind and solar generation profiles
+
+`generation_profiles` reads the hourly CSV and Excel tables published on ERCOT's
+[resource adequacy archive pages](https://www.ercot.com/gridinfo/resource/2022).
+These are retrospective **planning simulations**, including operational, planned,
+hypothetical and distributed generation. A profile dated 1980 does not mean that
+plant existed in 1980. Use them for weather and fleet scenarios; they are not
+metered generation or forecasts that were available on that historical date.
+
+Select a particular publication before downloading: files can be large and
+multiple vintages overlap. Excel parsing uses `tinyercot[files]`.
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    source = next(
+        file for file in ercot.generation_profiles.files()
+        if file.url.endswith(
+            "ERCOT-OperationalPlanned-SolarPVProfiles-2020-2021-CST-CDT.xlsx"
+        )
+    )
+    data = ercot.generation_profiles.download(source)
+    sites = list(ercot.generation_profiles.sites(data, filename=source.title))
+    for hour in ercot.generation_profiles.read(
+        data,
+        filename=source.title,
+        where=lambda row: row.profileDate == date(2020, 7, 1),
+    ):
+        print(hour.profileDate, hour.timeHHMM, hour.generationMW[sites[0].column])
+```
+
+`GenerationProfileHour` supplies a date, the source's HHMM clock and a typed
+`dict[str, Decimal | None]` of MW values keyed by the original column labels.
+`GenerationProfileSite` exposes embedded site IDs, capacities, county, CDR zone,
+common name and plant status when supplied. Separate key workbooks are not
+implicitly joined; identifiers and capacities can change between vintages.
+
+CSV clock strings, including leading zeros, are preserved in `sourceTime`, and
+`sourceTimeColumn` preserves `TIME` versus `TIME_CST`. No UTC offset or hour-ending
+interpretation is inferred. Repeated clocks, missing values, overlapping files
+and dates outside filename labels survive unchanged. Saved CSVs, workbooks and
+ZIPs containing supported tables can be read locally. Unsupported layouts raise;
+older ZIP formats and all Excel vintages are not yet verified. See the
+[coverage evidence](data-coverage.md#modeled-generation-profiles).

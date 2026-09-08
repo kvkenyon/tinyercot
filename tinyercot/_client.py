@@ -20,6 +20,7 @@ from ._coincident_peaks import CoincidentPeaks
 from ._dashboards import Dashboards
 from ._distribution_losses import DistributionLossCoefficients
 from ._fuel_mix import FuelMix
+from ._generation_profiles import GenerationProfiles
 from ._idr import IdrComplianceHistory
 from ._load import HourlyLoad
 from ._load_profiles import LoadProfiles
@@ -353,6 +354,10 @@ class Transport:
     @property
     def coincident_peaks(self) -> CoincidentPeaks:
         return CoincidentPeaks(self._http)
+
+    @property
+    def generation_profiles(self) -> GenerationProfiles:
+        return GenerationProfiles(self._http)
 
     @property
     def load_profiles(self) -> LoadProfiles:

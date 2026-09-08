@@ -10,3 +10,4 @@ tools/inputs/*-index.html linguist-generated=true -whitespace
 tools/inputs/samples/** linguist-generated=true
 tools/inputs/dashboards/** linguist-generated=true
 # Hand-maintained mappings, overrides and evidence remain visible.
+tools/inputs/generation-profiles/csv-header-samples.json linguist-generated=true
