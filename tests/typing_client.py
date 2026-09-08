@@ -17,11 +17,13 @@ from tinyercot import (
     FuelMixArchive,
     FuelMixDay,
     FuelMixTotal,
+    GenerationCapacityForecast,
     GenerationProfileHour,
     GenerationProfileKey,
     GenerationProfileKeySite,
     GenerationProfileKeySummary,
     GenerationProfileSite,
+    GenerationResourceCapacity,
     HourlyLoadForecast,
     HourlyLoadScenario,
     IndicativeOrdcPrice,
@@ -145,6 +147,14 @@ with Client() as client:
     assert_type(operator_share.loadSharePercent, Decimal | None)
 
 with Client() as client:
+    assert_type(client.generation_capacity.files(), list[PublicFile])
+    assert_type(client.generation_capacity.rows(), Iterator[GenerationCapacityForecast])
+    assert_type(
+        client.generation_capacity.read(b""), Iterator[GenerationCapacityForecast]
+    )
+    fleet = next(client.generation_capacity.rows())
+    assert_type(fleet.resources[0], GenerationResourceCapacity)
+    assert_type(fleet.resources[0].capabilities[0].capacityMW, Decimal | None)
     assert_type(client.capacity_changes.files(), list[PublicFile])
     assert_type(
         client.capacity_changes.projects(where=lambda r: r.fuel == "Battery"),

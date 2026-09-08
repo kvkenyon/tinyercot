@@ -1519,3 +1519,36 @@ ERCOT describes backcasts as model runs using actual weather and calendar
 inputs. They do not establish a forecast that was available in advance. See
 [ERCOT's explanation](https://www.ercot.com/gridinfo/load/forecast/2025) and the
 [verification receipt](../tools/inputs/monthly-performance/evidence.json).
+
+### Generation capacity forecasts
+
+`generation_capacity` reads ERCOT's public Generation Resource Capacity Forecast
+workbook with `tinyercot[files]`. It includes the fleet's installed capacity,
+seasonal ratings, operational/planned category totals, and CDR region mappings.
+
+```python
+from tinyercot import Client
+
+with Client() as ercot:
+    for file in ercot.generation_capacity.files():
+        for forecast in ercot.generation_capacity.read(
+            ercot.generation_capacity.download(file), filename=file.title
+        ):
+            for resource in forecast.resources:
+                if resource.technology == "BA":
+                    print(resource.name, resource.cdrStatus,
+                          resource.installedCapacityMW, resource.capabilities)
+```
+
+`rows()` reads all discovered workbooks; `read(bytes, filename=...)` also accepts
+saved XLSX files and ZIPs. Both accept a typed `where` predicate on the workbook.
+Each workbook retains reference notes and source row/column positions. Category
+paths retain the source hierarchy: parent totals overlap their children, and
+operational and planned resources remain separate. Unit codes can repeat for
+fuel conversions; rows are not deduplicated.
+
+The May 2026 workbook uses April fleet data and publishes seasonal ratings for
+2027–2031 (winter periods through 2031/2032). These are planning inputs, not
+observed generation or dispatch availability. The workbook contains no load
+forecast or reserve margin. Its CDR wind/solar regions differ from production
+forecast regions. Consult `forecast.notes` for the published qualifications.
