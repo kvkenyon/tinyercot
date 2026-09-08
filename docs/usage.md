@@ -1519,3 +1519,46 @@ ERCOT describes backcasts as model runs using actual weather and calendar
 inputs. They do not establish a forecast that was available in advance. See
 [ERCOT's explanation](https://www.ercot.com/gridinfo/load/forecast/2025) and the
 [verification receipt](../tools/inputs/monthly-performance/evidence.json).
+
+### Historical capacity, demand and reserves forecasts
+
+`cdr` discovers the public CDR report workbooks, including linked historical
+indexes. Install `tinyercot[files]` to read XLS/XLSX files or saved ZIPs.
+
+```python
+from tinyercot import Client
+
+with Client() as ercot:
+    for file in ercot.cdr.files():
+        if "December 2025" in file.title:
+            for report in ercot.cdr.read_summaries(
+                ercot.cdr.download(file), source_file=file
+            ):
+                for point in report.values:
+                    if "Reserve Margin" in point.metric:
+                        print(point.season, point.period, point.hourBasis,
+                              point.reportingGroup, point.reserveBasis, point.value)
+```
+
+`cdr.summaries()` reads all linked report summaries. Both methods accept a typed
+`where` predicate on `CdrSummary`. Reports retain source-file identity, worksheet
+coordinates, and original qualifications in `notes`. Read these as forecast
+vintages; website migration dates do not establish publication dates.
+
+`CdrSummaryValue` has typed periods, seasons, reporting groups, hour bases, units,
+and decimal values. `metric` retains ERCOT's exact row label rather than merging
+changing historical definitions. Margin values use `unit="fraction"`, so 0.15
+means 15%. Adjustments retain their published signs; do not automatically negate
+rows labelled “less”. Blank values remain `None`, while spreadsheet errors also
+populate `sourceError`.
+
+The oldest reports distinguish LSE/control-area and TDSP blocks. Some margins
+use different `reserveBasis` assumptions. Newer reports distinguish `peak_load`,
+`peak_net_load`, and their `difference`; differences have no clock hour. Winter
+periods retain their original year-span labels. Installed-capacity columns use
+`kind="installed_capacity"`, no annual period, and retain their column label,
+including cumulative ratings by a future year.
+
+These methods expose labelled summary tables, not every numerical cell in the
+workbook. Unit, county, fuel-type, ELCC, and detailed scenario tables remain
+separate coverage work; unlabelled chart helper calculations are not returned.

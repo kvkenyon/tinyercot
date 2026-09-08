@@ -1613,3 +1613,30 @@ retain archive posting metadata when evaluating forecasts as issued.
 [Full comparison and source-accounting receipt](../tools/inputs/history/wind-backfill-evidence.json)
 records the row-model fields, layouts, reader hashes, manifest hashes, listing
 recheck and limits. Source downloads remain outside the installed package.
+
+### Historical CDR summary tables
+
+`Client.cdr.files()` discovers the report spreadsheets on the public resource
+index and linked annual indexes. A live inventory found **53 workbook URLs**,
+including migrated files and revisions, spanning report vintages **2000–2025**.
+There are 47 distinct payload hashes: same-content links retain their identities.
+All 30 XLS and 23 XLSX downloads were opened successfully.
+
+`cdr.summaries/read_summaries` parses all **95 summary sheets** in these files.
+The source comparison checked **30,211 returned values**, comprising 29,981
+forecast cells and 230 separate installed-capacity cells, against original
+worksheet coordinates. It also checked that percentage-formatted returned
+numbers are classified as fractions. This is stored-value comparison through
+xlrd/openpyxl with Decimal conversion, not exact XML numeric-lexeme preservation.
+
+Nine unmodified report workbooks form a 3.0 MB compressed regression fixture.
+Tests cover original values and text, LSE/control-area blocks, TDSP groups,
+alternative margin bases, short winter labels, source `#REF!` errors, signed
+adjustments, cumulative installed ratings, four seasons, explicit peak hours,
+merged headings and difference columns. All 53 originals were checked locally;
+the large December 2025 original remains outside the regression fixture.
+
+This adds labelled summary access. It does not claim typed coverage of CDR unit,
+county, fuel-type, ELCC, or detailed scenario sheets, unlabelled chart helper
+calculations, or the 28 separately linked wind/solar peak-average capacity
+percentage workbooks. These sources remain part of the broader coverage work.

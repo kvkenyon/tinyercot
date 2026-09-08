@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Capacity, Demand and Reserves Report - 2000",
+    "url": "https://www.ercot.com/files/docs/2017/11/03/CDR_Summer_02082000.xls",
+    "path": "originals/2017_11_03_CDR_Summer_02082000.xls",
+    "sha256": "4661da368aad02a2a27cd2c888ca42b5ff59ce34b741d8eb8527be0eee31f104",
+    "bytes": 60928,
+    "member": "2017/11/03/CDR_Summer_02082000.xls"
+  },
+  {
+    "title": "Capacity, Demand and Reserves Report - 2001",
+    "url": "https://www.ercot.com/files/docs/2017/11/03/ERCOTCDR082001_final_.xls",
+    "path": "originals/2017_11_03_ERCOTCDR082001_final_.xls",
+    "sha256": "3faf71869ef586fa92eb625357a0f0249dc63caf24ab6d99c9e26f14ef6d8787",
+    "bytes": 63488,
+    "member": "2017/11/03/ERCOTCDR082001_final_.xls"
+  },
+  {
+    "title": "Capacity, Demand and Reserves Report - May 2007",
+    "url": "https://www.ercot.com/files/docs/2017/11/03/07CDR05172007-final.xls",
+    "path": "originals/2017_11_03_07CDR05172007-final.xls",
+    "sha256": "c349259e8e343515e44708a8f6ea5b02238170e8055d2944e8ef79eeb588fe25",
+    "bytes": 955392,
+    "member": "2017/11/03/07CDR05172007-final.xls"
+  },
+  {
+    "title": "Capacity, Demand and Reserves 2011 Winter Update",
+    "url": "https://www.ercot.com/files/docs/2011/12/28/cdr_2011winterupdate.xls",
+    "path": "originals/2011_12_28_cdr_2011winterupdate.xls",
+    "sha256": "a6a2f827a63924532c00168ee25aa66bb2482329b256f22cea8f618925420b3b",
+    "bytes": 355840,
+    "member": "2011/12/28/cdr_2011winterupdate.xls"
+  },
+  {
+    "title": "Capacity, Demand and Reserves Report - May 2013",
+    "url": "https://www.ercot.com/files/docs/2014/01/07/capacity_demandandreservereport_2013.xls",
+    "path": "originals/2014_01_07_capacity_demandandreservereport_2013.xls",
+    "sha256": "d273a1ded4be123d37b3bfe48591fb960460df22493194566c6e7d5ef45f77b0",
+    "bytes": 525824,
+    "member": "2014/01/07/capacity_demandandreservereport_2013.xls"
+  },
+  {
+    "title": "Capacity, Demand and Reserves Report - May 2016",
+    "url": "https://www.ercot.com/files/docs/2016/05/03/CapacityDemandandReserveReport_May2016.xlsx",
+    "path": "originals/2016_05_03_CapacityDemandandReserveReport_May2016.xlsx",
+    "sha256": "0fc0ae5d08adc5c16f085b8b8f9c0040d6d61bda933f3587e2d2f801f4014822",
+    "bytes": 271063,
+    "member": "2016/05/03/CapacityDemandandReserveReport_May2016.xlsx"
+  },
+  {
+    "title": "Capacity Demand and Reserves Report May 2024 Revised",
+    "url": "https://www.ercot.com/files/docs/2024/05/24/CapacityDemandandReservesReport_May2024_Revised.xlsx",
+    "path": "originals/2024_05_24_CapacityDemandandReservesReport_May2024_Revised.xlsx",
+    "sha256": "1133f30456907a9cf84a3ff04e7d5fa5e965d55f3aa266ee8b6c8efee2a76759",
+    "bytes": 600318,
+    "member": "2024/05/24/CapacityDemandandReservesReport_May2024_Revised.xlsx"
+  },
+  {
+    "title": "Capacity Demand and Reserves Report December 2024 Revised",
+    "url": "https://www.ercot.com/files/docs/2025/02/12/CapacityDemandandReservesReport_December2024.xlsx",
+    "path": "originals/2025_02_12_CapacityDemandandReservesReport_December2024.xlsx",
+    "sha256": "847018a349df09186900f17971ab7da0f68833e29e23832840e9507d4154ea77",
+    "bytes": 864521,
+    "member": "2025/02/12/CapacityDemandandReservesReport_December2024.xlsx"
+  },
+  {
+    "title": "Capacity Demand and Reserves Report May 2025 Revised",
+    "url": "https://www.ercot.com/files/docs/2025/05/16/CapacityDemandandReservesReport_May2025_Revised.xlsx",
+    "path": "originals/2025_05_16_CapacityDemandandReservesReport_May2025_Revised.xlsx",
+    "sha256": "8c5a18521e170a6b16b2cecf2aff7eea13e1d7d378083d6b4db71ec4b10ccfd2",
+    "bytes": 987162,
+    "member": "2025/05/16/CapacityDemandandReservesReport_May2025_Revised.xlsx"
+  }
+]

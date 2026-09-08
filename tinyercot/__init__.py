@@ -2,6 +2,9 @@
 
 from ._capacity import CapacityProject as CapacityProject
 from ._capacity import CapacityTotals as CapacityTotals
+from ._cdr import CdrNote as CdrNote
+from ._cdr import CdrSummary as CdrSummary
+from ._cdr import CdrSummaryValue as CdrSummaryValue
 from ._client import Document as Document
 from ._client import History as History
 from ._client import Page as Page

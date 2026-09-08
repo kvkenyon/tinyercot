@@ -7,6 +7,8 @@ from tinyercot import (
     Archive,
     CapacityProject,
     CapacityTotals,
+    CdrSummary,
+    CdrSummaryValue,
     Client,
     CoincidentPeakAllocation,
     CoincidentPeakDay,
@@ -145,6 +147,12 @@ with Client() as client:
     assert_type(operator_share.loadSharePercent, Decimal | None)
 
 with Client() as client:
+    assert_type(client.cdr.files(), list[PublicFile])
+    assert_type(client.cdr.summaries(), Iterator[CdrSummary])
+    assert_type(client.cdr.read_summaries(b""), Iterator[CdrSummary])
+    cdr = next(client.cdr.summaries())
+    assert_type(cdr.values[0], CdrSummaryValue)
+    assert_type(cdr.values[0].value, Decimal | None)
     assert_type(client.capacity_changes.files(), list[PublicFile])
     assert_type(
         client.capacity_changes.projects(where=lambda r: r.fuel == "Battery"),
