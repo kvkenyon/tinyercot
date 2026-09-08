@@ -4,7 +4,7 @@
 # ruff: noqa: DTZ001
 
 import json
-from datetime import datetime
+from datetime import date, datetime
 from io import BytesIO
 from pathlib import Path
 from zipfile import BadZipFile, ZipFile
@@ -12,6 +12,7 @@ from zipfile import BadZipFile, ZipFile
 import httpx
 import pytest
 
+from examples.price_history import export_price_history
 from tinyercot import Client
 
 INPUTS = Path(__file__).resolve().parents[1] / "tools/inputs/history"
@@ -351,3 +352,59 @@ def test_generic_uppercase_csv_reader_does_not_treat_missing_report_as_sparse_ta
     )
     with pytest.raises(ValueError, match="no CSV files matching"):
         run(source, "np7_535_sg", "path_adders_history")
+
+
+@pytest.mark.parametrize(
+    ("market", "product", "delivery_day", "price"),
+    [
+        ("dam", "np4-190-cd", date(2014, 5, 2), "29.92"),
+        ("rt", "np6-905-cd", date(2014, 4, 30), "30.5"),
+    ],
+)
+def test_price_history_export_uses_delivery_dates_and_both_sources(
+    tmp_path, market, product, delivery_day, price
+):
+    report = zipped({"report.csv": (INPUTS / f"{product}.csv").read_bytes()})
+    source = Source(
+        [document(1), document(2)],
+        [document(-1)],
+        {
+            ("bundle", (-1,)): zipped({"2.report.zip": report, "3.report.zip": report}),
+            ("archive", (1,)): report,
+        },
+    )
+
+    def handle(request):
+        if "b2clogin" not in request.url.host:
+            assert product in request.url.path
+            assert "postDatetimeFrom" not in request.url.params
+            assert "postDatetimeTo" not in request.url.params
+        return source(request)
+
+    path = tmp_path / "history" / "prices.jsonl"
+    with (
+        httpx.Client(transport=httpx.MockTransport(handle)) as http,
+        Client("u", "p", "k", client=http) as client,
+    ):
+        count = export_price_history(
+            client,
+            market,
+            "AMISTAD_ALL",
+            path,
+            date_from=delivery_day,
+            date_to=delivery_day,
+        )
+        rows = [json.loads(line) for line in path.read_text().splitlines()]
+        assert count == len(rows) == 3
+        assert all(r["deliveryDate"] == delivery_day.isoformat() for r in rows)
+        assert all(r["settlementPoint"] == "AMISTAD_ALL" for r in rows)
+        assert all(r["settlementPointPrice"] == price for r in rows)
+        assert all(r["DSTFlag"] is False for r in rows)
+        assert source.downloads == [("bundle", [-1]), ("archive", [1])]
+        assert (
+            export_price_history(
+                client, market, "AMISTAD_ALL", path, date_from=date(2020, 1, 1)
+            )
+            == 0
+        )
+        assert path.read_text() == ""
