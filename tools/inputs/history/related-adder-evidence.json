@@ -1,0 +1,65 @@
+{
+  "scope": "Five complete unchanged original publications for 15-minute and indicative RTD adders. Regression tests compare all original fields; source layouts and publication IDs remain explicit.",
+  "publications": [
+    {
+      "product": "np6-324-cd",
+      "fixture": "adder-15min-originals.zip",
+      "docId": 485839130,
+      "postDatetime": "2015-06-30T23:47:01.742000",
+      "download": "https://api.ercot.com/api/public-reports/archive/np6-324-cd?download=485839130",
+      "member": "485839130.cdr.00013220.0000000000000000.20150630.234701742.RTORDCRELDEPpricesNP6324_20150630_2345_csv.zip",
+      "bytes": 371,
+      "sha256": "0e00280f8a05e37a4830f90a30b68839edee2ff2fb5d295d5248b1e92f573ab9",
+      "rows": 1,
+      "columnCount": 7
+    },
+    {
+      "product": "np6-324-cd",
+      "fixture": "adder-15min-originals.zip",
+      "docId": 781873054,
+      "postDatetime": "2021-06-30T23:47:02.113000",
+      "download": "https://api.ercot.com/api/public-reports/archive/np6-324-cd?download=781873054",
+      "member": "781873054.cdr.00013220.0000000000000000.20210630.234702113.RTORDCRELDEPpricesNP6324_20210630_2345_csv.zip",
+      "bytes": 376,
+      "sha256": "edd44398ebd1ba8dcedaa9eb83642448f9b020c51ba4df3374267a3b225e2c8b",
+      "rows": 1,
+      "columnCount": 7
+    },
+    {
+      "product": "np6-325-cd",
+      "fixture": "adder-rtd-originals.zip",
+      "docId": 485839480,
+      "postDatetime": "2015-06-30T23:55:13.607000",
+      "download": "https://api.ercot.com/api/public-reports/archive/np6-325-cd?download=485839480",
+      "member": "485839480.cdr.00013222.0000000000000000.20150630.235513607.RTDORDCRELDEPPriceAdderNP6325_20150630_235501_csv.zip",
+      "bytes": 690,
+      "sha256": "412ebabd8f3b326e40d920b6f717a3021bacc5616c4ca0624c8c2577f6d534ad",
+      "rows": 11,
+      "columnCount": 18
+    },
+    {
+      "product": "np6-325-cd",
+      "fixture": "adder-rtd-originals.zip",
+      "docId": 781873979,
+      "postDatetime": "2021-06-30T23:55:20.198000",
+      "download": "https://api.ercot.com/api/public-reports/archive/np6-325-cd?download=781873979",
+      "member": "781873979.cdr.00013222.0000000000000000.20210630.235520198.RTDORDCRELDEPPriceAdderNP6325_20210630_235501_csv.zip",
+      "bytes": 713,
+      "sha256": "4903ea969bc0244cf34ab539f981ffe64de8c1a878af548ccbbeeed87d7de854",
+      "rows": 11,
+      "columnCount": 22
+    },
+    {
+      "product": "np6-325-cd",
+      "fixture": "adder-rtd-originals.zip",
+      "docId": 926189756,
+      "postDatetime": "2023-06-30T23:55:18.860000",
+      "download": "https://api.ercot.com/api/public-reports/archive/np6-325-cd?download=926189756",
+      "member": "926189756.cdr.00013222.0000000000000000.20230630.235518860.RTDORDCRELDEPPriceAdderNP6325_20230630_235503_csv.zip",
+      "bytes": 718,
+      "sha256": "d044db65477970e32abcb8be746ab34b6e04a7bd7d9407171a45226f1e3e8793",
+      "rows": 11,
+      "columnCount": 23
+    }
+  ]
+}

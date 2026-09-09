@@ -3,9 +3,11 @@
 Keep the SDK small and fully typed. Product methods and row models are generated;
 handwritten code handles shared transport, typed metadata, and public dashboards.
 
-Focus the release on actionable market and operational time series for retailers,
-battery operators, and energy traders. Planning studies, profile-key workbooks,
-and document-specific summary extraction are outside the release scope.
+Focus the release on data for retailers, battery operators, energy trading,
+forecasting and ML. Follow `docs/scope.md`: keep market observations, forecast
+vintages, settlement inputs and useful supply/demand scenarios. Administrative
+transaction-message counts, county planning illustrations and general document
+extraction are outside the release scope.
 
 - `tinyercot/_client.py`: authentication, sync/async retrieval, pagination, metadata, ZIP downloads.
 - `tinyercot/_history.py`: shared typed CSV and nested ZIP readers. Verified mappings live in `tools/inputs/history-formats.json`.
@@ -17,7 +19,7 @@ and document-specific summary extraction are outside the release scope.
   documented corrections to ERCOT's inconsistent contracts.
 - `tests`: captured public responses, mocked transport, and static typing checks.
 
-Run `uv run python tools/generate_client.py`, `uv run pytest`,
+Run `uv run python tools/generate_client.py`, `uv run python -m pytest`,
 `uv run mypy tinyercot tests/typing_client.py --strict --follow-untyped-imports`,
 `uv run ruff check .`, and `uv build`.
 

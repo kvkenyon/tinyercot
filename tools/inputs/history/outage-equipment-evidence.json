@@ -1,0 +1,23 @@
+{
+  "source": "NP3-233-CD authenticated Public Reports archive",
+  "fixture": "outage-equipment-originals.zip",
+  "scope": "Two complete unmodified original ZIP publications containing the historical system-wide new-equipment outage total. Used directly by test_history.py.",
+  "publications": [
+    {
+      "docId": 667639835,
+      "postDatetime": "2019-06-30T23:01:04.742000",
+      "download": "https://api.ercot.com/api/public-reports/archive/np3-233-cd?download=667639835",
+      "member": "667639835.cdr.00013103.0000000000000000.20190630.230104742.HRLYRESOUTCAPNP3233_csv.zip",
+      "sha256": "141a82e4b12a013b07633381bcaa9bc8be54a222381868da3ab09b597c7fb0a2",
+      "bytes": 802
+    },
+    {
+      "docId": 721903893,
+      "postDatetime": "2020-06-30T23:00:59.419000",
+      "download": "https://api.ercot.com/api/public-reports/archive/np3-233-cd?download=721903893",
+      "member": "721903893.cdr.00013103.0000000000000000.20200630.230059419.HRLYRESOUTCAPNP3233_csv.zip",
+      "sha256": "971495c25977e2eb35c0b4337c16df5a2673ad1ea01ef43628d8648515fa3ed9",
+      "bytes": 803
+    }
+  ]
+}

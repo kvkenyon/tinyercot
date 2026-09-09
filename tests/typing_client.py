@@ -4,6 +4,9 @@ from decimal import Decimal
 from typing import Literal, assert_type
 
 from tinyercot import (
+    AncillaryServiceAdjustment,
+    AncillaryServiceQuantity,
+    AncillaryServiceRequirements,
     Archive,
     CapacityProject,
     CapacityTotals,
@@ -17,11 +20,13 @@ from tinyercot import (
     FuelMixArchive,
     FuelMixDay,
     FuelMixTotal,
+    GenerationCapacityForecast,
     GenerationProfileHour,
     GenerationProfileKey,
     GenerationProfileKeySite,
     GenerationProfileKeySummary,
     GenerationProfileSite,
+    GenerationResourceCapacity,
     HourlyLoadForecast,
     HourlyLoadScenario,
     IndicativeOrdcPrice,
@@ -46,7 +51,7 @@ from tinyercot import (
     PolrUsage,
     Publication,
     PublicFile,
-    RetailTransactionMonth,
+    ResponsiveReserveAllocation,
     ScheduledGeneration,
     SeasonalPeakForecast,
     TransmissionLossCoefficient,
@@ -57,6 +62,7 @@ from tinyercot import (
     WeatherZoneLoad,
     WeatherZonePeakValues,
     WeeklyPeakForecast,
+    WinterLoadForecast,
     ZonalEnergyDay,
     ZonalEnergyTotal,
     ZonalSourceNumber,
@@ -145,6 +151,14 @@ with Client() as client:
     assert_type(operator_share.loadSharePercent, Decimal | None)
 
 with Client() as client:
+    assert_type(client.generation_capacity.files(), list[PublicFile])
+    assert_type(client.generation_capacity.rows(), Iterator[GenerationCapacityForecast])
+    assert_type(
+        client.generation_capacity.read(b""), Iterator[GenerationCapacityForecast]
+    )
+    fleet = next(client.generation_capacity.rows())
+    assert_type(fleet.resources[0], GenerationResourceCapacity)
+    assert_type(fleet.resources[0].capabilities[0].capacityMW, Decimal | None)
     assert_type(client.capacity_changes.files(), list[PublicFile])
     assert_type(
         client.capacity_changes.projects(where=lambda r: r.fuel == "Battery"),
@@ -209,20 +223,6 @@ with Client() as client:
     assert_type(indicative_price.scedTimestamp, datetime)
     assert_type(indicative_price.sourceTimestamp, str)
     assert_type(indicative_price.rtorpa, Decimal | None)
-
-with Client() as client:
-    assert_type(client.retail_transactions.files(), list[PublicFile])
-    assert_type(client.retail_transactions.read(b""), Iterator[RetailTransactionMonth])
-    assert_type(
-        client.retail_transactions.rows(where=lambda r: r.month.year == 2025),
-        Iterator[RetailTransactionMonth],
-    )
-    retail_month = next(client.retail_transactions.rows())
-    assert_type(retail_month.month, date)
-    assert_type(retail_month.transactionCode, str | None)
-    assert_type(retail_month.days[0].count, int | None)
-    assert_type(retail_month.reportedTotal, int | None)
-    assert_type(retail_month.reportedAveragePerDay, Decimal | None)
 
 with Client() as client:
     assert_type(client.crr_hours.files(), list[PublicFile])
@@ -357,6 +357,21 @@ with Client() as client:
     for adder in client.np6_323_cd.rt_price_adder_sced_history.rows():
         assert_type(adder.RTORPA, Decimal | None)
         assert_type(adder.RTRDPA, Decimal | None)
+        assert_type(adder.RTORDPA, Decimal | None)
+        assert_type(adder.RTRUCCST30HSL, Decimal | None)
+        assert_type(adder.RTOLLASL, Decimal | None)
+        assert_type(adder.RTOLHASL, Decimal | None)
+        assert_type(adder.RTNCLRNSCAP, Decimal | None)
+        assert_type(adder.RTNCLRECRS, Decimal | None)
+
+    for quarter_hour in client.np6_324_cd.rt_15min_price_adders_history.rows():
+        assert_type(quarter_hour.RTRDP, Decimal | None)
+    for rtd_adder in client.np6_325_cd.rtd_price_adders_history.rows():
+        assert_type(rtd_adder.RTORDPA, Decimal | None)
+        assert_type(rtd_adder.RTDLRRRS, Decimal | None)
+        assert_type(rtd_adder.RTOLLASL, Decimal | None)
+        assert_type(rtd_adder.RTOLHASL, Decimal | None)
+        assert_type(rtd_adder.RTNCLRECRS, Decimal | None)
 
     for forecast in client.np3_561_cd._7d_load_fcast_by_wzn_history.rows():
         assert_type(forecast.hourEnding, str | None)
@@ -368,8 +383,10 @@ with Client() as client:
 
     for capacity in client.np3_233_cd.hourly_res_outage_cap_history.rows():
         assert_type(capacity.totalResourceMW, int | None)
+        assert_type(capacity.totalNewEquipResourceMW, int | None)
     for adequacy in client.np3_763_cd.st_sys_adequacy_history.rows():
         assert_type(adequacy.hourEnding, str | None)
+        assert_type(adequacy.offAvailMW, Decimal | None)
     for ruc in client.np3_764_cd.hrly_ruc_online_sced_offline_cop_history.rows():
         assert_type(ruc.sumSCEDTotal, Decimal | None)
 
@@ -831,6 +848,13 @@ def hourly_forecast_typing(client: Client) -> None:
     assert_type(row.scenario, Literal["tsp_provided", "ercot_adjusted"] | None)
 
 
+def winter_forecast_typing(client: Client) -> None:
+    assert_type(client.winter_load_forecasts.files(), list[PublicFile])
+    rows = client.winter_load_forecasts.rows(where=lambda row: row.kind == "peak")
+    assert_type(rows, Iterator[WinterLoadForecast])
+    assert_type(next(rows).transmissionOperators, dict[str, Decimal | None])
+
+
 def hourly_load_scenario_typing(client: Client) -> None:
     assert_type(client.hourly_load_scenarios.files(), list[PublicFile])
     assert_type(client.hourly_load_scenarios.read(b""), Iterator[HourlyLoadScenario])
@@ -955,3 +979,18 @@ with Client() as client:
     assert_type(wind_solar.stppfDayAhead, Decimal | None)
     assert_type(wind_solar.pvgrppDayAhead, Decimal | None)
     assert_type(wind_solar.stwpf, Decimal)
+
+
+with Client() as client:
+    assert_type(client.ancillary_requirements.files(), list[PublicFile])
+    assert_type(
+        client.ancillary_requirements.read(b""), Iterator[AncillaryServiceRequirements]
+    )
+    requirements = next(
+        client.ancillary_requirements.rows(where=lambda d: d.year == 2026)
+    )
+    assert_type(requirements.effectiveDate, date | None)
+    assert_type(requirements.quantities, list[AncillaryServiceQuantity])
+    assert_type(requirements.rrsAllocations, list[ResponsiveReserveAllocation])
+    assert_type(requirements.adjustments, list[AncillaryServiceAdjustment])
+    assert_type(requirements.quantities[0].quantityMW, Decimal | None)

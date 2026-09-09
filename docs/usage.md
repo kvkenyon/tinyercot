@@ -549,39 +549,6 @@ an annual per-customer usage measure. Dates come from the table headers;
 original cover notes remain in `sourceNotes`. These are the observed downloads,
 not a claim of older coverage or of realized future trading activity.
 
-### Retail transaction history
-
-`retail_transactions` reads daily transaction counts from the public monthly
-archive with `tinyercot[files]`:
-
-```python
-from tinyercot import Client
-
-with Client() as ercot:
-    for month in ercot.retail_transactions.rows(
-        where=lambda r: (
-            r.month.year == 2025
-            and r.sourceSheet == "ERCOT Inbound"
-            and r.transactionCode == "814_01"
-        ),
-    ):
-        for day in month.days:
-            print(day.operatingDay, day.count)
-```
-
-`files()`, `download(file)` and `read(data, filename=..., where=...)` also support
-discovery and saved workbooks/ZIPs. The inspected archive contains 20 months
-(January 2025–August 2026), 9,126 monthly transaction/category records and 277,433
-daily counts. Queries use the dates in the table, not the archive filename.
-
-`transactionCode=None` identifies a sheet's Grand Total row. Codes and raw sheet
-labels remain unchanged, including four sheets with unnamed categories.
-Territory, customer-class and ERCOT-wide views overlap; do not sum across those
-categories. `reportedTotal` and `reportedAveragePerDay` retain the source's
-monthly summaries, including rounded averages. Missing count cells remain
-`None`. No transaction-code business meaning or individual customer activity
-is inferred from these aggregate counts.
-
 ### Interim indicative ORDC prices
 
 `indicative_ordc` exposes ERCOT's direct interim ORDC archive without optional
@@ -1519,3 +1486,103 @@ ERCOT describes backcasts as model runs using actual weather and calendar
 inputs. They do not establish a forecast that was available in advance. See
 [ERCOT's explanation](https://www.ercot.com/gridinfo/load/forecast/2025) and the
 [verification receipt](../tools/inputs/monthly-performance/evidence.json).
+
+## Winter hourly load and peak forecasts
+
+Install `tinyercot[files]` for `winter_load_forecasts`. This anonymous public
+reader discovers the winter reliability-standard load workbook and returns
+fully typed `WinterLoadForecast` rows:
+
+```python
+with Client() as ercot:
+    for row in ercot.winter_load_forecasts.rows(where=lambda r: r.kind == "peak"):
+        print(row.forecastDate, row.hour, row.loadWithLargeLoads)
+        print(row.transmissionOperators.get("Oncor Electric Delivery Company LLC"))
+```
+
+Use `kind == "hourly"` to select only the hourly series; the peak is a separate
+published summary of an hour already present in that series. The verified
+2025–2026 workbook contains 2,160 hourly rows, one peak row, and 21 named
+transmission operators. These areas differ from weather zones and settlement
+load zones.
+
+`baseLoad` and `loadWithLargeLoads` preserve both published system figures.
+Operator allocations exclude large-load additions. `largeLoadAdditions` is
+populated only where separately published in the peak table; it remains `None`
+for hourly rows rather than being derived. `percentile` comes from the source
+explanation (75 in this workbook). Source dates, hour labels, file metadata,
+worksheet positions and explanatory notes remain available. These are forecasts
+for winter exposure analysis, not observed load or archived operational forecast
+vintages. Use `read(saved_bytes)` for an already downloaded workbook.
+
+
+## Ancillary-service requirement revisions
+
+Install `tinyercot[files]` to read the public requirement workbooks. This service
+uses the direct download linked from ERCOT's DAM page and needs no credentials:
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    for revision in ercot.ancillary_requirements.rows(
+        where=lambda r: r.effectiveDate == date(2026, 9, 1),
+    ):
+        for quantity in revision.quantities:
+            if quantity.service == "ECRS" and quantity.period.strip() == "Sep":
+                print(quantity.hourEnding, quantity.quantityMW)
+```
+
+`files()` discovers the current archive link. `download(file)` returns its bytes;
+`read(data, filename=...)` reads a saved archive or individual workbook. Each
+result is one `AncillaryServiceRequirements` revision with typed `quantities`,
+`rrsAllocations`, `adjustments`, `supportingValues` and located `notes`.
+
+These are published requirement schedules, not actual DAM/RT procurement.
+`effectiveDate` comes from an explicit workbook filename; it is `None` when the
+filename has none and does not establish when the publication became available.
+Keep revisions separate. Period strings retain partial months, dates and footnote
+markers. `kind="change"` identifies the 2018 RRS difference table; changes and
+wind/solar/forced-outage adjustments are never applied automatically. Read each
+adjustment's original `basis` for its denominator and applicability.
+
+RRS components and ratios retain their source meanings; `fractionFromLrs` keeps
+the stored fraction. Original hour labels, including `0` in the 2016 RRS tables,
+are unchanged. `supportingValues` retains totals and unlabelled calculations by
+worksheet position without assigning a unit; `notes` retains qualifications and
+spreadsheet error strings outside the data tables. The source `Total` rows sum
+hourly schedule values and are not monthly energy totals.
+
+### Generation capacity forecasts
+
+`generation_capacity` reads ERCOT's public Generation Resource Capacity Forecast
+workbook with `tinyercot[files]`. It includes the fleet's installed capacity,
+seasonal ratings, operational/planned category totals, and CDR region mappings.
+
+```python
+from tinyercot import Client
+
+with Client() as ercot:
+    for file in ercot.generation_capacity.files():
+        for forecast in ercot.generation_capacity.read(
+            ercot.generation_capacity.download(file), filename=file.title
+        ):
+            for resource in forecast.resources:
+                if resource.technology == "BA":
+                    print(resource.name, resource.cdrStatus,
+                          resource.installedCapacityMW, resource.capabilities)
+```
+
+`rows()` reads all discovered workbooks; `read(bytes, filename=...)` also accepts
+saved XLSX files and ZIPs. Both accept a typed `where` predicate on the workbook.
+Each workbook retains reference notes and source row/column positions. Category
+paths retain the source hierarchy: parent totals overlap their children, and
+operational and planned resources remain separate. Unit codes can repeat for
+fuel conversions; rows are not deduplicated.
+
+The May 2026 workbook uses April fleet data and publishes seasonal ratings for
+2027–2031 (winter periods through 2031/2032). These are planning inputs, not
+observed generation or dispatch availability. The workbook contains no load
+forecast or reserve margin. Its CDR wind/solar regions differ from production
+forecast regions. Consult `forecast.notes` for the published qualifications.

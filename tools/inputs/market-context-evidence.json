@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-09-09T00:00:42.684277+00:00",
+  "postedFrom": "2026-09-01T00:00:00",
+  "postedTo": "2026-09-01T01:00:00",
+  "results": {
+    "load_forecasts": {
+      "rows": 192,
+      "documents": [
+        {
+          "docId": 1269113097,
+          "friendlyName": "LFCWEATHERNP3561_csv",
+          "postDatetime": "2026-09-01T00:30:00"
+        }
+      ],
+      "missingEmbeddedPostedTime": 192
+    },
+    "wind": {
+      "rows": 216,
+      "documents": [
+        {
+          "docId": 1269122055,
+          "friendlyName": "WPPHRLYAVGACTGEONP4742_csv",
+          "postDatetime": "2026-09-01T00:55:13"
+        }
+      ],
+      "missingEmbeddedPostedTime": 216
+    },
+    "solar": {
+      "rows": 216,
+      "documents": [
+        {
+          "docId": 1269122046,
+          "friendlyName": "PVGRHRLYAVGACTGEONP4745_csv",
+          "postDatetime": "2026-09-01T00:55:12"
+        }
+      ],
+      "missingEmbeddedPostedTime": 216
+    },
+    "outages": {
+      "rows": 192,
+      "documents": [
+        {
+          "docId": 1269104759,
+          "friendlyName": "HRLYRESOUTCAPNP3233_csv",
+          "postDatetime": "2026-09-01T00:00:47"
+        }
+      ],
+      "missingEmbeddedPostedTime": 192
+    }
+  },
+  "checks": "Live archive retrieval and JSONL round-trip through each concrete generated model; every original publication timestamp falls within the requested inclusive window. No independent numerical source comparison, continuity audit, or predictive backtest.",
+  "initialFailure": "The first export stopped at the solar archive download with HTTP 429. The default retry policy excluded POST; the completed export uses the corrected GET/POST policy. The successful run does not independently prove a live retry occurred."
+}

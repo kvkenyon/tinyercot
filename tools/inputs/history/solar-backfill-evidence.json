@@ -1,0 +1,122 @@
+{
+  "startedAt": "2026-09-08T19:38:29.767863+00:00",
+  "finishedAt": "2026-09-08T20:06:13.445421+00:00",
+  "product": "NP4-737-CD",
+  "rowsCompared": 20035246,
+  "modelFieldsCompared": 10,
+  "fields": [
+    "postedDatetime",
+    "deliveryDate",
+    "hourEnding",
+    "genSystemWide",
+    "COPHSLSystemWide",
+    "STPPFSystemWide",
+    "PVGRPPSystemWide",
+    "HSLSystemWide",
+    "DSTFlag",
+    "hourEndingTimestamp"
+  ],
+  "archivePublications": 92700,
+  "bundlePublications": 102,
+  "uniqueOriginalPublications": 92700,
+  "bundleOnlyPublications": 0,
+  "bounds": {
+    "deliveryDate": [
+      "2016-06-21",
+      "2026-09-15"
+    ],
+    "hourEndingTimestamp": [
+      "2016-02-08T00:00:00",
+      "2016-06-30T09:00:00"
+    ]
+  },
+  "sourceLayouts": {
+    "DELIVERY_DATE,HOUR_ENDING,SYSTEM_WIDE_GEN,COP_HSL_SYSTEM_WIDE,STPPF_SYSTEM_WIDE,PVGRPP_SYSTEM_WIDE,SYSTEM_WIDE_HSL,DSTFlag": 17086,
+    "DELIVERY_DATE,HOUR_ENDING,ACTUAL_SYSTEM_WIDE,COP_HSL_SYSTEM_WIDE,STPPF_SYSTEM_WIDE,PVGRPP_SYSTEM_WIDE,DSTFlag": 72389,
+    "HOUR_ENDING,ACTUAL_SYSTEM_WIDE,COP_HSL_SYSTEM_WIDE,STPPF_SYSTEM_WIDE,PVGRPP_SYSTEM_WIDE,DSTFlag": 3225
+  },
+  "allListedArchivesIncluded": true,
+  "allTypedRowsMatchIndependentSource": true,
+  "scope": "Every row from unbounded NP4-737-CD backfill was compared field-for-field with independent stdlib CSV/date/Decimal decoding of downloaded originals. A separate pass accounted for every original CSV member, hash and row count. Captured archive IDs all appear in decoded sources; a fresh source-time-bounded listing agrees in cardinality and endpoints. These checks cover the enumerated retained publications, not continuous actual-generation observations or every ERCOT product.",
+  "limitations": [
+    "Forecast horizons overlap across publications; the row count is not a count of unique actual hours.",
+    "Dates extending after the retrieval day are forecast periods, not future actual generation.",
+    "Legacy hour-ending timestamps and modern deliveryDate/hourEnding remain distinct; no UTC offset is inferred.",
+    "Listing checks are not an atomic snapshot guarantee against retroactive changes with equal timestamps.",
+    "No claim of availability before the earliest retained source or through excluded MIS sources."
+  ],
+  "downloadsByKind": {
+    "bundle": 102,
+    "archive": 19
+  },
+  "remainingArchiveIdsDownloaded": 18241,
+  "sourceManifestSha256": "1a4635a7957594ae392d01c23cd83e15d4c362202c8de2888c78d4fabefc396f",
+  "sourceDownloadManifestSha256": "f85bcb0dc6eacc3e5fbd84144abfae1f485884a4e7e2176982366df522c423eb",
+  "readerFilesSha256": {
+    "tinyercot/_history.py": "a9a2fcc790495bc8a6b7c643fd3a678ca23734c33f1563ce85f4264defa1f400",
+    "tinyercot/_client.py": "2882187b44b08a97a5ae4d4b73fce38db919483646ac15e9bca4fce191d79209",
+    "tinyercot/_generated.py": "4add31219447d92ec33bf16f4096a6745799d61c36b272ab2edba095e0c836c2",
+    "tools/inputs/history-formats.json": "2566844e8cebcc6b40d42813d32074d474fbd2319742457a49684e1dba66a53e"
+  },
+  "independentAccounting": {
+    "allDownloadHashesMatch": true,
+    "allOriginalMemberHashesAndRowCountsMatch": true,
+    "allBundleIdsDownloaded": true,
+    "allListedArchiveIdsDecoded": true,
+    "originalDocuments": 92700,
+    "rows": 20035246,
+    "repeatedOriginalCopies": 0,
+    "archiveListingRecords": 92701,
+    "uniqueArchiveIds": 92700,
+    "bundleListingRecords": 102
+  },
+  "boundedListingRecheck": {
+    "checkedAt": "2026-09-08T15:06:58.604334-05:00",
+    "postedTo": "2026-09-08T13:55:14",
+    "capturedListingRows": 92701,
+    "capturedUniqueIds": 92700,
+    "freshBoundedTotal": 92700,
+    "firstMeta": {
+      "totalRecords": 92700,
+      "pageSize": 1,
+      "totalPages": 92700,
+      "currentPage": 1,
+      "query": {
+        "parameterCount": 1,
+        "parameters": {
+          "postDatetimeTo": "2026-09-08T13:55:14"
+        },
+        "sortedBy": "postDatetime: DESC"
+      }
+    },
+    "lastMeta": {
+      "totalRecords": 92700,
+      "pageSize": 1,
+      "totalPages": 92700,
+      "currentPage": 92700,
+      "query": {
+        "parameterCount": 1,
+        "parameters": {
+          "postDatetimeTo": "2026-09-08T13:55:14"
+        },
+        "sortedBy": "postDatetime: DESC"
+      }
+    },
+    "freshFirstDocument": [
+      {
+        "docId": 1272116067,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2026-09-08T13:55:14"
+      }
+    ],
+    "freshLastDocument": [
+      {
+        "docId": 509506529,
+        "friendlyName": "PVGRHRLYAVGACTNP4737_csv",
+        "postDatetime": "2016-02-10T00:31:11.247000"
+      }
+    ],
+    "boundedCardinalityAndEndpointsMatch": true,
+    "limits": "Fresh bounded cardinality and endpoints agree with captured listing; not an atomic snapshot guarantee against retroactive insertions/deletions at equal timestamps."
+  }
+}

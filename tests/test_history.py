@@ -572,7 +572,148 @@ def test_operation_historical_formats(sample):
             )
         )
     assert len(rows) == min(3, sample["csv_rows"])
-    assert rows[0].model_dump(mode="json") == sample["first_row"]
+    expected = sample["first_row"]
+    if product == "np6-323-cd":
+        expected = {
+            **expected,
+            **dict.fromkeys(
+                [
+                    "RTRUCCST30HSL",
+                    "RTORDPA",
+                    "RTOLLASL",
+                    "RTOLHASL",
+                    "RTNCLRNSCAP",
+                    "RTNCLRECRS",
+                ]
+            ),
+        }
+    elif product == "np6-324-cd":
+        expected = {**expected, "RTRDP": None}
+    elif product == "np6-325-cd":
+        expected = {
+            **expected,
+            **dict.fromkeys(
+                [
+                    "RTORDPA",
+                    "RTDLRRRS",
+                    "RTOLLASL",
+                    "RTOLHASL",
+                    "RTNCLRECRS",
+                ]
+            ),
+        }
+    assert rows[0].model_dump(mode="json") == expected
+
+
+@pytest.mark.parametrize(
+    "product,method,fixture,count",
+    [
+        ("np6_324_cd", "rt_15min_price_adders_history", "adder-15min-originals.zip", 2),
+        ("np6_325_cd", "rtd_price_adders_history", "adder-rtd-originals.zip", 33),
+    ],
+)
+def test_related_historical_adders_match_complete_originals(
+    product, method, fixture, count
+):
+    data = (INPUTS / fixture).read_bytes()
+    with Client() as client:
+        rows = list(getattr(getattr(client, product), method).read(data))
+    originals = []
+    with ZipFile(BytesIO(data)) as publications:
+        for name in publications.namelist():
+            with ZipFile(BytesIO(publications.read(name))) as publication:
+                content = publication.read(publication.namelist()[0]).decode(
+                    "utf-8-sig"
+                )
+                originals.extend(
+                    csv.DictReader(
+                        line for line in content.splitlines() if line.strip()
+                    )
+                )
+    assert len(rows) == len(originals) == count
+    aliases = {
+        "SystemLambda": "systemLambda",
+        "DeliveryHour": "deliveryHour",
+        "DeliveryInterval": "deliveryInterval",
+        "IntervalID": "intervalID",
+        "IntervalEnding": "intervalEnding",
+        "RepeatedHourFlag": "repeatHourFlag",
+        "DSTFlag": "repeatHourFlag",
+        "IERepeatedHourFlag": "IERepeatHourFlag",
+        "RTDCTIEIMPORT": "RTDCTIEImport",
+        "RTDCTIEEXPORT": "RTDCTIEExport",
+        "RTBLTIMPORT": "RTBLTImport",
+        "RTBLTEXPORT": "RTBLTExport",
+    }
+    for row, source in zip(rows, originals, strict=True):
+        expected = {}
+        for column, value in source.items():
+            field = aliases.get(column, column)
+            if column == "DeliveryDate":
+                month, day, year = map(int, value.split("/"))
+                expected["deliveryDate"] = date(year, month, day)
+            elif column in {"RTDTimestamp", "IntervalEnding"}:
+                expected[field] = datetime.strptime(value, "%m/%d/%Y %H:%M:%S")  # noqa: DTZ007
+            elif column in {"RepeatedHourFlag", "DSTFlag", "IERepeatedHourFlag"}:
+                assert value in {"Y", "N"}
+                expected[field] = value == "Y"
+            elif column in {
+                "BatchID",
+                "IntervalID",
+                "DeliveryHour",
+                "DeliveryInterval",
+            }:
+                expected[field] = int(value)
+            else:
+                expected[field] = Decimal(value)
+        actual = row.model_dump()
+        assert {field: actual[field] for field in expected} == expected
+        assert all(
+            value is None for field, value in actual.items() if field not in expected
+        )
+        assert row.RTRDPA is None
+
+
+def test_intermediate_price_adders_match_complete_originals():
+    data = (INPUTS / "adder-intermediate-originals.zip").read_bytes()
+    with Client() as client:
+        rows = list(client.np6_323_cd.rt_price_adder_sced_history.read(data))
+    originals = []
+    with ZipFile(BytesIO(data)) as publications:
+        for name in publications.namelist():
+            with ZipFile(BytesIO(publications.read(name))) as publication:
+                content = publication.read(publication.namelist()[0]).decode(
+                    "utf-8-sig"
+                )
+                originals.extend(
+                    csv.DictReader(
+                        line for line in content.splitlines() if line.strip()
+                    )
+                )
+    assert len(rows) == len(originals) == 4
+    assert sorted(map(len, originals)) == [29, 32, 33, 34]
+    for row, source in zip(rows, originals, strict=True):
+        expected = {}
+        for field, value in source.items():
+            if field == "SCEDTimestamp":
+                expected[field] = datetime.strptime(value, "%m/%d/%Y %H:%M:%S")  # noqa: DTZ007
+            elif field == "RepeatedHourFlag":
+                assert value in {"Y", "N"}
+                expected["repeatHourFlag"] = value == "Y"
+            elif field == "BatchID":
+                expected[field] = int(value)
+            else:
+                expected["systemLambda" if field == "SystemLambda" else field] = (
+                    Decimal(value)
+                )
+        actual = row.model_dump()
+        assert {field: actual[field] for field in expected} == expected
+        assert all(
+            value is None for field, value in actual.items() if field not in expected
+        )
+        assert row.RTRDPA is None
+    assert any(row.RTORDPA and row.RTORDPA > 0 for row in rows)
+    assert any(row.RTNCLRECRS and row.RTNCLRECRS > 0 for row in rows)
 
 
 def test_legacy_lambda_and_ordc_fields_remain_distinct():
@@ -666,7 +807,67 @@ def test_adequacy_historical_formats(sample):
             )
         )
     assert len(rows) == min(3, sample["csv_rows"])
-    assert rows[0].model_dump(mode="json") == sample["first_row"]
+    expected = sample["first_row"]
+    if product == "np3-233-cd":
+        # These older receipts predate the additional legacy field.
+        expected = {**expected, "totalNewEquipResourceMW": None}
+    assert rows[0].model_dump(mode="json") == expected
+
+
+def test_legacy_adequacy_offline_capacity_matches_complete_original():
+    data = (INPUTS / "adequacy-offline-original.zip").read_bytes()
+    with Client() as client:
+        rows = list(client.np3_763_cd.st_sys_adequacy_history.read(data))
+    with ZipFile(BytesIO(data)) as source:
+        content = source.read(source.namelist()[0]).decode("utf-8-sig")
+    originals = list(
+        csv.DictReader(line for line in content.splitlines() if line.strip())
+    )
+    assert len(rows) == len(originals) == 168
+    for row, original in zip(rows, originals, strict=True):
+        month, day, year = map(int, original["DeliveryDate"].split("/"))
+        expected = {
+            "deliveryDate": date(year, month, day),
+            "hourEnding": original["HourEnding"],
+            "capGenRes": Decimal(original["TotalCapGenRes"]),
+            "capLoadRes": Decimal(original["TotalCapLoadRes"]),
+            "offAvailMW": Decimal(original["OfflineAvailableMW"]),
+            "repeatHourFlag": original["DSTFlag"] == "Y",
+        }
+        actual = row.model_dump()
+        assert {field: actual[field] for field in expected} == expected
+        assert all(
+            value is None for field, value in actual.items() if field not in expected
+        )
+    assert any(row.offAvailMW == 0 for row in rows)
+    assert any(row.offAvailMW and row.offAvailMW > 0 for row in rows)
+
+
+def test_legacy_outage_new_equipment_totals_match_complete_originals():
+    data = (INPUTS / "outage-equipment-originals.zip").read_bytes()
+    with Client() as client:
+        rows = list(client.np3_233_cd.hourly_res_outage_cap_history.read(data))
+    expected = []
+    with ZipFile(BytesIO(data)) as publications:
+        for name in publications.namelist():
+            with ZipFile(BytesIO(publications.read(name))) as publication:
+                for member in publication.namelist():
+                    source = publication.read(member).decode("utf-8-sig")
+                    expected.extend(csv.DictReader(StringIO(source)))
+    assert len(rows) == len(expected) == 336
+    for row, original in zip(rows, expected, strict=True):
+        month, day, year = map(int, original["Date"].split("/"))
+        assert row.operatingDate == date(year, month, day)
+        assert row.hourEnding == int(original["HourEnding"])
+        assert row.totalResourceMW == int(original["TotalResourceMW"])
+        assert row.totalIRRMW == int(original["TotalIRRMW"])
+        assert row.totalNewEquipResourceMW == int(original["TotalNewEquipResourceMW"])
+        assert row.postedDatetime is None
+        assert all(
+            value is None
+            for field, value in row.model_dump().items()
+            if "Zone" in field
+        )
 
 
 def test_legacy_outage_and_ruc_totals_are_not_assigned_to_regions():
@@ -681,6 +882,7 @@ def test_legacy_outage_and_ruc_totals_are_not_assigned_to_regions():
         )
         assert outage.totalResourceMW == 18542
         assert outage.totalIRRMW == 685
+        assert outage.totalNewEquipResourceMW is None
         assert outage.totalResourceMWZoneSouth is None
         ruc = next(
             client.np3_764_cd.hrly_ruc_online_sced_offline_cop_history.read(
