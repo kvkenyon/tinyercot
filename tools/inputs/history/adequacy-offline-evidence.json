@@ -1,0 +1,11 @@
+{
+  "product": "NP3-763-CD",
+  "docId": 485836122,
+  "postDatetime": "2015-06-30T23:00:05.340000",
+  "download": "https://api.ercot.com/api/public-reports/archive/np3-763-cd?download=485836122",
+  "original": "485836122.cdr.00012315.0000000000000000.20150630.230005340.RESCAPACITNP3763_csv.zip",
+  "fixture": "adequacy-offline-original.zip",
+  "bytes": 2117,
+  "sha256": "24bcd026a175295024271f0f2bdeca211a2d5bd60514032980babd9282765d14",
+  "scope": "Complete unchanged original ZIP; test_history.py compares all 168 rows and all six source fields, including zero and nonzero offline capacity. Whitespace-only trailer is not a data row."
+}

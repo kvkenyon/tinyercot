@@ -1520,6 +1520,73 @@ inputs. They do not establish a forecast that was available in advance. See
 [ERCOT's explanation](https://www.ercot.com/gridinfo/load/forecast/2025) and the
 [verification receipt](../tools/inputs/monthly-performance/evidence.json).
 
+## Winter hourly load and peak forecasts
+
+Install `tinyercot[files]` for `winter_load_forecasts`. This anonymous public
+reader discovers the winter reliability-standard load workbook and returns
+fully typed `WinterLoadForecast` rows:
+
+```python
+with Client() as ercot:
+    for row in ercot.winter_load_forecasts.rows(where=lambda r: r.kind == "peak"):
+        print(row.forecastDate, row.hour, row.loadWithLargeLoads)
+        print(row.transmissionOperators.get("Oncor Electric Delivery Company LLC"))
+```
+
+Use `kind == "hourly"` to select only the hourly series; the peak is a separate
+published summary of an hour already present in that series. The verified
+2025–2026 workbook contains 2,160 hourly rows, one peak row, and 21 named
+transmission operators. These areas differ from weather zones and settlement
+load zones.
+
+`baseLoad` and `loadWithLargeLoads` preserve both published system figures.
+Operator allocations exclude large-load additions. `largeLoadAdditions` is
+populated only where separately published in the peak table; it remains `None`
+for hourly rows rather than being derived. `percentile` comes from the source
+explanation (75 in this workbook). Source dates, hour labels, file metadata,
+worksheet positions and explanatory notes remain available. These are forecasts
+for winter exposure analysis, not observed load or archived operational forecast
+vintages. Use `read(saved_bytes)` for an already downloaded workbook.
+
+
+## Ancillary-service requirement revisions
+
+Install `tinyercot[files]` to read the public requirement workbooks. This service
+uses the direct download linked from ERCOT's DAM page and needs no credentials:
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    for revision in ercot.ancillary_requirements.rows(
+        where=lambda r: r.effectiveDate == date(2026, 9, 1),
+    ):
+        for quantity in revision.quantities:
+            if quantity.service == "ECRS" and quantity.period.strip() == "Sep":
+                print(quantity.hourEnding, quantity.quantityMW)
+```
+
+`files()` discovers the current archive link. `download(file)` returns its bytes;
+`read(data, filename=...)` reads a saved archive or individual workbook. Each
+result is one `AncillaryServiceRequirements` revision with typed `quantities`,
+`rrsAllocations`, `adjustments`, `supportingValues` and located `notes`.
+
+These are published requirement schedules, not actual DAM/RT procurement.
+`effectiveDate` comes from an explicit workbook filename; it is `None` when the
+filename has none and does not establish when the publication became available.
+Keep revisions separate. Period strings retain partial months, dates and footnote
+markers. `kind="change"` identifies the 2018 RRS difference table; changes and
+wind/solar/forced-outage adjustments are never applied automatically. Read each
+adjustment's original `basis` for its denominator and applicability.
+
+RRS components and ratios retain their source meanings; `fractionFromLrs` keeps
+the stored fraction. Original hour labels, including `0` in the 2016 RRS tables,
+are unchanged. `supportingValues` retains totals and unlabelled calculations by
+worksheet position without assigning a unit; `notes` retains qualifications and
+spreadsheet error strings outside the data tables. The source `Total` rows sum
+hourly schedule values and are not monthly energy totals.
+
 ### Generation capacity forecasts
 
 `generation_capacity` reads ERCOT's public Generation Resource Capacity Forecast

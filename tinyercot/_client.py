@@ -15,6 +15,7 @@ import httpx
 from httpx_retries import Retry, RetryTransport
 from pydantic import AliasChoices, BaseModel, ConfigDict, Field
 
+from ._as_requirements import AncillaryRequirements
 from ._capacity import CapacityChanges
 from ._coincident_peaks import CoincidentPeaks
 from ._dashboards import Dashboards
@@ -37,6 +38,7 @@ from ._peak_forecasts import PeakDemandForecasts
 from ._public_tables import CrrHours, LoadShed, PolrHistory
 from ._retail import RetailTransactions
 from ._weather import HistoricalWeather
+from ._winter_forecasts import WinterLoadForecasts
 from ._zonal_energy import ZonalEnergy
 from ._zonal_generation import ZonalGeneration
 from ._zonal_peaks import SeasonalPeakForecasts, WeeklyPeakForecasts
@@ -393,6 +395,10 @@ class Transport:
         return HourlyLoadForecasts(self._http)
 
     @property
+    def winter_load_forecasts(self) -> WinterLoadForecasts:
+        return WinterLoadForecasts(self._http)
+
+    @property
     def monthly_load_forecasts(self) -> MonthlyLoadForecasts:
         return MonthlyLoadForecasts(self._http)
 
@@ -443,6 +449,10 @@ class Transport:
     @property
     def retail_transactions(self) -> RetailTransactions:
         return RetailTransactions(self._http)
+
+    @property
+    def ancillary_requirements(self) -> AncillaryRequirements:
+        return AncillaryRequirements(self._http)
 
     @property
     def indicative_ordc(self) -> IndicativeOrdcHistory:
