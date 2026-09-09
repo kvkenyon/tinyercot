@@ -224,7 +224,11 @@ class Transport:
         self._password = password or os.getenv("ERCOT_PASSWORD")
         self._key = subscription_key or os.getenv(self._subscription_key_env)
         retry = Retry(
-            total=5, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504]
+            total=5,
+            backoff_factor=1,
+            status_forcelist=[429, 500, 502, 503, 504],
+            # ERCOT's archive/bundle downloads are read-only POST requests.
+            allowed_methods=["GET", "POST"],
         )
         self._owns_client = client is None
         self._owns_async = async_client is None
