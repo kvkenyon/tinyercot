@@ -54,6 +54,42 @@ Live checks of these functions are recorded in
 They verify retrieval and serialization; they are not a forecast-accuracy backtest.
 
 
+## Market context as it was published
+
+```sh
+uv run python -m examples.market_context 2026-09-01T00:00 2026-09-01T01:00 --output market-data/context
+```
+
+This exports four files using existing generated history readers:
+
+| File | Published data |
+| --- | --- |
+| `load_forecasts.jsonl` | Seven-day weather-zone load forecasts |
+| `wind.jsonl` | Regional wind actuals, forecasts and reported capability |
+| `solar.jsonl` | Regional solar actuals, forecasts and reported capability |
+| `outages.jsonl` | Hourly resource outage capacity |
+
+Each line contains the original archive `document` and its typed `row`.
+`PublishedRow[ConcreteHistoryRow]` can read that envelope back with the generated
+type. Decimal strings, nulls, DST flags, delivery periods and separate forecast
+issues survive the export. Bounds select inclusive ERCOT-local **publication
+times**, without offsets; they do not restrict the delivery periods in each report.
+
+For a trading or battery backtest, select the most recent available issue for each
+source and target interval at the decision time. Use the document's posting time
+even when the row has no embedded timestamp. Do not join on publication time:
+these products publish on different schedules. Wind and solar reports contain
+both actual and forecast fields; keep their meanings separate. The existing
+`market_day` example supplies realized prices and load for comparison.
+
+All selected issues and corrections remain separate. A narrow window may contain
+no publication for a source; widen the window when looking for its preceding
+issue. Output files are overwritten and an interruption can leave partial files.
+This example retrieves model inputs; it does not calculate features or returns.
+
+The [live receipt](../tools/inputs/market-context-evidence.json) records the checked
+publication window and typed export counts.
+
 ## Retained settlement-price history
 
 ```sh
