@@ -23,7 +23,7 @@ jobs:
           python-version: ${{ matrix.python }}
           enable-cache: true
       - run: uv sync --frozen --all-extras --group dev
-      - run: uv run --no-sync pytest -q
+      - run: uv run --no-sync python -m pytest -q
       - if: matrix.python == '3.14'
         run: |
           uv run --no-sync ruff check .
