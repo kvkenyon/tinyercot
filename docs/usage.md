@@ -1547,3 +1547,42 @@ explanation (75 in this workbook). Source dates, hour labels, file metadata,
 worksheet positions and explanatory notes remain available. These are forecasts
 for winter exposure analysis, not observed load or archived operational forecast
 vintages. Use `read(saved_bytes)` for an already downloaded workbook.
+
+
+## Ancillary-service requirement revisions
+
+Install `tinyercot[files]` to read the public requirement workbooks. This service
+uses the direct download linked from ERCOT's DAM page and needs no credentials:
+
+```python
+from datetime import date
+from tinyercot import Client
+
+with Client() as ercot:
+    for revision in ercot.ancillary_requirements.rows(
+        where=lambda r: r.effectiveDate == date(2026, 9, 1),
+    ):
+        for quantity in revision.quantities:
+            if quantity.service == "ECRS" and quantity.period.strip() == "Sep":
+                print(quantity.hourEnding, quantity.quantityMW)
+```
+
+`files()` discovers the current archive link. `download(file)` returns its bytes;
+`read(data, filename=...)` reads a saved archive or individual workbook. Each
+result is one `AncillaryServiceRequirements` revision with typed `quantities`,
+`rrsAllocations`, `adjustments`, `supportingValues` and located `notes`.
+
+These are published requirement schedules, not actual DAM/RT procurement.
+`effectiveDate` comes from an explicit workbook filename; it is `None` when the
+filename has none and does not establish when the publication became available.
+Keep revisions separate. Period strings retain partial months, dates and footnote
+markers. `kind="change"` identifies the 2018 RRS difference table; changes and
+wind/solar/forced-outage adjustments are never applied automatically. Read each
+adjustment's original `basis` for its denominator and applicability.
+
+RRS components and ratios retain their source meanings; `fractionFromLrs` keeps
+the stored fraction. Original hour labels, including `0` in the 2016 RRS tables,
+are unchanged. `supportingValues` retains totals and unlabelled calculations by
+worksheet position without assigning a unit; `notes` retains qualifications and
+spreadsheet error strings outside the data tables. The source `Total` rows sum
+hourly schedule values and are not monthly energy totals.

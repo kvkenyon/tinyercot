@@ -4,6 +4,9 @@ from decimal import Decimal
 from typing import Literal, assert_type
 
 from tinyercot import (
+    AncillaryServiceAdjustment,
+    AncillaryServiceQuantity,
+    AncillaryServiceRequirements,
     Archive,
     CapacityProject,
     CapacityTotals,
@@ -46,6 +49,7 @@ from tinyercot import (
     PolrUsage,
     Publication,
     PublicFile,
+    ResponsiveReserveAllocation,
     RetailTransactionMonth,
     ScheduledGeneration,
     SeasonalPeakForecast,
@@ -980,3 +984,18 @@ with Client() as client:
     assert_type(wind_solar.stppfDayAhead, Decimal | None)
     assert_type(wind_solar.pvgrppDayAhead, Decimal | None)
     assert_type(wind_solar.stwpf, Decimal)
+
+
+with Client() as client:
+    assert_type(client.ancillary_requirements.files(), list[PublicFile])
+    assert_type(
+        client.ancillary_requirements.read(b""), Iterator[AncillaryServiceRequirements]
+    )
+    requirements = next(
+        client.ancillary_requirements.rows(where=lambda d: d.year == 2026)
+    )
+    assert_type(requirements.effectiveDate, date | None)
+    assert_type(requirements.quantities, list[AncillaryServiceQuantity])
+    assert_type(requirements.rrsAllocations, list[ResponsiveReserveAllocation])
+    assert_type(requirements.adjustments, list[AncillaryServiceAdjustment])
+    assert_type(requirements.quantities[0].quantityMW, Decimal | None)

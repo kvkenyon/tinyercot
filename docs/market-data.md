@@ -44,6 +44,8 @@ settlement load zones are different geographies.
 constraints, outages, and renewable/load forecasts. Use the public
 `dashboards.sced_capacity()`, `dashboards.ancillary_capacity()`, and
 `dashboards.energy_storage()` snapshots for their published operating context.
+Public `ancillary_requirements` adds versioned annual requirement schedules, RRS
+components and adjustment tables; see the [requirement workflow](usage.md#ancillary-service-requirement-revisions).
 Aggregate system data do not establish an individual battery's feasible dispatch.
 The public SCED ESR disclosure is part of Public Reports; it is distinct from
 the separate ESR API, now available through `ESRClient`; see the

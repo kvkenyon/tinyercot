@@ -5,6 +5,9 @@ client offline, without ERCOT credentials or a separately initialized submodule.
 
 - `operations.json` and the root `api_response_fields.json` describe the API used
   by the generator. Overrides and field mappings record deliberate corrections.
+- `as-requirements/` retains all 15 original numerical workbooks from the public
+  ancillary-service methodology archive, their hashes and comparison receipt.
+  Narrative Word documents are not included in this fixture.
 - `esr/` contains the separate ESR operation/response contracts, archive mapping,
   original nested ZIPs, API captures and the live verification receipt. It feeds
   the same generator and ESR routing/history regression tests.

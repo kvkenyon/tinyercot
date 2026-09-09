@@ -1704,3 +1704,36 @@ extra hourly observation. The complete original workbook is a regression fixture
 under `tools/inputs/winter-forecasts/source.zip`, excluded from the installed wheel.
 [Evidence](../tools/inputs/winter-forecasts/evidence.json) records the original URL,
 hash, source bounds and comparison scope. The reader adds no dependencies.
+
+## Ancillary-service requirement workbooks
+
+`Client.ancillary_requirements` discovers the direct public methodology archive
+on ERCOT's DAM page and reads its numerical workbooks as typed revisions. A fresh
+anonymous download on September 8, 2026 contains **15 workbooks for 2016–2026**,
+including the September 1, 2026 revision. All original workbook hashes match the
+fixtures. This is separate from API DAM AS plans and actual procurement reports.
+
+The original worksheets contain **17,832 hourly quantities, 4,368 RRS allocation
+rows, 4,608 adjustment values and 1,115 supporting values**. Regression comparisons
+account for **all 51,515 numeric cells**, including hour-axis labels and supporting
+calculations, using original worksheet coordinates. They compare period labels,
+RRS components, adjustment bases and 277 located notes as well. Numeric values
+follow openpyxl's stored-number interpretation, not exact XML numeric lexemes.
+
+Revisions, split-month periods, individual June 2021 dates, footnote markers and
+source worksheet positions remain distinct. The 2016 RRS workbook uses `0` for
+some hour labels; these are retained. A 2018 table explicitly contains RRS
+changes rather than requirements. Totals and unlabelled calculations remain
+separate supporting values with no inferred unit. Adjustment bases retain their
+wind/solar capacity denominator or forced-outage qualification. The 2025–2026
+regulation adjustment sheets' external `#REF!` helper cells remain located notes;
+the published numeric adjustment tables are readable.
+
+`effectiveDate` uses only the explicit effective date in the workbook name.
+The 2020 workbook has none, so its value is `None`; no revision establishes an
+original publication timestamp. No adjustment, revision or difference is applied
+automatically. See the [usage example](usage.md#ancillary-service-requirement-revisions).
+The [source manifest](../tools/inputs/as-requirements/sources.json) and
+[comparison receipt](../tools/inputs/as-requirements/evidence.json) record scope,
+counts and hashes. Tests retain all 15 unchanged original numerical workbooks;
+they stay outside the installed wheel. Narrative Word documents are excluded.
