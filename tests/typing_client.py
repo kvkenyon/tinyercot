@@ -358,6 +358,21 @@ with Client() as client:
     for adder in client.np6_323_cd.rt_price_adder_sced_history.rows():
         assert_type(adder.RTORPA, Decimal | None)
         assert_type(adder.RTRDPA, Decimal | None)
+        assert_type(adder.RTORDPA, Decimal | None)
+        assert_type(adder.RTRUCCST30HSL, Decimal | None)
+        assert_type(adder.RTOLLASL, Decimal | None)
+        assert_type(adder.RTOLHASL, Decimal | None)
+        assert_type(adder.RTNCLRNSCAP, Decimal | None)
+        assert_type(adder.RTNCLRECRS, Decimal | None)
+
+    for quarter_hour in client.np6_324_cd.rt_15min_price_adders_history.rows():
+        assert_type(quarter_hour.RTRDP, Decimal | None)
+    for rtd_adder in client.np6_325_cd.rtd_price_adders_history.rows():
+        assert_type(rtd_adder.RTORDPA, Decimal | None)
+        assert_type(rtd_adder.RTDLRRRS, Decimal | None)
+        assert_type(rtd_adder.RTOLLASL, Decimal | None)
+        assert_type(rtd_adder.RTOLHASL, Decimal | None)
+        assert_type(rtd_adder.RTNCLRECRS, Decimal | None)
 
     for forecast in client.np3_561_cd._7d_load_fcast_by_wzn_history.rows():
         assert_type(forecast.hourEnding, str | None)
@@ -369,8 +384,10 @@ with Client() as client:
 
     for capacity in client.np3_233_cd.hourly_res_outage_cap_history.rows():
         assert_type(capacity.totalResourceMW, int | None)
+        assert_type(capacity.totalNewEquipResourceMW, int | None)
     for adequacy in client.np3_763_cd.st_sys_adequacy_history.rows():
         assert_type(adequacy.hourEnding, str | None)
+        assert_type(adequacy.offAvailMW, Decimal | None)
     for ruc in client.np3_764_cd.hrly_ruc_online_sced_offline_cop_history.rows():
         assert_type(ruc.sumSCEDTotal, Decimal | None)
 

@@ -103,6 +103,18 @@ from current reliability-deployment adders. For example,
 alongside `RTRDPA`; absent source columns are `None`. The older SCED lambda report
 has `systemLambda`, while newer files have `cappedSystemLambda` and
 `uncappedSystemLambda`. Reading an older file does not invent capped values.
+Intermediate price-adder files also preserve `RTORDPA`, `RTRUCCST30HSL`,
+`RTOLLASL`, `RTOLHASL`, `RTNCLRNSCAP` and `RTNCLRECRS` as separate decimals.
+Four [original publications](../tools/inputs/history/adder-intermediate-originals.zip)
+cover the 29–34-column layouts in regression tests, with all 128 source values
+compared. [Source metadata](../tools/inputs/history/adder-intermediate-evidence.json)
+records their URLs and hashes. `RTORDPA` is not relabeled as `RTRDPA`.
+The 15-minute reader likewise retains legacy `RTRDP`. Indicative RTD history
+retains `RTORDPA`, `RTDLRRRS`, `RTOLLASL`, `RTOLHASL` and `RTNCLRECRS` without
+substituting newer fields; run and target timestamps remain distinct. Five
+complete [original publications](../tools/inputs/history/related-adder-evidence.json)
+cover the intermediate 15-minute and RTD layouts in tests, comparing all 35 rows
+and 707 source values. Missing fields remain `None`.
 The same `_history` workflow covers RTD indicative adders, state-estimator total
 generation and DC-tie flows, HDL/LDL summaries, and SCED shadow prices. Publication
 bounds select archive files; typed predicates can select timestamps, ties, or
@@ -141,11 +153,28 @@ Outage and adequacy history includes seven-day and longer planned-outage margins
 hourly resource outage capacity, short-term system adequacy, hourly RUC status,
 and approved DC-tie schedules. For example,
 `ercot.np3_233_cd.hourly_res_outage_cap_history.rows(...)` reads old system totals
-as `totalResourceMW` and `totalIRRMW`; regional fields absent from those files
-remain `None`. Old RUC reports similarly preserve `sumSCEDTotal` separately from
+as `totalResourceMW`, `totalIRRMW`, and, where published,
+`totalNewEquipResourceMW`; regional fields absent from those files remain `None`.
+The 2019 and 2020 samples include the system-wide new-equipment total, which is
+absent from the earlier four-column layout. Two complete original publications
+in [the regression fixture](../tools/inputs/history/outage-equipment-originals.zip)
+cover all 336 rows and 1,680 source values;
+[source metadata](../tools/inputs/history/outage-equipment-evidence.json) records
+their download URLs and hashes. These samples establish layout support, not uninterrupted
+retention or exact format-transition dates.
+Old RUC reports similarly preserve `sumSCEDTotal` separately from
 newer regional values. RUC and SCED timestamps retain their seconds, and DC-tie
 schedules retain both GMT and local interval-ending fields. System-adequacy
 hour-ending labels remain strings, including `24:00`.
+
+System-adequacy history maps the legacy `OfflineAvailableMW` column to
+`offAvailMW`, the same system total as newer `OfflineAvailableMWTotal` columns.
+The [original 2015 fixture](../tools/inputs/history/adequacy-offline-original.zip)
+checks all 168 rows and six source fields, including zero and nonzero capacity;
+unpublished regional and ancillary-service fields remain `None`.
+[Source metadata](../tools/inputs/history/adequacy-offline-evidence.json) records
+the original download and hash. Annual samples from 2015–2025 decode, but do not
+establish uninterrupted history or exact format-transition dates.
 
 Ancillary-service offers and sales, peaker net margin, system-wide offer caps,
 RMR deployments, and day-ahead point-to-point option prices also expose typed
