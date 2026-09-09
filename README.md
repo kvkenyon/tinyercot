@@ -80,7 +80,8 @@ history readers cover **289 tables across 113 products**. This establishes API
 and known-format coverage, not uninterrupted history for every dataset.
 
 Full-source comparisons cover retained DAM settlement prices, DAM ancillary
-prices, and weather-zone actual load. Other products have sampled historical
+prices, weather-zone actual load, and selected hourly wind/solar actual and
+forecast series. Other products have sampled historical
 layout checks; see the [coverage evidence](docs/data-coverage.md). Available
 history and source gaps differ by product. The separate ESR service adds one
 generated query and its history reader through `ESRClient`, using

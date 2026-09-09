@@ -86,6 +86,7 @@ from ._weather import WeatherDay as WeatherDay
 from ._weather import WeatherHour as WeatherHour
 from ._weather import WeatherVariable as WeatherVariable
 from ._weather import WeatherZone as WeatherZone
+from ._winter_forecasts import WinterLoadForecast as WinterLoadForecast
 from ._xlsx import WorkbookArchive as WorkbookArchive
 from ._zonal_energy import ZonalEnergyDay as ZonalEnergyDay
 from ._zonal_energy import ZonalEnergyTotal as ZonalEnergyTotal

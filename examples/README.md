@@ -68,13 +68,24 @@ and DST flags. Overlapping copies of a publication are retrieved once; distinct
 corrections remain separate, and rows are not sorted.
 
 Optional `--date-from YYYY-MM-DD` and `--date-to YYYY-MM-DD` filter inclusive
-**delivery dates**, after download. They do not supply publication bounds or
-reduce the amount downloaded. These are maximum-history workflows and can take
-considerable time; use `market_day` for bounded recent queries. The output file
-is overwritten, and an interrupted run can leave a partial file.
+**delivery dates**, after download. They do not reduce the amount downloaded.
+To limit downloads, explicitly select inclusive **publication times** with
+`--posted-from` and/or `--posted-to`, using ERCOT-local timestamps without offsets:
+
+```sh
+uv run python -m examples.price_history dam --point HB_HOUSTON --posted-from 2014-05-01T00:00 --posted-to 2014-05-02T00:00 --date-from 2014-05-02 --date-to 2014-05-02 --output dam-2014-05-02.jsonl
+```
+
+Publication bounds use original archive metadata; bundle-only publications without
+that metadata are excluded. They can also exclude later corrections for the same
+delivery day. Omit both publication bounds for maximum retained history. Large
+exports can take considerable time; use `market_day` for bounded recent queries.
+The output file is overwritten, and an interrupted run can leave a partial file.
 
 The price-history exporter is checked with saved original DAM/RT CSV samples and
 mocked archive/bundle listings, including a bundle-only publication and an
-archive-only publication. This verifies its use of the existing backfill reader;
+archive-only publication. Bounded checks verify that an unrelated month's bundle
+is skipped while the selected archive and delivery-date filter are retained.
+This verifies its use of the existing backfill reader;
 it is not a new live comparison of every retained RT price row. See the
 [market-data guide](../docs/market-data.md) for verified ranges and remaining gaps.

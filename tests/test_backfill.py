@@ -353,6 +353,7 @@ def test_generic_uppercase_csv_reader_does_not_treat_missing_report_as_sparse_ta
         run(source, "np7_535_sg", "path_adders_history")
 
 
+@pytest.mark.parametrize("bounded", [False, True])
 @pytest.mark.parametrize(
     ("market", "product", "delivery_day", "price"),
     [
@@ -361,11 +362,11 @@ def test_generic_uppercase_csv_reader_does_not_treat_missing_report_as_sparse_ta
     ],
 )
 def test_price_history_export_uses_delivery_dates_and_both_sources(
-    tmp_path, market, product, delivery_day, price
+    tmp_path, market, product, delivery_day, price, bounded
 ):
     report = zipped({"report.csv": (INPUTS / f"{product}.csv").read_bytes()})
     source = Source(
-        [document(1), document(2)],
+        [document(1, "2014-05-01T12:00:00"), document(2)],
         [document(-1)],
         {
             ("bundle", (-1,)): zipped({"2.report.zip": report, "3.report.zip": report}),
@@ -376,8 +377,12 @@ def test_price_history_export_uses_delivery_dates_and_both_sources(
     def handle(request):
         if "b2clogin" not in request.url.host:
             assert product in request.url.path
-            assert "postDatetimeFrom" not in request.url.params
-            assert "postDatetimeTo" not in request.url.params
+            if "postDatetimeFrom" in request.url.params:
+                assert bounded
+                assert request.url.params["postDatetimeFrom"] == "2014-05-01T00:00:00"
+                assert request.url.params["postDatetimeTo"] == "2014-05-02T00:00:00"
+            else:
+                assert "postDatetimeTo" not in request.url.params
         return source(request)
 
     path = tmp_path / "history" / "prices.jsonl"
@@ -392,14 +397,18 @@ def test_price_history_export_uses_delivery_dates_and_both_sources(
             path,
             date_from=delivery_day,
             date_to=delivery_day,
+            posted_from=datetime(2014, 5, 1) if bounded else None,
+            posted_to=datetime(2014, 5, 2) if bounded else None,
         )
         rows = [json.loads(line) for line in path.read_text().splitlines()]
-        assert count == len(rows) == 3
+        assert count == len(rows) == (1 if bounded else 3)
         assert all(r["deliveryDate"] == delivery_day.isoformat() for r in rows)
         assert all(r["settlementPoint"] == "AMISTAD_ALL" for r in rows)
         assert all(r["settlementPointPrice"] == price for r in rows)
         assert all(r["DSTFlag"] is False for r in rows)
-        assert source.downloads == [("bundle", [-1]), ("archive", [1])]
+        assert source.downloads == (
+            [("archive", [1])] if bounded else [("bundle", [-1]), ("archive", [1])]
+        )
         assert (
             export_price_history(
                 client, market, "AMISTAD_ALL", path, date_from=date(2020, 1, 1)
@@ -407,6 +416,30 @@ def test_price_history_export_uses_delivery_dates_and_both_sources(
             == 0
         )
         assert path.read_text() == ""
+
+
+@pytest.mark.parametrize(
+    ("start", "end", "message"),
+    [
+        ("2014-05-02", "2014-05-01", "posted_from must not exceed posted_to"),
+        ("2014-05-01T00:00:00Z", "2014-05-02", "without an offset"),
+    ],
+)
+def test_price_history_invalid_publication_bounds_preserve_output(
+    tmp_path, start, end, message
+):
+    path = tmp_path / "prices.jsonl"
+    path.write_text("existing export\n")
+    with Client() as client, pytest.raises(ValueError, match=message):
+        export_price_history(
+            client,
+            "dam",
+            "HB_HOUSTON",
+            path,
+            posted_from=datetime.fromisoformat(start),
+            posted_to=datetime.fromisoformat(end),
+        )
+    assert path.read_text() == "existing export\n"
 
 
 @pytest.mark.parametrize("bundled", [False, True])
