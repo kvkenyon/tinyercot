@@ -3,7 +3,8 @@
 A small, fully typed ERCOT data client for retailers, battery operators, and
 energy traders. Query recent data, stream historical archives and monthly
 bundles, or read public load and generation files. Coverage focuses on data for market
-decisions, settlement and resource planning.
+pricing, dispatch, forecasting, hedging and settlement. See the
+[scope guide](docs/scope.md) for what belongs in the SDK.
 
 ## Install and connect
 
@@ -105,6 +106,6 @@ excluded from the installed wheel.
 uv sync --group dev
 uv run python tools/generate_client.py
 uv run mypy tinyercot tests/typing_client.py examples --strict --follow-untyped-imports
-uv run pytest
+uv run python -m pytest
 uv build
 ```
