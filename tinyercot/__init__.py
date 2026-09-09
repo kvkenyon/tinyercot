@@ -1,5 +1,17 @@
 """Tiny, fully typed access to ERCOT public data."""
 
+from ._as_requirements import AncillaryServiceAdjustment as AncillaryServiceAdjustment
+from ._as_requirements import AncillaryServiceQuantity as AncillaryServiceQuantity
+from ._as_requirements import (
+    AncillaryServiceRequirementNote as AncillaryServiceRequirementNote,
+)
+from ._as_requirements import (
+    AncillaryServiceRequirements as AncillaryServiceRequirements,
+)
+from ._as_requirements import (
+    AncillaryServiceSupportingValue as AncillaryServiceSupportingValue,
+)
+from ._as_requirements import ResponsiveReserveAllocation as ResponsiveReserveAllocation
 from ._capacity import CapacityProject as CapacityProject
 from ._capacity import CapacityTotals as CapacityTotals
 from ._client import Document as Document
@@ -25,6 +37,20 @@ from ._fuel_mix import FuelMixInterval as FuelMixInterval
 from ._fuel_mix import FuelMixTotal as FuelMixTotal
 from ._generated import *
 from ._generated_esr import *
+from ._generation_capacity import (
+    GenerationCapacityForecast as GenerationCapacityForecast,
+)
+from ._generation_capacity import GenerationCapacityNote as GenerationCapacityNote
+from ._generation_capacity import GenerationCapacityRegion as GenerationCapacityRegion
+from ._generation_capacity import (
+    GenerationCategoryCapacity as GenerationCategoryCapacity,
+)
+from ._generation_capacity import (
+    GenerationResourceCapacity as GenerationResourceCapacity,
+)
+from ._generation_capacity import (
+    SeasonalGenerationCapability as SeasonalGenerationCapability,
+)
 from ._generation_keys import GenerationProfileKey as GenerationProfileKey
 from ._generation_keys import GenerationProfileKeySite as GenerationProfileKeySite
 from ._generation_keys import GenerationProfileKeySummary as GenerationProfileKeySummary
@@ -72,6 +98,7 @@ from ._weather import WeatherDay as WeatherDay
 from ._weather import WeatherHour as WeatherHour
 from ._weather import WeatherVariable as WeatherVariable
 from ._weather import WeatherZone as WeatherZone
+from ._winter_forecasts import WinterLoadForecast as WinterLoadForecast
 from ._xlsx import WorkbookArchive as WorkbookArchive
 from ._zonal_energy import ZonalEnergyDay as ZonalEnergyDay
 from ._zonal_energy import ZonalEnergyTotal as ZonalEnergyTotal

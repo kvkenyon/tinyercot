@@ -103,6 +103,18 @@ from current reliability-deployment adders. For example,
 alongside `RTRDPA`; absent source columns are `None`. The older SCED lambda report
 has `systemLambda`, while newer files have `cappedSystemLambda` and
 `uncappedSystemLambda`. Reading an older file does not invent capped values.
+Intermediate price-adder files also preserve `RTORDPA`, `RTRUCCST30HSL`,
+`RTOLLASL`, `RTOLHASL`, `RTNCLRNSCAP` and `RTNCLRECRS` as separate decimals.
+Four [original publications](../tools/inputs/history/adder-intermediate-originals.zip)
+cover the 29–34-column layouts in regression tests, with all 128 source values
+compared. [Source metadata](../tools/inputs/history/adder-intermediate-evidence.json)
+records their URLs and hashes. `RTORDPA` is not relabeled as `RTRDPA`.
+The 15-minute reader likewise retains legacy `RTRDP`. Indicative RTD history
+retains `RTORDPA`, `RTDLRRRS`, `RTOLLASL`, `RTOLHASL` and `RTNCLRECRS` without
+substituting newer fields; run and target timestamps remain distinct. Five
+complete [original publications](../tools/inputs/history/related-adder-evidence.json)
+cover the intermediate 15-minute and RTD layouts in tests, comparing all 35 rows
+and 707 source values. Missing fields remain `None`.
 The same `_history` workflow covers RTD indicative adders, state-estimator total
 generation and DC-tie flows, HDL/LDL summaries, and SCED shadow prices. Publication
 bounds select archive files; typed predicates can select timestamps, ties, or
@@ -141,11 +153,28 @@ Outage and adequacy history includes seven-day and longer planned-outage margins
 hourly resource outage capacity, short-term system adequacy, hourly RUC status,
 and approved DC-tie schedules. For example,
 `ercot.np3_233_cd.hourly_res_outage_cap_history.rows(...)` reads old system totals
-as `totalResourceMW` and `totalIRRMW`; regional fields absent from those files
-remain `None`. Old RUC reports similarly preserve `sumSCEDTotal` separately from
+as `totalResourceMW`, `totalIRRMW`, and, where published,
+`totalNewEquipResourceMW`; regional fields absent from those files remain `None`.
+The 2019 and 2020 samples include the system-wide new-equipment total, which is
+absent from the earlier four-column layout. Two complete original publications
+in [the regression fixture](../tools/inputs/history/outage-equipment-originals.zip)
+cover all 336 rows and 1,680 source values;
+[source metadata](../tools/inputs/history/outage-equipment-evidence.json) records
+their download URLs and hashes. These samples establish layout support, not uninterrupted
+retention or exact format-transition dates.
+Old RUC reports similarly preserve `sumSCEDTotal` separately from
 newer regional values. RUC and SCED timestamps retain their seconds, and DC-tie
 schedules retain both GMT and local interval-ending fields. System-adequacy
 hour-ending labels remain strings, including `24:00`.
+
+System-adequacy history maps the legacy `OfflineAvailableMW` column to
+`offAvailMW`, the same system total as newer `OfflineAvailableMWTotal` columns.
+The [original 2015 fixture](../tools/inputs/history/adequacy-offline-original.zip)
+checks all 168 rows and six source fields, including zero and nonzero capacity;
+unpublished regional and ancillary-service fields remain `None`.
+[Source metadata](../tools/inputs/history/adequacy-offline-evidence.json) records
+the original download and hash. Annual samples from 2015–2025 decode, but do not
+establish uninterrupted history or exact format-transition dates.
 
 Ancillary-service offers and sales, peaker net margin, system-wide offer caps,
 RMR deployments, and day-ahead point-to-point option prices also expose typed
@@ -1261,8 +1290,8 @@ before fixture compression) and captured index pages are retained under
 `tools/inputs/peak-forecasts/` for offline tests and excluded from the wheel.
 Source URLs distinguish identically named files in different publication paths.
 Monthly, seasonal and weekly peak workbooks use separate readers below.
-The main hourly long-term forecast workbooks and regional weather-year scenarios
-are covered below; performance workbooks remain a known coverage gap.
+The main hourly long-term forecast workbooks, regional weather-year scenarios,
+and hourly/monthly forecast-performance workbooks are covered below.
 
 
 ## Public monthly peak-demand and energy forecasts
@@ -1315,8 +1344,8 @@ forecast percentile. Original numeric totals and declared units are preserved.
 [Evidence and manifests](../tools/inputs/zonal-peaks/evidence.json) accompany
 24 unchanged original workbooks (560,216 bytes before fixture compression).
 Tests reuse the existing forecast-index captures. Fixtures remain outside the
-installed wheel. Hourly forecasts and forecast-performance workbooks remain
-separate implementation gaps.
+installed wheel. The separate hourly forecast and forecast-performance readers
+and their verified source coverage are described below.
 
 ## Public hourly long-term load forecasts
 
@@ -1358,9 +1387,9 @@ independently extracted expected values, and the existing public index snapshots
 distinguish full-source verification from the smaller offline fixtures. Fixtures
 are excluded from the installed wheel.
 
-The eight separate weather-year regional scenario files are covered below. The
-winter reliability-standard forecast and forecast-performance families remain
-additional gaps.
+The eight separate weather-year regional scenario files and the hourly/monthly
+forecast-performance families are covered below. The winter reliability-standard
+hourly forecast is covered by `winter_load_forecasts` below.
 
 ## Regional hourly weather-year scenarios
 
@@ -1579,3 +1608,115 @@ retain archive posting metadata when evaluating forecasts as issued.
 [Full comparison and source-accounting receipt](../tools/inputs/history/wind-backfill-evidence.json)
 records the row-model fields, layouts, reader hashes, manifest hashes, listing
 recheck and limits. Source downloads remain outside the installed package.
+
+### Complete retained system-wide hourly solar backfill
+
+The September 8, 2026 unbounded `np4_737_cd.spp_hrly_avrg_actl_fcast_history`
+backfill compared **20,035,246 rows across 92,700 original publications**, using
+102 monthly bundles and 19 archive download batches. All ten typed fields in
+every row matched independent stdlib CSV/date/Decimal decoding. The three
+retained layouts include the older full hour-ending timestamp, the later
+delivery-date/hour format, and the newer generation/HSL columns. No runtime or
+generated-reader changes were needed.
+
+Independent recursive file accounting agrees on every original CSV hash and
+row count, and all captured archive IDs appear in the decoded sources. The
+paginated listing contained one repeated document ID; the backfill retrieved
+each original publication once. A fresh listing bounded at the captured latest
+publication agrees on 92,700 unique documents and both publication endpoints.
+No bundle-only publications were found in this snapshot.
+
+Archive postings span February 10, 2016 at 00:31:11.247 through September 8, 2026
+at 13:55:14, with no supplied UTC offset. Source period fields remain separate:
+
+| Source period field | First | Last |
+| --- | --- | --- |
+| `hourEndingTimestamp` | February 8, 2016 00:00 | June 30, 2016 09:00 |
+| `deliveryDate` | June 21, 2016 | September 15, 2026 |
+
+Actual generation, the two forecast series, available HSL fields, missing values
+and DST flags retain their source values. Rows overlap across forecast vintages;
+these counts are not unique observed hours, and later forecast periods are not
+future actual generation. This check does not establish continuous observations,
+earlier ERCOT holdings, an atomic listing snapshot, or full coverage of the
+separate regional/five-minute solar products. Use `publications()` to retain
+original archive posting metadata when evaluating forecasts as issued.
+
+[Full comparison and source-accounting receipt](../tools/inputs/history/solar-backfill-evidence.json)
+records the fields, layouts, source and reader hashes, listing recheck and
+limitations. Large source downloads remain outside the repository and installed
+package.
+
+## Winter hourly load and peak forecasts
+
+`Client.winter_load_forecasts` closes the winter-workbook exclusion in the earlier
+hourly-forecast check. Live anonymous discovery finds the public 2025–2026
+reliability-standard magnitude workbook, and a fresh download matches the saved
+original byte for byte. All **2,160 hourly rows**, **one peak row**, **21 operator
+columns**, and **49,704 load values** match an independent python-calamine read;
+the runtime reuses the existing openpyxl workbook helpers.
+
+Hourly source dates run from December 1, 2025 through February 28, 2026. The
+separate peak row is January 31, 2026, hour 8. Both system-load columns remain
+separate from operator allocations, which exclude large-load additions. Only
+the peak table separately publishes the 4,817 large-load additions; its original
+note preserves the contracted/officer-letter breakdown. No hourly component is
+derived by subtraction. The 75th-percentile label comes from the source text.
+
+Rows retain original hour labels, dates, operator names, worksheet locations and
+explanatory notes. These are forecast scenarios, not actual demand observations
+or as-issued operational vintages. The peak summary must not be counted as an
+extra hourly observation. The complete original workbook is a regression fixture
+under `tools/inputs/winter-forecasts/source.zip`, excluded from the installed wheel.
+[Evidence](../tools/inputs/winter-forecasts/evidence.json) records the original URL,
+hash, source bounds and comparison scope. The reader adds no dependencies.
+
+## Ancillary-service requirement workbooks
+
+`Client.ancillary_requirements` discovers the direct public methodology archive
+on ERCOT's DAM page and reads its numerical workbooks as typed revisions. A fresh
+anonymous download on September 8, 2026 contains **15 workbooks for 2016–2026**,
+including the September 1, 2026 revision. All original workbook hashes match the
+fixtures. This is separate from API DAM AS plans and actual procurement reports.
+
+The original worksheets contain **17,832 hourly quantities, 4,368 RRS allocation
+rows, 4,608 adjustment values and 1,115 supporting values**. Regression comparisons
+account for **all 51,515 numeric cells**, including hour-axis labels and supporting
+calculations, using original worksheet coordinates. They compare period labels,
+RRS components, adjustment bases and 277 located notes as well. Numeric values
+follow openpyxl's stored-number interpretation, not exact XML numeric lexemes.
+
+Revisions, split-month periods, individual June 2021 dates, footnote markers and
+source worksheet positions remain distinct. The 2016 RRS workbook uses `0` for
+some hour labels; these are retained. A 2018 table explicitly contains RRS
+changes rather than requirements. Totals and unlabelled calculations remain
+separate supporting values with no inferred unit. Adjustment bases retain their
+wind/solar capacity denominator or forced-outage qualification. The 2025–2026
+regulation adjustment sheets' external `#REF!` helper cells remain located notes;
+the published numeric adjustment tables are readable.
+
+`effectiveDate` uses only the explicit effective date in the workbook name.
+The 2020 workbook has none, so its value is `None`; no revision establishes an
+original publication timestamp. No adjustment, revision or difference is applied
+automatically. See the [usage example](usage.md#ancillary-service-requirement-revisions).
+The [source manifest](../tools/inputs/as-requirements/sources.json) and
+[comparison receipt](../tools/inputs/as-requirements/evidence.json) record scope,
+counts and hashes. Tests retain all 15 unchanged original numerical workbooks;
+they stay outside the installed wheel. Narrative Word documents are excluded.
+
+### Generation Resource Capacity Forecast
+
+`Client.generation_capacity` adds typed access to the public
+[May 2026 generation resource forecast](https://www.ercot.com/files/docs/2026/05/18/Generation_Resource_Forecast_May2026.xlsx).
+The original workbook fixture covers all 1,836 Unit Details rows, 47 category
+rows, 37,190 seasonal capability cells, 1,883 installed-capacity cells, and
+508 county/region mappings. Regression tests compare all these values and unit
+metadata with the saved original, including category indentation and reference
+text. Numeric comparisons use openpyxl's stored-value decoding and Decimal
+conversion, rather than asserting byte-exact preservation of XML number lexemes.
+
+The source includes DC ties and an aggregate small-generator row; 1,836 is not
+a count of unique physical generators. Repeated resource codes, planned status,
+missing dates, zero ratings, and hierarchical totals remain distinct. The
+workbook is a planning forecast with no load forecast or planning reserve margin.
+This reader does not establish coverage of older CDR workbook layouts.

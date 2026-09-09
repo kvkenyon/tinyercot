@@ -1,0 +1,39 @@
+{
+  "product": "NP6-323-CD",
+  "fixture": "adder-intermediate-originals.zip",
+  "scope": "Four complete unchanged original publications covering the 29, 32, 33 and 34-column historical layouts. Used directly in test_history.py.",
+  "publications": [
+    {
+      "docId": 485839473,
+      "postDatetime": "2015-06-30T23:55:13.327000",
+      "download": "https://api.ercot.com/api/public-reports/archive/np6-323-cd?download=485839473",
+      "member": "485839473.cdr.00013221.0000000000000000.20150630.235513327.RTORDCRELDEPpriceAdderNP6323_20150630_235510_csv.zip",
+      "bytes": 562,
+      "sha256": "cc133ae59dacd7f68d55f422520668922e81f97e106cc80156c5c889776d6976"
+    },
+    {
+      "docId": 781873694,
+      "postDatetime": "2021-06-30T23:55:11.816000",
+      "download": "https://api.ercot.com/api/public-reports/archive/np6-323-cd?download=781873694",
+      "member": "781873694.cdr.00013221.0000000000000000.20210630.235511816.RTORDCRELDEPpriceAdderNP6323_20210630_235508_csv.zip",
+      "bytes": 598,
+      "sha256": "2a5f783a416a6fbd02a7f620083a83d37e178e3b711573724eb8f889e22799a6"
+    },
+    {
+      "docId": 849002181,
+      "postDatetime": "2022-06-30T23:55:19.462000",
+      "download": "https://api.ercot.com/api/public-reports/archive/np6-323-cd?download=849002181",
+      "member": "849002181.cdr.00013221.0000000000000000.20220630.235519462.RTORDCRELDEPpriceAdderNP6323_20220630_235516_csv.zip",
+      "bytes": 608,
+      "sha256": "b2851aefee0cb2bd7f07cc08b272d266348066af55c9b1b878fe6e8b31e8699c"
+    },
+    {
+      "docId": 926189977,
+      "postDatetime": "2023-06-30T23:55:20.175000",
+      "download": "https://api.ercot.com/api/public-reports/archive/np6-323-cd?download=926189977",
+      "member": "926189977.cdr.00013221.0000000000000000.20230630.235520175.RTORDCRELDEPpriceAdderNP6323_20230630_235516_csv.zip",
+      "bytes": 614,
+      "sha256": "719429f22c0992daf12c0ed288896dcb5acaaf82f078b85c4b21a4352a9d1214"
+    }
+  ]
+}

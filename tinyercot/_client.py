@@ -15,12 +15,14 @@ import httpx
 from httpx_retries import Retry, RetryTransport
 from pydantic import AliasChoices, BaseModel, ConfigDict, Field
 
+from ._as_requirements import AncillaryRequirements
 from ._capacity import CapacityChanges
 from ._coincident_peaks import CoincidentPeaks
 from ._dashboards import Dashboards
 from ._distribution_losses import DistributionLossCoefficients
 from ._forecast_performance import LoadForecastPerformance
 from ._fuel_mix import FuelMix
+from ._generation_capacity import GenerationCapacity
 from ._generation_profiles import GenerationProfiles
 from ._hourly_forecasts import HourlyLoadForecasts
 from ._load import HourlyLoad
@@ -35,6 +37,7 @@ from ._ordc import IndicativeOrdcHistory
 from ._peak_forecasts import PeakDemandForecasts
 from ._public_tables import CrrHours, LoadShed, PolrHistory
 from ._weather import HistoricalWeather
+from ._winter_forecasts import WinterLoadForecasts
 from ._zonal_energy import ZonalEnergy
 from ._zonal_generation import ZonalGeneration
 from ._zonal_peaks import SeasonalPeakForecasts, WeeklyPeakForecasts
@@ -223,7 +226,11 @@ class Transport:
         self._password = password or os.getenv("ERCOT_PASSWORD")
         self._key = subscription_key or os.getenv(self._subscription_key_env)
         retry = Retry(
-            total=5, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504]
+            total=5,
+            backoff_factor=1,
+            status_forcelist=[429, 500, 502, 503, 504],
+            # ERCOT's archive/bundle downloads are read-only POST requests.
+            allowed_methods=["GET", "POST"],
         )
         self._owns_client = client is None
         self._owns_async = async_client is None
@@ -391,6 +398,10 @@ class Transport:
         return HourlyLoadForecasts(self._http)
 
     @property
+    def winter_load_forecasts(self) -> WinterLoadForecasts:
+        return WinterLoadForecasts(self._http)
+
+    @property
     def monthly_load_forecasts(self) -> MonthlyLoadForecasts:
         return MonthlyLoadForecasts(self._http)
 
@@ -439,12 +450,20 @@ class Transport:
         return PolrHistory(self._http)
 
     @property
+    def ancillary_requirements(self) -> AncillaryRequirements:
+        return AncillaryRequirements(self._http)
+
+    @property
     def indicative_ordc(self) -> IndicativeOrdcHistory:
         return IndicativeOrdcHistory(self._http)
 
     @property
     def resource_outlook(self) -> ResourceOutlook:
         return ResourceOutlook(self._http)
+
+    @property
+    def generation_capacity(self) -> GenerationCapacity:
+        return GenerationCapacity(self._http)
 
     @property
     def capacity_changes(self) -> CapacityChanges:
