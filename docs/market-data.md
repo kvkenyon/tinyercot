@@ -63,6 +63,9 @@ backcasts and targets through its [monthly workflow](usage.md#monthly-forecast-a
 resource reports, and delayed disclosures. `history.publications()` keeps each
 original archive `Document` beside its typed rows. Select information available
 by the decision time before evaluating it against later realized outcomes.
+The [market-context example](../examples/README.md#market-context-as-it-was-published)
+exports load, wind, solar and outage issues together while preserving each
+source's own delivery periods and publication identity.
 Settlement prices, SCED LMPs, RTD indicative prices, and separate adders are
 separate series; adding an adder to a series that already includes it double-counts it.
 
