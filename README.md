@@ -105,6 +105,6 @@ excluded from the installed wheel.
 uv sync --group dev
 uv run python tools/generate_client.py
 uv run mypy tinyercot tests/typing_client.py examples --strict --follow-untyped-imports
-uv run pytest
+uv run python -m pytest
 uv build
 ```

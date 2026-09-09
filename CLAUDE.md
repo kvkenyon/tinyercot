@@ -19,7 +19,7 @@ extraction are outside the release scope.
   documented corrections to ERCOT's inconsistent contracts.
 - `tests`: captured public responses, mocked transport, and static typing checks.
 
-Run `uv run python tools/generate_client.py`, `uv run pytest`,
+Run `uv run python tools/generate_client.py`, `uv run python -m pytest`,
 `uv run mypy tinyercot tests/typing_client.py --strict --follow-untyped-imports`,
 `uv run ruff check .`, and `uv build`.
 
