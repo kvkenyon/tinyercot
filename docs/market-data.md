@@ -2,8 +2,9 @@
 
 Start with the dataset that matches the decision or target you are modeling.
 Scope is public data for pricing, dispatch, hedging, load forecasting, settlement,
-and resource planning. Compliance-only legacy summaries and narrative documents
-are outside that scope. Older market observations remain useful historical data.
+and supply outlooks. The [scope guide](scope.md) distinguishes those inputs from
+administrative reporting and planning illustrations. Older market observations
+remain useful historical data.
 
 All paths below are relative to a `Client()` named `ercot`. Each history reader
 returns concrete Pydantic rows and supports `read`, `rows`, and `backfill`.

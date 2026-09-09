@@ -691,40 +691,6 @@ as regression fixtures, byte-for-byte. Source URLs, hashes and comparison
 counts are in `tools/inputs/public-market-tables-evidence.json`. No older
 history is inferred from the years embedded in download URLs.
 
-## Retail transaction history
-
-`Client.retail_transactions` discovers the monthly transaction archive linked
-from [ERCOT's retail page](https://www.ercot.com/mktinfo/retail). The complete
-inspected archive has 20 workbooks and 444 sheets, covering January 2025–August
-2026. All 9,126 records were independently compared against the original files:
-277,433 daily counts, 9,126 reported totals, 9,126 reported averages, every date,
-transaction code and workbook/sheet identity. All 608 calendar dates appear in
-the source headers. This describes aggregate transaction counts, not individual
-customer records or metered energy.
-
-There are 30 original transaction codes and a Grand Total row in each sheet.
-Typed `transactionCode=None` identifies those 444 total rows. `sourceSheet`
-retains each original category. Territory, customer-class and ERCOT-wide views
-overlap and must not be added together. Four sheets in April 2025 and January
-2026 are literally named ` Inbound` and ` Outbound`; their eight records retain
-these labels without an invented category. Codes retain their literal spelling,
-including suffixes such as `814_06_MVI` and `814_06_SW`.
-
-Monthly totals match the sum of their published daily counts in this archive.
-The 8,848 rounded averages remain exactly as published rather than being
-recomputed. Each typed month keeps its daily dates/counts and separate reported
-total/average. The `where` predicate can select dates, codes and categories.
-`files()`, `download(file)` and `read(data, filename=..., where=...)` support
-direct discovery and saved archives. Original member names and overlapping
-files remain separate; the current archive filename does not limit the dates
-that can be queried.
-
-Evidence is recorded in `tools/inputs/public-retail-transactions-evidence.json`.
-The regression fixture retains five complete original workbooks byte-for-byte,
-covering all 30 codes, first/latest months, 28/30/31-day months and every unnamed
-category. It contains 2,280 records and 68,864 daily counts. No older coverage is
-inferred from the year embedded in the source URL.
-
 ## Interim indicative ORDC archive
 
 `Client.indicative_ordc` reads the archive linked under the interim scarcity
