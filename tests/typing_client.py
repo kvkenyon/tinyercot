@@ -46,7 +46,6 @@ from tinyercot import (
     PolrUsage,
     Publication,
     PublicFile,
-    RetailTransactionMonth,
     ScheduledGeneration,
     SeasonalPeakForecast,
     TransmissionLossCoefficient,
@@ -209,20 +208,6 @@ with Client() as client:
     assert_type(indicative_price.scedTimestamp, datetime)
     assert_type(indicative_price.sourceTimestamp, str)
     assert_type(indicative_price.rtorpa, Decimal | None)
-
-with Client() as client:
-    assert_type(client.retail_transactions.files(), list[PublicFile])
-    assert_type(client.retail_transactions.read(b""), Iterator[RetailTransactionMonth])
-    assert_type(
-        client.retail_transactions.rows(where=lambda r: r.month.year == 2025),
-        Iterator[RetailTransactionMonth],
-    )
-    retail_month = next(client.retail_transactions.rows())
-    assert_type(retail_month.month, date)
-    assert_type(retail_month.transactionCode, str | None)
-    assert_type(retail_month.days[0].count, int | None)
-    assert_type(retail_month.reportedTotal, int | None)
-    assert_type(retail_month.reportedAveragePerDay, Decimal | None)
 
 with Client() as client:
     assert_type(client.crr_hours.files(), list[PublicFile])

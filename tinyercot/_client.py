@@ -34,7 +34,6 @@ from ._mora import ResourceOutlook
 from ._ordc import IndicativeOrdcHistory
 from ._peak_forecasts import PeakDemandForecasts
 from ._public_tables import CrrHours, LoadShed, PolrHistory
-from ._retail import RetailTransactions
 from ._weather import HistoricalWeather
 from ._zonal_energy import ZonalEnergy
 from ._zonal_generation import ZonalGeneration
@@ -438,10 +437,6 @@ class Transport:
     @property
     def polr(self) -> PolrHistory:
         return PolrHistory(self._http)
-
-    @property
-    def retail_transactions(self) -> RetailTransactions:
-        return RetailTransactions(self._http)
 
     @property
     def indicative_ordc(self) -> IndicativeOrdcHistory:

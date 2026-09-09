@@ -68,8 +68,6 @@ from ._public_tables import CrrTimeOfUse as CrrTimeOfUse
 from ._public_tables import LoadShedShare as LoadShedShare
 from ._public_tables import PolrUsage as PolrUsage
 from ._public_tables import PublicFile as PublicFile
-from ._retail import RetailTransactionDay as RetailTransactionDay
-from ._retail import RetailTransactionMonth as RetailTransactionMonth
 from ._weather import WeatherDay as WeatherDay
 from ._weather import WeatherHour as WeatherHour
 from ._weather import WeatherVariable as WeatherVariable
