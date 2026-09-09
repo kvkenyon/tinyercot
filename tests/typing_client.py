@@ -57,6 +57,7 @@ from tinyercot import (
     WeatherZoneLoad,
     WeatherZonePeakValues,
     WeeklyPeakForecast,
+    WinterLoadForecast,
     ZonalEnergyDay,
     ZonalEnergyTotal,
     ZonalSourceNumber,
@@ -829,6 +830,13 @@ def hourly_forecast_typing(client: Client) -> None:
         assert_type(row.net.total, Decimal | None)
     assert_type(row.unit, Literal["MW"] | None)
     assert_type(row.scenario, Literal["tsp_provided", "ercot_adjusted"] | None)
+
+
+def winter_forecast_typing(client: Client) -> None:
+    assert_type(client.winter_load_forecasts.files(), list[PublicFile])
+    rows = client.winter_load_forecasts.rows(where=lambda row: row.kind == "peak")
+    assert_type(rows, Iterator[WinterLoadForecast])
+    assert_type(next(rows).transmissionOperators, dict[str, Decimal | None])
 
 
 def hourly_load_scenario_typing(client: Client) -> None:

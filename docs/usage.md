@@ -1519,3 +1519,31 @@ ERCOT describes backcasts as model runs using actual weather and calendar
 inputs. They do not establish a forecast that was available in advance. See
 [ERCOT's explanation](https://www.ercot.com/gridinfo/load/forecast/2025) and the
 [verification receipt](../tools/inputs/monthly-performance/evidence.json).
+
+## Winter hourly load and peak forecasts
+
+Install `tinyercot[files]` for `winter_load_forecasts`. This anonymous public
+reader discovers the winter reliability-standard load workbook and returns
+fully typed `WinterLoadForecast` rows:
+
+```python
+with Client() as ercot:
+    for row in ercot.winter_load_forecasts.rows(where=lambda r: r.kind == "peak"):
+        print(row.forecastDate, row.hour, row.loadWithLargeLoads)
+        print(row.transmissionOperators.get("Oncor Electric Delivery Company LLC"))
+```
+
+Use `kind == "hourly"` to select only the hourly series; the peak is a separate
+published summary of an hour already present in that series. The verified
+2025–2026 workbook contains 2,160 hourly rows, one peak row, and 21 named
+transmission operators. These areas differ from weather zones and settlement
+load zones.
+
+`baseLoad` and `loadWithLargeLoads` preserve both published system figures.
+Operator allocations exclude large-load additions. `largeLoadAdditions` is
+populated only where separately published in the peak table; it remains `None`
+for hourly rows rather than being derived. `percentile` comes from the source
+explanation (75 in this workbook). Source dates, hour labels, file metadata,
+worksheet positions and explanatory notes remain available. These are forecasts
+for winter exposure analysis, not observed load or archived operational forecast
+vintages. Use `read(saved_bytes)` for an already downloaded workbook.
