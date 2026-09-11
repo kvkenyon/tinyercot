@@ -30,4 +30,4 @@ jobs:
           uv run --no-sync mypy tinyercot tests/typing_client.py examples --strict --follow-untyped-imports
           uv run --no-sync python tools/generate_client.py
           git diff --exit-code -- tinyercot/_generated.py tinyercot/_generated_esr.py
-          uv build --wheel
+          uv build

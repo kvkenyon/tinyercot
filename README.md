@@ -99,8 +99,8 @@ remain in the [usage reference](docs/usage.md).
 
 Product methods and row models are generated from saved ERCOT definitions. The
 runtime depends on `httpx`, `httpx-retries`, and `pydantic`; optional file parsers
-are loaded when used. Source fixtures support tests and generation and are
-excluded from the installed wheel.
+are loaded when used. Source fixtures support tests and generation in the Git
+checkout. Development assets are excluded from both wheel and source distributions.
 
 ```sh
 uv sync --group dev
