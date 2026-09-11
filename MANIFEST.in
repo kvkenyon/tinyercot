@@ -1,5 +1,6 @@
-include api_response_fields.json
-recursive-include tools *.py *.md *.json *.csv *.xlsx *.pdf *.zip *.html
-recursive-include tests *.py
-recursive-include examples *.py *.md
-recursive-include docs *.md
+prune tools
+prune tests
+prune examples
+prune docs
+exclude api_response_fields.json
+exclude products.json
