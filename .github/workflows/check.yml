@@ -1,0 +1,33 @@
+name: Check SDK
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.14"]
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: astral-sh/setup-uv@v10.1.0
+        with:
+          python-version: ${{ matrix.python }}
+          enable-cache: true
+      - run: uv sync --frozen --all-extras --group dev
+      - run: uv run --no-sync python -m pytest -q
+      - if: matrix.python == '3.14'
+        run: |
+          uv run --no-sync ruff check .
+          uv run --no-sync mypy tinyercot tests/typing_client.py examples --strict --follow-untyped-imports
+          uv run --no-sync python tools/generate_client.py
+          git diff --exit-code -- tinyercot/_generated.py tinyercot/_generated_esr.py
+          uv build --wheel
