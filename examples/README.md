@@ -1,9 +1,35 @@
 # Market-data workflows
 
-Run these examples from the repository with `ERCOT_USERNAME`, `ERCOT_PASSWORD`,
-and `ERCOT_SUBSCRIPTION_KEY` set locally. They use the generated typed client and
-write JSON Lines, one record per line. The output paths are overwritten on each
+Run these examples from the repository. API examples require `ERCOT_USERNAME`,
+`ERCOT_PASSWORD`, and `ERCOT_SUBSCRIPTION_KEY` set locally; the public loss-factor
+example needs no credentials. They use typed readers and write JSON Lines, one
+record per line. The output paths are overwritten on each
 run; choose a separate directory for each operating day or settlement point.
+
+## Settlement loss factors for July and August 2026
+
+```sh
+uv run --extra files python -m examples.loss_factors --output market-data/loss-factors-jul-aug-2026.jsonl
+```
+
+This discovers ERCOT's public files and downloads only the workbook(s) labeled
+2026, then selects operating dates July 1 through August 31, inclusive. Each line
+is a typed `LossFactorDay` with its actual/forecast `kind`, transmission/distribution
+`level`, TDSP and loss code where supplied, original timestamps, interval factors
+and source-file link. These are settlement factors; they do not measure losses
+on individual power lines. Decimal values remain strings and blank intervals
+remain null; no scaling or load adjustment is applied.
+
+The September 10, 2026 live check exported **2,232 series/day records** covering
+all 62 days: 62 actual and 62 forecast transmission records, plus 1,054 actual
+and 1,054 forecast distribution records. The current source workbook runs
+through August 31. This is a later publication of those operating dates, so
+forecast labels alone do not establish availability for an as-issued backtest.
+
+To work directly with typed records, import `july_august_2026` from
+`examples.loss_factors` and iterate it with a `Client`. Select `day.kind ==
+"actual"` and `day.level == "distribution"` for actual distribution losses;
+`day.operatingDay` and `day.intervals` expose the date and source factors.
 
 ## Prices and load for an operating day
 
