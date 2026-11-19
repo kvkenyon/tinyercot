@@ -11,8 +11,12 @@ from pydantic import BaseModel, ConfigDict, Field
 T = TypeVar("T", bound=BaseModel)
 
 BASE_URL = "https://api.ercot.com/api/public-reports"
+TOKEN_URL = (
+    "https://ercotb2c.b2clogin.com/ercotb2c.onmicrosoft.com/"
+    "B2C_1_PUBAPI-ROPC-FLOW/oauth2/v2.0/token"
+)
 CLIENT_ID = "fec253ea-0d06-4272-a5e6-b478baeecd70"
-SCOPE = f"openid+{CLIENT_ID}+offline_access"
+SCOPE = f"openid {CLIENT_ID} offline_access"
 
 _username: str | None = None
 _password: str | None = None
@@ -52,15 +56,6 @@ def _resolve_creds() -> tuple[str, str, str]:
     return username, password, sub_key
 
 
-def _auth_url() -> str:
-    username, password, _ = _resolve_creds()
-    return (
-        f"https://ercotb2c.b2clogin.com/ercotb2c.onmicrosoft.com/"
-        f"B2C_1_PUBAPI-ROPC-FLOW/oauth2/v2.0/token"
-        f"?username={username}&password={password}"
-        f"&grant_type=password&scope={SCOPE}&client_id={CLIENT_ID}&response_type=id_token"
-    )
-
 _rate_limiter = AsyncLimiter(20, 60)
 _async_client: httpx.AsyncClient | None = None
 
@@ -77,7 +72,20 @@ def _get_async_client() -> httpx.AsyncClient:
 
 @cached(_tok_cache)
 def _token() -> str:
-    return _client.post(_auth_url()).json().get("id_token")
+    username, password, _ = _resolve_creds()
+    response = _client.post(
+        TOKEN_URL,
+        data={
+            "username": username,
+            "password": password,
+            "grant_type": "password",
+            "scope": SCOPE,
+            "client_id": CLIENT_ID,
+            "response_type": "id_token",
+        },
+    )
+    response.raise_for_status()
+    return response.json().get("id_token")
 
 
 def _get(path: str, schema: dict | None = None, **params) -> dict:  # pyright: ignore

@@ -1,6 +1,6 @@
 [project]
 name = "tinyercot"
-version = "0.2.2"
+version = "0.2.3"
 description = "Tiny fully-typed ERCOT API"
 readme = "README.md"
 license = "MIT"
